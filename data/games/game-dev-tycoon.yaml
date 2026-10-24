@@ -80,8 +80,12 @@ mechanics:
   role: supporting
   note: Fictional consoles launch and retire on a fixed in-game calendar from the 1980s onward, so platform
     choice is a bet on a console's remaining market life.
+- id: variable-speed
+  role: supporting
 sources:
 - src-wikipedia-game-dev-tycoon
 status: sourced
 provenance:
   created: 2026-10-24-catalog-ge
+  reviewed:
+  - 2026-10-24-review-fixes

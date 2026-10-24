@@ -28,7 +28,7 @@ A voxel sandbox where players mine asteroids and planets and build ships and sta
 | agent count order | ~10 |
 | emergence | 3 |
 | influence | 2 |
-| cluster *(computed)* | C02 |
+| cluster *(computed)* | C07 |
 | core count *(computed)* | 3 |
 | mechanic count *(computed)* | 14 |
 

@@ -91,8 +91,8 @@ tables:
   sort:
   - -_derived.prevalence
   - name
-  limit: 30
-  caption: Most-used mechanics across the catalog. Scores are rubric anchors (1-5).
+  limit: 15
+  caption: Most-used mechanics across all families. Scores are rubric anchors (1-5).
 - name: most-emergent-games
   kind: rows
   entity: game

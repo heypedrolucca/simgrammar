@@ -5,25 +5,23 @@ aliases:
 - walkers
 - roaming walkers
 - service walkers
-summary: Services are delivered by agents walking routes from their building, so coverage depends on where walkers actually
-  go.
+summary: Services are delivered by agents walking routes from their building, so coverage depends on where
+  walkers actually go.
 family: logistics-networks
 substrate:
 - agent-based
 - cellular-grid
-definition: >-
-  Each service building periodically spawns a walker that follows roads; as it passes, it writes a coverage value to nearby
-  houses, which decays over time until the next visit. In Caesar III, as reproduced by the Julius reimplementation, a roaming
-  walker first heads for a road point about 8 tiles out in a cardinal direction that rotates with each spawn, then wanders,
-  turning pseudo-randomly at intersections and ending its walk at dead ends. Culture, health, and religion walkers set a per-service
-  house value to 96, which decays by 1 on each periodic update; prefects reset fire risk to zero and engineers reset collapse
-  risk to zero. Pharaoh and Zeus keep the model, and Pharaoh added roadblocks that turn roaming walkers back; Augustus, a
-  Julius fork, brings roadblocks to Caesar III. Inputs: building location, road network, random turns. Outputs: per-house
-  coverage values that gate housing evolution and prevent fires or collapses.
-player_experience: >-
-  Designing for wanderers. Players build looping road blocks so walkers cover the right houses, use roadblocks where available,
-  and watch for houses that a walker never reaches. Knowing that coverage depends on chance makes layout feel like guiding
-  a crowd.
+definition: 'Each service building periodically spawns a walker that follows roads; as it passes, it writes
+  a coverage value to nearby houses, which decays over time until the next visit. In Caesar III, as reproduced
+  by the Julius reimplementation, a roaming walker first heads for a road point about 8 tiles out in a
+  cardinal direction that rotates with each spawn, then wanders, turning pseudo-randomly at intersections
+  and ending its walk at dead ends. Culture, health, and religion walkers set a per-service house value
+  to 96, which decays by 1 on each periodic update; prefects reset fire risk to zero and engineers reset
+  collapse risk to zero. Inputs: building location, road network, random turns. Outputs: per-house coverage
+  values that gate housing evolution and prevent fires or collapses.'
+player_experience: Designing for wanderers. Players build looping road blocks so walkers cover the right
+  houses, use roadblocks where available, and watch for houses that a walker never reaches. Knowing that
+  coverage depends on chance makes layout feel like guiding a crowd.
 design_levers:
 - walker roaming range and spawn interval
 - 'turn rule at intersections: random, biased, or destination-based'
@@ -63,3 +61,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-taxonomy-m1
+  reviewed:
+  - 2026-10-24-review-fixes

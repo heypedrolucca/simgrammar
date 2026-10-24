@@ -27,9 +27,9 @@ A life sim in which the player builds a house and guides a household of Sims who
 | emergence | 3 |
 | influence | 5 |
 | influenced by | [Little Computer People](../game/little-computer-people.md) |
-| cluster *(computed)* | C04 |
+| cluster *(computed)* | C01 |
 | core count *(computed)* | 3 |
-| mechanic count *(computed)* | 14 |
+| mechanic count *(computed)* | 15 |
 
 ## Summary
 
@@ -65,6 +65,7 @@ Will Wright drew on Christopher Alexander's A Pattern Language, treating a house
 - [Romance and family](../mechanic/romance-family.md) (supporting): Sims can become partners, marry, and have a baby by explicit command; neglected babies can be taken away by a social worker.
 - [Decoration and beauty](../mechanic/decoration-beauty.md) (supporting): The Room motive reflects lighting, cleanliness, and decorative value around the Sim.
 - [Permadeath](../mechanic/permadeath.md) (supporting): Sims die from neglect or accidents and leave an urn or tombstone; the household continues without them.
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
 
 ## Backlinks (computed)
 
@@ -77,4 +78,4 @@ Will Wright drew on Christopher Alexander's A Pattern Language, treating a house
 - [The Sims (video game)](../source/src-wikipedia-the-sims.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-gc`.
+Provenance: created in run `2026-10-24-catalog-gc`; reviewed in `2026-10-24-review-fixes`.

@@ -38,11 +38,13 @@ validation_experiment: 'Ship a 10-puzzle web prototype where a model generates c
   with injected faults; measure completion rates and whether score distributions separate skilled from
   unskilled testers. Success: a stable leaderboard where test-writing skill predicts score.'
 falsifiable_signal:
-  prediction: A commercial programming game will make specifying or testing AI-written code its core loop.
+  prediction: A programming game will make specifying or testing AI-written code its core loop.
   resolve_by: '2028-06-30'
-  criteria: Steam page describing AI-generated code that players specify, test, or verify as the main
-    mechanic.
+  criteria: Title released after 2026-10-24 with at least 1,000 Steam user reviews; its Steam page describes
+    players specifying, testing, or verifying AI-generated code as the main mechanic.
 sources: []
 status: asserted
 provenance:
   created: 2026-10-24-synthesis
+  reviewed:
+  - 2026-10-24-review-fixes

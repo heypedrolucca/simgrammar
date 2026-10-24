@@ -28,7 +28,7 @@ A first-person 3D factory automation game in which a pioneer taps infinite resou
 | emergence | 2 |
 | influence | 3 |
 | influenced by | [Factorio](../game/factorio.md) |
-| cluster *(computed)* | C01 |
+| cluster *(computed)* | C02 |
 | core count *(computed)* | 6 |
 | mechanic count *(computed)* | 18 |
 

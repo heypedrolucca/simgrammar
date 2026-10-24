@@ -28,9 +28,9 @@ A factory automation game in which the player builds belt, train, robot, and cir
 | emergence | 3 |
 | influence | 4 |
 | influenced by | [Minecraft](../game/minecraft.md) |
-| cluster *(computed)* | C01 |
+| cluster *(computed)* | C02 |
 | core count *(computed)* | 8 |
-| mechanic count *(computed)* | 27 |
+| mechanic count *(computed)* | 28 |
 
 ## Summary
 
@@ -98,6 +98,7 @@ Lead designer Michal Kovarik cited the Minecraft tech mods IndustrialCraft and B
 - [Machine boosting](../mechanic/machine-boosting.md) (supporting): Speed, productivity, efficiency, and (Space Age) quality modules fill machine slots, and beacons project module effects onto neighboring machines at a power cost; productivity bonuses are capped at +300%.
 - [Request-provider logistics](../mechanic/request-provider-logistics.md) (supporting): Roboports define logistic zones where logistic robots carry items among active provider, passive provider, storage, buffer, and requester chests by priority, one item per trip at 3 tiles per second before research.
 - [Track laying](../mechanic/track-laying.md) (supporting): Straight and curved rail pieces are placed to build train networks, with elevated rails in Space Age, and the rail planner lays segments between points.
+- [Building placement](../mechanic/free-placement.md) (supporting)
 
 ## Backlinks (computed)
 
@@ -130,4 +131,4 @@ Lead designer Michal Kovarik cited the Minecraft tech mods IndustrialCraft and B
 - [Factorio Lua API documentation](../source/src-wube-2026-factorio-lua-api.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-gh`.
+Provenance: created in run `2026-10-24-catalog-gh`; reviewed in `2026-10-24-review-fixes`.

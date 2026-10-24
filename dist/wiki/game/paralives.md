@@ -27,9 +27,9 @@ An indie life sim, in early access since May 2026, in which players build grid-l
 | emergence | 2 |
 | influence | 1 |
 | influenced by | [The Sims](../game/the-sims.md), [Cities: Skylines](../game/cities-skylines.md) |
-| cluster *(computed)* | C04 |
+| cluster *(computed)* | C01 |
 | core count *(computed)* | 2 |
-| mechanic count *(computed)* | 10 |
+| mechanic count *(computed)* | 12 |
 
 ## Summary
 
@@ -62,6 +62,8 @@ Paralives began as Alex Massé's solo project, was funded through Patreon (over 
 - [Lifecycle and aging](../mechanic/lifecycle-aging.md) (supporting)
 - [Content sharing](../mechanic/content-sharing.md) (supporting): Steam Workshop distributes community houses, Parafolks, and mods.
 - [Modding API](../mechanic/modding-api.md) (supporting): An in-game modding interface lets players edit or add content.
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
+- [Utility action selection](../mechanic/utility-action-selection.md) (supporting)
 
 ## Sources
 
@@ -69,4 +71,4 @@ Paralives began as Alex Massé's solo project, was funded through Patreon (over 
 - [Paralives on Steam](../source/src-steam-2026-paralives.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-gc`.
+Provenance: created in run `2026-10-24-catalog-gc`; reviewed in `2026-10-24-review-fixes`.

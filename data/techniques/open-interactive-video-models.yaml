@@ -63,6 +63,7 @@ runtime:
 determinism_impact: breaks
 horizon: 3-5y
 risks:
+- determinism
 - consistency
 - compute-cost
 - ip-provenance
@@ -119,3 +120,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-techniques-world-models
+  reviewed:
+  - 2026-10-24-review-fixes

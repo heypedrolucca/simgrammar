@@ -26,7 +26,7 @@ A racing team management game in which the player designs car parts across seaso
 | agent count order | ~100 |
 | emergence | 2 |
 | influence | 1 |
-| cluster *(computed)* | C03 |
+| cluster *(computed)* | C01 |
 | core count *(computed)* | 4 |
 | mechanic count *(computed)* | 10 |
 

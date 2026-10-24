@@ -28,7 +28,7 @@ An Altera research demonstration that runs 10 to 1,000-plus language-model agent
 | emergence | 3 |
 | influence | 2 |
 | influenced by | [Generative Agents (Smallville)](../game/generative-agents-smallville.md) |
-| cluster *(computed)* | C09 |
+| cluster *(computed)* | C08 |
 | core count *(computed)* | 3 |
 | mechanic count *(computed)* | 8 |
 

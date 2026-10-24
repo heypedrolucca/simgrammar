@@ -1,8 +1,8 @@
 id: space-haven
 type: game
 name: Space Haven
-summary: A spaceship colony sim in which the player builds a ship tile by tile and keeps a crew with needs, moods, and relationships
-  alive inside a tile-based simulation of oxygen, CO2, heat, and power.
+summary: A spaceship colony sim in which the player builds a ship tile by tile and keeps a crew with needs,
+  moods, and relationships alive inside a tile-based simulation of oxygen, CO2, heat, and power.
 year: 2020
 year_full_release: 2026
 developer: Bugbyte
@@ -35,26 +35,27 @@ production_tier: indie
 agent_count_order: '10'
 emergence: 3
 influence: 1
-core_loop: build the ship tile by tile -> balance oxygen, CO2, temperature, and power -> crew work and meet needs -> jump
-  through hyperspace to a new sector -> mine, salvage derelicts, trade, or fight factions -> grow the ship and crew
-design_notes: Bugbyte describes it as combining RimWorld-style emergent storytelling with a tile-based gas simulation, and
-  names RimWorld, Dwarf Fortress, Spacebase DF-9, and Oxygen Not Included as inspirations. The ship is both the base and the
-  vehicle, so layout choices (a bed beside the ship core disrupts sleep) and life support are coupled to combat, where fire,
-  smoke, gas, and hull breaches cascade through the same simulation. Early access began in May 2020 and 1.0 shipped in May
-  2026.
+core_loop: build the ship tile by tile -> balance oxygen, CO2, temperature, and power -> crew work and
+  meet needs -> jump through hyperspace to a new sector -> mine, salvage derelicts, trade, or fight factions
+  -> grow the ship and crew
+design_notes: Bugbyte describes it as combining RimWorld-style emergent storytelling with a tile-based
+  gas simulation, and names RimWorld, Dwarf Fortress, Spacebase DF-9, and Oxygen Not Included as inspirations.
+  The ship is both the base and the vehicle, so layout choices (a bed beside the ship core disrupts sleep)
+  and life support are coupled to combat, where fire, smoke, gas, and hull breaches cascade through the
+  same simulation. Early access began in May 2020 and 1.0 shipped in May 2026.
 mechanics:
 - id: fluid-gas-simulation
   role: core
-  note: Each tile holds gas quantities; life support modules produce oxygen and remove CO2, and hazardous gases from facilities,
-    fires, or explosions spread until scrubbed or vented.
+  note: Each tile holds gas quantities; life support modules produce oxygen and remove CO2, and hazardous
+    gases from facilities, fires, or explosions spread until scrubbed or vented.
 - id: free-placement
   role: core
-  note: Hull, walls, doors, and facilities are placed freely tile by tile to form the ship, which can be expanded or rebuilt
-    at any time.
+  note: Hull, walls, doors, and facilities are placed freely tile by tile to form the ship, which can
+    be expanded or rebuilt at any time.
 - id: needs-decay
   role: core
-  note: Crew needs for food, sleep, comfort, safety, and friends drive mood, alongside conditions such as starvation or feeling
-    unhygienic.
+  note: Crew needs for food, sleep, comfort, safety, and friends drive mood, alongside conditions such
+    as starvation or feeling unhygienic.
 - id: mood-breakdown
   role: core
   note: Neglected crew suffer mental breaks ranging from starting fights to venting other crew into space.
@@ -89,6 +90,10 @@ mechanics:
 - id: procedural-terrain
   role: supporting
   note: Each playthrough generates a new galaxy of sectors, stations, and ships.
+- id: variable-speed
+  role: supporting
+- id: utility-action-selection
+  role: supporting
 influenced_by:
 - rimworld
 - dwarf-fortress
@@ -100,3 +105,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-catalog-gb
+  reviewed:
+  - 2026-10-24-review-fixes

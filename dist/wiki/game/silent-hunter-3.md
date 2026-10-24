@@ -28,7 +28,7 @@ A World War II U-boat sim with a dynamic campaign that generates convoys and esc
 | agent count order | ~100 |
 | emergence | 3 |
 | influence | 2 |
-| cluster *(computed)* | C06 |
+| cluster *(computed)* | C03 |
 | core count *(computed)* | 2 |
 | mechanic count *(computed)* | 10 |
 

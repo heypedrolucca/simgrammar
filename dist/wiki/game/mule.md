@@ -26,7 +26,7 @@ A four-player economic strategy game on a colony planet where players outfit M.U
 | agent count order | None |
 | emergence | 3 |
 | influence | 3 |
-| cluster *(computed)* | C01 |
+| cluster *(computed)* | C02 |
 | core count *(computed)* | 4 |
 | mechanic count *(computed)* | 10 |
 

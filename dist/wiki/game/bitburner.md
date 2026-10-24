@@ -29,7 +29,7 @@ A free, open-source incremental hacking game in which the player writes JavaScri
 | influence | 1 |
 | boundary case | True |
 | influenced by |  |
-| cluster *(computed)* | C08 |
+| cluster *(computed)* | C06 |
 | core count *(computed)* | 3 |
 | mechanic count *(computed)* | 8 |
 

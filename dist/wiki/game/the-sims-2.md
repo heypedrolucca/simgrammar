@@ -27,9 +27,9 @@ The 3D sequel to The Sims that adds aging through seven life stages, genetic inh
 | emergence | 3 |
 | influence | 3 |
 | influenced by | [The Sims](../game/the-sims.md) |
-| cluster *(computed)* | C04 |
+| cluster *(computed)* | C01 |
 | core count *(computed)* | 5 |
-| mechanic count *(computed)* | 14 |
+| mechanic count *(computed)* | 16 |
 
 ## Summary
 
@@ -65,6 +65,8 @@ The Sims 2 turns the household sandbox into a generational one: babies become to
 - [Building placement](../mechanic/free-placement.md) (supporting): Build and Buy modes in a free 3D camera; neighborhood terrain can be imported from SimCity 4.
 - [Permadeath](../mechanic/permadeath.md) (supporting): Elders die of old age and other Sims of accidents or neglect; deaths become memories for survivors.
 - [Aspirations and wants](../mechanic/aspiration-wants.md) (core): Each Sim's aspiration (one of eight, such as Romance, Family, Knowledge, or Popularity) biases which wants and fears roll; fulfilled wants fill the aspiration meter, realized fears drain it, and an elder's remaining life depends on the meter.
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
+- [Utility action selection](../mechanic/utility-action-selection.md) (supporting)
 
 ## Backlinks (computed)
 
@@ -76,4 +78,4 @@ The Sims 2 turns the household sandbox into a generational one: babies become to
 - [The Sims 2/Careers](../source/src-strategywiki-2026-sims-2-careers.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-gc`.
+Provenance: created in run `2026-10-24-catalog-gc`; reviewed in `2026-10-24-review-fixes`.

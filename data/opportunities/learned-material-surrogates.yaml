@@ -42,12 +42,14 @@ validation_experiment: 'Train a graph-network surrogate on a 2D falling-sand flu
   mass conservation error and speedup over 10,000 steps at four times the training domain size. Success:
   mass error under 1 percent with a speedup above 10 times.'
 falsifiable_signal:
-  prediction: A commercial game will use a learned surrogate for fluid, gas, or destruction simulation
-    at runtime.
+  prediction: A game will use a learned surrogate model to simulate fluid, gas, or destruction at runtime.
   resolve_by: '2029-12-31'
-  criteria: Developer documentation or technical talk confirming a trained neural model simulating physical
-    materials during play.
+  criteria: Released after 2026-10-24 with at least 1,000 Steam user reviews or a console release; developer
+    documentation or a technical talk confirms that a trained neural model computes physical material
+    behavior during play, not only visual effects.
 sources: []
 status: asserted
 provenance:
   created: 2026-10-24-synthesis
+  reviewed:
+  - 2026-10-24-review-fixes

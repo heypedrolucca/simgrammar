@@ -15,7 +15,7 @@ Use simulation-based inference and differentiable simulators to calibrate game-g
 | impact | 2 |
 | horizon | 1-2 years |
 | key risks | Users over-trust calibrated outputs., Data availability limits domains., Calibration may reduce play value. |
-| falsifiable signal | {'prediction': 'A serious-game or educational simulation will publish posterior-calibrated parameters with fit metrics as part of its release.', 'resolve_by': '2028-12-31', 'criteria': 'Release notes or paper accompanying a playable simulation that reports calibration method and fit.'} |
+| falsifiable signal | {'prediction': 'A playable serious-game or educational simulation will publish posterior-calibrated parameters with fit metrics as part of its release.', 'resolve_by': '2028-12-31', 'criteria': 'Released after 2026-10-24; release notes, documentation, or an accompanying paper report the calibration method (Bayesian or simulation-based inference), the data it was fitted to, and at least one goodness-of-fit metric.'} |
 | priority *(computed)* | 2.764 |
 
 ## Summary
@@ -42,9 +42,9 @@ Fit a game-grade SIR network model to a public historical outbreak with simulati
 
 ## Falsifiable signal
 
-- **Prediction:** A serious-game or educational simulation will publish posterior-calibrated parameters with fit metrics as part of its release.
+- **Prediction:** A playable serious-game or educational simulation will publish posterior-calibrated parameters with fit metrics as part of its release.
 - **Resolve by:** 2028-12-31
-- **Criteria:** Release notes or paper accompanying a playable simulation that reports calibration method and fit.
+- **Criteria:** Released after 2026-10-24; release notes, documentation, or an accompanying paper report the calibration method (Bayesian or simulation-based inference), the data it was fitted to, and at least one goodness-of-fit metric.
 
 ## Relations
 
@@ -70,4 +70,4 @@ Fit a game-grade SIR network model to a public historical outbreak with simulati
 - [Capitalism](../game/capitalism.md)
 
 ---
-Provenance: created in run `2026-10-24-synthesis`.
+Provenance: created in run `2026-10-24-synthesis`; reviewed in `2026-10-24-review-fixes`.

@@ -28,7 +28,7 @@ A World War II grand strategy game starting in 1936 or 1939 in which the player 
 | agent count order | ~1,000 |
 | emergence | 3 |
 | influence | 2 |
-| cluster *(computed)* | C01 |
+| cluster *(computed)* | C04 |
 | core count *(computed)* | 4 |
 | mechanic count *(computed)* | 16 |
 

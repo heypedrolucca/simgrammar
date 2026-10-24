@@ -1,8 +1,8 @@
 id: simcity-4
 type: game
 name: SimCity 4
-summary: A city builder in which several cities share a region map and trade utilities, while zones develop by density
-  and wealth level and a commute model routes trips across roads and transit.
+summary: A city builder in which several cities share a region map and trade utilities, while zones develop
+  by density and wealth level and a commute model routes trips across roads and transit.
 year: 2003
 developer: Maxis
 platforms:
@@ -29,31 +29,32 @@ production_tier: aaa
 agent_count_order: aggregate
 emergence: 3
 influence: 2
-core_loop: terraform in God mode -> zone residential, commercial, industrial land at a density and connect roads
-  -> wealth-level demand and desirability grow buildings -> set taxes and per-building service funding -> trade
-  power, water, and garbage with neighbor cities -> grow the region
-design_notes: SimCity 4 splits each zone type by wealth level, so demand and desirability are tracked per class
-  and neighborhoods can decay or gentrify as conditions change. Cities of 1 to 4 km per side sit in a region and
-  exchange water, electricity, and garbage disposal through neighbor deals, letting several specialized cities depend
-  on each other; this single-player region has no exact match in the taxonomy (see run proposal). Its commute model
-  drew praise from urban planner Jeff Speck, and the Building Architect Tool (2004) sustained a content community
-  for over two decades.
+core_loop: terraform in God mode -> zone residential, commercial, industrial land at a density and connect
+  roads -> wealth-level demand and desirability grow buildings -> set taxes and per-building service funding
+  -> trade power, water, and garbage with neighbor cities -> grow the region
+design_notes: SimCity 4 splits each zone type by wealth level, so demand and desirability are tracked
+  per class and neighborhoods can decay or gentrify as conditions change. Cities of 1 to 4 km per side
+  sit in a region and exchange water, electricity, and garbage disposal through neighbor deals, letting
+  several specialized cities depend on each other; this single-player region has no exact match in the
+  taxonomy (see run proposal). Its commute model drew praise from urban planner Jeff Speck, and the Building
+  Architect Tool (2004) sustained a content community for over two decades.
 mechanics:
 - id: zoning
   role: core
-  note: Residential, commercial, and industrial zones at low, medium, and high density, with agriculture as a separate
-    industrial zone; buildings need road frontage.
+  note: Residential, commercial, and industrial zones at low, medium, and high density, with agriculture
+    as a separate industrial zone; buildings need road frontage.
 - id: rci-demand
   role: core
-  note: Demand is reported separately for each wealth level of residents and for commercial and industrial subtypes.
+  note: Demand is reported separately for each wealth level of residents and for commercial and industrial
+    subtypes.
 - id: land-value
   role: core
-  note: Desirability is computed separately for each wealth level, so the same lot attracts different classes as
-    services and nuisances change.
+  note: Desirability is computed separately for each wealth level, so the same lot attracts different
+    classes as services and nuisances change.
 - id: traffic-congestion
   role: core
-  note: Commuters route trips over roads, rail, and transit; Rush Hour adds traffic flow tracing, avenues, and elevated
-    rail.
+  note: Commuters route trips over roads, rail, and transit; Rush Hour adds traffic flow tracing, avenues,
+    and elevated rail.
 - id: population-strata
   role: supporting
   note: Buildings belong to wealth levels and size stages; areas decay or gentrify.
@@ -68,8 +69,8 @@ mechanics:
   note: Tax rates per zone type and wealth level.
 - id: service-coverage
   role: supporting
-  note: Schools, hospitals, police, and fire buildings cover areas; they lose output and gain maintenance cost as
-    they age.
+  note: Schools, hospitals, police, and fire buildings cover areas; they lose output and gain maintenance
+    cost as they age.
 - id: policy-toggles
   role: supporting
   note: City ordinances with monthly costs and effects.
@@ -85,6 +86,10 @@ mechanics:
 - id: pollution-spread
   role: supporting
   note: Industry and traffic pollute and reduce desirability.
+- id: variable-speed
+  role: supporting
+- id: free-placement
+  role: supporting
 influenced_by:
 - simcity-2000
 sources:
@@ -92,3 +97,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-catalog-ga
+  reviewed:
+  - 2026-10-24-review-fixes

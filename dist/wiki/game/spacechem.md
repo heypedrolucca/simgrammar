@@ -29,7 +29,7 @@ A programming puzzle game in which the player lays out instruction paths for two
 | influence | 3 |
 | boundary case | True |
 | influenced by |  |
-| cluster *(computed)* | C02 |
+| cluster *(computed)* | C06 |
 | core count *(computed)* | 3 |
 | mechanic count *(computed)* | 6 |
 

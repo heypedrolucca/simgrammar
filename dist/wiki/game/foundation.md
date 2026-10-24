@@ -27,9 +27,9 @@ A gridless medieval city builder in which painted zones grow homes organically, 
 | agent count order | ~100 |
 | emergence | 2 |
 | influence | 1 |
-| cluster *(computed)* | C01 |
+| cluster *(computed)* | C02 |
 | core count *(computed)* | 2 |
-| mechanic count *(computed)* | 8 |
+| mechanic count *(computed)* | 9 |
 
 ## Summary
 
@@ -55,6 +55,7 @@ Foundation separates intent from layout: the player paints areas for homes, road
 - [Taxation](../mechanic/taxation.md) (supporting)
 - [Milestone unlocks](../mechanic/milestone-unlocks.md) (supporting): Progress unlocks through tiers guided by a book, along Labor, Clergy, or Kingdom estates.
 - [Goods consumption](../mechanic/goods-consumption.md) (supporting)
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
 
 ## Sources
 
@@ -62,4 +63,4 @@ Foundation separates intent from layout: the player paints areas for homes, road
 - [Foundation on Steam](../source/src-steam-2026-foundation.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-ga`.
+Provenance: created in run `2026-10-24-catalog-ga`; reviewed in `2026-10-24-review-fixes`.

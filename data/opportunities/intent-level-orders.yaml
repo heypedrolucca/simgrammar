@@ -40,12 +40,15 @@ validation_experiment: 'Collect 200 player-stated intents from colony sim forums
   prototype''s control primitives, and have players judge fidelity; measure clicks per in-game day with
   and without intents. Success: 80 percent judged faithful and a 30 percent drop in management clicks.'
 falsifiable_signal:
-  prediction: A released colony or management sim will let players issue standing natural-language orders
-    that compile into its job and priority systems.
+  prediction: A colony or management sim will let players issue standing natural-language orders that
+    compile into its job and priority systems.
   resolve_by: '2028-06-30'
-  criteria: Patch notes, store page, or developer statement describing the feature in a shipped title
-    or official expansion.
+  criteria: Feature first shipped after 2026-10-24 in a title or official expansion with at least 1,000
+    Steam user reviews; patch notes, store page, or developer statement describe free-text standing orders
+    translated into the game's existing work or priority settings.
 sources: []
 status: asserted
 provenance:
   created: 2026-10-24-synthesis
+  reviewed:
+  - 2026-10-24-review-fixes

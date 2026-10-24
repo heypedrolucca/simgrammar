@@ -28,9 +28,9 @@ A city builder in which road-following zones, agent citizens who route to work a
 | emergence | 4 |
 | influence | 4 |
 | influenced by | [SimCity 4](../game/simcity-4.md) |
-| cluster *(computed)* | C10 |
+| cluster *(computed)* | C09 |
 | core count *(computed)* | 4 |
-| mechanic count *(computed)* | 15 |
+| mechanic count *(computed)* | 17 |
 
 ## Summary
 
@@ -67,6 +67,8 @@ Colossal Order carried the road and transit systems of its Cities in Motion seri
 - [Land value](../mechanic/land-value.md) (supporting): Services and parks raise land value, pollution and noise lower it, and land value helps buildings level up.
 - [Modding API](../mechanic/modding-api.md) (supporting): Steam Workshop and a mod-friendly architecture; mods add assets, maps, and new behavior.
 - [Travel mode choice](../mechanic/travel-mode-choice.md) (supporting): Citizens choose between walking, driving, and the player's bus, tram, train, metro, ferry, and taxi lines when routing to destinations, so new lines shift demand off roads.
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
+- [Building placement](../mechanic/free-placement.md) (supporting)
 
 ## Backlinks (computed)
 
@@ -85,4 +87,4 @@ Colossal Order carried the road and transit systems of its Cities in Motion seri
 - [City-building game](../source/src-wikipedia-city-building-game.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-ga`.
+Provenance: created in run `2026-10-24-catalog-ga`; reviewed in `2026-10-24-review-fixes`.

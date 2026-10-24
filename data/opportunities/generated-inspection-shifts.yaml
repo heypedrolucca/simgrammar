@@ -35,11 +35,15 @@ validation_experiment: 'Generate 1,000 inspection cases from a 30-predicate rule
   and two humans verify the answer key on a sample of 200. Success: 99 percent agreement between generated
   answers and human rulings.'
 falsifiable_signal:
-  prediction: A released inspection or bureaucracy job sim will use runtime generation of documents or
-    applicants with a rule-derived answer key.
+  prediction: An inspection or bureaucracy job sim will generate documents or applicants at runtime and
+    score the player against an answer key derived from formal rules.
   resolve_by: '2027-12-31'
-  criteria: Store page or developer statement describing generated cases scored against formal rules.
+  criteria: Released after 2026-10-24 with at least 1,000 Steam user reviews; store page or developer
+    statement describes runtime-generated cases whose correct outcome is computed from the game's rules,
+    not authored per case.
 sources: []
 status: asserted
 provenance:
   created: 2026-10-24-synthesis
+  reviewed:
+  - 2026-10-24-review-fixes

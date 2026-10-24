@@ -51,7 +51,7 @@ Models take the current and recent atmospheric state on a global 0.25 degree lat
 
 ## Backlinks (computed)
 
-**applied in:** [Learned regional weather](../opportunity/learned-weather-layer.md), [Weather-coupled energy grids](../opportunity/weather-coupled-grids.md)
+**applied in:** [Learned regional weather](../opportunity/learned-weather-layer.md)
 
 ## Claims
 

@@ -1,7 +1,7 @@
 [
   {
     "_derived": {
-      "cluster": "C08",
+      "cluster": "C06",
       "core_count": 3,
       "family_profile": {
         "governance-policy": 2,
@@ -103,7 +103,7 @@
   },
   {
     "_derived": {
-      "cluster": "C01",
+      "cluster": "C04",
       "core_count": 4,
       "family_profile": {
         "economy-finance": 1,
@@ -114,10 +114,11 @@
         "progression-goals": 2,
         "resources-production": 1,
         "risk-failure": 1,
-        "time-pacing": 1,
+        "space-construction": 1,
+        "time-pacing": 2,
         "world-generation": 1
       },
-      "mechanic_count": 11
+      "mechanic_count": 13
     },
     "agency_model": [
       "zoning-placement",
@@ -187,6 +188,14 @@
         "id": "trade-routes",
         "note": "A visiting trader's wares change each year.",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
+      },
+      {
+        "id": "free-placement",
+        "role": "supporting"
       }
     ],
     "modding": "none",
@@ -204,7 +213,10 @@
     "player_role": "planner-mayor",
     "production_tier": "indie",
     "provenance": {
-      "created": "2026-10-24-catalog-ga"
+      "created": "2026-10-24-catalog-ga",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "urban",
@@ -227,7 +239,7 @@
   },
   {
     "_derived": {
-      "cluster": "C09",
+      "cluster": "C08",
       "core_count": 2,
       "family_profile": {
         "multiplayer-persistence": 1,
@@ -455,7 +467,7 @@
   },
   {
     "_derived": {
-      "cluster": "C01",
+      "cluster": "C02",
       "core_count": 3,
       "family_profile": {
         "control-automation": 1,
@@ -465,9 +477,10 @@
         "progression-goals": 1,
         "resources-production": 2,
         "social-relations": 1,
-        "space-construction": 2
+        "space-construction": 3,
+        "time-pacing": 1
       },
-      "mechanic_count": 11
+      "mechanic_count": 13
     },
     "agency_model": [
       "zoning-placement",
@@ -543,6 +556,14 @@
         "id": "reputation",
         "note": "Standing with the emperor's successor Calidus can earn Consul status or Proconsular authority.",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
+      },
+      {
+        "id": "free-placement",
+        "role": "supporting"
       }
     ],
     "modding": "content",
@@ -560,7 +581,10 @@
     "player_role": "planner-mayor",
     "production_tier": "aaa",
     "provenance": {
-      "created": "2026-10-24-catalog-ga"
+      "created": "2026-10-24-catalog-ga",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "urban",
@@ -584,7 +608,7 @@
   },
   {
     "_derived": {
-      "cluster": "C01",
+      "cluster": "C02",
       "core_count": 4,
       "family_profile": {
         "control-automation": 1,
@@ -592,7 +616,9 @@
         "logistics-networks": 1,
         "population-lineage": 1,
         "progression-goals": 2,
-        "resources-production": 3
+        "resources-production": 3,
+        "space-construction": 1,
+        "time-pacing": 1
       },
       "incoming": {
         "influenced": [
@@ -601,11 +627,10 @@
         "precedent_for": [
           "bottleneck-explainer",
           "explained-delegation",
-          "parallel-autobalance",
-          "weather-coupled-grids"
+          "parallel-autobalance"
         ]
       },
-      "mechanic_count": 11
+      "mechanic_count": 13
     },
     "agency_model": [
       "zoning-placement",
@@ -676,6 +701,14 @@
         "id": "megaproject-sink",
         "note": "The World's Fair monument is built in stages, each consuming large deliveries of goods, and once complete hosts exhibitions.",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
+      },
+      {
+        "id": "free-placement",
+        "role": "supporting"
       }
     ],
     "modding": "content",
@@ -694,7 +727,10 @@
     "player_role": "planner-mayor",
     "production_tier": "aaa",
     "provenance": {
-      "created": "2026-10-24-catalog-ga"
+      "created": "2026-10-24-catalog-ga",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "urban",
@@ -720,7 +756,7 @@
   },
   {
     "_derived": {
-      "cluster": "C06",
+      "cluster": "C03",
       "core_count": 4,
       "family_profile": {
         "biology-health": 1,
@@ -829,7 +865,7 @@
   },
   {
     "_derived": {
-      "cluster": "C01",
+      "cluster": "C11",
       "core_count": 3,
       "family_profile": {
         "agents-behavior": 1,
@@ -968,7 +1004,7 @@
   },
   {
     "_derived": {
-      "cluster": "C02",
+      "cluster": "C06",
       "core_count": 5,
       "family_profile": {
         "biology-health": 1,
@@ -1117,7 +1153,7 @@
   },
   {
     "_derived": {
-      "cluster": "C05",
+      "cluster": "C12",
       "core_count": 3,
       "family_profile": {
         "governance-policy": 1,
@@ -1210,24 +1246,26 @@
   },
   {
     "_derived": {
-      "cluster": "C05",
+      "cluster": "C02",
       "core_count": 3,
       "family_profile": {
         "agents-behavior": 1,
         "economy-finance": 1,
-        "environment-ecology": 2,
+        "environment-ecology": 3,
         "logistics-networks": 1,
         "population-lineage": 2,
         "resources-production": 4,
         "risk-failure": 1,
-        "social-relations": 1
+        "social-relations": 1,
+        "space-construction": 1,
+        "time-pacing": 1
       },
       "incoming": {
         "precedent_for": [
           "living-workforce-factories"
         ]
       },
-      "mechanic_count": 13
+      "mechanic_count": 16
     },
     "agency_model": [
       "zoning-placement",
@@ -1314,6 +1352,18 @@
         "id": "immigration-attractiveness",
         "note": "Nomad groups can arrive and ask to join the town.",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
+      },
+      {
+        "id": "free-placement",
+        "role": "supporting"
+      },
+      {
+        "id": "fire-spread",
+        "role": "supporting"
       }
     ],
     "modding": "content",
@@ -1329,7 +1379,10 @@
     "player_role": "planner-mayor",
     "production_tier": "indie",
     "provenance": {
-      "created": "2026-10-24-catalog-ga"
+      "created": "2026-10-24-catalog-ga",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "urban",
@@ -1352,20 +1405,21 @@
   },
   {
     "_derived": {
-      "cluster": "C06",
+      "cluster": "C03",
       "core_count": 2,
       "family_profile": {
         "control-automation": 1,
         "multiplayer-persistence": 2,
         "physics-materials": 2,
-        "progression-goals": 1
+        "progression-goals": 1,
+        "time-pacing": 1
       },
       "incoming": {
         "precedent_for": [
           "learned-material-surrogates"
         ]
       },
-      "mechanic_count": 6
+      "mechanic_count": 7
     },
     "agency_model": [
       "direct-avatar",
@@ -1418,6 +1472,10 @@
         "id": "content-sharing",
         "note": "An official mod repository is browsable from the website and in game, with a manager that keeps mods updated.",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
       }
     ],
     "modding": "scripting",
@@ -1433,7 +1491,10 @@
     "player_role": "operator-pilot",
     "production_tier": "indie",
     "provenance": {
-      "created": "2026-10-24-catalog-gf"
+      "created": "2026-10-24-catalog-gf",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "physical-mechanical"
@@ -1455,7 +1516,7 @@
   },
   {
     "_derived": {
-      "cluster": "C02",
+      "cluster": "C07",
       "core_count": 3,
       "family_profile": {
         "control-automation": 2,
@@ -1564,7 +1625,7 @@
   },
   {
     "_derived": {
-      "cluster": "C03",
+      "cluster": "C01",
       "core_count": 4,
       "family_profile": {
         "agents-behavior": 1,
@@ -1573,14 +1634,15 @@
         "economy-finance": 4,
         "logistics-networks": 1,
         "resources-production": 1,
-        "space-construction": 1
+        "space-construction": 1,
+        "time-pacing": 1
       },
       "incoming": {
         "precedent_for": [
           "human-calibrated-customers"
         ]
       },
-      "mechanic_count": 11
+      "mechanic_count": 12
     },
     "agency_model": [
       "direct-avatar",
@@ -1651,6 +1713,10 @@
         "id": "advertising-awareness",
         "note": "Paid marketing campaigns raise customer traffic to the player's businesses.",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
       }
     ],
     "modding": "none",
@@ -1666,7 +1732,10 @@
     "player_role": "manager-owner",
     "production_tier": "indie",
     "provenance": {
-      "created": "2026-10-24-catalog-ge"
+      "created": "2026-10-24-catalog-ge",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "economic",
@@ -1691,7 +1760,7 @@
   },
   {
     "_derived": {
-      "cluster": "C01",
+      "cluster": "C02",
       "core_count": 4,
       "family_profile": {
         "economy-finance": 3,
@@ -1699,9 +1768,10 @@
         "logistics-networks": 1,
         "progression-goals": 2,
         "resources-production": 1,
-        "space-construction": 1
+        "space-construction": 1,
+        "time-pacing": 1
       },
-      "mechanic_count": 9
+      "mechanic_count": 10
     },
     "agency_model": [
       "zoning-placement",
@@ -1761,6 +1831,10 @@
         "id": "scenario-objectives",
         "note": "Scenarios set targets such as a financial milestone within a set number of years, at several difficulties.",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
       }
     ],
     "modding": "none",
@@ -1778,7 +1852,10 @@
     "player_role": "engineer-designer",
     "production_tier": "indie",
     "provenance": {
-      "created": "2026-10-24-catalog-ge"
+      "created": "2026-10-24-catalog-ge",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "industrial-logistics",
@@ -1802,7 +1879,7 @@
   },
   {
     "_derived": {
-      "cluster": "C08",
+      "cluster": "C06",
       "core_count": 3,
       "family_profile": {
         "agents-behavior": 1,
@@ -1941,7 +2018,7 @@
   },
   {
     "_derived": {
-      "cluster": "C08",
+      "cluster": "C13",
       "core_count": 3,
       "family_profile": {
         "agents-behavior": 2,
@@ -2065,25 +2142,27 @@
   },
   {
     "_derived": {
-      "cluster": "C01",
+      "cluster": "C02",
       "core_count": 3,
       "family_profile": {
         "conflict-defense": 1,
         "economy-finance": 3,
+        "environment-ecology": 1,
         "logistics-networks": 2,
         "population-lineage": 1,
         "progression-goals": 1,
-        "resources-production": 2,
+        "resources-production": 3,
         "risk-failure": 1,
         "social-relations": 1,
-        "space-construction": 1
+        "space-construction": 2,
+        "time-pacing": 1
       },
       "incoming": {
         "influenced": [
           "pharaoh"
         ]
       },
-      "mechanic_count": 13
+      "mechanic_count": 17
     },
     "agency_model": [
       "zoning-placement",
@@ -2166,6 +2245,22 @@
       {
         "id": "taxation",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
+      },
+      {
+        "id": "free-placement",
+        "role": "supporting"
+      },
+      {
+        "id": "fire-spread",
+        "role": "supporting"
+      },
+      {
+        "id": "storage-capacity",
+        "role": "supporting"
       }
     ],
     "modding": "none",
@@ -2181,7 +2276,10 @@
     "player_role": "planner-mayor",
     "production_tier": "aa",
     "provenance": {
-      "created": "2026-10-24-catalog-ga"
+      "created": "2026-10-24-catalog-ga",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "urban",
@@ -2210,14 +2308,15 @@
         "economy-finance": 4,
         "progression-goals": 2,
         "resources-production": 3,
-        "space-construction": 1
+        "space-construction": 1,
+        "time-pacing": 1
       },
       "incoming": {
         "precedent_for": [
           "calibrated-serious-sims"
         ]
       },
-      "mechanic_count": 12
+      "mechanic_count": 13
     },
     "agency_model": [
       "zoning-placement",
@@ -2292,6 +2391,10 @@
         "id": "advertising-awareness",
         "note": "Advertising units inside firms spend money to raise a product's brand rating, which customers weigh with price and quality when choosing among stores.",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
       }
     ],
     "modding": "content",
@@ -2307,7 +2410,10 @@
     "player_role": "manager-owner",
     "production_tier": "indie",
     "provenance": {
-      "created": "2026-10-24-catalog-ge"
+      "created": "2026-10-24-catalog-ge",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "economic",
@@ -2327,7 +2433,7 @@
   },
   {
     "_derived": {
-      "cluster": "C01",
+      "cluster": "C02",
       "core_count": 6,
       "family_profile": {
         "control-automation": 1,
@@ -2338,15 +2444,15 @@
         "progression-goals": 1,
         "resources-production": 8,
         "risk-failure": 1,
-        "space-construction": 1,
-        "time-pacing": 1
+        "space-construction": 2,
+        "time-pacing": 2
       },
       "incoming": {
         "precedent_for": [
           "living-workforce-factories"
         ]
       },
-      "mechanic_count": 20
+      "mechanic_count": 22
     },
     "agency_model": [
       "zoning-placement",
@@ -2472,6 +2578,14 @@
         "id": "machine-boosting",
         "note": "Unity is spent on building boosts (0.25 Unity each) that speed up individual buildings.",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
+      },
+      {
+        "id": "free-placement",
+        "role": "supporting"
       }
     ],
     "modding": "scripting",
@@ -2487,7 +2601,10 @@
     "player_role": "engineer-designer",
     "production_tier": "indie",
     "provenance": {
-      "created": "2026-10-24-catalog-gh"
+      "created": "2026-10-24-catalog-gh",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "industrial-logistics",
@@ -2515,7 +2632,7 @@
   },
   {
     "_derived": {
-      "cluster": "C02",
+      "cluster": "C15",
       "core_count": 2,
       "family_profile": {
         "agents-behavior": 1,
@@ -2608,7 +2725,7 @@
   },
   {
     "_derived": {
-      "cluster": "C05",
+      "cluster": "C12",
       "core_count": 3,
       "family_profile": {
         "biology-health": 1,
@@ -2731,7 +2848,7 @@
   },
   {
     "_derived": {
-      "cluster": "C10",
+      "cluster": "C09",
       "core_count": 4,
       "family_profile": {
         "agents-behavior": 1,
@@ -2742,7 +2859,8 @@
         "population-lineage": 2,
         "progression-goals": 1,
         "resources-production": 1,
-        "space-construction": 1
+        "space-construction": 2,
+        "time-pacing": 1
       },
       "incoming": {
         "influenced": [
@@ -2757,7 +2875,7 @@
           "symbolic-sim-neural-render"
         ]
       },
-      "mechanic_count": 15
+      "mechanic_count": 17
     },
     "agency_model": [
       "zoning-placement",
@@ -2859,6 +2977,14 @@
         "id": "travel-mode-choice",
         "note": "Citizens choose between walking, driving, and the player's bus, tram, train, metro, ferry, and taxi lines when routing to destinations, so new lines shift demand off roads.",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
+      },
+      {
+        "id": "free-placement",
+        "role": "supporting"
       }
     ],
     "modding": "scripting",
@@ -2876,7 +3002,10 @@
     "player_role": "planner-mayor",
     "production_tier": "aa",
     "provenance": {
-      "created": "2026-10-24-catalog-ga"
+      "created": "2026-10-24-catalog-ga",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "urban",
@@ -2901,17 +3030,19 @@
   },
   {
     "_derived": {
-      "cluster": "C10",
+      "cluster": "C09",
       "core_count": 3,
       "family_profile": {
         "agents-behavior": 1,
         "economy-finance": 2,
-        "environment-ecology": 2,
+        "environment-ecology": 3,
         "logistics-networks": 4,
         "multiplayer-persistence": 1,
         "progression-goals": 2,
+        "resources-production": 1,
         "risk-failure": 1,
-        "space-construction": 1
+        "space-construction": 2,
+        "time-pacing": 1
       },
       "incoming": {
         "deploys": [
@@ -2920,11 +3051,10 @@
         "precedent_for": [
           "causal-why-query",
           "learned-build-assist",
-          "mean-field-crowds",
-          "weather-coupled-grids"
+          "mean-field-crowds"
         ]
       },
-      "mechanic_count": 14
+      "mechanic_count": 18
     },
     "agency_model": [
       "zoning-placement",
@@ -3010,6 +3140,24 @@
         "id": "travel-mode-choice",
         "note": "Citizens compare driving, transit, and walking using a cost of time, comfort, money, and personal behavior, and parking fees enter the driving cost.",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
+      },
+      {
+        "id": "free-placement",
+        "role": "supporting"
+      },
+      {
+        "id": "power-grid",
+        "note": "Generation, a connected grid, and batteries; solar output varies with weather and time of day and wind with wind strength.",
+        "role": "supporting"
+      },
+      {
+        "id": "weather",
+        "note": "Weather and seasons affect solar and wind output and climate conditions.",
+        "role": "supporting"
       }
     ],
     "modding": "scripting",
@@ -3025,7 +3173,10 @@
     "player_role": "planner-mayor",
     "production_tier": "aa",
     "provenance": {
-      "created": "2026-10-24-catalog-ga"
+      "created": "2026-10-24-catalog-ga",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "urban",
@@ -3034,7 +3185,8 @@
     "sim_scale": "city",
     "sources": [
       "src-wikipedia-cities-skylines-2",
-      "src-paradox-2023-cs2-traffic-ai"
+      "src-paradox-2023-cs2-traffic-ai",
+      "src-paradox-2023-cs2-electricity-water"
     ],
     "status": "sourced",
     "subgenre": "city-builder",
@@ -3049,7 +3201,7 @@
   },
   {
     "_derived": {
-      "cluster": "C01",
+      "cluster": "C04",
       "core_count": 3,
       "family_profile": {
         "conflict-defense": 2,
@@ -3195,7 +3347,7 @@
   },
   {
     "_derived": {
-      "cluster": "C06",
+      "cluster": "C03",
       "core_count": 3,
       "family_profile": {
         "conflict-defense": 1,
@@ -3317,7 +3469,7 @@
   },
   {
     "_derived": {
-      "cluster": "C11",
+      "cluster": "C14",
       "core_count": 2,
       "family_profile": {
         "conflict-defense": 1,
@@ -3416,7 +3568,7 @@
   },
   {
     "_derived": {
-      "cluster": "C04",
+      "cluster": "C13",
       "core_count": 4,
       "family_profile": {
         "agents-behavior": 2,
@@ -3426,14 +3578,15 @@
         "multiplayer-persistence": 2,
         "population-lineage": 2,
         "risk-failure": 1,
-        "social-relations": 1
+        "social-relations": 1,
+        "time-pacing": 1
       },
       "incoming": {
         "precedent_for": [
           "trainable-creatures-revival"
         ]
       },
-      "mechanic_count": 11
+      "mechanic_count": 12
     },
     "agency_model": [
       "caretaking-interaction",
@@ -3513,6 +3666,10 @@
       {
         "id": "permadeath",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
       }
     ],
     "modding": "scripting",
@@ -3530,7 +3687,10 @@
     "player_role": "caretaker",
     "production_tier": "aa",
     "provenance": {
-      "created": "2026-10-24-catalog-gd"
+      "created": "2026-10-24-catalog-gd",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "biological-ecological"
@@ -3553,7 +3713,7 @@
   },
   {
     "_derived": {
-      "cluster": "C01",
+      "cluster": "C04",
       "core_count": 4,
       "family_profile": {
         "agents-behavior": 3,
@@ -3563,7 +3723,8 @@
         "narrative-generation": 1,
         "population-lineage": 4,
         "progression-goals": 1,
-        "social-relations": 4
+        "social-relations": 4,
+        "time-pacing": 1
       },
       "incoming": {
         "precedent_for": [
@@ -3574,7 +3735,7 @@
           "placement-that-tells-stories"
         ]
       },
-      "mechanic_count": 19
+      "mechanic_count": 20
     },
     "agency_model": [
       "direct-unit",
@@ -3686,6 +3847,10 @@
         "id": "stat-combat-resolution",
         "note": "Battles resolve from army size, men-at-arms, knights, commander skill, and terrain, in phases that run until one side is routed.",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
       }
     ],
     "modding": "total-conversion",
@@ -3703,7 +3868,10 @@
     "player_role": "ruler-statesman",
     "production_tier": "aa",
     "provenance": {
-      "created": "2026-10-24-catalog-gi"
+      "created": "2026-10-24-catalog-gi",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "political-governance",
@@ -3729,7 +3897,7 @@
   },
   {
     "_derived": {
-      "cluster": "C06",
+      "cluster": "C03",
       "core_count": 3,
       "family_profile": {
         "conflict-defense": 1,
@@ -3739,14 +3907,15 @@
         "operation-procedure": 1,
         "physics-materials": 2,
         "progression-goals": 1,
-        "risk-failure": 1
+        "risk-failure": 1,
+        "time-pacing": 1
       },
       "incoming": {
         "precedent_for": [
           "sim-instructor-coach"
         ]
       },
-      "mechanic_count": 9
+      "mechanic_count": 10
     },
     "agency_model": [
       "direct-avatar"
@@ -3762,7 +3931,7 @@
         "sources": [
           "src-wikipedia-dcs-world"
         ],
-        "text": "The `year` value records the 2008 release of DCS: Black Shark, the first DCS title (Russia 17 October, English 10 December 2008); the free DCS World platform entered open beta in May 2012."
+        "text": "The `year` value records 2008, when DCS: Black Shark, the first standalone DCS title, was released; the free DCS World platform entered open beta in May 2012."
       }
     ],
     "core_loop": "pick a module and mission -> cold start through cockpit switches -> fly and navigate -> find targets with sensors -> employ weapons and survive defenses -> recover and land -> debrief",
@@ -3814,7 +3983,11 @@
       },
       {
         "id": "subsystem-damage",
-        "note": "Damage affects individual modeled subsystems such as engines, hydraulics, and electrical systems, changing how the aircraft flies and what still works.",
+        "note": "Modules carry damage models, revised over the platform's development, so hits degrade the aircraft's modeled systems and how it flies.",
+        "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
         "role": "supporting"
       }
     ],
@@ -3833,7 +4006,10 @@
     "player_role": "operator-pilot",
     "production_tier": "aa",
     "provenance": {
-      "created": "2026-10-24-catalog-gf"
+      "created": "2026-10-24-catalog-gf",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "military-conflict",
@@ -3856,7 +4032,7 @@
   },
   {
     "_derived": {
-      "cluster": "C01",
+      "cluster": "C04",
       "core_count": 3,
       "family_profile": {
         "economy-finance": 2,
@@ -4103,10 +4279,10 @@
   },
   {
     "_derived": {
-      "cluster": "C04",
+      "cluster": "C01",
       "core_count": 8,
       "family_profile": {
-        "agents-behavior": 6,
+        "agents-behavior": 7,
         "biology-health": 1,
         "conflict-defense": 1,
         "control-automation": 2,
@@ -4116,10 +4292,11 @@
         "narrative-generation": 1,
         "physics-materials": 2,
         "population-lineage": 1,
-        "resources-production": 2,
+        "resources-production": 3,
         "risk-failure": 2,
         "social-relations": 1,
-        "space-construction": 2,
+        "space-construction": 3,
+        "time-pacing": 1,
         "world-generation": 1
       },
       "incoming": {
@@ -4145,7 +4322,7 @@
           "sims-as-agent-benchmarks"
         ]
       },
-      "mechanic_count": 25
+      "mechanic_count": 29
     },
     "agency_model": [
       "order-queue",
@@ -4290,6 +4467,22 @@
         "id": "stress-accumulation",
         "note": "Emotions from events add to or subtract from a hidden stress value (-1,000,000 to +1,000,000) scaled by facets such as stress vulnerability and bravery; above +10,000, +25,000, and +50,000 dwarves risk tantrums, depression, obliviousness, and insanity, and long-term memories keep adding stress.",
         "role": "core"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
+      },
+      {
+        "id": "free-placement",
+        "role": "supporting"
+      },
+      {
+        "id": "utility-action-selection",
+        "role": "supporting"
+      },
+      {
+        "id": "storage-capacity",
+        "role": "supporting"
       }
     ],
     "modding": "scripting",
@@ -4305,7 +4498,10 @@
     "player_role": "overseer",
     "production_tier": "hobbyist",
     "provenance": {
-      "created": "2026-10-24-catalog-gb"
+      "created": "2026-10-24-catalog-gb",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "social-interpersonal",
@@ -4332,7 +4528,7 @@
   },
   {
     "_derived": {
-      "cluster": "C01",
+      "cluster": "C02",
       "core_count": 7,
       "family_profile": {
         "conflict-defense": 1,
@@ -4342,7 +4538,7 @@
         "progression-goals": 2,
         "resources-production": 6,
         "risk-failure": 1,
-        "space-construction": 1,
+        "space-construction": 2,
         "world-generation": 1
       },
       "incoming": {
@@ -4350,7 +4546,7 @@
           "generated-recipe-graphs"
         ]
       },
-      "mechanic_count": 17
+      "mechanic_count": 18
     },
     "agency_model": [
       "direct-avatar",
@@ -4469,6 +4665,10 @@
         "id": "request-provider-logistics",
         "note": "Logistics stations set each item slot to local or remote supply, demand, or storage and are paired automatically by priority; up to 100 drones per station haul within a planet and 10 vessels between planets, with range and minimum-load sliders.",
         "role": "core"
+      },
+      {
+        "id": "free-placement",
+        "role": "supporting"
       }
     ],
     "modding": "scripting",
@@ -4484,7 +4684,10 @@
     "player_role": "engineer-designer",
     "production_tier": "indie",
     "provenance": {
-      "created": "2026-10-24-catalog-gh"
+      "created": "2026-10-24-catalog-gh",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "industrial-logistics",
@@ -4512,7 +4715,7 @@
   },
   {
     "_derived": {
-      "cluster": "C01",
+      "cluster": "C06",
       "core_count": 4,
       "family_profile": {
         "agents-behavior": 1,
@@ -4654,7 +4857,7 @@
   },
   {
     "_derived": {
-      "cluster": "C08",
+      "cluster": "C11",
       "core_count": 3,
       "family_profile": {
         "control-automation": 1,
@@ -4751,7 +4954,7 @@
   },
   {
     "_derived": {
-      "cluster": "C08",
+      "cluster": "C11",
       "core_count": 3,
       "family_profile": {
         "control-automation": 1,
@@ -4914,7 +5117,7 @@
   },
   {
     "_derived": {
-      "cluster": "C07",
+      "cluster": "C05",
       "core_count": 3,
       "family_profile": {
         "economy-finance": 1,
@@ -5016,7 +5219,7 @@
   },
   {
     "_derived": {
-      "cluster": "C06",
+      "cluster": "C03",
       "core_count": 2,
       "family_profile": {
         "agents-behavior": 1,
@@ -5142,7 +5345,7 @@
   },
   {
     "_derived": {
-      "cluster": "C01",
+      "cluster": "C04",
       "core_count": 5,
       "family_profile": {
         "conflict-defense": 3,
@@ -5315,7 +5518,7 @@
   },
   {
     "_derived": {
-      "cluster": "C08",
+      "cluster": "C06",
       "core_count": 5,
       "family_profile": {
         "agents-behavior": 1,
@@ -5457,7 +5660,7 @@
   },
   {
     "_derived": {
-      "cluster": "C09",
+      "cluster": "C08",
       "core_count": 2,
       "family_profile": {
         "control-automation": 1,
@@ -5543,7 +5746,7 @@
   },
   {
     "_derived": {
-      "cluster": "C01",
+      "cluster": "C02",
       "core_count": 8,
       "family_profile": {
         "conflict-defense": 1,
@@ -5555,7 +5758,7 @@
         "progression-goals": 2,
         "resources-production": 9,
         "risk-failure": 1,
-        "space-construction": 2,
+        "space-construction": 3,
         "world-generation": 1
       },
       "incoming": {
@@ -5574,7 +5777,7 @@
           "teachable-sim-companion"
         ]
       },
-      "mechanic_count": 27
+      "mechanic_count": 28
     },
     "agency_model": [
       "direct-avatar",
@@ -5745,6 +5948,10 @@
         "id": "track-laying",
         "note": "Straight and curved rail pieces are placed to build train networks, with elevated rails in Space Age, and the rail planner lays segments between points.",
         "role": "supporting"
+      },
+      {
+        "id": "free-placement",
+        "role": "supporting"
       }
     ],
     "modding": "total-conversion",
@@ -5764,7 +5971,10 @@
     "player_role": "engineer-designer",
     "production_tier": "indie",
     "provenance": {
-      "created": "2026-10-24-catalog-gh"
+      "created": "2026-10-24-catalog-gh",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "industrial-logistics",
@@ -5801,7 +6011,7 @@
   },
   {
     "_derived": {
-      "cluster": "C06",
+      "cluster": "C03",
       "core_count": 2,
       "family_profile": {
         "biology-health": 1,
@@ -5811,14 +6021,15 @@
         "multiplayer-persistence": 1,
         "physics-materials": 2,
         "resources-production": 2,
-        "risk-failure": 2
+        "risk-failure": 2,
+        "time-pacing": 1
       },
       "incoming": {
         "precedent_for": [
           "learned-weather-layer"
         ]
       },
-      "mechanic_count": 13
+      "mechanic_count": 14
     },
     "agency_model": [
       "direct-avatar",
@@ -5897,6 +6108,10 @@
         "id": "modding-api",
         "note": "ModHub distributes developer-tested community mods that add vehicles, maps, and scripts.",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
       }
     ],
     "modding": "scripting",
@@ -5914,7 +6129,10 @@
     "player_role": "operator-pilot",
     "production_tier": "aa",
     "provenance": {
-      "created": "2026-10-24-catalog-gc"
+      "created": "2026-10-24-catalog-gc",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "occupational",
@@ -5939,7 +6157,7 @@
   },
   {
     "_derived": {
-      "cluster": "C01",
+      "cluster": "C02",
       "core_count": 3,
       "family_profile": {
         "conflict-defense": 1,
@@ -5947,11 +6165,12 @@
         "environment-ecology": 2,
         "population-lineage": 1,
         "progression-goals": 1,
-        "resources-production": 3,
+        "resources-production": 4,
         "risk-failure": 1,
-        "space-construction": 1
+        "space-construction": 2,
+        "time-pacing": 1
       },
-      "mechanic_count": 11
+      "mechanic_count": 14
     },
     "agency_model": [
       "zoning-placement",
@@ -6020,6 +6239,18 @@
         "id": "trade-routes",
         "note": "Crafted goods are traded for resources the town lacks.",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
+      },
+      {
+        "id": "free-placement",
+        "role": "supporting"
+      },
+      {
+        "id": "storage-capacity",
+        "role": "supporting"
       }
     ],
     "modding": "none",
@@ -6035,7 +6266,10 @@
     "player_role": "planner-mayor",
     "production_tier": "indie",
     "provenance": {
-      "created": "2026-10-24-catalog-ga"
+      "created": "2026-10-24-catalog-ga",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "urban",
@@ -6058,7 +6292,7 @@
   },
   {
     "_derived": {
-      "cluster": "C03",
+      "cluster": "C01",
       "core_count": 4,
       "family_profile": {
         "agents-behavior": 3,
@@ -6209,15 +6443,16 @@
   },
   {
     "_derived": {
-      "cluster": "C01",
+      "cluster": "C02",
       "core_count": 2,
       "family_profile": {
         "economy-finance": 2,
         "progression-goals": 1,
         "resources-production": 2,
-        "space-construction": 3
+        "space-construction": 3,
+        "time-pacing": 1
       },
-      "mechanic_count": 8
+      "mechanic_count": 9
     },
     "agency_model": [
       "zoning-placement",
@@ -6269,6 +6504,10 @@
       {
         "id": "goods-consumption",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
       }
     ],
     "modding": "content",
@@ -6284,7 +6523,10 @@
     "player_role": "planner-mayor",
     "production_tier": "indie",
     "provenance": {
-      "created": "2026-10-24-catalog-ga"
+      "created": "2026-10-24-catalog-ga",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "urban",
@@ -6307,7 +6549,7 @@
   },
   {
     "_derived": {
-      "cluster": "C07",
+      "cluster": "C10",
       "core_count": 3,
       "family_profile": {
         "control-automation": 2,
@@ -6415,7 +6657,7 @@
   },
   {
     "_derived": {
-      "cluster": "C01",
+      "cluster": "C04",
       "core_count": 4,
       "family_profile": {
         "agents-behavior": 1,
@@ -6426,8 +6668,9 @@
         "logistics-networks": 1,
         "narrative-generation": 1,
         "progression-goals": 1,
-        "resources-production": 1,
-        "time-pacing": 1
+        "resources-production": 2,
+        "space-construction": 1,
+        "time-pacing": 2
       },
       "incoming": {
         "influenced": [
@@ -6440,7 +6683,7 @@
           "placement-that-tells-stories"
         ]
       },
-      "mechanic_count": 11
+      "mechanic_count": 14
     },
     "agency_model": [
       "zoning-placement",
@@ -6512,6 +6755,18 @@
       {
         "id": "weather",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
+      },
+      {
+        "id": "free-placement",
+        "role": "supporting"
+      },
+      {
+        "id": "storage-capacity",
+        "role": "supporting"
       }
     ],
     "modding": "none",
@@ -6529,7 +6784,10 @@
     "player_role": "ruler-statesman",
     "production_tier": "aa",
     "provenance": {
-      "created": "2026-10-24-catalog-ga"
+      "created": "2026-10-24-catalog-ga",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "urban",
@@ -6553,16 +6811,16 @@
   },
   {
     "_derived": {
-      "cluster": "C01",
+      "cluster": "C04",
       "core_count": 4,
       "family_profile": {
         "governance-policy": 4,
         "progression-goals": 2,
         "resources-production": 1,
-        "space-construction": 1,
-        "time-pacing": 1
+        "space-construction": 2,
+        "time-pacing": 2
       },
-      "mechanic_count": 9
+      "mechanic_count": 11
     },
     "agency_model": [
       "zoning-placement",
@@ -6625,6 +6883,14 @@
         "id": "scenario-objectives",
         "note": "Utopia Builder mode sets an objective and optional challenges that fail the run if missed.",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
+      },
+      {
+        "id": "free-placement",
+        "role": "supporting"
       }
     ],
     "modding": "content",
@@ -6641,7 +6907,10 @@
     "player_role": "ruler-statesman",
     "production_tier": "aa",
     "provenance": {
-      "created": "2026-10-24-catalog-ga"
+      "created": "2026-10-24-catalog-ga",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "urban",
@@ -6666,7 +6935,7 @@
   },
   {
     "_derived": {
-      "cluster": "C02",
+      "cluster": "C01",
       "core_count": 6,
       "family_profile": {
         "agents-behavior": 2,
@@ -6805,7 +7074,7 @@
   },
   {
     "_derived": {
-      "cluster": "C03",
+      "cluster": "C01",
       "core_count": 3,
       "family_profile": {
         "agents-behavior": 1,
@@ -6813,7 +7082,8 @@
         "multiplayer-persistence": 1,
         "narrative-generation": 1,
         "progression-goals": 3,
-        "social-relations": 1
+        "social-relations": 1,
+        "time-pacing": 1
       },
       "incoming": {
         "precedent_for": [
@@ -6821,7 +7091,7 @@
           "scientists-not-tech-trees"
         ]
       },
-      "mechanic_count": 11
+      "mechanic_count": 12
     },
     "agency_model": [
       "policy-parameter"
@@ -6890,6 +7160,10 @@
         "id": "dated-tech-timeline",
         "note": "Fictional consoles launch and retire on a fixed in-game calendar from the 1980s onward, so platform choice is a bet on a console's remaining market life.",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
       }
     ],
     "modding": "scripting",
@@ -6907,7 +7181,10 @@
     "player_role": "manager-owner",
     "production_tier": "indie",
     "provenance": {
-      "created": "2026-10-24-catalog-ge"
+      "created": "2026-10-24-catalog-ge",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "economic",
@@ -6927,12 +7204,11 @@
   },
   {
     "_derived": {
-      "cluster": "C03",
-      "core_count": 2,
+      "cluster": "C12",
+      "core_count": 1,
       "family_profile": {
-        "control-automation": 1,
-        "space-construction": 2,
-        "time-pacing": 1
+        "space-construction": 1,
+        "time-pacing": 2
       },
       "incoming": {
         "precedent_for": [
@@ -6940,7 +7216,7 @@
           "open-ended-evolution-sandbox"
         ]
       },
-      "mechanic_count": 4
+      "mechanic_count": 3
     },
     "agency_model": [
       "design-then-test"
@@ -6951,7 +7227,7 @@
       "Game of Life"
     ],
     "core_loop": "place live cells on the grid -> apply birth on 3 and survival on 2 or 3 neighbors to every cell at once -> pattern stabilizes, oscillates, dies, or emits gliders -> observe -> edit the seed and rerun",
-    "design_notes": "Conway's rule is the minimal case of emergence from local update: each cell's next state depends only on how many of its eight neighbors are alive, all cells update simultaneously, and the only input is the initial pattern. The rule is Turing complete, so whether an arbitrary pattern stops changing is undecidable, and decades of discovery (Gosper's period-30 glider gun of November 1970, the R-pentomino's 1,103-generation run) came from players searching seeds. Simulators such as Golly add Hashlife for large time jumps and scripting for rule variants. A general cellular-automaton rule is not yet a mechanic in the taxonomy (proposal cellular-automaton-rule); adjacency-scoring is the nearest existing id.",
+    "design_notes": "Conway's rule is the minimal case of emergence from local update: each cell's next state depends only on how many of its eight neighbors are alive, all cells update simultaneously, and the only input is the initial pattern. The rule is Turing complete, so whether an arbitrary pattern stops changing is undecidable, and decades of discovery (Gosper's period-30 glider gun of November 1970, the R-pentomino's 1,103-generation run) came from players searching seeds. Simulators such as Golly add Hashlife for large time jumps and scripting for rule variants. The rule itself is not yet a mechanic in the taxonomy (proposal cellular-automaton-rule), so the decomposition records seeding, stepping, and run speed.",
     "developer": "John Horton Conway",
     "emergence": 5,
     "failure_model": "none",
@@ -6960,23 +7236,18 @@
     "influence": 5,
     "mechanics": [
       {
-        "id": "adjacency-scoring",
-        "note": "A dead cell with exactly 3 live neighbors is born, a live cell with 2 or 3 survives, and all others die; the neighbor count is the whole update rule.",
-        "role": "core"
-      },
-      {
         "id": "free-placement",
         "note": "The player's only act is toggling cells on the grid to set the seed before running generations.",
         "role": "core"
       },
       {
-        "id": "blueprints",
-        "note": "Implementations store patterns as files and libraries that can be stamped into a grid and shared.",
+        "id": "variable-speed",
+        "note": "Computer implementations step one generation at a time or run continuously; later simulators such as Golly use Hashlife to jump far ahead in time.",
         "role": "supporting"
       },
       {
-        "id": "variable-speed",
-        "note": "Simulators step one generation at a time or run fast, and Hashlife in Golly jumps far ahead in time.",
+        "id": "turn-structure",
+        "note": "Each generation is a discrete synchronous update the player can step through one at a time.",
         "role": "supporting"
       }
     ],
@@ -6996,7 +7267,10 @@
     "player_role": "observer-gardener",
     "production_tier": "academic",
     "provenance": {
-      "created": "2026-10-24-catalog-gd"
+      "created": "2026-10-24-catalog-gd",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "computational-abstract"
@@ -7015,7 +7289,7 @@
   },
   {
     "_derived": {
-      "cluster": "C02",
+      "cluster": "C07",
       "core_count": 3,
       "family_profile": {
         "control-automation": 3,
@@ -7118,7 +7392,7 @@
   },
   {
     "_derived": {
-      "cluster": "C09",
+      "cluster": "C08",
       "core_count": 3,
       "family_profile": {
         "agents-behavior": 2,
@@ -7243,20 +7517,21 @@
   },
   {
     "_derived": {
-      "cluster": "C04",
+      "cluster": "C01",
       "core_count": 4,
       "family_profile": {
-        "agents-behavior": 5,
+        "agents-behavior": 6,
         "biology-health": 1,
         "conflict-defense": 1,
         "control-automation": 1,
         "environment-ecology": 1,
         "progression-goals": 1,
-        "resources-production": 2,
+        "resources-production": 3,
         "risk-failure": 1,
-        "space-construction": 4
+        "space-construction": 5,
+        "time-pacing": 1
       },
-      "mechanic_count": 17
+      "mechanic_count": 21
     },
     "agency_model": [
       "order-queue",
@@ -7357,6 +7632,22 @@
       {
         "id": "permadeath",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
+      },
+      {
+        "id": "free-placement",
+        "role": "supporting"
+      },
+      {
+        "id": "utility-action-selection",
+        "role": "supporting"
+      },
+      {
+        "id": "storage-capacity",
+        "role": "supporting"
       }
     ],
     "modding": "content",
@@ -7372,7 +7663,10 @@
     "player_role": "overseer",
     "production_tier": "indie",
     "provenance": {
-      "created": "2026-10-24-catalog-gb"
+      "created": "2026-10-24-catalog-gb",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "social-interpersonal",
@@ -7395,7 +7689,7 @@
   },
   {
     "_derived": {
-      "cluster": "C06",
+      "cluster": "C03",
       "core_count": 3,
       "family_profile": {
         "control-automation": 1,
@@ -7488,7 +7782,7 @@
   },
   {
     "_derived": {
-      "cluster": "C06",
+      "cluster": "C03",
       "core_count": 2,
       "family_profile": {
         "control-automation": 1,
@@ -7598,7 +7892,7 @@
   },
   {
     "_derived": {
-      "cluster": "C05",
+      "cluster": "C12",
       "core_count": 3,
       "family_profile": {
         "information-legibility": 1,
@@ -7700,7 +7994,7 @@
   },
   {
     "_derived": {
-      "cluster": "C02",
+      "cluster": "C15",
       "core_count": 2,
       "family_profile": {
         "biology-health": 1,
@@ -7912,7 +8206,7 @@
   },
   {
     "_derived": {
-      "cluster": "C01",
+      "cluster": "C04",
       "core_count": 4,
       "family_profile": {
         "conflict-defense": 3,
@@ -8066,7 +8360,7 @@
   },
   {
     "_derived": {
-      "cluster": "C02",
+      "cluster": "C15",
       "core_count": 3,
       "family_profile": {
         "agents-behavior": 1,
@@ -8163,7 +8457,7 @@
   },
   {
     "_derived": {
-      "cluster": "C09",
+      "cluster": "C08",
       "core_count": 2,
       "family_profile": {
         "narrative-generation": 1,
@@ -8240,10 +8534,10 @@
   },
   {
     "_derived": {
-      "cluster": "C04",
+      "cluster": "C01",
       "core_count": 2,
       "family_profile": {
-        "agents-behavior": 3,
+        "agents-behavior": 4,
         "control-automation": 1,
         "environment-ecology": 1,
         "multiplayer-persistence": 1,
@@ -8251,7 +8545,8 @@
         "population-lineage": 2,
         "progression-goals": 1,
         "social-relations": 4,
-        "space-construction": 1
+        "space-construction": 1,
+        "time-pacing": 1
       },
       "incoming": {
         "deploys": [
@@ -8266,7 +8561,7 @@
           "salience-gated-llm-agents"
         ]
       },
-      "mechanic_count": 15
+      "mechanic_count": 17
     },
     "agency_model": [
       "direct-unit",
@@ -8358,6 +8653,14 @@
         "id": "offscreen-life-progression",
         "note": "City-wide free will keeps Zois across the city living autonomously while the player directs one household, producing rumors, trends, and disease; the fidelity of the update for distant Zois is not documented.",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
+      },
+      {
+        "id": "utility-action-selection",
+        "role": "supporting"
       }
     ],
     "modding": "content",
@@ -8373,7 +8676,10 @@
     "player_role": "caretaker",
     "production_tier": "aaa",
     "provenance": {
-      "created": "2026-10-24-catalog-gc"
+      "created": "2026-10-24-catalog-gc",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "domestic-personal",
@@ -8395,7 +8701,7 @@
   },
   {
     "_derived": {
-      "cluster": "C06",
+      "cluster": "C03",
       "core_count": 3,
       "family_profile": {
         "control-automation": 1,
@@ -8478,7 +8784,7 @@
   },
   {
     "_derived": {
-      "cluster": "C03",
+      "cluster": "C11",
       "core_count": 3,
       "family_profile": {
         "progression-goals": 1,
@@ -8564,7 +8870,7 @@
   },
   {
     "_derived": {
-      "cluster": "C02",
+      "cluster": "C07",
       "core_count": 2,
       "family_profile": {
         "control-automation": 1,
@@ -8644,7 +8950,7 @@
   },
   {
     "_derived": {
-      "cluster": "C08",
+      "cluster": "C02",
       "core_count": 4,
       "family_profile": {
         "agents-behavior": 2,
@@ -8655,9 +8961,10 @@
         "resources-production": 2,
         "risk-failure": 1,
         "social-relations": 1,
-        "space-construction": 1
+        "space-construction": 1,
+        "time-pacing": 1
       },
-      "mechanic_count": 12
+      "mechanic_count": 13
     },
     "agency_model": [
       "zoning-placement",
@@ -8732,6 +9039,10 @@
         "id": "milestone-unlocks",
         "note": "Island star ratings unlock the next island in the Las Cinco Muertes archipelago.",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
       }
     ],
     "modding": "none",
@@ -8749,7 +9060,10 @@
     "player_role": "manager-owner",
     "production_tier": "aa",
     "provenance": {
-      "created": "2026-10-24-catalog-ge"
+      "created": "2026-10-24-catalog-ge",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "biological-ecological",
@@ -8781,7 +9095,8 @@
         "resources-production": 2,
         "risk-failure": 1,
         "social-relations": 2,
-        "space-construction": 1
+        "space-construction": 1,
+        "time-pacing": 1
       },
       "incoming": {
         "precedent_for": [
@@ -8789,7 +9104,7 @@
           "illustrated-chronicles"
         ]
       },
-      "mechanic_count": 15
+      "mechanic_count": 16
     },
     "agency_model": [
       "direct-unit",
@@ -8878,6 +9193,10 @@
         "id": "stat-combat-resolution",
         "note": "Fights resolve from character combat skills, weapon stats, and armor, with damage applied to individual limbs.",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
       }
     ],
     "modding": "content",
@@ -8893,7 +9212,10 @@
     "player_role": "overseer",
     "production_tier": "indie",
     "provenance": {
-      "created": "2026-10-24-catalog-gb"
+      "created": "2026-10-24-catalog-gb",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "military-conflict",
@@ -8919,7 +9241,7 @@
   },
   {
     "_derived": {
-      "cluster": "C02",
+      "cluster": "C11",
       "core_count": 3,
       "family_profile": {
         "control-automation": 1,
@@ -9066,21 +9388,22 @@
   },
   {
     "_derived": {
-      "cluster": "C05",
+      "cluster": "C02",
       "core_count": 2,
       "family_profile": {
         "conflict-defense": 1,
         "economy-finance": 1,
-        "environment-ecology": 2,
+        "environment-ecology": 3,
         "governance-policy": 1,
         "population-lineage": 1,
-        "resources-production": 2,
+        "resources-production": 3,
         "risk-failure": 1,
         "social-relations": 1,
-        "space-construction": 1,
+        "space-construction": 2,
+        "time-pacing": 1,
         "world-generation": 1
       },
-      "mechanic_count": 12
+      "mechanic_count": 16
     },
     "agency_model": [
       "zoning-placement",
@@ -9153,6 +9476,22 @@
       {
         "id": "procedural-terrain",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
+      },
+      {
+        "id": "free-placement",
+        "role": "supporting"
+      },
+      {
+        "id": "fire-spread",
+        "role": "supporting"
+      },
+      {
+        "id": "storage-capacity",
+        "role": "supporting"
       }
     ],
     "modding": "content",
@@ -9169,7 +9508,10 @@
     "player_role": "ruler-statesman",
     "production_tier": "indie",
     "provenance": {
-      "created": "2026-10-24-catalog-ga"
+      "created": "2026-10-24-catalog-ga",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "urban",
@@ -9190,7 +9532,7 @@
   },
   {
     "_derived": {
-      "cluster": "C05",
+      "cluster": "C12",
       "core_count": 3,
       "family_profile": {
         "economy-finance": 3,
@@ -9284,7 +9626,7 @@
   },
   {
     "_derived": {
-      "cluster": "C04",
+      "cluster": "C13",
       "core_count": 3,
       "family_profile": {
         "agents-behavior": 3,
@@ -9386,7 +9728,7 @@
   },
   {
     "_derived": {
-      "cluster": "C01",
+      "cluster": "C02",
       "core_count": 2,
       "family_profile": {
         "conflict-defense": 1,
@@ -9395,8 +9737,9 @@
         "environment-ecology": 1,
         "governance-policy": 1,
         "logistics-networks": 1,
-        "resources-production": 4,
-        "space-construction": 1
+        "resources-production": 5,
+        "space-construction": 2,
+        "time-pacing": 1
       },
       "incoming": {
         "precedent_for": [
@@ -9404,7 +9747,7 @@
           "placement-that-tells-stories"
         ]
       },
-      "mechanic_count": 12
+      "mechanic_count": 15
     },
     "agency_model": [
       "zoning-placement",
@@ -9480,6 +9823,18 @@
         "id": "trade-routes",
         "note": "Surpluses sold to traveling merchants; imports and exports balanced through trade.",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
+      },
+      {
+        "id": "free-placement",
+        "role": "supporting"
+      },
+      {
+        "id": "storage-capacity",
+        "role": "supporting"
       }
     ],
     "modding": "content",
@@ -9495,7 +9850,10 @@
     "player_role": "ruler-statesman",
     "production_tier": "indie",
     "provenance": {
-      "created": "2026-10-24-catalog-ga"
+      "created": "2026-10-24-catalog-ga",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "urban",
@@ -9517,7 +9875,7 @@
   },
   {
     "_derived": {
-      "cluster": "C06",
+      "cluster": "C03",
       "core_count": 3,
       "family_profile": {
         "control-automation": 1,
@@ -9526,6 +9884,7 @@
         "operation-procedure": 1,
         "physics-materials": 1,
         "progression-goals": 1,
+        "time-pacing": 1,
         "world-generation": 1
       },
       "incoming": {
@@ -9540,7 +9899,7 @@
           "learned-weather-layer"
         ]
       },
-      "mechanic_count": 8
+      "mechanic_count": 9
     },
     "agency_model": [
       "direct-avatar"
@@ -9594,6 +9953,10 @@
         "id": "real-world-data-feeds",
         "note": "The whole Earth is built from Bing Maps imagery updated every 28 days and AI-generated 3D content streamed from more than two petabytes in the cloud, while Meteoblue live weather and live air traffic feed the sim at runtime.",
         "role": "core"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
       }
     ],
     "modding": "scripting",
@@ -9612,7 +9975,10 @@
     "player_role": "operator-pilot",
     "production_tier": "aaa",
     "provenance": {
-      "created": "2026-10-24-catalog-gf"
+      "created": "2026-10-24-catalog-gf",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "physical-mechanical",
@@ -9632,7 +9998,7 @@
   },
   {
     "_derived": {
-      "cluster": "C06",
+      "cluster": "C03",
       "core_count": 3,
       "family_profile": {
         "control-automation": 2,
@@ -9643,6 +10009,7 @@
         "physics-materials": 1,
         "progression-goals": 1,
         "social-relations": 1,
+        "time-pacing": 1,
         "world-generation": 1
       },
       "incoming": {
@@ -9653,7 +10020,7 @@
           "sim-instructor-coach"
         ]
       },
-      "mechanic_count": 11
+      "mechanic_count": 12
     },
     "agency_model": [
       "direct-avatar"
@@ -9724,6 +10091,10 @@
         "id": "real-world-data-feeds",
         "note": "The streamed whole-Earth world of the 2020 game continues, and the launch showed the dependence when an overwhelmed database cache caused long loads and missing content.",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
       }
     ],
     "modding": "scripting",
@@ -9742,7 +10113,10 @@
     "player_role": "operator-pilot",
     "production_tier": "aaa",
     "provenance": {
-      "created": "2026-10-24-catalog-gf"
+      "created": "2026-10-24-catalog-gf",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "physical-mechanical",
@@ -9763,7 +10137,7 @@
   },
   {
     "_derived": {
-      "cluster": "C01",
+      "cluster": "C02",
       "core_count": 4,
       "family_profile": {
         "conflict-defense": 1,
@@ -9773,9 +10147,10 @@
         "progression-goals": 2,
         "resources-production": 4,
         "risk-failure": 1,
+        "space-construction": 1,
         "time-pacing": 1
       },
-      "mechanic_count": 15
+      "mechanic_count": 16
     },
     "agency_model": [
       "zoning-placement",
@@ -9887,6 +10262,10 @@
         "id": "machine-boosting",
         "note": "Optional coolant and lubricant fed to turrets and factories raise their rates, and water boosts drill speed.",
         "role": "supporting"
+      },
+      {
+        "id": "free-placement",
+        "role": "supporting"
       }
     ],
     "modding": "scripting",
@@ -9905,7 +10284,10 @@
     "player_role": "engineer-designer",
     "production_tier": "hobbyist",
     "provenance": {
-      "created": "2026-10-24-catalog-gh"
+      "created": "2026-10-24-catalog-gh",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "industrial-logistics",
@@ -10095,7 +10477,7 @@
   },
   {
     "_derived": {
-      "cluster": "C12",
+      "cluster": "C09",
       "core_count": 2,
       "family_profile": {
         "agents-behavior": 1,
@@ -10181,7 +10563,7 @@
   },
   {
     "_derived": {
-      "cluster": "C03",
+      "cluster": "C01",
       "core_count": 4,
       "family_profile": {
         "agents-behavior": 2,
@@ -10294,7 +10676,7 @@
   },
   {
     "_derived": {
-      "cluster": "C01",
+      "cluster": "C02",
       "core_count": 4,
       "family_profile": {
         "control-automation": 1,
@@ -10415,7 +10797,7 @@
   },
   {
     "_derived": {
-      "cluster": "C04",
+      "cluster": "C13",
       "core_count": 2,
       "family_profile": {
         "agents-behavior": 2,
@@ -10516,7 +10898,7 @@
   },
   {
     "_derived": {
-      "cluster": "C02",
+      "cluster": "C07",
       "core_count": 4,
       "family_profile": {
         "control-automation": 1,
@@ -10539,6 +10921,7 @@
       "direct-avatar"
     ],
     "agent_count_order": "100",
+    "boundary_case": true,
     "core_loop": "descend into a procedurally generated biome -> fight enemies with wands that also reshape the pixel world -> survive fire, liquids, and gases set off by fighting -> buy or find spells and rebuild wands at the Holy Mountain -> descend again or die and restart",
     "design_notes": "Noita's Falling Everything engine simulates each pixel as a material with state (solid, powder, liquid, gas) and reaction rules, and solid bodies are Box2D rigid bodies that break into pixels when damaged. Because spells, enemies, and the player all act on that layer, combat routinely sets off chain events such as burning oil, steam explosions, flooding, and collapsing ceilings, and these kill the player as often as enemies do. Wand building composes spells with modifiers into programs with cast order and mana limits, and runs are permadeath.",
     "developer": "Nolla Games",
@@ -10620,7 +11003,10 @@
     "player_role": "inhabitant",
     "production_tier": "indie",
     "provenance": {
-      "created": "2026-10-24-catalog-gg"
+      "created": "2026-10-24-catalog-gg",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "physical-mechanical"
@@ -10640,12 +11026,14 @@
   },
   {
     "_derived": {
-      "cluster": "C01",
+      "cluster": "C02",
       "core_count": 5,
       "family_profile": {
         "economy-finance": 5,
         "progression-goals": 1,
         "resources-production": 3,
+        "space-construction": 1,
+        "time-pacing": 1,
         "world-generation": 1
       },
       "incoming": {
@@ -10654,7 +11042,7 @@
           "parallel-autobalance"
         ]
       },
-      "mechanic_count": 10
+      "mechanic_count": 12
     },
     "agency_model": [
       "zoning-placement",
@@ -10723,6 +11111,14 @@
         "id": "procedural-terrain",
         "note": "Each match generates a new Martian map, so resource layouts and claims differ.",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
+      },
+      {
+        "id": "free-placement",
+        "role": "supporting"
       }
     ],
     "modding": "content",
@@ -10739,7 +11135,10 @@
     "player_role": "manager-owner",
     "production_tier": "indie",
     "provenance": {
-      "created": "2026-10-24-catalog-ge"
+      "created": "2026-10-24-catalog-ge",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "economic",
@@ -10763,7 +11162,7 @@
   },
   {
     "_derived": {
-      "cluster": "C02",
+      "cluster": "C06",
       "core_count": 4,
       "family_profile": {
         "control-automation": 1,
@@ -10886,7 +11285,7 @@
   },
   {
     "_derived": {
-      "cluster": "C05",
+      "cluster": "C12",
       "core_count": 3,
       "family_profile": {
         "biology-health": 1,
@@ -10973,7 +11372,7 @@
   },
   {
     "_derived": {
-      "cluster": "C03",
+      "cluster": "C01",
       "core_count": 4,
       "family_profile": {
         "agents-behavior": 2,
@@ -11093,7 +11492,7 @@
   },
   {
     "_derived": {
-      "cluster": "C04",
+      "cluster": "C01",
       "core_count": 6,
       "family_profile": {
         "agents-behavior": 4,
@@ -11104,8 +11503,9 @@
         "logistics-networks": 1,
         "physics-materials": 2,
         "progression-goals": 1,
-        "resources-production": 4,
-        "space-construction": 2,
+        "resources-production": 5,
+        "space-construction": 3,
+        "time-pacing": 1,
         "world-generation": 1
       },
       "incoming": {
@@ -11119,7 +11519,7 @@
           "living-workforce-factories"
         ]
       },
-      "mechanic_count": 20
+      "mechanic_count": 23
     },
     "agency_model": [
       "order-queue",
@@ -11244,6 +11644,18 @@
         "id": "procedural-terrain",
         "note": "Asteroids are procedurally generated.",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
+      },
+      {
+        "id": "free-placement",
+        "role": "supporting"
+      },
+      {
+        "id": "storage-capacity",
+        "role": "supporting"
       }
     ],
     "modding": "scripting",
@@ -11259,7 +11671,10 @@
     "player_role": "overseer",
     "production_tier": "indie",
     "provenance": {
-      "created": "2026-10-24-catalog-gb"
+      "created": "2026-10-24-catalog-gb",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "physical-mechanical",
@@ -11290,7 +11705,7 @@
   },
   {
     "_derived": {
-      "cluster": "C11",
+      "cluster": "C14",
       "core_count": 3,
       "family_profile": {
         "agents-behavior": 1,
@@ -11396,17 +11811,18 @@
   },
   {
     "_derived": {
-      "cluster": "C04",
+      "cluster": "C01",
       "core_count": 2,
       "family_profile": {
-        "agents-behavior": 3,
+        "agents-behavior": 4,
         "multiplayer-persistence": 2,
         "population-lineage": 1,
         "progression-goals": 1,
         "social-relations": 2,
-        "space-construction": 1
+        "space-construction": 1,
+        "time-pacing": 1
       },
-      "mechanic_count": 10
+      "mechanic_count": 12
     },
     "agency_model": [
       "direct-unit",
@@ -11472,6 +11888,14 @@
         "id": "modding-api",
         "note": "An in-game modding interface lets players edit or add content.",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
+      },
+      {
+        "id": "utility-action-selection",
+        "role": "supporting"
       }
     ],
     "modding": "content",
@@ -11487,7 +11911,10 @@
     "player_role": "caretaker",
     "production_tier": "indie",
     "provenance": {
-      "created": "2026-10-24-catalog-gc"
+      "created": "2026-10-24-catalog-gc",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "domestic-personal",
@@ -11508,7 +11935,7 @@
   },
   {
     "_derived": {
-      "cluster": "C02",
+      "cluster": "C15",
       "core_count": 3,
       "family_profile": {
         "economy-finance": 2,
@@ -11601,17 +12028,19 @@
   },
   {
     "_derived": {
-      "cluster": "C01",
+      "cluster": "C02",
       "core_count": 3,
       "family_profile": {
         "economy-finance": 2,
-        "environment-ecology": 2,
+        "environment-ecology": 3,
         "logistics-networks": 1,
         "population-lineage": 1,
         "progression-goals": 2,
-        "resources-production": 3
+        "resources-production": 4,
+        "space-construction": 1,
+        "time-pacing": 1
       },
-      "mechanic_count": 11
+      "mechanic_count": 15
     },
     "agency_model": [
       "zoning-placement",
@@ -11683,6 +12112,22 @@
         "id": "megaproject-sink",
         "note": "Monuments such as pyramids need delivered materials and worker crews over in-game years, and many missions require completing them.",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
+      },
+      {
+        "id": "free-placement",
+        "role": "supporting"
+      },
+      {
+        "id": "fire-spread",
+        "role": "supporting"
+      },
+      {
+        "id": "storage-capacity",
+        "role": "supporting"
       }
     ],
     "modding": "none",
@@ -11698,7 +12143,10 @@
     "player_role": "planner-mayor",
     "production_tier": "aa",
     "provenance": {
-      "created": "2026-10-24-catalog-ga"
+      "created": "2026-10-24-catalog-ga",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "urban",
@@ -11718,7 +12166,7 @@
   },
   {
     "_derived": {
-      "cluster": "C01",
+      "cluster": "C10",
       "core_count": 3,
       "family_profile": {
         "environment-ecology": 2,
@@ -11844,16 +12292,17 @@
   },
   {
     "_derived": {
-      "cluster": "C03",
+      "cluster": "C01",
       "core_count": 4,
       "family_profile": {
-        "agents-behavior": 2,
+        "agents-behavior": 3,
         "control-automation": 1,
         "economy-finance": 2,
         "multiplayer-persistence": 1,
         "progression-goals": 2,
         "risk-failure": 1,
-        "space-construction": 5
+        "space-construction": 6,
+        "time-pacing": 1
       },
       "incoming": {
         "influenced": [
@@ -11865,7 +12314,7 @@
           "mean-field-crowds"
         ]
       },
-      "mechanic_count": 14
+      "mechanic_count": 17
     },
     "agency_model": [
       "zoning-placement",
@@ -11954,6 +12403,18 @@
         "id": "track-laying",
         "note": "Coasters are built in a hybrid spline and piece-by-piece editor, joining track elements end to end.",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
+      },
+      {
+        "id": "free-placement",
+        "role": "supporting"
+      },
+      {
+        "id": "utility-action-selection",
+        "role": "supporting"
       }
     ],
     "modding": "content",
@@ -11971,7 +12432,10 @@
     "player_role": "manager-owner",
     "production_tier": "aa",
     "provenance": {
-      "created": "2026-10-24-catalog-ge"
+      "created": "2026-10-24-catalog-ge",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "economic",
@@ -11992,7 +12456,7 @@
   },
   {
     "_derived": {
-      "cluster": "C03",
+      "cluster": "C01",
       "core_count": 3,
       "family_profile": {
         "agents-behavior": 2,
@@ -12002,14 +12466,15 @@
         "population-lineage": 2,
         "progression-goals": 1,
         "social-relations": 1,
-        "space-construction": 1
+        "space-construction": 2,
+        "time-pacing": 1
       },
       "incoming": {
         "precedent_for": [
           "neural-npc-motion"
         ]
       },
-      "mechanic_count": 13
+      "mechanic_count": 15
     },
     "agency_model": [
       "zoning-placement",
@@ -12091,6 +12556,14 @@
       {
         "id": "weather",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
+      },
+      {
+        "id": "free-placement",
+        "role": "supporting"
       }
     ],
     "modding": "content",
@@ -12108,7 +12581,10 @@
     "player_role": "manager-owner",
     "production_tier": "aa",
     "provenance": {
-      "created": "2026-10-24-catalog-ge"
+      "created": "2026-10-24-catalog-ge",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "biological-ecological",
@@ -12131,7 +12607,7 @@
   },
   {
     "_derived": {
-      "cluster": "C02",
+      "cluster": "C07",
       "core_count": 3,
       "family_profile": {
         "control-automation": 1,
@@ -12232,7 +12708,7 @@
   },
   {
     "_derived": {
-      "cluster": "C07",
+      "cluster": "C10",
       "core_count": 2,
       "family_profile": {
         "control-automation": 2,
@@ -12325,7 +12801,7 @@
   },
   {
     "_derived": {
-      "cluster": "C02",
+      "cluster": "C15",
       "core_count": 1,
       "family_profile": {
         "control-automation": 1,
@@ -12407,7 +12883,7 @@
   },
   {
     "_derived": {
-      "cluster": "C11",
+      "cluster": "C14",
       "core_count": 4,
       "family_profile": {
         "agents-behavior": 2,
@@ -12517,10 +12993,10 @@
   },
   {
     "_derived": {
-      "cluster": "C03",
+      "cluster": "C01",
       "core_count": 5,
       "family_profile": {
-        "agents-behavior": 3,
+        "agents-behavior": 4,
         "economy-finance": 3,
         "environment-ecology": 1,
         "governance-policy": 1,
@@ -12530,7 +13006,8 @@
         "progression-goals": 1,
         "resources-production": 1,
         "risk-failure": 1,
-        "space-construction": 1
+        "space-construction": 1,
+        "time-pacing": 1
       },
       "incoming": {
         "influenced": [
@@ -12540,7 +13017,7 @@
           "intent-level-orders"
         ]
       },
-      "mechanic_count": 15
+      "mechanic_count": 17
     },
     "agency_model": [
       "zoning-placement",
@@ -12636,6 +13113,14 @@
         "id": "content-sharing",
         "note": "Player prisons are shared online, and Escape Mode lets players break out of shared prisons.",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
+      },
+      {
+        "id": "utility-action-selection",
+        "role": "supporting"
       }
     ],
     "modding": "scripting",
@@ -12655,7 +13140,10 @@
     "player_role": "manager-owner",
     "production_tier": "indie",
     "provenance": {
-      "created": "2026-10-24-catalog-gb"
+      "created": "2026-10-24-catalog-gb",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "social-interpersonal",
@@ -12682,7 +13170,7 @@
   },
   {
     "_derived": {
-      "cluster": "C03",
+      "cluster": "C01",
       "core_count": 3,
       "family_profile": {
         "agents-behavior": 1,
@@ -12691,9 +13179,10 @@
         "economy-finance": 2,
         "logistics-networks": 1,
         "progression-goals": 1,
-        "space-construction": 2
+        "space-construction": 2,
+        "time-pacing": 1
       },
-      "mechanic_count": 9
+      "mechanic_count": 10
     },
     "agency_model": [
       "zoning-placement",
@@ -12749,6 +13238,10 @@
         "id": "scenario-objectives",
         "note": "A campaign and six challenge levels set goals; sandbox mode removes them.",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
       }
     ],
     "modding": "content",
@@ -12764,7 +13257,10 @@
     "player_role": "manager-owner",
     "production_tier": "indie",
     "provenance": {
-      "created": "2026-10-24-catalog-gf"
+      "created": "2026-10-24-catalog-gf",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "medical",
@@ -12789,7 +13285,7 @@
   },
   {
     "_derived": {
-      "cluster": "C09",
+      "cluster": "C08",
       "core_count": 3,
       "family_profile": {
         "agents-behavior": 1,
@@ -12923,9 +13419,9 @@
         "resources-production": 3,
         "risk-failure": 2,
         "space-construction": 1,
-        "time-pacing": 1
+        "time-pacing": 2
       },
-      "mechanic_count": 17
+      "mechanic_count": 18
     },
     "agency_model": [
       "direct-avatar"
@@ -13021,6 +13517,10 @@
         "id": "stimulus-attraction",
         "note": "Zombies respond to sight and hearing, so noise from actions such as gunfire or breaking windows draws them toward the survivor, and hordes migrate.",
         "role": "core"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
       }
     ],
     "modding": "scripting",
@@ -13037,7 +13537,10 @@
     "player_role": "inhabitant",
     "production_tier": "indie",
     "provenance": {
-      "created": "2026-10-24-catalog-gb"
+      "created": "2026-10-24-catalog-gb",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "biological-ecological",
@@ -13062,7 +13565,7 @@
   },
   {
     "_derived": {
-      "cluster": "C04",
+      "cluster": "C01",
       "core_count": 2,
       "family_profile": {
         "agents-behavior": 3,
@@ -13149,7 +13652,7 @@
   },
   {
     "_derived": {
-      "cluster": "C01",
+      "cluster": "C02",
       "core_count": 6,
       "family_profile": {
         "control-automation": 1,
@@ -13302,20 +13805,21 @@
   },
   {
     "_derived": {
-      "cluster": "C01",
+      "cluster": "C04",
       "core_count": 3,
       "family_profile": {
         "economy-finance": 1,
         "governance-policy": 4,
         "narrative-generation": 1,
-        "progression-goals": 1
+        "progression-goals": 1,
+        "time-pacing": 1
       },
       "incoming": {
         "precedent_for": [
           "calibrated-serious-sims"
         ]
       },
-      "mechanic_count": 7
+      "mechanic_count": 8
     },
     "agency_model": [
       "policy-parameter",
@@ -13371,6 +13875,10 @@
         "id": "corruption-leakage",
         "note": "Funding more civilian initiatives raises corruption and inflation, which erode what the monthly budget achieves; the governance tab offers anti-corruption measures.",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
       }
     ],
     "modding": "none",
@@ -13387,7 +13895,10 @@
     "player_role": "ruler-statesman",
     "production_tier": "indie",
     "provenance": {
-      "created": "2026-10-24-catalog-gi"
+      "created": "2026-10-24-catalog-gi",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "political-governance",
@@ -13411,7 +13922,7 @@
   },
   {
     "_derived": {
-      "cluster": "C11",
+      "cluster": "C14",
       "core_count": 2,
       "family_profile": {
         "narrative-generation": 2,
@@ -13500,16 +14011,17 @@
   },
   {
     "_derived": {
-      "cluster": "C04",
+      "cluster": "C01",
       "core_count": 7,
       "family_profile": {
-        "agents-behavior": 7,
+        "agents-behavior": 8,
         "biology-health": 1,
         "conflict-defense": 1,
         "control-automation": 1,
+        "environment-ecology": 1,
         "information-legibility": 1,
         "narrative-generation": 1,
-        "resources-production": 2,
+        "resources-production": 3,
         "risk-failure": 2,
         "social-relations": 1,
         "space-construction": 2,
@@ -13533,7 +14045,7 @@
           "salience-gated-llm-agents"
         ]
       },
-      "mechanic_count": 21
+      "mechanic_count": 24
     },
     "agency_model": [
       "order-queue",
@@ -13644,6 +14156,18 @@
         "id": "autonomy-levels",
         "note": "Drafting switches a colonist from self-assigned work to direct player control for combat or emergencies.",
         "role": "supporting"
+      },
+      {
+        "id": "utility-action-selection",
+        "role": "supporting"
+      },
+      {
+        "id": "fire-spread",
+        "role": "supporting"
+      },
+      {
+        "id": "storage-capacity",
+        "role": "supporting"
       }
     ],
     "modding": "total-conversion",
@@ -13660,7 +14184,10 @@
     "player_role": "overseer",
     "production_tier": "indie",
     "provenance": {
-      "created": "2026-10-23-bootstrap"
+      "created": "2026-10-23-bootstrap",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "social-interpersonal",
@@ -13685,16 +14212,17 @@
   },
   {
     "_derived": {
-      "cluster": "C03",
+      "cluster": "C01",
       "core_count": 5,
       "family_profile": {
-        "agents-behavior": 3,
+        "agents-behavior": 4,
         "economy-finance": 4,
         "information-legibility": 1,
         "logistics-networks": 1,
         "progression-goals": 2,
         "risk-failure": 1,
-        "space-construction": 5
+        "space-construction": 6,
+        "time-pacing": 1
       },
       "incoming": {
         "influenced": [
@@ -13705,7 +14233,7 @@
           "qd-scenario-libraries"
         ]
       },
-      "mechanic_count": 17
+      "mechanic_count": 20
     },
     "agency_model": [
       "zoning-placement",
@@ -13809,6 +14337,18 @@
         "id": "track-laying",
         "note": "Coaster track is built piece by piece on the tile grid by direction, height, steepness, and elements such as loops and corkscrews, and the result is rated by test run.",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
+      },
+      {
+        "id": "free-placement",
+        "role": "supporting"
+      },
+      {
+        "id": "utility-action-selection",
+        "role": "supporting"
       }
     ],
     "modding": "content",
@@ -13825,7 +14365,10 @@
     "player_role": "manager-owner",
     "production_tier": "indie",
     "provenance": {
-      "created": "2026-10-24-catalog-ge"
+      "created": "2026-10-24-catalog-ge",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "economic",
@@ -13846,7 +14389,7 @@
   },
   {
     "_derived": {
-      "cluster": "C01",
+      "cluster": "C02",
       "core_count": 6,
       "family_profile": {
         "control-automation": 3,
@@ -14027,7 +14570,7 @@
   },
   {
     "_derived": {
-      "cluster": "C03",
+      "cluster": "C01",
       "core_count": 5,
       "family_profile": {
         "control-automation": 1,
@@ -14145,7 +14688,7 @@
   },
   {
     "_derived": {
-      "cluster": "C02",
+      "cluster": "C06",
       "core_count": 6,
       "family_profile": {
         "agents-behavior": 1,
@@ -14304,7 +14847,7 @@
   },
   {
     "_derived": {
-      "cluster": "C04",
+      "cluster": "C13",
       "core_count": 4,
       "family_profile": {
         "agents-behavior": 2,
@@ -14410,7 +14953,7 @@
   },
   {
     "_derived": {
-      "cluster": "C02",
+      "cluster": "C06",
       "core_count": 3,
       "family_profile": {
         "control-automation": 2,
@@ -14519,7 +15062,7 @@
   },
   {
     "_derived": {
-      "cluster": "C01",
+      "cluster": "C02",
       "core_count": 5,
       "family_profile": {
         "control-automation": 2,
@@ -14664,7 +15207,7 @@
   },
   {
     "_derived": {
-      "cluster": "C06",
+      "cluster": "C03",
       "core_count": 2,
       "family_profile": {
         "agents-behavior": 1,
@@ -14779,7 +15322,7 @@
   },
   {
     "_derived": {
-      "cluster": "C01",
+      "cluster": "C02",
       "core_count": 3,
       "family_profile": {
         "agents-behavior": 1,
@@ -14788,9 +15331,10 @@
         "population-lineage": 2,
         "progression-goals": 1,
         "risk-failure": 1,
-        "space-construction": 1
+        "space-construction": 1,
+        "time-pacing": 1
       },
-      "mechanic_count": 9
+      "mechanic_count": 10
     },
     "agency_model": [
       "direct-avatar",
@@ -14852,6 +15396,10 @@
       {
         "id": "scenario-objectives",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
       }
     ],
     "modding": "none",
@@ -14868,7 +15416,10 @@
     "player_role": "inhabitant",
     "production_tier": "aa",
     "provenance": {
-      "created": "2026-10-24-catalog-gd"
+      "created": "2026-10-24-catalog-gd",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "biological-ecological"
@@ -14890,18 +15441,19 @@
   },
   {
     "_derived": {
-      "cluster": "C10",
+      "cluster": "C09",
       "core_count": 5,
       "family_profile": {
         "economy-finance": 4,
-        "environment-ecology": 1,
+        "environment-ecology": 2,
         "governance-policy": 1,
         "information-legibility": 1,
         "logistics-networks": 2,
         "progression-goals": 1,
         "resources-production": 1,
         "risk-failure": 2,
-        "space-construction": 1
+        "space-construction": 2,
+        "time-pacing": 1
       },
       "incoming": {
         "influenced": [
@@ -14914,7 +15466,7 @@
           "participatory-planning-sandboxes"
         ]
       },
-      "mechanic_count": 14
+      "mechanic_count": 17
     },
     "agency_model": [
       "zoning-placement",
@@ -15003,6 +15555,18 @@
         "id": "citizen-satisfaction",
         "note": "A yearly evaluation turns problem scores into a 0-1000 rating and an approval poll.",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
+      },
+      {
+        "id": "free-placement",
+        "role": "supporting"
+      },
+      {
+        "id": "fire-spread",
+        "role": "supporting"
       }
     ],
     "modding": "content",
@@ -15020,7 +15584,10 @@
     "player_role": "planner-mayor",
     "production_tier": "indie",
     "provenance": {
-      "created": "2026-10-24-catalog-ga"
+      "created": "2026-10-24-catalog-ga",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "urban",
@@ -15041,16 +15608,18 @@
   },
   {
     "_derived": {
-      "cluster": "C10",
+      "cluster": "C09",
       "core_count": 4,
       "family_profile": {
         "economy-finance": 5,
+        "environment-ecology": 1,
         "governance-policy": 1,
         "logistics-networks": 3,
         "progression-goals": 1,
         "resources-production": 1,
         "risk-failure": 1,
-        "space-construction": 3
+        "space-construction": 4,
+        "time-pacing": 1
       },
       "incoming": {
         "influenced": [
@@ -15058,7 +15627,7 @@
           "transport-tycoon"
         ]
       },
-      "mechanic_count": 15
+      "mechanic_count": 18
     },
     "agency_model": [
       "zoning-placement",
@@ -15151,6 +15720,18 @@
         "id": "dated-tech-timeline",
         "note": "Power plant types such as solar, fusion, and microwave and buildings such as arcologies become available in set invention years as the city's calendar advances.",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
+      },
+      {
+        "id": "free-placement",
+        "role": "supporting"
+      },
+      {
+        "id": "fire-spread",
+        "role": "supporting"
       }
     ],
     "modding": "content",
@@ -15169,7 +15750,10 @@
     "player_role": "planner-mayor",
     "production_tier": "aa",
     "provenance": {
-      "created": "2026-10-24-catalog-ga"
+      "created": "2026-10-24-catalog-ga",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "urban",
@@ -15189,7 +15773,7 @@
   },
   {
     "_derived": {
-      "cluster": "C10",
+      "cluster": "C09",
       "core_count": 4,
       "family_profile": {
         "agents-behavior": 1,
@@ -15199,7 +15783,8 @@
         "multiplayer-persistence": 1,
         "population-lineage": 1,
         "resources-production": 2,
-        "space-construction": 1
+        "space-construction": 2,
+        "time-pacing": 1
       },
       "incoming": {
         "precedent_for": [
@@ -15207,7 +15792,7 @@
           "mean-field-crowds"
         ]
       },
-      "mechanic_count": 12
+      "mechanic_count": 14
     },
     "agency_model": [
       "zoning-placement",
@@ -15284,6 +15869,14 @@
       {
         "id": "budget-treasury",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
+      },
+      {
+        "id": "free-placement",
+        "role": "supporting"
       }
     ],
     "modding": "none",
@@ -15300,7 +15893,10 @@
     "player_role": "planner-mayor",
     "production_tier": "aaa",
     "provenance": {
-      "created": "2026-10-24-catalog-ga"
+      "created": "2026-10-24-catalog-ga",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "urban",
@@ -15321,7 +15917,7 @@
   },
   {
     "_derived": {
-      "cluster": "C10",
+      "cluster": "C09",
       "core_count": 4,
       "family_profile": {
         "economy-finance": 4,
@@ -15331,7 +15927,8 @@
         "logistics-networks": 3,
         "population-lineage": 1,
         "risk-failure": 1,
-        "space-construction": 2
+        "space-construction": 3,
+        "time-pacing": 1
       },
       "incoming": {
         "influenced": [
@@ -15339,7 +15936,7 @@
           "simcity-2013"
         ]
       },
-      "mechanic_count": 14
+      "mechanic_count": 16
     },
     "agency_model": [
       "zoning-placement",
@@ -15427,6 +16024,14 @@
         "id": "pollution-spread",
         "note": "Industry and traffic pollute and reduce desirability.",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
+      },
+      {
+        "id": "free-placement",
+        "role": "supporting"
       }
     ],
     "modding": "content",
@@ -15442,7 +16047,10 @@
     "player_role": "planner-mayor",
     "production_tier": "aaa",
     "provenance": {
-      "created": "2026-10-24-catalog-ga"
+      "created": "2026-10-24-catalog-ga",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "urban",
@@ -15462,7 +16070,7 @@
   },
   {
     "_derived": {
-      "cluster": "C07",
+      "cluster": "C10",
       "core_count": 3,
       "family_profile": {
         "control-automation": 1,
@@ -15581,7 +16189,7 @@
   },
   {
     "_derived": {
-      "cluster": "C07",
+      "cluster": "C10",
       "core_count": 3,
       "family_profile": {
         "environment-ecology": 2,
@@ -15687,7 +16295,7 @@
   },
   {
     "_derived": {
-      "cluster": "C03",
+      "cluster": "C09",
       "core_count": 4,
       "family_profile": {
         "agents-behavior": 2,
@@ -15695,9 +16303,10 @@
         "logistics-networks": 1,
         "progression-goals": 1,
         "risk-failure": 1,
-        "space-construction": 2
+        "space-construction": 2,
+        "time-pacing": 1
       },
-      "mechanic_count": 8
+      "mechanic_count": 9
     },
     "agency_model": [
       "zoning-placement",
@@ -15755,6 +16364,10 @@
         "id": "random-disasters",
         "note": "Terrorist bomb threats with a ransom or search, fires, and pest infestations.",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
       }
     ],
     "modding": "none",
@@ -15771,7 +16384,10 @@
     "player_role": "manager-owner",
     "production_tier": "indie",
     "provenance": {
-      "created": "2026-10-24-catalog-ga"
+      "created": "2026-10-24-catalog-ga",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "urban",
@@ -15794,7 +16410,7 @@
   },
   {
     "_derived": {
-      "cluster": "C06",
+      "cluster": "C03",
       "core_count": 3,
       "family_profile": {
         "control-automation": 1,
@@ -15890,7 +16506,7 @@
   },
   {
     "_derived": {
-      "cluster": "C01",
+      "cluster": "C02",
       "core_count": 2,
       "family_profile": {
         "agents-behavior": 2,
@@ -15900,9 +16516,11 @@
         "logistics-networks": 1,
         "population-lineage": 1,
         "resources-production": 1,
-        "social-relations": 1
+        "social-relations": 1,
+        "space-construction": 1,
+        "time-pacing": 1
       },
-      "mechanic_count": 9
+      "mechanic_count": 11
     },
     "agency_model": [
       "zoning-placement",
@@ -15961,6 +16579,14 @@
         "id": "stability-unrest",
         "note": "Appointed nobles may try to usurp the ruler.",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
+      },
+      {
+        "id": "free-placement",
+        "role": "supporting"
       }
     ],
     "modding": "content",
@@ -15976,7 +16602,10 @@
     "player_role": "ruler-statesman",
     "production_tier": "indie",
     "provenance": {
-      "created": "2026-10-24-catalog-ga"
+      "created": "2026-10-24-catalog-ga",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "urban",
@@ -16000,7 +16629,7 @@
   },
   {
     "_derived": {
-      "cluster": "C02",
+      "cluster": "C07",
       "core_count": 3,
       "family_profile": {
         "biology-health": 1,
@@ -16142,19 +16771,20 @@
   },
   {
     "_derived": {
-      "cluster": "C04",
+      "cluster": "C01",
       "core_count": 4,
       "family_profile": {
-        "agents-behavior": 4,
+        "agents-behavior": 5,
         "control-automation": 1,
         "environment-ecology": 1,
         "physics-materials": 2,
         "resources-production": 3,
         "social-relations": 2,
         "space-construction": 1,
+        "time-pacing": 1,
         "world-generation": 1
       },
-      "mechanic_count": 15
+      "mechanic_count": 17
     },
     "agency_model": [
       "zoning-placement",
@@ -16249,6 +16879,14 @@
         "id": "procedural-terrain",
         "note": "Each playthrough generates a new galaxy of sectors, stations, and ships.",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
+      },
+      {
+        "id": "utility-action-selection",
+        "role": "supporting"
       }
     ],
     "modding": "content",
@@ -16264,7 +16902,10 @@
     "player_role": "overseer",
     "production_tier": "indie",
     "provenance": {
-      "created": "2026-10-24-catalog-gb"
+      "created": "2026-10-24-catalog-gb",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "social-interpersonal",
@@ -16291,7 +16932,7 @@
   },
   {
     "_derived": {
-      "cluster": "C02",
+      "cluster": "C06",
       "core_count": 3,
       "family_profile": {
         "control-automation": 1,
@@ -16406,7 +17047,7 @@
   },
   {
     "_derived": {
-      "cluster": "C07",
+      "cluster": "C10",
       "core_count": 2,
       "family_profile": {
         "control-automation": 1,
@@ -16536,7 +17177,7 @@
   },
   {
     "_derived": {
-      "cluster": "C02",
+      "cluster": "C11",
       "core_count": 3,
       "family_profile": {
         "control-automation": 2,
@@ -16656,6 +17297,7 @@
         "progression-goals": 1,
         "resources-production": 4,
         "social-relations": 2,
+        "space-construction": 1,
         "time-pacing": 1
       },
       "incoming": {
@@ -16663,7 +17305,7 @@
           "content-elastic-events"
         ]
       },
-      "mechanic_count": 14
+      "mechanic_count": 15
     },
     "agency_model": [
       "direct-avatar",
@@ -16751,6 +17393,10 @@
         "id": "weather",
         "note": "Rain waters crops and changes fish and villager routines.",
         "role": "supporting"
+      },
+      {
+        "id": "free-placement",
+        "role": "supporting"
       }
     ],
     "modding": "scripting",
@@ -16770,7 +17416,10 @@
     "player_role": "inhabitant",
     "production_tier": "indie",
     "provenance": {
-      "created": "2026-10-24-catalog-gc"
+      "created": "2026-10-24-catalog-gc",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "biological-ecological",
@@ -16796,7 +17445,7 @@
   },
   {
     "_derived": {
-      "cluster": "C04",
+      "cluster": "C07",
       "core_count": 4,
       "family_profile": {
         "biology-health": 1,
@@ -16921,7 +17570,7 @@
   },
   {
     "_derived": {
-      "cluster": "C01",
+      "cluster": "C04",
       "core_count": 3,
       "family_profile": {
         "agents-behavior": 1,
@@ -17208,7 +17857,7 @@
   },
   {
     "_derived": {
-      "cluster": "C09",
+      "cluster": "C08",
       "core_count": 2,
       "family_profile": {
         "agents-behavior": 1,
@@ -17320,7 +17969,7 @@
   },
   {
     "_derived": {
-      "cluster": "C02",
+      "cluster": "C07",
       "core_count": 2,
       "family_profile": {
         "biology-health": 1,
@@ -17408,7 +18057,7 @@
   },
   {
     "_derived": {
-      "cluster": "C01",
+      "cluster": "C02",
       "core_count": 4,
       "family_profile": {
         "agents-behavior": 3,
@@ -17417,15 +18066,16 @@
         "narrative-generation": 1,
         "progression-goals": 1,
         "resources-production": 2,
-        "risk-failure": 2
+        "risk-failure": 2,
+        "space-construction": 1,
+        "time-pacing": 1
       },
       "incoming": {
         "precedent_for": [
-          "branch-preview-forecasts",
-          "weather-coupled-grids"
+          "branch-preview-forecasts"
         ]
       },
-      "mechanic_count": 13
+      "mechanic_count": 15
     },
     "agency_model": [
       "zoning-placement",
@@ -17505,6 +18155,14 @@
         "id": "resource-extraction",
         "note": "Metals, rare metals, concrete, and water are extracted; rare metal exports fund imports.",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
+      },
+      {
+        "id": "free-placement",
+        "role": "supporting"
       }
     ],
     "modding": "scripting",
@@ -17521,7 +18179,10 @@
     "player_role": "planner-mayor",
     "production_tier": "aa",
     "provenance": {
-      "created": "2026-10-24-catalog-ga"
+      "created": "2026-10-24-catalog-ga",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "urban",
@@ -17545,7 +18206,7 @@
   },
   {
     "_derived": {
-      "cluster": "C11",
+      "cluster": "C14",
       "core_count": 2,
       "family_profile": {
         "economy-finance": 1,
@@ -17642,7 +18303,7 @@
   },
   {
     "_derived": {
-      "cluster": "C04",
+      "cluster": "C13",
       "core_count": 4,
       "family_profile": {
         "agents-behavior": 1,
@@ -17746,7 +18407,7 @@
   },
   {
     "_derived": {
-      "cluster": "C02",
+      "cluster": "C07",
       "core_count": 3,
       "family_profile": {
         "environment-ecology": 1,
@@ -17853,7 +18514,7 @@
   },
   {
     "_derived": {
-      "cluster": "C07",
+      "cluster": "C10",
       "core_count": 2,
       "family_profile": {
         "economy-finance": 1,
@@ -17946,7 +18607,7 @@
   },
   {
     "_derived": {
-      "cluster": "C02",
+      "cluster": "C06",
       "core_count": 3,
       "family_profile": {
         "control-automation": 2,
@@ -18059,7 +18720,7 @@
   },
   {
     "_derived": {
-      "cluster": "C02",
+      "cluster": "C07",
       "core_count": 3,
       "family_profile": {
         "control-automation": 1,
@@ -18257,7 +18918,7 @@
   },
   {
     "_derived": {
-      "cluster": "C02",
+      "cluster": "C07",
       "core_count": 4,
       "family_profile": {
         "control-automation": 1,
@@ -18376,7 +19037,7 @@
   },
   {
     "_derived": {
-      "cluster": "C04",
+      "cluster": "C01",
       "core_count": 3,
       "family_profile": {
         "agents-behavior": 6,
@@ -18384,7 +19045,8 @@
         "progression-goals": 1,
         "risk-failure": 1,
         "social-relations": 3,
-        "space-construction": 2
+        "space-construction": 2,
+        "time-pacing": 1
       },
       "incoming": {
         "influenced": [
@@ -18398,7 +19060,7 @@
           "salience-gated-llm-agents"
         ]
       },
-      "mechanic_count": 14
+      "mechanic_count": 15
     },
     "agency_model": [
       "direct-unit",
@@ -18487,6 +19149,10 @@
         "id": "permadeath",
         "note": "Sims die from neglect or accidents and leave an urn or tombstone; the household continues without them.",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
       }
     ],
     "modding": "content",
@@ -18504,7 +19170,10 @@
     "player_role": "caretaker",
     "production_tier": "aaa",
     "provenance": {
-      "created": "2026-10-24-catalog-gc"
+      "created": "2026-10-24-catalog-gc",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "domestic-personal",
@@ -18524,22 +19193,23 @@
   },
   {
     "_derived": {
-      "cluster": "C04",
+      "cluster": "C01",
       "core_count": 5,
       "family_profile": {
-        "agents-behavior": 6,
+        "agents-behavior": 7,
         "population-lineage": 2,
         "progression-goals": 1,
         "risk-failure": 1,
         "social-relations": 3,
-        "space-construction": 1
+        "space-construction": 1,
+        "time-pacing": 1
       },
       "incoming": {
         "influenced": [
           "the-sims-3"
         ]
       },
-      "mechanic_count": 14
+      "mechanic_count": 16
     },
     "agency_model": [
       "direct-unit",
@@ -18626,6 +19296,14 @@
         "id": "aspiration-wants",
         "note": "Each Sim's aspiration (one of eight, such as Romance, Family, Knowledge, or Popularity) biases which wants and fears roll; fulfilled wants fill the aspiration meter, realized fears drain it, and an elder's remaining life depends on the meter.",
         "role": "core"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
+      },
+      {
+        "id": "utility-action-selection",
+        "role": "supporting"
       }
     ],
     "modding": "scripting",
@@ -18645,7 +19323,10 @@
     "player_role": "caretaker",
     "production_tier": "aaa",
     "provenance": {
-      "created": "2026-10-24-catalog-gc"
+      "created": "2026-10-24-catalog-gc",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "domestic-personal",
@@ -18667,23 +19348,24 @@
   },
   {
     "_derived": {
-      "cluster": "C04",
+      "cluster": "C01",
       "core_count": 3,
       "family_profile": {
-        "agents-behavior": 7,
+        "agents-behavior": 8,
         "narrative-generation": 1,
         "population-lineage": 2,
         "progression-goals": 1,
         "risk-failure": 1,
         "social-relations": 3,
-        "space-construction": 1
+        "space-construction": 1,
+        "time-pacing": 1
       },
       "incoming": {
         "influenced": [
           "the-sims-4"
         ]
       },
-      "mechanic_count": 16
+      "mechanic_count": 18
     },
     "agency_model": [
       "direct-unit",
@@ -18780,6 +19462,14 @@
         "id": "offscreen-life-progression",
         "note": "Story Progression keeps households the player is not controlling aging, working, forming relationships, and moving around the open neighborhood; it can be switched off in the options.",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
+      },
+      {
+        "id": "utility-action-selection",
+        "role": "supporting"
       }
     ],
     "modding": "scripting",
@@ -18798,7 +19488,10 @@
     "player_role": "caretaker",
     "production_tier": "aaa",
     "provenance": {
-      "created": "2026-10-24-catalog-gc"
+      "created": "2026-10-24-catalog-gc",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "domestic-personal",
@@ -18819,16 +19512,17 @@
   },
   {
     "_derived": {
-      "cluster": "C04",
+      "cluster": "C01",
       "core_count": 3,
       "family_profile": {
-        "agents-behavior": 8,
+        "agents-behavior": 9,
         "control-automation": 1,
         "multiplayer-persistence": 1,
         "population-lineage": 2,
         "progression-goals": 1,
         "social-relations": 3,
-        "space-construction": 1
+        "space-construction": 1,
+        "time-pacing": 1
       },
       "incoming": {
         "precedent_for": [
@@ -18836,7 +19530,7 @@
           "neural-npc-motion"
         ]
       },
-      "mechanic_count": 17
+      "mechanic_count": 19
     },
     "agency_model": [
       "direct-unit",
@@ -18938,6 +19632,14 @@
         "id": "offscreen-life-progression",
         "note": "Neighborhood Stories, added in a free update, advances unplayed households with events such as moves, relationships, and births, with settings that limit which households and event types it may touch.",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
+      },
+      {
+        "id": "utility-action-selection",
+        "role": "supporting"
       }
     ],
     "modding": "scripting",
@@ -18954,7 +19656,10 @@
     "player_role": "caretaker",
     "production_tier": "aaa",
     "provenance": {
-      "created": "2026-10-24-catalog-gc"
+      "created": "2026-10-24-catalog-gc",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "domestic-personal",
@@ -18975,10 +19680,10 @@
   },
   {
     "_derived": {
-      "cluster": "C03",
+      "cluster": "C01",
       "core_count": 4,
       "family_profile": {
-        "agents-behavior": 2,
+        "agents-behavior": 3,
         "biology-health": 1,
         "economy-finance": 3,
         "environment-ecology": 1,
@@ -18987,7 +19692,8 @@
         "progression-goals": 2,
         "risk-failure": 1,
         "social-relations": 1,
-        "space-construction": 1
+        "space-construction": 1,
+        "time-pacing": 1
       },
       "incoming": {
         "influenced": [
@@ -18995,7 +19701,7 @@
           "two-point-hospital"
         ]
       },
-      "mechanic_count": 14
+      "mechanic_count": 16
     },
     "agency_model": [
       "zoning-placement",
@@ -19082,6 +19788,14 @@
       {
         "id": "loans-debt",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
+      },
+      {
+        "id": "utility-action-selection",
+        "role": "supporting"
       }
     ],
     "modding": "content",
@@ -19099,7 +19813,10 @@
     "player_role": "manager-owner",
     "production_tier": "aa",
     "provenance": {
-      "created": "2026-10-24-catalog-ge"
+      "created": "2026-10-24-catalog-ge",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "medical",
@@ -19122,10 +19839,10 @@
   },
   {
     "_derived": {
-      "cluster": "C03",
+      "cluster": "C01",
       "core_count": 5,
       "family_profile": {
-        "agents-behavior": 2,
+        "agents-behavior": 3,
         "economy-finance": 5,
         "logistics-networks": 1,
         "progression-goals": 1,
@@ -19139,7 +19856,7 @@
           "transport-tycoon"
         ]
       },
-      "mechanic_count": 13
+      "mechanic_count": 14
     },
     "agency_model": [
       "zoning-placement",
@@ -19218,6 +19935,10 @@
         "id": "negotiation",
         "note": "On the full-simulation level, staff wage talks and supply negotiations are haggles; failed wage talks end in strikes and failed supply talks in lost shipments.",
         "role": "supporting"
+      },
+      {
+        "id": "utility-action-selection",
+        "role": "supporting"
       }
     ],
     "modding": "none",
@@ -19236,7 +19957,10 @@
     "player_role": "manager-owner",
     "production_tier": "aa",
     "provenance": {
-      "created": "2026-10-24-catalog-ge"
+      "created": "2026-10-24-catalog-ge",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "economic"
@@ -19258,7 +19982,7 @@
   },
   {
     "_derived": {
-      "cluster": "C11",
+      "cluster": "C14",
       "core_count": 4,
       "family_profile": {
         "agents-behavior": 3,
@@ -19390,7 +20114,7 @@
   },
   {
     "_derived": {
-      "cluster": "C07",
+      "cluster": "C10",
       "core_count": 2,
       "family_profile": {
         "agents-behavior": 1,
@@ -19399,16 +20123,15 @@
         "logistics-networks": 1,
         "population-lineage": 1,
         "resources-production": 3,
-        "space-construction": 2,
-        "time-pacing": 1
+        "space-construction": 3,
+        "time-pacing": 2
       },
       "incoming": {
         "precedent_for": [
-          "learned-weather-layer",
-          "weather-coupled-grids"
+          "learned-weather-layer"
         ]
       },
-      "mechanic_count": 11
+      "mechanic_count": 13
     },
     "agency_model": [
       "zoning-placement",
@@ -19477,6 +20200,14 @@
       {
         "id": "lifecycle-aging",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
+      },
+      {
+        "id": "free-placement",
+        "role": "supporting"
       }
     ],
     "modding": "content",
@@ -19492,7 +20223,10 @@
     "player_role": "planner-mayor",
     "production_tier": "indie",
     "provenance": {
-      "created": "2026-10-24-catalog-ga"
+      "created": "2026-10-24-catalog-ga",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "urban",
@@ -19516,7 +20250,7 @@
   },
   {
     "_derived": {
-      "cluster": "C03",
+      "cluster": "C16",
       "core_count": 1,
       "family_profile": {
         "space-construction": 3
@@ -19593,7 +20327,7 @@
   },
   {
     "_derived": {
-      "cluster": "C04",
+      "cluster": "C01",
       "core_count": 3,
       "family_profile": {
         "agents-behavior": 1,
@@ -19700,7 +20434,7 @@
   },
   {
     "_derived": {
-      "cluster": "C03",
+      "cluster": "C16",
       "core_count": 1,
       "family_profile": {
         "space-construction": 3
@@ -19785,7 +20519,7 @@
   },
   {
     "_derived": {
-      "cluster": "C01",
+      "cluster": "C02",
       "core_count": 3,
       "family_profile": {
         "economy-finance": 5,
@@ -19794,14 +20528,15 @@
         "resources-production": 2,
         "risk-failure": 1,
         "social-relations": 1,
-        "space-construction": 3
+        "space-construction": 3,
+        "time-pacing": 1
       },
       "incoming": {
         "influenced": [
           "rollercoaster-tycoon"
         ]
       },
-      "mechanic_count": 17
+      "mechanic_count": 18
     },
     "agency_model": [
       "zoning-placement",
@@ -19907,6 +20642,10 @@
         "id": "track-laying",
         "note": "Rail track, including slopes, bridges, and tunnels, is laid piece by piece on the isometric tile map, with costs for terrain changes and demolition.",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
       }
     ],
     "modding": "content",
@@ -19925,7 +20664,10 @@
     "player_role": "manager-owner",
     "production_tier": "indie",
     "provenance": {
-      "created": "2026-10-24-catalog-ge"
+      "created": "2026-10-24-catalog-ge",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "industrial-logistics",
@@ -19948,7 +20690,7 @@
   },
   {
     "_derived": {
-      "cluster": "C01",
+      "cluster": "C04",
       "core_count": 3,
       "family_profile": {
         "economy-finance": 2,
@@ -19956,9 +20698,10 @@
         "population-lineage": 1,
         "resources-production": 1,
         "social-relations": 1,
-        "space-construction": 1
+        "space-construction": 1,
+        "time-pacing": 1
       },
-      "mechanic_count": 11
+      "mechanic_count": 12
     },
     "agency_model": [
       "zoning-placement",
@@ -20026,6 +20769,10 @@
         "id": "faction-diplomacy",
         "note": "Relations with foreign powers affect trade and aid.",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
       }
     ],
     "modding": "none",
@@ -20045,7 +20792,10 @@
     "player_role": "ruler-statesman",
     "production_tier": "aa",
     "provenance": {
-      "created": "2026-10-24-catalog-ga"
+      "created": "2026-10-24-catalog-ga",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "urban",
@@ -20069,10 +20819,10 @@
   },
   {
     "_derived": {
-      "cluster": "C03",
+      "cluster": "C01",
       "core_count": 4,
       "family_profile": {
-        "agents-behavior": 3,
+        "agents-behavior": 4,
         "biology-health": 1,
         "economy-finance": 2,
         "environment-ecology": 1,
@@ -20080,9 +20830,10 @@
         "multiplayer-persistence": 1,
         "progression-goals": 3,
         "risk-failure": 1,
-        "space-construction": 2
+        "space-construction": 2,
+        "time-pacing": 1
       },
-      "mechanic_count": 15
+      "mechanic_count": 17
     },
     "agency_model": [
       "zoning-placement",
@@ -20176,6 +20927,14 @@
         "id": "advertising-awareness",
         "note": "Assistants in the marketing room run paid campaigns that draw more patients, optionally targeted at specific illnesses.",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
+      },
+      {
+        "id": "utility-action-selection",
+        "role": "supporting"
       }
     ],
     "modding": "content",
@@ -20196,7 +20955,10 @@
     "player_role": "manager-owner",
     "production_tier": "aa",
     "provenance": {
-      "created": "2026-10-24-catalog-ge"
+      "created": "2026-10-24-catalog-ge",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "medical",
@@ -20219,7 +20981,7 @@
   },
   {
     "_derived": {
-      "cluster": "C08",
+      "cluster": "C06",
       "core_count": 3,
       "family_profile": {
         "agents-behavior": 1,
@@ -20341,7 +21103,7 @@
   },
   {
     "_derived": {
-      "cluster": "C07",
+      "cluster": "C11",
       "core_count": 2,
       "family_profile": {
         "environment-ecology": 1,
@@ -20446,7 +21208,7 @@
   },
   {
     "_derived": {
-      "cluster": "C01",
+      "cluster": "C04",
       "core_count": 3,
       "family_profile": {
         "control-automation": 1,
@@ -20703,7 +21465,7 @@
   },
   {
     "_derived": {
-      "cluster": "C04",
+      "cluster": "C01",
       "core_count": 2,
       "family_profile": {
         "agents-behavior": 3,
@@ -20790,7 +21552,7 @@
   },
   {
     "_derived": {
-      "cluster": "C01",
+      "cluster": "C04",
       "core_count": 4,
       "family_profile": {
         "conflict-defense": 2,
@@ -20800,7 +21562,8 @@
         "population-lineage": 3,
         "progression-goals": 1,
         "resources-production": 2,
-        "social-relations": 1
+        "social-relations": 1,
+        "time-pacing": 1
       },
       "incoming": {
         "precedent_for": [
@@ -20809,7 +21572,7 @@
           "natural-language-legislation"
         ]
       },
-      "mechanic_count": 18
+      "mechanic_count": 19
     },
     "agency_model": [
       "policy-parameter",
@@ -20915,6 +21678,10 @@
         "id": "war-score-peace",
         "note": "Each side's war support falls with exhaustion until one capitulates or the sides settle on the demands from the diplomatic play.",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
       }
     ],
     "modding": "scripting",
@@ -20931,7 +21698,10 @@
     "player_role": "ruler-statesman",
     "production_tier": "aa",
     "provenance": {
-      "created": "2026-10-24-catalog-gi"
+      "created": "2026-10-24-catalog-gi",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "economic",
@@ -20960,7 +21730,7 @@
   },
   {
     "_derived": {
-      "cluster": "C07",
+      "cluster": "C05",
       "core_count": 4,
       "family_profile": {
         "biology-health": 1,
@@ -21068,7 +21838,7 @@
   },
   {
     "_derived": {
-      "cluster": "C09",
+      "cluster": "C08",
       "core_count": 2,
       "family_profile": {
         "control-automation": 1,
@@ -21166,7 +21936,7 @@
   },
   {
     "_derived": {
-      "cluster": "C09",
+      "cluster": "C08",
       "core_count": 2,
       "family_profile": {
         "narrative-generation": 2,
@@ -21258,7 +22028,7 @@
   },
   {
     "_derived": {
-      "cluster": "C01",
+      "cluster": "C02",
       "core_count": 3,
       "family_profile": {
         "economy-finance": 2,
@@ -21266,14 +22036,16 @@
         "governance-policy": 1,
         "logistics-networks": 5,
         "population-lineage": 1,
-        "resources-production": 3
+        "resources-production": 3,
+        "space-construction": 1,
+        "time-pacing": 1
       },
       "incoming": {
         "precedent_for": [
           "living-workforce-factories"
         ]
       },
-      "mechanic_count": 13
+      "mechanic_count": 15
     },
     "agency_model": [
       "zoning-placement",
@@ -21355,6 +22127,14 @@
       {
         "id": "storage-capacity",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
+      },
+      {
+        "id": "free-placement",
+        "role": "supporting"
       }
     ],
     "modding": "content",
@@ -21370,7 +22150,10 @@
     "player_role": "planner-mayor",
     "production_tier": "indie",
     "provenance": {
-      "created": "2026-10-24-catalog-ga"
+      "created": "2026-10-24-catalog-ga",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "urban",
@@ -21396,7 +22179,7 @@
   },
   {
     "_derived": {
-      "cluster": "C06",
+      "cluster": "C03",
       "core_count": 1,
       "family_profile": {
         "control-automation": 1,
@@ -21404,14 +22187,15 @@
         "multiplayer-persistence": 1,
         "operation-procedure": 1,
         "physics-materials": 1,
-        "space-construction": 1
+        "space-construction": 1,
+        "time-pacing": 1
       },
       "incoming": {
         "precedent_for": [
           "sim-instructor-coach"
         ]
       },
-      "mechanic_count": 7
+      "mechanic_count": 8
     },
     "agency_model": [
       "direct-avatar",
@@ -21458,6 +22242,10 @@
       {
         "id": "day-night-cycle",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
       }
     ],
     "modding": "scripting",
@@ -21474,7 +22262,10 @@
     "player_role": "operator-pilot",
     "production_tier": "indie",
     "provenance": {
-      "created": "2026-10-24-catalog-gf"
+      "created": "2026-10-24-catalog-gf",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "physical-mechanical",
@@ -21613,7 +22404,7 @@
   },
   {
     "_derived": {
-      "cluster": "C03",
+      "cluster": "C01",
       "core_count": 3,
       "family_profile": {
         "agents-behavior": 2,
@@ -21622,14 +22413,15 @@
         "population-lineage": 1,
         "progression-goals": 2,
         "risk-failure": 1,
-        "space-construction": 2
+        "space-construction": 2,
+        "time-pacing": 1
       },
       "incoming": {
         "influenced": [
           "planet-zoo"
         ]
       },
-      "mechanic_count": 10
+      "mechanic_count": 11
     },
     "agency_model": [
       "zoning-placement",
@@ -21694,6 +22486,10 @@
         "id": "decoration-beauty",
         "note": "Scenery such as topiary, lamp posts, and benches gives a small guest happiness boost.",
         "role": "supporting"
+      },
+      {
+        "id": "variable-speed",
+        "role": "supporting"
       }
     ],
     "modding": "content",
@@ -21710,7 +22506,10 @@
     "player_role": "manager-owner",
     "production_tier": "aa",
     "provenance": {
-      "created": "2026-10-24-catalog-ge"
+      "created": "2026-10-24-catalog-ge",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sim_domain": [
       "biological-ecological",

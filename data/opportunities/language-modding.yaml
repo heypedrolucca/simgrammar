@@ -39,12 +39,15 @@ validation_experiment: 'Collect 100 mod requests from a modding community, gener
   API, and measure the share that compile, pass a headless scenario, and are judged by the requester to
   do what they asked. Success: at least 60 percent fully accepted.'
 falsifiable_signal:
-  prediction: A popular moddable simulation game will ship or officially endorse a natural-language mod
-    creation tool.
+  prediction: The developer of a moddable simulation game will ship or officially endorse a tool that
+    builds working mods from natural-language descriptions.
   resolve_by: '2028-06-30'
-  criteria: Official tool or partnership announced by the developer of a simulation game with an active
-    modding scene.
+  criteria: Shipped or announced after 2026-10-24 by the developer of a simulation game with at least
+    10,000 Steam user reviews and an official modding API; the tool outputs mod code or data from text
+    descriptions.
 sources: []
 status: asserted
 provenance:
   created: 2026-10-24-synthesis
+  reviewed:
+  - 2026-10-24-review-fixes

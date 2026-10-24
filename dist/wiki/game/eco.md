@@ -27,7 +27,7 @@ A multiplayer civilization survival game in which players on one server share a 
 | agent count order | ~1,000 |
 | emergence | 3 |
 | influence | 2 |
-| cluster *(computed)* | C01 |
+| cluster *(computed)* | C06 |
 | core count *(computed)* | 4 |
 | mechanic count *(computed)* | 14 |
 

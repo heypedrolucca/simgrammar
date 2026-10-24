@@ -28,9 +28,9 @@ The successor to Microsoft Flight Simulator (2020) that adds a career mode of ce
 | emergence | 2 |
 | influence | 1 |
 | influenced by | [Microsoft Flight Simulator (2020)](../game/microsoft-flight-simulator-2020.md) |
-| cluster *(computed)* | C06 |
+| cluster *(computed)* | C03 |
 | core count *(computed)* | 3 |
-| mechanic count *(computed)* | 11 |
+| mechanic count *(computed)* | 12 |
 
 ## Summary
 
@@ -63,6 +63,7 @@ Career mode turns the 2020 sandbox into a progression game: aerial firefighting,
 - [Day-night cycle](../mechanic/day-night-cycle.md) (supporting)
 - [Modding API](../mechanic/modding-api.md) (supporting)
 - [Real-world data feeds](../mechanic/real-world-data-feeds.md) (supporting): The streamed whole-Earth world of the 2020 game continues, and the launch showed the dependence when an overwhelmed database cache caused long loads and missing content.
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
 
 ## Backlinks (computed)
 
@@ -75,4 +76,4 @@ Career mode turns the 2020 sandbox into a progression game: aerial firefighting,
 - [Microsoft Flight Simulator 2024](../source/src-wikipedia-microsoft-flight-simulator-2024.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-gf`.
+Provenance: created in run `2026-10-24-catalog-gf`; reviewed in `2026-10-24-review-fixes`.

@@ -26,9 +26,9 @@ A zoo management game in which the player builds exhibits whose terrain, foliage
 | agent count order | ~100 |
 | emergence | 2 |
 | influence | 3 |
-| cluster *(computed)* | C03 |
+| cluster *(computed)* | C01 |
 | core count *(computed)* | 3 |
-| mechanic count *(computed)* | 10 |
+| mechanic count *(computed)* | 11 |
 
 ## Summary
 
@@ -56,6 +56,7 @@ Zoo Tycoon's core rule is exhibit suitability: each species reports how well its
 - [Scenario objectives](../mechanic/scenario-objectives.md) (supporting): Scenarios set targets such as a guest happiness level, exhibit suitability, animal count, or breeding a species.
 - [Lifecycle and aging](../mechanic/lifecycle-aging.md) (supporting): Animals breed when content; babies grow into adults.
 - [Decoration and beauty](../mechanic/decoration-beauty.md) (supporting): Scenery such as topiary, lamp posts, and benches gives a small guest happiness boost.
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
 
 ## Backlinks (computed)
 
@@ -66,4 +67,4 @@ Zoo Tycoon's core rule is exhibit suitability: each species reports how well its
 - [Zoo Tycoon (2001 video game)](../source/src-wikipedia-zoo-tycoon.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-ge`.
+Provenance: created in run `2026-10-24-catalog-ge`; reviewed in `2026-10-24-review-fixes`.

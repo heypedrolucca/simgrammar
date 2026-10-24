@@ -18,7 +18,7 @@ World generation simulates years to centuries of civilizations, figures, and eve
 | compute cost | 4 |
 | tuning difficulty | 4 |
 | ai leverage | 4 |
-| maturity | Emerging |
+| maturity | Established |
 | core count *(computed)* | 2 |
 | earliest game *(computed)* | [Dwarf Fortress](../game/dwarf-fortress.md) |
 | earliest year *(computed)* | 2006 |
@@ -81,4 +81,4 @@ The world feels older than the player. Ruins, feuds, and legendary artifacts hav
 - [Legends](../source/src-dfwiki-2026-legends.md)
 
 ---
-Provenance: created in run `2026-10-24-taxonomy-m7`.
+Provenance: created in run `2026-10-24-taxonomy-m7`; reviewed in `2026-10-24-review-fixes`.

@@ -18,7 +18,7 @@ The player communicates with characters by free text or voice, and the system in
 | compute cost | 4 |
 | tuning difficulty | 4 |
 | ai leverage | 5 |
-| maturity | Emerging |
+| maturity | Established |
 | core count *(computed)* | 6 |
 | earliest game *(computed)* | [Little Computer People](../game/little-computer-people.md) |
 | earliest year *(computed)* | 1985 |
@@ -83,4 +83,4 @@ The player says what they mean instead of picking from a menu, which raises both
 - [AI Dungeon](../source/src-wikipedia-ai-dungeon.md)
 
 ---
-Provenance: created in run `2026-10-24-taxonomy-m3`.
+Provenance: created in run `2026-10-24-taxonomy-m3`; reviewed in `2026-10-24-review-fixes`.

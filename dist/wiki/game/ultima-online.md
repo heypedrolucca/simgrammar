@@ -28,7 +28,7 @@ A persistent fantasy MMO in which players progress through skills without classe
 | agent count order | ~1,000 |
 | emergence | 4 |
 | influence | 4 |
-| cluster *(computed)* | C08 |
+| cluster *(computed)* | C06 |
 | core count *(computed)* | 3 |
 | mechanic count *(computed)* | 10 |
 

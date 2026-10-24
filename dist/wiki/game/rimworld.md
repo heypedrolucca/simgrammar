@@ -30,9 +30,9 @@ A colony sim where a few named colonists with needs, traits, injuries, and relat
 | influence | 4 |
 | core loop | designate work -> colonists self-assign by priority -> needs and moods shift -> storyteller injects events -> colony adapts or collapses |
 | influenced by | [Dwarf Fortress](../game/dwarf-fortress.md) |
-| cluster *(computed)* | C04 |
+| cluster *(computed)* | C01 |
 | core count *(computed)* | 7 |
-| mechanic count *(computed)* | 21 |
+| mechanic count *(computed)* | 24 |
 
 ## Design Notes
 
@@ -67,6 +67,9 @@ Tynan Sylvester describes RimWorld as a story generator. Its systems are chosen 
 - [Permadeath](../mechanic/permadeath.md) (supporting)
 - [Pause and speed control](../mechanic/variable-speed.md) (supporting)
 - [Autonomy levels](../mechanic/autonomy-levels.md) (supporting): Drafting switches a colonist from self-assigned work to direct player control for combat or emergencies.
+- [Utility action selection](../mechanic/utility-action-selection.md) (supporting)
+- [Fire spread](../mechanic/fire-spread.md) (supporting)
+- [Storage and buffers](../mechanic/storage-capacity.md) (supporting)
 
 ## Backlinks (computed)
 
@@ -79,4 +82,4 @@ Tynan Sylvester describes RimWorld as a story generator. Its systems are chosen 
 - [RimWorld](../source/src-wikipedia-rimworld.md)
 
 ---
-Provenance: created in run `2026-10-23-bootstrap`.
+Provenance: created in run `2026-10-23-bootstrap`; reviewed in `2026-10-24-review-fixes`.

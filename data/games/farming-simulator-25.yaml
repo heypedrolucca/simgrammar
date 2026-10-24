@@ -87,9 +87,13 @@ mechanics:
 - id: modding-api
   role: supporting
   note: ModHub distributes developer-tested community mods that add vehicles, maps, and scripts.
+- id: variable-speed
+  role: supporting
 sources:
 - src-steam-2024-farming-simulator-25
 - src-wikipedia-farming-simulator
 status: sourced
 provenance:
   created: 2026-10-24-catalog-gc
+  reviewed:
+  - 2026-10-24-review-fixes

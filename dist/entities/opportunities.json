@@ -10,8 +10,8 @@
     ],
     "design_sketch": "The player appoints an envoy with a mandate (export grain, import steel, never sell land). Envoys meet other envoys in a shared hub, negotiate deals constrained by mandates, and report back with transcripts and outcomes the player can ratify.",
     "falsifiable_signal": {
-      "criteria": "Store page or documentation describing autonomous AI envoys acting between players.",
-      "prediction": "A released game will let players' AI representatives trade or negotiate with other players' worlds asynchronously.",
+      "criteria": "Feature first shipped after 2026-10-24 in a title with at least 1,000 Steam user reviews or a console release; developer material (store page, patch notes, documentation, or talk) states that an AI agent acts for an absent player in trades or negotiations with other players.",
+      "prediction": "A game will let each player's AI representative trade or negotiate with other players' worlds while those players are offline.",
       "resolve_by": "2029-06-30"
     },
     "feasibility": 3,
@@ -40,7 +40,10 @@
       "offworld-trading-company"
     ],
     "provenance": {
-      "created": "2026-10-24-synthesis"
+      "created": "2026-10-24-synthesis",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [],
     "status": "asserted",
@@ -60,8 +63,8 @@
     ],
     "design_sketch": "Each market has a population of agent traders with budgets, risk profiles, and information limits matching human traders, operating under the same order-book rules. Their share of volume is capped and published. Designers tune agent populations to target liquidity and volatility bands.",
     "falsifiable_signal": {
-      "criteria": "Developer announcement or documentation of AI traders in a player-driven market.",
-      "prediction": "A persistent online game will announce AI market participants calibrated to player behavior.",
+      "criteria": "Announced or shipped after 2026-10-24 in a persistent online game with a player-driven market; developer material states that AI market participants were trained or calibrated on player trade data. NPC vendors with fixed prices do not count.",
+      "prediction": "A persistent online game will add AI traders to its player-driven market, with their behavior fitted to observed player trading.",
       "resolve_by": "2029-06-30"
     },
     "feasibility": 3,
@@ -89,7 +92,10 @@
       "mule"
     ],
     "provenance": {
-      "created": "2026-10-24-synthesis"
+      "created": "2026-10-24-synthesis",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [],
     "status": "asserted",
@@ -109,8 +115,8 @@
     ],
     "design_sketch": "A bottleneck lens colors every producer by how much one more unit of it would raise the selected output, and a sentence explains the top constraint ('circuits are limited by copper cable, which is starved because the smelter column shares a belt with iron'). Clicking jumps to the machine.",
     "falsifiable_signal": {
-      "criteria": "Shipped feature described in patch notes or developer blog of a released title or official mod tool.",
-      "prediction": "A factory or city-building game will ship a feature that identifies the binding constraint in the player's production network by simulation sensitivity rather than static ratio display.",
+      "criteria": "Feature first shipped after 2026-10-24 in a released title or official mod tool with at least 1,000 Steam user reviews; patch notes or a developer blog state that it perturbs or re-runs the player's network to identify the limiting resource, machine, or link.",
+      "prediction": "A factory or city-building game will ship a feature that names the binding constraint in the player's production network by testing the simulation, not by displaying static ratios.",
       "resolve_by": "2028-06-30"
     },
     "feasibility": 5,
@@ -139,7 +145,10 @@
       "oxygen-not-included"
     ],
     "provenance": {
-      "created": "2026-10-24-synthesis"
+      "created": "2026-10-24-synthesis",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [],
     "status": "asserted",
@@ -159,8 +168,8 @@
     ],
     "design_sketch": "Before enacting a policy the player opens Preview: the game forks 32 to 256 copies from the current tick with stochastic seeds, fast-forwards each one in-game year on spare cores (or a learned surrogate), and shows fan charts for key indicators plus the two most divergent futures as short replays. Preview costs an in-game resource so it remains a decision.",
     "falsifiable_signal": {
-      "criteria": "Store page, patch notes, or developer talk describing multi-run forward simulation of the live game state shown to players.",
-      "prediction": "At least one commercial city builder, colony sim, or grand strategy game will ship a feature that simulates multiple stochastic futures of the player's current state before a decision.",
+      "criteria": "Feature first shipped after 2026-10-24 in a title with at least 1,000 Steam user reviews; store page, patch notes, or a developer talk describes multiple forward runs from the live save state, shown to the player. A single deterministic projection does not count.",
+      "prediction": "A city builder, colony sim, or grand strategy game will show players several simulated stochastic futures of their current game state before a decision.",
       "resolve_by": "2028-06-30"
     },
     "feasibility": 4,
@@ -188,7 +197,10 @@
       "surviving-mars"
     ],
     "provenance": {
-      "created": "2026-10-24-synthesis"
+      "created": "2026-10-24-synthesis",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [],
     "status": "asserted",
@@ -208,8 +220,8 @@
     ],
     "design_sketch": "A contagion sim offers a 'calibrated scenario' mode where parameters come from posterior distributions fitted to historical outbreaks. Outcomes show credible intervals; a fit report explains what data the model matches and where it is unreliable.",
     "falsifiable_signal": {
-      "criteria": "Release notes or paper accompanying a playable simulation that reports calibration method and fit.",
-      "prediction": "A serious-game or educational simulation will publish posterior-calibrated parameters with fit metrics as part of its release.",
+      "criteria": "Released after 2026-10-24; release notes, documentation, or an accompanying paper report the calibration method (Bayesian or simulation-based inference), the data it was fitted to, and at least one goodness-of-fit metric.",
+      "prediction": "A playable serious-game or educational simulation will publish posterior-calibrated parameters with fit metrics as part of its release.",
       "resolve_by": "2028-12-31"
     },
     "feasibility": 4,
@@ -238,7 +250,10 @@
       "capitalism"
     ],
     "provenance": {
-      "created": "2026-10-24-synthesis"
+      "created": "2026-10-24-synthesis",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [],
     "status": "asserted",
@@ -257,8 +272,8 @@
     ],
     "design_sketch": "A query box and a right-click 'why?' on any entity. The answer is three to six sentences, each linked to log events the player can jump to on the timeline, plus a small causal graph. Answers that cannot be grounded say so. Advisors use the same pipeline proactively when a key indicator crosses a threshold.",
     "falsifiable_signal": {
-      "criteria": "Official release notes or store page describing a player-facing feature that answers causal questions about the player's own game state in natural language.",
-      "prediction": "A simulation or strategy title in Steam's top 100 by concurrent players will ship a natural-language why-query grounded in game state.",
+      "criteria": "Feature first shipped after 2026-10-24 in a title with at least 10,000 Steam user reviews; release notes or the store page describe free-text causal questions answered from the player's own save state, not from a wiki or general help text.",
+      "prediction": "A widely played simulation or strategy game will let players ask in natural language why something happened in their own game and answer from game state.",
       "resolve_by": "2027-12-31"
     },
     "feasibility": 4,
@@ -288,7 +303,10 @@
       "cities-skylines-2"
     ],
     "provenance": {
-      "created": "2026-10-24-synthesis"
+      "created": "2026-10-24-synthesis",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [],
     "status": "asserted",
@@ -308,8 +326,8 @@
     ],
     "design_sketch": "Designers write 200 event templates with preconditions, effects, and tone notes. At build time or runtime, a generator instantiates variants that reference specific characters, places, and history from the save, emits schema-valid events, and passes them through a validator that rejects anything whose effects violate invariants. Generated events are tagged so players can filter them.",
     "falsifiable_signal": {
-      "criteria": "Steam AI disclosure or developer documentation describing runtime-generated events in a released title.",
-      "prediction": "A grand strategy, life sim, or narrative management game will ship runtime-generated events constrained by an event schema, disclosed on its Steam page.",
+      "criteria": "Feature first shipped after 2026-10-24 in a title with at least 1,000 Steam user reviews; the Steam AI disclosure or developer documentation states that events are generated during play and must conform to a fixed structure of triggers, options, and effects.",
+      "prediction": "A grand strategy, life sim, or narrative management game will ship runtime-generated events constrained by an event schema.",
       "resolve_by": "2027-12-31"
     },
     "feasibility": 4,
@@ -339,7 +357,10 @@
       "frostpunk"
     ],
     "provenance": {
-      "created": "2026-10-24-synthesis"
+      "created": "2026-10-24-synthesis",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [],
     "status": "asserted",
@@ -358,8 +379,8 @@
     ],
     "design_sketch": "Each candidate incident from the authored deck is scored on threat budget plus a narrative score: which characters it involves, whether it resolves or escalates an open thread, and whether it pays off a setup. The chosen incident is logged with the narrative reason, readable in the chronicle.",
     "falsifiable_signal": {
-      "criteria": "Developer documentation describing model-based narrative scoring in event selection.",
-      "prediction": "A colony sim or survival management game will ship an event director that uses a language model to evaluate narrative state when choosing authored events.",
+      "criteria": "Feature first shipped after 2026-10-24 in a title with at least 1,000 Steam user reviews; developer documentation, patch notes, or a technical talk states that a language model scores or ranks candidate authored events against the current game state at runtime. Generated event text alone does not count.",
+      "prediction": "A colony sim or survival management game will ship an event director that uses a language model to rank authored events against the current story state.",
       "resolve_by": "2028-06-30"
     },
     "feasibility": 4,
@@ -388,7 +409,10 @@
       "this-war-of-mine"
     ],
     "provenance": {
-      "created": "2026-10-24-synthesis"
+      "created": "2026-10-24-synthesis",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [],
     "status": "asserted",
@@ -408,8 +432,8 @@
     ],
     "design_sketch": "Clicking a memory in a colonist's inspector plays a few seconds of generated footage conditioned on the logged event and the colonist's mood. Rumors render with distortions proportional to how many retellings they passed through. Ruins found in worldgen offer a short generated vision of their past from history-generation records.",
     "falsifiable_signal": {
-      "criteria": "Store page, trailer, or patch notes describing generated memory or history visualizations.",
-      "prediction": "A shipped game will use a generative video or world model to show character memories or in-world histories.",
+      "criteria": "Feature first shipped after 2026-10-24 in a title with at least 1,000 Steam user reviews or a console release; store page, trailer, or patch notes describe generated visuals of past in-game events specific to the player's run. Pre-rendered cutscenes do not count.",
+      "prediction": "A game will use a generative video or world model to show character memories or in-world histories drawn from the simulation's own event log.",
       "resolve_by": "2028-12-31"
     },
     "feasibility": 3,
@@ -437,7 +461,10 @@
       "kenshi"
     ],
     "provenance": {
-      "created": "2026-10-24-synthesis"
+      "created": "2026-10-24-synthesis",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [],
     "status": "asserted",
@@ -457,8 +484,8 @@
     ],
     "design_sketch": "Developers use a runtime where every state change, including those decided by a model, is an event with inputs, outputs, and causes. Replays and multiplayer clients consume logged outputs instead of re-calling models. Tools offer fork-from-here, diff-between-branches, and cause tracing.",
     "falsifiable_signal": {
-      "criteria": "Public release from Unity, Epic, a major middleware vendor, or an open-source project with documented adoption in a shipped game.",
-      "prediction": "A game engine or middleware vendor will ship an event-log-based replay and determinism layer designed for generative AI components.",
+      "criteria": "Released after 2026-10-24 by any engine or middleware vendor or as an open-source project; documentation describes recording model outputs into a replayable log, and at least one shipped title with at least 1,000 Steam user reviews uses it.",
+      "prediction": "An engine, middleware vendor, or open-source project will ship an event-log replay and determinism layer designed for games with generative AI components.",
       "resolve_by": "2028-12-31"
     },
     "feasibility": 4,
@@ -486,7 +513,10 @@
       "eve-online"
     ],
     "provenance": {
-      "created": "2026-10-24-synthesis"
+      "created": "2026-10-24-synthesis",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [],
     "status": "asserted",
@@ -506,8 +536,8 @@
     ],
     "design_sketch": "Hand a region, department, or supply chain to a manager. It proposes actions with reasons referencing indicators and the player's past choices; the player can approve, veto, or adjust standing preferences. A weekly report summarizes what changed.",
     "falsifiable_signal": {
-      "criteria": "Developer documentation describing per-player preference learning for delegated subsystems.",
-      "prediction": "A grand strategy or management game will ship AI managers that learn from the individual player's past decisions.",
+      "criteria": "Feature first shipped after 2026-10-24 in a title with at least 1,000 Steam user reviews; developer documentation states that delegated subsystems adapt to the specific player's recorded choices. Fixed presets or global difficulty settings do not count.",
+      "prediction": "A grand strategy or management game will ship AI managers that learn delegation policy from the individual player's own past decisions.",
       "resolve_by": "2028-12-31"
     },
     "feasibility": 4,
@@ -536,7 +566,10 @@
       "victoria-3"
     ],
     "provenance": {
-      "created": "2026-10-24-synthesis"
+      "created": "2026-10-24-synthesis",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [],
     "status": "asserted",
@@ -556,8 +589,8 @@
     ],
     "design_sketch": "Each day introduces rule changes written as formal predicates and rendered as in-world memos. Applicants, documents, and stories are generated to exercise boundary cases of the current rules. The game knows the correct ruling for every case and scores accordingly.",
     "falsifiable_signal": {
-      "criteria": "Store page or developer statement describing generated cases scored against formal rules.",
-      "prediction": "A released inspection or bureaucracy job sim will use runtime generation of documents or applicants with a rule-derived answer key.",
+      "criteria": "Released after 2026-10-24 with at least 1,000 Steam user reviews; store page or developer statement describes runtime-generated cases whose correct outcome is computed from the game's rules, not authored per case.",
+      "prediction": "An inspection or bureaucracy job sim will generate documents or applicants at runtime and score the player against an answer key derived from formal rules.",
       "resolve_by": "2027-12-31"
     },
     "feasibility": 5,
@@ -582,7 +615,10 @@
       "contraband-police"
     ],
     "provenance": {
-      "created": "2026-10-24-synthesis"
+      "created": "2026-10-24-synthesis",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [],
     "status": "asserted",
@@ -603,8 +639,8 @@
     ],
     "design_sketch": "Designers set a theme, resource set, and target depth; the tool proposes recipe graphs with cycle times and alternates, simulates optimal and novice factories, and returns an archive ranked by depth, branching, and degeneracy checks. Designers edit and lock items they like.",
     "falsifiable_signal": {
-      "criteria": "Developer or mod author statement crediting algorithmic or model-based generation of the shipped recipe graph.",
-      "prediction": "A factory or crafting game or major overhaul mod will credit a generative tool for its recipe graph or tech tree.",
+      "criteria": "Released after 2026-10-24; a game with at least 1,000 Steam user reviews, or a mod with at least 10,000 downloads on its official mod portal; the developer or mod author states that the shipped recipe graph was produced or substantially shaped by a generative tool.",
+      "prediction": "A factory or crafting game or overhaul mod will credit algorithmic or model-based generation for its recipe graph or tech tree.",
       "resolve_by": "2028-12-31"
     },
     "feasibility": 4,
@@ -631,7 +667,10 @@
       "minecraft"
     ],
     "provenance": {
-      "created": "2026-10-24-synthesis"
+      "created": "2026-10-24-synthesis",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [],
     "status": "asserted",
@@ -651,8 +690,8 @@
     ],
     "design_sketch": "A generate button in build mode takes a prompt or sketch, produces three candidates in the game's style, auto-fits collision and placement metadata, and assigns gameplay tags (seating, light, beauty value) from a classifier. Players share pieces with provenance labels.",
     "falsifiable_signal": {
-      "criteria": "Shipped feature in a title from EA/Maxis, Frontier, Krafton, Paradox, or a peer studio.",
-      "prediction": "A major life or management sim will ship player-facing generation of placeable 3D objects.",
+      "criteria": "Feature first shipped after 2026-10-24 in a life or management sim other than inZOI with at least 5,000 Steam user reviews or a console release; store page or patch notes describe player-facing text-to-3D or image-to-3D object generation inside the game.",
+      "prediction": "A life or management sim other than inZOI will let players generate new placeable 3D objects from text or images.",
       "resolve_by": "2027-12-31"
     },
     "feasibility": 4,
@@ -681,7 +720,10 @@
       "tiny-glade"
     ],
     "provenance": {
-      "created": "2026-10-24-synthesis"
+      "created": "2026-10-24-synthesis",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [],
     "status": "asserted",
@@ -700,8 +742,8 @@
     ],
     "design_sketch": "Guest archetypes are generated offline from a human-behavior model conditioned on demographics; each archetype yields compact preference parameters the runtime uses. Players see segment-level reasoning ('families find this ride too intense for the price'). A sandbox mode lets designers test offerings against segments.",
     "falsifiable_signal": {
-      "criteria": "Developer blog, talk, or store text attributing in-game demand or preference parameters to a behavioral or language model.",
-      "prediction": "A commercial management or tycoon game will state that its customer or citizen preferences were derived from a learned model of human behavior.",
+      "criteria": "Released or patched after 2026-10-24 in a title with at least 1,000 Steam user reviews; developer blog, talk, or store text attributes in-game demand or preference parameters to a behavioral, survey-fitted, or language model.",
+      "prediction": "A management or tycoon game will state that its customer or citizen preferences come from a model of human behavior learned from data.",
       "resolve_by": "2028-12-31"
     },
     "feasibility": 3,
@@ -729,7 +771,10 @@
       "big-ambitions"
     ],
     "provenance": {
-      "created": "2026-10-24-synthesis"
+      "created": "2026-10-24-synthesis",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [],
     "status": "asserted",
@@ -749,8 +794,8 @@
     ],
     "design_sketch": "At the end of each in-game year, the chronicle drafts a chapter: key events, characters, turning points, written in a selectable voice and illustrated with generated images grounded in the logged entities. Every sentence links to its source events. Players edit and publish chronicles to a shared library.",
     "falsifiable_signal": {
-      "criteria": "Shipped feature in a released title or official expansion, described in patch notes or store text.",
-      "prediction": "A systemic simulation game will ship an automatic, player-shareable narrative summary of a run's history.",
+      "criteria": "Feature first shipped after 2026-10-24 in a released title or official expansion with at least 1,000 Steam user reviews; patch notes or store text describe an automatically written run history the player can export or share.",
+      "prediction": "A systemic simulation game will ship an automatic, shareable narrative summary of a run's history generated from its event log.",
       "resolve_by": "2027-12-31"
     },
     "feasibility": 5,
@@ -778,7 +823,10 @@
       "kenshi"
     ],
     "provenance": {
-      "created": "2026-10-24-synthesis"
+      "created": "2026-10-24-synthesis",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [],
     "status": "asserted",
@@ -798,8 +846,8 @@
     ],
     "design_sketch": "An orders panel accepts sentences; each becomes a standing rule shown as a card with the exact priority changes, conditions, and expiry it compiled into. Rules can be edited in the classic UI. Conflicts between rules are flagged with an explanation.",
     "falsifiable_signal": {
-      "criteria": "Patch notes, store page, or developer statement describing the feature in a shipped title or official expansion.",
-      "prediction": "A released colony or management sim will let players issue standing natural-language orders that compile into its job and priority systems.",
+      "criteria": "Feature first shipped after 2026-10-24 in a title or official expansion with at least 1,000 Steam user reviews; patch notes, store page, or developer statement describe free-text standing orders translated into the game's existing work or priority settings.",
+      "prediction": "A colony or management sim will let players issue standing natural-language orders that compile into its job and priority systems.",
       "resolve_by": "2028-06-30"
     },
     "feasibility": 4,
@@ -829,7 +877,10 @@
       "prison-architect"
     ],
     "provenance": {
-      "created": "2026-10-24-synthesis"
+      "created": "2026-10-24-synthesis",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [],
     "status": "asserted",
@@ -850,8 +901,8 @@
     ],
     "design_sketch": "An in-game mod workshop: the player describes the change, the system proposes a diff to data and scripts, runs a headless test scenario with agents to check for crashes and the intended effect, and shows before and after metrics. The player names and shares the mod; the description, code, and test results travel together.",
     "falsifiable_signal": {
-      "criteria": "Official tool or partnership announced by the developer of a simulation game with an active modding scene.",
-      "prediction": "A popular moddable simulation game will ship or officially endorse a natural-language mod creation tool.",
+      "criteria": "Shipped or announced after 2026-10-24 by the developer of a simulation game with at least 10,000 Steam user reviews and an official modding API; the tool outputs mod code or data from text descriptions.",
+      "prediction": "The developer of a moddable simulation game will ship or officially endorse a tool that builds working mods from natural-language descriptions.",
       "resolve_by": "2028-06-30"
     },
     "feasibility": 4,
@@ -879,7 +930,10 @@
       "cities-skylines"
     ],
     "provenance": {
-      "created": "2026-10-24-synthesis"
+      "created": "2026-10-24-synthesis",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [],
     "status": "asserted",
@@ -899,8 +953,8 @@
     ],
     "design_sketch": "The player paints a rough block outline and selects intent (dense market street, quiet residential). The assist proposes building footprints and lanes using a learned prior constrained by WFC rules; the simulation scores walkability, land value, and traffic, and the player accepts or tweaks.",
     "falsifiable_signal": {
-      "criteria": "Developer documentation naming a learned or data-driven layout model in a shipped feature.",
-      "prediction": "A commercial city builder will ship a learned layout generator that converts player gestures into detailed districts.",
+      "criteria": "Feature first shipped after 2026-10-24 in a title with at least 1,000 Steam user reviews; developer documentation states that a model trained on layout data, as opposed to hand-written procedural rules, generates the layout from player brushes or strokes.",
+      "prediction": "A city builder will ship a machine-learned layout generator that turns player strokes into detailed streets or districts.",
       "resolve_by": "2028-06-30"
     },
     "feasibility": 4,
@@ -929,7 +983,10 @@
       "cities-skylines-2"
     ],
     "provenance": {
-      "created": "2026-10-24-synthesis"
+      "created": "2026-10-24-synthesis",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [],
     "status": "asserted",
@@ -949,8 +1006,8 @@
     ],
     "design_sketch": "A colony or sandbox world where water, heat, gas, and structural stress are simulated everywhere at coarse resolution by a learned surrogate and exactly within a radius of active play, with consistent hand-off at the boundary. Players can flood a valley or collapse a mountain and see effects propagate realistically across the map.",
     "falsifiable_signal": {
-      "criteria": "Developer documentation or technical talk confirming a trained neural model simulating physical materials during play.",
-      "prediction": "A commercial game will use a learned surrogate for fluid, gas, or destruction simulation at runtime.",
+      "criteria": "Released after 2026-10-24 with at least 1,000 Steam user reviews or a console release; developer documentation or a technical talk confirms that a trained neural model computes physical material behavior during play, not only visual effects.",
+      "prediction": "A game will use a learned surrogate model to simulate fluid, gas, or destruction at runtime.",
       "resolve_by": "2029-12-31"
     },
     "feasibility": 2,
@@ -981,7 +1038,10 @@
       "the-powder-toy"
     ],
     "provenance": {
-      "created": "2026-10-24-synthesis"
+      "created": "2026-10-24-synthesis",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [],
     "status": "asserted",
@@ -1000,8 +1060,8 @@
     ],
     "design_sketch": "A farm sim ships a small emulator per biome that rolls forward daily fields (temperature, precipitation, wind) from a seed and a climate scenario. Crops, fire spread, and hydrology read those fields. Players can choose a historical climate or a warming scenario and see droughts and storms arise at realistic frequencies.",
     "falsifiable_signal": {
-      "criteria": "Documentation or developer statement describing an ML weather emulator in the shipped game.",
-      "prediction": "A commercial farming, flight, or city sim will ship weather generated by a learned emulator rather than scripted states or live forecast feeds.",
+      "criteria": "Feature first shipped after 2026-10-24 in a title with at least 1,000 Steam user reviews or a console release; documentation or a developer statement describes a machine-learned weather emulator running in the shipped game.",
+      "prediction": "A farming, flight, or city sim will ship weather generated by a learned emulator rather than scripted states or live forecast feeds.",
       "resolve_by": "2028-12-31"
     },
     "feasibility": 4,
@@ -1031,7 +1091,10 @@
       "timberborn"
     ],
     "provenance": {
-      "created": "2026-10-24-synthesis"
+      "created": "2026-10-24-synthesis",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [],
     "status": "asserted",
@@ -1051,8 +1114,8 @@
     ],
     "design_sketch": "Machines need operators with trained skills; skilled workers age and retire; children of workers attend schools the player builds; housing, food, and morale affect shift output. A bottleneck can be a missing machine or a missing mentor. Generational play replaces the usual tech-tree endgame with succession planning for the workforce.",
     "falsifiable_signal": {
-      "criteria": "Steam page describing generational workforce mechanics in a factory or automation game with at least 1,000 reviews.",
-      "prediction": "A factory or automation game where workers age, train, and are replaced by a simulated next generation will reach 1,000 Steam reviews.",
+      "criteria": "Title released after 2026-10-24; its Steam page describes generational workforce mechanics (aging, training, succession) in a factory or automation game, and it has at least 1,000 Steam user reviews by the resolve date.",
+      "prediction": "A factory or automation game in which workers age, train, and are replaced by a simulated next generation will reach 1,000 Steam user reviews.",
       "resolve_by": "2029-12-31"
     },
     "feasibility": 4,
@@ -1083,7 +1146,10 @@
       "banished"
     ],
     "provenance": {
-      "created": "2026-10-24-synthesis"
+      "created": "2026-10-24-synthesis",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [],
     "status": "asserted",
@@ -1103,8 +1169,8 @@
     ],
     "design_sketch": "The player picks a map, founding traits, and scarcity levels, then seeds 50 to 500 agents. Interventions are god-scale and rare: a drought, a prophet, a trade caravan. A chronicle tool summarizes eras, factions, and turning points; players share worlds and replay them from saved event logs.",
     "falsifiable_signal": {
-      "criteria": "Steam page confirming LLM-driven agent society as the core loop and a review count of at least 1,000.",
-      "prediction": "A commercially released game whose core loop is observing and nudging a society of at least 50 language-model agents will reach 1,000 Steam reviews.",
+      "criteria": "Title released after 2026-10-24; its Steam page or developer documentation confirms an LLM-driven agent society of at least 50 agents as the core loop, and it has at least 1,000 Steam user reviews by the resolve date.",
+      "prediction": "A game whose core loop is observing and nudging a society of at least 50 language-model agents will reach 1,000 Steam user reviews.",
       "resolve_by": "2029-12-31"
     },
     "feasibility": 2,
@@ -1135,7 +1201,10 @@
       "black-and-white"
     ],
     "provenance": {
-      "created": "2026-10-24-synthesis"
+      "created": "2026-10-24-synthesis",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [],
     "status": "asserted",
@@ -1154,8 +1223,8 @@
     ],
     "design_sketch": "The game ships a quantized model for dialogue, event generation, and explanation, with a schema-constrained interface. Higher-quality cloud calls are optional and clearly metered. Mods can swap models.",
     "falsifiable_signal": {
-      "criteria": "Store pages or documentation confirming local model inference for runtime features, and review counts over 1,000.",
-      "prediction": "At least five Steam games with over 1,000 reviews will ship an on-device language model used at runtime without requiring an internet connection.",
+      "criteria": "Count titles whose local-model feature first shipped after 2026-10-24; store pages or documentation confirm local inference for runtime features, and each title has more than 1,000 Steam user reviews by the resolve date.",
+      "prediction": "At least five games with over 1,000 Steam user reviews will use an on-device language model at runtime without requiring an internet connection.",
       "resolve_by": "2027-12-31"
     },
     "feasibility": 4,
@@ -1181,7 +1250,10 @@
       "suck-up"
     ],
     "provenance": {
-      "created": "2026-10-24-synthesis"
+      "created": "2026-10-24-synthesis",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [],
     "status": "asserted",
@@ -1200,8 +1272,8 @@
     ],
     "design_sketch": "Traffic and pedestrian flows are fields updated each tick from a mean-field equilibrium solver on the GPU; visible cars and citizens are samples drawn from those fields, so congestion is consistent at scale while inspection still shows individuals with plausible trips.",
     "falsifiable_signal": {
-      "criteria": "Developer documentation naming a mean-field, continuum, or equilibrium-field method used at runtime.",
-      "prediction": "A commercial city builder will document a mean-field or continuum crowd model as its primary traffic or population simulation.",
+      "criteria": "Released or patched after 2026-10-24 in a title with at least 1,000 Steam user reviews; developer documentation names a mean-field, continuum, or equilibrium-field method used at runtime for the main traffic or population model.",
+      "prediction": "A city builder will document a mean-field or continuum crowd model as its primary traffic or population simulation.",
       "resolve_by": "2029-12-31"
     },
     "feasibility": 3,
@@ -1230,7 +1302,10 @@
       "planet-coaster"
     ],
     "provenance": {
-      "created": "2026-10-24-synthesis"
+      "created": "2026-10-24-synthesis",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [],
     "status": "asserted",
@@ -1251,8 +1326,8 @@
     ],
     "design_sketch": "A designer selects a base simulation and a family. The system mutates rule code, runs agent populations, scores emergent variety, strategic depth, and legibility proxies, and returns an archive of diverse candidates with replays and plain-language descriptions, deduplicated against the existing taxonomy.",
     "falsifiable_signal": {
-      "criteria": "Developer statement or paper attributing a shipped mechanic's origin to automated search.",
-      "prediction": "A shipped commercial game will credit a mechanic to an automated rule-discovery system.",
+      "criteria": "Title released after 2026-10-24 with at least 1,000 Steam user reviews or a console release; a developer statement or paper attributes the origin of a shipped rule to automated search over rule sets.",
+      "prediction": "A commercial game will credit one of its shipped mechanics to an automated rule-discovery system.",
       "resolve_by": "2030-12-31"
     },
     "feasibility": 2,
@@ -1279,7 +1354,10 @@
       "spacechem"
     ],
     "provenance": {
-      "created": "2026-10-24-synthesis"
+      "created": "2026-10-24-synthesis",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [],
     "status": "asserted",
@@ -1299,8 +1377,8 @@
     ],
     "design_sketch": "The player drafts 'Ban coal plants within 2 km of housing; subsidize heat pumps by 30 percent.' The compiler returns a structured policy card listing the parameters it maps to and anything it could not map. Interest groups (miners, residents, industrialists) post positions computed from projected welfare changes and voiced by a model. Votes and compliance follow simulation state, not rhetoric.",
     "falsifiable_signal": {
-      "criteria": "A shipped title (early access counts) whose documentation shows free-text law input mapped to simulation rules.",
-      "prediction": "A released political or city-building game will let players enact free-text laws that change simulation parameters.",
+      "criteria": "Feature first shipped after 2026-10-24 (early access counts) in a title with at least 1,000 Steam user reviews; documentation shows free-text law input mapped to changes in simulation rules or parameters.",
+      "prediction": "A political or city-building game will let players enact free-text laws that change simulation parameters.",
       "resolve_by": "2028-12-31"
     },
     "feasibility": 3,
@@ -1331,7 +1409,10 @@
       "victoria-3"
     ],
     "provenance": {
-      "created": "2026-10-24-synthesis"
+      "created": "2026-10-24-synthesis",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [],
     "status": "asserted",
@@ -1351,8 +1432,8 @@
     ],
     "design_sketch": "AI rulers send and answer proposals in text; each message is backed by an intent object (offer, demand, threat, promise) that the planner evaluates. Broken promises create named opinion modifiers visible to every faction. Players can still use classic proposal menus; text adds nuance such as conditional offers and side deals.",
     "falsifiable_signal": {
-      "criteria": "Developer statement or documentation describing language-based AI diplomacy in a title from Paradox, Firaxis, Amplitude, or a peer studio.",
-      "prediction": "A major grand strategy or 4X release will ship AI opponents that negotiate through free-text or generated-language diplomacy backed by a planner.",
+      "criteria": "Feature first shipped after 2026-10-24 in a grand strategy or 4X title with at least 5,000 Steam user reviews; developer statement or documentation describes language-based AI diplomacy whose offers are chosen by a planner or game-state evaluation.",
+      "prediction": "A grand strategy or 4X game will ship AI opponents that negotiate in free-text or generated-language diplomacy backed by a planner.",
       "resolve_by": "2029-06-30"
     },
     "feasibility": 3,
@@ -1381,7 +1462,10 @@
       "balance-of-power"
     ],
     "provenance": {
-      "created": "2026-10-24-synthesis"
+      "created": "2026-10-24-synthesis",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [],
     "status": "asserted",
@@ -1400,7 +1484,7 @@
     ],
     "design_sketch": "Agent animation is driven by a learned controller conditioned on body-model state, load, and mood. The inspector shows the same state the motion expresses. Crowds use cheaper approximations at distance.",
     "falsifiable_signal": {
-      "criteria": "Developer documentation naming learned motion control in a shipped simulation game.",
+      "criteria": "Feature first shipped after 2026-10-24 in a title with at least 1,000 Steam user reviews; developer documentation names learned motion control (a trained policy driving a physics character) for population agents, not only motion-matched animation.",
       "prediction": "A management or colony sim will ship learned physics-based motion for its simulated population.",
       "resolve_by": "2029-06-30"
     },
@@ -1430,7 +1514,10 @@
       "the-sims-4"
     ],
     "provenance": {
-      "created": "2026-10-24-synthesis"
+      "created": "2026-10-24-synthesis",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [],
     "status": "asserted",
@@ -1451,8 +1538,8 @@
     ],
     "design_sketch": "The player tunes environment parameters and selection pressures for a continuous artificial-life world. An automated discovery system scans the running world for novel forms and behaviors and bookmarks them; the player curates, names, and transplants organisms between worlds and shares discoveries.",
     "falsifiable_signal": {
-      "criteria": "Steam page describing a Lenia-family or NCA substrate and at least 1,000 reviews.",
-      "prediction": "A commercial game built on a continuous artificial-life substrate (Lenia family or neural cellular automata) will reach 1,000 Steam reviews.",
+      "criteria": "Title released after 2026-10-24; its Steam page or developer documentation describes a Lenia-family or neural cellular automaton substrate, and it has at least 1,000 Steam user reviews by the resolve date.",
+      "prediction": "A game built on a continuous artificial-life substrate (Lenia family or neural cellular automata) will reach 1,000 Steam user reviews.",
       "resolve_by": "2029-12-31"
     },
     "feasibility": 3,
@@ -1482,7 +1569,10 @@
       "simlife"
     ],
     "provenance": {
-      "created": "2026-10-24-synthesis"
+      "created": "2026-10-24-synthesis",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [],
     "status": "asserted",
@@ -1503,7 +1593,7 @@
     ],
     "design_sketch": "A headless build of the simulation runs on a GPU cluster. A quality-diversity search maintains an archive of strategies across behavior descriptors (expansion speed, military share, trade dependence); a tuner adjusts parameters to keep win rates and resource curves inside designer-set bands; reports flag exploits with replays.",
     "falsifiable_signal": {
-      "criteria": "GDC talks, technical blogs, or papers by studio staff describing the practice for a named commercial title.",
+      "criteria": "Talks, technical blogs, or papers published after 2026-10-24 by staff of two different studios, each naming a commercial title with at least 1,000 Steam user reviews and describing automated agent play at scale used for economy balance.",
       "prediction": "At least two studios will publicly describe using large-scale agent search to balance a simulation or strategy game's economy before release.",
       "resolve_by": "2027-12-31"
     },
@@ -1533,7 +1623,10 @@
       "rimworld"
     ],
     "provenance": {
-      "created": "2026-10-24-synthesis"
+      "created": "2026-10-24-synthesis",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [],
     "status": "asserted",
@@ -1553,8 +1646,8 @@
     ],
     "design_sketch": "A neighborhood is loaded from open data. Participants zone, budget, and route transit; overlays show calibrated effects; simulated residents from different groups react, each tied to the data that grounds them. Sessions export a report of options and tradeoffs.",
     "falsifiable_signal": {
-      "criteria": "Public planning document or press release naming the tool and its use in consultation.",
-      "prediction": "A city government will publicly use a game-style calibrated simulation with simulated resident feedback in a formal planning consultation.",
+      "criteria": "Public planning document or press release dated after 2026-10-24 that names the tool, states that it simulates resident responses, and records its use in an official consultation.",
+      "prediction": "A city government will use a game-style calibrated simulation with simulated resident feedback in a formal planning consultation.",
       "resolve_by": "2029-12-31"
     },
     "feasibility": 3,
@@ -1583,7 +1676,10 @@
       "democracy-4"
     ],
     "provenance": {
-      "created": "2026-10-24-synthesis"
+      "created": "2026-10-24-synthesis",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [],
     "status": "asserted",
@@ -1602,8 +1698,8 @@
     ],
     "design_sketch": "When the player places or removes a building, the event system evaluates templates against neighbors, inhabitants, and history; a few fire as short vignettes with choices whose effects are typed (happiness, faction, resource). The chronicle records them so a district accumulates a history.",
     "falsifiable_signal": {
-      "criteria": "Store page or developer material describing events triggered by player placement decisions and affecting named inhabitants.",
-      "prediction": "A released city builder will advertise placement-triggered narrative events tied to specific inhabitants as a core feature.",
+      "criteria": "Title or expansion released after 2026-10-24 with at least 1,000 Steam user reviews; store page or developer material lists events triggered by player placement decisions that affect specific named inhabitants.",
+      "prediction": "A city builder will advertise placement-triggered narrative events tied to named inhabitants as a core feature.",
       "resolve_by": "2028-12-31"
     },
     "feasibility": 4,
@@ -1632,7 +1728,10 @@
       "crusader-kings-3"
     ],
     "provenance": {
-      "created": "2026-10-24-synthesis"
+      "created": "2026-10-24-synthesis",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [],
     "status": "asserted",
@@ -1652,8 +1751,8 @@
     ],
     "design_sketch": "A scenario browser shows a grid of challenge types by difficulty; each cell holds generated scenarios that agents have solved, with par times. Players rate them; ratings retrain the generator.",
     "falsifiable_signal": {
-      "criteria": "Developer documentation naming quality-diversity or MAP-Elites generation for shipped content.",
-      "prediction": "A released simulation or puzzle-sim game will ship a quality-diversity-generated scenario library.",
+      "criteria": "Content first shipped after 2026-10-24 in a title with at least 1,000 Steam user reviews; developer documentation names quality-diversity or MAP-Elites generation for shipped scenarios or levels.",
+      "prediction": "A simulation or puzzle-sim game will ship a scenario library generated by quality-diversity search.",
       "resolve_by": "2028-06-30"
     },
     "feasibility": 5,
@@ -1680,7 +1779,10 @@
       "opus-magnum"
     ],
     "provenance": {
-      "created": "2026-10-24-synthesis"
+      "created": "2026-10-24-synthesis",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [],
     "status": "asserted",
@@ -1700,8 +1802,8 @@
     ],
     "design_sketch": "Colonists run a standard needs-and-utility loop. When an event crosses a salience score (death of a friend, public insult, near-starvation), the agent gets one model call with its trait list, recent memories, and the event, and must return a schema-valid object: a thought with mood value and duration, an optional relationship change, an optional one-line spoken reaction, and an optional new goal. The player sees these as ordinary thoughts in the inspector, now specific to the colonist's history.",
     "falsifiable_signal": {
-      "criteria": "Developer documentation, postmortems, or mod-verified behavior showing model calls triggered by discrete events, in titles with more than 1,000 Steam reviews.",
-      "prediction": "At least three commercially released colony or life sims with over 1,000 Steam reviews will use language-model calls gated by event salience rather than per-decision.",
+      "criteria": "Count titles released or patched after 2026-10-24 with more than 1,000 Steam user reviews; developer documentation, postmortems, or mod-verified behavior show model calls triggered by discrete events while routine behavior runs on non-model systems.",
+      "prediction": "At least three colony or life sims with over 1,000 Steam user reviews will call a language model for agents only on salient events rather than per decision.",
       "resolve_by": "2028-12-31"
     },
     "feasibility": 4,
@@ -1731,7 +1833,10 @@
       "dwarf-fortress"
     ],
     "provenance": {
-      "created": "2026-10-24-synthesis"
+      "created": "2026-10-24-synthesis",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [],
     "status": "asserted",
@@ -1750,7 +1855,7 @@
     ],
     "design_sketch": "Each project needs a lead and collaborators; compatibility and rivalry change speed and the chance of side discoveries; scientists publish, poach, and defect. The tech graph becomes partially stochastic: what is discovered depends on who works together.",
     "falsifiable_signal": {
-      "criteria": "Shipped title documentation describing relationship-dependent research by named characters.",
+      "criteria": "Title or expansion released after 2026-10-24 with at least 1,000 Steam user reviews; documentation describes research progress that depends on relationships between named researcher characters, not only on their individual stats.",
       "prediction": "A strategy or management game will ship research performed by a simulated population of named researchers whose relationships affect outcomes.",
       "resolve_by": "2029-06-30"
     },
@@ -1779,7 +1884,10 @@
       "dwarf-fortress"
     ],
     "provenance": {
-      "created": "2026-10-24-synthesis"
+      "created": "2026-10-24-synthesis",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [],
     "status": "asserted",
@@ -1799,8 +1907,8 @@
     ],
     "design_sketch": "During a landing, the instructor says 'airspeed 12 knots fast, reduce power' based on telemetry, then debriefs with a timeline of deviations. Lessons adapt to repeated errors. The player can ask questions mid-flight by voice.",
     "falsifiable_signal": {
-      "criteria": "Official feature in Microsoft Flight Simulator, X-Plane, DCS, iRacing, Gran Turismo, or a peer title.",
-      "prediction": "A major flight or racing simulator will ship an AI voice instructor that comments on live telemetry.",
+      "criteria": "Official feature first shipped after 2026-10-24 in a flight or racing simulator with at least 5,000 Steam user reviews or a console release; the instructor speaks generated feedback based on the player's live inputs. Third-party apps do not count.",
+      "prediction": "A flight or racing simulator will ship an AI voice instructor that comments on live telemetry.",
       "resolve_by": "2027-12-31"
     },
     "feasibility": 4,
@@ -1830,7 +1938,10 @@
       "euro-truck-simulator-2"
     ],
     "provenance": {
-      "created": "2026-10-24-synthesis"
+      "created": "2026-10-24-synthesis",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [],
     "status": "asserted",
@@ -1850,8 +1961,8 @@
     ],
     "design_sketch": "A studio ships a headless build with a typed observation and action API, standard scenarios, and leaderboards for agents. Researchers measure long-horizon performance; players watch agent runs as content.",
     "falsifiable_signal": {
-      "criteria": "Official announcement or repository from the developer, not only a community wrapper.",
-      "prediction": "A commercial simulation game developer will officially release a headless research API or benchmark for AI agents.",
+      "criteria": "Released after 2026-10-24 by the developer or publisher of a title with at least 1,000 Steam user reviews, as an official announcement or repository; community wrappers and academic forks do not count.",
+      "prediction": "A simulation game developer or publisher will officially release a headless research API or benchmark for AI agents.",
       "resolve_by": "2027-12-31"
     },
     "feasibility": 5,
@@ -1880,7 +1991,10 @@
       "dwarf-fortress"
     ],
     "provenance": {
-      "created": "2026-10-24-synthesis"
+      "created": "2026-10-24-synthesis",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [],
     "status": "asserted",
@@ -1900,8 +2014,8 @@
     ],
     "design_sketch": "Each puzzle is a machine to control. The player writes a specification and test cases; a model generates implementations, some subtly wrong; the player's score counts wrong implementations caught, test cost, and spec length, plotted on histograms against other players.",
     "falsifiable_signal": {
-      "criteria": "Steam page describing AI-generated code that players specify, test, or verify as the main mechanic.",
-      "prediction": "A commercial programming game will make specifying or testing AI-written code its core loop.",
+      "criteria": "Title released after 2026-10-24 with at least 1,000 Steam user reviews; its Steam page describes players specifying, testing, or verifying AI-generated code as the main mechanic.",
+      "prediction": "A programming game will make specifying or testing AI-written code its core loop.",
       "resolve_by": "2028-06-30"
     },
     "feasibility": 4,
@@ -1930,7 +2044,10 @@
       "the-farmer-was-replaced"
     ],
     "provenance": {
-      "created": "2026-10-24-synthesis"
+      "created": "2026-10-24-synthesis",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [],
     "status": "asserted",
@@ -1951,8 +2068,8 @@
     ],
     "design_sketch": "A city builder whose simulation is a tile grid of typed buildings, agents, and fields. A renderer conditioned on the grid, time of day, and a style prompt produces the view; players restyle their city as medieval, solarpunk, or watercolor without new art. Inspection tools always read the symbolic state.",
     "falsifiable_signal": {
-      "criteria": "Developer documentation showing gameplay state is symbolic and the main viewport is produced by a learned generative renderer.",
-      "prediction": "A released game will render its primary view with a generative model conditioned on an explicit symbolic game state.",
+      "criteria": "Title released after 2026-10-24 with at least 1,000 Steam user reviews or a console release; developer documentation shows that gameplay state is symbolic and that the main viewport is produced frame by frame by a learned generative renderer.",
+      "prediction": "A game will render its primary view with a generative model conditioned on an explicit symbolic game state.",
       "resolve_by": "2029-12-31"
     },
     "feasibility": 2,
@@ -1981,7 +2098,10 @@
       "islanders"
     ],
     "provenance": {
-      "created": "2026-10-24-synthesis"
+      "created": "2026-10-24-synthesis",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [],
     "status": "asserted",
@@ -2001,8 +2121,8 @@
     ],
     "design_sketch": "The player demonstrates 'set up a smelting column' once while narrating; the companion abstracts it into a named skill with parameters, shows the generated plan, and reuses it elsewhere. Skills can be edited, combined, and shared. The companion asks clarifying questions when a skill fails.",
     "falsifiable_signal": {
-      "criteria": "Store page or developer documentation describing learned, reusable companion skills in a shipped title.",
-      "prediction": "A released automation or sandbox game will feature an in-game companion that learns reusable skills from player demonstration or instruction.",
+      "criteria": "Feature first shipped after 2026-10-24 in a title with at least 1,000 Steam user reviews; store page or developer documentation describes companion skills learned from the player that persist and can be reused on new tasks.",
+      "prediction": "An automation or sandbox game will ship an in-game companion that learns reusable skills from player demonstration or instruction.",
       "resolve_by": "2028-12-31"
     },
     "feasibility": 3,
@@ -2030,7 +2150,10 @@
       "satisfactory"
     ],
     "provenance": {
-      "created": "2026-10-24-synthesis"
+      "created": "2026-10-24-synthesis",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [],
     "status": "asserted",
@@ -2050,8 +2173,8 @@
     ],
     "design_sketch": "The player raises a creature in a small world. Rewards, punishments, demonstrations, and spoken commands shape its policy. A 'what I learned' panel lists the creature's inferred rules in plain language with examples; the player can correct misunderstandings. Creatures can be traded and bred, inheriting learned dispositions partially.",
     "falsifiable_signal": {
-      "criteria": "Developer documentation describing on-device or server learning of a creature policy from player feedback.",
-      "prediction": "A commercial virtual-pet or god game will ship a creature whose behavior is trained online by player feedback with a learned model.",
+      "criteria": "Title released after 2026-10-24 with at least 1,000 Steam user reviews or a console release; developer documentation states that the creature's behavior comes from a deep neural network (more than one hidden layer), a language model, or a deep RL policy whose parameters change in response to that player's feedback. Single-layer learners such as Black & White's perceptrons do not count.",
+      "prediction": "A virtual-pet or god game will ship a creature controlled by a learned neural or reinforcement-learning policy that player feedback updates during play.",
       "resolve_by": "2029-06-30"
     },
     "feasibility": 3,
@@ -2081,7 +2204,10 @@
       "tamagotchi"
     ],
     "provenance": {
-      "created": "2026-10-24-synthesis"
+      "created": "2026-10-24-synthesis",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [],
     "status": "asserted",
@@ -2091,13 +2217,15 @@
     "validation_experiment": "Build a creature with a learned policy trained online from player feedback in a 2D world; measure how many feedback events it takes to learn three behaviors and whether its self-explanations match its actual policy. Success: under 30 feedback events per behavior and 80 percent explanation accuracy."
   },
   {
-    "_derived": {
-      "priority": 2.764
-    },
+    "_derived": {},
     "applies": [
       "ml-weather-models",
       "simulation-based-inference"
     ],
+    "deprecated": {
+      "reason": "Cities: Skylines II already couples solar and wind output to weather with battery storage, so the prediction was true at writing; the remaining idea (realistic learned weather driving systems) is covered by learned-weather-layer.",
+      "superseded_by": "learned-weather-layer"
+    },
     "design_sketch": "Solar and wind output follow simulated weather; heating and cooling demand follow temperature; the player builds storage, buys forecasts, and sets demand-response policies. Rare long calm, cold spells test the grid. Prices respond to scarcity if the game has markets.",
     "falsifiable_signal": {
       "criteria": "Developer documentation describing weather-dependent renewable output and storage in the grid system.",
@@ -2129,7 +2257,10 @@
       "surviving-mars"
     ],
     "provenance": {
-      "created": "2026-10-24-synthesis"
+      "created": "2026-10-24-synthesis",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [],
     "status": "asserted",

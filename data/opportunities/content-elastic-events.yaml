@@ -41,11 +41,14 @@ validation_experiment: 'Take 50 authored events from an existing design, generat
   generated events rated within 0.5 points of authored ones with 99 percent passing validation.'
 falsifiable_signal:
   prediction: A grand strategy, life sim, or narrative management game will ship runtime-generated events
-    constrained by an event schema, disclosed on its Steam page.
+    constrained by an event schema.
   resolve_by: '2027-12-31'
-  criteria: Steam AI disclosure or developer documentation describing runtime-generated events in a released
-    title.
+  criteria: Feature first shipped after 2026-10-24 in a title with at least 1,000 Steam user reviews;
+    the Steam AI disclosure or developer documentation states that events are generated during play and
+    must conform to a fixed structure of triggers, options, and effects.
 sources: []
 status: asserted
 provenance:
   created: 2026-10-24-synthesis
+  reviewed:
+  - 2026-10-24-review-fixes

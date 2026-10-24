@@ -27,7 +27,7 @@ A first-person space station survival game whose core is an atmospheric simulati
 | agent count order | None |
 | emergence | 3 |
 | influence | 1 |
-| cluster *(computed)* | C04 |
+| cluster *(computed)* | C07 |
 | core count *(computed)* | 4 |
 | mechanic count *(computed)* | 12 |
 

@@ -160,6 +160,8 @@ mechanics:
   role: supporting
   note: Straight and curved rail pieces are placed to build train networks, with elevated rails in Space
     Age, and the rail planner lays segments between points.
+- id: free-placement
+  role: supporting
 influenced_by:
 - minecraft
 claims:
@@ -195,3 +197,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-catalog-gh
+  reviewed:
+  - 2026-10-24-review-fixes

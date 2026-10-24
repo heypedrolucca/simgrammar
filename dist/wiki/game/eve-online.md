@@ -29,7 +29,7 @@ A single-universe space MMO in which players mine, manufacture, trade, and fight
 | emergence | 5 |
 | influence | 4 |
 | influenced by | [Elite](../game/elite.md), [Ultima Online](../game/ultima-online.md) |
-| cluster *(computed)* | C08 |
+| cluster *(computed)* | C06 |
 | core count *(computed)* | 5 |
 | mechanic count *(computed)* | 12 |
 

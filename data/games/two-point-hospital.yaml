@@ -99,6 +99,10 @@ mechanics:
   role: supporting
   note: Assistants in the marketing room run paid campaigns that draw more patients, optionally targeted
     at specific illnesses.
+- id: variable-speed
+  role: supporting
+- id: utility-action-selection
+  role: supporting
 influenced_by:
 - theme-hospital
 sources:
@@ -106,3 +110,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-catalog-ge
+  reviewed:
+  - 2026-10-24-review-fixes

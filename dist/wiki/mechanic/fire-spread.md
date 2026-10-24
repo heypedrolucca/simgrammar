@@ -21,11 +21,11 @@ Fire ignites and spreads across flammable cells or objects at rates set by fuel,
 | maturity | Classic |
 | open questions | Can learned combustion and smoke surrogates make fire visually rich while its spread stays readable and controllable? |
 | core count *(computed)* | 0 |
-| earliest game *(computed)* | [Dwarf Fortress](../game/dwarf-fortress.md) |
-| earliest year *(computed)* | 2006 |
-| prevalence *(computed)* | 11 |
-| prevalence share *(computed)* | 0.063 |
-| subgenre spread *(computed)* | 7 |
+| earliest game *(computed)* | [SimCity](../game/simcity-1989.md) |
+| earliest year *(computed)* | 1989 |
+| prevalence *(computed)* | 18 |
+| prevalence share *(computed)* | 0.103 |
+| subgenre spread *(computed)* | 8 |
 | technique count *(computed)* | 0 |
 | technique exposure *(computed)* | 0.0 |
 
@@ -71,7 +71,7 @@ A small spark becomes an emergency. The player races to contain fire before it r
 
 **involved in:** [Learned regional weather](../opportunity/learned-weather-layer.md)
 
-**used by:** [Don't Starve](../game/dont-starve.md), [Dwarf Fortress](../game/dwarf-fortress.md), [From Dust](../game/from-dust.md), [FTL: Faster Than Light](../game/ftl.md), [Minecraft](../game/minecraft.md), [Noita](../game/noita.md), [Prison Architect](../game/prison-architect.md), [Space Haven](../game/space-haven.md), [Teardown](../game/teardown.md), [The Powder Toy](../game/the-powder-toy.md), [The Legend of Zelda: Breath of the Wild](../game/zelda-breath-of-the-wild.md)
+**used by:** [Banished](../game/banished.md), [Caesar III](../game/caesar-3.md), [Don't Starve](../game/dont-starve.md), [Dwarf Fortress](../game/dwarf-fortress.md), [From Dust](../game/from-dust.md), [FTL: Faster Than Light](../game/ftl.md), [Kingdoms and Castles](../game/kingdoms-and-castles.md), [Minecraft](../game/minecraft.md), [Noita](../game/noita.md), [Pharaoh](../game/pharaoh.md), [Prison Architect](../game/prison-architect.md), [RimWorld](../game/rimworld.md), [SimCity](../game/simcity-1989.md), [SimCity 2000](../game/simcity-2000.md), [Space Haven](../game/space-haven.md), [Teardown](../game/teardown.md), [The Powder Toy](../game/the-powder-toy.md), [The Legend of Zelda: Breath of the Wild](../game/zelda-breath-of-the-wild.md)
 
 ## Sources
 

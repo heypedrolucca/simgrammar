@@ -29,7 +29,7 @@ A programming game in which the player writes Python-like code for a farming dro
 | emergence | 2 |
 | influence | 1 |
 | influenced by |  |
-| cluster *(computed)* | C02 |
+| cluster *(computed)* | C06 |
 | core count *(computed)* | 3 |
 | mechanic count *(computed)* | 6 |
 

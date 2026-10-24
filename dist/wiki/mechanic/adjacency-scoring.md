@@ -20,12 +20,12 @@ A placement's value is computed from a table of bonuses and penalties for the pl
 | ai leverage | 2 |
 | maturity | Established |
 | requires | [Building placement](../mechanic/free-placement.md) |
-| core count *(computed)* | 2 |
-| earliest game *(computed)* | [Conway's Game of Life](../game/game-of-life.md) |
-| earliest year *(computed)* | 1970 |
-| prevalence *(computed)* | 5 |
-| prevalence share *(computed)* | 0.029 |
-| subgenre spread *(computed)* | 4 |
+| core count *(computed)* | 1 |
+| earliest game *(computed)* | [M.U.L.E.](../game/mule.md) |
+| earliest year *(computed)* | 1983 |
+| prevalence *(computed)* | 4 |
+| prevalence share *(computed)* | 0.023 |
+| subgenre spread *(computed)* | 3 |
 | technique count *(computed)* | 0 |
 | technique exposure *(computed)* | 0.0 |
 
@@ -73,7 +73,7 @@ Every placement is a small search problem with a visible answer. Players hover c
 
 **involved in:** [Learned build assist for cities](../opportunity/learned-build-assist.md), [Placement that tells stories](../opportunity/placement-that-tells-stories.md)
 
-**used by:** [Anno 117: Pax Romana](../game/anno-117.md), [Conway's Game of Life](../game/game-of-life.md), [Islanders](../game/islanders.md), [M.U.L.E.](../game/mule.md), [The Farmer Was Replaced](../game/the-farmer-was-replaced.md)
+**used by:** [Anno 117: Pax Romana](../game/anno-117.md), [Islanders](../game/islanders.md), [M.U.L.E.](../game/mule.md), [The Farmer Was Replaced](../game/the-farmer-was-replaced.md)
 
 ---
 Provenance: created in run `2026-10-24-taxonomy-m4`.

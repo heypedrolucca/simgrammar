@@ -15,7 +15,7 @@ Ship small language and generative models inside the game so AI features run off
 | impact | 4 |
 | horizon | Now |
 | key risks | Hardware minimums shrink the audience., Model quality gap versus cloud models., Download size and VRAM competition with rendering. |
-| falsifiable signal | {'prediction': 'At least five Steam games with over 1,000 reviews will ship an on-device language model used at runtime without requiring an internet connection.', 'resolve_by': '2027-12-31', 'criteria': 'Store pages or documentation confirming local model inference for runtime features, and review counts over 1,000.'} |
+| falsifiable signal | {'prediction': 'At least five games with over 1,000 Steam user reviews will use an on-device language model at runtime without requiring an internet connection.', 'resolve_by': '2027-12-31', 'criteria': 'Count titles whose local-model feature first shipped after 2026-10-24; store pages or documentation confirm local inference for runtime features, and each title has more than 1,000 Steam user reviews by the resolve date.'} |
 | priority *(computed)* | 3.482 |
 
 ## Summary
@@ -42,9 +42,9 @@ Benchmark a 1 to 4 billion parameter quantized model on the median Steam hardwar
 
 ## Falsifiable signal
 
-- **Prediction:** At least five Steam games with over 1,000 reviews will ship an on-device language model used at runtime without requiring an internet connection.
+- **Prediction:** At least five games with over 1,000 Steam user reviews will use an on-device language model at runtime without requiring an internet connection.
 - **Resolve by:** 2027-12-31
-- **Criteria:** Store pages or documentation confirming local model inference for runtime features, and review counts over 1,000.
+- **Criteria:** Count titles whose local-model feature first shipped after 2026-10-24; store pages or documentation confirm local inference for runtime features, and each title has more than 1,000 Steam user reviews by the resolve date.
 
 ## Relations
 
@@ -66,4 +66,4 @@ Benchmark a 1 to 4 billion parameter quantized model on the median Steam hardwar
 - [Suck Up!](../game/suck-up.md)
 
 ---
-Provenance: created in run `2026-10-24-synthesis`.
+Provenance: created in run `2026-10-24-synthesis`; reviewed in `2026-10-24-review-fixes`.

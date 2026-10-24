@@ -22,8 +22,8 @@ Generators produce energy that is distributed over a connected network to consum
 | core count *(computed)* | 6 |
 | earliest game *(computed)* | [SimCity](../game/simcity-1989.md) |
 | earliest year *(computed)* | 1989 |
-| prevalence *(computed)* | 19 |
-| prevalence share *(computed)* | 0.109 |
+| prevalence *(computed)* | 20 |
+| prevalence share *(computed)* | 0.115 |
 | subgenre spread *(computed)* | 7 |
 | technique count *(computed)* | 0 |
 | technique exposure *(computed)* | 0.0 |
@@ -70,9 +70,9 @@ A clear supply-demand puzzle with a visible penalty. Players watch the satisfact
 
 ## Backlinks (computed)
 
-**involved in:** [Simulation games as agent benchmarks](../opportunity/sims-as-agent-benchmarks.md), [Weather-coupled energy grids](../opportunity/weather-coupled-grids.md)
+**involved in:** [Simulation games as agent benchmarks](../opportunity/sims-as-agent-benchmarks.md)
 
-**used by:** [Captain of Industry](../game/captain-of-industry.md), [Cities: Skylines](../game/cities-skylines.md), [Dyson Sphere Program](../game/dyson-sphere-program.md), [Elite Dangerous](../game/elite-dangerous.md), [Factorio](../game/factorio.md), [Jurassic World Evolution](../game/jurassic-world-evolution.md), [Mindustry](../game/mindustry.md), [Oxygen Not Included](../game/oxygen-not-included.md), [Prison Architect](../game/prison-architect.md), [Satisfactory](../game/satisfactory.md), [SimCity](../game/simcity-1989.md), [SimCity 2000](../game/simcity-2000.md), [SimCity (2013)](../game/simcity-2013.md), [Space Engineers](../game/space-engineers.md), [Space Haven](../game/space-haven.md), [Stationeers](../game/stationeers.md), [Subnautica](../game/subnautica.md), [Surviving Mars](../game/surviving-mars.md), [Timberborn](../game/timberborn.md)
+**used by:** [Captain of Industry](../game/captain-of-industry.md), [Cities: Skylines](../game/cities-skylines.md), [Cities: Skylines II](../game/cities-skylines-2.md), [Dyson Sphere Program](../game/dyson-sphere-program.md), [Elite Dangerous](../game/elite-dangerous.md), [Factorio](../game/factorio.md), [Jurassic World Evolution](../game/jurassic-world-evolution.md), [Mindustry](../game/mindustry.md), [Oxygen Not Included](../game/oxygen-not-included.md), [Prison Architect](../game/prison-architect.md), [Satisfactory](../game/satisfactory.md), [SimCity](../game/simcity-1989.md), [SimCity 2000](../game/simcity-2000.md), [SimCity (2013)](../game/simcity-2013.md), [Space Engineers](../game/space-engineers.md), [Space Haven](../game/space-haven.md), [Stationeers](../game/stationeers.md), [Subnautica](../game/subnautica.md), [Surviving Mars](../game/surviving-mars.md), [Timberborn](../game/timberborn.md)
 
 ## Sources
 

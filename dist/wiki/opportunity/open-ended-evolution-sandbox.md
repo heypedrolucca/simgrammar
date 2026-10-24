@@ -15,7 +15,7 @@ Evolution games built on continuous artificial-life substrates and automated dis
 | impact | 2 |
 | horizon | 1-2 years |
 | key risks | Open-ended substrates often stagnate or explode., Players may not read abstract organisms as creatures., GPU requirements. |
-| falsifiable signal | {'prediction': 'A commercial game built on a continuous artificial-life substrate (Lenia family or neural cellular automata) will reach 1,000 Steam reviews.', 'resolve_by': '2029-12-31', 'criteria': 'Steam page describing a Lenia-family or NCA substrate and at least 1,000 reviews.'} |
+| falsifiable signal | {'prediction': 'A game built on a continuous artificial-life substrate (Lenia family or neural cellular automata) will reach 1,000 Steam user reviews.', 'resolve_by': '2029-12-31', 'criteria': 'Title released after 2026-10-24; its Steam page or developer documentation describes a Lenia-family or neural cellular automaton substrate, and it has at least 1,000 Steam user reviews by the resolve date.'} |
 | priority *(computed)* | 2.648 |
 
 ## Summary
@@ -42,9 +42,9 @@ Run a Flow-Lenia world on a consumer GPU with an automated novelty detector for 
 
 ## Falsifiable signal
 
-- **Prediction:** A commercial game built on a continuous artificial-life substrate (Lenia family or neural cellular automata) will reach 1,000 Steam reviews.
+- **Prediction:** A game built on a continuous artificial-life substrate (Lenia family or neural cellular automata) will reach 1,000 Steam user reviews.
 - **Resolve by:** 2029-12-31
-- **Criteria:** Steam page describing a Lenia-family or NCA substrate and at least 1,000 reviews.
+- **Criteria:** Title released after 2026-10-24; its Steam page or developer documentation describes a Lenia-family or neural cellular automaton substrate, and it has at least 1,000 Steam user reviews by the resolve date.
 
 ## Relations
 
@@ -72,4 +72,4 @@ Run a Flow-Lenia world on a consumer GPU with an automated novelty detector for 
 - [SimLife](../game/simlife.md)
 
 ---
-Provenance: created in run `2026-10-24-synthesis`.
+Provenance: created in run `2026-10-24-synthesis`; reviewed in `2026-10-24-review-fixes`.

@@ -28,9 +28,9 @@ A colony sim in which the player directs a fortress of autonomous dwarves inside
 | agent count order | ~100 |
 | emergence | 5 |
 | influence | 5 |
-| cluster *(computed)* | C04 |
+| cluster *(computed)* | C01 |
 | core count *(computed)* | 8 |
-| mechanic count *(computed)* | 25 |
+| mechanic count *(computed)* | 29 |
 
 ## Summary
 
@@ -73,6 +73,10 @@ Tarn Adams's stated principles are to break a system into parts, avoid overplann
 - [Hauling jobs](../mechanic/hauling-jobs.md) (supporting): Dwarves carry goods to player-defined stockpiles.
 - [Unit commands](../mechanic/unit-commands.md) (supporting): Military squads in uniforms train at barracks and can be ordered to attack.
 - [Stress accumulation](../mechanic/stress-accumulation.md) (core): Emotions from events add to or subtract from a hidden stress value (-1,000,000 to +1,000,000) scaled by facets such as stress vulnerability and bravery; above +10,000, +25,000, and +50,000 dwarves risk tantrums, depression, obliviousness, and insanity, and long-term memories keep adding stress.
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
+- [Building placement](../mechanic/free-placement.md) (supporting)
+- [Utility action selection](../mechanic/utility-action-selection.md) (supporting)
+- [Storage and buffers](../mechanic/storage-capacity.md) (supporting)
 
 ## Backlinks (computed)
 
@@ -88,4 +92,4 @@ Tarn Adams's stated principles are to break a system into parts, avoid overplann
 - [Stress](../source/src-dfwiki-2026-stress.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-gb`.
+Provenance: created in run `2026-10-24-catalog-gb`; reviewed in `2026-10-24-review-fixes`.

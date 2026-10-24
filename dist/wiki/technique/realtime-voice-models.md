@@ -14,7 +14,7 @@ Streaming speech recognition, speech-native language models, and context-aware t
 | runtime | Server real-time, Client real-time |
 | determinism impact | Breaks |
 | horizon | Now |
-| risks | Compute cost, Latency, Labor displacement, Player trust / reception, Content safety |
+| risks | Determinism, Compute cost, Latency, Labor displacement, Player trust / reception, Content safety |
 | builds on |  |
 | deployed in | [Whispers from the Star](../game/whispers-from-the-star.md), [Where Winds Meet](../game/where-winds-meet.md) |
 | affects count *(computed)* | 4 |
@@ -101,4 +101,4 @@ Two pipelines. Cascaded: streaming speech recognition, then an LLM, then streami
 - [GDC 2025 State of the Game Industry: Devs weigh in on layoffs, AI, and more](../source/src-gdc-2025-state-of-industry.md)
 
 ---
-Provenance: created in run `2026-10-24-techniques-llm-agents`.
+Provenance: created in run `2026-10-24-techniques-llm-agents`; reviewed in `2026-10-24-review-fixes`.

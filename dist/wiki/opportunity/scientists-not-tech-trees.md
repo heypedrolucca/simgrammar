@@ -15,7 +15,7 @@ Replace the abstract research meter with named researchers whose skills, relatio
 | impact | 2 |
 | horizon | Now |
 | key risks | Stochastic research frustrates players planning builds., Micromanaging researchers adds busywork. |
-| falsifiable signal | {'prediction': 'A strategy or management game will ship research performed by a simulated population of named researchers whose relationships affect outcomes.', 'resolve_by': '2029-06-30', 'criteria': 'Shipped title documentation describing relationship-dependent research by named characters.'} |
+| falsifiable signal | {'prediction': 'A strategy or management game will ship research performed by a simulated population of named researchers whose relationships affect outcomes.', 'resolve_by': '2029-06-30', 'criteria': 'Title or expansion released after 2026-10-24 with at least 1,000 Steam user reviews; documentation describes research progress that depends on relationships between named researcher characters, not only on their individual stats.'} |
 | priority *(computed)* | 2.764 |
 
 ## Thesis
@@ -39,7 +39,7 @@ Swap the research meter in a strategy prototype for a ten-scientist system and c
 
 - **Prediction:** A strategy or management game will ship research performed by a simulated population of named researchers whose relationships affect outcomes.
 - **Resolve by:** 2029-06-30
-- **Criteria:** Shipped title documentation describing relationship-dependent research by named characters.
+- **Criteria:** Title or expansion released after 2026-10-24 with at least 1,000 Steam user reviews; documentation describes research progress that depends on relationships between named researcher characters, not only on their individual stats.
 
 ## Relations
 
@@ -64,4 +64,4 @@ Swap the research meter in a strategy prototype for a ten-scientist system and c
 - [Dwarf Fortress](../game/dwarf-fortress.md)
 
 ---
-Provenance: created in run `2026-10-24-synthesis`.
+Provenance: created in run `2026-10-24-synthesis`; reviewed in `2026-10-24-review-fixes`.

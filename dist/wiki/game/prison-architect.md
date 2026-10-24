@@ -29,9 +29,9 @@ A prison management sim in which the player builds a facility, sets an hourly re
 | emergence | 3 |
 | influence | 3 |
 | influenced by | [Theme Hospital](../game/theme-hospital.md), [Dwarf Fortress](../game/dwarf-fortress.md) |
-| cluster *(computed)* | C03 |
+| cluster *(computed)* | C01 |
 | core count *(computed)* | 5 |
-| mechanic count *(computed)* | 15 |
+| mechanic count *(computed)* | 17 |
 
 ## Summary
 
@@ -69,6 +69,8 @@ Control is indirect: the player cannot order prisoners, only shape the regime, t
 - [Fluid pipe networks](../mechanic/fluid-pipe-network.md) (supporting): Water pumps and pipes supply showers and toilets.
 - [Fire spread](../mechanic/fire-spread.md) (supporting): Fires spread through the prison and must be fought by firemen.
 - [Content sharing](../mechanic/content-sharing.md) (supporting): Player prisons are shared online, and Escape Mode lets players break out of shared prisons.
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
+- [Utility action selection](../mechanic/utility-action-selection.md) (supporting)
 
 ## Backlinks (computed)
 
@@ -84,4 +86,4 @@ Control is indirect: the player cannot order prisoners, only shape the regime, t
 - [Regime](../source/src-paradoxwikis-2026-prison-architect-regime.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-gb`.
+Provenance: created in run `2026-10-24-catalog-gb`; reviewed in `2026-10-24-review-fixes`.

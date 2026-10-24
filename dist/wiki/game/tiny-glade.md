@@ -27,7 +27,7 @@ A medieval building sandbox in which drawn walls, paths, and building outlines a
 | emergence | 2 |
 | influence | 1 |
 | boundary case | True |
-| cluster *(computed)* | C03 |
+| cluster *(computed)* | C16 |
 | core count *(computed)* | 1 |
 | mechanic count *(computed)* | 3 |
 

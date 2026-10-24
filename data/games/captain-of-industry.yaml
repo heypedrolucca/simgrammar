@@ -126,6 +126,10 @@ mechanics:
 - id: machine-boosting
   role: supporting
   note: Unity is spent on building boosts (0.25 Unity each) that speed up individual buildings.
+- id: variable-speed
+  role: supporting
+- id: free-placement
+  role: supporting
 influenced_by: []
 claims:
 - text: Captain of Industry entered Steam Early Access on 2022-05-31 and was still in Early Access in
@@ -142,3 +146,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-catalog-gh
+  reviewed:
+  - 2026-10-24-review-fixes

@@ -27,9 +27,9 @@ A 3D theme park builder with a spline and piece coaster editor, modular scenery,
 | emergence | 3 |
 | influence | 2 |
 | influenced by | [RollerCoaster Tycoon](../game/rollercoaster-tycoon.md) |
-| cluster *(computed)* | C03 |
+| cluster *(computed)* | C01 |
 | core count *(computed)* | 4 |
-| mechanic count *(computed)* | 14 |
+| mechanic count *(computed)* | 17 |
 
 ## Summary
 
@@ -65,6 +65,9 @@ Planet Coaster keeps the RollerCoaster Tycoon structure of rated rides and guest
 - [Scenario objectives](../mechanic/scenario-objectives.md) (supporting): Career scenarios set goals such as building coasters, reaching park ratings, and hiring staff; a scenario editor was added in 2017.
 - [Decoration and beauty](../mechanic/decoration-beauty.md) (supporting): Scenery around rides and paths raises guest happiness and ride appeal.
 - [Track laying](../mechanic/track-laying.md) (supporting): Coasters are built in a hybrid spline and piece-by-piece editor, joining track elements end to end.
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
+- [Building placement](../mechanic/free-placement.md) (supporting)
+- [Utility action selection](../mechanic/utility-action-selection.md) (supporting)
 
 ## Backlinks (computed)
 
@@ -78,4 +81,4 @@ Planet Coaster keeps the RollerCoaster Tycoon structure of rated rides and guest
 - [RollerCoaster Tycoon](../source/src-wikipedia-rollercoaster-tycoon-series.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-ge`.
+Provenance: created in run `2026-10-24-catalog-ge`; reviewed in `2026-10-24-review-fixes`.

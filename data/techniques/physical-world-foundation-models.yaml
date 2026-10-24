@@ -48,6 +48,7 @@ runtime:
 determinism_impact: breaks
 horizon: 5y-plus
 risks:
+- determinism
 - consistency
 - compute-cost
 - evaluation
@@ -82,3 +83,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-techniques-world-models
+  reviewed:
+  - 2026-10-24-review-fixes

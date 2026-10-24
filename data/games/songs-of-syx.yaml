@@ -1,8 +1,9 @@
 id: songs-of-syx
 type: game
 name: Songs of Syx
-summary: A low-fantasy city builder in which tens of thousands of individually simulated citizens and slaves of
-  several races live in a growing city-state whose armies of up to 50,000 units fight real-time battles.
+summary: A low-fantasy city builder in which tens of thousands of individually simulated citizens and
+  slaves of several races live in a growing city-state whose armies of up to 50,000 units fight real-time
+  battles.
 year: 2020
 developer: Gamatron AB
 platforms:
@@ -33,13 +34,13 @@ production_tier: indie
 agent_count_order: 10k-plus
 emergence: 3
 influence: 1
-core_loop: lay out houses, streets, and workshops -> tens of thousands of citizens and slaves work, worship, and
-  seek their desires -> appoint nobles to run the realm -> supply and train armies -> fight real-time battles ->
-  trade, ally, or conquer neighboring kingdoms
-design_notes: 'Songs of Syx scales individual simulation to city size: each of tens of thousands of citizens and
-  slaves has a race, religion, fears, and desires, and each soldier in battles of up to 50,000 units needs supplies.
-  Nobles can be appointed or imported to manage the kingdom but may try to usurp the player. The game has been in
-  early access since September 2020 with no fixed 1.0 date.'
+core_loop: lay out houses, streets, and workshops -> tens of thousands of citizens and slaves work, worship,
+  and seek their desires -> appoint nobles to run the realm -> supply and train armies -> fight real-time
+  battles -> trade, ally, or conquer neighboring kingdoms
+design_notes: 'Songs of Syx scales individual simulation to city size: each of tens of thousands of citizens
+  and slaves has a race, religion, fears, and desires, and each soldier in battles of up to 50,000 units
+  needs supplies. Nobles can be appointed or imported to manage the kingdom but may try to usurp the player.
+  The game has been in early access since September 2020 with no fixed 1.0 date.'
 mechanics:
 - id: population-strata
   role: core
@@ -66,8 +67,14 @@ mechanics:
 - id: stability-unrest
   role: supporting
   note: Appointed nobles may try to usurp the ruler.
+- id: variable-speed
+  role: supporting
+- id: free-placement
+  role: supporting
 sources:
 - src-steam-2026-songs-of-syx
 status: sourced
 provenance:
   created: 2026-10-24-catalog-ga
+  reviewed:
+  - 2026-10-24-review-fixes

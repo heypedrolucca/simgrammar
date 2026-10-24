@@ -71,7 +71,7 @@ Buy low, sell high, and watch your own trades move the market. The player spots 
 
 **affected by:** [Mean field games and mean-field learning](../technique/mean-field-games.md), [Simulation-based inference for calibrating simulators](../technique/simulation-based-inference.md)
 
-**involved in:** [AI liquidity in player markets](../opportunity/ai-liquidity-in-player-markets.md), [Calibrated serious simulations](../opportunity/calibrated-serious-sims.md), [Human-calibrated customers](../opportunity/human-calibrated-customers.md), [Parallel autobalancing of economies](../opportunity/parallel-autobalance.md), [Weather-coupled energy grids](../opportunity/weather-coupled-grids.md)
+**involved in:** [AI liquidity in player markets](../opportunity/ai-liquidity-in-player-markets.md), [Calibrated serious simulations](../opportunity/calibrated-serious-sims.md), [Human-calibrated customers](../opportunity/human-calibrated-customers.md), [Parallel autobalancing of economies](../opportunity/parallel-autobalance.md)
 
 **used by:** [Big Pharma](../game/big-pharma.md), [Bitburner](../game/bitburner.md), [Elite Dangerous](../game/elite-dangerous.md), [M.U.L.E.](../game/mule.md), [Offworld Trading Company](../game/offworld-trading-company.md), [Railroad Tycoon](../game/railroad-tycoon.md), [SimCity (2013)](../game/simcity-2013.md), [This War of Mine](../game/this-war-of-mine.md), [Victoria 3](../game/victoria-3.md), [Workers & Resources: Soviet Republic](../game/workers-and-resources.md)
 

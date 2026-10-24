@@ -30,7 +30,7 @@ A farming and life sim in which the player restores an inherited farm over four 
 | influenced by | [Harvest Moon](../game/harvest-moon.md) |
 | cluster *(computed)* | C05 |
 | core count *(computed)* | 5 |
-| mechanic count *(computed)* | 14 |
+| mechanic count *(computed)* | 15 |
 
 ## Summary
 
@@ -66,6 +66,7 @@ Eric Barone built Stardew Valley alone over about five years in response to Harv
 - [Hand crafting](../mechanic/hand-crafting.md) (supporting): Recipes turn gathered materials into sprinklers, fences, machines, and bombs.
 - [Daily schedules](../mechanic/daily-schedules.md) (supporting): Villagers follow routines that vary by weekday, season, and weather.
 - [Weather](../mechanic/weather.md) (supporting): Rain waters crops and changes fish and villager routines.
+- [Building placement](../mechanic/free-placement.md) (supporting)
 
 ## Backlinks (computed)
 
@@ -78,4 +79,4 @@ Eric Barone built Stardew Valley alone over about five years in response to Harv
 - [Bundles](../source/src-stardewvalleywiki-2026-bundles.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-gc`.
+Provenance: created in run `2026-10-24-catalog-gc`; reviewed in `2026-10-24-review-fixes`.

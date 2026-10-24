@@ -14,7 +14,7 @@ Use learned and GPU-parallel physics surrogates to bring per-particle fluids, ga
 | feasibility | 2 |
 | impact | 4 |
 | horizon | 3-5 years |
-| falsifiable signal | {'prediction': 'A commercial game will use a learned surrogate for fluid, gas, or destruction simulation at runtime.', 'resolve_by': '2029-12-31', 'criteria': 'Developer documentation or technical talk confirming a trained neural model simulating physical materials during play.'} |
+| falsifiable signal | {'prediction': 'A game will use a learned surrogate model to simulate fluid, gas, or destruction at runtime.', 'resolve_by': '2029-12-31', 'criteria': 'Released after 2026-10-24 with at least 1,000 Steam user reviews or a console release; developer documentation or a technical talk confirms that a trained neural model computes physical material behavior during play, not only visual effects.'} |
 | priority *(computed)* | 3.138 |
 
 ## Thesis
@@ -37,9 +37,9 @@ Train a graph-network surrogate on a 2D falling-sand fluid simulator and measure
 
 ## Falsifiable signal
 
-- **Prediction:** A commercial game will use a learned surrogate for fluid, gas, or destruction simulation at runtime.
+- **Prediction:** A game will use a learned surrogate model to simulate fluid, gas, or destruction at runtime.
 - **Resolve by:** 2029-12-31
-- **Criteria:** Developer documentation or technical talk confirming a trained neural model simulating physical materials during play.
+- **Criteria:** Released after 2026-10-24 with at least 1,000 Steam user reviews or a console release; developer documentation or a technical talk confirms that a trained neural model computes physical material behavior during play, not only visual effects.
 
 ## Relations
 
@@ -67,4 +67,4 @@ Train a graph-network surrogate on a 2D falling-sand fluid simulator and measure
 - [The Powder Toy](../game/the-powder-toy.md)
 
 ---
-Provenance: created in run `2026-10-24-synthesis`.
+Provenance: created in run `2026-10-24-synthesis`; reviewed in `2026-10-24-review-fixes`.

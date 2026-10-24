@@ -5910,6 +5910,30 @@
     "_derived": {
       "incoming": {
         "cited_by": [
+          "cities-skylines-2"
+        ]
+      }
+    },
+    "accessed": "2026-10-24",
+    "authors": [
+      "Paradox Interactive"
+    ],
+    "date": "2023",
+    "id": "src-paradox-2023-cs2-electricity-water",
+    "kind": "docs",
+    "name": "Cities: Skylines II features: Electricity and Water",
+    "notes": "Solar output depends on weather and time of day, wind turbines on wind strength; batteries and accumulators store surplus power; power flows through a connected grid.",
+    "provenance": {
+      "created": "2026-10-24-review-fixes"
+    },
+    "type": "source",
+    "url": "https://www.paradoxinteractive.com/games/cities-skylines-ii/features/electricity-water",
+    "venue": "paradoxinteractive.com"
+  },
+  {
+    "_derived": {
+      "incoming": {
+        "cited_by": [
           "cities-skylines-2",
           "public-transit",
           "traffic-congestion",
@@ -9941,11 +9965,14 @@
       }
     },
     "accessed": "2026-10-24",
+    "authors": [
+      "Rebecca Bellan"
+    ],
     "date": "2026-01-29",
     "id": "src-techcrunch-2026-project-genie",
     "kind": "news",
     "name": "I built marshmallow castles in Google's new AI world generator Project Genie",
-    "notes": "Project Genie for US Google AI Ultra subscribers; Genie 3 plus Nano Banana Pro; 60-second cap due to compute; characters walk through walls; controls sometimes unresponsive; copyrighted worlds refused.",
+    "notes": "Project Genie for US Google AI Ultra subscribers; Genie 3 plus Nano Banana Pro; 60 seconds of generation and navigation per world, which DeepMind's Shlomi Fruchter attributed to bringing it to more users given compute; characters walk through walls; controls sometimes unresponsive; copyrighted worlds refused.",
     "provenance": {
       "created": "2026-10-24-techniques-world-models"
     },
@@ -11783,7 +11810,7 @@
     "id": "src-wikipedia-dcs-world",
     "kind": "encyclopedia",
     "name": "DCS World",
-    "notes": "Eagle Dynamics; study sim with interactive cockpit switches; subsystems such as engines, fuel, electrical, hydraulic, radios modeled; used by the USAF 355th Training Squadron as an A-10C instrument and weapons-systems trainer.",
+    "notes": "Eagle Dynamics study sim; clickable cockpits; engines, fuel, electrical, hydraulic, radios modeled. Black Shark (Ka-50) first of three standalone titles, 2008-2011; DCS World open beta May 2012; free with two aircraft and two maps, paid modules. Lua mission editor; user-hosted PvE and PvP servers. Training use: USAF 355th Training Squadron (A-10C), French Air Force (M-2000C), Ukrainian pilots (A-10C II, F-16C). F-16C: Professional Flight Model, fly-by-wire FCS. 2.7 (April 2021) new weather and clouds; improved damage models over time.",
     "provenance": {
       "created": "2026-10-24-taxonomy-m7"
     },

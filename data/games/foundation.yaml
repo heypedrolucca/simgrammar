@@ -1,8 +1,8 @@
 id: foundation
 type: game
 name: Foundation
-summary: A gridless medieval city builder in which painted zones grow homes organically, monuments are assembled
-  from modular parts, and the village advances along Labor, Clergy, or Kingdom estates.
+summary: A gridless medieval city builder in which painted zones grow homes organically, monuments are
+  assembled from modular parts, and the village advances along Labor, Clergy, or Kingdom estates.
 year: 2019
 year_full_release: 2025
 developer: Polymorph Games
@@ -31,18 +31,18 @@ production_tier: indie
 agent_count_order: '100'
 emergence: 2
 influence: 1
-core_loop: paint residential, road, patrol, and forestry zones -> villagers build homes inside them -> assign workers
-  and production chains -> trade with neighbors and pay taxes -> advance Labor, Clergy, or Kingdom estates -> assemble
-  monuments from parts
-design_notes: 'Foundation separates intent from layout: the player paints areas for homes, roads, patrols, and forestry,
-  and housing appears inside them without a grid. Major buildings are not fixed footprints but assemblies of parts,
-  so a monument''s function and capacity follow from the modules chosen. Progress runs along three estates, which
-  can be specialized or combined.'
+core_loop: paint residential, road, patrol, and forestry zones -> villagers build homes inside them ->
+  assign workers and production chains -> trade with neighbors and pay taxes -> advance Labor, Clergy,
+  or Kingdom estates -> assemble monuments from parts
+design_notes: 'Foundation separates intent from layout: the player paints areas for homes, roads, patrols,
+  and forestry, and housing appears inside them without a grid. Major buildings are not fixed footprints
+  but assemblies of parts, so a monument''s function and capacity follow from the modules chosen. Progress
+  runs along three estates, which can be specialized or combined.'
 mechanics:
 - id: zoning
   role: core
-  note: A painting tool marks areas for homes, roads, patrol routes, and forest extraction; homes fill residential
-    zones organically.
+  note: A painting tool marks areas for homes, roads, patrol routes, and forest extraction; homes fill
+    residential zones organically.
 - id: modular-assembly
   role: core
   note: Buildings and monuments are assembled from individual parts whose choice sets function and appearance.
@@ -61,9 +61,13 @@ mechanics:
   note: Progress unlocks through tiers guided by a book, along Labor, Clergy, or Kingdom estates.
 - id: goods-consumption
   role: supporting
+- id: variable-speed
+  role: supporting
 sources:
 - src-wikipedia-foundation-video-game
 - src-steam-2026-foundation
 status: sourced
 provenance:
   created: 2026-10-24-catalog-ga
+  reviewed:
+  - 2026-10-24-review-fixes

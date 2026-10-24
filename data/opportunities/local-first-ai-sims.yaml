@@ -34,12 +34,15 @@ validation_experiment: 'Benchmark a 1 to 4 billion parameter quantized model on 
   survey GPU for schema-constrained NPC dialogue, measuring latency, VRAM, and frame-time impact. Success:
   under 500 ms first token with less than 10 percent frame-time impact.'
 falsifiable_signal:
-  prediction: At least five Steam games with over 1,000 reviews will ship an on-device language model
-    used at runtime without requiring an internet connection.
+  prediction: At least five games with over 1,000 Steam user reviews will use an on-device language model
+    at runtime without requiring an internet connection.
   resolve_by: '2027-12-31'
-  criteria: Store pages or documentation confirming local model inference for runtime features, and review
-    counts over 1,000.
+  criteria: Count titles whose local-model feature first shipped after 2026-10-24; store pages or documentation
+    confirm local inference for runtime features, and each title has more than 1,000 Steam user reviews
+    by the resolve date.
 sources: []
 status: asserted
 provenance:
   created: 2026-10-24-synthesis
+  reviewed:
+  - 2026-10-24-review-fixes

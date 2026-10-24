@@ -26,7 +26,7 @@ A first-person crime business sim in which the player grows and cooks drugs, mix
 | agent count order | ~100 |
 | emergence | 2 |
 | influence | 1 |
-| cluster *(computed)* | C03 |
+| cluster *(computed)* | C01 |
 | core count *(computed)* | 5 |
 | mechanic count *(computed)* | 11 |
 

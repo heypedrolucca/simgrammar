@@ -27,9 +27,9 @@ A Roman city builder in which service walkers roam the roads from their building
 | emergence | 3 |
 | influence | 4 |
 | influenced by | [SimCity](../game/simcity-1989.md) |
-| cluster *(computed)* | C01 |
+| cluster *(computed)* | C02 |
 | core count *(computed)* | 3 |
-| mechanic count *(computed)* | 13 |
+| mechanic count *(computed)* | 17 |
 
 ## Summary
 
@@ -64,6 +64,10 @@ Coverage is delivered by individual walkers whose routes depend on road layout, 
 - [Decoration and beauty](../mechanic/decoration-beauty.md) (supporting): Gardens, statues, and plazas raise desirability that houses need to evolve.
 - [Road networks](../mechanic/road-network.md) (supporting): Walkers and goods move on roads, so road layout sets coverage.
 - [Taxation](../mechanic/taxation.md) (supporting)
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
+- [Building placement](../mechanic/free-placement.md) (supporting)
+- [Fire spread](../mechanic/fire-spread.md) (supporting)
+- [Storage and buffers](../mechanic/storage-capacity.md) (supporting)
 
 ## Backlinks (computed)
 
@@ -75,4 +79,4 @@ Coverage is delivered by individual walkers whose routes depend on road layout, 
 - [Julius: an open source re-implementation of Caesar III](../source/src-bvschaik-2026-julius.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-ga`.
+Provenance: created in run `2026-10-24-catalog-ga`; reviewed in `2026-10-24-review-fixes`.

@@ -26,7 +26,7 @@ A 3D space trading and combat game in which the player flies a single ship throu
 | agent count order | ~10 |
 | emergence | 2 |
 | influence | 5 |
-| cluster *(computed)* | C08 |
+| cluster *(computed)* | C11 |
 | core count *(computed)* | 3 |
 | mechanic count *(computed)* | 6 |
 

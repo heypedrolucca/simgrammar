@@ -14,7 +14,7 @@ Keep gameplay in a small deterministic symbolic simulation and let a generative 
 | feasibility | 2 |
 | impact | 4 |
 | horizon | 3-5 years |
-| falsifiable signal | {'prediction': 'A released game will render its primary view with a generative model conditioned on an explicit symbolic game state.', 'resolve_by': '2029-12-31', 'criteria': 'Developer documentation showing gameplay state is symbolic and the main viewport is produced by a learned generative renderer.'} |
+| falsifiable signal | {'prediction': 'A game will render its primary view with a generative model conditioned on an explicit symbolic game state.', 'resolve_by': '2029-12-31', 'criteria': 'Title released after 2026-10-24 with at least 1,000 Steam user reviews or a console release; developer documentation shows that gameplay state is symbolic and that the main viewport is produced frame by frame by a learned generative renderer.'} |
 | priority *(computed)* | 3.282 |
 
 ## Summary
@@ -41,9 +41,9 @@ Condition an open video or image model on a 32x32 symbolic city grid and measure
 
 ## Falsifiable signal
 
-- **Prediction:** A released game will render its primary view with a generative model conditioned on an explicit symbolic game state.
+- **Prediction:** A game will render its primary view with a generative model conditioned on an explicit symbolic game state.
 - **Resolve by:** 2029-12-31
-- **Criteria:** Developer documentation showing gameplay state is symbolic and the main viewport is produced by a learned generative renderer.
+- **Criteria:** Title released after 2026-10-24 with at least 1,000 Steam user reviews or a console release; developer documentation shows that gameplay state is symbolic and that the main viewport is produced frame by frame by a learned generative renderer.
 
 ## Relations
 
@@ -70,4 +70,4 @@ Condition an open video or image model on a 32x32 symbolic city grid and measure
 - [Islanders](../game/islanders.md)
 
 ---
-Provenance: created in run `2026-10-24-synthesis`.
+Provenance: created in run `2026-10-24-synthesis`; reviewed in `2026-10-24-review-fixes`.

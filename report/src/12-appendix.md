@@ -6,11 +6,7 @@
 
 {{table:technique-catalog}}
 
-## Appendix C. Opportunity catalog
-
-{{table:opportunity-catalog}}
-
-## Appendix D. Using and extending this dataset
+## Appendix C. Using and extending this dataset
 
 - **Cite** a specific version by the `dataset_sha256` in `dist/manifest.json` (also printed on this report's title page).
 - **Query** with the CSVs in `dist/tables/`, the graph files in `dist/graph/` (JSON Lines, Cytoscape, GraphML), or `make sqlite` for SQL.

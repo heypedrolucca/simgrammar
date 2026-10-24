@@ -15,7 +15,7 @@ An engine layer that records simulation and model calls as an append-only event 
 | impact | 4 |
 | horizon | 1-2 years |
 | key risks | Log size grows quickly in large simulations., Retrofitting existing engines is costly., Privacy and storage of logged player text. |
-| falsifiable signal | {'prediction': 'A game engine or middleware vendor will ship an event-log-based replay and determinism layer designed for generative AI components.', 'resolve_by': '2028-12-31', 'criteria': 'Public release from Unity, Epic, a major middleware vendor, or an open-source project with documented adoption in a shipped game.'} |
+| falsifiable signal | {'prediction': 'An engine, middleware vendor, or open-source project will ship an event-log replay and determinism layer designed for games with generative AI components.', 'resolve_by': '2028-12-31', 'criteria': 'Released after 2026-10-24 by any engine or middleware vendor or as an open-source project; documentation describes recording model outputs into a replayable log, and at least one shipped title with at least 1,000 Steam user reviews uses it.'} |
 | priority *(computed)* | 3.776 |
 
 ## Summary
@@ -42,9 +42,9 @@ Wrap the model calls of an AI-agent prototype in an event log, then replay 100 s
 
 ## Falsifiable signal
 
-- **Prediction:** A game engine or middleware vendor will ship an event-log-based replay and determinism layer designed for generative AI components.
+- **Prediction:** An engine, middleware vendor, or open-source project will ship an event-log replay and determinism layer designed for games with generative AI components.
 - **Resolve by:** 2028-12-31
-- **Criteria:** Public release from Unity, Epic, a major middleware vendor, or an open-source project with documented adoption in a shipped game.
+- **Criteria:** Released after 2026-10-24 by any engine or middleware vendor or as an open-source project; documentation describes recording model outputs into a replayable log, and at least one shipped title with at least 1,000 Steam user reviews uses it.
 
 ## Relations
 
@@ -69,4 +69,4 @@ Wrap the model calls of an AI-agent prototype in an event log, then replay 100 s
 - [EVE Online](../game/eve-online.md)
 
 ---
-Provenance: created in run `2026-10-24-synthesis`.
+Provenance: created in run `2026-10-24-synthesis`; reviewed in `2026-10-24-review-fixes`.

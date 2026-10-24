@@ -28,7 +28,7 @@ A 1985 home-computer life sim in which one procedurally seeded little person liv
 | agent count order | ~1 |
 | emergence | 2 |
 | influence | 2 |
-| cluster *(computed)* | C04 |
+| cluster *(computed)* | C13 |
 | core count *(computed)* | 3 |
 | mechanic count *(computed)* | 6 |
 

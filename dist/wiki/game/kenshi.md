@@ -30,7 +30,7 @@ A squad-based open-world RPG with no hero character, where any recruit can starv
 | influence | 2 |
 | cluster *(computed)* | C05 |
 | core count *(computed)* | 4 |
-| mechanic count *(computed)* | 15 |
+| mechanic count *(computed)* | 16 |
 
 ## Summary
 
@@ -63,6 +63,7 @@ There is no main character: every recruit and NPC is a potential equal, with no 
 - [Weather](../mechanic/weather.md) (supporting): Some weather, such as acid rain, harms characters.
 - [Permadeath](../mechanic/permadeath.md) (supporting)
 - [Statistical combat resolution](../mechanic/stat-combat-resolution.md) (supporting): Fights resolve from character combat skills, weapon stats, and armor, with damage applied to individual limbs.
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
 
 ## Backlinks (computed)
 
@@ -74,4 +75,4 @@ There is no main character: every recruit and NPC is a potential equal, with no 
 - [Kenshi on Steam](../source/src-steam-2026-kenshi.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-gb`.
+Provenance: created in run `2026-10-24-catalog-gb`; reviewed in `2026-10-24-review-fixes`.

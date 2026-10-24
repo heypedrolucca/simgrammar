@@ -28,7 +28,7 @@ A corporate business sim in which the player builds retail stores, factories, fa
 | influence | 2 |
 | cluster *(computed)* | C01 |
 | core count *(computed)* | 4 |
-| mechanic count *(computed)* | 12 |
+| mechanic count *(computed)* | 13 |
 
 ## Summary
 
@@ -58,6 +58,7 @@ Trevor Chan's Capitalism models a firm as a small grid of internal units (purcha
 - [Blueprints](../mechanic/blueprints.md) (supporting): A layout plan library saves and reuses firm unit layouts.
 - [Scenario objectives](../mechanic/scenario-objectives.md) (supporting): Seventeen scenarios set goals such as market-share dominance within a time limit.
 - [Advertising and awareness](../mechanic/advertising-awareness.md) (supporting): Advertising units inside firms spend money to raise a product's brand rating, which customers weigh with price and quality when choosing among stores.
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
 
 ## Backlinks (computed)
 
@@ -68,4 +69,4 @@ Trevor Chan's Capitalism models a firm as a small grid of internal units (purcha
 - [Capitalism (video game)](../source/src-wikipedia-capitalism-video-game.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-ge`.
+Provenance: created in run `2026-10-24-catalog-ge`; reviewed in `2026-10-24-review-fixes`.

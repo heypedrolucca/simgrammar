@@ -28,7 +28,7 @@ A zero-gravity salvage sim in which the player cuts derelict ships apart with a 
 | agent count order | None |
 | emergence | 3 |
 | influence | 1 |
-| cluster *(computed)* | C02 |
+| cluster *(computed)* | C15 |
 | core count *(computed)* | 2 |
 | mechanic count *(computed)* | 7 |
 

@@ -89,6 +89,7 @@
 | [Cities: Skylines II](src-pcgamingwiki-2026-cities-skylines-2.md) |  |
 | [Cities: Skylines II](src-wikipedia-cities-skylines-2.md) |  |
 | [Cities: Skylines II Feature Highlight #2: Traffic AI](src-paradox-2023-cs2-traffic-ai.md) |  |
+| [Cities: Skylines II features: Electricity and Water](src-paradox-2023-cs2-electricity-water.md) |  |
 | [City-building game](src-wikipedia-city-building-game.md) |  |
 | [Civilization (video game)](src-wikipedia-civilization.md) |  |
 | [Civilization IV's lead designer wants you to financially ruin your enemies](src-gamesbeat-2015-offworld-trading-company.md) |  |

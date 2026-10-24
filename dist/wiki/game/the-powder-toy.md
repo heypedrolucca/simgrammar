@@ -27,7 +27,7 @@ An open-source falling-sand sandbox where hundreds of elements interact cell by 
 | agent count order | None |
 | emergence | 4 |
 | influence | 2 |
-| cluster *(computed)* | C02 |
+| cluster *(computed)* | C07 |
 | core count *(computed)* | 4 |
 | mechanic count *(computed)* | 9 |
 

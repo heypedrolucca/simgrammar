@@ -14,7 +14,7 @@ Google DeepMind's Genie models generate playable worlds from a text or image pro
 | runtime | Server real-time |
 | determinism impact | Breaks |
 | horizon | 3-5 years |
-| risks | Consistency / hallucination, Compute cost, Controllability, IP / provenance, Content safety |
+| risks | Determinism, Consistency / hallucination, Compute cost, Controllability, IP / provenance, Content safety |
 | affects count *(computed)* | 7 |
 
 ## Summary
@@ -79,4 +79,4 @@ Genie (2024) learned from 30k hours of unlabeled 2D platformer video: a video to
 - [Genie (AI model)](../source/src-wikipedia-genie-ai-model.md)
 
 ---
-Provenance: created in run `2026-10-24-techniques-world-models`.
+Provenance: created in run `2026-10-24-techniques-world-models`; reviewed in `2026-10-24-review-fixes`.

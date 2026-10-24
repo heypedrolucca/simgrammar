@@ -15,7 +15,7 @@ Rule-checking job sims with generated documents, items, and rule changes each sh
 | impact | 2 |
 | horizon | Now |
 | key risks | Generated text leaks the answer or contradicts the formal case., Repetitive tone across generated applicants. |
-| falsifiable signal | {'prediction': 'A released inspection or bureaucracy job sim will use runtime generation of documents or applicants with a rule-derived answer key.', 'resolve_by': '2027-12-31', 'criteria': 'Store page or developer statement describing generated cases scored against formal rules.'} |
+| falsifiable signal | {'prediction': 'An inspection or bureaucracy job sim will generate documents or applicants at runtime and score the player against an answer key derived from formal rules.', 'resolve_by': '2027-12-31', 'criteria': "Released after 2026-10-24 with at least 1,000 Steam user reviews; store page or developer statement describes runtime-generated cases whose correct outcome is computed from the game's rules, not authored per case."} |
 | priority *(computed)* | 2.989 |
 
 ## Thesis
@@ -37,9 +37,9 @@ Generate 1,000 inspection cases from a 30-predicate rule set and have a checker 
 
 ## Falsifiable signal
 
-- **Prediction:** A released inspection or bureaucracy job sim will use runtime generation of documents or applicants with a rule-derived answer key.
+- **Prediction:** An inspection or bureaucracy job sim will generate documents or applicants at runtime and score the player against an answer key derived from formal rules.
 - **Resolve by:** 2027-12-31
-- **Criteria:** Store page or developer statement describing generated cases scored against formal rules.
+- **Criteria:** Released after 2026-10-24 with at least 1,000 Steam user reviews; store page or developer statement describes runtime-generated cases whose correct outcome is computed from the game's rules, not authored per case.
 
 ## Relations
 
@@ -62,4 +62,4 @@ Generate 1,000 inspection cases from a 30-predicate rule set and have a checker 
 - [Contraband Police](../game/contraband-police.md)
 
 ---
-Provenance: created in run `2026-10-24-synthesis`.
+Provenance: created in run `2026-10-24-synthesis`; reviewed in `2026-10-24-review-fixes`.

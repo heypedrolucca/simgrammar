@@ -28,9 +28,9 @@ A 3D factory automation game in which the player's mech builds production lines 
 | emergence | 2 |
 | influence | 2 |
 | influenced by | [Stellaris](../game/stellaris.md) |
-| cluster *(computed)* | C01 |
+| cluster *(computed)* | C02 |
 | core count *(computed)* | 7 |
-| mechanic count *(computed)* | 17 |
+| mechanic count *(computed)* | 18 |
 
 ## Summary
 
@@ -77,6 +77,7 @@ Dyson Sphere Program scales the factory puzzle from one map to a randomly genera
 - [Megaproject sink](../mechanic/megaproject-sink.md) (core): The Dyson sphere is designed in a node-and-frame editor and built from solar sails fired by EM-Rail Ejectors and frames carried by rockets; unabsorbed sails expire after 5,400 seconds, and the finished sphere's energy feeds endgame production.
 - [Machine boosting](../mechanic/machine-boosting.md) (supporting): Proliferator coating on input items lets the consuming machine choose extra products or faster production.
 - [Request-provider logistics](../mechanic/request-provider-logistics.md) (core): Logistics stations set each item slot to local or remote supply, demand, or storage and are paired automatically by priority; up to 100 drones per station haul within a planet and 10 vessels between planets, with range and minimum-load sliders.
+- [Building placement](../mechanic/free-placement.md) (supporting)
 
 ## Backlinks (computed)
 
@@ -96,4 +97,4 @@ Dyson Sphere Program scales the factory puzzle from one map to a randomly genera
 - [Dark Fog](../source/src-dspwiki-2026-dark-fog.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-gh`.
+Provenance: created in run `2026-10-24-catalog-gh`; reviewed in `2026-10-24-review-fixes`.

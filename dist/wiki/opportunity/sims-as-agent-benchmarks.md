@@ -15,7 +15,7 @@ Use factory, colony, and economy sims as long-horizon evaluation and training en
 | impact | 3 |
 | horizon | Now |
 | key risks | Benchmarks saturate quickly., Studios may not want agent play to define their game publicly., Engine licensing for research use. |
-| falsifiable signal | {'prediction': 'A commercial simulation game developer will officially release a headless research API or benchmark for AI agents.', 'resolve_by': '2027-12-31', 'criteria': 'Official announcement or repository from the developer, not only a community wrapper.'} |
+| falsifiable signal | {'prediction': 'A simulation game developer or publisher will officially release a headless research API or benchmark for AI agents.', 'resolve_by': '2027-12-31', 'criteria': 'Released after 2026-10-24 by the developer or publisher of a title with at least 1,000 Steam user reviews, as an official announcement or repository; community wrappers and academic forks do not count.'} |
 | priority *(computed)* | 3.308 |
 
 ## Thesis
@@ -38,9 +38,9 @@ Wrap an open-source colony or factory sim with a typed API, define five scenario
 
 ## Falsifiable signal
 
-- **Prediction:** A commercial simulation game developer will officially release a headless research API or benchmark for AI agents.
+- **Prediction:** A simulation game developer or publisher will officially release a headless research API or benchmark for AI agents.
 - **Resolve by:** 2027-12-31
-- **Criteria:** Official announcement or repository from the developer, not only a community wrapper.
+- **Criteria:** Released after 2026-10-24 by the developer or publisher of a title with at least 1,000 Steam user reviews, as an official announcement or repository; community wrappers and academic forks do not count.
 
 ## Relations
 
@@ -66,4 +66,4 @@ Wrap an open-source colony or factory sim with a typed API, define five scenario
 - [Dwarf Fortress](../game/dwarf-fortress.md)
 
 ---
-Provenance: created in run `2026-10-24-synthesis`.
+Provenance: created in run `2026-10-24-synthesis`; reviewed in `2026-10-24-review-fixes`.

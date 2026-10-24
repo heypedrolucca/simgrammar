@@ -28,7 +28,7 @@ A colony automation game in which the player crafts workerbots from parts and te
 | emergence | 2 |
 | influence | 1 |
 | influenced by |  |
-| cluster *(computed)* | C02 |
+| cluster *(computed)* | C06 |
 | core count *(computed)* | 5 |
 | mechanic count *(computed)* | 12 |
 

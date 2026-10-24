@@ -29,7 +29,7 @@ A persistent MMO strategy game in which players control colonies only by writing
 | emergence | 3 |
 | influence | 2 |
 | influenced by |  |
-| cluster *(computed)* | C02 |
+| cluster *(computed)* | C06 |
 | core count *(computed)* | 6 |
 | mechanic count *(computed)* | 12 |
 

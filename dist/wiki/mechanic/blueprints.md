@@ -20,11 +20,11 @@ Player-made layouts can be saved, stamped as build orders, copied, and shared as
 | ai leverage | 4 |
 | maturity | Established |
 | core count *(computed)* | 1 |
-| earliest game *(computed)* | [Conway's Game of Life](../game/game-of-life.md) |
-| earliest year *(computed)* | 1970 |
-| prevalence *(computed)* | 12 |
-| prevalence share *(computed)* | 0.069 |
-| subgenre spread *(computed)* | 8 |
+| earliest game *(computed)* | [Capitalism](../game/capitalism.md) |
+| earliest year *(computed)* | 1995 |
+| prevalence *(computed)* | 11 |
+| prevalence share *(computed)* | 0.063 |
+| subgenre spread *(computed)* | 7 |
 | technique count *(computed)* | 0 |
 | technique exposure *(computed)* | 0.0 |
 
@@ -73,7 +73,7 @@ Solving a layout once is enough. The player designs a module carefully, then sca
 
 **involved in:** [Teachable sim companion](../opportunity/teachable-sim-companion.md)
 
-**used by:** [Anno 1800](../game/anno-1800.md), [Capitalism](../game/capitalism.md), [Dyson Sphere Program](../game/dyson-sphere-program.md), [Factorio](../game/factorio.md), [Conway's Game of Life](../game/game-of-life.md), [Garry's Mod](../game/garrys-mod.md), [Mindustry](../game/mindustry.md), [Planet Coaster](../game/planet-coaster.md), [Satisfactory](../game/satisfactory.md), [shapez 2](../game/shapez-2.md), [Space Engineers](../game/space-engineers.md), [The Sims 4](../game/the-sims-4.md)
+**used by:** [Anno 1800](../game/anno-1800.md), [Capitalism](../game/capitalism.md), [Dyson Sphere Program](../game/dyson-sphere-program.md), [Factorio](../game/factorio.md), [Garry's Mod](../game/garrys-mod.md), [Mindustry](../game/mindustry.md), [Planet Coaster](../game/planet-coaster.md), [Satisfactory](../game/satisfactory.md), [shapez 2](../game/shapez-2.md), [Space Engineers](../game/space-engineers.md), [The Sims 4](../game/the-sims-4.md)
 
 ## Claims
 

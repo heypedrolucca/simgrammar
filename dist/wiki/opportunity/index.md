@@ -43,5 +43,4 @@
 | [Symbolic simulation, neural rendering](symbolic-sim-neural-render.md) | Keep gameplay in a small deterministic symbolic simulation and let a generative world model render it, decoupling visual variety from simulation cost and art budgets. |
 | [Teachable sim companion](teachable-sim-companion.md) | A co-player agent that learns factory, colony, or farm routines from demonstration and language, and grows a library of reusable skills the player can inspect. |
 | [Trainable creatures revival](trainable-creatures-revival.md) | Revive the Creatures and Black & White lineage with creatures whose behavior is genuinely learned from player feedback and can explain itself. |
-| [Weather-coupled energy grids](weather-coupled-grids.md) | Power grids whose renewable supply follows realistic weather, so storage, forecasting, and demand response become the grid puzzle. |
 | [Why-query over the simulation log](causal-why-query.md) | Let players ask why something happened and answer from the simulation's own event log, making deep systemic games legible without simplifying them. |

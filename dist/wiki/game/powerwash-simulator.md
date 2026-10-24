@@ -28,7 +28,7 @@ A first-person cleaning sim in which the player power-washes vehicles and buildi
 | emergence | 1 |
 | influence | 2 |
 | core loop | accept a job -> pick nozzle and soap -> wash surfaces -> per-part progress reaches 100 percent -> job pays -> buy washer upgrades -> next job |
-| cluster *(computed)* | C02 |
+| cluster *(computed)* | C15 |
 | core count *(computed)* | 1 |
 | mechanic count *(computed)* | 4 |
 

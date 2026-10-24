@@ -1,8 +1,9 @@
 id: manor-lords
 type: game
 name: Manor Lords
-summary: An early-access medieval city builder in which families settle gridless burgage plots along curved roads,
-  fields depend on soil fertility and crop rotation, and the lord fields retinue and militia in real-time battles.
+summary: An early-access medieval city builder in which families settle gridless burgage plots along curved
+  roads, fields depend on soil fertility and crop rotation, and the lord fields retinue and militia in
+  real-time battles.
 year: 2024
 developer: Slavic Magic
 platforms:
@@ -31,22 +32,24 @@ production_tier: indie
 agent_count_order: '100'
 emergence: 3
 influence: 1
-core_loop: draw curved roads and burgage plots -> families move in and staff workplaces -> fields, backyard extensions,
-  and production chains feed the market -> taxes, tithes, and trade fund a retinue -> defend against bandits and
-  rival lords
-design_notes: 'Manor Lords drops the zoning grid: the player draws plots against freely curved roads, the game divides
-  them into burgage plots, and households extend them with backyard gardens, chickens, or goats, so housing is also
-  production. Fields carry soil fertility per crop that rotation preserves, and hunting depends on animal populations
-  that overexpansion drives away. Militia levies come from the town''s own families, so each battle death is a lost
-  worker; the game remained in early access as of August 2026.'
+core_loop: draw curved roads and burgage plots -> families move in and staff workplaces -> fields, backyard
+  extensions, and production chains feed the market -> taxes, tithes, and trade fund a retinue -> defend
+  against bandits and rival lords
+design_notes: 'Manor Lords drops the zoning grid: the player draws plots against freely curved roads,
+  the game divides them into burgage plots, and households extend them with backyard gardens, chickens,
+  or goats, so housing is also production. Fields carry soil fertility per crop that rotation preserves,
+  and hunting depends on animal populations that overexpansion drives away. Militia levies come from the
+  town''s own families, so each battle death is a lost worker; the game remained in early access as of
+  August 2026.'
 mechanics:
 - id: zoning
   role: core
-  note: Residential plots drawn along roads are divided into burgage plots that families build on and extend with
-    backyard production.
+  note: Residential plots drawn along roads are divided into burgage plots that families build on and
+    extend with backyard production.
 - id: crop-cultivation
   role: core
-  note: Fields depend on soil fertility per crop; rotation and fallow maintain yields, and overuse exhausts soil.
+  note: Fields depend on soil fertility per crop; rotation and fallow maintain yields, and overuse exhausts
+    soil.
 - id: road-network
   role: supporting
   note: Roads curve freely and plots and buildings take their shape from them.
@@ -70,16 +73,25 @@ mechanics:
   note: Hunting grounds depend on animal populations; overexpansion drives deer away and deforests land.
 - id: unit-commands
   role: supporting
-  note: Real-time battles with fatigue, weather, and equipment; retinue, mercenaries, and militia drawn from townspeople.
+  note: Real-time battles with fatigue, weather, and equipment; retinue, mercenaries, and militia drawn
+    from townspeople.
 - id: raid-defense
   role: supporting
   note: Bandit raids threaten the town and loot stores.
 - id: trade-routes
   role: supporting
   note: Surpluses sold to traveling merchants; imports and exports balanced through trade.
+- id: variable-speed
+  role: supporting
+- id: free-placement
+  role: supporting
+- id: storage-capacity
+  role: supporting
 sources:
 - src-wikipedia-manor-lords
 - src-steam-2026-manor-lords
 status: sourced
 provenance:
   created: 2026-10-24-catalog-ga
+  reviewed:
+  - 2026-10-24-review-fixes

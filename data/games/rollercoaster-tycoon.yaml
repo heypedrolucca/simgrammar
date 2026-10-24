@@ -104,6 +104,12 @@ mechanics:
   role: supporting
   note: Coaster track is built piece by piece on the tile grid by direction, height, steepness, and elements
     such as loops and corkscrews, and the result is rated by test run.
+- id: variable-speed
+  role: supporting
+- id: free-placement
+  role: supporting
+- id: utility-action-selection
+  role: supporting
 influenced_by:
 - transport-tycoon
 sources:
@@ -112,3 +118,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-catalog-ge
+  reviewed:
+  - 2026-10-24-review-fixes

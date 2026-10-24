@@ -28,9 +28,9 @@ The sequel to Frostpunk, in which the Steward builds whole districts on the fros
 | emergence | 3 |
 | influence | 1 |
 | influenced by | [Frostpunk](../game/frostpunk.md) |
-| cluster *(computed)* | C01 |
+| cluster *(computed)* | C04 |
 | core count *(computed)* | 4 |
-| mechanic count *(computed)* | 9 |
+| mechanic count *(computed)* | 11 |
 
 ## Summary
 
@@ -61,10 +61,12 @@ Frostpunk 2 moves from single buildings to districts and from one leader's decre
 - [Crisis countdown](../mechanic/crisis-countdown.md) (supporting): Whiteouts are severe storms prepared for with fuel reserves.
 - [Resource extraction](../mechanic/resource-extraction.md) (supporting): Food, coal, oil, and steam come from frostland deposits and districts.
 - [Scenario objectives](../mechanic/scenario-objectives.md) (supporting): Utopia Builder mode sets an objective and optional challenges that fail the run if missed.
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
+- [Building placement](../mechanic/free-placement.md) (supporting)
 
 ## Sources
 
 - [Frostpunk 2](../source/src-wikipedia-frostpunk-2.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-ga`.
+Provenance: created in run `2026-10-24-catalog-ga`; reviewed in `2026-10-24-review-fixes`.

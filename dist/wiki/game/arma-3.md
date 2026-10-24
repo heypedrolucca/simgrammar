@@ -26,7 +26,7 @@ A first-person military simulation on large open terrains in which infantry, veh
 | agent count order | ~100 |
 | emergence | 3 |
 | influence | 3 |
-| cluster *(computed)* | C06 |
+| cluster *(computed)* | C03 |
 | core count *(computed)* | 4 |
 | mechanic count *(computed)* | 10 |
 

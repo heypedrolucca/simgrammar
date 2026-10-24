@@ -1,8 +1,8 @@
 id: prison-architect
 type: game
 name: Prison Architect
-summary: A prison management sim in which the player builds a facility, sets an hourly regime, and staffs it while hundreds
-  of prisoners pursue needs whose neglect leads to fights, escapes, and riots.
+summary: A prison management sim in which the player builds a facility, sets an hourly regime, and staffs
+  it while hundreds of prisoners pursue needs whose neglect leads to fights, escapes, and riots.
 year: 2012
 year_full_release: 2015
 developer: Introversion Software
@@ -38,45 +38,46 @@ production_tier: indie
 agent_count_order: '100'
 emergence: 3
 influence: 3
-core_loop: build cells, canteens, and yards -> set the hourly regime -> prisoners pursue needs within the schedule -> unmet
-  needs raise misconduct, contraband, and riots -> hire staff, run programs, and claim grants -> expand capacity for more
-  prisoners and income
-design_notes: 'Control is indirect: the player cannot order prisoners, only shape the regime, the buildings that satisfy each
-  need, and the staff who enforce rules. Each of about 21 needs is a charge from 1 to 10 satisfied by specific objects for
-  set durations (a phone booth takes 25 minutes, a shower 20), and needs left at the top charge produce side effects. Information
-  itself is a staffed system: features such as viewing finances unlock only after hiring the matching staff member, such as
-  an accountant. Prisoners fall into five security levels with different temperaments, sentence lengths, and cashflow, and
-  reform and labor programs reduce recidivism, which feeds the prison''s grade.'
+core_loop: build cells, canteens, and yards -> set the hourly regime -> prisoners pursue needs within
+  the schedule -> unmet needs raise misconduct, contraband, and riots -> hire staff, run programs, and
+  claim grants -> expand capacity for more prisoners and income
+design_notes: 'Control is indirect: the player cannot order prisoners, only shape the regime, the buildings
+  that satisfy each need, and the staff who enforce rules. Each of about 21 needs is a charge from 1 to
+  10 satisfied by specific objects for set durations (a phone booth takes 25 minutes, a shower 20), and
+  needs left at the top charge produce side effects. Information itself is a staffed system: features
+  such as viewing finances unlock only after hiring the matching staff member, such as an accountant.
+  Prisoners fall into five security levels with different temperaments, sentence lengths, and cashflow,
+  and reform and labor programs reduce recidivism, which feeds the prison''s grade.'
 mechanics:
 - id: needs-decay
   role: core
-  note: About 21 prisoner needs (bladder, food, sleep, hygiene, freedom, family, privacy, spirituality, and others) each charge
-    from 1 to 10 and are reset by specific objects or activities; a need at 10 triggers its side effect, and reports color
-    needs from green to red.
+  note: About 21 prisoner needs (bladder, food, sleep, hygiene, freedom, family, privacy, spirituality,
+    and others) each charge from 1 to 10 and are reset by specific objects or activities; a need at 10
+    triggers its side effect, and reports color needs from green to red.
 - id: daily-schedules
   role: core
-  note: Hiring a Warden unlocks an hourly regime per risk category with Lockup, Sleep, Eat, Yard, Shower, Free Time, and Work
-    blocks; each block confines prisoners to areas rather than forcing actions, so needs are met only where the current block
-    lets prisoners go.
+  note: Hiring a Warden unlocks an hourly regime per risk category with Lockup, Sleep, Eat, Yard, Shower,
+    Free Time, and Work blocks; each block confines prisoners to areas rather than forcing actions, so
+    needs are met only where the current block lets prisoners go.
 - id: free-placement
   role: core
-  note: 'The prison is drawn tile by tile: foundations, walls, doors, and objects are placed, then workmen build them, and
-    room types are assigned to enclosed areas that contain required objects.'
+  note: 'The prison is drawn tile by tile: foundations, walls, doors, and objects are placed, then workmen
+    build them, and room types are assigned to enclosed areas that contain required objects.'
 - id: stability-unrest
   role: core
-  note: Needs left unmet for long periods make prisoners irritated, then likely to fight, attack staff, attempt escape, or
-    riot, and violence spreads to nearby prisoners until guards restore order.
+  note: Needs left unmet for long periods make prisoners irritated, then likely to fight, attack staff,
+    attempt escape, or riot, and violence spreads to nearby prisoners until guards restore order.
 - id: crime-policing
   role: core
-  note: Guards, dog handlers, armed guards, and snitches counter contraband, gangs, and escape attempts through patrols, searches,
-    and lockdowns.
+  note: Guards, dog handlers, armed guards, and snitches counter contraband, gangs, and escape attempts
+    through patrols, searches, and lockdowns.
 - id: budget-treasury
   role: supporting
   note: Income per prisoner per day against staff wages and construction.
 - id: staff-hiring
   role: supporting
-  note: Staff such as guards, cooks, janitors, doctors, psychologists, and lawyers are hired individually, and administrators
-    unlock features.
+  note: Staff such as guards, cooks, janitors, doctors, psychologists, and lawyers are hired individually,
+    and administrators unlock features.
 - id: tech-tree
   role: supporting
   note: A bureaucracy research tree unlocked through administrative staff.
@@ -101,6 +102,10 @@ mechanics:
 - id: content-sharing
   role: supporting
   note: Player prisons are shared online, and Escape Mode lets players break out of shared prisons.
+- id: variable-speed
+  role: supporting
+- id: utility-action-selection
+  role: supporting
 influenced_by:
 - theme-hospital
 - dwarf-fortress
@@ -112,3 +117,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-catalog-gb
+  reviewed:
+  - 2026-10-24-review-fixes

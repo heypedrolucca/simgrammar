@@ -6,7 +6,7 @@ Each opportunity names the mechanics it reworks, the techniques it depends on, g
 
 {{table:opportunities-ranked}}
 
-The top of the ranking is the highest-priority bet in the set, {{stat:top_opportunity}}, followed by other ideas that share its character: they make existing simulations more legible, cheaper to extend, or more alive, using techniques that already work, without asking a learned model to become the simulation.
+The highest-ranked opportunity is {{stat:top_opportunity}}. Most of the ideas near the top make existing simulations more legible, cheaper to extend, or more alive with techniques that already work, and none asks a learned model to become the simulation.
 
 ### 9.2 Five design principles
 
@@ -14,19 +14,19 @@ The opportunities share a small set of principles, each a response to the ceilin
 
 1. **Keep the simulation symbolic; let models read, explain, decorate, and propose.** Authoritative state stays typed and deterministic. Learned models sit around it as renderers, narrators, explainers, and proposal generators whose outputs pass through validators ([[symbolic-sim-neural-render]], [[content-elastic-events]], [[natural-language-legislation]]).
 2. **Spend inference on salience.** Most ticks need no model. Calls at moments that matter, cached and logged, buy believability at bounded cost ([[salience-gated-llm-agents]], [[drama-aware-storyteller]], [[local-first-ai-sims]]).
-3. **Explain before you generate.** The binding constraint on depth is comprehension, and explanation is the least-targeted effect in the technique graph. Explanation over logs and sensitivity analysis is mature and underused ([[causal-why-query]], [[bottleneck-explainer]], [[branch-preview-forecasts]], [[illustrated-chronicles]]).
+3. **Explain before you generate.** Comprehension limits how much coupling players can use (§6.3), and technique research rarely targets it (§8.1). Explanation over logs and sensitivity analysis needs only techniques that already exist ([[causal-why-query]], [[bottleneck-explainer]], [[branch-preview-forecasts]], [[illustrated-chronicles]]).
 4. **Generate offline, verify with agents.** Content, recipes, scenarios, mods, and balance can be generated at design time and checked by automated play before any player sees them ([[parallel-autobalance]], [[generated-recipe-graphs]], [[qd-scenario-libraries]], [[language-modding]]).
 5. **Log every model call as an event.** Recording outputs restores replay, multiplayer sync, bug reproduction, and auditability, and the same log powers explanation, forecasting, and chronicles ([[event-sourced-sim-runtime]]).
 
 ### 9.3 By the ceiling they relax
 
-**Legibility.** [[causal-why-query]] answers why-questions from the event log; [[bottleneck-explainer]] points at the binding constraint in production networks, the most-used and least-AI-exposed part of the genre; [[branch-preview-forecasts]] shows distributions of futures before a decision; [[explained-delegation]] makes delegated subsystems accountable; [[sim-instructor-coach]] narrates mistakes in operation sims.
+**Legibility.** [[causal-why-query]] answers why-questions from the event log; [[bottleneck-explainer]] points at the binding constraint in production networks, a widely used mechanic with no technique attached;{{assert:derived.production-chain.technique_exposure == 0}} [[branch-preview-forecasts]] shows distributions of futures before a decision; [[explained-delegation]] makes delegated subsystems accountable; [[sim-instructor-coach]] narrates mistakes in operation sims.
 
 **Authoring cost.** [[content-elastic-events]] removes the ceiling on event decks; [[generated-inspection-shifts]] gives rule-checking games endless fair cases; [[generative-decoration-catalogs]] and [[learned-build-assist]] widen creative modes; [[generated-recipe-graphs]] and [[qd-scenario-libraries]] cut the cost of progression content; [[language-modding]] hands extension to players.
 
 **Agent believability.** [[salience-gated-llm-agents]] gives colony and life sims specific minds at bounded cost; [[drama-aware-storyteller]] picks events for characters' arcs; [[negotiating-faction-ai]] lets rivals bargain and remember; [[human-calibrated-customers]] grounds crowds in models of real choice; [[trainable-creatures-revival]] returns to learned creatures with modern learning; [[neural-npc-motion]] shows internal state in movement.
 
-**Compute.** [[learned-material-surrogates]] extends particle-level materials to whole worlds; [[mean-field-crowds]] lets cities hold equilibrium-consistent populations; [[learned-weather-layer]] and [[weather-coupled-grids]] bring realistic weather at negligible cost.
+**Compute.** [[learned-material-surrogates]] extends particle-level materials to whole worlds; [[mean-field-crowds]] lets cities hold equilibrium-consistent populations; [[learned-weather-layer]] brings realistic weather at low runtime cost.
 
 **Determinism and infrastructure.** [[event-sourced-sim-runtime]] and [[local-first-ai-sims]] make AI components operable in long-lived, offline, moddable games; [[symbolic-sim-neural-render]] separates what must be exact from what may be generated.
 

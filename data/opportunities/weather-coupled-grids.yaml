@@ -45,3 +45,10 @@ sources: []
 status: asserted
 provenance:
   created: 2026-10-24-synthesis
+  reviewed:
+  - 2026-10-24-review-fixes
+deprecated:
+  superseded_by: learned-weather-layer
+  reason: 'Cities: Skylines II already couples solar and wind output to weather with battery storage,
+    so the prediction was true at writing; the remaining idea (realistic learned weather driving systems)
+    is covered by learned-weather-layer.'

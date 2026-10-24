@@ -51,7 +51,7 @@ authoring_cost: 1
 compute_cost: 3
 tuning_difficulty: 4
 ai_leverage: 3
-maturity: experimental
+maturity: established
 requires:
 - trait-inheritance
 synergy:
@@ -70,3 +70,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-taxonomy-m3
+  reviewed:
+  - 2026-10-24-review-fixes

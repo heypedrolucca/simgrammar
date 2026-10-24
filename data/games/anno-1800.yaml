@@ -83,6 +83,10 @@ mechanics:
   role: supporting
   note: The World's Fair monument is built in stages, each consuming large deliveries of goods, and once
     complete hosts exhibitions.
+- id: variable-speed
+  role: supporting
+- id: free-placement
+  role: supporting
 sources:
 - src-wikipedia-anno-1800
 - src-anno1800wiki-2026-population
@@ -90,3 +94,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-catalog-ga
+  reviewed:
+  - 2026-10-24-review-fixes

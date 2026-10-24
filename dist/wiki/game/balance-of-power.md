@@ -26,7 +26,7 @@ A Cold War geopolitical sim in which the player, as US or Soviet leader, spends 
 | agent count order | Aggregate only |
 | emergence | 2 |
 | influence | 2 |
-| cluster *(computed)* | C05 |
+| cluster *(computed)* | C12 |
 | core count *(computed)* | 3 |
 | mechanic count *(computed)* | 6 |
 

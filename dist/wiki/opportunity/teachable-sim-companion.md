@@ -14,7 +14,7 @@ A co-player agent that learns factory, colony, or farm routines from demonstrati
 | feasibility | 3 |
 | impact | 3 |
 | horizon | 1-2 years |
-| falsifiable signal | {'prediction': 'A released automation or sandbox game will feature an in-game companion that learns reusable skills from player demonstration or instruction.', 'resolve_by': '2028-12-31', 'criteria': 'Store page or developer documentation describing learned, reusable companion skills in a shipped title.'} |
+| falsifiable signal | {'prediction': 'An automation or sandbox game will ship an in-game companion that learns reusable skills from player demonstration or instruction.', 'resolve_by': '2028-12-31', 'criteria': 'Feature first shipped after 2026-10-24 in a title with at least 1,000 Steam user reviews; store page or developer documentation describes companion skills learned from the player that persist and can be reused on new tasks.'} |
 | priority *(computed)* | 3.178 |
 
 ## Thesis
@@ -37,9 +37,9 @@ In a voxel automation prototype, have players teach five routines by demonstrati
 
 ## Falsifiable signal
 
-- **Prediction:** A released automation or sandbox game will feature an in-game companion that learns reusable skills from player demonstration or instruction.
+- **Prediction:** An automation or sandbox game will ship an in-game companion that learns reusable skills from player demonstration or instruction.
 - **Resolve by:** 2028-12-31
-- **Criteria:** Store page or developer documentation describing learned, reusable companion skills in a shipped title.
+- **Criteria:** Feature first shipped after 2026-10-24 in a title with at least 1,000 Steam user reviews; store page or developer documentation describes companion skills learned from the player that persist and can be reused on new tasks.
 
 ## Relations
 
@@ -64,4 +64,4 @@ In a voxel automation prototype, have players teach five routines by demonstrati
 - [Satisfactory](../game/satisfactory.md)
 
 ---
-Provenance: created in run `2026-10-24-synthesis`.
+Provenance: created in run `2026-10-24-synthesis`; reviewed in `2026-10-24-review-fixes`.

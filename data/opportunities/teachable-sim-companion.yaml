@@ -38,12 +38,15 @@ validation_experiment: 'In a voxel automation prototype, have players teach five
   more or less enjoyment than blueprints. Success: 70 percent transfer success and preference over blueprints
   for at least half of players.'
 falsifiable_signal:
-  prediction: A released automation or sandbox game will feature an in-game companion that learns reusable
-    skills from player demonstration or instruction.
+  prediction: An automation or sandbox game will ship an in-game companion that learns reusable skills
+    from player demonstration or instruction.
   resolve_by: '2028-12-31'
-  criteria: Store page or developer documentation describing learned, reusable companion skills in a shipped
-    title.
+  criteria: Feature first shipped after 2026-10-24 in a title with at least 1,000 Steam user reviews;
+    store page or developer documentation describes companion skills learned from the player that persist
+    and can be reused on new tasks.
 sources: []
 status: asserted
 provenance:
   created: 2026-10-24-synthesis
+  reviewed:
+  - 2026-10-24-review-fixes

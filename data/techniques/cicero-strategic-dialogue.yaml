@@ -52,6 +52,7 @@ runtime:
 determinism_impact: breaks
 horizon: 1-2y
 risks:
+- determinism
 - consistency
 - controllability
 - content-safety
@@ -101,3 +102,4 @@ provenance:
   created: 2026-10-24-techniques-rl-design
   reviewed:
   - 2026-10-24-technique-links
+  - 2026-10-24-review-fixes

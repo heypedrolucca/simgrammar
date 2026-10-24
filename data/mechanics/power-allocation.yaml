@@ -6,26 +6,27 @@ aliases:
 - energy management
 - power pips
 - reactor allocation
-summary: The player splits a fixed power budget among a vehicle's subsystems in real time, trading shields, weapons, engines,
-  and life support against each other.
+summary: The player splits a fixed power budget among a vehicle's subsystems in real time, trading shields,
+  weapons, engines, and life support against each other.
 family: resources-production
 substrate:
 - aggregate-stocks
 - rule-system
-definition: >-
-  Owns a total budget B (reactor bars, distributor pips) and an allocated level a_i for each subsystem, with sum(a_i) <= B
-  and each a_i capped by the subsystem's installed level. Each subsystem's output is a step or linear function of its allocation:
-  shield layers, weapon charge rate, evasion, oxygen production. The player moves units between subsystems at any time, often
-  while paused, and the effect applies at once or through a charge rate. FTL's reactor supplies bars that the player assigns
-  to shields, engines, weapons, oxygen, and the medbay; each shield layer takes two bars, and the reactor and each system
-  are upgraded separately with scrap. Elite Dangerous splits distributor pips among systems, engines, and weapons capacitors,
-  which sets each capacitor's recharge rate, while a separate priority list decides which modules shut down when the power
-  plant is overloaded. Unlike power-grid, there is no network topology and no automatic shortfall rule: the split itself is
-  the decision. Inputs: budget, subsystem caps, damage to the reactor or subsystems. Outputs: per-subsystem effectiveness.
-player_experience: >-
-  A running triage under pressure. The player pulls power from oxygen to charge one more weapon, moves it all into engines
-  to escape, or holds shields high while waiting for a volley. Each reallocation is a small bet about what the opponent will
-  do next, and a damaged reactor turns a comfortable budget into a painful choice.
+definition: 'Owns a total budget B (reactor bars, distributor pips) and an allocated level a_i for each
+  subsystem, with sum(a_i) <= B and each a_i capped by the subsystem''s installed level. Each subsystem''s
+  output is a step or linear function of its allocation: shield layers, weapon charge rate, evasion, oxygen
+  production. The player moves units between subsystems at any time, often while paused, and the effect
+  applies at once or through a charge rate. FTL''s reactor supplies bars that the player assigns to shields,
+  engines, weapons, oxygen, and the medbay; each shield layer takes two bars, and the reactor and each
+  system are upgraded separately with scrap. Elite Dangerous splits distributor pips among systems, engines,
+  and weapons capacitors, which sets each capacitor''s recharge rate, while a separate priority list decides
+  which modules shut down when the power plant is overloaded. Unlike power-grid, there is no network topology
+  and no automatic shortfall rule: the split itself is the decision. Inputs: budget, subsystem caps, damage
+  to the reactor or subsystems. Outputs: per-subsystem effectiveness.'
+player_experience: A running triage under pressure. The player pulls power from oxygen to charge one more
+  weapon, moves it all into engines to escape, or holds shields high while waiting for a volley. Each
+  reallocation is a small bet about what the opponent will do next, and a damaged reactor turns a comfortable
+  budget into a painful choice.
 design_levers:
 - total budget relative to the sum of subsystem caps, which sets how often the player must choose
 - cost per subsystem level and step thresholds such as two units per shield layer
@@ -34,14 +35,17 @@ design_levers:
 - which subsystems draw from the budget and which run without it
 - upgrade path for the budget versus the subsystems
 failure_modes:
-- A budget large enough to max every subsystem removes the decision; one too small leaves a single viable split.
+- A budget large enough to max every subsystem removes the decision; one too small leaves a single viable
+  split.
 - A dominant split, such as maximum shields at all times, turns allocation into a one-time setup step.
 - Real-time reallocation without pause rewards input speed over judgment in games that are otherwise tactical.
-- Hidden thresholds, such as a shield layer needing two units, make partial allocations look like wasted power.
+- Hidden thresholds, such as a shield layer needing two units, make partial allocations look like wasted
+  power.
 dynamics:
-- Opponents target the reactor or a key subsystem to force bad splits, coupling allocation to subsystem damage.
-- Players shift power in phases of a fight (shields early, weapons once enemy shields drop, engines to escape), giving combat
-  a rhythm.
+- Opponents target the reactor or a key subsystem to force bad splits, coupling allocation to subsystem
+  damage.
+- Players shift power in phases of a fight (shields early, weapons once enemy shields drop, engines to
+  escape), giving combat a rhythm.
 - Upgrade choices become a question of which subsystems the budget can actually feed at once.
 math_basis:
 - optimization
@@ -54,11 +58,14 @@ authoring_cost: 1
 compute_cost: 1
 tuning_difficulty: 3
 ai_leverage: 2
-maturity: classic
+maturity: established
 open_questions:
-- Could an AI crew officer that proposes splits from the tactical situation keep allocation a decision rather than a reflex?
+- Could an AI crew officer that proposes splits from the tactical situation keep allocation a decision
+  rather than a reflex?
 - What ratio of budget to total subsystem cap keeps allocation meaningful across a whole campaign of upgrades?
 sources: []
 status: asserted
 provenance:
   created: 2026-10-24-taxonomy-triage-b
+  reviewed:
+  - 2026-10-24-review-fixes

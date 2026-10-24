@@ -15,7 +15,7 @@ Physics-based learned character controllers let simulated agents move and react 
 | impact | 2 |
 | horizon | 1-2 years |
 | key risks | Runtime cost at crowd scale., Uncanny motion worse than stylized animation., Physics instability in edge cases. |
-| falsifiable signal | {'prediction': 'A management or colony sim will ship learned physics-based motion for its simulated population.', 'resolve_by': '2029-06-30', 'criteria': 'Developer documentation naming learned motion control in a shipped simulation game.'} |
+| falsifiable signal | {'prediction': 'A management or colony sim will ship learned physics-based motion for its simulated population.', 'resolve_by': '2029-06-30', 'criteria': 'Feature first shipped after 2026-10-24 in a title with at least 1,000 Steam user reviews; developer documentation names learned motion control (a trained policy driving a physics character) for population agents, not only motion-matched animation.'} |
 | priority *(computed)* | 2.5 |
 
 ## Summary
@@ -44,7 +44,7 @@ Drive 200 agents with a learned controller conditioned on three state variables;
 
 - **Prediction:** A management or colony sim will ship learned physics-based motion for its simulated population.
 - **Resolve by:** 2029-06-30
-- **Criteria:** Developer documentation naming learned motion control in a shipped simulation game.
+- **Criteria:** Feature first shipped after 2026-10-24 in a title with at least 1,000 Steam user reviews; developer documentation names learned motion control (a trained policy driving a physics character) for population agents, not only motion-matched animation.
 
 ## Relations
 
@@ -69,4 +69,4 @@ Drive 200 agents with a learned controller conditioned on three state variables;
 - [The Sims 4](../game/the-sims-4.md)
 
 ---
-Provenance: created in run `2026-10-24-synthesis`.
+Provenance: created in run `2026-10-24-synthesis`; reviewed in `2026-10-24-review-fixes`.

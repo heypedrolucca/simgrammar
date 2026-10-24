@@ -33,7 +33,7 @@ Services are delivered by agents walking routes from their building, so coverage
 
 ## Definition
 
-Each service building periodically spawns a walker that follows roads; as it passes, it writes a coverage value to nearby houses, which decays over time until the next visit. In Caesar III, as reproduced by the Julius reimplementation, a roaming walker first heads for a road point about 8 tiles out in a cardinal direction that rotates with each spawn, then wanders, turning pseudo-randomly at intersections and ending its walk at dead ends. Culture, health, and religion walkers set a per-service house value to 96, which decays by 1 on each periodic update; prefects reset fire risk to zero and engineers reset collapse risk to zero. Pharaoh and Zeus keep the model, and Pharaoh added roadblocks that turn roaming walkers back; Augustus, a Julius fork, brings roadblocks to Caesar III. Inputs: building location, road network, random turns. Outputs: per-house coverage values that gate housing evolution and prevent fires or collapses.
+Each service building periodically spawns a walker that follows roads; as it passes, it writes a coverage value to nearby houses, which decays over time until the next visit. In Caesar III, as reproduced by the Julius reimplementation, a roaming walker first heads for a road point about 8 tiles out in a cardinal direction that rotates with each spawn, then wanders, turning pseudo-randomly at intersections and ending its walk at dead ends. Culture, health, and religion walkers set a per-service house value to 96, which decays by 1 on each periodic update; prefects reset fire risk to zero and engineers reset collapse risk to zero. Inputs: building location, road network, random turns. Outputs: per-house coverage values that gate housing evolution and prevent fires or collapses.
 
 ## Player Experience
 
@@ -83,4 +83,4 @@ Designing for wanderers. Players build looping road blocks so walkers cover the 
 - [Caesar III](../source/src-wikipedia-caesar-iii.md)
 
 ---
-Provenance: created in run `2026-10-24-taxonomy-m1`.
+Provenance: created in run `2026-10-24-taxonomy-m1`; reviewed in `2026-10-24-review-fixes`.

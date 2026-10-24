@@ -27,7 +27,7 @@ A PlayStation racing game that paired a tuned handling model and 140 production 
 | emergence | 2 |
 | influence | 4 |
 | core loop | pass license tests -> enter championships -> win credits and prize cars -> buy cars and performance parts -> tune the car -> enter higher-class events |
-| cluster *(computed)* | C06 |
+| cluster *(computed)* | C03 |
 | core count *(computed)* | 3 |
 | mechanic count *(computed)* | 6 |
 

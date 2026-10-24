@@ -95,6 +95,12 @@ mechanics:
 - id: autonomy-levels
   role: supporting
   note: Drafting switches a colonist from self-assigned work to direct player control for combat or emergencies.
+- id: utility-action-selection
+  role: supporting
+- id: fire-spread
+  role: supporting
+- id: storage-capacity
+  role: supporting
 influenced_by:
 - dwarf-fortress
 sources:
@@ -102,3 +108,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-23-bootstrap
+  reviewed:
+  - 2026-10-24-review-fixes

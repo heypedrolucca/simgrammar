@@ -14,7 +14,7 @@ Simulations of hundreds to a million LLM-driven agents with concurrent cognitive
 | runtime | Server real-time |
 | determinism impact | Breaks |
 | horizon | 3-5 years |
-| risks | Compute cost, Consistency / hallucination, Controllability, Evaluation difficulty, Legibility |
+| risks | Determinism, Compute cost, Consistency / hallucination, Controllability, Evaluation difficulty, Legibility |
 | builds on | [Generative agents (memory stream, reflection, planning)](../technique/generative-agents.md) |
 | deployed in | [Project Sid](../game/project-sid.md) |
 | affects count *(computed)* | 8 |
@@ -77,4 +77,4 @@ Scaling generative agents from tens to thousands needs architecture and infrastr
 - [Multi-Actor Generative Artificial Intelligence as a Game Engine](../source/src-vezhnevets-2025-multi-actor-game-engine.md)
 
 ---
-Provenance: created in run `2026-10-24-techniques-llm-agents`; reviewed in `2026-10-24-technique-links`.
+Provenance: created in run `2026-10-24-techniques-llm-agents`; reviewed in `2026-10-24-technique-links`, `2026-10-24-review-fixes`.

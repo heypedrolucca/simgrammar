@@ -28,7 +28,7 @@ A free space 4X simulation by a single developer in which the player runs an int
 | agent count order | ~100 |
 | emergence | 4 |
 | influence | 2 |
-| cluster *(computed)* | C01 |
+| cluster *(computed)* | C11 |
 | core count *(computed)* | 3 |
 | mechanic count *(computed)* | 13 |
 

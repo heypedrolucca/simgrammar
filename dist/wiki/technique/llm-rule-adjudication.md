@@ -50,7 +50,7 @@ The game describes the inputs (two items, or an object state plus an action) as 
 
 ## Claims
 
-- Infinite Craft (January 2024) starts from water, fire, wind, and earth and generates a new element and emoji with Llama 2 and Llama 3.1 for any untried pair, storing the result so each pair gives every player the same answer; traffic reached hundreds of millions of recipes a day. *(confidence: high)* [[67](../source/src-wikipedia-infinite-craft.md)]
+- Infinite Craft (January 2024) starts from water, fire, wind, and earth and generates a new element and emoji with Llama 2 and Llama 3.1 for any untried pair, storing the result so each pair gives every player the same answer. *(confidence: high)* [[67](../source/src-wikipedia-infinite-craft.md)]
 - On 76,369 transitions from 31 text games, GPT-4 predicted the full next state correctly at most 59.9% of the time, up to 77.1% for action-driven and at most 49.7% for environment-driven changes; humans scored about 80% on a subset where GPT-4 scored about 50%. *(confidence: high)* [[172](../source/src-wang-2024-text-world-simulators.md)]
 - Concordia's Game Master uses a language model to decide whether stated actions are physically plausible and what their effects are. *(confidence: high)* [[176](../source/src-vezhnevets-2023-concordia.md)]
 
@@ -61,4 +61,4 @@ The game describes the inputs (two items, or an object state plus an action) as 
 - [Generative agent-based modeling with actions grounded in physical, social, or digital space using Concordia](../source/src-vezhnevets-2023-concordia.md)
 
 ---
-Provenance: created in run `2026-10-24-techniques-llm-agents`; reviewed in `2026-10-24-technique-links`.
+Provenance: created in run `2026-10-24-techniques-llm-agents`; reviewed in `2026-10-24-technique-links`, `2026-10-24-review-fixes`.

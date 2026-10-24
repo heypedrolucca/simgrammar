@@ -6,20 +6,20 @@ author:
   - SimGrammar contributors
 date: "2026-10-23"
 version: "0.1"
-dataset_sha256: "9499ad51567d82756fa10261613dd985a7de2d71a0c9a6270898fdb778e90ddd"
+dataset_sha256: "7bd89fd5e2618f6f4144cc60a1034cb081f1a456383346c8cb659e03308d167a"
 bibliography: references.bib
 ---
 ## Abstract
 
-Simulation games are built from a shared but undocumented vocabulary of rule-systems. This report makes that vocabulary explicit and machine-readable, then asks how mathematical, AI, ML, and LLM results from 2019 to 2026 change it. We decompose 174 simulation games (1968 to 2026, 31 subgenres) into 199 atomic mechanics, analyze each mechanic on its own (definition, levers, failure modes, dynamics, mathematical basis, and six anchored scores), map 45 techniques onto mechanics through 218 typed effect edges, and synthesize 43 design opportunities, each with a validation experiment and a dated, falsifiable prediction. All results are projections of a versioned dataset with provenance for every entity and a validator that keeps the report, wiki, tables, and graph consistent.
+Simulation games are built from a shared but undocumented vocabulary of rule-systems. This report makes that vocabulary explicit and machine-readable, then asks how mathematical, AI, ML, and LLM results from 2019 to 2026 change it. We decompose 174 simulation games (1968 to 2026, 31 subgenres) into 199 atomic mechanics, analyze each mechanic on its own (definition, levers, failure modes, dynamics, mathematical basis, and six anchored scores), map 45 techniques onto mechanics through 218 typed effect edges, and synthesize 42 design opportunities, each with a validation experiment and a dated, falsifiable prediction. All results are projections of a versioned dataset with provenance for every entity and a validator that keeps the report, wiki, tables, and graph consistent.
 
 **Findings.**
 
-1. **Simulation games are compositions of six layers**: substrate, dynamics, coupling, control, legibility, and pacing. Clustering games by the mechanics they use recovers design families (minds, builders, operators, planners) that cut across market subgenres; 10 of 12 clusters mix subgenres.
-2. **The vocabulary was set early.** 67 percent of mechanics appear in a catalog game released by 2000. Later decades mostly deepened and recombined; 26.3 percent of possible mechanic pairs have ever co-occurred.
-3. **Depth costs legibility.** Across mechanics, legibility falls as emergence potential rises (ρ = -0.42) and as compute cost rises (ρ = -0.35); emergence rises with tuning difficulty (ρ = 0.61). Legibility, more than compute, bounds how much coupling a commercial simulation can afford.
-4. **AI techniques target what games show and say, not what they are built from.** Exposure concentrates in narrative, control, agent, and physics mechanics. 99 mechanics, carrying 48 percent of all mechanic uses in the catalog, are affected by no technique in the set. Explanation is the rarest effect a technique has on a mechanic (5 of 218 edges), although it addresses the binding constraint.
-5. **What shipped mostly stays at the edge of simulation state.** Neural rendering, asset and motion generation, and language characters for dialogue and companionship have shipped; techniques that would replace rules or physics with learned prediction remain prototypes or research. 10 techniques in the set break reproducibility outright when used at runtime.
+1. **Simulation games are compositions of six layers**: substrate, dynamics, coupling, control, legibility, and pacing. Clustering games by the mechanics they use recovers design families (minds, planned economies, build-and-test, hands-on work, authored decisions, generated worlds) that cut across market subgenres; 14 of 16 clusters mix subgenres.
+2. **The vocabulary was set early.** 68 percent of mechanics appear in a catalog game released by 2000. 34 mechanics first appear in 2010 or later, and 27.5 percent of possible mechanic pairs have ever co-occurred.
+3. **Depth costs legibility.** On rubric scores from a single model rater, legibility falls as emergence potential rises (ρ = -0.42) and as compute cost rises (ρ = -0.35); emergence rises with tuning difficulty (ρ = 0.61).
+4. **AI techniques target what games show and say, not what they are built from.** Exposure concentrates in narrative, control, agent, and physics mechanics. 99 mechanics, carrying 51 percent of all mechanic uses in the catalog, are affected by no technique in the set. Explanation is the rarest effect a technique has on a mechanic (5 of 218 edges).
+5. **What shipped mostly stays at the edge of simulation state.** Neural rendering, asset and motion generation, and language characters for dialogue and companionship have shipped. The shipped techniques that write into game state are narrow: cached model outputs as crafting rules, language-model characters in a few titles, and learned or search-based opponents. Frame-generating world models and learned physics remain prototypes or research. Of the 34 techniques that can run during play, 10 break reproducibility outright.
 6. **The best near-term opportunities keep the simulation symbolic** and let learned models read, explain, decorate, and propose through validated, logged interfaces. The highest-priority opportunity is Why-query over the simulation log.
 
 The dataset, schemas, contract, and every projection are open for extension; the procedure for contributors, human or agent, is in `AGENTS.md`.
@@ -34,10 +34,10 @@ That map matters now because the ceilings are moving. For forty years the depth 
 
 This report does four things:
 
-1. **Catalogs** 174 simulation games across 31 subgenres, from 1968 to 2026, and decomposes each into the mechanics it uses (1823 typed game-to-mechanic edges, each marked core or supporting, with implementation notes for core mechanics).
+1. **Catalogs** 174 simulation games across 31 subgenres, from 1968 to 2026, and decomposes each into the mechanics it uses (1952 typed game-to-mechanic edges, each marked core or supporting, with implementation notes for core mechanics).
 2. **Analyzes** 199 mechanics one at a time: rule-level definition, player experience, design levers, failure modes, dynamics, mathematical basis, and six anchored scores (legibility, emergence potential, authoring cost, compute cost, tuning difficulty, AI leverage).
 3. **Maps** 45 mathematical, AI, ML, and LLM techniques onto those mechanics through 218 typed `affects` edges that say how each technique changes each mechanic (replaces its substrate, deepens it, enables a new form, cuts its authoring cost, explains it, tunes it, or accelerates it).
-4. **Synthesizes** 43 design opportunities, each with a validation experiment a small team could run and a falsifiable prediction with a resolve-by date.
+4. **Synthesizes** 42 design opportunities, each with a validation experiment a small team could run and a falsifiable prediction with a resolve-by date.
 
 Every number in this document is rendered from the dataset at build time; the dataset hash on the title page identifies the exact version. The report, the wiki, the tables, and the graph are projections of the same YAML files, so a correction to one entity updates all of them.
 
@@ -58,26 +58,26 @@ Each mechanic belongs to one of 21 families, assigned by the state it owns rathe
 
 ### 2.2 Corpus
 
-The game catalog was built to cover every subgenre in the vocabulary, every lineage-defining title from the 1960s onward, recent releases through 2026, research demonstrations that run as interactive simulations (such as [Generative Agents (Smallville)](../wiki/game/generative-agents-smallville.md) and [Project Sid](../wiki/game/project-sid.md)), and works included for a single mechanic (marked `boundary_case`; 20 such works). The catalog is a purposive sample, not a census: prevalence figures describe this corpus, and the earliest-appearance year of a mechanic is a lower bound on its true origin.
+The game catalog was built to cover every subgenre in the vocabulary, every lineage-defining title from the 1960s onward, recent releases through 2026, research demonstrations that run as interactive simulations (such as [Generative Agents (Smallville)](../wiki/game/generative-agents-smallville.md) and [Project Sid](../wiki/game/project-sid.md)), and works included for a single mechanic (marked `boundary_case`; 21 such works). The catalog is a purposive sample, not a census: prevalence figures describe this corpus, and the earliest-appearance year of a mechanic is a lower bound on its true origin.
 
 ### 2.3 Schema and scoring
 
-Every categorical field draws from a closed vocabulary (`vocab/`), and every ordinal field names an anchored rubric (`vocab/rubrics.yaml`). Scorers match the anchor text and take the lower anchor when between two. This trades resolution for consistency across contributors: a 3 in legibility means "understood after deliberate attention and the game's info tools" whoever assigned it. Scores are expert judgments, recorded as such, and the rubric for each is reproduced in the wiki.
+Every categorical field draws from a closed vocabulary (`vocab/`), and every ordinal field names an anchored rubric (`vocab/rubrics.yaml`). Scorers match the anchor text and take the lower anchor when between two. This trades resolution for consistency across contributors: a 3 in legibility means "understood after deliberate attention and the game's info tools" whoever assigned it. Every score in this version was assigned by one model rater (claude-opus-5-5) matching the anchor text; scores are judgments, not measurements, and the rubric for each is reproduced in the wiki.
 
 Relations are typed edges with one owner each (`vocab/edge_types.yaml`). Inverses (which games use a mechanic, which techniques affect it) and all aggregates (prevalence, earliest appearance, clusters, technique exposure, opportunity priority) are computed by the build and never stored, so they cannot drift from the edges they summarize.
 
 ### 2.4 Evidence
 
-Each entity carries an epistemic status. `asserted` means written from domain knowledge without a citation; `sourced` means at least one cited source supports its factual fields; `verified` requires a second, independent run. Techniques must always cite. At this version, 388 entities are sourced or verified and 72 remain asserted; the asserted ones form a public verification queue (`dist/analysis/verification-queue.csv`).
+Each entity carries an epistemic status. `asserted` means written from domain knowledge without a citation; `sourced` means at least one cited source supports its factual fields; `verified` requires a second, independent run. Techniques must always cite. At this version, 388 entities are sourced or verified and 71 remain asserted; the asserted ones form a public verification queue (`dist/analysis/verification-queue.csv`).
 
 ### 2.5 Production
 
-The dataset was produced by parallel research runs, each recorded in `log/runs/` with its operator, model, method, and the proposals it could not act on. Runs partitioned work by file, not by topic, so no two runs edited the same entity. Taxonomy runs analyzed mechanics; catalog runs verified release facts against public sources and decomposed games; technique runs searched the 2019 to 2026 literature and developer announcements. A validator enforcing the rules in CONTRACT.md §5 gated every merge. The same procedure (AGENTS.md) is what a new contributor, human or agent, follows.
+The dataset was produced by parallel research runs, each recorded in `log/runs/` with its operator, model, method, and the proposals it could not act on. Parallel runs partitioned work by file, not by topic: taxonomy runs analyzed mechanics; catalog runs verified release facts against public sources and decomposed games; technique runs searched the 2019 to 2026 literature and developer announcements. Merge-time runs then edited entities across partitions: the synthesis run added symmetric synergy and tension edges in one pass, and a review run added mechanic tags to games after an independent review found widely shared mechanics (pause controls, placement, tech trees) under-tagged, recoded several decompositions, and tightened every prediction. Each cross-partition edit is attributed in the entity's `provenance.reviewed` list. A validator enforcing the rules in CONTRACT.md §5 gated every merge. The same procedure (AGENTS.md) is what a new contributor, human or agent, follows.
 
 ### 2.6 Limitations
 
 - **Sampling.** Commercial, English-language, PC-centric titles are over-represented; mobile management games and non-Western simulation traditions are under-represented.
-- **Scoring.** Rubric scores are single-rater judgments in this version. The `verified` status and the review field exist so a second rater can confirm or contest them.
+- **Scoring.** Rubric scores are single-rater judgments by one model (claude-opus-5-5), not independent expert ratings. Correlations among scores (§5.6) and between a score and the technique graph (§8.4) partly reflect that rater's internal consistency. The `verified` status and the review field exist so a second rater, human or model, can confirm or contest them.
 - **Decomposition depth.** A game's mechanic list records what is present and meaningful, not a complete specification. Absence of an edge is weak evidence of absence.
 - **Recency.** Technique maturity and horizon are judged as of the run date and age quickly; each technique records the sources the judgment rests on.
 
@@ -200,26 +200,26 @@ Generative narrative (a learned model producing story text or events at runtime)
 
 | name | year | subgenre | mechanics | emergence | influence |
 |---|---|---|---|---|---|
-| [Conway's Game of Life](../wiki/game/game-of-life.md) | 1970 | artificial-life | 4 | 5 | 5 |
-| [Dwarf Fortress](../wiki/game/dwarf-fortress.md) | 2006 | colony-sim | 25 | 5 | 5 |
+| [Conway's Game of Life](../wiki/game/game-of-life.md) | 1970 | artificial-life | 3 | 5 | 5 |
+| [Dwarf Fortress](../wiki/game/dwarf-fortress.md) | 2006 | colony-sim | 29 | 5 | 5 |
 | [EVE Online](../wiki/game/eve-online.md) | 2003 | mmo-world | 12 | 5 | 4 |
-| [RimWorld](../wiki/game/rimworld.md) | 2013 | colony-sim | 21 | 5 | 4 |
+| [RimWorld](../wiki/game/rimworld.md) | 2013 | colony-sim | 24 | 5 | 4 |
 | [Minecraft](../wiki/game/minecraft.md) | 2009 | sandbox-world | 15 | 4 | 5 |
-| [Cities: Skylines](../wiki/game/cities-skylines.md) | 2015 | city-builder | 15 | 4 | 4 |
+| [Cities: Skylines](../wiki/game/cities-skylines.md) | 2015 | city-builder | 17 | 4 | 4 |
 | [Football Manager](../wiki/game/football-manager.md) | 2004 | sports-management | 15 | 4 | 4 |
 | [Ultima Online](../wiki/game/ultima-online.md) | 1997 | mmo-world | 10 | 4 | 4 |
-| [Creatures](../wiki/game/creatures.md) | 1996 | artificial-life | 11 | 4 | 3 |
+| [Creatures](../wiki/game/creatures.md) | 1996 | artificial-life | 12 | 4 | 3 |
 | [Europa Universalis IV](../wiki/game/europa-universalis-4.md) | 2013 | grand-strategy | 20 | 4 | 3 |
-| [Oxygen Not Included](../wiki/game/oxygen-not-included.md) | 2017 | colony-sim | 20 | 4 | 3 |
+| [Oxygen Not Included](../wiki/game/oxygen-not-included.md) | 2017 | colony-sim | 23 | 4 | 3 |
 | [Aurora 4X](../wiki/game/aurora-4x.md) | 2004 | 4x-strategy | 13 | 4 | 2 |
 | [Caves of Qud](../wiki/game/caves-of-qud.md) | 2015 | rpg-sim | 9 | 4 | 2 |
-| [Crusader Kings III](../wiki/game/crusader-kings-3.md) | 2020 | grand-strategy | 19 | 4 | 2 |
-| [Kenshi](../wiki/game/kenshi.md) | 2013 | rpg-sim | 15 | 4 | 2 |
+| [Crusader Kings III](../wiki/game/crusader-kings-3.md) | 2020 | grand-strategy | 20 | 4 | 2 |
+| [Kenshi](../wiki/game/kenshi.md) | 2013 | rpg-sim | 16 | 4 | 2 |
 | [Noita](../wiki/game/noita.md) | 2019 | physics-sandbox | 11 | 4 | 2 |
-| [Project Zomboid](../wiki/game/project-zomboid.md) | 2011 | survival-sim | 17 | 4 | 2 |
+| [Project Zomboid](../wiki/game/project-zomboid.md) | 2011 | survival-sim | 18 | 4 | 2 |
 | [The Powder Toy](../wiki/game/the-powder-toy.md) | 2008 | physics-sandbox | 9 | 4 | 2 |
 | [Sid Meier's Civilization](../wiki/game/civilization.md) | 1991 | 4x-strategy | 13 | 3 | 5 |
-| [SimCity](../wiki/game/simcity-1989.md) | 1989 | city-builder | 14 | 3 | 5 |
+| [SimCity](../wiki/game/simcity-1989.md) | 1989 | city-builder | 17 | 3 | 5 |
 
 
 Emergence and influence are rubric scores (`vocab/rubrics.yaml`): emergence 5 means players report histories no one could have authored; influence 5 means the game created a lineage or changed the medium.
@@ -287,21 +287,21 @@ Owns stocks of goods and the recipes that transform them. [Production chains](..
 | [Production chains](../wiki/mechanic/production-chain.md) | 38 | 3 | 3 | 2 | 2 | 3 | classic |
 | [Resource extraction](../wiki/mechanic/resource-extraction.md) | 29 | 5 | 2 | 2 | 2 | 1 | classic |
 | [Crop cultivation](../wiki/mechanic/crop-cultivation.md) | 25 | 4 | 3 | 3 | 2 | 2 | classic |
-| [Power grid](../wiki/mechanic/power-grid.md) | 19 | 4 | 3 | 1 | 2 | 2 | classic |
+| [Power grid](../wiki/mechanic/power-grid.md) | 20 | 4 | 3 | 1 | 2 | 2 | classic |
+| [Storage and buffers](../wiki/mechanic/storage-capacity.md) | 19 | 4 | 2 | 1 | 1 | 1 | classic |
 | [Hand crafting](../wiki/mechanic/hand-crafting.md) | 17 | 4 | 2 | 3 | 1 | 4 | classic |
 | [Goods consumption](../wiki/mechanic/goods-consumption.md) | 16 | 3 | 3 | 2 | 2 | 2 | classic |
 | [Spoilage](../wiki/mechanic/spoilage.md) | 10 | 4 | 2 | 2 | 2 | 1 | established |
-| [Storage and buffers](../wiki/mechanic/storage-capacity.md) | 9 | 4 | 2 | 1 | 1 | 1 | classic |
 | [Renewable regrowth](../wiki/mechanic/renewable-regrowth.md) | 6 | 3 | 3 | 1 | 2 | 2 | established |
 | [Deposit depletion](../wiki/mechanic/deposit-depletion.md) | 5 | 4 | 3 | 1 | 1 | 1 | classic |
 | [Machine boosting](../wiki/mechanic/machine-boosting.md) | 5 | 3 | 2 | 2 | 1 | 2 | established |
 | [Quality tiers](../wiki/mechanic/quality-tiers.md) | 4 | 3 | 2 | 2 | 1 | 2 | established |
 | [Byproducts and waste](../wiki/mechanic/byproducts-waste.md) | 3 | 3 | 3 | 2 | 2 | 2 | established |
-| [Power allocation](../wiki/mechanic/power-allocation.md) | 2 | 4 | 3 | 1 | 1 | 2 | classic |
+| [Power allocation](../wiki/mechanic/power-allocation.md) | 2 | 4 | 3 | 1 | 1 | 2 | established |
 
 
 #### Logistics and networks
-Owns movement across space or graphs: roads, belts, pipes, rails, transit lines, service reach. These mechanics turn production into geography, and they are where compute and legibility first bind: [Traffic congestion](../wiki/mechanic/traffic-congestion.md) is the most visible place a city builder can be wrong, and [Walker service delivery](../wiki/mechanic/walker-service-delivery.md) made service coverage legible by putting it on walking bodies. Networks couple to almost everything, which is why their bugs (pathfinding loops, gridlock) are the genre's most famous.
+Owns movement across space or graphs: roads, belts, pipes, rails, transit lines, service reach. These mechanics turn production into geography, and they are where compute and legibility first bind: [Traffic congestion](../wiki/mechanic/traffic-congestion.md) is the most visible place a city builder can be wrong, and [Walker service delivery](../wiki/mechanic/walker-service-delivery.md) made service coverage legible by putting it on walking bodies. Networks couple to almost everything, so their bugs (pathfinding loops, gridlock) spread to every system they feed.
 
 | name | games | legibility | emergence potential | authoring cost | compute cost | ai leverage | maturity |
 |---|---|---|---|---|---|---|---|
@@ -316,7 +316,7 @@ Owns movement across space or graphs: roads, belts, pipes, rails, transit lines,
 | [Public transit lines](../wiki/mechanic/public-transit.md) | 5 | 3 | 3 | 1 | 3 | 3 | established |
 | [Rail signaling](../wiki/mechanic/rail-signaling.md) | 5 | 2 | 3 | 1 | 2 | 2 | classic |
 | [Request-provider logistics](../wiki/mechanic/request-provider-logistics.md) | 2 | 3 | 3 | 1 | 3 | 2 | established |
-| [Supply lines](../wiki/mechanic/supply-lines.md) | 2 | 3 | 3 | 1 | 2 | 2 | classic |
+| [Supply lines](../wiki/mechanic/supply-lines.md) | 2 | 3 | 3 | 1 | 2 | 2 | established |
 | [Travel mode choice](../wiki/mechanic/travel-mode-choice.md) | 2 | 2 | 3 | 1 | 3 | 3 | established |
 | [Walker service delivery](../wiki/mechanic/walker-service-delivery.md) | 2 | 2 | 3 | 2 | 2 | 2 | established |
 
@@ -353,20 +353,20 @@ Owns individual minds: needs, utilities, moods, memories, skills, schedules. [Ne
 | name | games | legibility | emergence potential | authoring cost | compute cost | ai leverage | maturity |
 |---|---|---|---|---|---|---|---|
 | [Agent skills](../wiki/mechanic/agent-skills.md) | 33 | 4 | 3 | 2 | 1 | 2 | classic |
-| [Needs decay](../wiki/mechanic/needs-decay.md) | 30 | 4 | 3 | 3 | 2 | 3 | classic |
+| [Needs decay](../wiki/mechanic/needs-decay.md) | 30 | 4 | 3 | 2 | 2 | 3 | classic |
 | [Personality traits](../wiki/mechanic/personality-traits.md) | 25 | 4 | 3 | 3 | 1 | 3 | classic |
+| [Utility action selection](../wiki/mechanic/utility-action-selection.md) | 18 | 3 | 3 | 2 | 2 | 4 | classic |
 | [Memories and thoughts](../wiki/mechanic/memories-thoughts.md) | 10 | 4 | 4 | 3 | 2 | 4 | established |
 | [Agent pathfinding](../wiki/mechanic/agent-pathfinding.md) | 9 | 4 | 3 | 2 | 3 | 2 | classic |
 | [Daily schedules](../wiki/mechanic/daily-schedules.md) | 8 | 4 | 3 | 2 | 1 | 4 | classic |
 | [Mood and breakdowns](../wiki/mechanic/mood-breakdown.md) | 8 | 3 | 4 | 3 | 1 | 3 | established |
 | [Crowd preferences](../wiki/mechanic/crowd-preferences.md) | 6 | 3 | 3 | 2 | 3 | 3 | classic |
 | [Work priorities](../wiki/mechanic/work-priorities.md) | 6 | 3 | 3 | 1 | 2 | 3 | established |
-| [Creature learning](../wiki/mechanic/creature-learning.md) | 4 | 2 | 4 | 2 | 2 | 4 | experimental |
+| [Creature learning](../wiki/mechanic/creature-learning.md) | 4 | 2 | 4 | 2 | 2 | 4 | established |
 | [Smart objects](../wiki/mechanic/smart-objects.md) | 4 | 4 | 3 | 4 | 2 | 3 | classic |
 | [Aspirations and wants](../wiki/mechanic/aspiration-wants.md) | 3 | 4 | 3 | 3 | 1 | 4 | established |
 | [Attribute-driven match engine](../wiki/mechanic/attribute-match-engine.md) | 3 | 2 | 3 | 3 | 2 | 3 | classic |
 | [Autonomy levels](../wiki/mechanic/autonomy-levels.md) | 3 | 4 | 2 | 1 | 1 | 3 | established |
-| [Utility action selection](../wiki/mechanic/utility-action-selection.md) | 3 | 3 | 3 | 2 | 2 | 4 | classic |
 | [Stress accumulation](../wiki/mechanic/stress-accumulation.md) | 2 | 3 | 4 | 2 | 1 | 3 | established |
 
 
@@ -378,10 +378,10 @@ Owns ties between agents: relationship values, opinion modifiers, reputation, fa
 | [Reputation](../wiki/mechanic/reputation.md) | 22 | 4 | 3 | 2 | 1 | 3 | classic |
 | [Relationship values](../wiki/mechanic/relationship-values.md) | 21 | 4 | 4 | 2 | 2 | 3 | classic |
 | [Faction diplomacy](../wiki/mechanic/faction-diplomacy.md) | 15 | 3 | 4 | 2 | 2 | 4 | classic |
-| [Natural-language interaction](../wiki/mechanic/natural-language-interaction.md) | 11 | 2 | 4 | 3 | 4 | 5 | emerging |
+| [Natural-language interaction](../wiki/mechanic/natural-language-interaction.md) | 11 | 2 | 4 | 3 | 4 | 5 | established |
 | [Romance and family](../wiki/mechanic/romance-family.md) | 11 | 4 | 4 | 3 | 1 | 4 | classic |
 | [Social exchanges](../wiki/mechanic/social-exchanges.md) | 7 | 3 | 4 | 4 | 2 | 4 | established |
-| [Gossip propagation](../wiki/mechanic/gossip-propagation.md) | 3 | 2 | 4 | 2 | 3 | 4 | experimental |
+| [Gossip propagation](../wiki/mechanic/gossip-propagation.md) | 3 | 2 | 4 | 2 | 3 | 4 | emerging |
 | [Opinion modifiers](../wiki/mechanic/opinion-modifiers.md) | 2 | 4 | 3 | 2 | 2 | 3 | established |
 
 
@@ -397,7 +397,7 @@ Owns birth, death, migration, inheritance, and structure. [Immigration by attrac
 | [Immigration by attractiveness](../wiki/mechanic/immigration-attractiveness.md) | 4 | 3 | 3 | 1 | 1 | 2 | classic |
 | [Dynasty succession](../wiki/mechanic/dynasty-succession.md) | 3 | 3 | 4 | 2 | 1 | 2 | established |
 | [Education and workforce](../wiki/mechanic/education-workforce.md) | 3 | 3 | 3 | 1 | 1 | 2 | established |
-| [Natural selection](../wiki/mechanic/natural-selection.md) | 3 | 2 | 5 | 1 | 3 | 3 | experimental |
+| [Natural selection](../wiki/mechanic/natural-selection.md) | 3 | 2 | 5 | 1 | 3 | 3 | established |
 | [Off-screen life progression](../wiki/mechanic/offscreen-life-progression.md) | 3 | 2 | 3 | 2 | 2 | 4 | established |
 
 
@@ -413,7 +413,7 @@ Owns rules about rules: policies, laws, elections, interest groups, satisfaction
 | [Political capital](../wiki/mechanic/political-capital.md) | 7 | 4 | 2 | 1 | 1 | 2 | established |
 | [Interest groups](../wiki/mechanic/interest-groups.md) | 6 | 3 | 4 | 3 | 2 | 4 | established |
 | [Corruption leakage](../wiki/mechanic/corruption-leakage.md) | 4 | 3 | 2 | 1 | 1 | 2 | established |
-| [Player legislation](../wiki/mechanic/player-legislation.md) | 2 | 3 | 4 | 1 | 1 | 4 | emerging |
+| [Player legislation](../wiki/mechanic/player-legislation.md) | 2 | 3 | 4 | 1 | 1 | 4 | established |
 | [Policy influence network](../wiki/mechanic/policy-influence-network.md) | 1 | 3 | 3 | 3 | 1 | 4 | emerging |
 
 
@@ -422,7 +422,7 @@ Owns layout: zoning, placement, adjacency, rooms, structure, terrain, and the sc
 
 | name | games | legibility | emergence potential | authoring cost | compute cost | ai leverage | maturity |
 |---|---|---|---|---|---|---|---|
-| [Building placement](../wiki/mechanic/free-placement.md) | 42 | 4 | 3 | 3 | 1 | 2 | classic |
+| [Building placement](../wiki/mechanic/free-placement.md) | 75 | 4 | 3 | 3 | 1 | 2 | classic |
 | [Modular assembly](../wiki/mechanic/modular-assembly.md) | 27 | 3 | 4 | 3 | 3 | 4 | established |
 | [Terraforming](../wiki/mechanic/terraforming.md) | 19 | 4 | 3 | 1 | 2 | 3 | classic |
 | [Decoration and beauty](../wiki/mechanic/decoration-beauty.md) | 11 | 3 | 2 | 3 | 2 | 3 | classic |
@@ -430,9 +430,9 @@ Owns layout: zoning, placement, adjacency, rooms, structure, terrain, and the sc
 | [Design performance rating](../wiki/mechanic/design-performance-rating.md) | 8 | 3 | 3 | 2 | 2 | 3 | established |
 | [Vertical layers](../wiki/mechanic/vertical-layers.md) | 8 | 3 | 3 | 2 | 3 | 2 | classic |
 | [Room recognition](../wiki/mechanic/room-recognition.md) | 6 | 4 | 3 | 2 | 2 | 3 | established |
-| [Adjacency scoring](../wiki/mechanic/adjacency-scoring.md) | 5 | 4 | 2 | 2 | 1 | 2 | established |
 | [Structural integrity](../wiki/mechanic/structural-integrity.md) | 5 | 3 | 4 | 2 | 2 | 3 | established |
 | [Track laying](../wiki/mechanic/track-laying.md) | 5 | 4 | 3 | 2 | 1 | 2 | classic |
+| [Adjacency scoring](../wiki/mechanic/adjacency-scoring.md) | 4 | 4 | 2 | 2 | 1 | 2 | established |
 | [Procedural build assist](../wiki/mechanic/procedural-build-assist.md) | 2 | 4 | 2 | 3 | 2 | 4 | emerging |
 
 
@@ -452,7 +452,7 @@ Owns continuous dynamics: rigid bodies, vehicles, flight, orbits, fluids, heat, 
 | [Orbital mechanics](../wiki/mechanic/orbital-mechanics.md) | 2 | 3 | 2 | 1 | 2 | 2 | established |
 | [Terrain deformation](../wiki/mechanic/terrain-deformation.md) | 2 | 4 | 3 | 2 | 3 | 2 | established |
 | [Voxel destruction](../wiki/mechanic/voxel-destruction.md) | 2 | 4 | 4 | 2 | 4 | 3 | established |
-| [Soft-body deformation](../wiki/mechanic/soft-body-deformation.md) | 1 | 4 | 3 | 3 | 4 | 3 | emerging |
+| [Soft-body deformation](../wiki/mechanic/soft-body-deformation.md) | 1 | 4 | 3 | 3 | 4 | 3 | experimental |
 
 
 #### Environment and ecology
@@ -460,11 +460,11 @@ Owns the world's own processes: weather, seasons, food webs, habitats, pollution
 
 | name | games | legibility | emergence potential | authoring cost | compute cost | ai leverage | maturity |
 |---|---|---|---|---|---|---|---|
-| [Weather](../wiki/mechanic/weather.md) | 26 | 4 | 3 | 3 | 1 | 2 | classic |
+| [Weather](../wiki/mechanic/weather.md) | 27 | 4 | 3 | 3 | 1 | 2 | classic |
 | [Day-night cycle](../wiki/mechanic/day-night-cycle.md) | 20 | 5 | 2 | 2 | 1 | 2 | classic |
+| [Fire spread](../wiki/mechanic/fire-spread.md) | 18 | 4 | 4 | 2 | 2 | 2 | classic |
 | [Seasons](../wiki/mechanic/seasons.md) | 16 | 4 | 2 | 3 | 1 | 2 | classic |
 | [Habitat suitability](../wiki/mechanic/habitat-suitability.md) | 12 | 4 | 2 | 2 | 1 | 2 | established |
-| [Fire spread](../wiki/mechanic/fire-spread.md) | 11 | 4 | 4 | 2 | 2 | 2 | classic |
 | [Contagion](../wiki/mechanic/contagion.md) | 10 | 3 | 4 | 2 | 2 | 3 | established |
 | [Pollution spread](../wiki/mechanic/pollution-spread.md) | 7 | 3 | 3 | 1 | 2 | 2 | classic |
 | [Planetary climate](../wiki/mechanic/planetary-climate.md) | 5 | 2 | 3 | 2 | 2 | 3 | established |
@@ -473,7 +473,7 @@ Owns the world's own processes: weather, seasons, food webs, habitats, pollution
 
 
 #### Biology and health
-Owns bodies: survival meters, injuries, diagnosis, creature care, husbandry. [Survival meters](../wiki/mechanic/survival-meters.md) define a subgenre; [Injury body model](../wiki/mechanic/injury-body-model.md) gives colony sims their grim specificity; [Creature care](../wiki/mechanic/creature-care.md) is the oldest bond between player and simulated being.
+Owns bodies: survival meters, injuries, diagnosis, creature care, husbandry. [Survival meters](../wiki/mechanic/survival-meters.md) define a subgenre; [Injury body model](../wiki/mechanic/injury-body-model.md) tracks wounds per body part in colony sims; [Creature care](../wiki/mechanic/creature-care.md) is the oldest bond between player and simulated being.
 
 | name | games | legibility | emergence potential | authoring cost | compute cost | ai leverage | maturity |
 |---|---|---|---|---|---|---|---|
@@ -490,8 +490,8 @@ Owns the clock. [Pause and speed control](../wiki/mechanic/variable-speed.md) is
 
 | name | games | legibility | emergence potential | authoring cost | compute cost | ai leverage | maturity |
 |---|---|---|---|---|---|---|---|
-| [Pause and speed control](../wiki/mechanic/variable-speed.md) | 19 | 5 | 1 | 1 | 1 | 2 | classic |
-| [Turn structure](../wiki/mechanic/turn-structure.md) | 11 | 5 | 1 | 1 | 1 | 1 | classic |
+| [Pause and speed control](../wiki/mechanic/variable-speed.md) | 82 | 5 | 1 | 1 | 1 | 2 | classic |
+| [Turn structure](../wiki/mechanic/turn-structure.md) | 12 | 5 | 1 | 1 | 1 | 1 | classic |
 | [Crisis countdown](../wiki/mechanic/crisis-countdown.md) | 10 | 4 | 2 | 3 | 1 | 3 | established |
 | [Real-time clock](../wiki/mechanic/real-time-clock.md) | 7 | 5 | 2 | 3 | 1 | 2 | classic |
 | [Daily action budget](../wiki/mechanic/daily-action-budget.md) | 5 | 4 | 2 | 1 | 1 | 1 | classic |
@@ -523,8 +523,8 @@ Owns the channel from intent to action: avatars, unit commands, designations, pr
 | [Direct avatar control](../wiki/mechanic/direct-avatar.md) | 31 | 5 | 2 | 4 | 2 | 3 | classic |
 | [Unit commands](../wiki/mechanic/unit-commands.md) | 17 | 4 | 2 | 2 | 2 | 3 | classic |
 | [Embodied skill control](../wiki/mechanic/embodied-skill-control.md) | 14 | 3 | 3 | 3 | 2 | 3 | classic |
-| [Blueprints](../wiki/mechanic/blueprints.md) | 12 | 5 | 2 | 1 | 1 | 4 | established |
 | [Signal circuits](../wiki/mechanic/signal-circuits.md) | 12 | 3 | 3 | 1 | 2 | 3 | established |
+| [Blueprints](../wiki/mechanic/blueprints.md) | 11 | 5 | 2 | 1 | 1 | 4 | established |
 | [Player programming](../wiki/mechanic/player-programming.md) | 10 | 3 | 3 | 2 | 3 | 4 | established |
 | [Delegation to AI managers](../wiki/mechanic/delegation-to-ai.md) | 7 | 3 | 3 | 2 | 2 | 4 | established |
 | [Designation orders](../wiki/mechanic/designation-orders.md) | 5 | 4 | 3 | 1 | 2 | 3 | classic |
@@ -558,7 +558,7 @@ Owns what goes wrong: disasters, wear, permadeath, threat scaling, crime. Failur
 | [Random disasters](../wiki/mechanic/random-disasters.md) | 17 | 4 | 3 | 3 | 2 | 2 | classic |
 | [Adaptive threat scaling](../wiki/mechanic/adaptive-threat-scaling.md) | 8 | 2 | 3 | 2 | 1 | 3 | established |
 | [Crime and policing](../wiki/mechanic/crime-policing.md) | 5 | 3 | 3 | 2 | 2 | 2 | classic |
-| [Subsystem damage](../wiki/mechanic/subsystem-damage.md) | 5 | 4 | 4 | 2 | 1 | 2 | classic |
+| [Subsystem damage](../wiki/mechanic/subsystem-damage.md) | 5 | 4 | 4 | 2 | 1 | 2 | established |
 | [Loss on death](../wiki/mechanic/loss-on-death.md) | 4 | 5 | 3 | 1 | 1 | 2 | classic |
 | [Board confidence](../wiki/mechanic/board-confidence.md) | 3 | 3 | 3 | 2 | 1 | 3 | classic |
 | [Stimulus attraction](../wiki/mechanic/stimulus-attraction.md) | 2 | 3 | 4 | 1 | 2 | 3 | established |
@@ -578,14 +578,14 @@ Owns what events happen and how they are told: storytellers, dilemma cards, trig
 
 
 #### World generation
-Owns initial conditions: terrain, simulated history, characters. [Simulated history generation](../wiki/mechanic/history-generation.md) in [Dwarf Fortress](../wiki/game/dwarf-fortress.md) remains the high-water mark: a world that has a past before the player arrives.
+Owns initial conditions: terrain, simulated history, characters. [Simulated history generation](../wiki/mechanic/history-generation.md) in [Dwarf Fortress](../wiki/game/dwarf-fortress.md) simulates centuries of events before play, so the world has a past before the player arrives.
 
 | name | games | legibility | emergence potential | authoring cost | compute cost | ai leverage | maturity |
 |---|---|---|---|---|---|---|---|
 | [Procedural terrain](../wiki/mechanic/procedural-terrain.md) | 20 | 4 | 3 | 2 | 3 | 4 | classic |
 | [Procedural characters](../wiki/mechanic/procedural-characters.md) | 6 | 4 | 3 | 3 | 1 | 4 | classic |
 | [Real-world data feeds](../wiki/mechanic/real-world-data-feeds.md) | 4 | 4 | 2 | 3 | 3 | 4 | established |
-| [Simulated history generation](../wiki/mechanic/history-generation.md) | 2 | 2 | 5 | 3 | 4 | 4 | emerging |
+| [Simulated history generation](../wiki/mechanic/history-generation.md) | 2 | 2 | 5 | 3 | 4 | 4 | established |
 
 
 #### Multiplayer and persistence
@@ -597,7 +597,7 @@ Owns other people: persistent worlds, organizations, content sharing, modding, a
 | [Content sharing](../wiki/mechanic/content-sharing.md) | 24 | 5 | 3 | 2 | 2 | 3 | established |
 | [Persistent shared world](../wiki/mechanic/persistent-world.md) | 7 | 3 | 4 | 3 | 4 | 3 | classic |
 | [Player organizations](../wiki/mechanic/player-organizations.md) | 5 | 4 | 4 | 1 | 1 | 3 | classic |
-| [Asynchronous shared regions](../wiki/mechanic/async-shared-region.md) | 4 | 3 | 3 | 2 | 2 | 3 | emerging |
+| [Asynchronous shared regions](../wiki/mechanic/async-shared-region.md) | 4 | 3 | 3 | 2 | 2 | 3 | established |
 | [PvP security zones](../wiki/mechanic/pvp-security-zones.md) | 2 | 4 | 4 | 1 | 1 | 2 | established |
 | [Seasonal world reset](../wiki/mechanic/seasonal-world-reset.md) | 2 | 5 | 2 | 2 | 1 | 2 | established |
 
@@ -622,19 +622,20 @@ Owns hands-on work: checklists, tool use on surfaces, diagnosis and repair, rule
 | [Procedural checklists](../wiki/mechanic/procedural-checklists.md) | 6 | 3 | 2 | 4 | 2 | 3 | established |
 | [Surface work tools](../wiki/mechanic/surface-work-tools.md) | 3 | 5 | 1 | 3 | 2 | 2 | emerging |
 | [Diagnose and repair](../wiki/mechanic/diagnose-repair.md) | 2 | 4 | 2 | 4 | 1 | 3 | established |
-| [Rule-checking inspection](../wiki/mechanic/rule-checking-inspection.md) | 2 | 4 | 2 | 3 | 1 | 4 | emerging |
+| [Rule-checking inspection](../wiki/mechanic/rule-checking-inspection.md) | 2 | 4 | 2 | 3 | 1 | 4 | established |
 
 ## 5. The structure of the design space
 
 ### 5.1 What games are made of
 
-The average catalog game uses 10.5 mechanics (median 10). The most widely used is Tech tree, present in 25 percent of games. The head of the distribution is a set of general-purpose mechanics that appear across subgenres: progression structures, placement, production, skills, avatars, and modding.
+The average catalog game uses 11.2 mechanics (median 11). The most widely used is Pause and speed control, present in 47 percent of games. The head of the distribution is interface and structure more than simulation: time controls, placement, progression structures (tech trees, scenarios), then production, skills, avatars, and modding. The table ranks mechanics across families; §4.2 lists them within each family.
 
 
 | name | family | games | core in | earliest | legibility | emergence potential | ai leverage |
 |---|---|---|---|---|---|---|---|
+| [Pause and speed control](../wiki/mechanic/variable-speed.md) | time-pacing | 82 | 1 | 1970 | 5 | 1 | 2 |
+| [Building placement](../wiki/mechanic/free-placement.md) | space-construction | 75 | 18 | 1970 | 4 | 3 | 2 |
 | [Tech tree](../wiki/mechanic/tech-tree.md) | progression-goals | 43 | 12 | 1991 | 4 | 2 | 3 |
-| [Building placement](../wiki/mechanic/free-placement.md) | space-construction | 42 | 18 | 1970 | 4 | 3 | 2 |
 | [Scenario objectives](../wiki/mechanic/scenario-objectives.md) | progression-goals | 40 | 4 | 1989 | 4 | 2 | 3 |
 | [Production chains](../wiki/mechanic/production-chain.md) | resources-production | 38 | 15 | 1983 | 3 | 3 | 3 |
 | [Agent skills](../wiki/mechanic/agent-skills.md) | agents-behavior | 33 | 6 | 1993 | 4 | 3 | 2 |
@@ -644,27 +645,11 @@ The average catalog game uses 10.5 mechanics (median 10). The most widely used i
 | [Resource extraction](../wiki/mechanic/resource-extraction.md) | resources-production | 29 | 10 | 1982 | 5 | 2 | 1 |
 | [Modular assembly](../wiki/mechanic/modular-assembly.md) | space-construction | 27 | 17 | 1993 | 3 | 4 | 4 |
 | [Treasury and budget](../wiki/mechanic/budget-treasury.md) | economy-finance | 27 | 6 | 1973 | 4 | 3 | 2 |
-| [Weather](../wiki/mechanic/weather.md) | environment-ecology | 26 | 4 | 1971 | 4 | 3 | 2 |
+| [Weather](../wiki/mechanic/weather.md) | environment-ecology | 27 | 4 | 1971 | 4 | 3 | 2 |
 | [Crop cultivation](../wiki/mechanic/crop-cultivation.md) | resources-production | 25 | 8 | 1968 | 4 | 3 | 2 |
 | [Personality traits](../wiki/mechanic/personality-traits.md) | agents-behavior | 25 | 3 | 1985 | 4 | 3 | 3 |
-| [Content sharing](../wiki/mechanic/content-sharing.md) | multiplayer-persistence | 24 | 2 | 1993 | 5 | 3 | 3 |
-| [Lifecycle and aging](../wiki/mechanic/lifecycle-aging.md) | population-lineage | 22 | 5 | 1991 | 4 | 4 | 2 |
-| [Reputation](../wiki/mechanic/reputation.md) | social-relations | 22 | 5 | 1984 | 4 | 3 | 3 |
-| [Milestone unlocks](../wiki/mechanic/milestone-unlocks.md) | progression-goals | 21 | 4 | 1984 | 5 | 1 | 2 |
-| [Relationship values](../wiki/mechanic/relationship-values.md) | social-relations | 21 | 3 | 1996 | 4 | 4 | 3 |
-| [Day-night cycle](../wiki/mechanic/day-night-cycle.md) | environment-ecology | 20 | 3 | 1995 | 5 | 2 | 2 |
-| [Permadeath](../wiki/mechanic/permadeath.md) | risk-failure | 20 | 3 | 1971 | 5 | 3 | 2 |
-| [Procedural terrain](../wiki/mechanic/procedural-terrain.md) | world-generation | 20 | 5 | 1984 | 4 | 3 | 4 |
-| [Wear and breakdown](../wiki/mechanic/wear-breakdown.md) | risk-failure | 20 | 4 | 1994 | 4 | 3 | 2 |
-| [Pause and speed control](../wiki/mechanic/variable-speed.md) | time-pacing | 19 | 1 | 1970 | 5 | 1 | 2 |
-| [Power grid](../wiki/mechanic/power-grid.md) | resources-production | 19 | 6 | 1989 | 4 | 3 | 2 |
-| [Terraforming](../wiki/mechanic/terraforming.md) | space-construction | 19 | 4 | 1989 | 4 | 3 | 3 |
-| [Hand crafting](../wiki/mechanic/hand-crafting.md) | resources-production | 17 | 6 | 1997 | 4 | 2 | 4 |
-| [Random disasters](../wiki/mechanic/random-disasters.md) | risk-failure | 17 | 2 | 1968 | 4 | 3 | 2 |
-| [Trade routes](../wiki/mechanic/trade-routes.md) | economy-finance | 17 | 4 | 1984 | 3 | 3 | 2 |
-| [Triggered event chains](../wiki/mechanic/triggered-event-chains.md) | narrative-generation | 17 | 2 | 1993 | 3 | 3 | 4 |
 
-*Most-used mechanics across the catalog. Scores are rubric anchors (1-5).*
+*Most-used mechanics across all families. Scores are rubric anchors (1-5).*
 
 
 ### 5.2 How the vocabulary grew
@@ -675,27 +660,70 @@ The average catalog game uses 10.5 mechanics (median 10). The most widely used i
 *Figure: Cumulative count of mechanics by first appearance in the dataset. Steps mark the years a design vocabulary expanded.*
 
 
-67 percent of mechanics appear in at least one catalog game released by 2000. The 1980s and 1990s supplied most of the vocabulary: [SimCity](../wiki/game/simcity-1989.md) (zoning, land value, overlays, disasters), [Populous](../wiki/game/populous.md) (terraforming as a god power), [Railroad Tycoon](../wiki/game/railroad-tycoon.md) and [Transport Tycoon](../wiki/game/transport-tycoon.md) (route scheduling and competitors), [Theme Park](../wiki/game/theme-park.md) and [Theme Hospital](../wiki/game/theme-hospital.md) (crowds with preferences, queues, diagnosis), [Creatures](../wiki/game/creatures.md) (learning creatures and genetics), and [The Sims](../wiki/game/the-sims.md) at the boundary (smart objects). Later decades mostly recombined, deepened, and scaled existing mechanics; the additions after 2010 are concentrated in material simulation, programmable automation, and runtime language.
+68 percent of mechanics appear in at least one catalog game released by 2000, and 59 percent first appear in the 1980s or 1990s (1990s the largest decade). The early vocabulary came from a short list of titles: [SimCity](../wiki/game/simcity-1989.md) (zoning, land value, overlays, disasters), [Populous](../wiki/game/populous.md) (terraforming as a god power), [Railroad Tycoon](../wiki/game/railroad-tycoon.md) and [Transport Tycoon](../wiki/game/transport-tycoon.md) (route scheduling and competitors), [Theme Park](../wiki/game/theme-park.md) and [Theme Hospital](../wiki/game/theme-hospital.md) (crowds with preferences, queues, diagnosis), [Creatures](../wiki/game/creatures.md) (learning creatures and genetics), and [The Sims](../wiki/game/the-sims.md) (smart objects).
 
 
 | decade | mechanics |
 |---|---|
 | 1960s | 6 |
-| 1970s | 11 |
-| 1980s | 37 |
-| 1990s | 76 |
-| 2000s | 34 |
-| 2010s | 31 |
+| 1970s | 9 |
+| 1980s | 39 |
+| 1990s | 79 |
+| 2000s | 32 |
+| 2010s | 30 |
 | 2020s | 4 |
 
 *Mechanics by decade of earliest appearance in the dataset (a lower bound on true origin; dataset is a sample).*
 
 
-The dataset is a sample, so these are lower bounds on origin dates, and the pattern partly reflects which early games are canonical. It is still consistent with a familiar view among designers: the genre's grammar was established early and has since been extended mainly in depth and scale.
+34 mechanics first appear in 2010 or later. They come mainly from four places: factory games (conveyors, request-provider logistics, machine boosting), grand strategy (dynasties, conversion, interest groups), job sims (inspection, repair, surface work), and destructible materials (soft bodies, voxels, terrain deformation).
+
+
+| family | mechanic | earliest year | earliest game |
+|---|---|---|---|
+| Conflict & defense | [War score and peace terms](../wiki/mechanic/war-score-peace.md) | 2013 | [Europa Universalis IV](../wiki/game/europa-universalis-4.md) |
+| Control & automation | [Execution budget](../wiki/mechanic/execution-budget.md) | 2014 | [Screeps](../wiki/game/screeps.md) |
+| Control & automation | [Programming by demonstration](../wiki/mechanic/programming-by-demonstration.md) | 2019 | [Autonauts](../wiki/game/autonauts.md) |
+| Economy & finance | [Product development](../wiki/mechanic/product-development.md) | 2012 | [Game Dev Tycoon](../wiki/game/game-dev-tycoon.md) |
+| Governance & policy | [Interest groups](../wiki/mechanic/interest-groups.md) | 2013 | [Europa Universalis IV](../wiki/game/europa-universalis-4.md) |
+| Governance & policy | [Political capital](../wiki/mechanic/political-capital.md) | 2013 | [Europa Universalis IV](../wiki/game/europa-universalis-4.md) |
+| Governance & policy | [Policy influence network](../wiki/mechanic/policy-influence-network.md) | 2020 | [Democracy 4](../wiki/game/democracy-4.md) |
+| Information & legibility | [Comparative histograms](../wiki/mechanic/comparative-histograms.md) | 2011 | [SpaceChem](../wiki/game/spacechem.md) |
+| Information & legibility | [Causal breakdown tooltips](../wiki/mechanic/causal-tooltips.md) | 2013 | [Europa Universalis IV](../wiki/game/europa-universalis-4.md) |
+| Logistics & networks | [Conveyor transport](../wiki/mechanic/conveyor-transport.md) | 2013 | [Factorio](../wiki/game/factorio.md) |
+| Logistics & networks | [Request-provider logistics](../wiki/mechanic/request-provider-logistics.md) | 2013 | [Factorio](../wiki/game/factorio.md) |
+| Logistics & networks | [Travel mode choice](../wiki/mechanic/travel-mode-choice.md) | 2015 | [Cities: Skylines](../wiki/game/cities-skylines.md) |
+| Logistics & networks | [Supply lines](../wiki/mechanic/supply-lines.md) | 2016 | [Hearts of Iron IV](../wiki/game/hearts-of-iron-4.md) |
+| Narrative & generation | [Generative content on demand](../wiki/mechanic/generative-content.md) | 2019 | [AI Dungeon](../wiki/game/ai-dungeon.md) |
+| Operation & procedure | [Rule-checking inspection](../wiki/mechanic/rule-checking-inspection.md) | 2013 | [Papers, Please](../wiki/game/papers-please.md) |
+| Operation & procedure | [Diagnose and repair](../wiki/mechanic/diagnose-repair.md) | 2018 | [PC Building Simulator](../wiki/game/pc-building-simulator.md) |
+| Operation & procedure | [Surface work tools](../wiki/mechanic/surface-work-tools.md) | 2018 | [House Flipper](../wiki/game/house-flipper.md) |
+| Physics & materials | [Soft-body deformation](../wiki/mechanic/soft-body-deformation.md) | 2013 | [BeamNG.drive](../wiki/game/beamng-drive.md) |
+| Physics & materials | [Voxel destruction](../wiki/mechanic/voxel-destruction.md) | 2013 | [Space Engineers](../wiki/game/space-engineers.md) |
+| Physics & materials | [Terrain deformation](../wiki/mechanic/terrain-deformation.md) | 2020 | [SnowRunner](../wiki/game/snowrunner.md) |
+| Population & lineage | [Culture and religion conversion](../wiki/mechanic/culture-religion-conversion.md) | 2013 | [Europa Universalis IV](../wiki/game/europa-universalis-4.md) |
+| Population & lineage | [Dynasty succession](../wiki/mechanic/dynasty-succession.md) | 2013 | [Europa Universalis IV](../wiki/game/europa-universalis-4.md) |
+| Population & lineage | [Education and workforce](../wiki/mechanic/education-workforce.md) | 2015 | [Cities: Skylines](../wiki/game/cities-skylines.md) |
+| Progression & goals | [Combination discovery](../wiki/mechanic/combination-discovery.md) | 2019 | [Noita](../wiki/game/noita.md) |
+| Resources & production | [Power allocation](../wiki/mechanic/power-allocation.md) | 2012 | [FTL: Faster Than Light](../wiki/game/ftl.md) |
+| Resources & production | [Renewable regrowth](../wiki/mechanic/renewable-regrowth.md) | 2012 | [Don't Starve](../wiki/game/dont-starve.md) |
+| Resources & production | [Machine boosting](../wiki/mechanic/machine-boosting.md) | 2013 | [Factorio](../wiki/game/factorio.md) |
+| Resources & production | [Byproducts and waste](../wiki/mechanic/byproducts-waste.md) | 2017 | [Oxygen Not Included](../wiki/game/oxygen-not-included.md) |
+| Risk & failure | [Stimulus attraction](../wiki/mechanic/stimulus-attraction.md) | 2011 | [Project Zomboid](../wiki/game/project-zomboid.md) |
+| Social relations | [Opinion modifiers](../wiki/mechanic/opinion-modifiers.md) | 2013 | [Europa Universalis IV](../wiki/game/europa-universalis-4.md) |
+| Social relations | [Gossip propagation](../wiki/mechanic/gossip-propagation.md) | 2023 | [Generative Agents (Smallville)](../wiki/game/generative-agents-smallville.md) |
+| Space & construction | [Structural integrity](../wiki/mechanic/structural-integrity.md) | 2015 | [Poly Bridge](../wiki/game/poly-bridge.md) |
+| Space & construction | [Procedural build assist](../wiki/mechanic/procedural-build-assist.md) | 2020 | [Townscaper](../wiki/game/townscaper.md) |
+| Time & pacing | [Crisis countdown](../wiki/mechanic/crisis-countdown.md) | 2011 | [Project Zomboid](../wiki/game/project-zomboid.md) |
+
+*Mechanics whose earliest appearance in the dataset is 2010 or later, grouped by family.*
+
+
+The dataset is a sample, so these are lower bounds on origin dates, and the pattern partly reflects which early games are canonical.
 
 ### 5.3 Which mechanics travel together
 
-Co-occurrence lift measures how much more often two mechanics share a game than independence predicts. The strongest pairs are tight design packages, many of them inherited from one lineage: the SimCity core of zoning, land value, demand, and traffic; the virtual-pet pair of care and learning; social exchanges with smart objects; diagnosis with queues.
+Co-occurrence lift measures how much more often two mechanics share a game than independence predicts. The strongest pairs are packages inherited from one lineage: the sports-management trio of match engine, board confidence, and negotiation; the grand-strategy package of war score, territorial control, and conversion; the SimCity core of land value, demand, and traffic; aspirations with smart objects from The Sims; care with learning from virtual pets.
 
 
 | mechanic a | mechanic b | games | lift | jaccard |
@@ -723,58 +751,71 @@ Co-occurrence lift measures how much more often two mechanics share a game than 
 | [Causal breakdown tooltips](../wiki/mechanic/causal-tooltips.md) | [Political capital](../wiki/mechanic/political-capital.md) | 3 | 24.86 | 0.429 |
 | [Diagnosis and treatment](../wiki/mechanic/diagnosis-treatment.md) | [Service queues](../wiki/mechanic/service-queues.md) | 3 | 24.86 | 0.429 |
 | [Generative content on demand](../wiki/mechanic/generative-content.md) | [Gossip propagation](../wiki/mechanic/gossip-propagation.md) | 3 | 24.86 | 0.429 |
-| [Social exchanges](../wiki/mechanic/social-exchanges.md) | [Utility action selection](../wiki/mechanic/utility-action-selection.md) | 3 | 24.86 | 0.429 |
 | [Designation orders](../wiki/mechanic/designation-orders.md) | [Room recognition](../wiki/mechanic/room-recognition.md) | 4 | 23.2 | 0.571 |
 | [Flight aerodynamics](../wiki/mechanic/flight-aerodynamics.md) | [Procedural checklists](../wiki/mechanic/procedural-checklists.md) | 4 | 23.2 | 0.571 |
 | [Equity and buyouts](../wiki/mechanic/equity-buyouts.md) | [Rival firms](../wiki/mechanic/rival-firms.md) | 4 | 21.75 | 0.5 |
 | [Corruption leakage](../wiki/mechanic/corruption-leakage.md) | [Territorial control](../wiki/mechanic/territorial-control.md) | 3 | 21.75 | 0.429 |
 | [Culture and religion conversion](../wiki/mechanic/culture-religion-conversion.md) | [Interest groups](../wiki/mechanic/interest-groups.md) | 3 | 21.75 | 0.429 |
 | [Land value](../wiki/mechanic/land-value.md) | [Public transit lines](../wiki/mechanic/public-transit.md) | 3 | 20.88 | 0.429 |
+| [Rail signaling](../wiki/mechanic/rail-signaling.md) | [Track laying](../wiki/mechanic/track-laying.md) | 3 | 20.88 | 0.429 |
 
 *Mechanic pairs ranked by lift (observed / expected co-occurrence across games), support >= 3 games.*
 
 
-26.3 percent of possible mechanic pairs co-occur in at least one game. Most of the combinatorial space has never been tried, which is the subject of §5.5.
+27.5 percent of possible mechanic pairs co-occur in at least one game. Most of the combinatorial space is untried, which is the subject of §5.5.
 
 ### 5.4 Families of games by what they use
 
-Clustering games by the mechanics they use (ignoring their labels) produces 12 clusters, 10 of which mix subgenres. The clusters read as design families rather than market categories:
+Clustering games by the mechanics they use, ignoring their subgenre labels, produces 16 clusters, 14 of which mix subgenres. Each mechanic is weighted by inverse prevalence, so two games sharing a rare mechanic count as closer than two games sharing a pause button.
 
 
 | cluster | label | size | dominant subgenres | signature mechanics | members |
 |---|---|---|---|---|---|
-| C01 | Production chains + Tech tree | 39 | City builder (15), Factory / automation (7) | [Production chains](../wiki/mechanic/production-chain.md), [Tech tree](../wiki/mechanic/tech-tree.md), [Goods consumption](../wiki/mechanic/goods-consumption.md), [Trade routes](../wiki/mechanic/trade-routes.md), [Resource extraction](../wiki/mechanic/resource-extraction.md) | [Against the Storm](../wiki/game/against-the-storm.md), [Anno 117: Pax Romana](../wiki/game/anno-117.md), [Anno 1800](../wiki/game/anno-1800.md), [Aurora 4X](../wiki/game/aurora-4x.md), [Big Pharma](../wiki/game/big-pharma.md), [Caesar III](../wiki/game/caesar-3.md), [Capitalism](../wiki/game/capitalism.md), [Captain of Industry](../wiki/game/captain-of-industry.md), [Sid Meier's Civilization](../wiki/game/civilization.md), [Crusader Kings III](../wiki/game/crusader-kings-3.md), [Democracy 4](../wiki/game/democracy-4.md), [Dyson Sphere Program](../wiki/game/dyson-sphere-program.md), [Eco](../wiki/game/eco.md), [Europa Universalis IV](../wiki/game/europa-universalis-4.md), [Factorio](../wiki/game/factorio.md), [Farthest Frontier](../wiki/game/farthest-frontier.md), [Foundation](../wiki/game/foundation.md), [Frostpunk](../wiki/game/frostpunk.md), [Frostpunk 2](../wiki/game/frostpunk-2.md), [Hearts of Iron IV](../wiki/game/hearts-of-iron-4.md), [Manor Lords](../wiki/game/manor-lords.md), [Mindustry](../wiki/game/mindustry.md), [M.U.L.E.](../wiki/game/mule.md), [Offworld Trading Company](../wiki/game/offworld-trading-company.md), [Pharaoh](../wiki/game/pharaoh.md), [Plague Inc.](../wiki/game/plague-inc.md), [Railroad Tycoon](../wiki/game/railroad-tycoon.md), [Rebel Inc.](../wiki/game/rebel-inc.md), [Satisfactory](../wiki/game/satisfactory.md), [shapez 2](../wiki/game/shapez-2.md), [SimAnt](../wiki/game/simant.md), [Songs of Syx](../wiki/game/songs-of-syx.md), [Stellaris](../wiki/game/stellaris.md), [Surviving Mars](../wiki/game/surviving-mars.md), [Transport Tycoon](../wiki/game/transport-tycoon.md), [Tropico 6](../wiki/game/tropico-6.md), [Utopia](../wiki/game/utopia.md), [Victoria 3](../wiki/game/victoria-3.md), [Workers & Resources: Soviet Republic](../wiki/game/workers-and-resources.md) |
-| C02 | Rigid-body physics + Modular assembly | 24 | Job sim (6), Programming sim (5) | [Rigid-body physics](../wiki/mechanic/rigid-body-physics.md), [Modular assembly](../wiki/mechanic/modular-assembly.md), [Player programming](../wiki/mechanic/player-programming.md), [Content sharing](../wiki/mechanic/content-sharing.md), [Modding API](../wiki/mechanic/modding-api.md) | [Autonauts](../wiki/game/autonauts.md), [Besiege](../wiki/game/besiege.md), [Car Mechanic Simulator 2021](../wiki/game/car-mechanic-simulator-2021.md), [FTL: Faster Than Light](../wiki/game/ftl.md), [Garry's Mod](../wiki/game/garrys-mod.md), [Hardspace: Shipbreaker](../wiki/game/hardspace-shipbreaker.md), [House Flipper](../wiki/game/house-flipper.md), [Job Simulator](../wiki/game/job-simulator.md), [Kerbal Space Program](../wiki/game/kerbal-space-program.md), [Noita](../wiki/game/noita.md), [Opus Magnum](../wiki/game/opus-magnum.md), [PC Building Simulator](../wiki/game/pc-building-simulator.md), [Poly Bridge](../wiki/game/poly-bridge.md), [PowerWash Simulator](../wiki/game/powerwash-simulator.md), [Screeps](../wiki/game/screeps.md), [Second Life](../wiki/game/second-life.md), [Space Engineers](../wiki/game/space-engineers.md), [SpaceChem](../wiki/game/spacechem.md), [Spore](../wiki/game/spore.md), [Surgeon Simulator](../wiki/game/surgeon-simulator.md), [Teardown](../wiki/game/teardown.md), [The Farmer Was Replaced](../wiki/game/the-farmer-was-replaced.md), [The Incredible Machine](../wiki/game/the-incredible-machine.md), [The Powder Toy](../wiki/game/the-powder-toy.md) |
-| C03 | Staff hiring and rosters + Building placement | 20 | Management / tycoon (9), Business / economic sim (3) | [Staff hiring and rosters](../wiki/mechanic/staff-hiring.md), [Building placement](../wiki/mechanic/free-placement.md), [Service queues](../wiki/mechanic/service-queues.md), [Crowd preferences](../wiki/mechanic/crowd-preferences.md), [Wear and breakdown](../wiki/mechanic/wear-breakdown.md) | [Big Ambitions](../wiki/game/big-ambitions.md), [Football Manager](../wiki/game/football-manager.md), [Game Dev Tycoon](../wiki/game/game-dev-tycoon.md), [Conway's Game of Life](../wiki/game/game-of-life.md), [Islanders](../wiki/game/islanders.md), [Motorsport Manager](../wiki/game/motorsport-manager.md), [Out of the Park Baseball](../wiki/game/out-of-the-park-baseball.md), [Planet Coaster](../wiki/game/planet-coaster.md), [Planet Zoo](../wiki/game/planet-zoo.md), [Prison Architect](../wiki/game/prison-architect.md), [Project Hospital](../wiki/game/project-hospital.md), [RollerCoaster Tycoon](../wiki/game/rollercoaster-tycoon.md), [Schedule I](../wiki/game/schedule-i.md), [SimTower](../wiki/game/simtower.md), [Theme Hospital](../wiki/game/theme-hospital.md), [Theme Park](../wiki/game/theme-park.md), [Tiny Glade](../wiki/game/tiny-glade.md), [Townscaper](../wiki/game/townscaper.md), [Two Point Hospital](../wiki/game/two-point-hospital.md), [Zoo Tycoon](../wiki/game/zoo-tycoon.md) |
-| C04 | Personality traits + Needs decay | 20 | Life sim (8), Colony sim (5) | [Personality traits](../wiki/mechanic/personality-traits.md), [Needs decay](../wiki/mechanic/needs-decay.md), [Relationship values](../wiki/mechanic/relationship-values.md), [Memories and thoughts](../wiki/mechanic/memories-thoughts.md), [Agent skills](../wiki/mechanic/agent-skills.md) | [Creatures](../wiki/game/creatures.md), [Dwarf Fortress](../wiki/game/dwarf-fortress.md), [Going Medieval](../wiki/game/going-medieval.md), [inZOI](../wiki/game/inzoi.md), [Little Computer People](../wiki/game/little-computer-people.md), [Nintendogs](../wiki/game/nintendogs.md), [Oxygen Not Included](../wiki/game/oxygen-not-included.md), [Paralives](../wiki/game/paralives.md), [Prom Week](../wiki/game/prom-week.md), [RimWorld](../wiki/game/rimworld.md), [Seaman](../wiki/game/seaman.md), [Space Haven](../wiki/game/space-haven.md), [Stationeers](../wiki/game/stationeers.md), [Tamagotchi](../wiki/game/tamagotchi.md), [The Sims](../wiki/game/the-sims.md), [The Sims 2](../wiki/game/the-sims-2.md), [The Sims 3](../wiki/game/the-sims-3.md), [The Sims 4](../wiki/game/the-sims-4.md), [Tomodachi Life](../wiki/game/tomodachi-life.md), [Versu](../wiki/game/versu.md) |
-| C05 | Survival meters + Hand crafting | 18 | Survival sim (6), City builder (3) | [Survival meters](../wiki/mechanic/survival-meters.md), [Hand crafting](../wiki/mechanic/hand-crafting.md), [Crop cultivation](../wiki/mechanic/crop-cultivation.md), [Weather](../wiki/mechanic/weather.md), [Seasons](../wiki/mechanic/seasons.md) | [Animal Crossing: New Horizons](../wiki/game/animal-crossing-new-horizons.md), [Balance of Power](../wiki/game/balance-of-power.md), [Banished](../wiki/game/banished.md), [Caves of Qud](../wiki/game/caves-of-qud.md), [Don't Starve](../wiki/game/dont-starve.md), [Hamurabi](../wiki/game/hamurabi.md), [Harvest Moon](../wiki/game/harvest-moon.md), [Kenshi](../wiki/game/kenshi.md), [Kingdoms and Castles](../wiki/game/kingdoms-and-castles.md), [Lemonade Stand](../wiki/game/lemonade-stand.md), [Minecraft](../wiki/game/minecraft.md), [The Oregon Trail](../wiki/game/oregon-trail.md), [Project Zomboid](../wiki/game/project-zomboid.md), [Stardew Valley](../wiki/game/stardew-valley.md), [Subnautica](../wiki/game/subnautica.md), [The Long Dark](../wiki/game/the-long-dark.md), [Valheim](../wiki/game/valheim.md), [The Legend of Zelda: Breath of the Wild](../wiki/game/zelda-breath-of-the-wild.md) |
-| C06 | Embodied skill control + Weather | 14 | Vehicle sim (7), Flight sim (4) | [Embodied skill control](../wiki/mechanic/embodied-skill-control.md), [Weather](../wiki/mechanic/weather.md), [Vehicle dynamics](../wiki/mechanic/vehicle-dynamics.md), [Modding API](../wiki/mechanic/modding-api.md), [Procedural checklists](../wiki/mechanic/procedural-checklists.md) | [Arma 3](../wiki/game/arma-3.md), [BeamNG.drive](../wiki/game/beamng-drive.md), [Command: Modern Operations](../wiki/game/command-modern-operations.md), [DCS World](../wiki/game/dcs-world.md), [Euro Truck Simulator 2](../wiki/game/euro-truck-simulator-2.md), [Farming Simulator 25](../wiki/game/farming-simulator-25.md), [Gran Turismo](../wiki/game/gran-turismo.md), [Gran Turismo 7](../wiki/game/gran-turismo-7.md), [iRacing](../wiki/game/iracing.md), [Microsoft Flight Simulator (2020)](../wiki/game/microsoft-flight-simulator-2020.md), [Microsoft Flight Simulator 2024](../wiki/game/microsoft-flight-simulator-2024.md), [Silent Hunter III](../wiki/game/silent-hunter-3.md), [SnowRunner](../wiki/game/snowrunner.md), [X-Plane](../wiki/game/x-plane.md) |
-| C07 | Terraforming + Habitat suitability | 10 | God game (3), Ecosystem / evolution (2) | [Terraforming](../wiki/mechanic/terraforming.md), [Habitat suitability](../wiki/mechanic/habitat-suitability.md), [God powers](../wiki/mechanic/god-powers.md), [Natural selection](../wiki/mechanic/natural-selection.md), [Food web](../wiki/mechanic/food-web.md) | [Equilinox](../wiki/game/equilinox.md), [From Dust](../wiki/game/from-dust.md), [Populous](../wiki/game/populous.md), [SimEarth](../wiki/game/simearth.md), [SimLife](../wiki/game/simlife.md), [Species: Artificial Life, Real Evolution](../wiki/game/species-alre.md), [Terra Nil](../wiki/game/terra-nil.md), [Timberborn](../wiki/game/timberborn.md), [Universe Sandbox](../wiki/game/universe-sandbox.md), [Viva Piñata](../wiki/game/viva-pinata.md) |
-| C08 | Resource extraction + Reputation | 8 | MMO world (3), Space sim (2) | [Resource extraction](../wiki/mechanic/resource-extraction.md), [Reputation](../wiki/mechanic/reputation.md), [Player organizations](../wiki/mechanic/player-organizations.md), [Persistent shared world](../wiki/mechanic/persistent-world.md), [PvP security zones](../wiki/mechanic/pvp-security-zones.md) | [A Tale in the Desert](../wiki/game/a-tale-in-the-desert.md), [Bitburner](../wiki/game/bitburner.md), [Black & White](../wiki/game/black-and-white.md), [Elite](../wiki/game/elite.md), [Elite Dangerous](../wiki/game/elite-dangerous.md), [EVE Online](../wiki/game/eve-online.md), [Jurassic World Evolution](../wiki/game/jurassic-world-evolution.md), [Ultima Online](../wiki/game/ultima-online.md) |
-| C09 | Generative content on demand + Natural-language interaction | 8 | AI-native (6), Social sim (1) | [Generative content on demand](../wiki/mechanic/generative-content.md), [Natural-language interaction](../wiki/mechanic/natural-language-interaction.md), [Relationship values](../wiki/mechanic/relationship-values.md), [Gossip propagation](../wiki/mechanic/gossip-propagation.md), [Direct avatar control](../wiki/mechanic/direct-avatar.md) | [AI Dungeon](../wiki/game/ai-dungeon.md), [Façade](../wiki/game/facade.md), [Generative Agents (Smallville)](../wiki/game/generative-agents-smallville.md), [Infinite Craft](../wiki/game/infinite-craft.md), [Project Sid](../wiki/game/project-sid.md), [Suck Up!](../wiki/game/suck-up.md), [Where Winds Meet](../wiki/game/where-winds-meet.md), [Whispers from the Star](../wiki/game/whispers-from-the-star.md) |
-| C10 | Traffic congestion + Zoning | 6 | City builder (6) | [Traffic congestion](../wiki/mechanic/traffic-congestion.md), [Zoning](../wiki/mechanic/zoning.md), [Service coverage](../wiki/mechanic/service-coverage.md), [Land value](../wiki/mechanic/land-value.md), [RCI demand](../wiki/mechanic/rci-demand.md) | [Cities: Skylines](../wiki/game/cities-skylines.md), [Cities: Skylines II](../wiki/game/cities-skylines-2.md), [SimCity](../wiki/game/simcity-1989.md), [SimCity 2000](../wiki/game/simcity-2000.md), [SimCity (2013)](../wiki/game/simcity-2013.md), [SimCity 4](../wiki/game/simcity-4.md) |
-| C11 | Triggered event chains + Dilemma cards | 6 | Job sim (2), Political sim (2) | [Triggered event chains](../wiki/mechanic/triggered-event-chains.md), [Dilemma cards](../wiki/mechanic/dilemma-cards.md), [Rule-checking inspection](../wiki/mechanic/rule-checking-inspection.md), [Treasury and budget](../wiki/mechanic/budget-treasury.md), [Daily action budget](../wiki/mechanic/daily-action-budget.md) | [Contraband Police](../wiki/game/contraband-police.md), [Papers, Please](../wiki/game/papers-please.md), [Princess Maker 2](../wiki/game/princess-maker-2.md), [Reigns](../wiki/game/reigns.md), [Suzerain](../wiki/game/suzerain.md), [This War of Mine](../wiki/game/this-war-of-mine.md) |
-| C12 | Periodic ticks + Public transit lines | 1 | Transport / logistics (1) | [Periodic ticks](../wiki/mechanic/periodic-ticks.md), [Public transit lines](../wiki/mechanic/public-transit.md), [Service queues](../wiki/mechanic/service-queues.md), [Agent pathfinding](../wiki/mechanic/agent-pathfinding.md), [Pause and speed control](../wiki/mechanic/variable-speed.md) | [Mini Metro](../wiki/game/mini-metro.md) |
+| C01 | Utility action selection + Personality traits | 31 | Management / tycoon (8), Life sim (7) | [Utility action selection](../wiki/mechanic/utility-action-selection.md), [Personality traits](../wiki/mechanic/personality-traits.md), [Staff hiring and rosters](../wiki/mechanic/staff-hiring.md), [Needs decay](../wiki/mechanic/needs-decay.md), [Agent skills](../wiki/mechanic/agent-skills.md) | [Paralives](../wiki/game/paralives.md), [Two Point Hospital](../wiki/game/two-point-hospital.md), [The Sims 4](../wiki/game/the-sims-4.md), [The Sims](../wiki/game/the-sims.md), [The Sims 3](../wiki/game/the-sims-3.md), [The Sims 2](../wiki/game/the-sims-2.md), [Theme Hospital](../wiki/game/theme-hospital.md), [inZOI](../wiki/game/inzoi.md), and 23 more |
+| C02 | Production chains + Building placement | 25 | City builder (12), Factory / automation (7) | [Production chains](../wiki/mechanic/production-chain.md), [Building placement](../wiki/mechanic/free-placement.md), [Goods consumption](../wiki/mechanic/goods-consumption.md), [Storage and buffers](../wiki/mechanic/storage-capacity.md), [Trade routes](../wiki/mechanic/trade-routes.md) | [Anno 1800](../wiki/game/anno-1800.md), [Anno 117: Pax Romana](../wiki/game/anno-117.md), [Satisfactory](../wiki/game/satisfactory.md), [Farthest Frontier](../wiki/game/farthest-frontier.md), [Workers & Resources: Soviet Republic](../wiki/game/workers-and-resources.md), [Manor Lords](../wiki/game/manor-lords.md), [Caesar III](../wiki/game/caesar-3.md), [Dyson Sphere Program](../wiki/game/dyson-sphere-program.md), and 17 more |
+| C03 | Embodied skill control + Weather | 14 | Vehicle sim (7), Flight sim (4) | [Embodied skill control](../wiki/mechanic/embodied-skill-control.md), [Weather](../wiki/mechanic/weather.md), [Vehicle dynamics](../wiki/mechanic/vehicle-dynamics.md), [Modding API](../wiki/mechanic/modding-api.md), [Procedural checklists](../wiki/mechanic/procedural-checklists.md) | [Gran Turismo 7](../wiki/game/gran-turismo-7.md), [Microsoft Flight Simulator 2024](../wiki/game/microsoft-flight-simulator-2024.md), [DCS World](../wiki/game/dcs-world.md), [Gran Turismo](../wiki/game/gran-turismo.md), [X-Plane](../wiki/game/x-plane.md), [Microsoft Flight Simulator (2020)](../wiki/game/microsoft-flight-simulator-2020.md), [iRacing](../wiki/game/iracing.md), [Silent Hunter III](../wiki/game/silent-hunter-3.md), and 6 more |
+| C04 | Policy toggles + Stability and unrest | 13 | City builder (5), Grand strategy (4) | [Policy toggles](../wiki/mechanic/policy-toggles.md), [Stability and unrest](../wiki/mechanic/stability-unrest.md), [Interest groups](../wiki/mechanic/interest-groups.md), [Territorial control](../wiki/mechanic/territorial-control.md), [Political capital](../wiki/mechanic/political-capital.md) | [Stellaris](../wiki/game/stellaris.md), [Europa Universalis IV](../wiki/game/europa-universalis-4.md), [Tropico 6](../wiki/game/tropico-6.md), [Victoria 3](../wiki/game/victoria-3.md), [Hearts of Iron IV](../wiki/game/hearts-of-iron-4.md), [Rebel Inc.](../wiki/game/rebel-inc.md), [Frostpunk 2](../wiki/game/frostpunk-2.md), [Sid Meier's Civilization](../wiki/game/civilization.md), and 5 more |
+| C05 | Hand crafting + Survival meters | 13 | Survival sim (5), Ecosystem / evolution (2) | [Hand crafting](../wiki/mechanic/hand-crafting.md), [Survival meters](../wiki/mechanic/survival-meters.md), [Crop cultivation](../wiki/mechanic/crop-cultivation.md), [Day-night cycle](../wiki/mechanic/day-night-cycle.md), [Animal husbandry](../wiki/mechanic/animal-husbandry.md) | [Don't Starve](../wiki/game/dont-starve.md), [Subnautica](../wiki/game/subnautica.md), [The Long Dark](../wiki/game/the-long-dark.md), [Project Zomboid](../wiki/game/project-zomboid.md), [Minecraft](../wiki/game/minecraft.md), [Valheim](../wiki/game/valheim.md), [Animal Crossing: New Horizons](../wiki/game/animal-crossing-new-horizons.md), [The Legend of Zelda: Breath of the Wild](../wiki/game/zelda-breath-of-the-wild.md), and 5 more |
+| C06 | Player programming + Persistent shared world | 11 | Programming sim (6), MMO world (5) | [Player programming](../wiki/mechanic/player-programming.md), [Persistent shared world](../wiki/mechanic/persistent-world.md), [Execution budget](../wiki/mechanic/execution-budget.md), [Player-driven markets](../wiki/mechanic/player-driven-market.md), [Player organizations](../wiki/mechanic/player-organizations.md) | [Second Life](../wiki/game/second-life.md), [Opus Magnum](../wiki/game/opus-magnum.md), [Screeps](../wiki/game/screeps.md), [SpaceChem](../wiki/game/spacechem.md), [EVE Online](../wiki/game/eve-online.md), [The Farmer Was Replaced](../wiki/game/the-farmer-was-replaced.md), [Bitburner](../wiki/game/bitburner.md), [Autonauts](../wiki/game/autonauts.md), and 3 more |
+| C07 | Rigid-body physics + Signal circuits | 11 | Physics sandbox (4), Construction / engineering (3) | [Rigid-body physics](../wiki/mechanic/rigid-body-physics.md), [Signal circuits](../wiki/mechanic/signal-circuits.md), [Material interactions](../wiki/mechanic/material-interactions.md), [Modular assembly](../wiki/mechanic/modular-assembly.md), [Modding API](../wiki/mechanic/modding-api.md) | [Besiege](../wiki/game/besiege.md), [The Incredible Machine](../wiki/game/the-incredible-machine.md), [Garry's Mod](../wiki/game/garrys-mod.md), [Space Engineers](../wiki/game/space-engineers.md), [Poly Bridge](../wiki/game/poly-bridge.md), [Teardown](../wiki/game/teardown.md), [Job Simulator](../wiki/game/job-simulator.md), [Noita](../wiki/game/noita.md), and 3 more |
+| C08 | Generative content on demand + Natural-language interaction | 8 | AI-native (6), Social sim (1) | [Generative content on demand](../wiki/mechanic/generative-content.md), [Natural-language interaction](../wiki/mechanic/natural-language-interaction.md), [Relationship values](../wiki/mechanic/relationship-values.md), [Gossip propagation](../wiki/mechanic/gossip-propagation.md), [Direct avatar control](../wiki/mechanic/direct-avatar.md) | [Whispers from the Star](../wiki/game/whispers-from-the-star.md), [Suck Up!](../wiki/game/suck-up.md), [AI Dungeon](../wiki/game/ai-dungeon.md), [Where Winds Meet](../wiki/game/where-winds-meet.md), [Façade](../wiki/game/facade.md), [Generative Agents (Smallville)](../wiki/game/generative-agents-smallville.md), [Infinite Craft](../wiki/game/infinite-craft.md), [Project Sid](../wiki/game/project-sid.md) |
+| C09 | Traffic congestion + Zoning | 8 | City builder (6), Transport / logistics (1) | [Traffic congestion](../wiki/mechanic/traffic-congestion.md), [Zoning](../wiki/mechanic/zoning.md), [Service coverage](../wiki/mechanic/service-coverage.md), [Land value](../wiki/mechanic/land-value.md), [Agent pathfinding](../wiki/mechanic/agent-pathfinding.md) | [SimCity 4](../wiki/game/simcity-4.md), [Cities: Skylines II](../wiki/game/cities-skylines-2.md), [SimCity 2000](../wiki/game/simcity-2000.md), [SimCity](../wiki/game/simcity-1989.md), [Cities: Skylines](../wiki/game/cities-skylines.md), [SimCity (2013)](../wiki/game/simcity-2013.md), [SimTower](../wiki/game/simtower.md), [Mini Metro](../wiki/game/mini-metro.md) |
+| C10 | Habitat suitability + Terraforming | 8 | God game (3), Artificial life (2) | [Habitat suitability](../wiki/mechanic/habitat-suitability.md), [Terraforming](../wiki/mechanic/terraforming.md), [God powers](../wiki/mechanic/god-powers.md), [Natural selection](../wiki/mechanic/natural-selection.md), [Hydrology](../wiki/mechanic/hydrology.md) | [Species: Artificial Life, Real Evolution](../wiki/game/species-alre.md), [SimLife](../wiki/game/simlife.md), [Populous](../wiki/game/populous.md), [SimEarth](../wiki/game/simearth.md), [Terra Nil](../wiki/game/terra-nil.md), [From Dust](../wiki/game/from-dust.md), [Plague Inc.](../wiki/game/plague-inc.md), [Timberborn](../wiki/game/timberborn.md) |
+| C11 | Procedural terrain + Heat transfer | 7 | Space sim (3), 4X strategy (1) | [Procedural terrain](../wiki/mechanic/procedural-terrain.md), [Heat transfer](../wiki/mechanic/heat-transfer.md), [Orbital mechanics](../wiki/mechanic/orbital-mechanics.md), [Modular assembly](../wiki/mechanic/modular-assembly.md), [Resource extraction](../wiki/mechanic/resource-extraction.md) | [Elite Dangerous](../wiki/game/elite-dangerous.md), [Kerbal Space Program](../wiki/game/kerbal-space-program.md), [Elite](../wiki/game/elite.md), [Spore](../wiki/game/spore.md), [Aurora 4X](../wiki/game/aurora-4x.md), [Universe Sandbox](../wiki/game/universe-sandbox.md), [Islanders](../wiki/game/islanders.md) |
+| C12 | Turn structure + Random disasters | 6 | Political sim (1), Systemic RPG (1) | [Turn structure](../wiki/mechanic/turn-structure.md), [Random disasters](../wiki/mechanic/random-disasters.md), [Faction diplomacy](../wiki/mechanic/faction-diplomacy.md), [Forecasting](../wiki/mechanic/forecasting.md), [Simulated history generation](../wiki/mechanic/history-generation.md) | [The Oregon Trail](../wiki/game/oregon-trail.md), [Hamurabi](../wiki/game/hamurabi.md), [Lemonade Stand](../wiki/game/lemonade-stand.md), [Balance of Power](../wiki/game/balance-of-power.md), [Conway's Game of Life](../wiki/game/game-of-life.md), [Caves of Qud](../wiki/game/caves-of-qud.md) |
+| C13 | Creature care + Creature learning | 6 | Virtual pet (3), God game (1) | [Creature care](../wiki/mechanic/creature-care.md), [Creature learning](../wiki/mechanic/creature-learning.md), [Natural-language interaction](../wiki/mechanic/natural-language-interaction.md), [Needs decay](../wiki/mechanic/needs-decay.md), [Real-time clock](../wiki/mechanic/real-time-clock.md) | [Nintendogs](../wiki/game/nintendogs.md), [Seaman](../wiki/game/seaman.md), [Creatures](../wiki/game/creatures.md), [Tamagotchi](../wiki/game/tamagotchi.md), [Little Computer People](../wiki/game/little-computer-people.md), [Black & White](../wiki/game/black-and-white.md) |
+| C14 | Triggered event chains + Dilemma cards | 6 | Job sim (2), Political sim (2) | [Triggered event chains](../wiki/mechanic/triggered-event-chains.md), [Dilemma cards](../wiki/mechanic/dilemma-cards.md), [Rule-checking inspection](../wiki/mechanic/rule-checking-inspection.md), [Treasury and budget](../wiki/mechanic/budget-treasury.md), [Daily action budget](../wiki/mechanic/daily-action-budget.md) | [Papers, Please](../wiki/game/papers-please.md), [Suzerain](../wiki/game/suzerain.md), [Contraband Police](../wiki/game/contraband-police.md), [Reigns](../wiki/game/reigns.md), [This War of Mine](../wiki/game/this-war-of-mine.md), [Princess Maker 2](../wiki/game/princess-maker-2.md) |
+| C15 | Surface work tools + Contracts and orders | 5 | Job sim (5) | [Surface work tools](../wiki/mechanic/surface-work-tools.md), [Contracts and orders](../wiki/mechanic/contracts-orders.md), [Diagnose and repair](../wiki/mechanic/diagnose-repair.md), [Auctions](../wiki/mechanic/auctions.md), [Direct avatar control](../wiki/mechanic/direct-avatar.md) | [House Flipper](../wiki/game/house-flipper.md), [PowerWash Simulator](../wiki/game/powerwash-simulator.md), [Car Mechanic Simulator 2021](../wiki/game/car-mechanic-simulator-2021.md), [PC Building Simulator](../wiki/game/pc-building-simulator.md), [Hardspace: Shipbreaker](../wiki/game/hardspace-shipbreaker.md) |
+| C16 | Procedural build assist + Room recognition | 2 | City builder (2) | [Procedural build assist](../wiki/mechanic/procedural-build-assist.md), [Room recognition](../wiki/mechanic/room-recognition.md), [Building placement](../wiki/mechanic/free-placement.md), [Terraforming](../wiki/mechanic/terraforming.md) | [Tiny Glade](../wiki/game/tiny-glade.md), [Townscaper](../wiki/game/townscaper.md) |
 
-*Games clustered by weighted Jaccard similarity of mechanic sets (average linkage, k=12, core weight 2.0). Signature mechanics maximize within-cluster share x log-lift.*
+*Games clustered by weighted Jaccard similarity of mechanic sets (average linkage, k=16, core weight 2.0, inverse-prevalence weighting so ubiquitous mechanics do not dominate). Signature mechanics maximize within-cluster share x log-lift. Members are ordered by centrality (mean distance to the rest of the cluster), so the first members are the most typical.*
 
 
-Several groupings are informative. Life sims, colony sims, and virtual pets share a cluster built on personality, needs, and relationships: [The Sims](../wiki/game/the-sims.md), [RimWorld](../wiki/game/rimworld.md), [Dwarf Fortress](../wiki/game/dwarf-fortress.md), and [Creatures](../wiki/game/creatures.md) are all games about minds. Physics sandboxes, construction games, programming puzzles, and hands-on job sims such as [PowerWash Simulator](../wiki/game/powerwash-simulator.md) and [PC Building Simulator](../wiki/game/pc-building-simulator.md) cluster around modular assembly and physical manipulation: they are build-or-fix-then-test games. Vehicle and flight sims form a separate cluster around embodied skill and weather. City builders, factory games, and grand strategy share the largest cluster, organized by production chains and tech trees: [Factorio](../wiki/game/factorio.md), [Anno 1800](../wiki/game/anno-1800.md), and [Europa Universalis IV](../wiki/game/europa-universalis-4.md) are all planning economies. The SimCity lineage stands apart on zoning, land value, and traffic. Inspection and dilemma games ([Papers, Please](../wiki/game/papers-please.md), [Reigns](../wiki/game/reigns.md), [Suzerain](../wiki/game/suzerain.md), [This War of Mine](../wiki/game/this-war-of-mine.md)) cluster on authored event structures despite belonging to different subgenres. The AI-native titles form their own cluster around generated content and natural-language interaction, separate from the life sims they superficially resemble.
+The clusters read as design families:
 
-These families correspond to the six-layer profiles in §4.1: the minds family invests in agents and social coupling; the builders in control and continuous substrate; the operators in direct control and physics; the planners in stocks, networks, and legibility.
+- **Minds.** Life sims, colony sims, and agent-driven management share the largest cluster, built on utility action selection, personality, and needs: [The Sims](../wiki/game/the-sims.md), [RimWorld](../wiki/game/rimworld.md), [Dwarf Fortress](../wiki/game/dwarf-fortress.md), [Two Point Hospital](../wiki/game/two-point-hospital.md). Virtual pets and trainable creatures form a separate cluster on care and learning: [Creatures](../wiki/game/creatures.md), [Tamagotchi](../wiki/game/tamagotchi.md), [Black & White](../wiki/game/black-and-white.md).
+- **Planned economies.** City builders split into two lineages: production chains and placement ([Anno 1800](../wiki/game/anno-1800.md), [Factorio](../wiki/game/factorio.md), [Manor Lords](../wiki/game/manor-lords.md)) and the SimCity line of zoning, land value, and traffic ([SimCity](../wiki/game/simcity-1989.md), [Cities: Skylines](../wiki/game/cities-skylines.md)). Grand strategy and political city builders cluster on policy and unrest: [Europa Universalis IV](../wiki/game/europa-universalis-4.md), [Crusader Kings III](../wiki/game/crusader-kings-3.md), [Tropico 6](../wiki/game/tropico-6.md), [Frostpunk](../wiki/game/frostpunk.md).
+- **Build and test.** Physics sandboxes and construction games cluster on rigid bodies and signal circuits: [Besiege](../wiki/game/besiege.md), [Teardown](../wiki/game/teardown.md), [Poly Bridge](../wiki/game/poly-bridge.md). Programming puzzles share a cluster with persistent programmable worlds, since both are about systems the player writes and leaves running: [SpaceChem](../wiki/game/spacechem.md), [Screeps](../wiki/game/screeps.md), [EVE Online](../wiki/game/eve-online.md).
+- **Hands-on work.** Job sims form their own cluster on surface tools and contracts, apart from the physics sandboxes: [PowerWash Simulator](../wiki/game/powerwash-simulator.md), [Car Mechanic Simulator 2021](../wiki/game/car-mechanic-simulator-2021.md), [PC Building Simulator](../wiki/game/pc-building-simulator.md). Vehicle and flight sims cluster on embodied skill and weather: [iRacing](../wiki/game/iracing.md), [X-Plane](../wiki/game/x-plane.md), [DCS World](../wiki/game/dcs-world.md).
+- **Authored decisions.** Inspection and dilemma games cluster on event chains and dilemma cards across subgenres: [Papers, Please](../wiki/game/papers-please.md), [Reigns](../wiki/game/reigns.md), [Suzerain](../wiki/game/suzerain.md), [This War of Mine](../wiki/game/this-war-of-mine.md).
+- **Turn reports.** The 1970s text sims ([Hamurabi](../wiki/game/hamurabi.md), [The Oregon Trail](../wiki/game/oregon-trail.md), [Lemonade Stand](../wiki/game/lemonade-stand.md)) form a cluster on turn structure and random events.
+- **Generated worlds.** The AI-native titles cluster on generated content and natural-language interaction, apart from the life sims they resemble on the surface: [AI Dungeon](../wiki/game/ai-dungeon.md), [Infinite Craft](../wiki/game/infinite-craft.md), [Suck Up!](../wiki/game/suck-up.md).
+
+These families match the layer profiles in §4.1: minds invest in agents and social coupling; planned economies in stocks, networks, and legibility; build-and-test games in control and continuous substrate; hands-on work and vehicle sims in direct control and physics.
 
 ### 5.5 White space
 
-Some mechanics are individually common but rarely combined. The table lists pairs where each mechanic appears in at least eight percent of games, the two belong to different families, they are not recorded as being in design tension, and they co-occur at most once.
+Some mechanics are individually common but rarely combined. The table lists pairs where each mechanic appears in at least eight percent of games, the two belong to different families, neither is a time-and-pacing control, they are not recorded as being in design tension, and they co-occur at most once.
 
 
 | mechanic a | mechanic b | family a | family b | observed | expected | gap |
 |---|---|---|---|---|---|---|
+| [Building placement](../wiki/mechanic/free-placement.md) | [Triggered event chains](../wiki/mechanic/triggered-event-chains.md) | space-construction | narrative-generation | 1 | 7.33 | 6.33 |
+| [Embodied skill control](../wiki/mechanic/embodied-skill-control.md) | [Building placement](../wiki/mechanic/free-placement.md) | control-automation | space-construction | 0 | 6.03 | 6.03 |
 | [Lifecycle and aging](../wiki/mechanic/lifecycle-aging.md) | [Production chains](../wiki/mechanic/production-chain.md) | population-lineage | resources-production | 0 | 4.8 | 4.8 |
 | [Permadeath](../wiki/mechanic/permadeath.md) | [Scenario objectives](../wiki/mechanic/scenario-objectives.md) | risk-failure | progression-goals | 0 | 4.6 | 4.6 |
 | [Content sharing](../wiki/mechanic/content-sharing.md) | [Production chains](../wiki/mechanic/production-chain.md) | multiplayer-persistence | resources-production | 1 | 5.24 | 4.24 |
 | [Relationship values](../wiki/mechanic/relationship-values.md) | [Tech tree](../wiki/mechanic/tech-tree.md) | social-relations | progression-goals | 1 | 5.19 | 4.19 |
-| [Building placement](../wiki/mechanic/free-placement.md) | [Triggered event chains](../wiki/mechanic/triggered-event-chains.md) | space-construction | narrative-generation | 0 | 4.1 | 4.1 |
 | [Content sharing](../wiki/mechanic/content-sharing.md) | [Resource extraction](../wiki/mechanic/resource-extraction.md) | multiplayer-persistence | resources-production | 0 | 4 | 4 |
 | [Hand crafting](../wiki/mechanic/hand-crafting.md) | [Scenario objectives](../wiki/mechanic/scenario-objectives.md) | resources-production | progression-goals | 0 | 3.91 | 3.91 |
 | [Treasury and budget](../wiki/mechanic/budget-treasury.md) | [Crop cultivation](../wiki/mechanic/crop-cultivation.md) | economy-finance | resources-production | 0 | 3.88 | 3.88 |
@@ -782,8 +823,6 @@ Some mechanics are individually common but rarely combined. The table lists pair
 | [Procedural terrain](../wiki/mechanic/procedural-terrain.md) | [Scenario objectives](../wiki/mechanic/scenario-objectives.md) | world-generation | progression-goals | 1 | 4.6 | 3.6 |
 | [Content sharing](../wiki/mechanic/content-sharing.md) | [Crop cultivation](../wiki/mechanic/crop-cultivation.md) | multiplayer-persistence | resources-production | 0 | 3.45 | 3.45 |
 | [Faction diplomacy](../wiki/mechanic/faction-diplomacy.md) | [Scenario objectives](../wiki/mechanic/scenario-objectives.md) | social-relations | progression-goals | 0 | 3.45 | 3.45 |
-| [Direct avatar control](../wiki/mechanic/direct-avatar.md) | [Pause and speed control](../wiki/mechanic/variable-speed.md) | control-automation | time-pacing | 0 | 3.39 | 3.39 |
-| [Embodied skill control](../wiki/mechanic/embodied-skill-control.md) | [Building placement](../wiki/mechanic/free-placement.md) | control-automation | space-construction | 0 | 3.38 | 3.38 |
 | [Permadeath](../wiki/mechanic/permadeath.md) | [Production chains](../wiki/mechanic/production-chain.md) | risk-failure | resources-production | 1 | 4.37 | 3.37 |
 | [Modding API](../wiki/mechanic/modding-api.md) | [Terraforming](../wiki/mechanic/terraforming.md) | multiplayer-persistence | space-construction | 0 | 3.28 | 3.28 |
 | [Modular assembly](../wiki/mechanic/modular-assembly.md) | [Relationship values](../wiki/mechanic/relationship-values.md) | space-construction | social-relations | 0 | 3.26 | 3.26 |
@@ -791,26 +830,27 @@ Some mechanics are individually common but rarely combined. The table lists pair
 | [Embodied skill control](../wiki/mechanic/embodied-skill-control.md) | [Production chains](../wiki/mechanic/production-chain.md) | control-automation | resources-production | 0 | 3.06 | 3.06 |
 | [Agent skills](../wiki/mechanic/agent-skills.md) | [Goods consumption](../wiki/mechanic/goods-consumption.md) | agents-behavior | resources-production | 0 | 3.03 | 3.03 |
 | [Direct avatar control](../wiki/mechanic/direct-avatar.md) | [Trade routes](../wiki/mechanic/trade-routes.md) | control-automation | economy-finance | 0 | 3.03 | 3.03 |
+| [Treasury and budget](../wiki/mechanic/budget-treasury.md) | [Storage and buffers](../wiki/mechanic/storage-capacity.md) | economy-finance | resources-production | 0 | 2.95 | 2.95 |
 | [Modding API](../wiki/mechanic/modding-api.md) | [Trade routes](../wiki/mechanic/trade-routes.md) | multiplayer-persistence | economy-finance | 0 | 2.93 | 2.93 |
 | [Scenario objectives](../wiki/mechanic/scenario-objectives.md) | [Triggered event chains](../wiki/mechanic/triggered-event-chains.md) | progression-goals | narrative-generation | 1 | 3.91 | 2.91 |
 | [Modular assembly](../wiki/mechanic/modular-assembly.md) | [Personality traits](../wiki/mechanic/personality-traits.md) | space-construction | agents-behavior | 1 | 3.88 | 2.88 |
-| [Building placement](../wiki/mechanic/free-placement.md) | [Goods consumption](../wiki/mechanic/goods-consumption.md) | space-construction | resources-production | 1 | 3.86 | 2.86 |
 | [Agent skills](../wiki/mechanic/agent-skills.md) | [Policy toggles](../wiki/mechanic/policy-toggles.md) | agents-behavior | governance-policy | 0 | 2.84 | 2.84 |
-| [Power grid](../wiki/mechanic/power-grid.md) | [Weather](../wiki/mechanic/weather.md) | resources-production | environment-ecology | 0 | 2.84 | 2.84 |
+| [Utility action selection](../wiki/mechanic/utility-action-selection.md) | [Weather](../wiki/mechanic/weather.md) | agents-behavior | environment-ecology | 0 | 2.79 | 2.79 |
 | [Goods consumption](../wiki/mechanic/goods-consumption.md) | [Needs decay](../wiki/mechanic/needs-decay.md) | resources-production | agents-behavior | 0 | 2.76 | 2.76 |
 | [Treasury and budget](../wiki/mechanic/budget-treasury.md) | [Content sharing](../wiki/mechanic/content-sharing.md) | economy-finance | multiplayer-persistence | 1 | 3.72 | 2.72 |
 | [Production chains](../wiki/mechanic/production-chain.md) | [Triggered event chains](../wiki/mechanic/triggered-event-chains.md) | resources-production | narrative-generation | 1 | 3.71 | 2.71 |
+| [Direct avatar control](../wiki/mechanic/direct-avatar.md) | [Policy toggles](../wiki/mechanic/policy-toggles.md) | control-automation | governance-policy | 0 | 2.67 | 2.67 |
 
-*Pairs of common mechanics (each in >= 8% of games, different families, not marked as tension) that co-occur at most 1 time(s). Gap = expected - observed co-occurrence under independence.*
+*Pairs of common mechanics (each in >= 8% of games, different families, not marked as tension, excluding Time & pacing) that co-occur at most 1 time(s). Gap = expected - observed co-occurrence under independence.*
 
 
-Not every gap is an opportunity; some pairs are absent because they do not fit. But several gaps point at specific underexplored designs: production chains whose workers age, form families, and are replaced (factory games are almost entirely populated by machines or faceless workers); research trees driven by relationships between named scientists; building placement that triggers authored or generated story events; power grids coupled to weather. Section 9 develops these as opportunities.
+Some pairs are absent because they do not fit: vehicle sims have no use for free building placement. Others point at specific underexplored designs: building placement that triggers authored or generated story events; production chains whose workers age, form families, and are replaced (factory games are populated by machines or faceless workers); research trees driven by relationships between named scientists; production economies whose layouts players publish and remix. Section 9 develops several of these as opportunities.
 
 ### 5.6 The legibility frontier
 
 Across all mechanics, legibility and emergence potential are negatively correlated (Spearman ρ = -0.42, p <0.001), and emergence potential is strongly correlated with tuning difficulty (ρ = 0.61, p <0.001). Mechanics that generate unscripted variety are harder to understand and harder to balance. Legibility also falls as compute cost rises (ρ = -0.35, p <0.001): expensive simulation tends to be hidden simulation.
 
-These scores are expert judgments, so the correlations measure the structure of design knowledge rather than a property measured in players. They nevertheless agree with a constraint every simulation designer reports: depth, legibility, and balance cannot all be maximized with rules alone.
+Two caveats bound these numbers. First, every rubric score was assigned by one model rater (claude-opus-5-5) against written anchors, so the correlations describe that rater's reading of design knowledge, not independent expert agreement or player measurement. Second, mechanics in the legibility and time-and-pacing families sit at the bottom of the emergence scale by construction (69 percent score 1), since an overlay or a pause button generates nothing on its own; excluding them leaves the legibility-emergence correlation at ρ = -0.35, weaker but the same sign.
 
 ## 6. Five ceilings
 
@@ -824,13 +864,13 @@ A consumer machine must advance the whole simulation many times per second while
 
 ### 6.2 Authoring cost
 
-Every unit of variety in some mechanics must be made by hand: an animation for each interaction, a line of dialogue for each social exchange, an event for each situation, an asset for each catalog entry. Mechanics with high authoring cost are capped by budgets, and players exhaust them; this is why event decks repeat, why villagers recycle requests, and why social systems in rule-based games read as formulaic. Across mechanics, authoring cost and judged AI leverage have a Spearman correlation of 0.34 (p <0.001): the mechanics most limited by content budgets are, on expert judgment, the ones most open to generative techniques.
+Every unit of variety in some mechanics must be made by hand: an animation for each interaction, a line of dialogue for each social exchange, an event for each situation, an asset for each catalog entry. Mechanics with high authoring cost are capped by budgets, and players exhaust them; this is why event decks repeat, why villagers recycle requests, and why social systems in rule-based games read as formulaic. Across mechanics, authoring cost and judged AI leverage have a Spearman correlation of 0.34 (p <0.001): the mechanics most limited by content budgets are, in the rater's judgment, the ones most open to generative techniques. Both scores come from the same model rater (§2.6), so the correlation shows a consistent reading rather than independent confirmation.
 
 **Relaxed by:** constrained language generation for events and dialogue, text-to-3D and neural rendering for assets, learned motion for animation, and procedural generation with learned priors.
 
 ### 6.3 Legibility
 
-Players must form a working model of why the simulation did what it did, or they experience the depth as randomness. Rubric scores show the tension directly: across mechanics, legibility and emergence potential correlate at -0.42 (p <0.001). The mechanics that generate the most unscripted variety are the hardest to understand.
+Players must form a working model of why the simulation did what it did, or they experience the depth as randomness. The rubric scores show the tension (§5.6): the mechanics that generate the most unscripted variety are the hardest to understand.
 
 
 ![Each mechanic placed by rubric legibility (x) and emergence potential (y); area ~ number of games using it. Jitter is deterministic.](figures/legibility-vs-emergence.svg)
@@ -838,13 +878,13 @@ Players must form a working model of why the simulation did what it did, or they
 *Figure: Each mechanic placed by rubric legibility (x) and emergence potential (y); area ~ number of games using it. Jitter is deterministic.*
 
 
-Designers have answered with a whole family of mechanics that own no simulation state ([Data overlays](../wiki/mechanic/data-overlays.md), [Causal breakdown tooltips](../wiki/mechanic/causal-tooltips.md), [Agent inspection](../wiki/mechanic/agent-inspection.md), [History chronicle](../wiki/mechanic/history-chronicle.md)). Legibility, not compute, is often the binding constraint on how much coupling a commercial game can afford.
+Designers have answered with a whole family of mechanics that own no simulation state ([Data overlays](../wiki/mechanic/data-overlays.md), [Causal breakdown tooltips](../wiki/mechanic/causal-tooltips.md), [Agent inspection](../wiki/mechanic/agent-inspection.md), [History chronicle](../wiki/mechanic/history-chronicle.md)). Each costs design effort and screen space, and each coupled system a game adds needs one.
 
 **Relaxed by:** language models that read state and event logs and explain causes, forecasting by simulating futures, and learned surrogates that make expensive hidden fields cheap to visualize.
 
 ### 6.4 Determinism
 
-Replays, lockstep multiplayer, bug reproduction, competitive leaderboards, and save integrity require that the same inputs produce the same state. [Factorio](../wiki/game/factorio.md)'s multiplayer depends on it. Determinism has kept stochastic or learned components out of authoritative game state, and it is the constraint that most runtime AI techniques violate: of the 45 techniques here, 10 break reproducibility outright when used at runtime (see `determinism_impact`).
+Replays, lockstep multiplayer, bug reproduction, competitive leaderboards, and save integrity require that the same inputs produce the same state. [Factorio](../wiki/game/factorio.md)'s multiplayer depends on it. Determinism has kept stochastic or learned components out of authoritative game state. Of the 34 techniques here that can run during play, 10 break reproducibility outright, 16 can be made reproducible by seeding, caching, or logging their outputs, and 8 leave it intact (see `determinism_impact`).
 
 **Relaxed by:** recording model outputs as events so replays read the log rather than re-call the model, splitting authoritative symbolic state from non-authoritative generated presentation, and constrained decoding that maps open-ended outputs into typed, validated state changes.
 
@@ -856,7 +896,7 @@ Rule-driven agents are legible and cheap but shallow: their utilities are visibl
 
 ### 6.6 What the ceilings imply
 
-The five constraints do not move together. Compute and authoring cost are being relaxed fastest, with techniques already shipped. Agent believability is being relaxed at a new cost in determinism and legibility. Legibility is the constraint most worth attacking deliberately, because a deeper simulation is worthless if no one can read it, and it is also where the techniques are most mature relative to their use: explanation over structured state is an application of capabilities that already exist.
+The five constraints do not move together. Authoring cost is being relaxed fastest, with asset, motion, and language techniques already shipped; compute is being relaxed mostly in rendering, not in simulation. Agent believability is being relaxed at a new cost in determinism and legibility. Legibility shows the widest gap between available technique and use (§8.1): explanation over structured state needs retrieval, constrained generation, and summarization, all of which exist.
 
 ## 7. The technique landscape, 2019 to 2026
 
@@ -895,15 +935,15 @@ A technique enters the dataset only as a dated, citable result that changes at l
 | Shipped (mainstream) | 1 |
 
 
-Of 45 techniques, 1 is shipped as a genre norm, 12 are shipped in at least one commercial game, 10 exist as public prototypes, and 22 are research only. The shipped ones cluster in three places: rendering and assets ([Neural rendering in the graphics pipeline](../wiki/technique/neural-rendering-shaders.md), [ML reconstruction of the planet from aerial imagery](../wiki/technique/satellite-world-reconstruction.md), [Text- and image-to-3D asset generation](../wiki/technique/text-to-3d-assets.md), [Learned kinematic motion synthesis](../wiki/technique/learned-motion-synthesis.md)), language characters ([Generative agents (memory stream, reflection, planning)](../wiki/technique/generative-agents.md), [On-device small language models for characters](../wiki/technique/on-device-language-models.md), [Realtime speech-to-speech and expressive TTS for characters](../wiki/technique/realtime-voice-models.md), [LLM game master and narrative director](../wiki/technique/llm-game-master.md), [LLM-adjudicated state transitions (LLM as game mechanic)](../wiki/technique/llm-rule-adjudication.md)), and older search and learning methods ([Monte Carlo tree search for game AI](../wiki/technique/monte-carlo-tree-search.md), [Wave Function Collapse and constraint-based tile generation](../wiki/technique/wave-function-collapse.md), [Deep reinforcement learning policies for NPC opponents and navigation](../wiki/technique/deep-rl-npc-policies.md), [Agent-based automated playtesting and balancing](../wiki/technique/automated-playtesting.md)). Almost nothing that touches the authoritative simulation state of a simulation game has shipped.
+Of 45 techniques, 1 is shipped as a genre norm, 12 are shipped in at least one commercial game, 10 exist as public prototypes, and 22 are research only. The shipped ones cluster in three places: rendering and assets ([Neural rendering in the graphics pipeline](../wiki/technique/neural-rendering-shaders.md), [ML reconstruction of the planet from aerial imagery](../wiki/technique/satellite-world-reconstruction.md), [Text- and image-to-3D asset generation](../wiki/technique/text-to-3d-assets.md), [Learned kinematic motion synthesis](../wiki/technique/learned-motion-synthesis.md)), language characters ([Generative agents (memory stream, reflection, planning)](../wiki/technique/generative-agents.md), [On-device small language models for characters](../wiki/technique/on-device-language-models.md), [Realtime speech-to-speech and expressive TTS for characters](../wiki/technique/realtime-voice-models.md), [LLM game master and narrative director](../wiki/technique/llm-game-master.md), [LLM-adjudicated state transitions (LLM as game mechanic)](../wiki/technique/llm-rule-adjudication.md)), and older search and learning methods ([Monte Carlo tree search for game AI](../wiki/technique/monte-carlo-tree-search.md), [Wave Function Collapse and constraint-based tile generation](../wiki/technique/wave-function-collapse.md), [Deep reinforcement learning policies for NPC opponents and navigation](../wiki/technique/deep-rl-npc-policies.md), [Agent-based automated playtesting and balancing](../wiki/technique/automated-playtesting.md)). The shipped techniques that write into authoritative state are narrow: [LLM-adjudicated state transitions (LLM as game mechanic)](../wiki/technique/llm-rule-adjudication.md) stores cached model outputs as [Infinite Craft](../wiki/game/infinite-craft.md)'s combination rules, language agents choose actions for characters in [inZOI](../wiki/game/inzoi.md) and a few AI-native titles, and search and learned policies drive opponents such as Gran Turismo Sophy in [Gran Turismo 7](../wiki/game/gran-turismo-7.md). No learned replacement for physics, fields, or the world itself is deployed in a catalog game.
 
 ### 7.2 Adoption and reception
 
-Generative AI has moved from novelty to a measurable share of releases. Disclosures on Steam rose from about a thousand games in April 2024 [[1](#ref-src-totallyhuman-2024-steam-genai-count)] to 7,818 Steam titles, a little under a fifth of 2025 releases, by July 2025 [[2](#ref-src-totallyhuman-2025-steam-genai-count)], and an estimate in November 2025 put games with disclosures at roughly 8 percent of the store with about 660 million dollars in combined gross [[3](#ref-src-totallyhuman-2025-steam-ai-revenue)]. Most disclosures concern pre-generated visual assets rather than runtime systems. Valve's survey distinguishes pre-generated from live-generated content and requires the latter to describe its guardrails [[4](#ref-src-valve-2026-steamworks-content-survey)].
+Generative AI has moved from novelty to a measurable share of releases. Disclosures on Steam rose from about a thousand games in April 2024 [[1](#ref-src-totallyhuman-2024-steam-genai-count)] to 7,818 titles by July 2025, about 7 percent of the store, with just under a fifth of 2025 releases disclosing [[2](#ref-src-totallyhuman-2025-steam-genai-count)]; and an estimate in November 2025 put games with disclosures at roughly 8 percent of the store with about 660 million dollars in combined gross [[3](#ref-src-totallyhuman-2025-steam-ai-revenue)]. Most disclosures concern pre-generated visual assets rather than runtime systems. Valve's survey distinguishes pre-generated from live-generated content and requires the latter to describe its guardrails [[4](#ref-src-valve-2026-steamworks-content-survey)].
 
-Developer sentiment moved the other way. In GDC's 2026 survey, 36 percent of respondents used generative AI at work, while the share who believe it harms the industry rose to 52 percent from 30 percent a year earlier [[5](#ref-src-gdc-2025-state-of-industry), [6](#ref-src-gdc-2026-state-of-industry)]. Player reception has been mixed in visible cases: [inZOI](../wiki/game/inzoi.md) sold strongly at launch and drew negative reviews after announcing generative features [[7](#ref-src-wikipedia-inzoi)]; ARC Raiders was criticized for synthetic voice lines, some of which were later re-recorded by actors [[8](#ref-src-wikipedia-arc-raiders)].
+Developer sentiment moved the other way. In GDC's surveys, 36 percent of respondents reported using generative AI themselves in both 2025 and 2026, while the share who believe it harms the industry rose to 52 percent from 30 percent [[5](#ref-src-gdc-2025-state-of-industry), [6](#ref-src-gdc-2026-state-of-industry)]. Player reception has been mixed in visible cases: [inZOI](../wiki/game/inzoi.md) sold strongly at launch and drew negative reviews after announcing generative features [[7](#ref-src-wikipedia-inzoi)]; ARC Raiders was criticized for synthetic voice lines, some of which were later re-recorded by actors [[8](#ref-src-wikipedia-arc-raiders)].
 
-Runtime language characters did ship. On-device small language models power companions and simulated people in PUBG Ally, inZOI's Smart Zoi, and NARAKA's teammate [[9](#ref-src-nvidia-2025-ace-companions), [10](#ref-src-krafton-2026-pubg-ally-beta)]; [Where Winds Meet](../wiki/game/where-winds-meet.md) discloses live NPC text and voice chat [[11](#ref-src-steam-2025-where-winds-meet)]. The cost of realtime speech fell by about a fifth between the 2024 and 2025 versions of one leading API [[12](#ref-src-openai-2024-realtime-api), [13](#ref-src-openai-2025-gpt-realtime)], and specialized text-to-speech vendors price in cents per minute [[14](#ref-src-inworld-2026-tts-1-5)]. Cost remains the stated wall for frame-generating world models: the consumer Genie product caps each world at sixty seconds of play [[15](#ref-src-techcrunch-2026-project-genie)].
+Runtime language characters did ship. On-device small language models power simulated people in inZOI's Smart Zoi and companions in NARAKA's teammate and the PUBG Ally limited beta of June 2026 [[9](#ref-src-nvidia-2025-ace-companions), [10](#ref-src-krafton-2026-pubg-ally-beta)]; [Where Winds Meet](../wiki/game/where-winds-meet.md) discloses live NPC text and voice chat [[11](#ref-src-steam-2025-where-winds-meet)]. Audio prices for one leading realtime speech API fell from 100 and 200 dollars per million input and output tokens at launch in October 2024 to 32 and 64 dollars in August 2025, about 68 percent [[12](#ref-src-openai-2024-realtime-api), [13](#ref-src-openai-2025-gpt-realtime)], and specialized text-to-speech vendors price in cents per minute [[14](#ref-src-inworld-2026-tts-1-5)]. Cost limits frame-generating world models: the consumer Genie product grants sixty seconds of play per world, which DeepMind attributed to reaching more users on limited compute [[15](#ref-src-techcrunch-2026-project-genie)].
 
 Among rendering techniques, neural upscaling and frame generation are the one area where learned models are a norm, with hundreds of supported titles [[16](#ref-src-nvidia-2026-dlss-4-5)]. They never touch simulation state, which is why they could spread.
 
@@ -911,15 +951,15 @@ Among rendering techniques, neural upscaling and frame generation are the one ar
 
 **Frame-generating world models.** [Diffusion and autoregressive neural game engines](../wiki/technique/diffusion-game-engines.md), [Genie foundation world models](../wiki/technique/genie-world-models.md), [Muse World and Human Action Model (WHAM)](../wiki/technique/muse-wham.md), and [Open real-time interactive video world models](../wiki/technique/open-interactive-video-models.md) learn to predict the next frame from recent frames and player input, so the model is the engine. They produce convincing short interactions and fail at what simulation games need most: exact persistent state, long memory, and inspectable causes. Their realistic near-term role is ideation, previsualization, and non-authoritative views (§9).
 
-**3D, rendering, and assets.** [3D Gaussian Splatting](../wiki/technique/gaussian-splatting.md), [Prompt-to-persistent 3D world generation](../wiki/technique/generated-3d-worlds.md), [Text- and image-to-3D asset generation](../wiki/technique/text-to-3d-assets.md), [Neural rendering in the graphics pipeline](../wiki/technique/neural-rendering-shaders.md), [Real-time generative restyling of game video](../wiki/technique/real-time-video-restyling.md), and [ML reconstruction of the planet from aerial imagery](../wiki/technique/satellite-world-reconstruction.md) cut the authoring cost of what the simulation is drawn with, leaving rules untouched. They are the most mature and the least controversial technically; their risks are provenance and reception.
+**3D, rendering, and assets.** [3D Gaussian Splatting](../wiki/technique/gaussian-splatting.md), [Prompt-to-persistent 3D world generation](../wiki/technique/generated-3d-worlds.md), [Text- and image-to-3D asset generation](../wiki/technique/text-to-3d-assets.md), [Neural rendering in the graphics pipeline](../wiki/technique/neural-rendering-shaders.md), [Real-time generative restyling of game video](../wiki/technique/real-time-video-restyling.md), and [ML reconstruction of the planet from aerial imagery](../wiki/technique/satellite-world-reconstruction.md) cut the authoring cost of what the simulation is drawn with, leaving rules untouched. They are the most mature group. Most preserve determinism; [Text- and image-to-3D asset generation](../wiki/technique/text-to-3d-assets.md) and [Real-time generative restyling of game video](../wiki/technique/real-time-video-restyling.md) are mitigable, since a generated asset or frame must be stored to be reproduced. Their main risks are provenance and reception.
 
 **Motion.** [Learned kinematic motion synthesis](../wiki/technique/learned-motion-synthesis.md) has shipped in sports and life games; [Learned physics-based character control](../wiki/technique/physics-based-character-control.md) remains research. Both matter to simulation games because canned animation is how most agents' internal states are (poorly) displayed.
 
-**Language agents and dialogue.** [Generative agents (memory stream, reflection, planning)](../wiki/technique/generative-agents.md), [Many-agent LLM societies](../wiki/technique/llm-agent-societies.md), [LLM models of individual human choice](../wiki/technique/human-behavior-simulation-models.md), [On-device small language models for characters](../wiki/technique/on-device-language-models.md), [Grammar-constrained decoding for valid game actions](../wiki/technique/constrained-decoding.md), [Realtime speech-to-speech and expressive TTS for characters](../wiki/technique/realtime-voice-models.md), [LLM game master and narrative director](../wiki/technique/llm-game-master.md), [LLM explanation of simulation state](../wiki/technique/llm-explanation-of-state.md), and [LLM-adjudicated state transitions (LLM as game mechanic)](../wiki/technique/llm-rule-adjudication.md) change who decides what agents do and say, who narrates, and who explains. They relax the authoring and believability ceilings at a cost in determinism and consistency.
+**Language agents and dialogue.** [Generative agents (memory stream, reflection, planning)](../wiki/technique/generative-agents.md), [Many-agent LLM societies](../wiki/technique/llm-agent-societies.md), [LLM models of individual human choice](../wiki/technique/human-behavior-simulation-models.md), [On-device small language models for characters](../wiki/technique/on-device-language-models.md), [Grammar-constrained decoding for valid game actions](../wiki/technique/constrained-decoding.md), [Realtime speech-to-speech and expressive TTS for characters](../wiki/technique/realtime-voice-models.md), [LLM game master and narrative director](../wiki/technique/llm-game-master.md), [LLM explanation of simulation state](../wiki/technique/llm-explanation-of-state.md), and [LLM-adjudicated state transitions (LLM as game mechanic)](../wiki/technique/llm-rule-adjudication.md) change who decides what agents do and say, who narrates, and who explains. They relax the authoring and believability ceilings at a cost in consistency. Their determinism cost varies: [Generative agents (memory stream, reflection, planning)](../wiki/technique/generative-agents.md), [Many-agent LLM societies](../wiki/technique/llm-agent-societies.md), [LLM game master and narrative director](../wiki/technique/llm-game-master.md), and [Realtime speech-to-speech and expressive TTS for characters](../wiki/technique/realtime-voice-models.md) break reproducibility; [On-device small language models for characters](../wiki/technique/on-device-language-models.md) and [LLM-adjudicated state transitions (LLM as game mechanic)](../wiki/technique/llm-rule-adjudication.md) are mitigable because a local model can be seeded and a cached rule is replayed rather than regenerated.
 
 **Planning and game theory.** [Monte Carlo tree search for game AI](../wiki/technique/monte-carlo-tree-search.md), [Self-play planning with learned models (AlphaZero, MuZero, Dreamer)](../wiki/technique/model-based-planning-muzero.md), [Regret minimization and search for imperfect-information games](../wiki/technique/imperfect-information-solvers.md), [Language models grounded in strategic planning for negotiation games](../wiki/technique/cicero-strategic-dialogue.md), [Deep reinforcement learning policies for NPC opponents and navigation](../wiki/technique/deep-rl-npc-policies.md), and [Mean field games and mean-field learning](../wiki/technique/mean-field-games.md) produce strong opponents and equilibrium-consistent populations. Their game deployments are few because strength is rarely the design goal; believable and tunable opponents are.
 
-**Design automation.** [Wave Function Collapse and constraint-based tile generation](../wiki/technique/wave-function-collapse.md), [Quality-diversity search (MAP-Elites) for content and balance](../wiki/technique/quality-diversity-search.md), [Learned level and map generation (PCGRL, MarioGPT, LLM generators)](../wiki/technique/learned-level-generation.md), [Automated generation of game rules and mechanics](../wiki/technique/automated-rule-generation.md), [Agent-based automated playtesting and balancing](../wiki/technique/automated-playtesting.md), [Open-ended co-generation of environments and agents](../wiki/technique/open-ended-environment-generation.md), [LLM-written skill libraries (Voyager)](../wiki/technique/voyager-skill-libraries.md), [Generalist instructable game agents (SIMA)](../wiki/technique/generalist-game-agents.md), and [LLM-guided evolutionary program search](../wiki/technique/alphaevolve-algorithm-discovery.md) work on the developer's side: generating content and rules, finding exploits, and estimating difficulty. They preserve determinism because they run offline.
+**Design automation.** [Wave Function Collapse and constraint-based tile generation](../wiki/technique/wave-function-collapse.md), [Quality-diversity search (MAP-Elites) for content and balance](../wiki/technique/quality-diversity-search.md), [Learned level and map generation (PCGRL, MarioGPT, LLM generators)](../wiki/technique/learned-level-generation.md), [Automated generation of game rules and mechanics](../wiki/technique/automated-rule-generation.md), [Agent-based automated playtesting and balancing](../wiki/technique/automated-playtesting.md), [Open-ended co-generation of environments and agents](../wiki/technique/open-ended-environment-generation.md), [LLM-written skill libraries (Voyager)](../wiki/technique/voyager-skill-libraries.md), [Generalist instructable game agents (SIMA)](../wiki/technique/generalist-game-agents.md), and [LLM-guided evolutionary program search](../wiki/technique/alphaevolve-algorithm-discovery.md) mostly work on the developer's side: generating content and rules, finding exploits, and estimating difficulty. Used offline they preserve determinism. Some also run during play ([Wave Function Collapse and constraint-based tile generation](../wiki/technique/wave-function-collapse.md) in [Townscaper](../wiki/game/townscaper.md), agents that play alongside the player). Deterministic algorithms such as wave-function collapse stay reproducible there; learned generators and agents need seeds or logs.
 
 **Simulation science.** [Massively parallel GPU simulation](../wiki/technique/massively-parallel-simulation.md), [Differentiable simulation](../wiki/technique/differentiable-simulation.md), [Graph network simulators and neural operators](../wiki/technique/graph-network-simulators.md), [Subspace neural physics and learned deformers](../wiki/technique/subspace-neural-physics.md), [Machine-learned weather forecasting](../wiki/technique/ml-weather-models.md), [Neural cellular automata](../wiki/technique/neural-cellular-automata.md), [Continuous cellular automata and foundation-model search for artificial life](../wiki/technique/continuous-alife-and-asal.md), and [Simulation-based inference for calibrating simulators](../wiki/technique/simulation-based-inference.md) come from robotics, physics, climate, and artificial life. They relax the compute ceiling and make calibration possible, and they are the least connected to game development today: an operational ML weather model runs at about a thousandth of the energy of the physics model it complements [[17](#ref-src-ecmwf-2025-aifs-operational)], yet none of these techniques is confirmed at runtime in a catalog game.
 
@@ -981,7 +1021,7 @@ Among rendering techniques, neural upscaling and frame generation are the one ar
 
 ### 8.1 How techniques change mechanics
 
-Each `affects` edge records one of seven effects. Across 218 edges the most common effect is *deepens* (74 edges): the technique makes an existing mechanic richer, larger, or more varied without changing its role. Explanation is the rarest effect (5 edges), although §6 argued that legibility is often the binding constraint on simulation depth.
+Each `affects` edge records one of seven effects. Across 218 edges the most common effect is *deepens* (74 edges): the technique makes an existing mechanic richer, larger, or more varied without changing its role. Explanation is the rarest effect (5 edges).
 
 
 | effect | edges |
@@ -997,7 +1037,7 @@ Each `affects` edge records one of seven effects. Across 218 edges the most comm
 *How techniques change mechanics, by effect type.*
 
 
-The imbalance is a finding about where research effort points. Generating content and replacing substrates (rule-based behavior with language models, numerical physics with learned dynamics) attract most work; explaining a simulation to the person playing it attracts little, even though the techniques it needs (retrieval over structured logs, constrained generation, summarization) are among the most mature.
+The imbalance shows where research effort points. Generating content and replacing substrates (rule-based behavior with language models, numerical physics with learned dynamics) attract most work; explaining a simulation to the person playing it attracts little, although the techniques it needs (retrieval over structured logs, constrained generation, summarization) exist.
 
 ### 8.2 Exposure by family
 
@@ -1010,36 +1050,36 @@ Technique exposure weights each `affects` edge by the technique's maturity in ga
 
 
 
-| family | mechanics | uses | mean legibility | mean emergence | mean authoring cost | mean ai leverage | technique exposure |
-|---|---|---|---|---|---|---|---|
-| narrative-generation | 6 | 39 | 3.5 | 2.83 | 3.33 | 4 | 8.91 |
-| agents-behavior | 16 | 157 | 3.44 | 3.19 | 2.38 | 3.19 | 8.78 |
-| control-automation | 11 | 119 | 3.73 | 2.55 | 2 | 3.36 | 8.71 |
-| physics-materials | 12 | 68 | 3.5 | 3.33 | 2.17 | 2.75 | 7.43 |
-| social-relations | 8 | 92 | 3.25 | 3.75 | 2.5 | 3.75 | 5.99 |
-| space-construction | 12 | 147 | 3.5 | 3 | 2.33 | 2.83 | 5.54 |
-| world-generation | 4 | 32 | 3.5 | 3.25 | 2.75 | 4 | 5.5 |
-| progression-goals | 8 | 135 | 4.25 | 1.75 | 2.75 | 2.62 | 3.7 |
-| economy-finance | 19 | 169 | 3.37 | 2.68 | 1.42 | 2.58 | 3.23 |
-| information-legibility | 10 | 50 | 3.9 | 1.4 | 1.6 | 3.1 | 3.2 |
-| governance-policy | 9 | 64 | 3.22 | 3 | 2 | 3.22 | 2.48 |
-| environment-ecology | 10 | 115 | 3.4 | 3.1 | 2.1 | 2.4 | 2.21 |
-| population-lineage | 9 | 61 | 3 | 3.67 | 2 | 2.56 | 1.44 |
-| conflict-defense | 5 | 36 | 3 | 3.6 | 2.4 | 2.6 | 1.43 |
-| logistics-networks | 14 | 84 | 3 | 3.07 | 1.29 | 2.29 | 1.12 |
-| risk-failure | 9 | 84 | 3.67 | 3.22 | 1.78 | 2.33 | 0.96 |
-| resources-production | 14 | 188 | 3.64 | 2.57 | 1.79 | 1.93 | 0.85 |
-| multiplayer-persistence | 7 | 74 | 3.86 | 3.29 | 1.86 | 2.86 | 0.69 |
-| biology-health | 6 | 40 | 3.33 | 2.67 | 3 | 3 | 0.25 |
-| time-pacing | 6 | 56 | 4.5 | 1.5 | 1.67 | 1.67 | 0.2 |
-| operation-procedure | 4 | 13 | 4 | 1.75 | 3.5 | 3 | 0 |
+| family | mechanics | uses | mean legibility | mean emergence | mean authoring cost | mean ai leverage | technique exposure | mean exposure |
+|---|---|---|---|---|---|---|---|---|
+| narrative-generation | 6 | 39 | 3.5 | 2.83 | 3.33 | 4 | 8.91 | 1.49 |
+| agents-behavior | 16 | 172 | 3.44 | 3.19 | 2.31 | 3.19 | 8.78 | 0.55 |
+| control-automation | 11 | 118 | 3.73 | 2.55 | 2 | 3.36 | 8.71 | 0.79 |
+| physics-materials | 12 | 68 | 3.5 | 3.33 | 2.17 | 2.75 | 7.43 | 0.62 |
+| social-relations | 8 | 92 | 3.25 | 3.75 | 2.5 | 3.75 | 5.99 | 0.75 |
+| space-construction | 12 | 179 | 3.5 | 3 | 2.33 | 2.83 | 5.54 | 0.46 |
+| world-generation | 4 | 32 | 3.5 | 3.25 | 2.75 | 4 | 5.5 | 1.38 |
+| progression-goals | 8 | 135 | 4.25 | 1.75 | 2.75 | 2.62 | 3.7 | 0.46 |
+| economy-finance | 19 | 169 | 3.37 | 2.68 | 1.42 | 2.58 | 3.23 | 0.17 |
+| information-legibility | 10 | 50 | 3.9 | 1.4 | 1.6 | 3.1 | 3.2 | 0.32 |
+| governance-policy | 9 | 64 | 3.22 | 3 | 2 | 3.22 | 2.48 | 0.28 |
+| environment-ecology | 10 | 123 | 3.4 | 3.1 | 2.1 | 2.4 | 2.21 | 0.22 |
+| population-lineage | 9 | 61 | 3 | 3.67 | 2 | 2.56 | 1.44 | 0.16 |
+| conflict-defense | 5 | 36 | 3 | 3.6 | 2.4 | 2.6 | 1.43 | 0.29 |
+| logistics-networks | 14 | 84 | 3 | 3.07 | 1.29 | 2.29 | 1.12 | 0.08 |
+| risk-failure | 9 | 84 | 3.67 | 3.22 | 1.78 | 2.33 | 0.96 | 0.11 |
+| resources-production | 14 | 199 | 3.64 | 2.57 | 1.79 | 1.93 | 0.85 | 0.06 |
+| multiplayer-persistence | 7 | 74 | 3.86 | 3.29 | 1.86 | 2.86 | 0.69 | 0.1 |
+| biology-health | 6 | 40 | 3.33 | 2.67 | 3 | 3 | 0.25 | 0.04 |
+| time-pacing | 6 | 120 | 4.5 | 1.5 | 1.67 | 1.67 | 0.2 | 0.03 |
+| operation-procedure | 4 | 13 | 4 | 1.75 | 3.5 | 3 | 0 | 0 |
 
-*Per mechanic family: size, total game uses, mean rubric scores, and summed technique exposure (maturity x effect weights from vocab/rubrics.yaml).*
+*Per mechanic family: size, total game uses, mean rubric scores, summed technique exposure (maturity x effect weights from vocab/rubrics.yaml), and exposure per mechanic. Sorted by summed exposure.*
 
 
-Exposure concentrates in four families: narrative and generation, control and automation, agents and behavior, and physics and materials: the layers where content is expensive to author or where behavior is expensive to compute. It is low across the economic and logistic core of the genre (resources, logistics, economy, population) and lowest of all in operation and procedure. 99 mechanics are affected by no technique in the set, and they account for 48 percent of all game-to-mechanic uses in the catalog. Of the ten most widely used mechanics, 6 have no technique attached.
+Exposure concentrates in four families: narrative and generation, agents and behavior, control and automation, and physics and materials: the layers where content is expensive to author or where behavior is expensive to compute. Per mechanic, Narrative & generation still leads, so the concentration is not an artifact of family size. Exposure is low across the economic and logistic core of the genre (resources, logistics, economy, population) and lowest of all in operation and procedure. 99 mechanics are affected by no technique in the set, and they account for 51 percent of all game-to-mechanic uses in the catalog. Of the ten most widely used mechanics, 6 have no technique attached.
 
-In other words, current AI research mostly targets what a simulation game shows and says, not the rule-systems most simulation games are built from. That is partly sensible (production chains and budgets are cheap and legible already) and partly a gap: the economic core is where balance work, legibility problems, and authoring of recipes and scenarios consume design time.
+Current AI research mostly targets what a simulation game shows and says, not the rule-systems most simulation games are built from. That is partly sensible (production chains and budgets are cheap and legible already) and partly a gap: the economic core is where balance work, legibility problems, and authoring of recipes and scenarios consume design time.
 
 ### 8.3 Most exposed mechanics
 
@@ -1048,7 +1088,7 @@ In other words, current AI research mostly targets what a simulation game shows 
 |---|---|---|---|---|
 | [Generative content on demand](../wiki/mechanic/generative-content.md) | narrative-generation | 5.812 | 13 | 7 |
 | [Procedural terrain](../wiki/mechanic/procedural-terrain.md) | world-generation | 4.188 | 10 | 20 |
-| [Utility action selection](../wiki/mechanic/utility-action-selection.md) | agents-behavior | 2.95 | 7 | 3 |
+| [Utility action selection](../wiki/mechanic/utility-action-selection.md) | agents-behavior | 2.95 | 7 | 18 |
 | [Rigid-body physics](../wiki/mechanic/rigid-body-physics.md) | physics-materials | 2.788 | 8 | 13 |
 | [Direct avatar control](../wiki/mechanic/direct-avatar.md) | control-automation | 2.75 | 6 | 31 |
 | [Natural-language interaction](../wiki/mechanic/natural-language-interaction.md) | social-relations | 2.175 | 6 | 11 |
@@ -1075,17 +1115,17 @@ In other words, current AI research mostly targets what a simulation game shows 
 *Mechanics most affected by the technique set.*
 
 
-[Generative content on demand](../wiki/mechanic/generative-content.md) and [Procedural terrain](../wiki/mechanic/procedural-terrain.md) lead because many techniques generate content or worlds. [Utility action selection](../wiki/mechanic/utility-action-selection.md) is next: language models, planners, and learned policies all offer to replace the hand-written scoring at the center of agent behavior. [Rigid-body physics](../wiki/mechanic/rigid-body-physics.md) and [Direct avatar control](../wiki/mechanic/direct-avatar.md) are exposed mainly to frame-generating world models, which replace both with learned prediction and therefore inherit those models' consistency limits.
+[Generative content on demand](../wiki/mechanic/generative-content.md) and [Procedural terrain](../wiki/mechanic/procedural-terrain.md) lead because many techniques generate content or worlds. [Utility action selection](../wiki/mechanic/utility-action-selection.md) is next: language models, planners, and learned policies all offer to replace the hand-written scoring at the center of agent behavior. [Rigid-body physics](../wiki/mechanic/rigid-body-physics.md) and [Direct avatar control](../wiki/mechanic/direct-avatar.md) follow, exposed mainly to frame-generating world models, which replace both with learned prediction and therefore inherit those models' consistency limits.
 
 ### 8.4 Judgment versus evidence
 
-Each mechanic carries an expert-judged `ai_leverage` score. It correlates with measured exposure at ρ = 0.53, so judgment and the technique graph mostly agree. The leverage-gap table lists where they disagree: mechanics judged highly open to AI that no technique in the set yet addresses.
+Each mechanic carries a judged `ai_leverage` score. It correlates with technique exposure at ρ = 0.53. This is a consistency check, not independent agreement: the same model rater scored leverage, wrote the technique `affects` edges, and judged technique maturity (§2.6). The leverage-gap table lists where they disagree: mechanics judged highly open to AI that no technique in the set yet addresses.
 
 
 | mechanic | family | ai leverage | technique exposure | prevalence | gap |
 |---|---|---|---|---|---|
 | [Modding API](../wiki/mechanic/modding-api.md) | multiplayer-persistence | 4 | 0 | 30 | 0.8 |
-| [Blueprints](../wiki/mechanic/blueprints.md) | control-automation | 4 | 0 | 12 | 0.8 |
+| [Blueprints](../wiki/mechanic/blueprints.md) | control-automation | 4 | 0 | 11 | 0.8 |
 | [Romance and family](../wiki/mechanic/romance-family.md) | social-relations | 4 | 0 | 11 | 0.8 |
 | [Creature care](../wiki/mechanic/creature-care.md) | biology-health | 4 | 0 | 6 | 0.8 |
 | [Diagnosis and treatment](../wiki/mechanic/diagnosis-treatment.md) | biology-health | 4 | 0 | 3 | 0.8 |
@@ -1110,14 +1150,14 @@ Each mechanic carries an expert-judged `ai_leverage` score. It correlates with m
 | [Daily schedules](../wiki/mechanic/daily-schedules.md) | agents-behavior | 4 | 0.75 | 8 | 0.671 |
 | [Procedural characters](../wiki/mechanic/procedural-characters.md) | world-generation | 4 | 0.75 | 6 | 0.671 |
 
-*Mechanics where expert-judged AI leverage outruns the techniques currently linked to them (normalized). High gap = under-researched opportunity or missing technique links.*
+*Mechanics where rater-judged AI leverage outruns the techniques currently linked to them (normalized). High gap = under-researched opportunity or missing technique links. Equal gaps are ordered by prevalence, so more-used mechanics come first.*
 
 
-The gap list is a research agenda in its own right. Modding interfaces, blueprints, romance and family systems, creature care, diagnosis, product design, history generation, and rule-checking inspection are each judged ready for substantial change, and none has a technique pointed at it in this dataset. Some of these are covered implicitly by general techniques (code generation for modding, language models for romance dialogue); the absence of an explicit, cited result is itself informative.
+Modding interfaces, blueprints, romance and family systems, creature care, diagnosis, product design, history generation, and rule-checking inspection are each judged ready for substantial change, and none has a technique pointed at it in this dataset. Some are covered implicitly by general techniques (code generation for modding, language models for romance dialogue), but none has a cited, game-specific result.
 
 ### 8.5 Authoritative state versus presentation
 
-The techniques divide cleanly by whether they touch authoritative simulation state. Those that only change presentation (neural upscaling and frame generation, restyling, asset generation, motion synthesis) preserve determinism and have shipped. Those that would replace rules or physics with learned prediction remain prototypes or research in games. Language characters sit in between: they have shipped, but as companions and conversation partners at the edge of the simulation, and they belong to the 10 techniques that break reproducibility outright when used at runtime. The pattern suggests a design principle that recurs through §9: keep the simulation symbolic, typed, and logged, and let learned models read it, explain it, decorate it, and propose changes to it through validated interfaces.
+The techniques divide by whether they touch authoritative simulation state. Those that change only presentation have shipped (neural upscaling and frame generation, asset generation, motion synthesis) or reached prototypes (restyling); they preserve determinism or can be made reproducible by storing what they generate. Those that would replace physics, fields, or the world with learned prediction remain prototypes or research in games. The shipped exceptions that reach state are narrow and controlled: cached model outputs as rules ([LLM-adjudicated state transitions (LLM as game mechanic)](../wiki/technique/llm-rule-adjudication.md)), language-model characters that choose actions in [inZOI](../wiki/game/inzoi.md) ([Generative agents (memory stream, reflection, planning)](../wiki/technique/generative-agents.md), [On-device small language models for characters](../wiki/technique/on-device-language-models.md)), and opponents ([Deep reinforcement learning policies for NPC opponents and navigation](../wiki/technique/deep-rl-npc-policies.md), [Monte Carlo tree search for game AI](../wiki/technique/monte-carlo-tree-search.md)). Of these, only the language characters break reproducibility outright. The pattern suggests a design principle that recurs through §9: keep the simulation symbolic, typed, and logged, and let learned models read it, explain it, decorate it, and propose changes to it through validated interfaces.
 
 ## 9. Opportunities
 
@@ -1165,7 +1205,6 @@ Each opportunity names the mechanics it reworks, the techniques it depends on, g
 | [Calibrated serious simulations](../wiki/opportunity/calibrated-serious-sims.md) | non-game-transfer | 2.764 | 2 | 4 | 3 | 1-2y |
 | [Generated recipe graphs](../wiki/opportunity/generated-recipe-graphs.md) | authoring-tool | 2.764 | 2 | 4 | 3 | 1-2y |
 | [Research by named scientists](../wiki/opportunity/scientists-not-tech-trees.md) | mechanic-upgrade | 2.764 | 2 | 4 | 3 | now |
-| [Weather-coupled energy grids](../wiki/opportunity/weather-coupled-grids.md) | mechanic-upgrade | 2.764 | 2 | 4 | 3 | 1-2y |
 | [Illustrated chronicles](../wiki/opportunity/illustrated-chronicles.md) | mechanic-upgrade | 2.756 | 2 | 5 | 2 | now |
 | [Quality-diversity scenario libraries](../wiki/opportunity/qd-scenario-libraries.md) | authoring-tool | 2.756 | 2 | 5 | 2 | now |
 | [Open-ended evolution sandbox](../wiki/opportunity/open-ended-evolution-sandbox.md) | new-genre | 2.648 | 2 | 3 | 4 | 1-2y |
@@ -1175,7 +1214,7 @@ Each opportunity names the mechanics it reworks, the techniques it depends on, g
 *Opportunities by composite priority (weighted geometric mean of impact, feasibility, novelty; weights in vocab/rubrics.yaml).*
 
 
-The top of the ranking is the highest-priority bet in the set, Why-query over the simulation log, followed by other ideas that share its character: they make existing simulations more legible, cheaper to extend, or more alive, using techniques that already work, without asking a learned model to become the simulation.
+The highest-ranked opportunity is Why-query over the simulation log. Most of the ideas near the top make existing simulations more legible, cheaper to extend, or more alive with techniques that already work, and none asks a learned model to become the simulation.
 
 ### 9.2 Five design principles
 
@@ -1183,19 +1222,19 @@ The opportunities share a small set of principles, each a response to the ceilin
 
 1. **Keep the simulation symbolic; let models read, explain, decorate, and propose.** Authoritative state stays typed and deterministic. Learned models sit around it as renderers, narrators, explainers, and proposal generators whose outputs pass through validators ([Symbolic simulation, neural rendering](../wiki/opportunity/symbolic-sim-neural-render.md), [Content-elastic event systems](../wiki/opportunity/content-elastic-events.md), [Natural-language legislation](../wiki/opportunity/natural-language-legislation.md)).
 2. **Spend inference on salience.** Most ticks need no model. Calls at moments that matter, cached and logged, buy believability at bounded cost ([Salience-gated language agents](../wiki/opportunity/salience-gated-llm-agents.md), [Drama-aware storyteller](../wiki/opportunity/drama-aware-storyteller.md), [Local-first AI simulation games](../wiki/opportunity/local-first-ai-sims.md)).
-3. **Explain before you generate.** The binding constraint on depth is comprehension, and explanation is the least-targeted effect in the technique graph. Explanation over logs and sensitivity analysis is mature and underused ([Why-query over the simulation log](../wiki/opportunity/causal-why-query.md), [Bottleneck explainer for production networks](../wiki/opportunity/bottleneck-explainer.md), [Branch preview of policy futures](../wiki/opportunity/branch-preview-forecasts.md), [Illustrated chronicles](../wiki/opportunity/illustrated-chronicles.md)).
+3. **Explain before you generate.** Comprehension limits how much coupling players can use (§6.3), and technique research rarely targets it (§8.1). Explanation over logs and sensitivity analysis needs only techniques that already exist ([Why-query over the simulation log](../wiki/opportunity/causal-why-query.md), [Bottleneck explainer for production networks](../wiki/opportunity/bottleneck-explainer.md), [Branch preview of policy futures](../wiki/opportunity/branch-preview-forecasts.md), [Illustrated chronicles](../wiki/opportunity/illustrated-chronicles.md)).
 4. **Generate offline, verify with agents.** Content, recipes, scenarios, mods, and balance can be generated at design time and checked by automated play before any player sees them ([Parallel autobalancing of economies](../wiki/opportunity/parallel-autobalance.md), [Generated recipe graphs](../wiki/opportunity/generated-recipe-graphs.md), [Quality-diversity scenario libraries](../wiki/opportunity/qd-scenario-libraries.md), [Mechanic modding by description](../wiki/opportunity/language-modding.md)).
 5. **Log every model call as an event.** Recording outputs restores replay, multiplayer sync, bug reproduction, and auditability, and the same log powers explanation, forecasting, and chronicles ([Event-sourced simulation runtime](../wiki/opportunity/event-sourced-sim-runtime.md)).
 
 ### 9.3 By the ceiling they relax
 
-**Legibility.** [Why-query over the simulation log](../wiki/opportunity/causal-why-query.md) answers why-questions from the event log; [Bottleneck explainer for production networks](../wiki/opportunity/bottleneck-explainer.md) points at the binding constraint in production networks, the most-used and least-AI-exposed part of the genre; [Branch preview of policy futures](../wiki/opportunity/branch-preview-forecasts.md) shows distributions of futures before a decision; [Explained delegation to AI managers](../wiki/opportunity/explained-delegation.md) makes delegated subsystems accountable; [Simulator instructor coaching](../wiki/opportunity/sim-instructor-coach.md) narrates mistakes in operation sims.
+**Legibility.** [Why-query over the simulation log](../wiki/opportunity/causal-why-query.md) answers why-questions from the event log; [Bottleneck explainer for production networks](../wiki/opportunity/bottleneck-explainer.md) points at the binding constraint in production networks, a widely used mechanic with no technique attached; [Branch preview of policy futures](../wiki/opportunity/branch-preview-forecasts.md) shows distributions of futures before a decision; [Explained delegation to AI managers](../wiki/opportunity/explained-delegation.md) makes delegated subsystems accountable; [Simulator instructor coaching](../wiki/opportunity/sim-instructor-coach.md) narrates mistakes in operation sims.
 
 **Authoring cost.** [Content-elastic event systems](../wiki/opportunity/content-elastic-events.md) removes the ceiling on event decks; [Generated inspection shifts](../wiki/opportunity/generated-inspection-shifts.md) gives rule-checking games endless fair cases; [Generative decoration catalogs](../wiki/opportunity/generative-decoration-catalogs.md) and [Learned build assist for cities](../wiki/opportunity/learned-build-assist.md) widen creative modes; [Generated recipe graphs](../wiki/opportunity/generated-recipe-graphs.md) and [Quality-diversity scenario libraries](../wiki/opportunity/qd-scenario-libraries.md) cut the cost of progression content; [Mechanic modding by description](../wiki/opportunity/language-modding.md) hands extension to players.
 
 **Agent believability.** [Salience-gated language agents](../wiki/opportunity/salience-gated-llm-agents.md) gives colony and life sims specific minds at bounded cost; [Drama-aware storyteller](../wiki/opportunity/drama-aware-storyteller.md) picks events for characters' arcs; [Negotiating faction AI](../wiki/opportunity/negotiating-faction-ai.md) lets rivals bargain and remember; [Human-calibrated customers](../wiki/opportunity/human-calibrated-customers.md) grounds crowds in models of real choice; [Trainable creatures revival](../wiki/opportunity/trainable-creatures-revival.md) returns to learned creatures with modern learning; [Learned motion for simulated crowds](../wiki/opportunity/neural-npc-motion.md) shows internal state in movement.
 
-**Compute.** [Learned material surrogates at world scale](../wiki/opportunity/learned-material-surrogates.md) extends particle-level materials to whole worlds; [Mean-field crowds and traffic](../wiki/opportunity/mean-field-crowds.md) lets cities hold equilibrium-consistent populations; [Learned regional weather](../wiki/opportunity/learned-weather-layer.md) and [Weather-coupled energy grids](../wiki/opportunity/weather-coupled-grids.md) bring realistic weather at negligible cost.
+**Compute.** [Learned material surrogates at world scale](../wiki/opportunity/learned-material-surrogates.md) extends particle-level materials to whole worlds; [Mean-field crowds and traffic](../wiki/opportunity/mean-field-crowds.md) lets cities hold equilibrium-consistent populations; [Learned regional weather](../wiki/opportunity/learned-weather-layer.md) brings realistic weather at low runtime cost.
 
 **Determinism and infrastructure.** [Event-sourced simulation runtime](../wiki/opportunity/event-sourced-sim-runtime.md) and [Local-first AI simulation games](../wiki/opportunity/local-first-ai-sims.md) make AI components operable in long-lived, offline, moddable games; [Symbolic simulation, neural rendering](../wiki/opportunity/symbolic-sim-neural-render.md) separates what must be exact from what may be generated.
 
@@ -1222,25 +1261,25 @@ The opportunities in §9 inherit the risks of their techniques. Each technique r
 | Evaluation difficulty | 24 |
 | Consistency / hallucination | 20 |
 | Latency | 13 |
+| Determinism | 11 |
 | IP / provenance | 9 |
 | Legibility | 9 |
 | Player trust / reception | 9 |
 | Content safety | 7 |
 | Labor displacement | 7 |
-| Determinism | 1 |
 
 
 **Consistency.** Language and world models contradict state, forget, and drift. In a simulation game a contradiction is worse than a gap, because players use the simulation's outputs to build mental models. Constrained decoding, typed write-back, and grounding every generated claim in logged state are necessary; none is sufficient for open-ended generation.
 
 **Determinism.** Runtime generation breaks replays, lockstep multiplayer, and bug reproduction unless outputs are recorded and replayed as events. Games that already depend on determinism (competitive leaderboards, large multiplayer factories) should treat model outputs as inputs from an external system, logged at the boundary.
 
-**Cost.** Per-player-hour inference conflicts with one-time purchases and with how long simulation players play. Local models, salience gating, and caching bound cost; frame-generating world models remain far from affordable at the session lengths simulation games require, as the sixty-second cap on the first consumer world-model product shows [[15](#ref-src-techcrunch-2026-project-genie)].
+**Cost.** Per-player-hour inference conflicts with one-time purchases and with how long simulation players play. Local models, salience gating, and caching bound cost; frame-generating world models remain far from affordable at the session lengths simulation games require (§7.2).
 
 **Legibility of learned systems.** A learned policy or generated rule can be as opaque as the simulation it replaced. Every learned component that affects state needs an explanation path, or it moves a mechanic down the legibility scale in §5.6.
 
 **Evaluation.** Open-ended outputs are hard to QA. Automated playtesting checks validity and balance, not quality; human evaluation does not scale to generated variety. Simulation games need evaluation methods for generated content analogous to the verification queue in this dataset: sampled, scored against anchors, and logged.
 
-**Player trust and labor.** Reception of generative features has been mixed, and developers' view of generative AI's effect on the industry has turned more negative even as use has grown (§7.2). Disclosure rules on the largest PC store already distinguish pre-generated from live-generated content [[4](#ref-src-valve-2026-steamworks-content-survey)]. Opportunities that make games more legible or let players author more (explanation, modding by description, intent-level orders) are less exposed to this risk than those that replace authored work.
+**Player trust and labor.** Reception of generative features has been mixed, and developers' view of generative AI's effect on the industry has turned more negative while reported use held steady (§7.2). Disclosure rules on the largest PC store already distinguish pre-generated from live-generated content [[4](#ref-src-valve-2026-steamworks-content-survey)]. Opportunities that make games more legible or let players author more (explanation, modding by description, intent-level orders) are less exposed to this risk than those that replace authored work.
 
 **Safety and provenance.** Live generation in social simulations needs content guardrails, especially where players can steer characters with language. Asset generation carries training-data and likeness questions. These risks are recorded per technique so they can be filtered and tracked.
 
@@ -1253,49 +1292,48 @@ Every opportunity carries a falsifiable prediction with a resolve-by date and cr
 
 | resolve by | name | prediction |
 |---|---|---|
-| 2027-12-31 | [Content-elastic event systems](../wiki/opportunity/content-elastic-events.md) | A grand strategy, life sim, or narrative management game will ship runtime-generated events constrained by an event schema, disclosed on its Steam page. |
-| 2027-12-31 | [Generated inspection shifts](../wiki/opportunity/generated-inspection-shifts.md) | A released inspection or bureaucracy job sim will use runtime generation of documents or applicants with a rule-derived answer key. |
-| 2027-12-31 | [Generative decoration catalogs](../wiki/opportunity/generative-decoration-catalogs.md) | A major life or management sim will ship player-facing generation of placeable 3D objects. |
-| 2027-12-31 | [Illustrated chronicles](../wiki/opportunity/illustrated-chronicles.md) | A systemic simulation game will ship an automatic, player-shareable narrative summary of a run's history. |
-| 2027-12-31 | [Local-first AI simulation games](../wiki/opportunity/local-first-ai-sims.md) | At least five Steam games with over 1,000 reviews will ship an on-device language model used at runtime without requiring an internet connection. |
+| 2027-12-31 | [Content-elastic event systems](../wiki/opportunity/content-elastic-events.md) | A grand strategy, life sim, or narrative management game will ship runtime-generated events constrained by an event schema. |
+| 2027-12-31 | [Generated inspection shifts](../wiki/opportunity/generated-inspection-shifts.md) | An inspection or bureaucracy job sim will generate documents or applicants at runtime and score the player against an answer key derived from formal rules. |
+| 2027-12-31 | [Generative decoration catalogs](../wiki/opportunity/generative-decoration-catalogs.md) | A life or management sim other than inZOI will let players generate new placeable 3D objects from text or images. |
+| 2027-12-31 | [Illustrated chronicles](../wiki/opportunity/illustrated-chronicles.md) | A systemic simulation game will ship an automatic, shareable narrative summary of a run's history generated from its event log. |
+| 2027-12-31 | [Local-first AI simulation games](../wiki/opportunity/local-first-ai-sims.md) | At least five games with over 1,000 Steam user reviews will use an on-device language model at runtime without requiring an internet connection. |
 | 2027-12-31 | [Parallel autobalancing of economies](../wiki/opportunity/parallel-autobalance.md) | At least two studios will publicly describe using large-scale agent search to balance a simulation or strategy game's economy before release. |
-| 2027-12-31 | [Simulation games as agent benchmarks](../wiki/opportunity/sims-as-agent-benchmarks.md) | A commercial simulation game developer will officially release a headless research API or benchmark for AI agents. |
-| 2027-12-31 | [Simulator instructor coaching](../wiki/opportunity/sim-instructor-coach.md) | A major flight or racing simulator will ship an AI voice instructor that comments on live telemetry. |
-| 2027-12-31 | [Why-query over the simulation log](../wiki/opportunity/causal-why-query.md) | A simulation or strategy title in Steam's top 100 by concurrent players will ship a natural-language why-query grounded in game state. |
-| 2028-06-30 | [Bottleneck explainer for production networks](../wiki/opportunity/bottleneck-explainer.md) | A factory or city-building game will ship a feature that identifies the binding constraint in the player's production network by simulation sensitivity rather than static ratio display. |
-| 2028-06-30 | [Branch preview of policy futures](../wiki/opportunity/branch-preview-forecasts.md) | At least one commercial city builder, colony sim, or grand strategy game will ship a feature that simulates multiple stochastic futures of the player's current state before a decision. |
-| 2028-06-30 | [Drama-aware storyteller](../wiki/opportunity/drama-aware-storyteller.md) | A colony sim or survival management game will ship an event director that uses a language model to evaluate narrative state when choosing authored events. |
-| 2028-06-30 | [Intent-level orders](../wiki/opportunity/intent-level-orders.md) | A released colony or management sim will let players issue standing natural-language orders that compile into its job and priority systems. |
-| 2028-06-30 | [Learned build assist for cities](../wiki/opportunity/learned-build-assist.md) | A commercial city builder will ship a learned layout generator that converts player gestures into detailed districts. |
-| 2028-06-30 | [Mechanic modding by description](../wiki/opportunity/language-modding.md) | A popular moddable simulation game will ship or officially endorse a natural-language mod creation tool. |
-| 2028-06-30 | [Quality-diversity scenario libraries](../wiki/opportunity/qd-scenario-libraries.md) | A released simulation or puzzle-sim game will ship a quality-diversity-generated scenario library. |
-| 2028-06-30 | [Specification programming games](../wiki/opportunity/specification-programming-games.md) | A commercial programming game will make specifying or testing AI-written code its core loop. |
-| 2028-12-31 | [Calibrated serious simulations](../wiki/opportunity/calibrated-serious-sims.md) | A serious-game or educational simulation will publish posterior-calibrated parameters with fit metrics as part of its release. |
-| 2028-12-31 | [Event-sourced simulation runtime](../wiki/opportunity/event-sourced-sim-runtime.md) | A game engine or middleware vendor will ship an event-log-based replay and determinism layer designed for generative AI components. |
-| 2028-12-31 | [Explained delegation to AI managers](../wiki/opportunity/explained-delegation.md) | A grand strategy or management game will ship AI managers that learn from the individual player's past decisions. |
-| 2028-12-31 | [Generated dream and replay views](../wiki/opportunity/dream-replay-layer.md) | A shipped game will use a generative video or world model to show character memories or in-world histories. |
-| 2028-12-31 | [Generated recipe graphs](../wiki/opportunity/generated-recipe-graphs.md) | A factory or crafting game or major overhaul mod will credit a generative tool for its recipe graph or tech tree. |
-| 2028-12-31 | [Human-calibrated customers](../wiki/opportunity/human-calibrated-customers.md) | A commercial management or tycoon game will state that its customer or citizen preferences were derived from a learned model of human behavior. |
-| 2028-12-31 | [Learned regional weather](../wiki/opportunity/learned-weather-layer.md) | A commercial farming, flight, or city sim will ship weather generated by a learned emulator rather than scripted states or live forecast feeds. |
-| 2028-12-31 | [Natural-language legislation](../wiki/opportunity/natural-language-legislation.md) | A released political or city-building game will let players enact free-text laws that change simulation parameters. |
-| 2028-12-31 | [Placement that tells stories](../wiki/opportunity/placement-that-tells-stories.md) | A released city builder will advertise placement-triggered narrative events tied to specific inhabitants as a core feature. |
-| 2028-12-31 | [Salience-gated language agents](../wiki/opportunity/salience-gated-llm-agents.md) | At least three commercially released colony or life sims with over 1,000 Steam reviews will use language-model calls gated by event salience rather than per-decision. |
-| 2028-12-31 | [Teachable sim companion](../wiki/opportunity/teachable-sim-companion.md) | A released automation or sandbox game will feature an in-game companion that learns reusable skills from player demonstration or instruction. |
-| 2028-12-31 | [Weather-coupled energy grids](../wiki/opportunity/weather-coupled-grids.md) | A commercial city builder or management game will couple renewable generation to simulated weather as a core grid mechanic. |
-| 2029-06-30 | [AI liquidity in player markets](../wiki/opportunity/ai-liquidity-in-player-markets.md) | A persistent online game will announce AI market participants calibrated to player behavior. |
-| 2029-06-30 | [Agent ambassadors between player worlds](../wiki/opportunity/agent-ambassadors-async.md) | A released game will let players' AI representatives trade or negotiate with other players' worlds asynchronously. |
+| 2027-12-31 | [Simulation games as agent benchmarks](../wiki/opportunity/sims-as-agent-benchmarks.md) | A simulation game developer or publisher will officially release a headless research API or benchmark for AI agents. |
+| 2027-12-31 | [Simulator instructor coaching](../wiki/opportunity/sim-instructor-coach.md) | A flight or racing simulator will ship an AI voice instructor that comments on live telemetry. |
+| 2027-12-31 | [Why-query over the simulation log](../wiki/opportunity/causal-why-query.md) | A widely played simulation or strategy game will let players ask in natural language why something happened in their own game and answer from game state. |
+| 2028-06-30 | [Bottleneck explainer for production networks](../wiki/opportunity/bottleneck-explainer.md) | A factory or city-building game will ship a feature that names the binding constraint in the player's production network by testing the simulation, not by displaying static ratios. |
+| 2028-06-30 | [Branch preview of policy futures](../wiki/opportunity/branch-preview-forecasts.md) | A city builder, colony sim, or grand strategy game will show players several simulated stochastic futures of their current game state before a decision. |
+| 2028-06-30 | [Drama-aware storyteller](../wiki/opportunity/drama-aware-storyteller.md) | A colony sim or survival management game will ship an event director that uses a language model to rank authored events against the current story state. |
+| 2028-06-30 | [Intent-level orders](../wiki/opportunity/intent-level-orders.md) | A colony or management sim will let players issue standing natural-language orders that compile into its job and priority systems. |
+| 2028-06-30 | [Learned build assist for cities](../wiki/opportunity/learned-build-assist.md) | A city builder will ship a machine-learned layout generator that turns player strokes into detailed streets or districts. |
+| 2028-06-30 | [Mechanic modding by description](../wiki/opportunity/language-modding.md) | The developer of a moddable simulation game will ship or officially endorse a tool that builds working mods from natural-language descriptions. |
+| 2028-06-30 | [Quality-diversity scenario libraries](../wiki/opportunity/qd-scenario-libraries.md) | A simulation or puzzle-sim game will ship a scenario library generated by quality-diversity search. |
+| 2028-06-30 | [Specification programming games](../wiki/opportunity/specification-programming-games.md) | A programming game will make specifying or testing AI-written code its core loop. |
+| 2028-12-31 | [Calibrated serious simulations](../wiki/opportunity/calibrated-serious-sims.md) | A playable serious-game or educational simulation will publish posterior-calibrated parameters with fit metrics as part of its release. |
+| 2028-12-31 | [Event-sourced simulation runtime](../wiki/opportunity/event-sourced-sim-runtime.md) | An engine, middleware vendor, or open-source project will ship an event-log replay and determinism layer designed for games with generative AI components. |
+| 2028-12-31 | [Explained delegation to AI managers](../wiki/opportunity/explained-delegation.md) | A grand strategy or management game will ship AI managers that learn delegation policy from the individual player's own past decisions. |
+| 2028-12-31 | [Generated dream and replay views](../wiki/opportunity/dream-replay-layer.md) | A game will use a generative video or world model to show character memories or in-world histories drawn from the simulation's own event log. |
+| 2028-12-31 | [Generated recipe graphs](../wiki/opportunity/generated-recipe-graphs.md) | A factory or crafting game or overhaul mod will credit algorithmic or model-based generation for its recipe graph or tech tree. |
+| 2028-12-31 | [Human-calibrated customers](../wiki/opportunity/human-calibrated-customers.md) | A management or tycoon game will state that its customer or citizen preferences come from a model of human behavior learned from data. |
+| 2028-12-31 | [Learned regional weather](../wiki/opportunity/learned-weather-layer.md) | A farming, flight, or city sim will ship weather generated by a learned emulator rather than scripted states or live forecast feeds. |
+| 2028-12-31 | [Natural-language legislation](../wiki/opportunity/natural-language-legislation.md) | A political or city-building game will let players enact free-text laws that change simulation parameters. |
+| 2028-12-31 | [Placement that tells stories](../wiki/opportunity/placement-that-tells-stories.md) | A city builder will advertise placement-triggered narrative events tied to named inhabitants as a core feature. |
+| 2028-12-31 | [Salience-gated language agents](../wiki/opportunity/salience-gated-llm-agents.md) | At least three colony or life sims with over 1,000 Steam user reviews will call a language model for agents only on salient events rather than per decision. |
+| 2028-12-31 | [Teachable sim companion](../wiki/opportunity/teachable-sim-companion.md) | An automation or sandbox game will ship an in-game companion that learns reusable skills from player demonstration or instruction. |
+| 2029-06-30 | [AI liquidity in player markets](../wiki/opportunity/ai-liquidity-in-player-markets.md) | A persistent online game will add AI traders to its player-driven market, with their behavior fitted to observed player trading. |
+| 2029-06-30 | [Agent ambassadors between player worlds](../wiki/opportunity/agent-ambassadors-async.md) | A game will let each player's AI representative trade or negotiate with other players' worlds while those players are offline. |
 | 2029-06-30 | [Learned motion for simulated crowds](../wiki/opportunity/neural-npc-motion.md) | A management or colony sim will ship learned physics-based motion for its simulated population. |
-| 2029-06-30 | [Negotiating faction AI](../wiki/opportunity/negotiating-faction-ai.md) | A major grand strategy or 4X release will ship AI opponents that negotiate through free-text or generated-language diplomacy backed by a planner. |
+| 2029-06-30 | [Negotiating faction AI](../wiki/opportunity/negotiating-faction-ai.md) | A grand strategy or 4X game will ship AI opponents that negotiate in free-text or generated-language diplomacy backed by a planner. |
 | 2029-06-30 | [Research by named scientists](../wiki/opportunity/scientists-not-tech-trees.md) | A strategy or management game will ship research performed by a simulated population of named researchers whose relationships affect outcomes. |
-| 2029-06-30 | [Trainable creatures revival](../wiki/opportunity/trainable-creatures-revival.md) | A commercial virtual-pet or god game will ship a creature whose behavior is trained online by player feedback with a learned model. |
-| 2029-12-31 | [Factories with a living workforce](../wiki/opportunity/living-workforce-factories.md) | A factory or automation game where workers age, train, and are replaced by a simulated next generation will reach 1,000 Steam reviews. |
-| 2029-12-31 | [Language-agent society terrarium](../wiki/opportunity/llm-society-terrarium.md) | A commercially released game whose core loop is observing and nudging a society of at least 50 language-model agents will reach 1,000 Steam reviews. |
-| 2029-12-31 | [Learned material surrogates at world scale](../wiki/opportunity/learned-material-surrogates.md) | A commercial game will use a learned surrogate for fluid, gas, or destruction simulation at runtime. |
-| 2029-12-31 | [Mean-field crowds and traffic](../wiki/opportunity/mean-field-crowds.md) | A commercial city builder will document a mean-field or continuum crowd model as its primary traffic or population simulation. |
-| 2029-12-31 | [Open-ended evolution sandbox](../wiki/opportunity/open-ended-evolution-sandbox.md) | A commercial game built on a continuous artificial-life substrate (Lenia family or neural cellular automata) will reach 1,000 Steam reviews. |
-| 2029-12-31 | [Participatory planning sandboxes](../wiki/opportunity/participatory-planning-sandboxes.md) | A city government will publicly use a game-style calibrated simulation with simulated resident feedback in a formal planning consultation. |
-| 2029-12-31 | [Symbolic simulation, neural rendering](../wiki/opportunity/symbolic-sim-neural-render.md) | A released game will render its primary view with a generative model conditioned on an explicit symbolic game state. |
-| 2030-12-31 | [Automated mechanic discovery](../wiki/opportunity/mechanic-discovery-search.md) | A shipped commercial game will credit a mechanic to an automated rule-discovery system. |
+| 2029-06-30 | [Trainable creatures revival](../wiki/opportunity/trainable-creatures-revival.md) | A virtual-pet or god game will ship a creature controlled by a learned neural or reinforcement-learning policy that player feedback updates during play. |
+| 2029-12-31 | [Factories with a living workforce](../wiki/opportunity/living-workforce-factories.md) | A factory or automation game in which workers age, train, and are replaced by a simulated next generation will reach 1,000 Steam user reviews. |
+| 2029-12-31 | [Language-agent society terrarium](../wiki/opportunity/llm-society-terrarium.md) | A game whose core loop is observing and nudging a society of at least 50 language-model agents will reach 1,000 Steam user reviews. |
+| 2029-12-31 | [Learned material surrogates at world scale](../wiki/opportunity/learned-material-surrogates.md) | A game will use a learned surrogate model to simulate fluid, gas, or destruction at runtime. |
+| 2029-12-31 | [Mean-field crowds and traffic](../wiki/opportunity/mean-field-crowds.md) | A city builder will document a mean-field or continuum crowd model as its primary traffic or population simulation. |
+| 2029-12-31 | [Open-ended evolution sandbox](../wiki/opportunity/open-ended-evolution-sandbox.md) | A game built on a continuous artificial-life substrate (Lenia family or neural cellular automata) will reach 1,000 Steam user reviews. |
+| 2029-12-31 | [Participatory planning sandboxes](../wiki/opportunity/participatory-planning-sandboxes.md) | A city government will use a game-style calibrated simulation with simulated resident feedback in a formal planning consultation. |
+| 2029-12-31 | [Symbolic simulation, neural rendering](../wiki/opportunity/symbolic-sim-neural-render.md) | A game will render its primary view with a generative model conditioned on an explicit symbolic game state. |
+| 2030-12-31 | [Automated mechanic discovery](../wiki/opportunity/mechanic-discovery-search.md) | A commercial game will credit one of its shipped mechanics to an automated rule-discovery system. |
 
 *Each prediction has resolution criteria on its wiki page. A prediction that fails is evidence against the opportunity thesis, not only against its timing.*
 
@@ -1303,7 +1341,7 @@ Every opportunity carries a falsifiable prediction with a resolve-by date and cr
 ### 11.1 Agenda
 
 1. **Instrument a simulation for explanation.** Build the event log with cause links that why-queries, branch previews, and chronicles all need, and measure explanation faithfulness against human audit.
-2. **Measure legibility in players, not only in rubrics.** The legibility and emergence scores here are expert judgments; a shared protocol for measuring how quickly players form correct causal models would let designers compare mechanics empirically.
+2. **Measure legibility in players, not only in rubrics.** The legibility and emergence scores here are judgments by a single model rater; a shared protocol for measuring how quickly players form correct causal models would let designers compare mechanics empirically.
 3. **Connect techniques to the economic core.** Production, logistics, and economy mechanics are the most used and the least targeted by current techniques (§8.2). Balance search, recipe generation, and bottleneck explanation are tractable first steps.
 4. **Separate authoritative and generated layers.** Develop and benchmark architectures where learned models render, narrate, or propose, and symbolic state decides.
 5. **Extend the dataset.** Add mobile and non-English simulation traditions, score mechanics with a second rater, resolve the verification queue, and record design tensions with evidence from postmortems.
@@ -1317,180 +1355,180 @@ The report is generated. To add a game, mechanic, technique, or opportunity, fol
 
 | name | year | developer | subgenre | time model | sim scale | mechanics | cluster | status |
 |---|---|---|---|---|---|---|---|---|
-| [Hamurabi](../wiki/game/hamurabi.md) | 1968 | Doug Dyment (Digital Equipment Corporation) | city-builder | turn-based | settlement | 6 | C05 | sourced |
-| [Conway's Game of Life](../wiki/game/game-of-life.md) | 1970 | John Horton Conway | artificial-life | run-on-demand | micro | 4 | C03 | sourced |
-| [The Oregon Trail](../wiki/game/oregon-trail.md) | 1971 | Don Rawitsch, Bill Heinemann, and Paul Dillenberger; later MECC | survival-sim | turn-based | household | 5 | C05 | sourced |
-| [Lemonade Stand](../wiki/game/lemonade-stand.md) | 1973 | Bob Jamison (MECC) | business-economic-sim | turn-based | facility | 7 | C05 | sourced |
-| [Utopia](../wiki/game/utopia.md) | 1982 | Don Daglow (Mattel Electronics) | city-builder | real-time | settlement | 8 | C01 | contested |
-| [M.U.L.E.](../wiki/game/mule.md) | 1983 | Ozark Softscape | business-economic-sim | turn-based | settlement | 10 | C01 | sourced |
-| [Elite](../wiki/game/elite.md) | 1984 | David Braben and Ian Bell | space-sim | real-time | interplanetary | 6 | C08 | sourced |
-| [Balance of Power](../wiki/game/balance-of-power.md) | 1985 | Chris Crawford | political-sim | turn-based | nation | 6 | C05 | sourced |
-| [Little Computer People](../wiki/game/little-computer-people.md) | 1985 | Activision | life-sim | real-time | individual | 6 | C04 | sourced |
-| [Populous](../wiki/game/populous.md) | 1989 | Bullfrog Productions | god-game | real-time | region | 5 | C07 | sourced |
-| [SimCity](../wiki/game/simcity-1989.md) | 1989 | Maxis | city-builder | real-time-pausable | city | 14 | C10 | sourced |
-| [Railroad Tycoon](../wiki/game/railroad-tycoon.md) | 1990 | MPS Labs (MicroProse) | transport-logistics | real-time-pausable | region | 15 | C01 | sourced |
-| [SimEarth](../wiki/game/simearth.md) | 1990 | Maxis | god-game | real-time-pausable | planet | 10 | C07 | sourced |
-| [Sid Meier's Civilization](../wiki/game/civilization.md) | 1991 | MicroProse | 4x-strategy | turn-based | nation | 13 | C01 | sourced |
-| [SimAnt](../wiki/game/simant.md) | 1991 | Maxis | artificial-life | real-time-pausable | settlement | 9 | C01 | sourced |
-| [SimLife](../wiki/game/simlife.md) | 1992 | Maxis | artificial-life | real-time-pausable | region | 8 | C07 | sourced |
-| [Princess Maker 2](../wiki/game/princess-maker-2.md) | 1993 | Gainax | life-sim | turn-based | individual | 9 | C11 | sourced |
-| [SimCity 2000](../wiki/game/simcity-2000.md) | 1993 | Maxis | city-builder | real-time-pausable | city | 15 | C10 | sourced |
-| [The Incredible Machine](../wiki/game/the-incredible-machine.md) | 1993 | Jeff Tunnell Productions | construction-engineering | run-on-demand | individual | 6 | C02 | sourced |
-| [SimTower](../wiki/game/simtower.md) | 1994 | OPeNBooK (Yoot Saito) | management-tycoon | real-time-pausable | facility | 8 | C03 | sourced |
-| [Theme Park](../wiki/game/theme-park.md) | 1994 | Bullfrog Productions | management-tycoon | real-time-pausable | facility | 13 | C03 | sourced |
-| [Transport Tycoon](../wiki/game/transport-tycoon.md) | 1994 | Chris Sawyer | transport-logistics | real-time-pausable | region | 17 | C01 | sourced |
-| [Capitalism](../wiki/game/capitalism.md) | 1995 | Enlight Software | business-economic-sim | real-time-pausable | region | 12 | C01 | sourced |
-| [X-Plane](../wiki/game/x-plane.md) | 1995 | Laminar Research | flight-sim | real-time-pausable | individual | 7 | C06 | sourced |
-| [Creatures](../wiki/game/creatures.md) | 1996 | Millennium Interactive / Cyberlife Technology | artificial-life | real-time-pausable | individual | 11 | C04 | sourced |
+| [Hamurabi](../wiki/game/hamurabi.md) | 1968 | Doug Dyment (Digital Equipment Corporation) | city-builder | turn-based | settlement | 6 | C12 | sourced |
+| [Conway's Game of Life](../wiki/game/game-of-life.md) | 1970 | John Horton Conway | artificial-life | run-on-demand | micro | 3 | C12 | sourced |
+| [The Oregon Trail](../wiki/game/oregon-trail.md) | 1971 | Don Rawitsch, Bill Heinemann, and Paul Dillenberger; later MECC | survival-sim | turn-based | household | 5 | C12 | sourced |
+| [Lemonade Stand](../wiki/game/lemonade-stand.md) | 1973 | Bob Jamison (MECC) | business-economic-sim | turn-based | facility | 7 | C12 | sourced |
+| [Utopia](../wiki/game/utopia.md) | 1982 | Don Daglow (Mattel Electronics) | city-builder | real-time | settlement | 8 | C04 | contested |
+| [M.U.L.E.](../wiki/game/mule.md) | 1983 | Ozark Softscape | business-economic-sim | turn-based | settlement | 10 | C02 | sourced |
+| [Elite](../wiki/game/elite.md) | 1984 | David Braben and Ian Bell | space-sim | real-time | interplanetary | 6 | C11 | sourced |
+| [Balance of Power](../wiki/game/balance-of-power.md) | 1985 | Chris Crawford | political-sim | turn-based | nation | 6 | C12 | sourced |
+| [Little Computer People](../wiki/game/little-computer-people.md) | 1985 | Activision | life-sim | real-time | individual | 6 | C13 | sourced |
+| [Populous](../wiki/game/populous.md) | 1989 | Bullfrog Productions | god-game | real-time | region | 5 | C10 | sourced |
+| [SimCity](../wiki/game/simcity-1989.md) | 1989 | Maxis | city-builder | real-time-pausable | city | 17 | C09 | sourced |
+| [Railroad Tycoon](../wiki/game/railroad-tycoon.md) | 1990 | MPS Labs (MicroProse) | transport-logistics | real-time-pausable | region | 15 | C02 | sourced |
+| [SimEarth](../wiki/game/simearth.md) | 1990 | Maxis | god-game | real-time-pausable | planet | 10 | C10 | sourced |
+| [Sid Meier's Civilization](../wiki/game/civilization.md) | 1991 | MicroProse | 4x-strategy | turn-based | nation | 13 | C04 | sourced |
+| [SimAnt](../wiki/game/simant.md) | 1991 | Maxis | artificial-life | real-time-pausable | settlement | 10 | C02 | sourced |
+| [SimLife](../wiki/game/simlife.md) | 1992 | Maxis | artificial-life | real-time-pausable | region | 8 | C10 | sourced |
+| [Princess Maker 2](../wiki/game/princess-maker-2.md) | 1993 | Gainax | life-sim | turn-based | individual | 9 | C14 | sourced |
+| [SimCity 2000](../wiki/game/simcity-2000.md) | 1993 | Maxis | city-builder | real-time-pausable | city | 18 | C09 | sourced |
+| [The Incredible Machine](../wiki/game/the-incredible-machine.md) | 1993 | Jeff Tunnell Productions | construction-engineering | run-on-demand | individual | 6 | C07 | sourced |
+| [SimTower](../wiki/game/simtower.md) | 1994 | OPeNBooK (Yoot Saito) | management-tycoon | real-time-pausable | facility | 9 | C09 | sourced |
+| [Theme Park](../wiki/game/theme-park.md) | 1994 | Bullfrog Productions | management-tycoon | real-time-pausable | facility | 14 | C01 | sourced |
+| [Transport Tycoon](../wiki/game/transport-tycoon.md) | 1994 | Chris Sawyer | transport-logistics | real-time-pausable | region | 18 | C02 | sourced |
+| [Capitalism](../wiki/game/capitalism.md) | 1995 | Enlight Software | business-economic-sim | real-time-pausable | region | 13 | C01 | sourced |
+| [X-Plane](../wiki/game/x-plane.md) | 1995 | Laminar Research | flight-sim | real-time-pausable | individual | 8 | C03 | sourced |
+| [Creatures](../wiki/game/creatures.md) | 1996 | Millennium Interactive / Cyberlife Technology | artificial-life | real-time-pausable | individual | 12 | C13 | sourced |
 | [Harvest Moon](../wiki/game/harvest-moon.md) | 1996 | Amccus | farming-sim | real-time | facility | 8 | C05 | sourced |
-| [Tamagotchi](../wiki/game/tamagotchi.md) | 1996 | Bandai | virtual-pet | real-world-clock | individual | 8 | C04 | sourced |
-| [Gran Turismo](../wiki/game/gran-turismo.md) | 1997 | Polys Entertainment (Polyphony Digital) | vehicle-sim | real-time | individual | 6 | C06 | sourced |
-| [Theme Hospital](../wiki/game/theme-hospital.md) | 1997 | Bullfrog Productions | management-tycoon | real-time-pausable | facility | 14 | C03 | sourced |
-| [Ultima Online](../wiki/game/ultima-online.md) | 1997 | Origin Systems | mmo-world | asynchronous-persistent | region | 10 | C08 | sourced |
-| [Caesar III](../wiki/game/caesar-3.md) | 1998 | Impressions Games | city-builder | real-time-pausable | city | 13 | C01 | sourced |
-| [Out of the Park Baseball](../wiki/game/out-of-the-park-baseball.md) | 1999 | Out of the Park Developments | sports-management | turn-based | household | 11 | C03 | sourced |
-| [Pharaoh](../wiki/game/pharaoh.md) | 1999 | Impressions Games | city-builder | real-time-pausable | city | 11 | C01 | sourced |
-| [RollerCoaster Tycoon](../wiki/game/rollercoaster-tycoon.md) | 1999 | Chris Sawyer Productions | management-tycoon | real-time-pausable | facility | 17 | C03 | sourced |
-| [Seaman](../wiki/game/seaman.md) | 1999 | Vivarium | virtual-pet | real-world-clock | individual | 8 | C04 | sourced |
-| [The Sims](../wiki/game/the-sims.md) | 2000 | Maxis | life-sim | real-time-pausable | household | 14 | C04 | sourced |
-| [Black & White](../wiki/game/black-and-white.md) | 2001 | Lionhead Studios | god-game | real-time | region | 9 | C08 | sourced |
-| [Zoo Tycoon](../wiki/game/zoo-tycoon.md) | 2001 | Blue Fang Games | management-tycoon | real-time-pausable | facility | 10 | C03 | sourced |
-| [A Tale in the Desert](../wiki/game/a-tale-in-the-desert.md) | 2003 | eGenesis | mmo-world | asynchronous-persistent | region | 8 | C08 | sourced |
-| [EVE Online](../wiki/game/eve-online.md) | 2003 | CCP Games | mmo-world | asynchronous-persistent | interplanetary | 12 | C08 | sourced |
-| [Second Life](../wiki/game/second-life.md) | 2003 | Linden Lab | mmo-world | asynchronous-persistent | region | 8 | C02 | sourced |
-| [SimCity 4](../wiki/game/simcity-4.md) | 2003 | Maxis | city-builder | real-time-pausable | city | 14 | C10 | sourced |
-| [Aurora 4X](../wiki/game/aurora-4x.md) | 2004 | Steve Walmsley | 4x-strategy | turn-based | interplanetary | 13 | C01 | sourced |
-| [Football Manager](../wiki/game/football-manager.md) | 2004 | Sports Interactive | sports-management | turn-based | household | 15 | C03 | sourced |
-| [Garry's Mod](../wiki/game/garrys-mod.md) | 2004 | Facepunch Studios | physics-sandbox | real-time | individual | 7 | C02 | sourced |
-| [The Sims 2](../wiki/game/the-sims-2.md) | 2004 | Maxis | life-sim | real-time-pausable | household | 14 | C04 | sourced |
-| [Façade](../wiki/game/facade.md) | 2005 | Procedural Arts | social-sim | real-time | household | 5 | C09 | sourced |
-| [Nintendogs](../wiki/game/nintendogs.md) | 2005 | Nintendo EAD | virtual-pet | real-world-clock | individual | 7 | C04 | sourced |
-| [Silent Hunter III](../wiki/game/silent-hunter-3.md) | 2005 | Ubisoft Bucharest | vehicle-sim | real-time-pausable | individual | 10 | C06 | sourced |
-| [Dwarf Fortress](../wiki/game/dwarf-fortress.md) | 2006 | Bay 12 Games | colony-sim | real-time-pausable | settlement | 25 | C04 | sourced |
-| [Viva Piñata](../wiki/game/viva-pinata.md) | 2006 | Rare | ecosystem-evolution | real-time | facility | 9 | C07 | sourced |
-| [DCS World](../wiki/game/dcs-world.md) | 2008 | Eagle Dynamics | flight-sim | real-time-pausable | individual | 9 | C06 | sourced |
-| [Spore](../wiki/game/spore.md) | 2008 | Maxis | ecosystem-evolution | real-time-pausable | interplanetary | 8 | C02 | sourced |
-| [The Powder Toy](../wiki/game/the-powder-toy.md) | 2008 | The Powder Toy contributors | physics-sandbox | real-time-pausable | micro | 9 | C02 | sourced |
-| [Universe Sandbox](../wiki/game/universe-sandbox.md) | 2008 | Dan Dixon; Giant Army | physics-sandbox | real-time-pausable | interplanetary | 7 | C07 | sourced |
-| [iRacing](../wiki/game/iracing.md) | 2008 | iRacing Studios (iRacing.com Motorsport Simulations) | vehicle-sim | real-time | individual | 4 | C06 | sourced |
+| [Tamagotchi](../wiki/game/tamagotchi.md) | 1996 | Bandai | virtual-pet | real-world-clock | individual | 8 | C13 | sourced |
+| [Gran Turismo](../wiki/game/gran-turismo.md) | 1997 | Polys Entertainment (Polyphony Digital) | vehicle-sim | real-time | individual | 6 | C03 | sourced |
+| [Theme Hospital](../wiki/game/theme-hospital.md) | 1997 | Bullfrog Productions | management-tycoon | real-time-pausable | facility | 16 | C01 | sourced |
+| [Ultima Online](../wiki/game/ultima-online.md) | 1997 | Origin Systems | mmo-world | asynchronous-persistent | region | 10 | C06 | sourced |
+| [Caesar III](../wiki/game/caesar-3.md) | 1998 | Impressions Games | city-builder | real-time-pausable | city | 17 | C02 | sourced |
+| [Out of the Park Baseball](../wiki/game/out-of-the-park-baseball.md) | 1999 | Out of the Park Developments | sports-management | turn-based | household | 11 | C01 | sourced |
+| [Pharaoh](../wiki/game/pharaoh.md) | 1999 | Impressions Games | city-builder | real-time-pausable | city | 15 | C02 | sourced |
+| [RollerCoaster Tycoon](../wiki/game/rollercoaster-tycoon.md) | 1999 | Chris Sawyer Productions | management-tycoon | real-time-pausable | facility | 20 | C01 | sourced |
+| [Seaman](../wiki/game/seaman.md) | 1999 | Vivarium | virtual-pet | real-world-clock | individual | 8 | C13 | sourced |
+| [The Sims](../wiki/game/the-sims.md) | 2000 | Maxis | life-sim | real-time-pausable | household | 15 | C01 | sourced |
+| [Black & White](../wiki/game/black-and-white.md) | 2001 | Lionhead Studios | god-game | real-time | region | 9 | C13 | sourced |
+| [Zoo Tycoon](../wiki/game/zoo-tycoon.md) | 2001 | Blue Fang Games | management-tycoon | real-time-pausable | facility | 11 | C01 | sourced |
+| [A Tale in the Desert](../wiki/game/a-tale-in-the-desert.md) | 2003 | eGenesis | mmo-world | asynchronous-persistent | region | 8 | C06 | sourced |
+| [EVE Online](../wiki/game/eve-online.md) | 2003 | CCP Games | mmo-world | asynchronous-persistent | interplanetary | 12 | C06 | sourced |
+| [Second Life](../wiki/game/second-life.md) | 2003 | Linden Lab | mmo-world | asynchronous-persistent | region | 8 | C06 | sourced |
+| [SimCity 4](../wiki/game/simcity-4.md) | 2003 | Maxis | city-builder | real-time-pausable | city | 16 | C09 | sourced |
+| [Aurora 4X](../wiki/game/aurora-4x.md) | 2004 | Steve Walmsley | 4x-strategy | turn-based | interplanetary | 13 | C11 | sourced |
+| [Football Manager](../wiki/game/football-manager.md) | 2004 | Sports Interactive | sports-management | turn-based | household | 15 | C01 | sourced |
+| [Garry's Mod](../wiki/game/garrys-mod.md) | 2004 | Facepunch Studios | physics-sandbox | real-time | individual | 7 | C07 | sourced |
+| [The Sims 2](../wiki/game/the-sims-2.md) | 2004 | Maxis | life-sim | real-time-pausable | household | 16 | C01 | sourced |
+| [Façade](../wiki/game/facade.md) | 2005 | Procedural Arts | social-sim | real-time | household | 5 | C08 | sourced |
+| [Nintendogs](../wiki/game/nintendogs.md) | 2005 | Nintendo EAD | virtual-pet | real-world-clock | individual | 7 | C13 | sourced |
+| [Silent Hunter III](../wiki/game/silent-hunter-3.md) | 2005 | Ubisoft Bucharest | vehicle-sim | real-time-pausable | individual | 10 | C03 | sourced |
+| [Dwarf Fortress](../wiki/game/dwarf-fortress.md) | 2006 | Bay 12 Games | colony-sim | real-time-pausable | settlement | 29 | C01 | sourced |
+| [Viva Piñata](../wiki/game/viva-pinata.md) | 2006 | Rare | ecosystem-evolution | real-time | facility | 9 | C05 | sourced |
+| [DCS World](../wiki/game/dcs-world.md) | 2008 | Eagle Dynamics | flight-sim | real-time-pausable | individual | 10 | C03 | sourced |
+| [Spore](../wiki/game/spore.md) | 2008 | Maxis | ecosystem-evolution | real-time-pausable | interplanetary | 8 | C11 | sourced |
+| [The Powder Toy](../wiki/game/the-powder-toy.md) | 2008 | The Powder Toy contributors | physics-sandbox | real-time-pausable | micro | 9 | C07 | sourced |
+| [Universe Sandbox](../wiki/game/universe-sandbox.md) | 2008 | Dan Dixon; Giant Army | physics-sandbox | real-time-pausable | interplanetary | 7 | C11 | sourced |
+| [iRacing](../wiki/game/iracing.md) | 2008 | iRacing Studios (iRacing.com Motorsport Simulations) | vehicle-sim | real-time | individual | 4 | C03 | sourced |
 | [Minecraft](../wiki/game/minecraft.md) | 2009 | Mojang Studios | sandbox-world | real-time | region | 15 | C05 | sourced |
-| [The Sims 3](../wiki/game/the-sims-3.md) | 2009 | Maxis Redwood Shores | life-sim | real-time-pausable | household | 16 | C04 | sourced |
-| [From Dust](../wiki/game/from-dust.md) | 2011 | Ubisoft Montpellier | god-game | real-time | region | 8 | C07 | sourced |
-| [Kerbal Space Program](../wiki/game/kerbal-space-program.md) | 2011 | Squad | space-sim | real-time-pausable | interplanetary | 15 | C02 | sourced |
-| [Project Zomboid](../wiki/game/project-zomboid.md) | 2011 | The Indie Stone | survival-sim | real-time-pausable | individual | 17 | C05 | sourced |
-| [SpaceChem](../wiki/game/spacechem.md) | 2011 | Zachtronics | programming-sim | run-on-demand | micro | 6 | C02 | sourced |
+| [The Sims 3](../wiki/game/the-sims-3.md) | 2009 | Maxis Redwood Shores | life-sim | real-time-pausable | household | 18 | C01 | sourced |
+| [From Dust](../wiki/game/from-dust.md) | 2011 | Ubisoft Montpellier | god-game | real-time | region | 8 | C10 | sourced |
+| [Kerbal Space Program](../wiki/game/kerbal-space-program.md) | 2011 | Squad | space-sim | real-time-pausable | interplanetary | 15 | C11 | sourced |
+| [Project Zomboid](../wiki/game/project-zomboid.md) | 2011 | The Indie Stone | survival-sim | real-time-pausable | individual | 18 | C05 | sourced |
+| [SpaceChem](../wiki/game/spacechem.md) | 2011 | Zachtronics | programming-sim | run-on-demand | micro | 6 | C06 | sourced |
 | [Don't Starve](../wiki/game/dont-starve.md) | 2012 | Klei Entertainment | survival-sim | real-time | individual | 12 | C05 | sourced |
-| [Euro Truck Simulator 2](../wiki/game/euro-truck-simulator-2.md) | 2012 | SCS Software | vehicle-sim | real-time | individual | 11 | C06 | sourced |
-| [FTL: Faster Than Light](../wiki/game/ftl.md) | 2012 | Subset Games | space-sim | real-time-pausable | household | 14 | C02 | sourced |
-| [Game Dev Tycoon](../wiki/game/game-dev-tycoon.md) | 2012 | Greenheart Games | business-economic-sim | real-time-pausable | facility | 11 | C03 | sourced |
-| [Plague Inc.](../wiki/game/plague-inc.md) | 2012 | Ndemic Creations | ecosystem-evolution | real-time-pausable | planet | 9 | C01 | sourced |
-| [Prison Architect](../wiki/game/prison-architect.md) | 2012 | Introversion Software | management-tycoon | real-time-pausable | facility | 15 | C03 | sourced |
-| [Prom Week](../wiki/game/prom-week.md) | 2012 | UC Santa Cruz Expressive Intelligence Studio | social-sim | turn-based | household | 6 | C04 | sourced |
-| [Species: Artificial Life, Real Evolution](../wiki/game/species-alre.md) | 2012 | Quasar | artificial-life | real-time-pausable | region | 8 | C07 | sourced |
-| [Arma 3](../wiki/game/arma-3.md) | 2013 | Bohemia Interactive | wargame | real-time | individual | 10 | C06 | sourced |
-| [BeamNG.drive](../wiki/game/beamng-drive.md) | 2013 | BeamNG GmbH | vehicle-sim | real-time-pausable | individual | 6 | C06 | sourced |
-| [Europa Universalis IV](../wiki/game/europa-universalis-4.md) | 2013 | Paradox Development Studio | grand-strategy | real-time-pausable | nation | 20 | C01 | sourced |
-| [Factorio](../wiki/game/factorio.md) | 2013 | Wube Software | factory-automation | real-time | facility | 27 | C01 | sourced |
-| [Kenshi](../wiki/game/kenshi.md) | 2013 | Lo-Fi Games | rpg-sim | real-time-pausable | region | 15 | C05 | sourced |
-| [Mini Metro](../wiki/game/mini-metro.md) | 2013 | Dinosaur Polo Club | transport-logistics | real-time-pausable | city | 5 | C12 | sourced |
-| [Papers, Please](../wiki/game/papers-please.md) | 2013 | Lucas Pope (3909 LLC) | job-sim | real-time | individual | 7 | C11 | sourced |
-| [RimWorld](../wiki/game/rimworld.md) | 2013 | Ludeon Studios | colony-sim | real-time-pausable | settlement | 21 | C04 | sourced |
-| [SimCity (2013)](../wiki/game/simcity-2013.md) | 2013 | Maxis Emeryville | city-builder | real-time-pausable | city | 12 | C10 | sourced |
-| [Space Engineers](../wiki/game/space-engineers.md) | 2013 | Keen Software House | sandbox-world | real-time | facility | 14 | C02 | sourced |
-| [Surgeon Simulator](../wiki/game/surgeon-simulator.md) | 2013 | Bossa Studios | medical-sim | real-time | individual | 4 | C02 | sourced |
-| [Tomodachi Life](../wiki/game/tomodachi-life.md) | 2013 | Nintendo SPD | life-sim | real-world-clock | settlement | 8 | C04 | sourced |
-| [Versu](../wiki/game/versu.md) | 2013 | Linden Lab | social-sim | turn-based | household | 6 | C04 | sourced |
-| [Banished](../wiki/game/banished.md) | 2014 | Shining Rock Software | city-builder | real-time-pausable | settlement | 13 | C05 | sourced |
-| [Elite Dangerous](../wiki/game/elite-dangerous.md) | 2014 | Frontier Developments | space-sim | asynchronous-persistent | interplanetary | 17 | C08 | sourced |
-| [Screeps](../wiki/game/screeps.md) | 2014 | Screeps, LLC | programming-sim | asynchronous-persistent | region | 12 | C02 | sourced |
+| [Euro Truck Simulator 2](../wiki/game/euro-truck-simulator-2.md) | 2012 | SCS Software | vehicle-sim | real-time | individual | 11 | C03 | sourced |
+| [FTL: Faster Than Light](../wiki/game/ftl.md) | 2012 | Subset Games | space-sim | real-time-pausable | household | 14 | C01 | sourced |
+| [Game Dev Tycoon](../wiki/game/game-dev-tycoon.md) | 2012 | Greenheart Games | business-economic-sim | real-time-pausable | facility | 12 | C01 | sourced |
+| [Plague Inc.](../wiki/game/plague-inc.md) | 2012 | Ndemic Creations | ecosystem-evolution | real-time-pausable | planet | 9 | C10 | sourced |
+| [Prison Architect](../wiki/game/prison-architect.md) | 2012 | Introversion Software | management-tycoon | real-time-pausable | facility | 17 | C01 | sourced |
+| [Prom Week](../wiki/game/prom-week.md) | 2012 | UC Santa Cruz Expressive Intelligence Studio | social-sim | turn-based | household | 6 | C01 | sourced |
+| [Species: Artificial Life, Real Evolution](../wiki/game/species-alre.md) | 2012 | Quasar | artificial-life | real-time-pausable | region | 8 | C10 | sourced |
+| [Arma 3](../wiki/game/arma-3.md) | 2013 | Bohemia Interactive | wargame | real-time | individual | 10 | C03 | sourced |
+| [BeamNG.drive](../wiki/game/beamng-drive.md) | 2013 | BeamNG GmbH | vehicle-sim | real-time-pausable | individual | 7 | C03 | sourced |
+| [Europa Universalis IV](../wiki/game/europa-universalis-4.md) | 2013 | Paradox Development Studio | grand-strategy | real-time-pausable | nation | 20 | C04 | sourced |
+| [Factorio](../wiki/game/factorio.md) | 2013 | Wube Software | factory-automation | real-time | facility | 28 | C02 | sourced |
+| [Kenshi](../wiki/game/kenshi.md) | 2013 | Lo-Fi Games | rpg-sim | real-time-pausable | region | 16 | C05 | sourced |
+| [Mini Metro](../wiki/game/mini-metro.md) | 2013 | Dinosaur Polo Club | transport-logistics | real-time-pausable | city | 5 | C09 | sourced |
+| [Papers, Please](../wiki/game/papers-please.md) | 2013 | Lucas Pope (3909 LLC) | job-sim | real-time | individual | 7 | C14 | sourced |
+| [RimWorld](../wiki/game/rimworld.md) | 2013 | Ludeon Studios | colony-sim | real-time-pausable | settlement | 24 | C01 | sourced |
+| [SimCity (2013)](../wiki/game/simcity-2013.md) | 2013 | Maxis Emeryville | city-builder | real-time-pausable | city | 14 | C09 | sourced |
+| [Space Engineers](../wiki/game/space-engineers.md) | 2013 | Keen Software House | sandbox-world | real-time | facility | 14 | C07 | sourced |
+| [Surgeon Simulator](../wiki/game/surgeon-simulator.md) | 2013 | Bossa Studios | medical-sim | real-time | individual | 4 | C07 | sourced |
+| [Tomodachi Life](../wiki/game/tomodachi-life.md) | 2013 | Nintendo SPD | life-sim | real-world-clock | settlement | 8 | C01 | sourced |
+| [Versu](../wiki/game/versu.md) | 2013 | Linden Lab | social-sim | turn-based | household | 6 | C01 | sourced |
+| [Banished](../wiki/game/banished.md) | 2014 | Shining Rock Software | city-builder | real-time-pausable | settlement | 16 | C02 | sourced |
+| [Elite Dangerous](../wiki/game/elite-dangerous.md) | 2014 | Frontier Developments | space-sim | asynchronous-persistent | interplanetary | 17 | C11 | sourced |
+| [Screeps](../wiki/game/screeps.md) | 2014 | Screeps, LLC | programming-sim | asynchronous-persistent | region | 12 | C06 | sourced |
 | [Subnautica](../wiki/game/subnautica.md) | 2014 | Unknown Worlds Entertainment | survival-sim | real-time | individual | 8 | C05 | sourced |
 | [The Long Dark](../wiki/game/the-long-dark.md) | 2014 | Hinterland Studio | survival-sim | real-time | individual | 9 | C05 | sourced |
-| [The Sims 4](../wiki/game/the-sims-4.md) | 2014 | Maxis | life-sim | real-time-pausable | household | 17 | C04 | sourced |
-| [This War of Mine](../wiki/game/this-war-of-mine.md) | 2014 | 11 bit studios | survival-sim | real-time | household | 12 | C11 | sourced |
-| [Besiege](../wiki/game/besiege.md) | 2015 | Spiderling Studios | construction-engineering | run-on-demand | individual | 8 | C02 | sourced |
-| [Big Pharma](../wiki/game/big-pharma.md) | 2015 | Twice Circled | factory-automation | real-time-pausable | facility | 9 | C01 | sourced |
-| [Caves of Qud](../wiki/game/caves-of-qud.md) | 2015 | Freehold Games | rpg-sim | turn-based | individual | 9 | C05 | sourced |
-| [Cities: Skylines](../wiki/game/cities-skylines.md) | 2015 | Colossal Order | city-builder | real-time-pausable | city | 15 | C10 | sourced |
-| [Offworld Trading Company](../wiki/game/offworld-trading-company.md) | 2015 | Mohawk Games | business-economic-sim | real-time-pausable | region | 10 | C01 | sourced |
-| [Poly Bridge](../wiki/game/poly-bridge.md) | 2015 | Dry Cactus | construction-engineering | run-on-demand | facility | 7 | C02 | sourced |
-| [Hearts of Iron IV](../wiki/game/hearts-of-iron-4.md) | 2016 | Paradox Development Studio | grand-strategy | real-time-pausable | nation | 16 | C01 | sourced |
-| [Job Simulator](../wiki/game/job-simulator.md) | 2016 | Owlchemy Labs | job-sim | real-time | individual | 3 | C02 | sourced |
-| [Motorsport Manager](../wiki/game/motorsport-manager.md) | 2016 | Playsport Games | sports-management | real-time-pausable | household | 10 | C03 | sourced |
-| [Planet Coaster](../wiki/game/planet-coaster.md) | 2016 | Frontier Developments | management-tycoon | real-time-pausable | facility | 14 | C03 | sourced |
-| [Reigns](../wiki/game/reigns.md) | 2016 | Nerial | political-sim | turn-based | nation | 5 | C11 | sourced |
-| [Stardew Valley](../wiki/game/stardew-valley.md) | 2016 | ConcernedApe | farming-sim | real-time | facility | 14 | C05 | sourced |
-| [Stellaris](../wiki/game/stellaris.md) | 2016 | Paradox Development Studio | 4x-strategy | real-time-pausable | interplanetary | 20 | C01 | sourced |
-| [Bitburner](../wiki/game/bitburner.md) | 2017 | danielyxie and Bitburner contributors | programming-sim | real-world-clock | individual | 8 | C08 | sourced |
-| [Kingdoms and Castles](../wiki/game/kingdoms-and-castles.md) | 2017 | Lion Shield | city-builder | real-time-pausable | settlement | 12 | C05 | sourced |
-| [Mindustry](../wiki/game/mindustry.md) | 2017 | Anuke | factory-automation | real-time-pausable | settlement | 15 | C01 | sourced |
-| [Opus Magnum](../wiki/game/opus-magnum.md) | 2017 | Zachtronics | programming-sim | run-on-demand | micro | 6 | C02 | sourced |
-| [Oxygen Not Included](../wiki/game/oxygen-not-included.md) | 2017 | Klei Entertainment | colony-sim | real-time-pausable | settlement | 20 | C04 | sourced |
-| [Stationeers](../wiki/game/stationeers.md) | 2017 | RocketWerkz | survival-sim | real-time | facility | 12 | C04 | sourced |
+| [The Sims 4](../wiki/game/the-sims-4.md) | 2014 | Maxis | life-sim | real-time-pausable | household | 19 | C01 | sourced |
+| [This War of Mine](../wiki/game/this-war-of-mine.md) | 2014 | 11 bit studios | survival-sim | real-time | household | 12 | C14 | sourced |
+| [Besiege](../wiki/game/besiege.md) | 2015 | Spiderling Studios | construction-engineering | run-on-demand | individual | 8 | C07 | sourced |
+| [Big Pharma](../wiki/game/big-pharma.md) | 2015 | Twice Circled | factory-automation | real-time-pausable | facility | 10 | C02 | sourced |
+| [Caves of Qud](../wiki/game/caves-of-qud.md) | 2015 | Freehold Games | rpg-sim | turn-based | individual | 9 | C12 | sourced |
+| [Cities: Skylines](../wiki/game/cities-skylines.md) | 2015 | Colossal Order | city-builder | real-time-pausable | city | 17 | C09 | sourced |
+| [Offworld Trading Company](../wiki/game/offworld-trading-company.md) | 2015 | Mohawk Games | business-economic-sim | real-time-pausable | region | 12 | C02 | sourced |
+| [Poly Bridge](../wiki/game/poly-bridge.md) | 2015 | Dry Cactus | construction-engineering | run-on-demand | facility | 7 | C07 | sourced |
+| [Hearts of Iron IV](../wiki/game/hearts-of-iron-4.md) | 2016 | Paradox Development Studio | grand-strategy | real-time-pausable | nation | 16 | C04 | sourced |
+| [Job Simulator](../wiki/game/job-simulator.md) | 2016 | Owlchemy Labs | job-sim | real-time | individual | 3 | C07 | sourced |
+| [Motorsport Manager](../wiki/game/motorsport-manager.md) | 2016 | Playsport Games | sports-management | real-time-pausable | household | 10 | C01 | sourced |
+| [Planet Coaster](../wiki/game/planet-coaster.md) | 2016 | Frontier Developments | management-tycoon | real-time-pausable | facility | 17 | C01 | sourced |
+| [Reigns](../wiki/game/reigns.md) | 2016 | Nerial | political-sim | turn-based | nation | 5 | C14 | sourced |
+| [Stardew Valley](../wiki/game/stardew-valley.md) | 2016 | ConcernedApe | farming-sim | real-time | facility | 15 | C05 | sourced |
+| [Stellaris](../wiki/game/stellaris.md) | 2016 | Paradox Development Studio | 4x-strategy | real-time-pausable | interplanetary | 20 | C04 | sourced |
+| [Bitburner](../wiki/game/bitburner.md) | 2017 | danielyxie and Bitburner contributors | programming-sim | real-world-clock | individual | 8 | C06 | sourced |
+| [Kingdoms and Castles](../wiki/game/kingdoms-and-castles.md) | 2017 | Lion Shield | city-builder | real-time-pausable | settlement | 16 | C02 | sourced |
+| [Mindustry](../wiki/game/mindustry.md) | 2017 | Anuke | factory-automation | real-time-pausable | settlement | 16 | C02 | sourced |
+| [Opus Magnum](../wiki/game/opus-magnum.md) | 2017 | Zachtronics | programming-sim | run-on-demand | micro | 6 | C06 | sourced |
+| [Oxygen Not Included](../wiki/game/oxygen-not-included.md) | 2017 | Klei Entertainment | colony-sim | real-time-pausable | settlement | 23 | C01 | sourced |
+| [Stationeers](../wiki/game/stationeers.md) | 2017 | RocketWerkz | survival-sim | real-time | facility | 12 | C07 | sourced |
 | [The Legend of Zelda: Breath of the Wild](../wiki/game/zelda-breath-of-the-wild.md) | 2017 | Nintendo EPD | sandbox-world | real-time-pausable | region | 10 | C05 | sourced |
-| [Eco](../wiki/game/eco.md) | 2018 | Strange Loop Games | mmo-world | asynchronous-persistent | planet | 14 | C01 | sourced |
-| [Equilinox](../wiki/game/equilinox.md) | 2018 | ThinMatrix | ecosystem-evolution | real-time | facility | 8 | C07 | sourced |
-| [Frostpunk](../wiki/game/frostpunk.md) | 2018 | 11 bit studios | city-builder | real-time-pausable | settlement | 11 | C01 | sourced |
-| [House Flipper](../wiki/game/house-flipper.md) | 2018 | Empyrean | job-sim | real-time | facility | 7 | C02 | sourced |
-| [Jurassic World Evolution](../wiki/game/jurassic-world-evolution.md) | 2018 | Frontier Developments | management-tycoon | real-time-pausable | facility | 12 | C08 | sourced |
-| [PC Building Simulator](../wiki/game/pc-building-simulator.md) | 2018 | Claudiu Kiss and The Irregular Corporation | job-sim | real-time | individual | 6 | C02 | sourced |
-| [Project Hospital](../wiki/game/project-hospital.md) | 2018 | Oxymoron Games | medical-sim | real-time-pausable | facility | 9 | C03 | sourced |
-| [Rebel Inc.](../wiki/game/rebel-inc.md) | 2018 | Ndemic Creations | political-sim | real-time-pausable | region | 7 | C01 | sourced |
-| [Surviving Mars](../wiki/game/surviving-mars.md) | 2018 | Haemimont Games | city-builder | real-time-pausable | settlement | 13 | C01 | sourced |
-| [Two Point Hospital](../wiki/game/two-point-hospital.md) | 2018 | Two Point Studios | management-tycoon | real-time-pausable | facility | 15 | C03 | sourced |
-| [AI Dungeon](../wiki/game/ai-dungeon.md) | 2019 | Latitude | ai-native | turn-based | individual | 4 | C09 | sourced |
-| [Anno 1800](../wiki/game/anno-1800.md) | 2019 | Ubisoft Blue Byte | city-builder | real-time-pausable | region | 11 | C01 | sourced |
-| [Autonauts](../wiki/game/autonauts.md) | 2019 | Denki | programming-sim | real-time | settlement | 12 | C02 | sourced |
-| [Command: Modern Operations](../wiki/game/command-modern-operations.md) | 2019 | Warfare Sims | wargame | real-time-pausable | region | 11 | C06 | sourced |
-| [Foundation](../wiki/game/foundation.md) | 2019 | Polymorph Games | city-builder | real-time-pausable | settlement | 8 | C01 | sourced |
-| [Islanders](../wiki/game/islanders.md) | 2019 | Grizzly Games | city-builder | turn-based | settlement | 4 | C03 | sourced |
-| [Noita](../wiki/game/noita.md) | 2019 | Nolla Games | physics-sandbox | real-time | individual | 11 | C02 | sourced |
-| [Planet Zoo](../wiki/game/planet-zoo.md) | 2019 | Frontier Developments | management-tycoon | real-time-pausable | facility | 13 | C03 | sourced |
-| [Satisfactory](../wiki/game/satisfactory.md) | 2019 | Coffee Stain Studios | factory-automation | real-time | facility | 18 | C01 | sourced |
-| [Tropico 6](../wiki/game/tropico-6.md) | 2019 | Limbic Entertainment | city-builder | real-time-pausable | nation | 11 | C01 | sourced |
-| [Workers & Resources: Soviet Republic](../wiki/game/workers-and-resources.md) | 2019 | 3Division | city-builder | real-time-pausable | region | 13 | C01 | sourced |
+| [Eco](../wiki/game/eco.md) | 2018 | Strange Loop Games | mmo-world | asynchronous-persistent | planet | 14 | C06 | sourced |
+| [Equilinox](../wiki/game/equilinox.md) | 2018 | ThinMatrix | ecosystem-evolution | real-time | facility | 8 | C05 | sourced |
+| [Frostpunk](../wiki/game/frostpunk.md) | 2018 | 11 bit studios | city-builder | real-time-pausable | settlement | 14 | C04 | sourced |
+| [House Flipper](../wiki/game/house-flipper.md) | 2018 | Empyrean | job-sim | real-time | facility | 7 | C15 | sourced |
+| [Jurassic World Evolution](../wiki/game/jurassic-world-evolution.md) | 2018 | Frontier Developments | management-tycoon | real-time-pausable | facility | 13 | C02 | sourced |
+| [PC Building Simulator](../wiki/game/pc-building-simulator.md) | 2018 | Claudiu Kiss and The Irregular Corporation | job-sim | real-time | individual | 6 | C15 | sourced |
+| [Project Hospital](../wiki/game/project-hospital.md) | 2018 | Oxymoron Games | medical-sim | real-time-pausable | facility | 10 | C01 | sourced |
+| [Rebel Inc.](../wiki/game/rebel-inc.md) | 2018 | Ndemic Creations | political-sim | real-time-pausable | region | 8 | C04 | sourced |
+| [Surviving Mars](../wiki/game/surviving-mars.md) | 2018 | Haemimont Games | city-builder | real-time-pausable | settlement | 15 | C02 | sourced |
+| [Two Point Hospital](../wiki/game/two-point-hospital.md) | 2018 | Two Point Studios | management-tycoon | real-time-pausable | facility | 17 | C01 | sourced |
+| [AI Dungeon](../wiki/game/ai-dungeon.md) | 2019 | Latitude | ai-native | turn-based | individual | 4 | C08 | sourced |
+| [Anno 1800](../wiki/game/anno-1800.md) | 2019 | Ubisoft Blue Byte | city-builder | real-time-pausable | region | 13 | C02 | sourced |
+| [Autonauts](../wiki/game/autonauts.md) | 2019 | Denki | programming-sim | real-time | settlement | 12 | C06 | sourced |
+| [Command: Modern Operations](../wiki/game/command-modern-operations.md) | 2019 | Warfare Sims | wargame | real-time-pausable | region | 11 | C03 | sourced |
+| [Foundation](../wiki/game/foundation.md) | 2019 | Polymorph Games | city-builder | real-time-pausable | settlement | 9 | C02 | sourced |
+| [Islanders](../wiki/game/islanders.md) | 2019 | Grizzly Games | city-builder | turn-based | settlement | 4 | C11 | sourced |
+| [Noita](../wiki/game/noita.md) | 2019 | Nolla Games | physics-sandbox | real-time | individual | 11 | C07 | sourced |
+| [Planet Zoo](../wiki/game/planet-zoo.md) | 2019 | Frontier Developments | management-tycoon | real-time-pausable | facility | 15 | C01 | sourced |
+| [Satisfactory](../wiki/game/satisfactory.md) | 2019 | Coffee Stain Studios | factory-automation | real-time | facility | 18 | C02 | sourced |
+| [Tropico 6](../wiki/game/tropico-6.md) | 2019 | Limbic Entertainment | city-builder | real-time-pausable | nation | 12 | C04 | sourced |
+| [Workers & Resources: Soviet Republic](../wiki/game/workers-and-resources.md) | 2019 | 3Division | city-builder | real-time-pausable | region | 15 | C02 | sourced |
 | [Animal Crossing: New Horizons](../wiki/game/animal-crossing-new-horizons.md) | 2020 | Nintendo EPD | life-sim | real-world-clock | settlement | 13 | C05 | sourced |
-| [Crusader Kings III](../wiki/game/crusader-kings-3.md) | 2020 | Paradox Development Studio | grand-strategy | real-time-pausable | nation | 19 | C01 | sourced |
-| [Democracy 4](../wiki/game/democracy-4.md) | 2020 | Positech Games | political-sim | turn-based | nation | 11 | C01 | sourced |
-| [Hardspace: Shipbreaker](../wiki/game/hardspace-shipbreaker.md) | 2020 | Blackbird Interactive | job-sim | real-time | individual | 7 | C02 | sourced |
-| [Microsoft Flight Simulator (2020)](../wiki/game/microsoft-flight-simulator-2020.md) | 2020 | Asobo Studio | flight-sim | real-time-pausable | individual | 8 | C06 | sourced |
-| [SnowRunner](../wiki/game/snowrunner.md) | 2020 | Saber Interactive | vehicle-sim | real-time | individual | 7 | C06 | sourced |
-| [Songs of Syx](../wiki/game/songs-of-syx.md) | 2020 | Gamatron AB | city-builder | real-time-pausable | city | 9 | C01 | sourced |
-| [Space Haven](../wiki/game/space-haven.md) | 2020 | Bugbyte | colony-sim | real-time-pausable | household | 15 | C04 | sourced |
-| [Suzerain](../wiki/game/suzerain.md) | 2020 | Torpor Games | political-sim | turn-based | nation | 6 | C11 | sourced |
-| [Teardown](../wiki/game/teardown.md) | 2020 | Tuxedo Labs | physics-sandbox | real-time | facility | 8 | C02 | sourced |
-| [Townscaper](../wiki/game/townscaper.md) | 2020 | Oskar Stålberg | city-builder | turn-based | settlement | 3 | C03 | sourced |
-| [Against the Storm](../wiki/game/against-the-storm.md) | 2021 | Eremite Games | city-builder | real-time-pausable | settlement | 11 | C01 | sourced |
-| [Car Mechanic Simulator 2021](../wiki/game/car-mechanic-simulator-2021.md) | 2021 | Red Dot Games | job-sim | real-time | individual | 6 | C02 | sourced |
-| [Dyson Sphere Program](../wiki/game/dyson-sphere-program.md) | 2021 | Youthcat Studio | factory-automation | real-time | interplanetary | 17 | C01 | sourced |
-| [Going Medieval](../wiki/game/going-medieval.md) | 2021 | Foxy Voxel | colony-sim | real-time-pausable | settlement | 17 | C04 | sourced |
-| [PowerWash Simulator](../wiki/game/powerwash-simulator.md) | 2021 | FuturLab | job-sim | real-time | individual | 4 | C02 | sourced |
-| [Timberborn](../wiki/game/timberborn.md) | 2021 | Mechanistry | city-builder | real-time-pausable | settlement | 11 | C07 | sourced |
+| [Crusader Kings III](../wiki/game/crusader-kings-3.md) | 2020 | Paradox Development Studio | grand-strategy | real-time-pausable | nation | 20 | C04 | sourced |
+| [Democracy 4](../wiki/game/democracy-4.md) | 2020 | Positech Games | political-sim | turn-based | nation | 11 | C04 | sourced |
+| [Hardspace: Shipbreaker](../wiki/game/hardspace-shipbreaker.md) | 2020 | Blackbird Interactive | job-sim | real-time | individual | 7 | C15 | sourced |
+| [Microsoft Flight Simulator (2020)](../wiki/game/microsoft-flight-simulator-2020.md) | 2020 | Asobo Studio | flight-sim | real-time-pausable | individual | 9 | C03 | sourced |
+| [SnowRunner](../wiki/game/snowrunner.md) | 2020 | Saber Interactive | vehicle-sim | real-time | individual | 7 | C03 | sourced |
+| [Songs of Syx](../wiki/game/songs-of-syx.md) | 2020 | Gamatron AB | city-builder | real-time-pausable | city | 11 | C02 | sourced |
+| [Space Haven](../wiki/game/space-haven.md) | 2020 | Bugbyte | colony-sim | real-time-pausable | household | 17 | C01 | sourced |
+| [Suzerain](../wiki/game/suzerain.md) | 2020 | Torpor Games | political-sim | turn-based | nation | 6 | C14 | sourced |
+| [Teardown](../wiki/game/teardown.md) | 2020 | Tuxedo Labs | physics-sandbox | real-time | facility | 8 | C07 | sourced |
+| [Townscaper](../wiki/game/townscaper.md) | 2020 | Oskar Stålberg | city-builder | turn-based | settlement | 3 | C16 | sourced |
+| [Against the Storm](../wiki/game/against-the-storm.md) | 2021 | Eremite Games | city-builder | real-time-pausable | settlement | 13 | C04 | sourced |
+| [Car Mechanic Simulator 2021](../wiki/game/car-mechanic-simulator-2021.md) | 2021 | Red Dot Games | job-sim | real-time | individual | 6 | C15 | sourced |
+| [Dyson Sphere Program](../wiki/game/dyson-sphere-program.md) | 2021 | Youthcat Studio | factory-automation | real-time | interplanetary | 18 | C02 | sourced |
+| [Going Medieval](../wiki/game/going-medieval.md) | 2021 | Foxy Voxel | colony-sim | real-time-pausable | settlement | 21 | C01 | sourced |
+| [PowerWash Simulator](../wiki/game/powerwash-simulator.md) | 2021 | FuturLab | job-sim | real-time | individual | 4 | C15 | sourced |
+| [Timberborn](../wiki/game/timberborn.md) | 2021 | Mechanistry | city-builder | real-time-pausable | settlement | 13 | C10 | sourced |
 | [Valheim](../wiki/game/valheim.md) | 2021 | Iron Gate Studio | survival-sim | real-time | individual | 14 | C05 | sourced |
-| [Captain of Industry](../wiki/game/captain-of-industry.md) | 2022 | MaFi Games | factory-automation | real-time-pausable | settlement | 20 | C01 | sourced |
-| [Farthest Frontier](../wiki/game/farthest-frontier.md) | 2022 | Crate Entertainment | city-builder | real-time-pausable | settlement | 11 | C01 | sourced |
-| [Gran Turismo 7](../wiki/game/gran-turismo-7.md) | 2022 | Polyphony Digital | vehicle-sim | real-time | individual | 6 | C06 | sourced |
-| [Victoria 3](../wiki/game/victoria-3.md) | 2022 | Paradox Development Studio | grand-strategy | real-time-pausable | nation | 18 | C01 | sourced |
-| [Big Ambitions](../wiki/game/big-ambitions.md) | 2023 | Hovgaard Games | business-economic-sim | real-time-pausable | city | 11 | C03 | sourced |
-| [Cities: Skylines II](../wiki/game/cities-skylines-2.md) | 2023 | Colossal Order (Iceflake Studios from 2026) | city-builder | real-time-pausable | city | 14 | C10 | sourced |
-| [Contraband Police](../wiki/game/contraband-police.md) | 2023 | Crazy Rocks Studios | job-sim | real-time | individual | 6 | C11 | sourced |
-| [Generative Agents (Smallville)](../wiki/game/generative-agents-smallville.md) | 2023 | Stanford University and Google Research | ai-native | run-on-demand | settlement | 7 | C09 | sourced |
-| [Suck Up!](../wiki/game/suck-up.md) | 2023 | Proxima Enterprises | ai-native | real-time | individual | 6 | C09 | sourced |
-| [Terra Nil](../wiki/game/terra-nil.md) | 2023 | Free Lives | city-builder | real-time | region | 6 | C07 | sourced |
-| [The Farmer Was Replaced](../wiki/game/the-farmer-was-replaced.md) | 2023 | Timon Herzog | programming-sim | real-time | facility | 6 | C02 | sourced |
-| [Farming Simulator 25](../wiki/game/farming-simulator-25.md) | 2024 | Giants Software | farming-sim | real-time-pausable | facility | 13 | C06 | sourced |
-| [Frostpunk 2](../wiki/game/frostpunk-2.md) | 2024 | 11 bit studios | city-builder | real-time-pausable | city | 9 | C01 | sourced |
-| [Infinite Craft](../wiki/game/infinite-craft.md) | 2024 | Neal Agarwal | ai-native | turn-based | individual | 3 | C09 | sourced |
-| [Manor Lords](../wiki/game/manor-lords.md) | 2024 | Slavic Magic | city-builder | real-time-pausable | settlement | 12 | C01 | sourced |
-| [Microsoft Flight Simulator 2024](../wiki/game/microsoft-flight-simulator-2024.md) | 2024 | Asobo Studio | flight-sim | real-time-pausable | individual | 11 | C06 | sourced |
-| [Project Sid](../wiki/game/project-sid.md) | 2024 | Altera | ai-native | real-time | settlement | 8 | C09 | sourced |
-| [Tiny Glade](../wiki/game/tiny-glade.md) | 2024 | Pounce Light | city-builder | real-time | settlement | 3 | C03 | sourced |
-| [Where Winds Meet](../wiki/game/where-winds-meet.md) | 2024 | Everstone Studio (NetEase Games) | rpg-sim | real-time | individual | 5 | C09 | asserted |
-| [shapez 2](../wiki/game/shapez-2.md) | 2024 | tobspr Games | factory-automation | real-time | facility | 12 | C01 | sourced |
-| [Anno 117: Pax Romana](../wiki/game/anno-117.md) | 2025 | Ubisoft Mainz | city-builder | real-time-pausable | region | 11 | C01 | sourced |
-| [Schedule I](../wiki/game/schedule-i.md) | 2025 | TVGS | business-economic-sim | real-time | city | 11 | C03 | sourced |
-| [Whispers from the Star](../wiki/game/whispers-from-the-star.md) | 2025 | Anuttacon | ai-native | real-time | individual | 3 | C09 | sourced |
-| [inZOI](../wiki/game/inzoi.md) | 2025 | inZOI Studio (Krafton) | life-sim | real-time-pausable | household | 15 | C04 | sourced |
-| [Paralives](../wiki/game/paralives.md) | 2026 | Paralives Studio | life-sim | real-time-pausable | household | 10 | C04 | sourced |
+| [Captain of Industry](../wiki/game/captain-of-industry.md) | 2022 | MaFi Games | factory-automation | real-time-pausable | settlement | 22 | C02 | sourced |
+| [Farthest Frontier](../wiki/game/farthest-frontier.md) | 2022 | Crate Entertainment | city-builder | real-time-pausable | settlement | 14 | C02 | sourced |
+| [Gran Turismo 7](../wiki/game/gran-turismo-7.md) | 2022 | Polyphony Digital | vehicle-sim | real-time | individual | 6 | C03 | sourced |
+| [Victoria 3](../wiki/game/victoria-3.md) | 2022 | Paradox Development Studio | grand-strategy | real-time-pausable | nation | 19 | C04 | sourced |
+| [Big Ambitions](../wiki/game/big-ambitions.md) | 2023 | Hovgaard Games | business-economic-sim | real-time-pausable | city | 12 | C01 | sourced |
+| [Cities: Skylines II](../wiki/game/cities-skylines-2.md) | 2023 | Colossal Order (Iceflake Studios from 2026) | city-builder | real-time-pausable | city | 18 | C09 | sourced |
+| [Contraband Police](../wiki/game/contraband-police.md) | 2023 | Crazy Rocks Studios | job-sim | real-time | individual | 6 | C14 | sourced |
+| [Generative Agents (Smallville)](../wiki/game/generative-agents-smallville.md) | 2023 | Stanford University and Google Research | ai-native | run-on-demand | settlement | 7 | C08 | sourced |
+| [Suck Up!](../wiki/game/suck-up.md) | 2023 | Proxima Enterprises | ai-native | real-time | individual | 6 | C08 | sourced |
+| [Terra Nil](../wiki/game/terra-nil.md) | 2023 | Free Lives | city-builder | real-time | region | 6 | C10 | sourced |
+| [The Farmer Was Replaced](../wiki/game/the-farmer-was-replaced.md) | 2023 | Timon Herzog | programming-sim | real-time | facility | 6 | C06 | sourced |
+| [Farming Simulator 25](../wiki/game/farming-simulator-25.md) | 2024 | Giants Software | farming-sim | real-time-pausable | facility | 14 | C03 | sourced |
+| [Frostpunk 2](../wiki/game/frostpunk-2.md) | 2024 | 11 bit studios | city-builder | real-time-pausable | city | 11 | C04 | sourced |
+| [Infinite Craft](../wiki/game/infinite-craft.md) | 2024 | Neal Agarwal | ai-native | turn-based | individual | 3 | C08 | sourced |
+| [Manor Lords](../wiki/game/manor-lords.md) | 2024 | Slavic Magic | city-builder | real-time-pausable | settlement | 15 | C02 | sourced |
+| [Microsoft Flight Simulator 2024](../wiki/game/microsoft-flight-simulator-2024.md) | 2024 | Asobo Studio | flight-sim | real-time-pausable | individual | 12 | C03 | sourced |
+| [Project Sid](../wiki/game/project-sid.md) | 2024 | Altera | ai-native | real-time | settlement | 8 | C08 | sourced |
+| [Tiny Glade](../wiki/game/tiny-glade.md) | 2024 | Pounce Light | city-builder | real-time | settlement | 3 | C16 | sourced |
+| [Where Winds Meet](../wiki/game/where-winds-meet.md) | 2024 | Everstone Studio (NetEase Games) | rpg-sim | real-time | individual | 5 | C08 | asserted |
+| [shapez 2](../wiki/game/shapez-2.md) | 2024 | tobspr Games | factory-automation | real-time | facility | 12 | C02 | sourced |
+| [Anno 117: Pax Romana](../wiki/game/anno-117.md) | 2025 | Ubisoft Mainz | city-builder | real-time-pausable | region | 13 | C02 | sourced |
+| [Schedule I](../wiki/game/schedule-i.md) | 2025 | TVGS | business-economic-sim | real-time | city | 11 | C01 | sourced |
+| [Whispers from the Star](../wiki/game/whispers-from-the-star.md) | 2025 | Anuttacon | ai-native | real-time | individual | 3 | C08 | sourced |
+| [inZOI](../wiki/game/inzoi.md) | 2025 | inZOI Studio (Krafton) | life-sim | real-time-pausable | household | 17 | C01 | sourced |
+| [Paralives](../wiki/game/paralives.md) | 2026 | Paralives Studio | life-sim | real-time-pausable | household | 12 | C01 | sourced |
 
 
 ## Appendix B. Technique catalog
@@ -1545,57 +1583,7 @@ The report is generated. To add a game, mechanic, technique, or opportunity, fol
 | [Realtime speech-to-speech and expressive TTS for characters](../wiki/technique/realtime-voice-models.md) | speech-audio | 2024 | shipped-niche | 8 | now | breaks |
 
 
-## Appendix C. Opportunity catalog
-
-
-| name | opportunity type | priority | impact | feasibility | novelty | horizon | resolves |
-|---|---|---|---|---|---|---|---|
-| [Why-query over the simulation log](../wiki/opportunity/causal-why-query.md) | legibility-layer | 4.423 | 5 | 4 | 4 | 1-2y | 2027-12-31 |
-| [Branch preview of policy futures](../wiki/opportunity/branch-preview-forecasts.md) | new-mechanic | 4 | 4 | 4 | 4 | 1-2y | 2028-06-30 |
-| [Event-sourced simulation runtime](../wiki/opportunity/event-sourced-sim-runtime.md) | infrastructure | 3.776 | 4 | 4 | 3 | 1-2y | 2028-12-31 |
-| [Mechanic modding by description](../wiki/opportunity/language-modding.md) | authoring-tool | 3.776 | 4 | 4 | 3 | 1-2y | 2028-06-30 |
-| [Salience-gated language agents](../wiki/opportunity/salience-gated-llm-agents.md) | mechanic-upgrade | 3.776 | 4 | 4 | 3 | now | 2028-12-31 |
-| [Bottleneck explainer for production networks](../wiki/opportunity/bottleneck-explainer.md) | legibility-layer | 3.587 | 3 | 5 | 3 | now | 2028-06-30 |
-| [Placement that tells stories](../wiki/opportunity/placement-that-tells-stories.md) | new-mechanic | 3.514 | 3 | 4 | 4 | now | 2028-12-31 |
-| [Local-first AI simulation games](../wiki/opportunity/local-first-ai-sims.md) | business-model | 3.482 | 4 | 4 | 2 | now | 2027-12-31 |
-| [Content-elastic event systems](../wiki/opportunity/content-elastic-events.md) | authoring-tool | 3.318 | 3 | 4 | 3 | now | 2027-12-31 |
-| [Drama-aware storyteller](../wiki/opportunity/drama-aware-storyteller.md) | mechanic-upgrade | 3.318 | 3 | 4 | 3 | now | 2028-06-30 |
-| [Explained delegation to AI managers](../wiki/opportunity/explained-delegation.md) | mechanic-upgrade | 3.318 | 3 | 4 | 3 | 1-2y | 2028-12-31 |
-| [Factories with a living workforce](../wiki/opportunity/living-workforce-factories.md) | new-genre | 3.318 | 3 | 4 | 3 | now | 2029-12-31 |
-| [Intent-level orders](../wiki/opportunity/intent-level-orders.md) | new-mechanic | 3.318 | 3 | 4 | 3 | now | 2028-06-30 |
-| [Learned build assist for cities](../wiki/opportunity/learned-build-assist.md) | mechanic-upgrade | 3.318 | 3 | 4 | 3 | now | 2028-06-30 |
-| [Learned regional weather](../wiki/opportunity/learned-weather-layer.md) | mechanic-upgrade | 3.318 | 3 | 4 | 3 | 1-2y | 2028-12-31 |
-| [Simulation games as agent benchmarks](../wiki/opportunity/sims-as-agent-benchmarks.md) | non-game-transfer | 3.308 | 3 | 5 | 2 | now | 2027-12-31 |
-| [Automated mechanic discovery](../wiki/opportunity/mechanic-discovery-search.md) | authoring-tool | 3.282 | 4 | 2 | 5 | 3-5y | 2030-12-31 |
-| [Language-agent society terrarium](../wiki/opportunity/llm-society-terrarium.md) | new-genre | 3.282 | 4 | 2 | 5 | 3-5y | 2029-12-31 |
-| [Symbolic simulation, neural rendering](../wiki/opportunity/symbolic-sim-neural-render.md) | infrastructure | 3.282 | 4 | 2 | 5 | 3-5y | 2029-12-31 |
-| [Agent ambassadors between player worlds](../wiki/opportunity/agent-ambassadors-async.md) | new-mechanic | 3.178 | 3 | 3 | 4 | 1-2y | 2029-06-30 |
-| [Human-calibrated customers](../wiki/opportunity/human-calibrated-customers.md) | mechanic-upgrade | 3.178 | 3 | 3 | 4 | 1-2y | 2028-12-31 |
-| [Mean-field crowds and traffic](../wiki/opportunity/mean-field-crowds.md) | infrastructure | 3.178 | 3 | 3 | 4 | 3-5y | 2029-12-31 |
-| [Natural-language legislation](../wiki/opportunity/natural-language-legislation.md) | new-mechanic | 3.178 | 3 | 3 | 4 | 1-2y | 2028-12-31 |
-| [Teachable sim companion](../wiki/opportunity/teachable-sim-companion.md) | new-mechanic | 3.178 | 3 | 3 | 4 | 1-2y | 2028-12-31 |
-| [Learned material surrogates at world scale](../wiki/opportunity/learned-material-surrogates.md) | infrastructure | 3.138 | 4 | 2 | 4 | 3-5y | 2029-12-31 |
-| [Specification programming games](../wiki/opportunity/specification-programming-games.md) | new-genre | 3.062 | 2 | 4 | 5 | now | 2028-06-30 |
-| [Generative decoration catalogs](../wiki/opportunity/generative-decoration-catalogs.md) | mechanic-upgrade | 3.059 | 3 | 4 | 2 | now | 2027-12-31 |
-| [Parallel autobalancing of economies](../wiki/opportunity/parallel-autobalance.md) | authoring-tool | 3.059 | 3 | 4 | 2 | now | 2027-12-31 |
-| [Simulator instructor coaching](../wiki/opportunity/sim-instructor-coach.md) | mechanic-upgrade | 3.059 | 3 | 4 | 2 | now | 2027-12-31 |
-| [Negotiating faction AI](../wiki/opportunity/negotiating-faction-ai.md) | mechanic-upgrade | 3 | 3 | 3 | 3 | 1-2y | 2029-06-30 |
-| [Participatory planning sandboxes](../wiki/opportunity/participatory-planning-sandboxes.md) | non-game-transfer | 3 | 3 | 3 | 3 | 1-2y | 2029-12-31 |
-| [Trainable creatures revival](../wiki/opportunity/trainable-creatures-revival.md) | mechanic-upgrade | 3 | 3 | 3 | 3 | 1-2y | 2029-06-30 |
-| [Generated inspection shifts](../wiki/opportunity/generated-inspection-shifts.md) | mechanic-upgrade | 2.989 | 2 | 5 | 3 | now | 2027-12-31 |
-| [Generated dream and replay views](../wiki/opportunity/dream-replay-layer.md) | new-mechanic | 2.769 | 2 | 3 | 5 | 1-2y | 2028-12-31 |
-| [Calibrated serious simulations](../wiki/opportunity/calibrated-serious-sims.md) | non-game-transfer | 2.764 | 2 | 4 | 3 | 1-2y | 2028-12-31 |
-| [Generated recipe graphs](../wiki/opportunity/generated-recipe-graphs.md) | authoring-tool | 2.764 | 2 | 4 | 3 | 1-2y | 2028-12-31 |
-| [Research by named scientists](../wiki/opportunity/scientists-not-tech-trees.md) | mechanic-upgrade | 2.764 | 2 | 4 | 3 | now | 2029-06-30 |
-| [Weather-coupled energy grids](../wiki/opportunity/weather-coupled-grids.md) | mechanic-upgrade | 2.764 | 2 | 4 | 3 | 1-2y | 2028-12-31 |
-| [Illustrated chronicles](../wiki/opportunity/illustrated-chronicles.md) | mechanic-upgrade | 2.756 | 2 | 5 | 2 | now | 2027-12-31 |
-| [Quality-diversity scenario libraries](../wiki/opportunity/qd-scenario-libraries.md) | authoring-tool | 2.756 | 2 | 5 | 2 | now | 2028-06-30 |
-| [Open-ended evolution sandbox](../wiki/opportunity/open-ended-evolution-sandbox.md) | new-genre | 2.648 | 2 | 3 | 4 | 1-2y | 2029-12-31 |
-| [AI liquidity in player markets](../wiki/opportunity/ai-liquidity-in-player-markets.md) | mechanic-upgrade | 2.5 | 2 | 3 | 3 | 1-2y | 2029-06-30 |
-| [Learned motion for simulated crowds](../wiki/opportunity/neural-npc-motion.md) | mechanic-upgrade | 2.5 | 2 | 3 | 3 | 1-2y | 2029-06-30 |
-
-
-## Appendix D. Using and extending this dataset
+## Appendix C. Using and extending this dataset
 
 - **Cite** a specific version by the `dataset_sha256` in `dist/manifest.json` (also printed on this report's title page).
 - **Query** with the CSVs in `dist/tables/`, the graph files in `dist/graph/` (JSON Lines, Cytoscape, GraphML), or `make sqlite` for SQL.
@@ -1619,6 +1607,6 @@ The report is generated. To add a game, mechanic, technique, or opportunity, fol
 <a id="ref-src-openai-2024-realtime-api"></a>[12] OpenAI (2024-10-01). *Introducing the Realtime API*. OpenAI blog https://openai.com/index/introducing-the-realtime-api/  
 <a id="ref-src-openai-2025-gpt-realtime"></a>[13] OpenAI (2025-08-28). *Introducing gpt-realtime*. OpenAI blog https://openai.com/index/introducing-gpt-realtime/  
 <a id="ref-src-inworld-2026-tts-1-5"></a>[14] Inworld AI (2026-01-21). *Inworld TTS-1.5: Upgrading the #1 Ranked TTS Model with Production-Grade Latency, Expression and Stability*. Inworld blog https://inworld.ai/blog/introducing-inworld-tts-1-5  
-<a id="ref-src-techcrunch-2026-project-genie"></a>[15]  (2026-01-29). *I built marshmallow castles in Google's new AI world generator Project Genie*. TechCrunch https://techcrunch.com/2026/01/29/i-built-marshmallow-castles-in-googles-new-ai-world-generator-project-genie  
+<a id="ref-src-techcrunch-2026-project-genie"></a>[15] Rebecca Bellan (2026-01-29). *I built marshmallow castles in Google's new AI world generator Project Genie*. TechCrunch https://techcrunch.com/2026/01/29/i-built-marshmallow-castles-in-googles-new-ai-world-generator-project-genie  
 <a id="ref-src-nvidia-2026-dlss-4-5"></a>[16] NVIDIA (2026-01-06). *NVIDIA DLSS 4.5 Delivers Major Upgrade With 2nd Gen Transformer Model For Super Resolution and 6X Dynamic Multi Frame Generation*. GeForce News https://www.nvidia.com/en-us/geforce/news/dlss-4-5-dynamic-multi-frame-gen-6x-2nd-gen-transformer-super-res/  
 <a id="ref-src-ecmwf-2025-aifs-operational"></a>[17] ECMWF (2025-02-25). *ECMWF's AI forecasts become operational*. ECMWF news https://www.ecmwf.int/en/about/media-centre/news/2025/ecmwfs-ai-forecasts-become-operational  

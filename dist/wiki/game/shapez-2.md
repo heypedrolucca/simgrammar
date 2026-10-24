@@ -28,7 +28,7 @@ A combat-free factory automation game in which the player builds multi-level fac
 | emergence | 2 |
 | influence | 2 |
 | influenced by |  |
-| cluster *(computed)* | C01 |
+| cluster *(computed)* | C02 |
 | core count *(computed)* | 5 |
 | mechanic count *(computed)* | 12 |
 

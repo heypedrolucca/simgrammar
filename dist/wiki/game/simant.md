@@ -28,9 +28,9 @@ A Maxis ant-colony simulation in which the player controls one yellow ant that l
 | agent count order | ~100 |
 | emergence | 3 |
 | influence | 2 |
-| cluster *(computed)* | C01 |
+| cluster *(computed)* | C02 |
 | core count *(computed)* | 3 |
-| mechanic count *(computed)* | 9 |
+| mechanic count *(computed)* | 10 |
 
 ## Summary
 
@@ -57,10 +57,11 @@ Will Wright drew on Hölldobler and Wilson's The Ants to show emergence: individ
 - [Random disasters](../mechanic/random-disasters.md) (supporting): Human footsteps, lawnmowers, bug spray, and electrical outlets kill ants without warning.
 - [Vertical layers](../mechanic/vertical-layers.md) (supporting): Surface yard play is viewed from above while nests are shown in side view underground.
 - [Scenario objectives](../mechanic/scenario-objectives.md) (supporting)
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
 
 ## Sources
 
 - [SimAnt](../source/src-wikipedia-simant.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-gd`.
+Provenance: created in run `2026-10-24-catalog-gd`; reviewed in `2026-10-24-review-fixes`.

@@ -3,8 +3,9 @@ type: game
 name: SimAnt
 aliases:
 - 'SimAnt: The Electronic Ant Colony'
-summary: A Maxis ant-colony simulation in which the player controls one yellow ant that lays trails and recruits
-  nestmates while managing a black colony's castes against a rival red colony, predators, and the household.
+summary: A Maxis ant-colony simulation in which the player controls one yellow ant that lays trails and
+  recruits nestmates while managing a black colony's castes against a rival red colony, predators, and
+  the household.
 year: 1991
 developer: Maxis
 platforms:
@@ -34,34 +35,34 @@ production_tier: aa
 agent_count_order: '100'
 emergence: 3
 influence: 2
-core_loop: steer the yellow ant -> lay trails and recruit followers to food or the red nest -> colony grows under
-  caste allocation -> fight the red colony and survive hazards -> send young queens and drones to found new nests
-  -> take the yard and drive out the humans
-design_notes: 'Will Wright drew on Hölldobler and Wilson''s The Ants to show emergence: individual ants follow simple
-  rules, and the player''s main lever on the colony is the trail field that other ants follow, not orders. The player
-  embodies one ant and can swap into any other, which pairs a direct-avatar view with colony-level allocation of
-  workers, soldiers, and breeders. Rain washes away trails and floods nests, and lawnmowers, bug spray, spiders,
-  and antlions kill ants, so the environment erodes the information the player lays down. Trail-following agents
-  are not yet a mechanic in the taxonomy (proposal stigmergic-trails).'
+core_loop: steer the yellow ant -> lay trails and recruit followers to food or the red nest -> colony
+  grows under caste allocation -> fight the red colony and survive hazards -> send young queens and drones
+  to found new nests -> take the yard and drive out the humans
+design_notes: 'Will Wright drew on Hölldobler and Wilson''s The Ants to show emergence: individual ants
+  follow simple rules, and the player''s main lever on the colony is the trail field that other ants follow,
+  not orders. The player embodies one ant and can swap into any other, which pairs a direct-avatar view
+  with colony-level allocation of workers, soldiers, and breeders. Rain washes away trails and floods
+  nests, and lawnmowers, bug spray, spiders, and antlions kill ants, so the environment erodes the information
+  the player lays down. Trail-following agents are not yet a mechanic in the taxonomy (proposal stigmergic-trails).'
 mechanics:
 - id: direct-avatar
   role: core
-  note: The player is one yellow ant that digs, carries food and pebbles, receives food by trophallaxis, and fights;
-    double-clicking another ant moves control to it.
+  note: The player is one yellow ant that digs, carries food and pebbles, receives food by trophallaxis,
+    and fights; double-clicking another ant moves control to it.
 - id: unit-commands
   role: core
-  note: The yellow ant lays trails to food or enemy nests that other black ants follow, and can recruit a group
-    of nearby ants to follow it into fights against spiders, caterpillars, antlions, or red ants.
+  note: The yellow ant lays trails to food or enemy nests that other black ants follow, and can recruit
+    a group of nearby ants to follow it into fights against spiders, caterpillars, antlions, or red ants.
 - id: population-strata
   role: core
-  note: The colony divides into workers (forage, dig, tend brood), soldiers (fight, eat more, cannot tend brood),
-    the queen, and winged breeders, and the player sets the balance.
+  note: The colony divides into workers (forage, dig, tend brood), soldiers (fight, eat more, cannot tend
+    brood), the queen, and winged breeders, and the player sets the balance.
 - id: work-priorities
   role: supporting
 - id: lifecycle-aging
   role: supporting
-  note: The queen lays eggs that become larvae and adults; young queens and drones mate to found colonies in new
-    map squares.
+  note: The queen lays eggs that become larvae and adults; young queens and drones mate to found colonies
+    in new map squares.
 - id: weather
   role: supporting
   note: Rain washes away trails and can flood nests.
@@ -73,8 +74,12 @@ mechanics:
   note: Surface yard play is viewed from above while nests are shown in side view underground.
 - id: scenario-objectives
   role: supporting
+- id: variable-speed
+  role: supporting
 sources:
 - src-wikipedia-simant
 status: sourced
 provenance:
   created: 2026-10-24-catalog-gd
+  reviewed:
+  - 2026-10-24-review-fixes

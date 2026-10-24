@@ -95,6 +95,10 @@ mechanics:
   role: supporting
   note: Citizens choose between walking, driving, and the player's bus, tram, train, metro, ferry, and
     taxi lines when routing to destinations, so new lines shift demand off roads.
+- id: variable-speed
+  role: supporting
+- id: free-placement
+  role: supporting
 influenced_by:
 - simcity-4
 claims:
@@ -110,3 +114,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-catalog-ga
+  reviewed:
+  - 2026-10-24-review-fixes

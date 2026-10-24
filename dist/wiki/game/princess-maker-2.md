@@ -26,7 +26,7 @@ A raising sim in which the player, as a father figure, schedules a daughter's tr
 | agent count order | ~1 |
 | emergence | 2 |
 | influence | 3 |
-| cluster *(computed)* | C11 |
+| cluster *(computed)* | C14 |
 | core count *(computed)* | 4 |
 | mechanic count *(computed)* | 9 |
 

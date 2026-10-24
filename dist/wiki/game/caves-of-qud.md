@@ -29,7 +29,7 @@ A science-fantasy roguelike RPG with simulated factions, liquids, body parts, an
 | influence | 2 |
 | boundary case | True |
 | core loop | explore generated and handmade zones -> fight, trade, and talk with faction members -> mutate and equip -> uncover generated history -> go deeper |
-| cluster *(computed)* | C05 |
+| cluster *(computed)* | C12 |
 | core count *(computed)* | 3 |
 | mechanic count *(computed)* | 9 |
 

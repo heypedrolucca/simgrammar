@@ -10,23 +10,23 @@ A consumer machine must advance the whole simulation many times per second while
 
 ### 6.2 Authoring cost
 
-Every unit of variety in some mechanics must be made by hand: an animation for each interaction, a line of dialogue for each social exchange, an event for each situation, an asset for each catalog entry. Mechanics with high authoring cost are capped by budgets, and players exhaust them; this is why event decks repeat, why villagers recycle requests, and why social systems in rule-based games read as formulaic. Across mechanics, authoring cost and judged AI leverage have a Spearman correlation of {{stat:rho_authoring_cost_ai_leverage}} (p {{stat:p_authoring_cost_ai_leverage}}): the mechanics most limited by content budgets are, on expert judgment, the ones most open to generative techniques.{{assert:rho_authoring_cost_ai_leverage > 0.2}}
+Every unit of variety in some mechanics must be made by hand: an animation for each interaction, a line of dialogue for each social exchange, an event for each situation, an asset for each catalog entry. Mechanics with high authoring cost are capped by budgets, and players exhaust them; this is why event decks repeat, why villagers recycle requests, and why social systems in rule-based games read as formulaic. Across mechanics, authoring cost and judged AI leverage have a Spearman correlation of {{stat:rho_authoring_cost_ai_leverage}} (p {{stat:p_authoring_cost_ai_leverage}}): the mechanics most limited by content budgets are, in the rater's judgment, the ones most open to generative techniques. Both scores come from the same model rater (§2.6), so the correlation shows a consistent reading rather than independent confirmation.{{assert:rho_authoring_cost_ai_leverage > 0.2}}
 
 **Relaxed by:** constrained language generation for events and dialogue, text-to-3D and neural rendering for assets, learned motion for animation, and procedural generation with learned priors.
 
 ### 6.3 Legibility
 
-Players must form a working model of why the simulation did what it did, or they experience the depth as randomness. Rubric scores show the tension directly: across mechanics, legibility and emergence potential correlate at {{stat:rho_legibility_emergence_potential}} (p {{stat:p_legibility_emergence_potential}}). The mechanics that generate the most unscripted variety are the hardest to understand.{{assert:rho_legibility_emergence_potential < -0.2}}
+Players must form a working model of why the simulation did what it did, or they experience the depth as randomness. The rubric scores show the tension (§5.6): the mechanics that generate the most unscripted variety are the hardest to understand.{{assert:rho_legibility_emergence_potential < -0.2}}
 
 {{figure:legibility-vs-emergence}}
 
-Designers have answered with a whole family of mechanics that own no simulation state ([[data-overlays]], [[causal-tooltips]], [[agent-inspection]], [[history-chronicle]]). Legibility, not compute, is often the binding constraint on how much coupling a commercial game can afford.
+Designers have answered with a whole family of mechanics that own no simulation state ([[data-overlays]], [[causal-tooltips]], [[agent-inspection]], [[history-chronicle]]). Each costs design effort and screen space, and each coupled system a game adds needs one.
 
 **Relaxed by:** language models that read state and event logs and explain causes, forecasting by simulating futures, and learned surrogates that make expensive hidden fields cheap to visualize.
 
 ### 6.4 Determinism
 
-Replays, lockstep multiplayer, bug reproduction, competitive leaderboards, and save integrity require that the same inputs produce the same state. [[factorio]]'s multiplayer depends on it. Determinism has kept stochastic or learned components out of authoritative game state, and it is the constraint that most runtime AI techniques violate: of the {{count:technique}} techniques here, {{stat:n_technique_breaks_determinism}} break reproducibility outright when used at runtime (see `determinism_impact`).
+Replays, lockstep multiplayer, bug reproduction, competitive leaderboards, and save integrity require that the same inputs produce the same state. [[factorio]]'s multiplayer depends on it. Determinism has kept stochastic or learned components out of authoritative game state. Of the {{stat:n_technique_runtime}} techniques here that can run during play, {{stat:n_technique_runtime_breaks}} break reproducibility outright, {{stat:n_technique_runtime_mitigable}} can be made reproducible by seeding, caching, or logging their outputs, and {{stat:n_technique_runtime_preserves}} leave it intact (see `determinism_impact`).{{assert:n_technique_runtime_breaks < n_technique_runtime_mitigable}}
 
 **Relaxed by:** recording model outputs as events so replays read the log rather than re-call the model, splitting authoritative symbolic state from non-authoritative generated presentation, and constrained decoding that maps open-ended outputs into typed, validated state changes.
 
@@ -38,4 +38,4 @@ Rule-driven agents are legible and cheap but shallow: their utilities are visibl
 
 ### 6.6 What the ceilings imply
 
-The five constraints do not move together. Compute and authoring cost are being relaxed fastest, with techniques already shipped. Agent believability is being relaxed at a new cost in determinism and legibility. Legibility is the constraint most worth attacking deliberately, because a deeper simulation is worthless if no one can read it, and it is also where the techniques are most mature relative to their use: explanation over structured state is an application of capabilities that already exist.
+The five constraints do not move together. Authoring cost is being relaxed fastest, with asset, motion, and language techniques already shipped; compute is being relaxed mostly in rendering, not in simulation.{{assert:field.neural-rendering-shaders.maturity == shipped-mainstream}} Agent believability is being relaxed at a new cost in determinism and legibility. Legibility shows the widest gap between available technique and use (§8.1): explanation over structured state needs retrieval, constrained generation, and summarization, all of which exist.

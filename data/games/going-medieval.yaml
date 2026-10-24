@@ -1,8 +1,8 @@
 id: going-medieval
 type: game
 name: Going Medieval
-summary: A colony sim set after a plague in which settlers with traits, needs, and moods dig into and build up a multi-level
-  voxel terrain to survive seasons and raids.
+summary: A colony sim set after a plague in which settlers with traits, needs, and moods dig into and
+  build up a multi-level voxel terrain to survive seasons and raids.
 year: 2021
 year_full_release: 2026
 developer: Foxy Voxel
@@ -33,26 +33,31 @@ production_tier: indie
 agent_count_order: '10'
 emergence: 3
 influence: 1
-core_loop: dig into and build up voxel terrain -> assign settlers to roles and jobs -> settlers meet needs and mood shifts
-  -> seasons change food supply -> raiders and beasts attack the walls -> research, build higher, and take in newcomers
-design_notes: 'It follows the RimWorld pattern of named settlers with traits, perks, skills, needs, and moods, and is widely
-  compared to RimWorld and Dwarf Fortress. Its distinctive layer is a fully three-dimensional voxel map: the player can dig
-  cellars and caverns, raise multi-storey stone and timber forts, and reshape earth and water, so defensive geometry and storage
-  depth are design problems in three dimensions. Early access ran from June 2021 to the 1.0 release in March 2026.'
+core_loop: dig into and build up voxel terrain -> assign settlers to roles and jobs -> settlers meet needs
+  and mood shifts -> seasons change food supply -> raiders and beasts attack the walls -> research, build
+  higher, and take in newcomers
+design_notes: 'It follows the RimWorld pattern of named settlers with traits, perks, skills, needs, and
+  moods, and is widely compared to RimWorld and Dwarf Fortress. Its distinctive layer is a fully three-dimensional
+  voxel map: the player can dig cellars and caverns, raise multi-storey stone and timber forts, and reshape
+  earth and water, so defensive geometry and storage depth are design problems in three dimensions. Early
+  access ran from June 2021 to the 1.0 release in March 2026.'
 mechanics:
 - id: terraforming
   role: core
-  note: A 3D terrain toolset digs out or fills voxel earth and water on a randomly generated multi-level map, so cellars,
-    moats, and caverns are carved from the ground.
+  note: A 3D terrain toolset digs out or fills voxel earth and water on a randomly generated multi-level
+    map, so cellars, moats, and caverns are carved from the ground.
 - id: vertical-layers
   role: core
-  note: Settlements stack multi-storey buildings above ground and cellars and caverns below, connected by stairs and ladders.
+  note: Settlements stack multi-storey buildings above ground and cellars and caverns below, connected
+    by stairs and ladders.
 - id: needs-decay
   role: core
-  note: Settlers track needs such as hunger, sleep, clothing preferences, and religion, and meeting them keeps settlers content.
+  note: Settlers track needs such as hunger, sleep, clothing preferences, and religion, and meeting them
+    keeps settlers content.
 - id: raid-defense
   role: core
-  note: Repeated bandit raids and animal attacks are met with walls, traps, and settlers equipped and commanded in battle.
+  note: Repeated bandit raids and animal attacks are met with walls, traps, and settlers equipped and
+    commanded in battle.
 - id: mood-breakdown
   role: supporting
   note: Settlers in poor conditions become dissatisfied and may leave the settlement.
@@ -88,6 +93,14 @@ mechanics:
   note: Research unlocks medieval technology.
 - id: permadeath
   role: supporting
+- id: variable-speed
+  role: supporting
+- id: free-placement
+  role: supporting
+- id: utility-action-selection
+  role: supporting
+- id: storage-capacity
+  role: supporting
 influenced_by:
 - rimworld
 sources:
@@ -96,3 +109,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-catalog-gb
+  reviewed:
+  - 2026-10-24-review-fixes

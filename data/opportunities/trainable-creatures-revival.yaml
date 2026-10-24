@@ -41,12 +41,16 @@ validation_experiment: 'Build a creature with a learned policy trained online fr
   a 2D world; measure how many feedback events it takes to learn three behaviors and whether its self-explanations
   match its actual policy. Success: under 30 feedback events per behavior and 80 percent explanation accuracy.'
 falsifiable_signal:
-  prediction: A commercial virtual-pet or god game will ship a creature whose behavior is trained online
-    by player feedback with a learned model.
+  prediction: A virtual-pet or god game will ship a creature controlled by a learned neural or reinforcement-learning
+    policy that player feedback updates during play.
   resolve_by: '2029-06-30'
-  criteria: Developer documentation describing on-device or server learning of a creature policy from
-    player feedback.
+  criteria: Title released after 2026-10-24 with at least 1,000 Steam user reviews or a console release;
+    developer documentation states that the creature's behavior comes from a deep neural network (more
+    than one hidden layer), a language model, or a deep RL policy whose parameters change in response
+    to that player's feedback. Single-layer learners such as Black & White's perceptrons do not count.
 sources: []
 status: asserted
 provenance:
   created: 2026-10-24-synthesis
+  reviewed:
+  - 2026-10-24-review-fixes

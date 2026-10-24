@@ -37,10 +37,15 @@ validation_experiment: 'Simulate a 200-player market with and without calibrated
   data from a public game economy; measure spread, depth, volatility, and human profit share. Success:
   tighter spreads and lower volatility with human profit share unchanged within 5 percent.'
 falsifiable_signal:
-  prediction: A persistent online game will announce AI market participants calibrated to player behavior.
+  prediction: A persistent online game will add AI traders to its player-driven market, with their behavior
+    fitted to observed player trading.
   resolve_by: '2029-06-30'
-  criteria: Developer announcement or documentation of AI traders in a player-driven market.
+  criteria: Announced or shipped after 2026-10-24 in a persistent online game with a player-driven market;
+    developer material states that AI market participants were trained or calibrated on player trade data.
+    NPC vendors with fixed prices do not count.
 sources: []
 status: asserted
 provenance:
   created: 2026-10-24-synthesis
+  reviewed:
+  - 2026-10-24-review-fixes

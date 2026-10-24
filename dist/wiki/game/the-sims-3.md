@@ -27,9 +27,9 @@ The third mainline Sims game, which places households in a seamless open neighbo
 | emergence | 3 |
 | influence | 3 |
 | influenced by | [The Sims 2](../game/the-sims-2.md) |
-| cluster *(computed)* | C04 |
+| cluster *(computed)* | C01 |
 | core count *(computed)* | 3 |
-| mechanic count *(computed)* | 16 |
+| mechanic count *(computed)* | 18 |
 
 ## Summary
 
@@ -67,6 +67,8 @@ Neighborhoods are seamless worlds, so Sims walk between lots without loading scr
 - [Permadeath](../mechanic/permadeath.md) (supporting): Sims die of old age or of fire, starvation, drowning, or electrocution.
 - [Aspirations and wants](../mechanic/aspiration-wants.md) (supporting): A Lifetime Wish is chosen at creation and short-term wishes appear from traits and events; fulfilled wishes pay Lifetime Happiness points spent on Lifetime Rewards.
 - [Off-screen life progression](../mechanic/offscreen-life-progression.md) (supporting): Story Progression keeps households the player is not controlling aging, working, forming relationships, and moving around the open neighborhood; it can be switched off in the options.
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
+- [Utility action selection](../mechanic/utility-action-selection.md) (supporting)
 
 ## Backlinks (computed)
 
@@ -78,4 +80,4 @@ Neighborhoods are seamless worlds, so Sims walk between lots without loading scr
 - [Motive](../source/src-simswiki-2026-motive.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-gc`.
+Provenance: created in run `2026-10-24-catalog-gc`; reviewed in `2026-10-24-review-fixes`.

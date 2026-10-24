@@ -15,7 +15,7 @@ Revive the Creatures and Black & White lineage with creatures whose behavior is 
 | impact | 3 |
 | horizon | 1-2 years |
 | key risks | Learning that is too slow or too fast reads as fake., Reward hacking produces creatures that game the player., On-device training cost. |
-| falsifiable signal | {'prediction': 'A commercial virtual-pet or god game will ship a creature whose behavior is trained online by player feedback with a learned model.', 'resolve_by': '2029-06-30', 'criteria': 'Developer documentation describing on-device or server learning of a creature policy from player feedback.'} |
+| falsifiable signal | {'prediction': 'A virtual-pet or god game will ship a creature controlled by a learned neural or reinforcement-learning policy that player feedback updates during play.', 'resolve_by': '2029-06-30', 'criteria': "Title released after 2026-10-24 with at least 1,000 Steam user reviews or a console release; developer documentation states that the creature's behavior comes from a deep neural network (more than one hidden layer), a language model, or a deep RL policy whose parameters change in response to that player's feedback. Single-layer learners such as Black & White's perceptrons do not count."} |
 | priority *(computed)* | 3.0 |
 
 ## Thesis
@@ -38,9 +38,9 @@ Build a creature with a learned policy trained online from player feedback in a 
 
 ## Falsifiable signal
 
-- **Prediction:** A commercial virtual-pet or god game will ship a creature whose behavior is trained online by player feedback with a learned model.
+- **Prediction:** A virtual-pet or god game will ship a creature controlled by a learned neural or reinforcement-learning policy that player feedback updates during play.
 - **Resolve by:** 2029-06-30
-- **Criteria:** Developer documentation describing on-device or server learning of a creature policy from player feedback.
+- **Criteria:** Title released after 2026-10-24 with at least 1,000 Steam user reviews or a console release; developer documentation states that the creature's behavior comes from a deep neural network (more than one hidden layer), a language model, or a deep RL policy whose parameters change in response to that player's feedback. Single-layer learners such as Black & White's perceptrons do not count.
 
 ## Relations
 
@@ -67,4 +67,4 @@ Build a creature with a learned policy trained online from player feedback in a 
 - [Tamagotchi](../game/tamagotchi.md)
 
 ---
-Provenance: created in run `2026-10-24-synthesis`.
+Provenance: created in run `2026-10-24-synthesis`; reviewed in `2026-10-24-review-fixes`.

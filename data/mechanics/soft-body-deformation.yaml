@@ -49,7 +49,7 @@ authoring_cost: 3
 compute_cost: 4
 tuning_difficulty: 3
 ai_leverage: 3
-maturity: emerging
+maturity: experimental
 synergy:
 - id: vehicle-dynamics
   note: Deforming chassis change handling after impacts (BeamNG.drive).
@@ -61,3 +61,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-taxonomy-m4
+  reviewed:
+  - 2026-10-24-review-fixes

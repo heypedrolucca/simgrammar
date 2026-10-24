@@ -26,7 +26,7 @@ A 2013 iPad interactive story platform from Linden Lab in which the player contr
 | agent count order | ~10 |
 | emergence | 3 |
 | influence | 2 |
-| cluster *(computed)* | C04 |
+| cluster *(computed)* | C01 |
 | core count *(computed)* | 2 |
 | mechanic count *(computed)* | 6 |
 

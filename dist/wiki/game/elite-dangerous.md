@@ -29,7 +29,7 @@ An online space sim set in a 1:1 procedurally generated Milky Way where players 
 | emergence | 3 |
 | influence | 2 |
 | influenced by | [Elite](../game/elite.md) |
-| cluster *(computed)* | C08 |
+| cluster *(computed)* | C11 |
 | core count *(computed)* | 3 |
 | mechanic count *(computed)* | 17 |
 

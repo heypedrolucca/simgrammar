@@ -27,9 +27,9 @@ A zero-player cellular automaton on an infinite square grid in which each cell l
 | agent count order | None |
 | emergence | 5 |
 | influence | 5 |
-| cluster *(computed)* | C03 |
-| core count *(computed)* | 2 |
-| mechanic count *(computed)* | 4 |
+| cluster *(computed)* | C12 |
+| core count *(computed)* | 1 |
+| mechanic count *(computed)* | 3 |
 
 ## Summary
 
@@ -41,16 +41,15 @@ place live cells on the grid -> apply birth on 3 and survival on 2 or 3 neighbor
 
 ## Design Notes
 
-Conway's rule is the minimal case of emergence from local update: each cell's next state depends only on how many of its eight neighbors are alive, all cells update simultaneously, and the only input is the initial pattern. The rule is Turing complete, so whether an arbitrary pattern stops changing is undecidable, and decades of discovery (Gosper's period-30 glider gun of November 1970, the R-pentomino's 1,103-generation run) came from players searching seeds. Simulators such as Golly add Hashlife for large time jumps and scripting for rule variants. A general cellular-automaton rule is not yet a mechanic in the taxonomy (proposal cellular-automaton-rule); adjacency-scoring is the nearest existing id.
+Conway's rule is the minimal case of emergence from local update: each cell's next state depends only on how many of its eight neighbors are alive, all cells update simultaneously, and the only input is the initial pattern. The rule is Turing complete, so whether an arbitrary pattern stops changing is undecidable, and decades of discovery (Gosper's period-30 glider gun of November 1970, the R-pentomino's 1,103-generation run) came from players searching seeds. Simulators such as Golly add Hashlife for large time jumps and scripting for rule variants. The rule itself is not yet a mechanic in the taxonomy (proposal cellular-automaton-rule), so the decomposition records seeding, stepping, and run speed.
 
 ## Relations
 
 **uses**
 
-- [Adjacency scoring](../mechanic/adjacency-scoring.md) (core): A dead cell with exactly 3 live neighbors is born, a live cell with 2 or 3 survives, and all others die; the neighbor count is the whole update rule.
 - [Building placement](../mechanic/free-placement.md) (core): The player's only act is toggling cells on the grid to set the seed before running generations.
-- [Blueprints](../mechanic/blueprints.md) (supporting): Implementations store patterns as files and libraries that can be stamped into a grid and shared.
-- [Pause and speed control](../mechanic/variable-speed.md) (supporting): Simulators step one generation at a time or run fast, and Hashlife in Golly jumps far ahead in time.
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting): Computer implementations step one generation at a time or run continuously; later simulators such as Golly use Hashlife to jump far ahead in time.
+- [Turn structure](../mechanic/turn-structure.md) (supporting): Each generation is a discrete synchronous update the player can step through one at a time.
 
 ## Backlinks (computed)
 
@@ -61,4 +60,4 @@ Conway's rule is the minimal case of emergence from local update: each cell's ne
 - [Conway's Game of Life](../source/src-wikipedia-conways-game-of-life.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-gd`.
+Provenance: created in run `2026-10-24-catalog-gd`; reviewed in `2026-10-24-review-fixes`.

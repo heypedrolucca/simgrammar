@@ -27,7 +27,7 @@ A ten-turn text game in which the player, as the Babylonian king Hammurabi, spli
 | agent count order | Aggregate only |
 | emergence | 2 |
 | influence | 3 |
-| cluster *(computed)* | C05 |
+| cluster *(computed)* | C12 |
 | core count *(computed)* | 3 |
 | mechanic count *(computed)* | 6 |
 

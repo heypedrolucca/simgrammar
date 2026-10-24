@@ -38,12 +38,15 @@ validation_experiment: 'Implement a mean-field traffic solver on a 100,000-trip 
   travel-time distributions with a full agent-based baseline. Success: within 10 percent on mean and 90th
   percentile travel times at a tenth of the compute.'
 falsifiable_signal:
-  prediction: A commercial city builder will document a mean-field or continuum crowd model as its primary
-    traffic or population simulation.
+  prediction: A city builder will document a mean-field or continuum crowd model as its primary traffic
+    or population simulation.
   resolve_by: '2029-12-31'
-  criteria: Developer documentation naming a mean-field, continuum, or equilibrium-field method used at
-    runtime.
+  criteria: Released or patched after 2026-10-24 in a title with at least 1,000 Steam user reviews; developer
+    documentation names a mean-field, continuum, or equilibrium-field method used at runtime for the main
+    traffic or population model.
 sources: []
 status: asserted
 provenance:
   created: 2026-10-24-synthesis
+  reviewed:
+  - 2026-10-24-review-fixes

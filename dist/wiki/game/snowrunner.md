@@ -26,7 +26,7 @@ An off-road trucking sim in which the player hauls cargo across mud, snow, and w
 | agent count order | None |
 | emergence | 3 |
 | influence | 2 |
-| cluster *(computed)* | C06 |
+| cluster *(computed)* | C03 |
 | core count *(computed)* | 3 |
 | mechanic count *(computed)* | 7 |
 

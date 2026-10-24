@@ -38,12 +38,15 @@ validation_experiment: 'Generate chronicles for 30 logged colony runs and have t
   and whether they would share them. Success: average accuracy above 4 of 5 and more than half willing
   to share.'
 falsifiable_signal:
-  prediction: A systemic simulation game will ship an automatic, player-shareable narrative summary of
-    a run's history.
+  prediction: A systemic simulation game will ship an automatic, shareable narrative summary of a run's
+    history generated from its event log.
   resolve_by: '2027-12-31'
-  criteria: Shipped feature in a released title or official expansion, described in patch notes or store
-    text.
+  criteria: Feature first shipped after 2026-10-24 in a released title or official expansion with at least
+    1,000 Steam user reviews; patch notes or store text describe an automatically written run history
+    the player can export or share.
 sources: []
 status: asserted
 provenance:
   created: 2026-10-24-synthesis
+  reviewed:
+  - 2026-10-24-review-fixes

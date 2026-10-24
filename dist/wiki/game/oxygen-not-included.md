@@ -30,9 +30,9 @@ A side-view colony sim in which a few duplicants survive inside an asteroid wher
 | emergence | 4 |
 | influence | 3 |
 | influenced by | [Dwarf Fortress](../game/dwarf-fortress.md), [Prison Architect](../game/prison-architect.md), [The Sims](../game/the-sims.md) |
-| cluster *(computed)* | C04 |
+| cluster *(computed)* | C01 |
 | core count *(computed)* | 6 |
-| mechanic count *(computed)* | 20 |
+| mechanic count *(computed)* | 23 |
 
 ## Summary
 
@@ -86,6 +86,9 @@ Each cell holds one element with a mass and a temperature, and heat moves betwee
 - [Data overlays](../mechanic/data-overlays.md) (supporting): Oxygen, temperature, power, plumbing, and germ overlays show hidden cell state.
 - [Tech tree](../mechanic/tech-tree.md) (supporting): Research unlocks buildings.
 - [Procedural terrain](../mechanic/procedural-terrain.md) (supporting): Asteroids are procedurally generated.
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
+- [Building placement](../mechanic/free-placement.md) (supporting)
+- [Storage and buffers](../mechanic/storage-capacity.md) (supporting)
 
 ## Backlinks (computed)
 
@@ -104,4 +107,4 @@ Each cell holds one element with a mass and a temperature, and heat moves betwee
 - [Natural Gas Generator](../source/src-oniwiki-2026-natural-gas-generator.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-gb`.
+Provenance: created in run `2026-10-24-catalog-gb`; reviewed in `2026-10-24-review-fixes`.

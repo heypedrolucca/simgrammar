@@ -21,11 +21,11 @@ Goods occupy finite storage; buffers decouple producers from consumers, and full
 | maturity | Classic |
 | open questions | Can automatic buffer sizing advisors teach players about backpressure without solving the layout for them? |
 | core count *(computed)* | 0 |
-| earliest game *(computed)* | [Factorio](../game/factorio.md) |
-| earliest year *(computed)* | 2013 |
-| prevalence *(computed)* | 9 |
-| prevalence share *(computed)* | 0.052 |
-| subgenre spread *(computed)* | 3 |
+| earliest game *(computed)* | [Caesar III](../game/caesar-3.md) |
+| earliest year *(computed)* | 1998 |
+| prevalence *(computed)* | 19 |
+| prevalence share *(computed)* | 0.109 |
+| subgenre spread *(computed)* | 4 |
 | technique count *(computed)* | 0 |
 | technique exposure *(computed)* | 0.0 |
 
@@ -64,9 +64,9 @@ Buffers give breathing room and hide problems. Players size storage to survive s
 
 ## Backlinks (computed)
 
-**involved in:** [Bottleneck explainer for production networks](../opportunity/bottleneck-explainer.md), [Weather-coupled energy grids](../opportunity/weather-coupled-grids.md)
+**involved in:** [Bottleneck explainer for production networks](../opportunity/bottleneck-explainer.md)
 
-**used by:** [Anno 1800](../game/anno-1800.md), [Banished](../game/banished.md), [Big Ambitions](../game/big-ambitions.md), [Captain of Industry](../game/captain-of-industry.md), [Dyson Sphere Program](../game/dyson-sphere-program.md), [Factorio](../game/factorio.md), [Satisfactory](../game/satisfactory.md), [Timberborn](../game/timberborn.md), [Workers & Resources: Soviet Republic](../game/workers-and-resources.md)
+**used by:** [Anno 1800](../game/anno-1800.md), [Banished](../game/banished.md), [Big Ambitions](../game/big-ambitions.md), [Caesar III](../game/caesar-3.md), [Captain of Industry](../game/captain-of-industry.md), [Dwarf Fortress](../game/dwarf-fortress.md), [Dyson Sphere Program](../game/dyson-sphere-program.md), [Factorio](../game/factorio.md), [Farthest Frontier](../game/farthest-frontier.md), [Frostpunk](../game/frostpunk.md), [Going Medieval](../game/going-medieval.md), [Kingdoms and Castles](../game/kingdoms-and-castles.md), [Manor Lords](../game/manor-lords.md), [Oxygen Not Included](../game/oxygen-not-included.md), [Pharaoh](../game/pharaoh.md), [RimWorld](../game/rimworld.md), [Satisfactory](../game/satisfactory.md), [Timberborn](../game/timberborn.md), [Workers & Resources: Soviet Republic](../game/workers-and-resources.md)
 
 ## Sources
 

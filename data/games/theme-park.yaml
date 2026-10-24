@@ -86,8 +86,12 @@ mechanics:
   role: supporting
   note: On the full-simulation level, staff wage talks and supply negotiations are haggles; failed wage
     talks end in strikes and failed supply talks in lost shipments.
+- id: utility-action-selection
+  role: supporting
 sources:
 - src-wikipedia-theme-park
 status: sourced
 provenance:
   created: 2026-10-24-catalog-ge
+  reviewed:
+  - 2026-10-24-review-fixes

@@ -18,7 +18,7 @@ Remote units or outposts need a continuous connection to a supply source; cuttin
 | compute cost | 2 |
 | tuning difficulty | 3 |
 | ai leverage | 2 |
-| maturity | Classic |
+| maturity | Established |
 | open questions | Could an AI opponent that reasons about supply networks produce more convincing operational play than current scripted AIs? |
 | core count *(computed)* | 1 |
 | earliest game *(computed)* | [Hearts of Iron IV](../game/hearts-of-iron-4.md) |
@@ -70,4 +70,4 @@ Strategy at the level of the map. Players plan advances along supply routes, pau
 - [Supply](../source/src-paradoxwikis-2026-hoi4-supply.md)
 
 ---
-Provenance: created in run `2026-10-24-taxonomy-m1`.
+Provenance: created in run `2026-10-24-taxonomy-m1`; reviewed in `2026-10-24-review-fixes`.

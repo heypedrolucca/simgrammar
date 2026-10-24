@@ -1,8 +1,9 @@
 id: surviving-mars
 type: game
 name: Surviving Mars
-summary: A Mars colony city builder in which drones build power, water, and oxygen networks before colonists with
-  traits arrive in domes, while research, Earth sponsors, and dust storms, meteors, and cold waves shape survival.
+summary: A Mars colony city builder in which drones build power, water, and oxygen networks before colonists
+  with traits arrive in domes, while research, Earth sponsors, and dust storms, meteors, and cold waves
+  shape survival.
 year: 2018
 developer: Haemimont Games
 platforms:
@@ -33,19 +34,20 @@ production_tier: aa
 agent_count_order: '100'
 emergence: 3
 influence: 1
-core_loop: land rockets with drones and prefabs -> drones build power, water, and oxygen infrastructure -> build
-  domes and bring colonists from Earth -> colonists' traits, comfort, and sanity drive work and stability -> research
-  and export rare metals for funding -> weather disasters and Mysteries
-design_notes: 'Surviving Mars splits construction from population: drones working within range of hubs build and
-  maintain everything, and colonists arrive only after domes have power, water, and oxygen. Colonists carry traits,
-  flaws, and specializations and track morale, comfort, sanity, and health, so dome services decide whether they
-  work, turn Earthsick, or rebel. Mysteries layer authored storylines (plagues, rival corporations, AI revolts,
-  alien contact) on top of disasters such as dust storms, meteors, and cold waves.'
+core_loop: land rockets with drones and prefabs -> drones build power, water, and oxygen infrastructure
+  -> build domes and bring colonists from Earth -> colonists' traits, comfort, and sanity drive work and
+  stability -> research and export rare metals for funding -> weather disasters and Mysteries
+design_notes: 'Surviving Mars splits construction from population: drones working within range of hubs
+  build and maintain everything, and colonists arrive only after domes have power, water, and oxygen.
+  Colonists carry traits, flaws, and specializations and track morale, comfort, sanity, and health, so
+  dome services decide whether they work, turn Earthsick, or rebel. Mysteries layer authored storylines
+  (plagues, rival corporations, AI revolts, alien contact) on top of disasters such as dust storms, meteors,
+  and cold waves.'
 mechanics:
 - id: power-grid
   role: core
-  note: Generators and batteries feed cable networks to domes and buildings; a dome without power, water, or oxygen
-    cannot sustain colonists.
+  note: Generators and batteries feed cable networks to domes and buildings; a dome without power, water,
+    or oxygen cannot sustain colonists.
 - id: fluid-pipe-network
   role: core
   note: Water and oxygen travel by pipe from extractors and producers to domes.
@@ -82,8 +84,14 @@ mechanics:
 - id: resource-extraction
   role: supporting
   note: Metals, rare metals, concrete, and water are extracted; rare metal exports fund imports.
+- id: variable-speed
+  role: supporting
+- id: free-placement
+  role: supporting
 sources:
 - src-wikipedia-surviving-mars
 status: sourced
 provenance:
   created: 2026-10-24-catalog-ga
+  reviewed:
+  - 2026-10-24-review-fixes

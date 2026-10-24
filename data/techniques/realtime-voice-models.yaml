@@ -65,6 +65,7 @@ runtime:
 determinism_impact: breaks
 horizon: now
 risks:
+- determinism
 - compute-cost
 - latency
 - labor
@@ -146,3 +147,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-techniques-llm-agents
+  reviewed:
+  - 2026-10-24-review-fixes

@@ -1,0 +1,42 @@
+id: 2026-10-24-review-fixes
+type: run
+kind: maintenance
+date: '2026-10-24'
+actor: agent
+operator: yoheinakajima
+agent:
+  model: claude-opus-5-5
+  harness: Claude app (cloud workspace), orchestrator
+purpose: Apply fixes from an independent review of the report and dataset (coding gaps, clustering and
+  white-space artifacts, prediction falsifiability, contradictions between prose and technique data, unsupported
+  entity claims).
+method: 'An independent reviewer found systematic omissions in game decompositions: agents had tagged
+  distinctive mechanics and skipped ubiquitous ones. Applied rule-based completions only where the game''s
+  own fields imply the mechanic (pause and speed control for real-time-with-pause games that expose speed
+  controls; building placement for games whose agency includes zoning or placement and that place structures),
+  plus targeted additions confirmed by the game''s documentation (utility action selection in colony,
+  life, and crowd-management sims; fire spread; storage). Added power-grid and weather to Cities: Skylines
+  II from the developer''s feature page, which removed a white-space pair and made one opportunity''s
+  prediction already true, so that opportunity was deprecated in favor of the broader learned-weather
+  opportunity. Tightened prediction criteria to objective thresholds and a post-2026-10-24 window. Made
+  techniques whose determinism_impact is "breaks" list determinism among their risks. Changed the analysis
+  so ubiquitous mechanics do not dominate: inverse-prevalence weights and k=16 for clustering, time-and-pacing
+  excluded from white space (ADR-0003). Rewrote report sections 5 to 10 against the recomputed data and
+  pinned interpretive sentences with assertions on stats, derived fields, stored fields, and table ranks.
+  Labeled every rubric score as a single model rater''s judgment. Removed claims not supported by cited
+  sources (walker-service-delivery sequels, Infinite Craft traffic, DCS release dates) and extended the
+  DCS World source notes from its Wikipedia article. Corrected the realtime speech price change (about
+  68 percent from launch pricing), the Steam disclosure shares, GDC usage, and the PUBG Ally beta status;
+  added the TechCrunch Project Genie author. Reconciled mechanic maturity with catalog dates (W104).'
+scope:
+- data/games/* (mechanic tags, provenance)
+- data/opportunities/* (prediction criteria, one deprecation)
+- data/techniques/* (risks, one claim)
+- data/mechanics/* (maturity, one rescore, one claim)
+- data/sources/* (notes, one author)
+- report/src/*
+- report/analysis.yaml
+- scripts/analyze.py, scripts/report_render.py, scripts/validate.py, scripts/rules.py
+- schema/technique.schema.json
+contract_version: '1.0'
+proposals: []

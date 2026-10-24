@@ -26,7 +26,7 @@ A Dreamcast virtual pet in which the player talks through a microphone to a sard
 | agent count order | ~1 |
 | emergence | 2 |
 | influence | 2 |
-| cluster *(computed)* | C04 |
+| cluster *(computed)* | C13 |
 | core count *(computed)* | 4 |
 | mechanic count *(computed)* | 8 |
 

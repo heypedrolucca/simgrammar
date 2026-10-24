@@ -28,7 +28,7 @@ A Nintendo 3DS life sim in which player-made Mii characters live in an island ap
 | agent count order | ~100 |
 | emergence | 3 |
 | influence | 2 |
-| cluster *(computed)* | C04 |
+| cluster *(computed)* | C01 |
 | core count *(computed)* | 3 |
 | mechanic count *(computed)* | 8 |
 

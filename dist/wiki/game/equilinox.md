@@ -26,7 +26,7 @@ A relaxed nature-building game in which the player spreads biomes with grasses, 
 | agent count order | ~100 |
 | emergence | 2 |
 | influence | 1 |
-| cluster *(computed)* | C07 |
+| cluster *(computed)* | C05 |
 | core count *(computed)* | 3 |
 | mechanic count *(computed)* | 8 |
 

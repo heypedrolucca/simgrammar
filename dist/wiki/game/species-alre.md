@@ -28,7 +28,7 @@ A solo-developed evolution simulator in which creatures defined by numeric genes
 | agent count order | ~100 |
 | emergence | 3 |
 | influence | 1 |
-| cluster *(computed)* | C07 |
+| cluster *(computed)* | C10 |
 | core count *(computed)* | 2 |
 | mechanic count *(computed)* | 8 |
 

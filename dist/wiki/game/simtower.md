@@ -28,9 +28,9 @@ A skyscraper management game in which the player stacks offices, condos, hotels,
 | agent count order | ~1,000 |
 | emergence | 3 |
 | influence | 2 |
-| cluster *(computed)* | C03 |
+| cluster *(computed)* | C09 |
 | core count *(computed)* | 4 |
-| mechanic count *(computed)* | 8 |
+| mechanic count *(computed)* | 9 |
 
 ## Summary
 
@@ -56,10 +56,11 @@ SimTower turns a building into a vertical transit problem: standard elevators sp
 - [Agent pathfinding](../mechanic/agent-pathfinding.md) (supporting): People route between floors by elevators, escalators, and stairs.
 - [Treasury and budget](../mechanic/budget-treasury.md) (supporting): Rent and sales income fund construction.
 - [Random disasters](../mechanic/random-disasters.md) (supporting): Terrorist bomb threats with a ransom or search, fires, and pest infestations.
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
 
 ## Sources
 
 - [SimTower](../source/src-wikipedia-simtower.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-ga`.
+Provenance: created in run `2026-10-24-catalog-ga`; reviewed in `2026-10-24-review-fixes`.

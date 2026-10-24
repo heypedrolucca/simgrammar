@@ -15,7 +15,7 @@ Players state goals in plain language and the game compiles them into priorities
 | impact | 3 |
 | horizon | Now |
 | key risks | Ambiguous intents compile to surprising rules., Hides the very systems some players enjoy mastering., Conflicting standing rules produce opaque behavior. |
-| falsifiable signal | {'prediction': 'A released colony or management sim will let players issue standing natural-language orders that compile into its job and priority systems.', 'resolve_by': '2028-06-30', 'criteria': 'Patch notes, store page, or developer statement describing the feature in a shipped title or official expansion.'} |
+| falsifiable signal | {'prediction': 'A colony or management sim will let players issue standing natural-language orders that compile into its job and priority systems.', 'resolve_by': '2028-06-30', 'criteria': "Feature first shipped after 2026-10-24 in a title or official expansion with at least 1,000 Steam user reviews; patch notes, store page, or developer statement describe free-text standing orders translated into the game's existing work or priority settings."} |
 | priority *(computed)* | 3.318 |
 
 ## Summary
@@ -42,9 +42,9 @@ Collect 200 player-stated intents from colony sim forums, compile them into a pr
 
 ## Falsifiable signal
 
-- **Prediction:** A released colony or management sim will let players issue standing natural-language orders that compile into its job and priority systems.
+- **Prediction:** A colony or management sim will let players issue standing natural-language orders that compile into its job and priority systems.
 - **Resolve by:** 2028-06-30
-- **Criteria:** Patch notes, store page, or developer statement describing the feature in a shipped title or official expansion.
+- **Criteria:** Feature first shipped after 2026-10-24 in a title or official expansion with at least 1,000 Steam user reviews; patch notes, store page, or developer statement describe free-text standing orders translated into the game's existing work or priority settings.
 
 ## Relations
 
@@ -71,4 +71,4 @@ Collect 200 player-stated intents from colony sim forums, compile them into a pr
 - [Prison Architect](../game/prison-architect.md)
 
 ---
-Provenance: created in run `2026-10-24-synthesis`.
+Provenance: created in run `2026-10-24-synthesis`; reviewed in `2026-10-24-review-fixes`.

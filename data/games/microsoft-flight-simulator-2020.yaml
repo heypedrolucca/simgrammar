@@ -66,8 +66,12 @@ mechanics:
   note: The whole Earth is built from Bing Maps imagery updated every 28 days and AI-generated 3D content
     streamed from more than two petabytes in the cloud, while Meteoblue live weather and live air traffic
     feed the sim at runtime.
+- id: variable-speed
+  role: supporting
 sources:
 - src-wikipedia-microsoft-flight-simulator-2020
 status: sourced
 provenance:
   created: 2026-10-24-catalog-gf
+  reviewed:
+  - 2026-10-24-review-fixes

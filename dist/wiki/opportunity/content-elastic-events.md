@@ -14,7 +14,7 @@ Remove the authoring ceiling on event chains, requests, and dilemmas by generati
 | feasibility | 4 |
 | impact | 3 |
 | horizon | Now |
-| falsifiable signal | {'prediction': 'A grand strategy, life sim, or narrative management game will ship runtime-generated events constrained by an event schema, disclosed on its Steam page.', 'resolve_by': '2027-12-31', 'criteria': 'Steam AI disclosure or developer documentation describing runtime-generated events in a released title.'} |
+| falsifiable signal | {'prediction': 'A grand strategy, life sim, or narrative management game will ship runtime-generated events constrained by an event schema.', 'resolve_by': '2027-12-31', 'criteria': 'Feature first shipped after 2026-10-24 in a title with at least 1,000 Steam user reviews; the Steam AI disclosure or developer documentation states that events are generated during play and must conform to a fixed structure of triggers, options, and effects.'} |
 | priority *(computed)* | 3.318 |
 
 ## Summary
@@ -41,9 +41,9 @@ Take 50 authored events from an existing design, generate 500 variants, have bli
 
 ## Falsifiable signal
 
-- **Prediction:** A grand strategy, life sim, or narrative management game will ship runtime-generated events constrained by an event schema, disclosed on its Steam page.
+- **Prediction:** A grand strategy, life sim, or narrative management game will ship runtime-generated events constrained by an event schema.
 - **Resolve by:** 2027-12-31
-- **Criteria:** Steam AI disclosure or developer documentation describing runtime-generated events in a released title.
+- **Criteria:** Feature first shipped after 2026-10-24 in a title with at least 1,000 Steam user reviews; the Steam AI disclosure or developer documentation states that events are generated during play and must conform to a fixed structure of triggers, options, and effects.
 
 ## Relations
 
@@ -70,4 +70,4 @@ Take 50 authored events from an existing design, generate 500 variants, have bli
 - [Frostpunk](../game/frostpunk.md)
 
 ---
-Provenance: created in run `2026-10-24-synthesis`.
+Provenance: created in run `2026-10-24-synthesis`; reviewed in `2026-10-24-review-fixes`.

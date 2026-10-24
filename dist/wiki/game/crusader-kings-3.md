@@ -28,9 +28,9 @@ A character-driven grand strategy game in which the player rules as successive h
 | agent count order | 10,000+ |
 | emergence | 4 |
 | influence | 2 |
-| cluster *(computed)* | C01 |
+| cluster *(computed)* | C04 |
 | core count *(computed)* | 4 |
-| mechanic count *(computed)* | 19 |
+| mechanic count *(computed)* | 20 |
 
 ## Summary
 
@@ -67,6 +67,7 @@ CK3 makes the player a character rather than a state: realm strength depends on 
 - [Territorial control](../mechanic/territorial-control.md) (supporting): Counties belong to titles with de jure hierarchies, and wars are fought to press claims on them; conquered counties start with low county control.
 - [War score and peace terms](../mechanic/war-score-peace.md) (supporting): War score from battles and occupation lets the attacker enforce the war goal at full score, while either side can offer white peace.
 - [Statistical combat resolution](../mechanic/stat-combat-resolution.md) (supporting): Battles resolve from army size, men-at-arms, knights, commander skill, and terrain, in phases that run until one side is routed.
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
 
 ## Backlinks (computed)
 
@@ -79,4 +80,4 @@ CK3 makes the player a character rather than a state: realm strength depends on 
 - [Victoria 3 nested tooltip system](../source/src-pcgamesn-2022-victoria-3-nested-tooltips.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-gi`.
+Provenance: created in run `2026-10-24-catalog-gi`; reviewed in `2026-10-24-review-fixes`.

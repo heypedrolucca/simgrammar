@@ -27,7 +27,7 @@ A turn-based government sim in which the player, as leader of a democracy, adjus
 | agent count order | ~1,000 |
 | emergence | 2 |
 | influence | 2 |
-| cluster *(computed)* | C01 |
+| cluster *(computed)* | C04 |
 | core count *(computed)* | 3 |
 | mechanic count *(computed)* | 11 |
 

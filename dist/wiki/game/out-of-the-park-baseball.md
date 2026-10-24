@@ -27,7 +27,7 @@ A text-based baseball management sim in which the player runs a franchise's rost
 | agent count order | ~1,000 |
 | emergence | 3 |
 | influence | 2 |
-| cluster *(computed)* | C03 |
+| cluster *(computed)* | C01 |
 | core count *(computed)* | 4 |
 | mechanic count *(computed)* | 11 |
 

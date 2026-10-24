@@ -1,8 +1,8 @@
 id: x-plane
 type: game
 name: X-Plane
-summary: A flight sim whose flight model computes forces on small elements of each wing, control surface, and propeller
-  from aircraft geometry, used for entertainment and in FAA-approved training devices.
+summary: A flight sim whose flight model computes forces on small elements of each wing, control surface,
+  and propeller from aircraft geometry, used for entertainment and in FAA-approved training devices.
 year: 1995
 developer: Laminar Research
 platforms:
@@ -30,21 +30,22 @@ production_tier: indie
 agent_count_order: '10'
 emergence: 2
 influence: 3
-core_loop: pick or design an aircraft -> set location and weather -> fly by hand or autopilot -> blade-element forces
-  respond to geometry and air -> land -> revise the aircraft in Plane Maker
-design_notes: 'X-Plane uses blade element theory: wings, control surfaces, and propellers are split into elements
-  and aerodynamic forces are computed on each from geometry, rather than looked up from performance tables, so an
-  aircraft drawn in the bundled Plane Maker flies according to its shape. That approach underpins its use in FAA-approved
-  training systems when paired with suitable hardware. A plugin SDK exposes simulator data for instruments, cockpits,
-  and external hardware.'
+core_loop: pick or design an aircraft -> set location and weather -> fly by hand or autopilot -> blade-element
+  forces respond to geometry and air -> land -> revise the aircraft in Plane Maker
+design_notes: 'X-Plane uses blade element theory: wings, control surfaces, and propellers are split into
+  elements and aerodynamic forces are computed on each from geometry, rather than looked up from performance
+  tables, so an aircraft drawn in the bundled Plane Maker flies according to its shape. That approach
+  underpins its use in FAA-approved training systems when paired with suitable hardware. A plugin SDK
+  exposes simulator data for instruments, cockpits, and external hardware.'
 mechanics:
 - id: flight-aerodynamics
   role: core
-  note: Blade element theory splits wings, control surfaces, and propellers into small elements and computes aerodynamic
-    forces on each from geometry and physical parameters.
+  note: Blade element theory splits wings, control surfaces, and propellers into small elements and computes
+    aerodynamic forces on each from geometry and physical parameters.
 - id: modular-assembly
   role: supporting
-  note: Plane Maker lets users define aircraft geometry and components and then fly the result in the simulator.
+  note: Plane Maker lets users define aircraft geometry and components and then fly the result in the
+    simulator.
 - id: weather
   role: supporting
   note: X-Plane 12 reworked clouds, turbulence, and atmospheric effects, and version 12.3 added a weather-radar
@@ -55,12 +56,16 @@ mechanics:
   role: supporting
 - id: modding-api
   role: supporting
-  note: The plugin SDK lets developers read simulator data and add instruments, cockpit interfaces, and hardware
-    support.
+  note: The plugin SDK lets developers read simulator data and add instruments, cockpit interfaces, and
+    hardware support.
 - id: day-night-cycle
+  role: supporting
+- id: variable-speed
   role: supporting
 sources:
 - src-wikipedia-x-plane
 status: sourced
 provenance:
   created: 2026-10-24-catalog-gf
+  reviewed:
+  - 2026-10-24-review-fixes

@@ -27,9 +27,9 @@ The city builder in which a mayor zones residential, commercial, and industrial 
 | agent count order | Aggregate only |
 | emergence | 3 |
 | influence | 5 |
-| cluster *(computed)* | C10 |
+| cluster *(computed)* | C09 |
 | core count *(computed)* | 5 |
-| mechanic count *(computed)* | 14 |
+| mechanic count *(computed)* | 17 |
 
 ## Summary
 
@@ -61,6 +61,9 @@ Will Wright grew the game out of the map editor he built for Raid on Bungeling B
 - [Random disasters](../mechanic/random-disasters.md) (supporting): Fire, flood, tornado, earthquake, and a pollution-gated monster fire at 1/481, 1/241, or 1/61 per cycle by difficulty.
 - [Scenario objectives](../mechanic/scenario-objectives.md) (supporting): Time-limited scenarios such as Detroit 1972 set a goal to reach before the clock ends, added at Broderbund's suggestion.
 - [Citizen satisfaction](../mechanic/citizen-satisfaction.md) (supporting): A yearly evaluation turns problem scores into a 0-1000 rating and an approval poll.
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
+- [Building placement](../mechanic/free-placement.md) (supporting)
+- [Fire spread](../mechanic/fire-spread.md) (supporting)
 
 ## Backlinks (computed)
 
@@ -74,4 +77,4 @@ Will Wright grew the game out of the map editor he built for Raid on Bungeling B
 - [Micropolis: open-source SimCity source code](../source/src-hopkins-2008-micropolis.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-ga`.
+Provenance: created in run `2026-10-24-catalog-ga`; reviewed in `2026-10-24-review-fixes`.

@@ -27,7 +27,7 @@ A strategy game in which the player evolves a pathogen's transmission, symptoms,
 | agent count order | Aggregate only |
 | emergence | 2 |
 | influence | 2 |
-| cluster *(computed)* | C01 |
+| cluster *(computed)* | C10 |
 | core count *(computed)* | 3 |
 | mechanic count *(computed)* | 9 |
 

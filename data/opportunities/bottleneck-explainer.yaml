@@ -39,12 +39,15 @@ validation_experiment: 'Implement sensitivity analysis over a factory prototype'
   test whether players fix an injected bottleneck faster with the lens. Success: 50 percent faster fixes
   with no drop in reported satisfaction among experienced players when the lens is optional.'
 falsifiable_signal:
-  prediction: A factory or city-building game will ship a feature that identifies the binding constraint
-    in the player's production network by simulation sensitivity rather than static ratio display.
+  prediction: A factory or city-building game will ship a feature that names the binding constraint in
+    the player's production network by testing the simulation, not by displaying static ratios.
   resolve_by: '2028-06-30'
-  criteria: Shipped feature described in patch notes or developer blog of a released title or official
-    mod tool.
+  criteria: Feature first shipped after 2026-10-24 in a released title or official mod tool with at least
+    1,000 Steam user reviews; patch notes or a developer blog state that it perturbs or re-runs the player's
+    network to identify the limiting resource, machine, or link.
 sources: []
 status: asserted
 provenance:
   created: 2026-10-24-synthesis
+  reviewed:
+  - 2026-10-24-review-fixes

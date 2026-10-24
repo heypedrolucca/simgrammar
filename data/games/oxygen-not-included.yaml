@@ -3,8 +3,8 @@ type: game
 name: Oxygen Not Included
 aliases:
 - ONI
-summary: A side-view colony sim in which a few duplicants survive inside an asteroid where every tile holds an element with
-  mass and temperature, so air, liquids, heat, and germs flow through the base.
+summary: A side-view colony sim in which a few duplicants survive inside an asteroid where every tile
+  holds an element with mass and temperature, so air, liquids, heat, and germs flow through the base.
 year: 2017
 year_full_release: 2019
 developer: Klei Entertainment
@@ -37,54 +37,60 @@ production_tier: indie
 agent_count_order: '10'
 emergence: 4
 influence: 3
-core_loop: dig into the asteroid -> lay out rooms, pipes, and wires -> duplicants perform prioritized errands -> oxygen, heat,
-  germs, and waste redistribute tile by tile -> stress and shortfalls surface -> rebuild toward closed, sustainable loops
-design_notes: 'Each cell holds one element with a mass and a temperature, and heat moves between cells every 0.2 s tick by
-  conduction, so insulation, phase changes, and overheating machines follow from one rule rather than from per-building scripts.
-  Most machines emit byproducts (a natural gas generator makes 800 W plus polluted water and carbon dioxide), so the long
-  game is closing loops so waste becomes input. Mood uses a morale-versus-expectation gap: learning skills raises a duplicant''s
-  expectation, so better-trained colonists need better food, rooms, and decor. Wikipedia names Dwarf Fortress, Prison Architect,
-  and The Sims as design influences.'
+core_loop: dig into the asteroid -> lay out rooms, pipes, and wires -> duplicants perform prioritized
+  errands -> oxygen, heat, germs, and waste redistribute tile by tile -> stress and shortfalls surface
+  -> rebuild toward closed, sustainable loops
+design_notes: 'Each cell holds one element with a mass and a temperature, and heat moves between cells
+  every 0.2 s tick by conduction, so insulation, phase changes, and overheating machines follow from one
+  rule rather than from per-building scripts. Most machines emit byproducts (a natural gas generator makes
+  800 W plus polluted water and carbon dioxide), so the long game is closing loops so waste becomes input.
+  Mood uses a morale-versus-expectation gap: learning skills raises a duplicant''s expectation, so better-trained
+  colonists need better food, rooms, and decor. Wikipedia names Dwarf Fortress, Prison Architect, and
+  The Sims as design influences.'
 mechanics:
 - id: fluid-gas-simulation
   role: core
-  note: Every tile holds one gas, liquid, or solid with a mass; gases diffuse and equalize when a chamber is opened, and liquids
-    drain under gravity, so breathable oxygen must be produced and carbon dioxide managed.
+  note: Every tile holds one gas, liquid, or solid with a mass; gases diffuse and equalize when a chamber
+    is opened, and liquids drain under gravity, so breathable oxygen must be produced and carbon dioxide
+    managed.
 - id: heat-transfer
   role: core
-  note: Cells exchange heat each 0.2 s tick with q = dT x dt x k x 1000, with multipliers for solid-gas and liquid-liquid
-    contact; insulated tiles divide conductivity, and temperature thresholds melt, freeze, boil, or damage things.
+  note: Cells exchange heat each 0.2 s tick with q = dT x dt x k x 1000, with multipliers for solid-gas
+    and liquid-liquid contact; insulated tiles divide conductivity, and temperature thresholds melt, freeze,
+    boil, or damage things.
 - id: byproducts-waste
   role: core
-  note: Machines and duplicants emit polluted water, polluted oxygen, carbon dioxide, and heat; a natural gas generator consumes
-    90 g/s of gas for 800 W and outputs 67.5 g/s polluted water and 22.5 g/s CO2.
+  note: Machines and duplicants emit polluted water, polluted oxygen, carbon dioxide, and heat; a natural
+    gas generator consumes 90 g/s of gas for 800 W and outputs 67.5 g/s polluted water and 22.5 g/s CO2.
 - id: fluid-pipe-network
   role: core
-  note: Gas and liquid pipes carry packets between buildings; a liquid pipe segment holds 10 kg and moves packets once per
-    second, capping a line at 10 kg/s, and pipe contents exchange heat with their tiles.
+  note: Gas and liquid pipes carry packets between buildings; a liquid pipe segment holds 10 kg and moves
+    packets once per second, capping a line at 10 kg/s, and pipe contents exchange heat with their tiles.
 - id: mood-breakdown
   role: core
-  note: Morale is the sum of timed buffs (Mess Hall +3, Private Bedroom +3, food up to +16, decor up to +12) compared to an
-    expectation that rises with skills learned; each point under adds 2.5% stress per cycle up to 25%, full stress triggers
-    a stress response, and 8 or more points over can trigger overjoyed responses.
+  note: Morale is the sum of timed buffs (Mess Hall +3, Private Bedroom +3, food up to +16, decor up to
+    +12) compared to an expectation that rises with skills learned; each point under adds 2.5% stress
+    per cycle up to 25%, full stress triggers a stress response, and 8 or more points over can trigger
+    overjoyed responses.
 - id: work-priorities
   role: core
-  note: Every errand carries a priority, and each duplicant has per-errand-type priorities on the Priorities screen; duplicants
-    pick the highest available errand and favor tasks they are good at.
+  note: Every errand carries a priority, and each duplicant has per-errand-type priorities on the Priorities
+    screen; duplicants pick the highest available errand and favor tasks they are good at.
 - id: designation-orders
   role: supporting
   note: Dig, build, mop, and deconstruct orders placed on tiles.
 - id: contagion
   role: supporting
-  note: Germs live on tiles, items, gases, and liquids; exposure past per-germ thresholds gives a contraction chance of 0.5
-    - 0.5 x tanh(resistance / 4).
+  note: Germs live on tiles, items, gases, and liquids; exposure past per-germ thresholds gives a contraction
+    chance of 0.5 - 0.5 x tanh(resistance / 4).
 - id: power-grid
   role: supporting
-  note: Coal, hydrogen, natural gas, and manual generators on wires and batteries; overloaded circuits take damage.
+  note: Coal, hydrogen, natural gas, and manual generators on wires and batteries; overloaded circuits
+    take damage.
 - id: signal-circuits
   role: supporting
-  note: Automation wires, sensors, and logic gates control doors, pumps, and generators; extended by the Automation Innovation
-    update.
+  note: Automation wires, sensors, and logic gates control doors, pumps, and generators; extended by the
+    Automation Innovation update.
 - id: agent-skills
   role: supporting
   note: Skill points are spent on skills, which raise morale expectations.
@@ -93,7 +99,8 @@ mechanics:
   note: Traits such as Germ Resistant or Allergies change resistances and stress reactions.
 - id: room-recognition
   role: supporting
-  note: Enclosed rooms that meet requirements become Mess Halls, Bedrooms, and similar rooms that grant morale buffs.
+  note: Enclosed rooms that meet requirements become Mess Halls, Bedrooms, and similar rooms that grant
+    morale buffs.
 - id: decoration-beauty
   role: supporting
   note: Decor around a duplicant is compared to its recent average and feeds morale.
@@ -115,6 +122,12 @@ mechanics:
 - id: procedural-terrain
   role: supporting
   note: Asteroids are procedurally generated.
+- id: variable-speed
+  role: supporting
+- id: free-placement
+  role: supporting
+- id: storage-capacity
+  role: supporting
 influenced_by:
 - dwarf-fortress
 - prison-architect
@@ -130,3 +143,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-catalog-gb
+  reviewed:
+  - 2026-10-24-review-fixes

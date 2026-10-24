@@ -27,7 +27,7 @@ A browser crafting game in which combining any two elements yields a new element
 | emergence | 2 |
 | influence | 1 |
 | boundary case | True |
-| cluster *(computed)* | C09 |
+| cluster *(computed)* | C08 |
 | core count *(computed)* | 2 |
 | mechanic count *(computed)* | 3 |
 

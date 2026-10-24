@@ -15,7 +15,7 @@ Generate solvable, non-degenerate, on-theme production recipe graphs and tech tr
 | impact | 2 |
 | horizon | 1-2 years |
 | key risks | Generated graphs feel arbitrary without thematic logic., Agents optimize for metrics that miss what makes a recipe satisfying. |
-| falsifiable signal | {'prediction': 'A factory or crafting game or major overhaul mod will credit a generative tool for its recipe graph or tech tree.', 'resolve_by': '2028-12-31', 'criteria': 'Developer or mod author statement crediting algorithmic or model-based generation of the shipped recipe graph.'} |
+| falsifiable signal | {'prediction': 'A factory or crafting game or overhaul mod will credit algorithmic or model-based generation for its recipe graph or tech tree.', 'resolve_by': '2028-12-31', 'criteria': 'Released after 2026-10-24; a game with at least 1,000 Steam user reviews, or a mod with at least 10,000 downloads on its official mod portal; the developer or mod author states that the shipped recipe graph was produced or substantially shaped by a generative tool.'} |
 | priority *(computed)* | 2.764 |
 
 ## Thesis
@@ -37,9 +37,9 @@ Generate 100 recipe graphs for a fixed resource set and have experienced factory
 
 ## Falsifiable signal
 
-- **Prediction:** A factory or crafting game or major overhaul mod will credit a generative tool for its recipe graph or tech tree.
+- **Prediction:** A factory or crafting game or overhaul mod will credit algorithmic or model-based generation for its recipe graph or tech tree.
 - **Resolve by:** 2028-12-31
-- **Criteria:** Developer or mod author statement crediting algorithmic or model-based generation of the shipped recipe graph.
+- **Criteria:** Released after 2026-10-24; a game with at least 1,000 Steam user reviews, or a mod with at least 10,000 downloads on its official mod portal; the developer or mod author states that the shipped recipe graph was produced or substantially shaped by a generative tool.
 
 ## Relations
 
@@ -65,4 +65,4 @@ Generate 100 recipe graphs for a fixed resource set and have experienced factory
 - [Minecraft](../game/minecraft.md)
 
 ---
-Provenance: created in run `2026-10-24-synthesis`.
+Provenance: created in run `2026-10-24-synthesis`; reviewed in `2026-10-24-review-fixes`.

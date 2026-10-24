@@ -15,7 +15,7 @@ Subsystem managers that learn the player's preferences from their past decisions
 | impact | 3 |
 | horizon | 1-2 years |
 | key risks | Imitating a novice player perpetuates mistakes., Explanations that rationalize rather than explain., Late-game play becomes approval clicking. |
-| falsifiable signal | {'prediction': "A grand strategy or management game will ship AI managers that learn from the individual player's past decisions.", 'resolve_by': '2028-12-31', 'criteria': 'Developer documentation describing per-player preference learning for delegated subsystems.'} |
+| falsifiable signal | {'prediction': "A grand strategy or management game will ship AI managers that learn delegation policy from the individual player's own past decisions.", 'resolve_by': '2028-12-31', 'criteria': "Feature first shipped after 2026-10-24 in a title with at least 1,000 Steam user reviews; developer documentation states that delegated subsystems adapt to the specific player's recorded choices. Fixed presets or global difficulty settings do not count."} |
 | priority *(computed)* | 3.318 |
 
 ## Thesis
@@ -38,9 +38,9 @@ Train a manager by imitation on a player's first 10 hours of decisions in a stra
 
 ## Falsifiable signal
 
-- **Prediction:** A grand strategy or management game will ship AI managers that learn from the individual player's past decisions.
+- **Prediction:** A grand strategy or management game will ship AI managers that learn delegation policy from the individual player's own past decisions.
 - **Resolve by:** 2028-12-31
-- **Criteria:** Developer documentation describing per-player preference learning for delegated subsystems.
+- **Criteria:** Feature first shipped after 2026-10-24 in a title with at least 1,000 Steam user reviews; developer documentation states that delegated subsystems adapt to the specific player's recorded choices. Fixed presets or global difficulty settings do not count.
 
 ## Relations
 
@@ -66,4 +66,4 @@ Train a manager by imitation on a player's first 10 hours of decisions in a stra
 - [Victoria 3](../game/victoria-3.md)
 
 ---
-Provenance: created in run `2026-10-24-synthesis`.
+Provenance: created in run `2026-10-24-synthesis`; reviewed in `2026-10-24-review-fixes`.

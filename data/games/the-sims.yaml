@@ -98,6 +98,8 @@ mechanics:
   role: supporting
   note: Sims die from neglect or accidents and leave an urn or tombstone; the household continues without
     them.
+- id: variable-speed
+  role: supporting
 influenced_by:
 - little-computer-people
 sources:
@@ -105,3 +107,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-catalog-gc
+  reviewed:
+  - 2026-10-24-review-fixes

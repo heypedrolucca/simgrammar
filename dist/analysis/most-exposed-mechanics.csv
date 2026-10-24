@@ -1,7 +1,7 @@
 mechanic,family,technique_exposure,technique_count,prevalence
 generative-content,narrative-generation,5.812,13,7
 procedural-terrain,world-generation,4.188,10,20
-utility-action-selection,agents-behavior,2.95,7,3
+utility-action-selection,agents-behavior,2.95,7,18
 rigid-body-physics,physics-materials,2.788,8,13
 direct-avatar,control-automation,2.75,6,31
 natural-language-interaction,social-relations,2.175,6,11

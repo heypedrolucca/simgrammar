@@ -27,9 +27,9 @@ The fourth mainline Sims game, built around a dominant emotion computed from moo
 | emergence | 3 |
 | influence | 2 |
 | influenced by | [The Sims 3](../game/the-sims-3.md) |
-| cluster *(computed)* | C04 |
+| cluster *(computed)* | C01 |
 | core count *(computed)* | 3 |
-| mechanic count *(computed)* | 17 |
+| mechanic count *(computed)* | 19 |
 
 ## Summary
 
@@ -68,6 +68,8 @@ The Sims 4 makes emotion the central state: moodlets from actions, events, objec
 - [Autonomy levels](../mechanic/autonomy-levels.md) (supporting): Free will can be toggled; with it off Sims act only on player orders except for urgent needs.
 - [Aspirations and wants](../mechanic/aspiration-wants.md) (supporting): The chosen aspiration grants a bonus trait and a track of milestones whose completion earns reward traits; short-term whims, later reworked as wants and fears, appear from emotions and traits.
 - [Off-screen life progression](../mechanic/offscreen-life-progression.md) (supporting): Neighborhood Stories, added in a free update, advances unplayed households with events such as moves, relationships, and births, with settings that limit which households and event types it may touch.
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
+- [Utility action selection](../mechanic/utility-action-selection.md) (supporting)
 
 ## Backlinks (computed)
 
@@ -79,4 +81,4 @@ The Sims 4 makes emotion the central state: moodlets from actions, events, objec
 - [Motive](../source/src-simswiki-2026-motive.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-gc`.
+Provenance: created in run `2026-10-24-catalog-gc`; reviewed in `2026-10-24-review-fixes`.

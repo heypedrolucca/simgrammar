@@ -10,11 +10,11 @@ The repository is the research. The report, wiki, tables, graph, and site are pr
 | games | 174 | 172 |
 | mechanics | 199 | 171 |
 | techniques | 45 | 45 |
-| opportunities | 43 | 0 |
-| sources | 643 | 643 |
-| runs (provenance log) | 26 | n/a |
+| opportunities | 42 | 0 |
+| sources | 644 | 644 |
+| runs (provenance log) | 27 | n/a |
 
-Typed edges: **4114** · game→mechanic uses: **1823** · games span **1968–2026**.
+Typed edges: **4244** · game→mechanic uses: **1952** · games span **1968–2026**.
 <!-- END GENERATED: stats -->
 
 ## Read it

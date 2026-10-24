@@ -14,7 +14,7 @@ Simulate hundreds of thousands of agents with equilibrium-consistent route and c
 | feasibility | 3 |
 | impact | 3 |
 | horizon | 3-5 years |
-| falsifiable signal | {'prediction': 'A commercial city builder will document a mean-field or continuum crowd model as its primary traffic or population simulation.', 'resolve_by': '2029-12-31', 'criteria': 'Developer documentation naming a mean-field, continuum, or equilibrium-field method used at runtime.'} |
+| falsifiable signal | {'prediction': 'A city builder will document a mean-field or continuum crowd model as its primary traffic or population simulation.', 'resolve_by': '2029-12-31', 'criteria': 'Released or patched after 2026-10-24 in a title with at least 1,000 Steam user reviews; developer documentation names a mean-field, continuum, or equilibrium-field method used at runtime for the main traffic or population model.'} |
 | priority *(computed)* | 3.178 |
 
 ## Thesis
@@ -37,9 +37,9 @@ Implement a mean-field traffic solver on a 100,000-trip city network and compare
 
 ## Falsifiable signal
 
-- **Prediction:** A commercial city builder will document a mean-field or continuum crowd model as its primary traffic or population simulation.
+- **Prediction:** A city builder will document a mean-field or continuum crowd model as its primary traffic or population simulation.
 - **Resolve by:** 2029-12-31
-- **Criteria:** Developer documentation naming a mean-field, continuum, or equilibrium-field method used at runtime.
+- **Criteria:** Released or patched after 2026-10-24 in a title with at least 1,000 Steam user reviews; developer documentation names a mean-field, continuum, or equilibrium-field method used at runtime for the main traffic or population model.
 
 ## Relations
 
@@ -64,4 +64,4 @@ Implement a mean-field traffic solver on a 100,000-trip city network and compare
 - [Planet Coaster](../game/planet-coaster.md)
 
 ---
-Provenance: created in run `2026-10-24-synthesis`.
+Provenance: created in run `2026-10-24-synthesis`; reviewed in `2026-10-24-review-fixes`.

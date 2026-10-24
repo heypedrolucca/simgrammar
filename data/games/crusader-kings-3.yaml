@@ -116,6 +116,8 @@ mechanics:
   role: supporting
   note: Battles resolve from army size, men-at-arms, knights, commander skill, and terrain, in phases
     that run until one side is routed.
+- id: variable-speed
+  role: supporting
 sources:
 - src-wikipedia-crusader-kings-3
 - src-paradoxwikis-2026-ck3-event-modding
@@ -123,3 +125,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-catalog-gi
+  reviewed:
+  - 2026-10-24-review-fixes

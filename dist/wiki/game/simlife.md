@@ -28,7 +28,7 @@ A Maxis artificial-life toy in which the player edits plant and animal genes, la
 | agent count order | ~100 |
 | emergence | 3 |
 | influence | 2 |
-| cluster *(computed)* | C07 |
+| cluster *(computed)* | C10 |
 | core count *(computed)* | 3 |
 | mechanic count *(computed)* | 8 |
 

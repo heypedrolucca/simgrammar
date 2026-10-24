@@ -7,6 +7,9 @@ Syntax (documented in AGENTS.md):
   {{table:<name>}}            table from report/tables.yaml or scripts/analyze.py
   {{figure:<name>}}           SVG figure from scripts/analyze.py
   {{vocab:<vocab>:<term>}}    a vocab term's label
+  {{assert:<ref> <op> <value|ref>}}  renders nothing; fails E029 when false. <ref> is a stat name,
+                              derived.<id>.<field>, field.<id>.<path> (a stored field), or rank.<table>.<id>[.<id>] (1-based row of the first
+                              row containing every id; 9999 when absent)
   [[id]] / [[id|text]]        link to an entity
   [@src-id] / [@src-a; @src-b] citation
 """
@@ -135,7 +138,11 @@ def table_md(ctx: Context, name: str, mode: str) -> str | None:
             v = r.get(c)
             if c in link_cols:
                 vals = v if isinstance(v, list) else [v]
-                cells.append(", ".join(f"[{ctx.label(x)}]({ctx.link_target(x, mode)})" if x in ctx.by_id else _fmt(x) for x in vals))
+                cap = t.get("max_links")
+                more = len(vals) - cap if cap and len(vals) > cap else 0
+                shown = vals[:cap] if more else vals
+                cell = ", ".join(f"[{ctx.label(x)}]({ctx.link_target(x, mode)})" if x in ctx.by_id else _fmt(x) for x in shown)
+                cells.append(cell + (f", and {more} more" if more else ""))
             else:
                 cells.append(_cell_md(ctx, c, v, mode))
         lines.append("| " + " | ".join(cells) + " |")
@@ -192,6 +199,25 @@ def render(text: str, ctx: Context, mode: str = "paper") -> tuple[str, list[tupl
                     dv = a["derived"].get(eid, {})
                     if fld in dv:
                         return True, dv[fld]
+                if ref.startswith("field."):
+                    _, eid, fld = ref.split(".", 2)
+                    ent = ctx.by_id.get(eid)
+                    if ent is not None and get_path(ent.data, fld) is not None:
+                        return True, get_path(ent.data, fld)
+                    return False, None
+                if ref.startswith("rank."):
+                    parts = ref.split(".")
+                    tbl = a["tables"].get(parts[1]) if len(parts) >= 3 else None
+                    if tbl is None:
+                        return False, None
+                    ids = set(parts[2:])
+                    for i, row in enumerate(tbl["rows"], start=1):
+                        vals = set()
+                        for v in row.values():
+                            vals.update(v if isinstance(v, list) else [v])
+                        if ids <= vals:
+                            return True, i
+                    return True, 9999
                 return False, None
 
             found, val = lookup(m2.group(1)) if m2 else (False, None)

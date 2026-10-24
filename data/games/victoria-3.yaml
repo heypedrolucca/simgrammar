@@ -110,6 +110,8 @@ mechanics:
   role: supporting
   note: Each side's war support falls with exhaustion until one capitulates or the sides settle on the
     demands from the diplomatic play.
+- id: variable-speed
+  role: supporting
 sources:
 - src-wikipedia-victoria-3
 - src-paradox-2021-vic3-interest-groups
@@ -120,3 +122,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-catalog-gi
+  reviewed:
+  - 2026-10-24-review-fixes

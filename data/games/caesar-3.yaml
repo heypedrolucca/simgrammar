@@ -1,8 +1,9 @@
 id: caesar-3
 type: game
 name: Caesar III
-summary: A Roman city builder in which service walkers roam the roads from their buildings, houses evolve only where
-  food, goods, and services actually reach them, and missions are won on culture, prosperity, peace, and favor ratings.
+summary: A Roman city builder in which service walkers roam the roads from their buildings, houses evolve
+  only where food, goods, and services actually reach them, and missions are won on culture, prosperity,
+  peace, and favor ratings.
 year: 1998
 developer: Impressions Games
 platforms:
@@ -31,26 +32,28 @@ production_tier: aa
 agent_count_order: '100'
 emergence: 3
 influence: 4
-core_loop: place housing plots and roads -> walkers from service buildings roam the roads and cover the houses they
-  pass -> houses evolve when food, goods, and services reach them -> taxes and trade fund the city -> raise culture,
-  prosperity, peace, and favor ratings to win the mission
-design_notes: Coverage is delivered by individual walkers whose routes depend on road layout, so the same buildings
-  serve a block well or badly depending on junctions; the developers cited SimCity's static placement as what they
-  wanted to make less static. In the logic preserved by the Julius re-implementation, a walker sets a house's coverage
-  to 96 and coverage decays by 1 per update, while prefects zero fire risk and engineers zero collapse risk. City
-  and empire share one map, and gods that punish neglect have no matching taxonomy mechanic (see run proposal).
+core_loop: place housing plots and roads -> walkers from service buildings roam the roads and cover the
+  houses they pass -> houses evolve when food, goods, and services reach them -> taxes and trade fund
+  the city -> raise culture, prosperity, peace, and favor ratings to win the mission
+design_notes: Coverage is delivered by individual walkers whose routes depend on road layout, so the same
+  buildings serve a block well or badly depending on junctions; the developers cited SimCity's static
+  placement as what they wanted to make less static. In the logic preserved by the Julius re-implementation,
+  a walker sets a house's coverage to 96 and coverage decays by 1 per update, while prefects zero fire
+  risk and engineers zero collapse risk. City and empire share one map, and gods that punish neglect have
+  no matching taxonomy mechanic (see run proposal).
 mechanics:
 - id: walker-service-delivery
   role: core
-  note: Service walkers leave their building and roam roads; each house passed gets coverage set to 96, which decays
-    by 1 per update until the next visit.
+  note: Service walkers leave their building and roam roads; each house passed gets coverage set to 96,
+    which decays by 1 per update until the next visit.
 - id: population-strata
   role: core
-  note: Housing evolves through levels from tents up to villas and palaces when food, goods, services, and desirability
-    are met, and devolves when they lapse.
+  note: Housing evolves through levels from tents up to villas and palaces when food, goods, services,
+    and desirability are met, and devolves when they lapse.
 - id: scenario-objectives
   role: core
-  note: 'Each assignment sets population and thresholds for four ratings: culture, prosperity, peace, and favor.'
+  note: 'Each assignment sets population and thresholds for four ratings: culture, prosperity, peace,
+    and favor.'
 - id: goods-consumption
   role: supporting
   note: Higher houses need food plus pottery, furniture, oil, and wine delivered by market walkers.
@@ -80,6 +83,14 @@ mechanics:
   note: Walkers and goods move on roads, so road layout sets coverage.
 - id: taxation
   role: supporting
+- id: variable-speed
+  role: supporting
+- id: free-placement
+  role: supporting
+- id: fire-spread
+  role: supporting
+- id: storage-capacity
+  role: supporting
 influenced_by:
 - simcity-1989
 sources:
@@ -88,3 +99,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-catalog-ga
+  reviewed:
+  - 2026-10-24-review-fixes

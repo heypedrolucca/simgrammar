@@ -27,9 +27,9 @@ An amusement park management game in which the player builds rides and custom co
 | emergence | 3 |
 | influence | 4 |
 | influenced by | [Transport Tycoon](../game/transport-tycoon.md) |
-| cluster *(computed)* | C03 |
+| cluster *(computed)* | C01 |
 | core count *(computed)* | 5 |
-| mechanic count *(computed)* | 17 |
+| mechanic count *(computed)* | 20 |
 
 ## Summary
 
@@ -68,6 +68,9 @@ RollerCoaster Tycoon makes ride design measurable: every built ride is test-run 
 - [Agent pathfinding](../mechanic/agent-pathfinding.md) (supporting): Guests navigate the path network and can get lost in mazes of paths.
 - [Advertising and awareness](../mechanic/advertising-awareness.md) (supporting): The marketing panel runs time-limited paid campaigns, such as park or ride advertising and free-entry or half-price vouchers, that raise guest arrivals or demand for a chosen ride or stall while they last.
 - [Track laying](../mechanic/track-laying.md) (supporting): Coaster track is built piece by piece on the tile grid by direction, height, steepness, and elements such as loops and corkscrews, and the result is rated by test run.
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
+- [Building placement](../mechanic/free-placement.md) (supporting)
+- [Utility action selection](../mechanic/utility-action-selection.md) (supporting)
 
 ## Backlinks (computed)
 
@@ -81,4 +84,4 @@ RollerCoaster Tycoon makes ride design measurable: every built ride is test-run 
 - [RollerCoaster Tycoon](../source/src-wikipedia-rollercoaster-tycoon-series.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-ge`.
+Provenance: created in run `2026-10-24-catalog-ge`; reviewed in `2026-10-24-review-fixes`.

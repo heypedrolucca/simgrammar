@@ -27,9 +27,9 @@ A city builder for beaver colonies in which simulated water flows over terrain, 
 | agent count order | ~100 |
 | emergence | 3 |
 | influence | 1 |
-| cluster *(computed)* | C07 |
+| cluster *(computed)* | C10 |
 | core count *(computed)* | 2 |
-| mechanic count *(computed)* | 11 |
+| mechanic count *(computed)* | 13 |
 
 ## Summary
 
@@ -58,10 +58,12 @@ Water is a simulated field rather than a resource count: a 2D model adapted from
 - [Signal circuits](../mechanic/signal-circuits.md) (supporting): Sensors, relays, and counters control dams and factories.
 - [Hauling jobs](../mechanic/hauling-jobs.md) (supporting)
 - [Lifecycle and aging](../mechanic/lifecycle-aging.md) (supporting)
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
+- [Building placement](../mechanic/free-placement.md) (supporting)
 
 ## Backlinks (computed)
 
-**precedent for:** [Learned regional weather](../opportunity/learned-weather-layer.md), [Weather-coupled energy grids](../opportunity/weather-coupled-grids.md)
+**precedent for:** [Learned regional weather](../opportunity/learned-weather-layer.md)
 
 ## Sources
 
@@ -70,4 +72,4 @@ Water is a simulated field rather than a resource count: a 2D model adapted from
 - [Deep Dive: Designing the dynamic irrigation and water systems in Timberborn](../source/src-amielanczyk-2023-timberborn-water.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-ga`.
+Provenance: created in run `2026-10-24-catalog-ga`; reviewed in `2026-10-24-review-fixes`.

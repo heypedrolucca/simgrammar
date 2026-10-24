@@ -1,9 +1,9 @@
 id: jurassic-world-evolution
 type: game
 name: Jurassic World Evolution
-summary: >-
-  A dinosaur park management game in which the player excavates fossils for DNA, breeds and modifies dinosaurs, and keeps
-  them contained through storms, sabotage, and breakouts while balancing three division contracts.
+summary: A dinosaur park management game in which the player excavates fossils for DNA, breeds and modifies
+  dinosaurs, and keeps them contained through storms, sabotage, and breakouts while balancing three division
+  contracts.
 year: 2018
 developer: Frontier Developments
 platforms:
@@ -33,55 +33,51 @@ production_tier: aa
 agent_count_order: '100'
 emergence: 3
 influence: 2
-core_loop: >-
-  send expeditions for fossils -> sequence DNA and modify genomes -> incubate dinosaurs -> meet feeding and social needs in
-  enclosures -> guests spend while divisions offer contracts -> contain storms and breakouts -> raise the star rating to unlock
-  islands
-design_notes: >-
-  Jurassic World Evolution turns a park sim into a containment problem. Each species has feeding, social, and territory needs;
-  unmet needs lower comfort, and low-comfort dinosaurs fight, break fences, and escape to attack guests. Three divisions (Science,
-  Security, Entertainment) offer contracts and track reputation, and letting one fall triggers sabotage such as a power shutdown
-  or disease outbreak, which turns faction standing into a source of hazards. Genome modification changes a species' stats,
-  aggression, and appearance, and the player can drive ranger and ACU vehicles to sedate, medicate, transport, and repair.
-  Dinosaurs do not breed in this game; adding modern-species DNA to a genome trades stats against aggression, a rule the taxonomy
-  lacks (proposed as genome-modification).
+core_loop: send expeditions for fossils -> sequence DNA and modify genomes -> incubate dinosaurs -> meet
+  feeding and social needs in enclosures -> guests spend while divisions offer contracts -> contain storms
+  and breakouts -> raise the star rating to unlock islands
+design_notes: Jurassic World Evolution turns a park sim into a containment problem. Each species has feeding,
+  social, and territory needs; unmet needs lower comfort, and low-comfort dinosaurs fight, break fences,
+  and escape to attack guests. Three divisions (Science, Security, Entertainment) offer contracts and
+  track reputation, and letting one fall triggers sabotage such as a power shutdown or disease outbreak,
+  which turns faction standing into a source of hazards. Genome modification changes a species' stats,
+  aggression, and appearance, and the player can drive ranger and ACU vehicles to sedate, medicate, transport,
+  and repair. Dinosaurs do not breed in this game; adding modern-species DNA to a genome trades stats
+  against aggression, a rule the taxonomy lacks (proposed as genome-modification).
 mechanics:
 - id: needs-decay
   role: core
-  note: >-
-    Dinosaurs have feeding and social needs plus grassland, forest, and population limits; unmet needs lower comfort, and
-    carnivores hunt herbivores and attack fences and guests.
+  note: Dinosaurs have feeding and social needs plus grassland, forest, and population limits; unmet needs
+    lower comfort, and carnivores hunt herbivores and attack fences and guests.
 - id: reputation
   role: core
-  note: >-
-    Science, Security, and Entertainment divisions track reputation; low standing in one triggers sabotage such as power cuts
-    or disease outbreaks.
+  note: Science, Security, and Entertainment divisions track reputation; low standing in one triggers
+    sabotage such as power cuts or disease outbreaks.
 - id: contracts-orders
   role: core
-  note: >-
-    Each division offers contracts with requirements and rewards that unlock research and story missions.
+  note: Each division offers contracts with requirements and rewards that unlock research and story missions.
 - id: random-disasters
   role: core
-  note: >-
-    Storms damage fences and power and set dinosaurs loose; breakouts must be contained before guests are hurt.
+  note: Storms damage fences and power and set dinosaurs loose; breakouts must be contained before guests
+    are hurt.
 - id: power-grid
   role: supporting
   note: Facilities need power from plants through substations; outages open electric fences.
 - id: crowd-preferences
   role: supporting
-  note: >-
-    Guests want viewing of varied species plus shopping, food, and amenities, and flee or die during breakouts.
+  note: Guests want viewing of varied species plus shopping, food, and amenities, and flee or die during
+    breakouts.
 - id: tech-tree
   role: supporting
-  note: >-
-    Fossil DNA completion unlocks species, and the research center unlocks buildings, upgrades, and genome modifications.
+  note: Fossil DNA completion unlocks species, and the research center unlocks buildings, upgrades, and
+    genome modifications.
 - id: resource-extraction
   role: supporting
   note: The Expedition Center sends teams to global dig sites that yield fossils for DNA and for sale.
 - id: direct-avatar
   role: supporting
-  note: >-
-    The player can drive ranger jeeps and ACU helicopters to resupply feeders, repair fences, and tranquilize dinosaurs.
+  note: The player can drive ranger jeeps and ACU helicopters to resupply feeders, repair fences, and
+    tranquilize dinosaurs.
 - id: contagion
   role: supporting
   note: Diseases spread among dinosaurs and must be treated by rangers or ACU.
@@ -90,8 +86,12 @@ mechanics:
 - id: milestone-unlocks
   role: supporting
   note: Island star ratings unlock the next island in the Las Cinco Muertes archipelago.
+- id: variable-speed
+  role: supporting
 sources:
 - src-wikipedia-jurassic-world-evolution
 status: sourced
 provenance:
   created: 2026-10-24-catalog-ge
+  reviewed:
+  - 2026-10-24-review-fixes

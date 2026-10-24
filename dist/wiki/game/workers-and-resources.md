@@ -29,9 +29,9 @@ A planned-economy city builder in which every building, commodity, and citizen m
 | agent count order | ~1,000 |
 | emergence | 3 |
 | influence | 1 |
-| cluster *(computed)* | C01 |
+| cluster *(computed)* | C02 |
 | core count *(computed)* | 3 |
-| mechanic count *(computed)* | 13 |
+| mechanic count *(computed)* | 15 |
 
 ## Summary
 
@@ -62,6 +62,8 @@ Workers & Resources treats construction itself as logistics: buildings and roads
 - [Education and workforce](../mechanic/education-workforce.md) (supporting): Optional complex education gates skilled jobs.
 - [Seasons](../mechanic/seasons.md) (supporting): Optional seasons raise heating demand in winter.
 - [Storage and buffers](../mechanic/storage-capacity.md) (supporting)
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
+- [Building placement](../mechanic/free-placement.md) (supporting)
 
 ## Backlinks (computed)
 
@@ -73,4 +75,4 @@ Workers & Resources treats construction itself as logistics: buildings and roads
 - [Workers & Resources: Soviet Republic on Steam](../source/src-steam-2026-workers-and-resources.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-ga`.
+Provenance: created in run `2026-10-24-catalog-ga`; reviewed in `2026-10-24-review-fixes`.

@@ -4107,6 +4107,14 @@
       },
       {
         "data": {
+          "id": "cites:cities-skylines-2->src-paradox-2023-cs2-electricity-water",
+          "source": "cities-skylines-2",
+          "target": "src-paradox-2023-cs2-electricity-water",
+          "type": "cites"
+        }
+      },
+      {
+        "data": {
           "id": "cites:cities-skylines-2->src-paradox-2023-cs2-traffic-ai",
           "source": "cities-skylines-2",
           "target": "src-paradox-2023-cs2-traffic-ai",
@@ -18427,6 +18435,14 @@
       },
       {
         "data": {
+          "id": "uses:against-the-storm->free-placement",
+          "source": "against-the-storm",
+          "target": "free-placement",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:against-the-storm->population-strata",
           "source": "against-the-storm",
           "target": "population-strata",
@@ -18478,6 +18494,14 @@
           "id": "uses:against-the-storm->trade-routes",
           "source": "against-the-storm",
           "target": "trade-routes",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:against-the-storm->variable-speed",
+          "source": "against-the-storm",
+          "target": "variable-speed",
           "type": "uses"
         }
       },
@@ -18627,6 +18651,14 @@
       },
       {
         "data": {
+          "id": "uses:anno-117->free-placement",
+          "source": "anno-117",
+          "target": "free-placement",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:anno-117->goods-consumption",
           "source": "anno-117",
           "target": "goods-consumption",
@@ -18699,6 +18731,14 @@
       },
       {
         "data": {
+          "id": "uses:anno-117->variable-speed",
+          "source": "anno-117",
+          "target": "variable-speed",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:anno-117->vehicle-route-scheduling",
           "source": "anno-117",
           "target": "vehicle-route-scheduling",
@@ -18710,6 +18750,14 @@
           "id": "uses:anno-1800->blueprints",
           "source": "anno-1800",
           "target": "blueprints",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:anno-1800->free-placement",
+          "source": "anno-1800",
+          "target": "free-placement",
           "type": "uses"
         }
       },
@@ -18782,6 +18830,14 @@
           "id": "uses:anno-1800->trade-routes",
           "source": "anno-1800",
           "target": "trade-routes",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:anno-1800->variable-speed",
+          "source": "anno-1800",
+          "target": "variable-speed",
           "type": "uses"
         }
       },
@@ -19139,6 +19195,22 @@
       },
       {
         "data": {
+          "id": "uses:banished->fire-spread",
+          "source": "banished",
+          "target": "fire-spread",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:banished->free-placement",
+          "source": "banished",
+          "target": "free-placement",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:banished->goods-consumption",
           "source": "banished",
           "target": "goods-consumption",
@@ -19219,6 +19291,14 @@
       },
       {
         "data": {
+          "id": "uses:banished->variable-speed",
+          "source": "banished",
+          "target": "variable-speed",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:banished->work-priorities",
           "source": "banished",
           "target": "work-priorities",
@@ -19262,6 +19342,14 @@
           "id": "uses:beamng-drive->soft-body-deformation",
           "source": "beamng-drive",
           "target": "soft-body-deformation",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:beamng-drive->variable-speed",
+          "source": "beamng-drive",
+          "target": "variable-speed",
           "type": "uses"
         }
       },
@@ -19419,6 +19507,14 @@
       },
       {
         "data": {
+          "id": "uses:big-ambitions->variable-speed",
+          "source": "big-ambitions",
+          "target": "variable-speed",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:big-ambitions->vehicle-route-scheduling",
           "source": "big-ambitions",
           "target": "vehicle-route-scheduling",
@@ -19494,6 +19590,14 @@
           "id": "uses:big-pharma->tech-tree",
           "source": "big-pharma",
           "target": "tech-tree",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:big-pharma->variable-speed",
+          "source": "big-pharma",
+          "target": "variable-speed",
           "type": "uses"
         }
       },
@@ -19643,6 +19747,22 @@
       },
       {
         "data": {
+          "id": "uses:caesar-3->fire-spread",
+          "source": "caesar-3",
+          "target": "fire-spread",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:caesar-3->free-placement",
+          "source": "caesar-3",
+          "target": "free-placement",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:caesar-3->goods-consumption",
           "source": "caesar-3",
           "target": "goods-consumption",
@@ -19707,6 +19827,14 @@
       },
       {
         "data": {
+          "id": "uses:caesar-3->storage-capacity",
+          "source": "caesar-3",
+          "target": "storage-capacity",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:caesar-3->taxation",
           "source": "caesar-3",
           "target": "taxation",
@@ -19718,6 +19846,14 @@
           "id": "uses:caesar-3->trade-routes",
           "source": "caesar-3",
           "target": "trade-routes",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:caesar-3->variable-speed",
+          "source": "caesar-3",
+          "target": "variable-speed",
           "type": "uses"
         }
       },
@@ -19835,6 +19971,14 @@
       },
       {
         "data": {
+          "id": "uses:capitalism->variable-speed",
+          "source": "capitalism",
+          "target": "variable-speed",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:captain-of-industry->byproducts-waste",
           "source": "captain-of-industry",
           "target": "byproducts-waste",
@@ -19862,6 +20006,14 @@
           "id": "uses:captain-of-industry->designation-orders",
           "source": "captain-of-industry",
           "target": "designation-orders",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:captain-of-industry->free-placement",
+          "source": "captain-of-industry",
+          "target": "free-placement",
           "type": "uses"
         }
       },
@@ -19974,6 +20126,14 @@
           "id": "uses:captain-of-industry->trade-routes",
           "source": "captain-of-industry",
           "target": "trade-routes",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:captain-of-industry->variable-speed",
+          "source": "captain-of-industry",
+          "target": "variable-speed",
           "type": "uses"
         }
       },
@@ -20139,6 +20299,14 @@
       },
       {
         "data": {
+          "id": "uses:cities-skylines->free-placement",
+          "source": "cities-skylines",
+          "target": "free-placement",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:cities-skylines->land-value",
           "source": "cities-skylines",
           "target": "land-value",
@@ -20227,6 +20395,14 @@
       },
       {
         "data": {
+          "id": "uses:cities-skylines->variable-speed",
+          "source": "cities-skylines",
+          "target": "variable-speed",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:cities-skylines->zoning",
           "source": "cities-skylines",
           "target": "zoning",
@@ -20251,6 +20427,14 @@
       },
       {
         "data": {
+          "id": "uses:cities-skylines-2->free-placement",
+          "source": "cities-skylines-2",
+          "target": "free-placement",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:cities-skylines-2->land-value",
           "source": "cities-skylines-2",
           "target": "land-value",
@@ -20270,6 +20454,14 @@
           "id": "uses:cities-skylines-2->modding-api",
           "source": "cities-skylines-2",
           "target": "modding-api",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:cities-skylines-2->power-grid",
+          "source": "cities-skylines-2",
+          "target": "power-grid",
           "type": "uses"
         }
       },
@@ -20334,6 +20526,22 @@
           "id": "uses:cities-skylines-2->travel-mode-choice",
           "source": "cities-skylines-2",
           "target": "travel-mode-choice",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:cities-skylines-2->variable-speed",
+          "source": "cities-skylines-2",
+          "target": "variable-speed",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:cities-skylines-2->weather",
+          "source": "cities-skylines-2",
+          "target": "weather",
           "type": "uses"
         }
       },
@@ -20675,6 +20883,14 @@
       },
       {
         "data": {
+          "id": "uses:creatures->variable-speed",
+          "source": "creatures",
+          "target": "variable-speed",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:crusader-kings-3->agent-skills",
           "source": "crusader-kings-3",
           "target": "agent-skills",
@@ -20819,6 +21035,14 @@
       },
       {
         "data": {
+          "id": "uses:crusader-kings-3->variable-speed",
+          "source": "crusader-kings-3",
+          "target": "variable-speed",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:crusader-kings-3->war-score-peace",
           "source": "crusader-kings-3",
           "target": "war-score-peace",
@@ -20886,6 +21110,14 @@
           "id": "uses:dcs-world->subsystem-damage",
           "source": "dcs-world",
           "target": "subsystem-damage",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:dcs-world->variable-speed",
+          "source": "dcs-world",
+          "target": "variable-speed",
           "type": "uses"
         }
       },
@@ -21139,6 +21371,14 @@
       },
       {
         "data": {
+          "id": "uses:dwarf-fortress->free-placement",
+          "source": "dwarf-fortress",
+          "target": "free-placement",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:dwarf-fortress->hauling-jobs",
           "source": "dwarf-fortress",
           "target": "hauling-jobs",
@@ -21251,6 +21491,14 @@
       },
       {
         "data": {
+          "id": "uses:dwarf-fortress->storage-capacity",
+          "source": "dwarf-fortress",
+          "target": "storage-capacity",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:dwarf-fortress->stress-accumulation",
           "source": "dwarf-fortress",
           "target": "stress-accumulation",
@@ -21270,6 +21518,22 @@
           "id": "uses:dwarf-fortress->unit-commands",
           "source": "dwarf-fortress",
           "target": "unit-commands",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:dwarf-fortress->utility-action-selection",
+          "source": "dwarf-fortress",
+          "target": "utility-action-selection",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:dwarf-fortress->variable-speed",
+          "source": "dwarf-fortress",
+          "target": "variable-speed",
           "type": "uses"
         }
       },
@@ -21318,6 +21582,14 @@
           "id": "uses:dyson-sphere-program->direct-avatar",
           "source": "dyson-sphere-program",
           "target": "direct-avatar",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:dyson-sphere-program->free-placement",
+          "source": "dyson-sphere-program",
+          "target": "free-placement",
           "type": "uses"
         }
       },
@@ -22211,6 +22483,14 @@
       },
       {
         "data": {
+          "id": "uses:factorio->free-placement",
+          "source": "factorio",
+          "target": "free-placement",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:factorio->hand-crafting",
           "source": "factorio",
           "target": "hand-crafting",
@@ -22459,6 +22739,14 @@
       },
       {
         "data": {
+          "id": "uses:farming-simulator-25->variable-speed",
+          "source": "farming-simulator-25",
+          "target": "variable-speed",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:farming-simulator-25->vehicle-dynamics",
           "source": "farming-simulator-25",
           "target": "vehicle-dynamics",
@@ -22515,6 +22803,14 @@
       },
       {
         "data": {
+          "id": "uses:farthest-frontier->free-placement",
+          "source": "farthest-frontier",
+          "target": "free-placement",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:farthest-frontier->goods-consumption",
           "source": "farthest-frontier",
           "target": "goods-consumption",
@@ -22555,6 +22851,14 @@
       },
       {
         "data": {
+          "id": "uses:farthest-frontier->storage-capacity",
+          "source": "farthest-frontier",
+          "target": "storage-capacity",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:farthest-frontier->tech-tree",
           "source": "farthest-frontier",
           "target": "tech-tree",
@@ -22566,6 +22870,14 @@
           "id": "uses:farthest-frontier->trade-routes",
           "source": "farthest-frontier",
           "target": "trade-routes",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:farthest-frontier->variable-speed",
+          "source": "farthest-frontier",
+          "target": "variable-speed",
           "type": "uses"
         }
       },
@@ -22747,6 +23059,14 @@
       },
       {
         "data": {
+          "id": "uses:foundation->variable-speed",
+          "source": "foundation",
+          "target": "variable-speed",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:foundation->zoning",
           "source": "foundation",
           "target": "zoning",
@@ -22859,6 +23179,14 @@
       },
       {
         "data": {
+          "id": "uses:frostpunk->free-placement",
+          "source": "frostpunk",
+          "target": "free-placement",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:frostpunk->labor-market",
           "source": "frostpunk",
           "target": "labor-market",
@@ -22891,9 +23219,25 @@
       },
       {
         "data": {
+          "id": "uses:frostpunk->storage-capacity",
+          "source": "frostpunk",
+          "target": "storage-capacity",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:frostpunk->tech-tree",
           "source": "frostpunk",
           "target": "tech-tree",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:frostpunk->variable-speed",
+          "source": "frostpunk",
+          "target": "variable-speed",
           "type": "uses"
         }
       },
@@ -22918,6 +23262,14 @@
           "id": "uses:frostpunk-2->elections",
           "source": "frostpunk-2",
           "target": "elections",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:frostpunk-2->free-placement",
+          "source": "frostpunk-2",
+          "target": "free-placement",
           "type": "uses"
         }
       },
@@ -22966,6 +23318,14 @@
           "id": "uses:frostpunk-2->tech-tree",
           "source": "frostpunk-2",
           "target": "tech-tree",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:frostpunk-2->variable-speed",
+          "source": "frostpunk-2",
+          "target": "variable-speed",
           "type": "uses"
         }
       },
@@ -23179,17 +23539,9 @@
       },
       {
         "data": {
-          "id": "uses:game-of-life->adjacency-scoring",
-          "source": "game-of-life",
-          "target": "adjacency-scoring",
-          "type": "uses"
-        }
-      },
-      {
-        "data": {
-          "id": "uses:game-of-life->blueprints",
-          "source": "game-of-life",
-          "target": "blueprints",
+          "id": "uses:game-dev-tycoon->variable-speed",
+          "source": "game-dev-tycoon",
+          "target": "variable-speed",
           "type": "uses"
         }
       },
@@ -23198,6 +23550,14 @@
           "id": "uses:game-of-life->free-placement",
           "source": "game-of-life",
           "target": "free-placement",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:game-of-life->turn-structure",
+          "source": "game-of-life",
+          "target": "turn-structure",
           "type": "uses"
         }
       },
@@ -23355,6 +23715,14 @@
       },
       {
         "data": {
+          "id": "uses:going-medieval->free-placement",
+          "source": "going-medieval",
+          "target": "free-placement",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:going-medieval->mood-breakdown",
           "source": "going-medieval",
           "target": "mood-breakdown",
@@ -23419,6 +23787,14 @@
       },
       {
         "data": {
+          "id": "uses:going-medieval->storage-capacity",
+          "source": "going-medieval",
+          "target": "storage-capacity",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:going-medieval->structural-integrity",
           "source": "going-medieval",
           "target": "structural-integrity",
@@ -23438,6 +23814,22 @@
           "id": "uses:going-medieval->terraforming",
           "source": "going-medieval",
           "target": "terraforming",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:going-medieval->utility-action-selection",
+          "source": "going-medieval",
+          "target": "utility-action-selection",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:going-medieval->variable-speed",
+          "source": "going-medieval",
+          "target": "variable-speed",
           "type": "uses"
         }
       },
@@ -24051,6 +24443,22 @@
       },
       {
         "data": {
+          "id": "uses:inzoi->utility-action-selection",
+          "source": "inzoi",
+          "target": "utility-action-selection",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:inzoi->variable-speed",
+          "source": "inzoi",
+          "target": "variable-speed",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:iracing->career-ladder",
           "source": "iracing",
           "target": "career-ladder",
@@ -24235,6 +24643,14 @@
       },
       {
         "data": {
+          "id": "uses:jurassic-world-evolution->variable-speed",
+          "source": "jurassic-world-evolution",
+          "target": "variable-speed",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:kenshi->agent-skills",
           "source": "kenshi",
           "target": "agent-skills",
@@ -24334,6 +24750,14 @@
           "id": "uses:kenshi->unit-commands",
           "source": "kenshi",
           "target": "unit-commands",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:kenshi->variable-speed",
+          "source": "kenshi",
+          "target": "variable-speed",
           "type": "uses"
         }
       },
@@ -24507,6 +24931,22 @@
       },
       {
         "data": {
+          "id": "uses:kingdoms-and-castles->fire-spread",
+          "source": "kingdoms-and-castles",
+          "target": "fire-spread",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:kingdoms-and-castles->free-placement",
+          "source": "kingdoms-and-castles",
+          "target": "free-placement",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:kingdoms-and-castles->immigration-attractiveness",
           "source": "kingdoms-and-castles",
           "target": "immigration-attractiveness",
@@ -24563,9 +25003,25 @@
       },
       {
         "data": {
+          "id": "uses:kingdoms-and-castles->storage-capacity",
+          "source": "kingdoms-and-castles",
+          "target": "storage-capacity",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:kingdoms-and-castles->taxation",
           "source": "kingdoms-and-castles",
           "target": "taxation",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:kingdoms-and-castles->variable-speed",
+          "source": "kingdoms-and-castles",
+          "target": "variable-speed",
           "type": "uses"
         }
       },
@@ -24691,6 +25147,14 @@
       },
       {
         "data": {
+          "id": "uses:manor-lords->free-placement",
+          "source": "manor-lords",
+          "target": "free-placement",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:manor-lords->goods-consumption",
           "source": "manor-lords",
           "target": "goods-consumption",
@@ -24739,6 +25203,14 @@
       },
       {
         "data": {
+          "id": "uses:manor-lords->storage-capacity",
+          "source": "manor-lords",
+          "target": "storage-capacity",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:manor-lords->taxation",
           "source": "manor-lords",
           "target": "taxation",
@@ -24758,6 +25230,14 @@
           "id": "uses:manor-lords->unit-commands",
           "source": "manor-lords",
           "target": "unit-commands",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:manor-lords->variable-speed",
+          "source": "manor-lords",
+          "target": "variable-speed",
           "type": "uses"
         }
       },
@@ -24822,6 +25302,14 @@
           "id": "uses:microsoft-flight-simulator-2020->scenario-objectives",
           "source": "microsoft-flight-simulator-2020",
           "target": "scenario-objectives",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:microsoft-flight-simulator-2020->variable-speed",
+          "source": "microsoft-flight-simulator-2020",
+          "target": "variable-speed",
           "type": "uses"
         }
       },
@@ -24915,6 +25403,14 @@
       },
       {
         "data": {
+          "id": "uses:microsoft-flight-simulator-2024->variable-speed",
+          "source": "microsoft-flight-simulator-2024",
+          "target": "variable-speed",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:microsoft-flight-simulator-2024->weather",
           "source": "microsoft-flight-simulator-2024",
           "target": "weather",
@@ -24958,6 +25454,14 @@
           "id": "uses:mindustry->fluid-pipe-network",
           "source": "mindustry",
           "target": "fluid-pipe-network",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:mindustry->free-placement",
+          "source": "mindustry",
+          "target": "free-placement",
           "type": "uses"
         }
       },
@@ -25523,6 +26027,14 @@
       },
       {
         "data": {
+          "id": "uses:offworld-trading-company->free-placement",
+          "source": "offworld-trading-company",
+          "target": "free-placement",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:offworld-trading-company->goods-consumption",
           "source": "offworld-trading-company",
           "target": "goods-consumption",
@@ -25582,6 +26094,14 @@
           "id": "uses:offworld-trading-company->tech-tree",
           "source": "offworld-trading-company",
           "target": "tech-tree",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:offworld-trading-company->variable-speed",
+          "source": "offworld-trading-company",
+          "target": "variable-speed",
           "type": "uses"
         }
       },
@@ -25843,6 +26363,14 @@
       },
       {
         "data": {
+          "id": "uses:oxygen-not-included->free-placement",
+          "source": "oxygen-not-included",
+          "target": "free-placement",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:oxygen-not-included->heat-transfer",
           "source": "oxygen-not-included",
           "target": "heat-transfer",
@@ -25907,9 +26435,25 @@
       },
       {
         "data": {
+          "id": "uses:oxygen-not-included->storage-capacity",
+          "source": "oxygen-not-included",
+          "target": "storage-capacity",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:oxygen-not-included->tech-tree",
           "source": "oxygen-not-included",
           "target": "tech-tree",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:oxygen-not-included->variable-speed",
+          "source": "oxygen-not-included",
+          "target": "variable-speed",
           "type": "uses"
         }
       },
@@ -26059,6 +26603,22 @@
       },
       {
         "data": {
+          "id": "uses:paralives->utility-action-selection",
+          "source": "paralives",
+          "target": "utility-action-selection",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:paralives->variable-speed",
+          "source": "paralives",
+          "target": "variable-speed",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:pc-building-simulator->budget-treasury",
           "source": "pc-building-simulator",
           "target": "budget-treasury",
@@ -26110,6 +26670,22 @@
           "id": "uses:pharaoh->crop-cultivation",
           "source": "pharaoh",
           "target": "crop-cultivation",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:pharaoh->fire-spread",
+          "source": "pharaoh",
+          "target": "fire-spread",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:pharaoh->free-placement",
+          "source": "pharaoh",
+          "target": "free-placement",
           "type": "uses"
         }
       },
@@ -26179,9 +26755,25 @@
       },
       {
         "data": {
+          "id": "uses:pharaoh->storage-capacity",
+          "source": "pharaoh",
+          "target": "storage-capacity",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:pharaoh->trade-routes",
           "source": "pharaoh",
           "target": "trade-routes",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:pharaoh->variable-speed",
+          "source": "pharaoh",
+          "target": "variable-speed",
           "type": "uses"
         }
       },
@@ -26315,6 +26907,14 @@
       },
       {
         "data": {
+          "id": "uses:planet-coaster->free-placement",
+          "source": "planet-coaster",
+          "target": "free-placement",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:planet-coaster->modular-assembly",
           "source": "planet-coaster",
           "target": "modular-assembly",
@@ -26371,6 +26971,22 @@
       },
       {
         "data": {
+          "id": "uses:planet-coaster->utility-action-selection",
+          "source": "planet-coaster",
+          "target": "utility-action-selection",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:planet-coaster->variable-speed",
+          "source": "planet-coaster",
+          "target": "variable-speed",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:planet-coaster->wear-breakdown",
           "source": "planet-coaster",
           "target": "wear-breakdown",
@@ -26398,6 +27014,14 @@
           "id": "uses:planet-zoo->day-night-cycle",
           "source": "planet-zoo",
           "target": "day-night-cycle",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:planet-zoo->free-placement",
+          "source": "planet-zoo",
+          "target": "free-placement",
           "type": "uses"
         }
       },
@@ -26470,6 +27094,14 @@
           "id": "uses:planet-zoo->trait-inheritance",
           "source": "planet-zoo",
           "target": "trait-inheritance",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:planet-zoo->variable-speed",
+          "source": "planet-zoo",
+          "target": "variable-speed",
           "type": "uses"
         }
       },
@@ -26803,6 +27435,22 @@
       },
       {
         "data": {
+          "id": "uses:prison-architect->utility-action-selection",
+          "source": "prison-architect",
+          "target": "utility-action-selection",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:prison-architect->variable-speed",
+          "source": "prison-architect",
+          "target": "variable-speed",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:project-hospital->agent-skills",
           "source": "project-hospital",
           "target": "agent-skills",
@@ -26870,6 +27518,14 @@
           "id": "uses:project-hospital->unit-commands",
           "source": "project-hospital",
           "target": "unit-commands",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:project-hospital->variable-speed",
+          "source": "project-hospital",
+          "target": "variable-speed",
           "type": "uses"
         }
       },
@@ -27054,6 +27710,14 @@
           "id": "uses:project-zomboid->survival-meters",
           "source": "project-zomboid",
           "target": "survival-meters",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:project-zomboid->variable-speed",
+          "source": "project-zomboid",
+          "target": "variable-speed",
           "type": "uses"
         }
       },
@@ -27299,6 +27963,14 @@
       },
       {
         "data": {
+          "id": "uses:rebel-inc->variable-speed",
+          "source": "rebel-inc",
+          "target": "variable-speed",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:reigns->dilemma-cards",
           "source": "reigns",
           "target": "dilemma-cards",
@@ -27395,6 +28067,14 @@
       },
       {
         "data": {
+          "id": "uses:rimworld->fire-spread",
+          "source": "rimworld",
+          "target": "fire-spread",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:rimworld->injury-body-model",
           "source": "rimworld",
           "target": "injury-body-model",
@@ -27483,9 +28163,25 @@
       },
       {
         "data": {
+          "id": "uses:rimworld->storage-capacity",
+          "source": "rimworld",
+          "target": "storage-capacity",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:rimworld->storyteller-director",
           "source": "rimworld",
           "target": "storyteller-director",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:rimworld->utility-action-selection",
+          "source": "rimworld",
+          "target": "utility-action-selection",
           "type": "uses"
         }
       },
@@ -27563,6 +28259,14 @@
       },
       {
         "data": {
+          "id": "uses:rollercoaster-tycoon->free-placement",
+          "source": "rollercoaster-tycoon",
+          "target": "free-placement",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:rollercoaster-tycoon->loans-debt",
           "source": "rollercoaster-tycoon",
           "target": "loans-debt",
@@ -27630,6 +28334,22 @@
           "id": "uses:rollercoaster-tycoon->track-laying",
           "source": "rollercoaster-tycoon",
           "target": "track-laying",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:rollercoaster-tycoon->utility-action-selection",
+          "source": "rollercoaster-tycoon",
+          "target": "utility-action-selection",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:rollercoaster-tycoon->variable-speed",
+          "source": "rollercoaster-tycoon",
+          "target": "variable-speed",
           "type": "uses"
         }
       },
@@ -28323,6 +29043,14 @@
       },
       {
         "data": {
+          "id": "uses:simant->variable-speed",
+          "source": "simant",
+          "target": "variable-speed",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:simant->vertical-layers",
           "source": "simant",
           "target": "vertical-layers",
@@ -28374,6 +29102,22 @@
           "id": "uses:simcity-1989->data-overlays",
           "source": "simcity-1989",
           "target": "data-overlays",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:simcity-1989->fire-spread",
+          "source": "simcity-1989",
+          "target": "fire-spread",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:simcity-1989->free-placement",
+          "source": "simcity-1989",
+          "target": "free-placement",
           "type": "uses"
         }
       },
@@ -28451,6 +29195,14 @@
       },
       {
         "data": {
+          "id": "uses:simcity-1989->variable-speed",
+          "source": "simcity-1989",
+          "target": "variable-speed",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:simcity-1989->zoning",
           "source": "simcity-1989",
           "target": "zoning",
@@ -28475,9 +29227,25 @@
       },
       {
         "data": {
+          "id": "uses:simcity-2000->fire-spread",
+          "source": "simcity-2000",
+          "target": "fire-spread",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:simcity-2000->fluid-pipe-network",
           "source": "simcity-2000",
           "target": "fluid-pipe-network",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:simcity-2000->free-placement",
+          "source": "simcity-2000",
+          "target": "free-placement",
           "type": "uses"
         }
       },
@@ -28563,6 +29331,14 @@
       },
       {
         "data": {
+          "id": "uses:simcity-2000->variable-speed",
+          "source": "simcity-2000",
+          "target": "variable-speed",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:simcity-2000->vertical-layers",
           "source": "simcity-2000",
           "target": "vertical-layers",
@@ -28619,6 +29395,14 @@
       },
       {
         "data": {
+          "id": "uses:simcity-2013->free-placement",
+          "source": "simcity-2013",
+          "target": "free-placement",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:simcity-2013->pollution-spread",
           "source": "simcity-2013",
           "target": "pollution-spread",
@@ -28667,6 +29451,14 @@
       },
       {
         "data": {
+          "id": "uses:simcity-2013->variable-speed",
+          "source": "simcity-2013",
+          "target": "variable-speed",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:simcity-2013->zoning",
           "source": "simcity-2013",
           "target": "zoning",
@@ -28686,6 +29478,14 @@
           "id": "uses:simcity-4->budget-treasury",
           "source": "simcity-4",
           "target": "budget-treasury",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:simcity-4->free-placement",
+          "source": "simcity-4",
+          "target": "free-placement",
           "type": "uses"
         }
       },
@@ -28774,6 +29574,14 @@
           "id": "uses:simcity-4->traffic-congestion",
           "source": "simcity-4",
           "target": "traffic-congestion",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:simcity-4->variable-speed",
+          "source": "simcity-4",
+          "target": "variable-speed",
           "type": "uses"
         }
       },
@@ -28987,6 +29795,14 @@
       },
       {
         "data": {
+          "id": "uses:simtower->variable-speed",
+          "source": "simtower",
+          "target": "variable-speed",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:simtower->vertical-layers",
           "source": "simtower",
           "target": "vertical-layers",
@@ -29067,6 +29883,14 @@
       },
       {
         "data": {
+          "id": "uses:songs-of-syx->free-placement",
+          "source": "songs-of-syx",
+          "target": "free-placement",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:songs-of-syx->needs-decay",
           "source": "songs-of-syx",
           "target": "needs-decay",
@@ -29118,6 +29942,14 @@
           "id": "uses:songs-of-syx->unit-commands",
           "source": "songs-of-syx",
           "target": "unit-commands",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:songs-of-syx->variable-speed",
+          "source": "songs-of-syx",
+          "target": "variable-speed",
           "type": "uses"
         }
       },
@@ -29355,6 +30187,22 @@
       },
       {
         "data": {
+          "id": "uses:space-haven->utility-action-selection",
+          "source": "space-haven",
+          "target": "utility-action-selection",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:space-haven->variable-speed",
+          "source": "space-haven",
+          "target": "variable-speed",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:spacechem->comparative-histograms",
           "source": "spacechem",
           "target": "comparative-histograms",
@@ -29574,6 +30422,14 @@
           "id": "uses:stardew-valley->daily-schedules",
           "source": "stardew-valley",
           "target": "daily-schedules",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:stardew-valley->free-placement",
+          "source": "stardew-valley",
+          "target": "free-placement",
           "type": "uses"
         }
       },
@@ -30051,6 +30907,14 @@
       },
       {
         "data": {
+          "id": "uses:surviving-mars->free-placement",
+          "source": "surviving-mars",
+          "target": "free-placement",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:surviving-mars->hauling-jobs",
           "source": "surviving-mars",
           "target": "hauling-jobs",
@@ -30134,6 +30998,14 @@
           "id": "uses:surviving-mars->triggered-event-chains",
           "source": "surviving-mars",
           "target": "triggered-event-chains",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:surviving-mars->variable-speed",
+          "source": "surviving-mars",
+          "target": "variable-speed",
           "type": "uses"
         }
       },
@@ -30723,6 +31595,14 @@
       },
       {
         "data": {
+          "id": "uses:the-sims->variable-speed",
+          "source": "the-sims",
+          "target": "variable-speed",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:the-sims-2->agent-skills",
           "source": "the-sims-2",
           "target": "agent-skills",
@@ -30830,6 +31710,22 @@
           "id": "uses:the-sims-2->trait-inheritance",
           "source": "the-sims-2",
           "target": "trait-inheritance",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:the-sims-2->utility-action-selection",
+          "source": "the-sims-2",
+          "target": "utility-action-selection",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:the-sims-2->variable-speed",
+          "source": "the-sims-2",
+          "target": "variable-speed",
           "type": "uses"
         }
       },
@@ -30950,6 +31846,22 @@
           "id": "uses:the-sims-3->social-exchanges",
           "source": "the-sims-3",
           "target": "social-exchanges",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:the-sims-3->utility-action-selection",
+          "source": "the-sims-3",
+          "target": "utility-action-selection",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:the-sims-3->variable-speed",
+          "source": "the-sims-3",
+          "target": "variable-speed",
           "type": "uses"
         }
       },
@@ -31099,6 +32011,22 @@
       },
       {
         "data": {
+          "id": "uses:the-sims-4->utility-action-selection",
+          "source": "the-sims-4",
+          "target": "utility-action-selection",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:the-sims-4->variable-speed",
+          "source": "the-sims-4",
+          "target": "variable-speed",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:theme-hospital->advisors",
           "source": "theme-hospital",
           "target": "advisors",
@@ -31203,6 +32131,22 @@
       },
       {
         "data": {
+          "id": "uses:theme-hospital->utility-action-selection",
+          "source": "theme-hospital",
+          "target": "utility-action-selection",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:theme-hospital->variable-speed",
+          "source": "theme-hospital",
+          "target": "variable-speed",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:theme-hospital->wear-breakdown",
           "source": "theme-hospital",
           "target": "wear-breakdown",
@@ -31294,6 +32238,14 @@
           "id": "uses:theme-park->tech-tree",
           "source": "theme-park",
           "target": "tech-tree",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:theme-park->utility-action-selection",
+          "source": "theme-park",
+          "target": "utility-action-selection",
           "type": "uses"
         }
       },
@@ -31427,6 +32379,14 @@
       },
       {
         "data": {
+          "id": "uses:timberborn->free-placement",
+          "source": "timberborn",
+          "target": "free-placement",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:timberborn->hauling-jobs",
           "source": "timberborn",
           "target": "hauling-jobs",
@@ -31486,6 +32446,14 @@
           "id": "uses:timberborn->terraforming",
           "source": "timberborn",
           "target": "terraforming",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:timberborn->variable-speed",
+          "source": "timberborn",
+          "target": "variable-speed",
           "type": "uses"
         }
       },
@@ -31731,6 +32699,14 @@
       },
       {
         "data": {
+          "id": "uses:transport-tycoon->variable-speed",
+          "source": "transport-tycoon",
+          "target": "variable-speed",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:transport-tycoon->vehicle-route-scheduling",
           "source": "transport-tycoon",
           "target": "vehicle-route-scheduling",
@@ -31830,6 +32806,14 @@
           "id": "uses:tropico-6->trade-routes",
           "source": "tropico-6",
           "target": "trade-routes",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:tropico-6->variable-speed",
+          "source": "tropico-6",
+          "target": "variable-speed",
           "type": "uses"
         }
       },
@@ -31942,6 +32926,22 @@
           "id": "uses:two-point-hospital->tech-tree",
           "source": "two-point-hospital",
           "target": "tech-tree",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:two-point-hospital->utility-action-selection",
+          "source": "two-point-hospital",
+          "target": "utility-action-selection",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:two-point-hospital->variable-speed",
+          "source": "two-point-hospital",
+          "target": "variable-speed",
           "type": "uses"
         }
       },
@@ -32451,6 +33451,14 @@
       },
       {
         "data": {
+          "id": "uses:victoria-3->variable-speed",
+          "source": "victoria-3",
+          "target": "variable-speed",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:victoria-3->war-score-peace",
           "source": "victoria-3",
           "target": "war-score-peace",
@@ -32627,6 +33635,14 @@
       },
       {
         "data": {
+          "id": "uses:workers-and-resources->free-placement",
+          "source": "workers-and-resources",
+          "target": "free-placement",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:workers-and-resources->goods-consumption",
           "source": "workers-and-resources",
           "target": "goods-consumption",
@@ -32691,6 +33707,14 @@
       },
       {
         "data": {
+          "id": "uses:workers-and-resources->variable-speed",
+          "source": "workers-and-resources",
+          "target": "variable-speed",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:workers-and-resources->vehicle-route-scheduling",
           "source": "workers-and-resources",
           "target": "vehicle-route-scheduling",
@@ -32742,6 +33766,14 @@
           "id": "uses:x-plane->procedural-checklists",
           "source": "x-plane",
           "target": "procedural-checklists",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
+          "id": "uses:x-plane->variable-speed",
+          "source": "x-plane",
+          "target": "variable-speed",
           "type": "uses"
         }
       },
@@ -32907,6 +33939,14 @@
       },
       {
         "data": {
+          "id": "uses:zoo-tycoon->variable-speed",
+          "source": "zoo-tycoon",
+          "target": "variable-speed",
+          "type": "uses"
+        }
+      },
+      {
+        "data": {
           "id": "uses:zoo-tycoon->wear-breakdown",
           "source": "zoo-tycoon",
           "target": "wear-breakdown",
@@ -32917,7 +33957,7 @@
     "nodes": [
       {
         "data": {
-          "cluster": "C08",
+          "cluster": "C06",
           "group": "mmo-world",
           "id": "a-tale-in-the-desert",
           "name": "A Tale in the Desert",
@@ -32927,7 +33967,7 @@
       },
       {
         "data": {
-          "cluster": "C01",
+          "cluster": "C04",
           "group": "city-builder",
           "id": "against-the-storm",
           "name": "Against the Storm",
@@ -32937,7 +33977,7 @@
       },
       {
         "data": {
-          "cluster": "C09",
+          "cluster": "C08",
           "group": "ai-native",
           "id": "ai-dungeon",
           "name": "AI Dungeon",
@@ -32957,7 +33997,7 @@
       },
       {
         "data": {
-          "cluster": "C01",
+          "cluster": "C02",
           "group": "city-builder",
           "id": "anno-117",
           "name": "Anno 117: Pax Romana",
@@ -32967,7 +34007,7 @@
       },
       {
         "data": {
-          "cluster": "C01",
+          "cluster": "C02",
           "group": "city-builder",
           "id": "anno-1800",
           "name": "Anno 1800",
@@ -32977,7 +34017,7 @@
       },
       {
         "data": {
-          "cluster": "C06",
+          "cluster": "C03",
           "group": "wargame",
           "id": "arma-3",
           "name": "Arma 3",
@@ -32987,7 +34027,7 @@
       },
       {
         "data": {
-          "cluster": "C01",
+          "cluster": "C11",
           "group": "4x-strategy",
           "id": "aurora-4x",
           "name": "Aurora 4X",
@@ -32997,7 +34037,7 @@
       },
       {
         "data": {
-          "cluster": "C02",
+          "cluster": "C06",
           "group": "programming-sim",
           "id": "autonauts",
           "name": "Autonauts",
@@ -33007,7 +34047,7 @@
       },
       {
         "data": {
-          "cluster": "C05",
+          "cluster": "C12",
           "group": "political-sim",
           "id": "balance-of-power",
           "name": "Balance of Power",
@@ -33017,7 +34057,7 @@
       },
       {
         "data": {
-          "cluster": "C05",
+          "cluster": "C02",
           "group": "city-builder",
           "id": "banished",
           "name": "Banished",
@@ -33027,7 +34067,7 @@
       },
       {
         "data": {
-          "cluster": "C06",
+          "cluster": "C03",
           "group": "vehicle-sim",
           "id": "beamng-drive",
           "name": "BeamNG.drive",
@@ -33037,7 +34077,7 @@
       },
       {
         "data": {
-          "cluster": "C02",
+          "cluster": "C07",
           "group": "construction-engineering",
           "id": "besiege",
           "name": "Besiege",
@@ -33047,7 +34087,7 @@
       },
       {
         "data": {
-          "cluster": "C03",
+          "cluster": "C01",
           "group": "business-economic-sim",
           "id": "big-ambitions",
           "name": "Big Ambitions",
@@ -33057,7 +34097,7 @@
       },
       {
         "data": {
-          "cluster": "C01",
+          "cluster": "C02",
           "group": "factory-automation",
           "id": "big-pharma",
           "name": "Big Pharma",
@@ -33067,7 +34107,7 @@
       },
       {
         "data": {
-          "cluster": "C08",
+          "cluster": "C06",
           "group": "programming-sim",
           "id": "bitburner",
           "name": "Bitburner",
@@ -33077,7 +34117,7 @@
       },
       {
         "data": {
-          "cluster": "C08",
+          "cluster": "C13",
           "group": "god-game",
           "id": "black-and-white",
           "name": "Black & White",
@@ -33087,7 +34127,7 @@
       },
       {
         "data": {
-          "cluster": "C01",
+          "cluster": "C02",
           "group": "city-builder",
           "id": "caesar-3",
           "name": "Caesar III",
@@ -33107,7 +34147,7 @@
       },
       {
         "data": {
-          "cluster": "C01",
+          "cluster": "C02",
           "group": "factory-automation",
           "id": "captain-of-industry",
           "name": "Captain of Industry",
@@ -33117,7 +34157,7 @@
       },
       {
         "data": {
-          "cluster": "C02",
+          "cluster": "C15",
           "group": "job-sim",
           "id": "car-mechanic-simulator-2021",
           "name": "Car Mechanic Simulator 2021",
@@ -33127,7 +34167,7 @@
       },
       {
         "data": {
-          "cluster": "C05",
+          "cluster": "C12",
           "group": "rpg-sim",
           "id": "caves-of-qud",
           "name": "Caves of Qud",
@@ -33137,7 +34177,7 @@
       },
       {
         "data": {
-          "cluster": "C10",
+          "cluster": "C09",
           "group": "city-builder",
           "id": "cities-skylines",
           "name": "Cities: Skylines",
@@ -33147,7 +34187,7 @@
       },
       {
         "data": {
-          "cluster": "C10",
+          "cluster": "C09",
           "group": "city-builder",
           "id": "cities-skylines-2",
           "name": "Cities: Skylines II",
@@ -33157,7 +34197,7 @@
       },
       {
         "data": {
-          "cluster": "C01",
+          "cluster": "C04",
           "group": "4x-strategy",
           "id": "civilization",
           "name": "Sid Meier's Civilization",
@@ -33167,7 +34207,7 @@
       },
       {
         "data": {
-          "cluster": "C06",
+          "cluster": "C03",
           "group": "wargame",
           "id": "command-modern-operations",
           "name": "Command: Modern Operations",
@@ -33177,7 +34217,7 @@
       },
       {
         "data": {
-          "cluster": "C11",
+          "cluster": "C14",
           "group": "job-sim",
           "id": "contraband-police",
           "name": "Contraband Police",
@@ -33187,7 +34227,7 @@
       },
       {
         "data": {
-          "cluster": "C04",
+          "cluster": "C13",
           "group": "artificial-life",
           "id": "creatures",
           "name": "Creatures",
@@ -33197,7 +34237,7 @@
       },
       {
         "data": {
-          "cluster": "C01",
+          "cluster": "C04",
           "group": "grand-strategy",
           "id": "crusader-kings-3",
           "name": "Crusader Kings III",
@@ -33207,7 +34247,7 @@
       },
       {
         "data": {
-          "cluster": "C06",
+          "cluster": "C03",
           "group": "flight-sim",
           "id": "dcs-world",
           "name": "DCS World",
@@ -33217,7 +34257,7 @@
       },
       {
         "data": {
-          "cluster": "C01",
+          "cluster": "C04",
           "group": "political-sim",
           "id": "democracy-4",
           "name": "Democracy 4",
@@ -33237,7 +34277,7 @@
       },
       {
         "data": {
-          "cluster": "C04",
+          "cluster": "C01",
           "group": "colony-sim",
           "id": "dwarf-fortress",
           "name": "Dwarf Fortress",
@@ -33247,7 +34287,7 @@
       },
       {
         "data": {
-          "cluster": "C01",
+          "cluster": "C02",
           "group": "factory-automation",
           "id": "dyson-sphere-program",
           "name": "Dyson Sphere Program",
@@ -33257,7 +34297,7 @@
       },
       {
         "data": {
-          "cluster": "C01",
+          "cluster": "C06",
           "group": "mmo-world",
           "id": "eco",
           "name": "Eco",
@@ -33267,7 +34307,7 @@
       },
       {
         "data": {
-          "cluster": "C08",
+          "cluster": "C11",
           "group": "space-sim",
           "id": "elite",
           "name": "Elite",
@@ -33277,7 +34317,7 @@
       },
       {
         "data": {
-          "cluster": "C08",
+          "cluster": "C11",
           "group": "space-sim",
           "id": "elite-dangerous",
           "name": "Elite Dangerous",
@@ -33287,7 +34327,7 @@
       },
       {
         "data": {
-          "cluster": "C07",
+          "cluster": "C05",
           "group": "ecosystem-evolution",
           "id": "equilinox",
           "name": "Equilinox",
@@ -33297,7 +34337,7 @@
       },
       {
         "data": {
-          "cluster": "C06",
+          "cluster": "C03",
           "group": "vehicle-sim",
           "id": "euro-truck-simulator-2",
           "name": "Euro Truck Simulator 2",
@@ -33307,7 +34347,7 @@
       },
       {
         "data": {
-          "cluster": "C01",
+          "cluster": "C04",
           "group": "grand-strategy",
           "id": "europa-universalis-4",
           "name": "Europa Universalis IV",
@@ -33317,7 +34357,7 @@
       },
       {
         "data": {
-          "cluster": "C08",
+          "cluster": "C06",
           "group": "mmo-world",
           "id": "eve-online",
           "name": "EVE Online",
@@ -33327,7 +34367,7 @@
       },
       {
         "data": {
-          "cluster": "C09",
+          "cluster": "C08",
           "group": "social-sim",
           "id": "facade",
           "name": "Façade",
@@ -33337,7 +34377,7 @@
       },
       {
         "data": {
-          "cluster": "C01",
+          "cluster": "C02",
           "group": "factory-automation",
           "id": "factorio",
           "name": "Factorio",
@@ -33347,7 +34387,7 @@
       },
       {
         "data": {
-          "cluster": "C06",
+          "cluster": "C03",
           "group": "farming-sim",
           "id": "farming-simulator-25",
           "name": "Farming Simulator 25",
@@ -33357,7 +34397,7 @@
       },
       {
         "data": {
-          "cluster": "C01",
+          "cluster": "C02",
           "group": "city-builder",
           "id": "farthest-frontier",
           "name": "Farthest Frontier",
@@ -33367,7 +34407,7 @@
       },
       {
         "data": {
-          "cluster": "C03",
+          "cluster": "C01",
           "group": "sports-management",
           "id": "football-manager",
           "name": "Football Manager",
@@ -33377,7 +34417,7 @@
       },
       {
         "data": {
-          "cluster": "C01",
+          "cluster": "C02",
           "group": "city-builder",
           "id": "foundation",
           "name": "Foundation",
@@ -33387,7 +34427,7 @@
       },
       {
         "data": {
-          "cluster": "C07",
+          "cluster": "C10",
           "group": "god-game",
           "id": "from-dust",
           "name": "From Dust",
@@ -33397,7 +34437,7 @@
       },
       {
         "data": {
-          "cluster": "C01",
+          "cluster": "C04",
           "group": "city-builder",
           "id": "frostpunk",
           "name": "Frostpunk",
@@ -33407,7 +34447,7 @@
       },
       {
         "data": {
-          "cluster": "C01",
+          "cluster": "C04",
           "group": "city-builder",
           "id": "frostpunk-2",
           "name": "Frostpunk 2",
@@ -33417,7 +34457,7 @@
       },
       {
         "data": {
-          "cluster": "C02",
+          "cluster": "C01",
           "group": "space-sim",
           "id": "ftl",
           "name": "FTL: Faster Than Light",
@@ -33427,7 +34467,7 @@
       },
       {
         "data": {
-          "cluster": "C03",
+          "cluster": "C01",
           "group": "business-economic-sim",
           "id": "game-dev-tycoon",
           "name": "Game Dev Tycoon",
@@ -33437,7 +34477,7 @@
       },
       {
         "data": {
-          "cluster": "C03",
+          "cluster": "C12",
           "group": "artificial-life",
           "id": "game-of-life",
           "name": "Conway's Game of Life",
@@ -33447,7 +34487,7 @@
       },
       {
         "data": {
-          "cluster": "C02",
+          "cluster": "C07",
           "group": "physics-sandbox",
           "id": "garrys-mod",
           "name": "Garry's Mod",
@@ -33457,7 +34497,7 @@
       },
       {
         "data": {
-          "cluster": "C09",
+          "cluster": "C08",
           "group": "ai-native",
           "id": "generative-agents-smallville",
           "name": "Generative Agents (Smallville)",
@@ -33467,7 +34507,7 @@
       },
       {
         "data": {
-          "cluster": "C04",
+          "cluster": "C01",
           "group": "colony-sim",
           "id": "going-medieval",
           "name": "Going Medieval",
@@ -33477,7 +34517,7 @@
       },
       {
         "data": {
-          "cluster": "C06",
+          "cluster": "C03",
           "group": "vehicle-sim",
           "id": "gran-turismo",
           "name": "Gran Turismo",
@@ -33487,7 +34527,7 @@
       },
       {
         "data": {
-          "cluster": "C06",
+          "cluster": "C03",
           "group": "vehicle-sim",
           "id": "gran-turismo-7",
           "name": "Gran Turismo 7",
@@ -33497,7 +34537,7 @@
       },
       {
         "data": {
-          "cluster": "C05",
+          "cluster": "C12",
           "group": "city-builder",
           "id": "hamurabi",
           "name": "Hamurabi",
@@ -33507,7 +34547,7 @@
       },
       {
         "data": {
-          "cluster": "C02",
+          "cluster": "C15",
           "group": "job-sim",
           "id": "hardspace-shipbreaker",
           "name": "Hardspace: Shipbreaker",
@@ -33527,7 +34567,7 @@
       },
       {
         "data": {
-          "cluster": "C01",
+          "cluster": "C04",
           "group": "grand-strategy",
           "id": "hearts-of-iron-4",
           "name": "Hearts of Iron IV",
@@ -33537,7 +34577,7 @@
       },
       {
         "data": {
-          "cluster": "C02",
+          "cluster": "C15",
           "group": "job-sim",
           "id": "house-flipper",
           "name": "House Flipper",
@@ -33547,7 +34587,7 @@
       },
       {
         "data": {
-          "cluster": "C09",
+          "cluster": "C08",
           "group": "ai-native",
           "id": "infinite-craft",
           "name": "Infinite Craft",
@@ -33557,7 +34597,7 @@
       },
       {
         "data": {
-          "cluster": "C04",
+          "cluster": "C01",
           "group": "life-sim",
           "id": "inzoi",
           "name": "inZOI",
@@ -33567,7 +34607,7 @@
       },
       {
         "data": {
-          "cluster": "C06",
+          "cluster": "C03",
           "group": "vehicle-sim",
           "id": "iracing",
           "name": "iRacing",
@@ -33577,7 +34617,7 @@
       },
       {
         "data": {
-          "cluster": "C03",
+          "cluster": "C11",
           "group": "city-builder",
           "id": "islanders",
           "name": "Islanders",
@@ -33587,7 +34627,7 @@
       },
       {
         "data": {
-          "cluster": "C02",
+          "cluster": "C07",
           "group": "job-sim",
           "id": "job-simulator",
           "name": "Job Simulator",
@@ -33597,7 +34637,7 @@
       },
       {
         "data": {
-          "cluster": "C08",
+          "cluster": "C02",
           "group": "management-tycoon",
           "id": "jurassic-world-evolution",
           "name": "Jurassic World Evolution",
@@ -33617,7 +34657,7 @@
       },
       {
         "data": {
-          "cluster": "C02",
+          "cluster": "C11",
           "group": "space-sim",
           "id": "kerbal-space-program",
           "name": "Kerbal Space Program",
@@ -33627,7 +34667,7 @@
       },
       {
         "data": {
-          "cluster": "C05",
+          "cluster": "C02",
           "group": "city-builder",
           "id": "kingdoms-and-castles",
           "name": "Kingdoms and Castles",
@@ -33637,7 +34677,7 @@
       },
       {
         "data": {
-          "cluster": "C05",
+          "cluster": "C12",
           "group": "business-economic-sim",
           "id": "lemonade-stand",
           "name": "Lemonade Stand",
@@ -33647,7 +34687,7 @@
       },
       {
         "data": {
-          "cluster": "C04",
+          "cluster": "C13",
           "group": "life-sim",
           "id": "little-computer-people",
           "name": "Little Computer People",
@@ -33657,7 +34697,7 @@
       },
       {
         "data": {
-          "cluster": "C01",
+          "cluster": "C02",
           "group": "city-builder",
           "id": "manor-lords",
           "name": "Manor Lords",
@@ -33667,7 +34707,7 @@
       },
       {
         "data": {
-          "cluster": "C06",
+          "cluster": "C03",
           "group": "flight-sim",
           "id": "microsoft-flight-simulator-2020",
           "name": "Microsoft Flight Simulator (2020)",
@@ -33677,7 +34717,7 @@
       },
       {
         "data": {
-          "cluster": "C06",
+          "cluster": "C03",
           "group": "flight-sim",
           "id": "microsoft-flight-simulator-2024",
           "name": "Microsoft Flight Simulator 2024",
@@ -33687,7 +34727,7 @@
       },
       {
         "data": {
-          "cluster": "C01",
+          "cluster": "C02",
           "group": "factory-automation",
           "id": "mindustry",
           "name": "Mindustry",
@@ -33707,7 +34747,7 @@
       },
       {
         "data": {
-          "cluster": "C12",
+          "cluster": "C09",
           "group": "transport-logistics",
           "id": "mini-metro",
           "name": "Mini Metro",
@@ -33717,7 +34757,7 @@
       },
       {
         "data": {
-          "cluster": "C03",
+          "cluster": "C01",
           "group": "sports-management",
           "id": "motorsport-manager",
           "name": "Motorsport Manager",
@@ -33727,7 +34767,7 @@
       },
       {
         "data": {
-          "cluster": "C01",
+          "cluster": "C02",
           "group": "business-economic-sim",
           "id": "mule",
           "name": "M.U.L.E.",
@@ -33737,7 +34777,7 @@
       },
       {
         "data": {
-          "cluster": "C04",
+          "cluster": "C13",
           "group": "virtual-pet",
           "id": "nintendogs",
           "name": "Nintendogs",
@@ -33747,7 +34787,7 @@
       },
       {
         "data": {
-          "cluster": "C02",
+          "cluster": "C07",
           "group": "physics-sandbox",
           "id": "noita",
           "name": "Noita",
@@ -33757,7 +34797,7 @@
       },
       {
         "data": {
-          "cluster": "C01",
+          "cluster": "C02",
           "group": "business-economic-sim",
           "id": "offworld-trading-company",
           "name": "Offworld Trading Company",
@@ -33767,7 +34807,7 @@
       },
       {
         "data": {
-          "cluster": "C02",
+          "cluster": "C06",
           "group": "programming-sim",
           "id": "opus-magnum",
           "name": "Opus Magnum",
@@ -33777,7 +34817,7 @@
       },
       {
         "data": {
-          "cluster": "C05",
+          "cluster": "C12",
           "group": "survival-sim",
           "id": "oregon-trail",
           "name": "The Oregon Trail",
@@ -33787,7 +34827,7 @@
       },
       {
         "data": {
-          "cluster": "C03",
+          "cluster": "C01",
           "group": "sports-management",
           "id": "out-of-the-park-baseball",
           "name": "Out of the Park Baseball",
@@ -33797,7 +34837,7 @@
       },
       {
         "data": {
-          "cluster": "C04",
+          "cluster": "C01",
           "group": "colony-sim",
           "id": "oxygen-not-included",
           "name": "Oxygen Not Included",
@@ -33807,7 +34847,7 @@
       },
       {
         "data": {
-          "cluster": "C11",
+          "cluster": "C14",
           "group": "job-sim",
           "id": "papers-please",
           "name": "Papers, Please",
@@ -33817,7 +34857,7 @@
       },
       {
         "data": {
-          "cluster": "C04",
+          "cluster": "C01",
           "group": "life-sim",
           "id": "paralives",
           "name": "Paralives",
@@ -33827,7 +34867,7 @@
       },
       {
         "data": {
-          "cluster": "C02",
+          "cluster": "C15",
           "group": "job-sim",
           "id": "pc-building-simulator",
           "name": "PC Building Simulator",
@@ -33837,7 +34877,7 @@
       },
       {
         "data": {
-          "cluster": "C01",
+          "cluster": "C02",
           "group": "city-builder",
           "id": "pharaoh",
           "name": "Pharaoh",
@@ -33847,7 +34887,7 @@
       },
       {
         "data": {
-          "cluster": "C01",
+          "cluster": "C10",
           "group": "ecosystem-evolution",
           "id": "plague-inc",
           "name": "Plague Inc.",
@@ -33857,7 +34897,7 @@
       },
       {
         "data": {
-          "cluster": "C03",
+          "cluster": "C01",
           "group": "management-tycoon",
           "id": "planet-coaster",
           "name": "Planet Coaster",
@@ -33867,7 +34907,7 @@
       },
       {
         "data": {
-          "cluster": "C03",
+          "cluster": "C01",
           "group": "management-tycoon",
           "id": "planet-zoo",
           "name": "Planet Zoo",
@@ -33877,7 +34917,7 @@
       },
       {
         "data": {
-          "cluster": "C02",
+          "cluster": "C07",
           "group": "construction-engineering",
           "id": "poly-bridge",
           "name": "Poly Bridge",
@@ -33887,7 +34927,7 @@
       },
       {
         "data": {
-          "cluster": "C07",
+          "cluster": "C10",
           "group": "god-game",
           "id": "populous",
           "name": "Populous",
@@ -33897,7 +34937,7 @@
       },
       {
         "data": {
-          "cluster": "C02",
+          "cluster": "C15",
           "group": "job-sim",
           "id": "powerwash-simulator",
           "name": "PowerWash Simulator",
@@ -33907,7 +34947,7 @@
       },
       {
         "data": {
-          "cluster": "C11",
+          "cluster": "C14",
           "group": "life-sim",
           "id": "princess-maker-2",
           "name": "Princess Maker 2",
@@ -33917,7 +34957,7 @@
       },
       {
         "data": {
-          "cluster": "C03",
+          "cluster": "C01",
           "group": "management-tycoon",
           "id": "prison-architect",
           "name": "Prison Architect",
@@ -33927,7 +34967,7 @@
       },
       {
         "data": {
-          "cluster": "C03",
+          "cluster": "C01",
           "group": "medical-sim",
           "id": "project-hospital",
           "name": "Project Hospital",
@@ -33937,7 +34977,7 @@
       },
       {
         "data": {
-          "cluster": "C09",
+          "cluster": "C08",
           "group": "ai-native",
           "id": "project-sid",
           "name": "Project Sid",
@@ -33957,7 +34997,7 @@
       },
       {
         "data": {
-          "cluster": "C04",
+          "cluster": "C01",
           "group": "social-sim",
           "id": "prom-week",
           "name": "Prom Week",
@@ -33967,7 +35007,7 @@
       },
       {
         "data": {
-          "cluster": "C01",
+          "cluster": "C02",
           "group": "transport-logistics",
           "id": "railroad-tycoon",
           "name": "Railroad Tycoon",
@@ -33977,7 +35017,7 @@
       },
       {
         "data": {
-          "cluster": "C01",
+          "cluster": "C04",
           "group": "political-sim",
           "id": "rebel-inc",
           "name": "Rebel Inc.",
@@ -33987,7 +35027,7 @@
       },
       {
         "data": {
-          "cluster": "C11",
+          "cluster": "C14",
           "group": "political-sim",
           "id": "reigns",
           "name": "Reigns",
@@ -33997,7 +35037,7 @@
       },
       {
         "data": {
-          "cluster": "C04",
+          "cluster": "C01",
           "group": "colony-sim",
           "id": "rimworld",
           "name": "RimWorld",
@@ -34007,7 +35047,7 @@
       },
       {
         "data": {
-          "cluster": "C03",
+          "cluster": "C01",
           "group": "management-tycoon",
           "id": "rollercoaster-tycoon",
           "name": "RollerCoaster Tycoon",
@@ -34017,7 +35057,7 @@
       },
       {
         "data": {
-          "cluster": "C01",
+          "cluster": "C02",
           "group": "factory-automation",
           "id": "satisfactory",
           "name": "Satisfactory",
@@ -34027,7 +35067,7 @@
       },
       {
         "data": {
-          "cluster": "C03",
+          "cluster": "C01",
           "group": "business-economic-sim",
           "id": "schedule-i",
           "name": "Schedule I",
@@ -34037,7 +35077,7 @@
       },
       {
         "data": {
-          "cluster": "C02",
+          "cluster": "C06",
           "group": "programming-sim",
           "id": "screeps",
           "name": "Screeps",
@@ -34047,7 +35087,7 @@
       },
       {
         "data": {
-          "cluster": "C04",
+          "cluster": "C13",
           "group": "virtual-pet",
           "id": "seaman",
           "name": "Seaman",
@@ -34057,7 +35097,7 @@
       },
       {
         "data": {
-          "cluster": "C02",
+          "cluster": "C06",
           "group": "mmo-world",
           "id": "second-life",
           "name": "Second Life",
@@ -34067,7 +35107,7 @@
       },
       {
         "data": {
-          "cluster": "C01",
+          "cluster": "C02",
           "group": "factory-automation",
           "id": "shapez-2",
           "name": "shapez 2",
@@ -34077,7 +35117,7 @@
       },
       {
         "data": {
-          "cluster": "C06",
+          "cluster": "C03",
           "group": "vehicle-sim",
           "id": "silent-hunter-3",
           "name": "Silent Hunter III",
@@ -34087,7 +35127,7 @@
       },
       {
         "data": {
-          "cluster": "C01",
+          "cluster": "C02",
           "group": "artificial-life",
           "id": "simant",
           "name": "SimAnt",
@@ -34097,7 +35137,7 @@
       },
       {
         "data": {
-          "cluster": "C10",
+          "cluster": "C09",
           "group": "city-builder",
           "id": "simcity-1989",
           "name": "SimCity",
@@ -34107,7 +35147,7 @@
       },
       {
         "data": {
-          "cluster": "C10",
+          "cluster": "C09",
           "group": "city-builder",
           "id": "simcity-2000",
           "name": "SimCity 2000",
@@ -34117,7 +35157,7 @@
       },
       {
         "data": {
-          "cluster": "C10",
+          "cluster": "C09",
           "group": "city-builder",
           "id": "simcity-2013",
           "name": "SimCity (2013)",
@@ -34127,7 +35167,7 @@
       },
       {
         "data": {
-          "cluster": "C10",
+          "cluster": "C09",
           "group": "city-builder",
           "id": "simcity-4",
           "name": "SimCity 4",
@@ -34137,7 +35177,7 @@
       },
       {
         "data": {
-          "cluster": "C07",
+          "cluster": "C10",
           "group": "god-game",
           "id": "simearth",
           "name": "SimEarth",
@@ -34147,7 +35187,7 @@
       },
       {
         "data": {
-          "cluster": "C07",
+          "cluster": "C10",
           "group": "artificial-life",
           "id": "simlife",
           "name": "SimLife",
@@ -34157,7 +35197,7 @@
       },
       {
         "data": {
-          "cluster": "C03",
+          "cluster": "C09",
           "group": "management-tycoon",
           "id": "simtower",
           "name": "SimTower",
@@ -34167,7 +35207,7 @@
       },
       {
         "data": {
-          "cluster": "C06",
+          "cluster": "C03",
           "group": "vehicle-sim",
           "id": "snowrunner",
           "name": "SnowRunner",
@@ -34177,7 +35217,7 @@
       },
       {
         "data": {
-          "cluster": "C01",
+          "cluster": "C02",
           "group": "city-builder",
           "id": "songs-of-syx",
           "name": "Songs of Syx",
@@ -34187,7 +35227,7 @@
       },
       {
         "data": {
-          "cluster": "C02",
+          "cluster": "C07",
           "group": "sandbox-world",
           "id": "space-engineers",
           "name": "Space Engineers",
@@ -34197,7 +35237,7 @@
       },
       {
         "data": {
-          "cluster": "C04",
+          "cluster": "C01",
           "group": "colony-sim",
           "id": "space-haven",
           "name": "Space Haven",
@@ -34207,7 +35247,7 @@
       },
       {
         "data": {
-          "cluster": "C02",
+          "cluster": "C06",
           "group": "programming-sim",
           "id": "spacechem",
           "name": "SpaceChem",
@@ -34217,7 +35257,7 @@
       },
       {
         "data": {
-          "cluster": "C07",
+          "cluster": "C10",
           "group": "artificial-life",
           "id": "species-alre",
           "name": "Species: Artificial Life, Real Evolution",
@@ -34227,7 +35267,7 @@
       },
       {
         "data": {
-          "cluster": "C02",
+          "cluster": "C11",
           "group": "ecosystem-evolution",
           "id": "spore",
           "name": "Spore",
@@ -34247,7 +35287,7 @@
       },
       {
         "data": {
-          "cluster": "C04",
+          "cluster": "C07",
           "group": "survival-sim",
           "id": "stationeers",
           "name": "Stationeers",
@@ -34257,7 +35297,7 @@
       },
       {
         "data": {
-          "cluster": "C01",
+          "cluster": "C04",
           "group": "4x-strategy",
           "id": "stellaris",
           "name": "Stellaris",
@@ -34277,7 +35317,7 @@
       },
       {
         "data": {
-          "cluster": "C09",
+          "cluster": "C08",
           "group": "ai-native",
           "id": "suck-up",
           "name": "Suck Up!",
@@ -34287,7 +35327,7 @@
       },
       {
         "data": {
-          "cluster": "C02",
+          "cluster": "C07",
           "group": "medical-sim",
           "id": "surgeon-simulator",
           "name": "Surgeon Simulator",
@@ -34297,7 +35337,7 @@
       },
       {
         "data": {
-          "cluster": "C01",
+          "cluster": "C02",
           "group": "city-builder",
           "id": "surviving-mars",
           "name": "Surviving Mars",
@@ -34307,7 +35347,7 @@
       },
       {
         "data": {
-          "cluster": "C11",
+          "cluster": "C14",
           "group": "political-sim",
           "id": "suzerain",
           "name": "Suzerain",
@@ -34317,7 +35357,7 @@
       },
       {
         "data": {
-          "cluster": "C04",
+          "cluster": "C13",
           "group": "virtual-pet",
           "id": "tamagotchi",
           "name": "Tamagotchi",
@@ -34327,7 +35367,7 @@
       },
       {
         "data": {
-          "cluster": "C02",
+          "cluster": "C07",
           "group": "physics-sandbox",
           "id": "teardown",
           "name": "Teardown",
@@ -34337,7 +35377,7 @@
       },
       {
         "data": {
-          "cluster": "C07",
+          "cluster": "C10",
           "group": "city-builder",
           "id": "terra-nil",
           "name": "Terra Nil",
@@ -34347,7 +35387,7 @@
       },
       {
         "data": {
-          "cluster": "C02",
+          "cluster": "C06",
           "group": "programming-sim",
           "id": "the-farmer-was-replaced",
           "name": "The Farmer Was Replaced",
@@ -34357,7 +35397,7 @@
       },
       {
         "data": {
-          "cluster": "C02",
+          "cluster": "C07",
           "group": "construction-engineering",
           "id": "the-incredible-machine",
           "name": "The Incredible Machine",
@@ -34377,7 +35417,7 @@
       },
       {
         "data": {
-          "cluster": "C02",
+          "cluster": "C07",
           "group": "physics-sandbox",
           "id": "the-powder-toy",
           "name": "The Powder Toy",
@@ -34387,7 +35427,7 @@
       },
       {
         "data": {
-          "cluster": "C04",
+          "cluster": "C01",
           "group": "life-sim",
           "id": "the-sims",
           "name": "The Sims",
@@ -34397,7 +35437,7 @@
       },
       {
         "data": {
-          "cluster": "C04",
+          "cluster": "C01",
           "group": "life-sim",
           "id": "the-sims-2",
           "name": "The Sims 2",
@@ -34407,7 +35447,7 @@
       },
       {
         "data": {
-          "cluster": "C04",
+          "cluster": "C01",
           "group": "life-sim",
           "id": "the-sims-3",
           "name": "The Sims 3",
@@ -34417,7 +35457,7 @@
       },
       {
         "data": {
-          "cluster": "C04",
+          "cluster": "C01",
           "group": "life-sim",
           "id": "the-sims-4",
           "name": "The Sims 4",
@@ -34427,7 +35467,7 @@
       },
       {
         "data": {
-          "cluster": "C03",
+          "cluster": "C01",
           "group": "management-tycoon",
           "id": "theme-hospital",
           "name": "Theme Hospital",
@@ -34437,7 +35477,7 @@
       },
       {
         "data": {
-          "cluster": "C03",
+          "cluster": "C01",
           "group": "management-tycoon",
           "id": "theme-park",
           "name": "Theme Park",
@@ -34447,7 +35487,7 @@
       },
       {
         "data": {
-          "cluster": "C11",
+          "cluster": "C14",
           "group": "survival-sim",
           "id": "this-war-of-mine",
           "name": "This War of Mine",
@@ -34457,7 +35497,7 @@
       },
       {
         "data": {
-          "cluster": "C07",
+          "cluster": "C10",
           "group": "city-builder",
           "id": "timberborn",
           "name": "Timberborn",
@@ -34467,7 +35507,7 @@
       },
       {
         "data": {
-          "cluster": "C03",
+          "cluster": "C16",
           "group": "city-builder",
           "id": "tiny-glade",
           "name": "Tiny Glade",
@@ -34477,7 +35517,7 @@
       },
       {
         "data": {
-          "cluster": "C04",
+          "cluster": "C01",
           "group": "life-sim",
           "id": "tomodachi-life",
           "name": "Tomodachi Life",
@@ -34487,7 +35527,7 @@
       },
       {
         "data": {
-          "cluster": "C03",
+          "cluster": "C16",
           "group": "city-builder",
           "id": "townscaper",
           "name": "Townscaper",
@@ -34497,7 +35537,7 @@
       },
       {
         "data": {
-          "cluster": "C01",
+          "cluster": "C02",
           "group": "transport-logistics",
           "id": "transport-tycoon",
           "name": "Transport Tycoon",
@@ -34507,7 +35547,7 @@
       },
       {
         "data": {
-          "cluster": "C01",
+          "cluster": "C04",
           "group": "city-builder",
           "id": "tropico-6",
           "name": "Tropico 6",
@@ -34517,7 +35557,7 @@
       },
       {
         "data": {
-          "cluster": "C03",
+          "cluster": "C01",
           "group": "management-tycoon",
           "id": "two-point-hospital",
           "name": "Two Point Hospital",
@@ -34527,7 +35567,7 @@
       },
       {
         "data": {
-          "cluster": "C08",
+          "cluster": "C06",
           "group": "mmo-world",
           "id": "ultima-online",
           "name": "Ultima Online",
@@ -34537,7 +35577,7 @@
       },
       {
         "data": {
-          "cluster": "C07",
+          "cluster": "C11",
           "group": "physics-sandbox",
           "id": "universe-sandbox",
           "name": "Universe Sandbox",
@@ -34547,7 +35587,7 @@
       },
       {
         "data": {
-          "cluster": "C01",
+          "cluster": "C04",
           "group": "city-builder",
           "id": "utopia",
           "name": "Utopia",
@@ -34567,7 +35607,7 @@
       },
       {
         "data": {
-          "cluster": "C04",
+          "cluster": "C01",
           "group": "social-sim",
           "id": "versu",
           "name": "Versu",
@@ -34577,7 +35617,7 @@
       },
       {
         "data": {
-          "cluster": "C01",
+          "cluster": "C04",
           "group": "grand-strategy",
           "id": "victoria-3",
           "name": "Victoria 3",
@@ -34587,7 +35627,7 @@
       },
       {
         "data": {
-          "cluster": "C07",
+          "cluster": "C05",
           "group": "ecosystem-evolution",
           "id": "viva-pinata",
           "name": "Viva Piñata",
@@ -34597,7 +35637,7 @@
       },
       {
         "data": {
-          "cluster": "C09",
+          "cluster": "C08",
           "group": "rpg-sim",
           "id": "where-winds-meet",
           "name": "Where Winds Meet",
@@ -34607,7 +35647,7 @@
       },
       {
         "data": {
-          "cluster": "C09",
+          "cluster": "C08",
           "group": "ai-native",
           "id": "whispers-from-the-star",
           "name": "Whispers from the Star",
@@ -34617,7 +35657,7 @@
       },
       {
         "data": {
-          "cluster": "C01",
+          "cluster": "C02",
           "group": "city-builder",
           "id": "workers-and-resources",
           "name": "Workers & Resources: Soviet Republic",
@@ -34627,7 +35667,7 @@
       },
       {
         "data": {
-          "cluster": "C06",
+          "cluster": "C03",
           "group": "flight-sim",
           "id": "x-plane",
           "name": "X-Plane",
@@ -34647,7 +35687,7 @@
       },
       {
         "data": {
-          "cluster": "C03",
+          "cluster": "C01",
           "group": "management-tycoon",
           "id": "zoo-tycoon",
           "name": "Zoo Tycoon",
@@ -34671,7 +35711,7 @@
           "group": "space-construction",
           "id": "adjacency-scoring",
           "name": "Adjacency scoring",
-          "prevalence": 5,
+          "prevalence": 4,
           "summary": "A placement's value is computed from a table of bonuses and penalties for the placements around it.",
           "technique_exposure": 0.0,
           "type": "mechanic"
@@ -34814,7 +35854,7 @@
           "group": "control-automation",
           "id": "blueprints",
           "name": "Blueprints",
-          "prevalence": 12,
+          "prevalence": 11,
           "summary": "Player-made layouts can be saved, stamped as build orders, copied, and shared as text or files.",
           "technique_exposure": 0.0,
           "type": "mechanic"
@@ -35331,7 +36371,7 @@
           "group": "environment-ecology",
           "id": "fire-spread",
           "name": "Fire spread",
-          "prevalence": 11,
+          "prevalence": 18,
           "summary": "Fire ignites and spreads across flammable cells or objects at rates set by fuel, wind, and moisture, consuming what it burns.",
           "technique_exposure": 0.0,
           "type": "mechanic"
@@ -35408,7 +36448,7 @@
           "group": "space-construction",
           "id": "free-placement",
           "name": "Building placement",
-          "prevalence": 42,
+          "prevalence": 75,
           "summary": "The player places discrete structures on a grid or freely, and placement constraints turn layout into a spatial puzzle.",
           "technique_exposure": 0.0,
           "type": "mechanic"
@@ -35969,7 +37009,7 @@
           "group": "resources-production",
           "id": "power-grid",
           "name": "Power grid",
-          "prevalence": 19,
+          "prevalence": 20,
           "summary": "Generators produce energy that is distributed over a connected network to consumers; shortfalls cause brownouts or shutdowns.",
           "technique_exposure": 0.0,
           "type": "mechanic"
@@ -36464,7 +37504,7 @@
           "group": "resources-production",
           "id": "storage-capacity",
           "name": "Storage and buffers",
-          "prevalence": 9,
+          "prevalence": 19,
           "summary": "Goods occupy finite storage; buffers decouple producers from consumers, and full storage blocks production.",
           "technique_exposure": 0.0,
           "type": "mechanic"
@@ -36684,7 +37724,7 @@
           "group": "time-pacing",
           "id": "turn-structure",
           "name": "Turn structure",
-          "prevalence": 11,
+          "prevalence": 12,
           "summary": "The simulation advances in discrete turns, each divided into ordered phases in which players decide and the world then resolves.",
           "technique_exposure": 0.2,
           "type": "mechanic"
@@ -36706,7 +37746,7 @@
           "group": "agents-behavior",
           "id": "utility-action-selection",
           "name": "Utility action selection",
-          "prevalence": 3,
+          "prevalence": 18,
           "summary": "Agents choose actions by scoring options against needs and context, then picking the highest or sampling among high scores.",
           "technique_exposure": 2.95,
           "type": "mechanic"
@@ -36717,7 +37757,7 @@
           "group": "time-pacing",
           "id": "variable-speed",
           "name": "Pause and speed control",
-          "prevalence": 19,
+          "prevalence": 82,
           "summary": "The player pauses the simulation and switches between speed multipliers, trading attention against elapsed game time.",
           "technique_exposure": 0.0,
           "type": "mechanic"
@@ -36816,7 +37856,7 @@
           "group": "environment-ecology",
           "id": "weather",
           "name": "Weather",
-          "prevalence": 26,
+          "prevalence": 27,
           "summary": "Weather states such as rain, storms, snow, wind, and temperature change over time and modify activities and other systems.",
           "technique_exposure": 0.688,
           "type": "mechanic"
@@ -37674,7 +38714,6 @@
           "group": "mechanic-upgrade",
           "id": "weather-coupled-grids",
           "name": "Weather-coupled energy grids",
-          "priority": 2.764,
           "summary": "Power grids whose renewable supply follows realistic weather, so storage, forecasting, and demand response become the grid puzzle.",
           "type": "opportunity"
         }
@@ -39736,6 +40775,15 @@
           "group": "tech-report",
           "id": "src-paradox-2022-vic3-trade-revisions",
           "name": "Victoria 3 Dev Diary #54: Trade Revisions",
+          "summary": null,
+          "type": "source"
+        }
+      },
+      {
+        "data": {
+          "group": "docs",
+          "id": "src-paradox-2023-cs2-electricity-water",
+          "name": "Cities: Skylines II features: Electricity and Water",
           "summary": null,
           "type": "source"
         }

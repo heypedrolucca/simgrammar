@@ -4,7 +4,8 @@ name: 'Anno 117: Pax Romana'
 aliases:
 - Anno 117
 summary: A Roman-era Anno city builder in which residents advance from Liberti to Patricians through categorized
-  needs, buildings affect their neighbors, schools generate research, and modular ships guard multi-island trade.
+  needs, buildings affect their neighbors, schools generate research, and modular ships guard multi-island
+  trade.
 year: 2025
 developer: Ubisoft Mainz
 platforms:
@@ -37,23 +38,23 @@ production_tier: aaa
 agent_count_order: aggregate
 emergence: 3
 influence: 1
-core_loop: settle Latium or Albion and house Liberti -> meet categorized needs with multi-island production chains
-  -> residences advance toward Patricians -> schools produce research and temples belief -> ships carry goods on
-  tracked routes -> defend routes and provinces
-design_notes: 'Anno 117 loosens the strict tier-need ladder: needs fall into categories that can be partly filled,
-  and each good carries attributes with benefits and drawbacks for population, income, health, and satisfaction.
-  Placement matters more than in Anno 1800 because production buildings help or harm nearby structures, paved roads
-  extend building range, and diagonal placement is allowed. Belief tied to chosen gods grants scaling bonuses, a
-  system with no exact taxonomy match (see run proposal).'
+core_loop: settle Latium or Albion and house Liberti -> meet categorized needs with multi-island production
+  chains -> residences advance toward Patricians -> schools produce research and temples belief -> ships
+  carry goods on tracked routes -> defend routes and provinces
+design_notes: 'Anno 117 loosens the strict tier-need ladder: needs fall into categories that can be partly
+  filled, and each good carries attributes with benefits and drawbacks for population, income, health,
+  and satisfaction. Placement matters more than in Anno 1800 because production buildings help or harm
+  nearby structures, paved roads extend building range, and diagonal placement is allowed. Belief tied
+  to chosen gods grants scaling bonuses, a system with no exact taxonomy match (see run proposal).'
 mechanics:
 - id: population-strata
   role: core
-  note: Residences advance from Liberti up to Patricians based on access to goods and on nearby prestige or polluting
-    buildings.
+  note: Residences advance from Liberti up to Patricians based on access to goods and on nearby prestige
+    or polluting buildings.
 - id: goods-consumption
   role: core
-  note: Needs are grouped into categories that can be partly fulfilled; each good's attributes add benefits and
-    drawbacks to population, income, health, and satisfaction.
+  note: Needs are grouped into categories that can be partly fulfilled; each good's attributes add benefits
+    and drawbacks to population, income, health, and satisfaction.
 - id: production-chain
   role: core
   note: Chains span multiple islands and provinces, linked by warehouses, waystations, and hubs.
@@ -80,6 +81,10 @@ mechanics:
 - id: reputation
   role: supporting
   note: Standing with the emperor's successor Calidus can earn Consul status or Proconsular authority.
+- id: variable-speed
+  role: supporting
+- id: free-placement
+  role: supporting
 influenced_by:
 - anno-1800
 sources:
@@ -87,3 +92,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-catalog-ga
+  reviewed:
+  - 2026-10-24-review-fixes

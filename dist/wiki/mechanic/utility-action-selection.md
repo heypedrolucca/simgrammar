@@ -20,11 +20,11 @@ Agents choose actions by scoring options against needs and context, then picking
 | ai leverage | 4 |
 | maturity | Classic |
 | core count *(computed)* | 1 |
-| earliest game *(computed)* | [The Sims](../game/the-sims.md) |
-| earliest year *(computed)* | 2000 |
-| prevalence *(computed)* | 3 |
-| prevalence share *(computed)* | 0.017 |
-| subgenre spread *(computed)* | 2 |
+| earliest game *(computed)* | [Theme Park](../game/theme-park.md) |
+| earliest year *(computed)* | 1994 |
+| prevalence *(computed)* | 18 |
+| prevalence share *(computed)* | 0.103 |
+| subgenre spread *(computed)* | 4 |
 | technique count *(computed)* | 7 |
 | technique exposure *(computed)* | 2.95 |
 
@@ -68,7 +68,7 @@ Agents look like they are weighing options: they handle the urgent thing first b
 
 **involved in:** [Salience-gated language agents](../opportunity/salience-gated-llm-agents.md)
 
-**used by:** [Prom Week](../game/prom-week.md), [The Sims](../game/the-sims.md), [Versu](../game/versu.md)
+**used by:** [Dwarf Fortress](../game/dwarf-fortress.md), [Going Medieval](../game/going-medieval.md), [inZOI](../game/inzoi.md), [Paralives](../game/paralives.md), [Planet Coaster](../game/planet-coaster.md), [Prison Architect](../game/prison-architect.md), [Prom Week](../game/prom-week.md), [RimWorld](../game/rimworld.md), [RollerCoaster Tycoon](../game/rollercoaster-tycoon.md), [Space Haven](../game/space-haven.md), [The Sims](../game/the-sims.md), [The Sims 2](../game/the-sims-2.md), [The Sims 3](../game/the-sims-3.md), [The Sims 4](../game/the-sims-4.md), [Theme Hospital](../game/theme-hospital.md), [Theme Park](../game/theme-park.md), [Two Point Hospital](../game/two-point-hospital.md), [Versu](../game/versu.md)
 
 ## Sources
 

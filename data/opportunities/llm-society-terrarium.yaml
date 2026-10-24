@@ -41,12 +41,15 @@ validation_experiment: 'Run 100 agents for 30 simulated days on a small local mo
   have readers rate 20 generated histories against Dwarf Fortress legends excerpts for interest and coherence.
   Success: comparable interest ratings at under 1 dollar of inference per simulated day.'
 falsifiable_signal:
-  prediction: A commercially released game whose core loop is observing and nudging a society of at least
-    50 language-model agents will reach 1,000 Steam reviews.
+  prediction: A game whose core loop is observing and nudging a society of at least 50 language-model
+    agents will reach 1,000 Steam user reviews.
   resolve_by: '2029-12-31'
-  criteria: Steam page confirming LLM-driven agent society as the core loop and a review count of at least
-    1,000.
+  criteria: Title released after 2026-10-24; its Steam page or developer documentation confirms an LLM-driven
+    agent society of at least 50 agents as the core loop, and it has at least 1,000 Steam user reviews
+    by the resolve date.
 sources: []
 status: asserted
 provenance:
   created: 2026-10-24-synthesis
+  reviewed:
+  - 2026-10-24-review-fixes

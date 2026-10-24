@@ -51,7 +51,7 @@ authoring_cost: 3
 compute_cost: 4
 tuning_difficulty: 4
 ai_leverage: 5
-maturity: emerging
+maturity: established
 synergy:
 - id: relationship-values
   note: Free-text conversation can move relationship state in ways menu choices cannot enumerate.
@@ -66,3 +66,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-taxonomy-m3
+  reviewed:
+  - 2026-10-24-review-fixes

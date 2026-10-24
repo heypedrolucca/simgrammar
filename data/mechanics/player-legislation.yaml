@@ -52,7 +52,7 @@ authoring_cost: 1
 compute_cost: 1
 tuning_difficulty: 4
 ai_leverage: 4
-maturity: emerging
+maturity: established
 synergy:
 - id: player-organizations
   note: Organized player groups are the constituencies that write and enforce laws.
@@ -65,3 +65,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-taxonomy-m2
+  reviewed:
+  - 2026-10-24-review-fixes

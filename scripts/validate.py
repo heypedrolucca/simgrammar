@@ -327,6 +327,8 @@ def run(data_only: bool = False) -> Findings:
                 F.add("E025", g.path, f"influenced_by '{inf}' ({t.data['year']}) is later than {y}", "influenced_by")
 
     # ---- mechanic grounding
+    game_years = [g.data.get("year") for g in ents.get("game", []) if isinstance(g.data.get("year"), int)]
+    latest_year = max(game_years) if game_years else None
     for m in ents.get("mechanic", []):
         if m.data.get("deprecated"):
             continue
@@ -336,6 +338,15 @@ def run(data_only: bool = False) -> Findings:
             F.add("E017", m.path, f"maturity '{mat}' but used by {n} game(s); needs >=2")
         elif mat == "emerging" and n < 1:
             F.add("E017", m.path, "maturity 'emerging' but used by no game")
+        yrs = [by_id[g].data.get("year") for g in used_by.get(m.id, ()) if g in by_id and isinstance(by_id[g].data.get("year"), int)]
+        if yrs and latest_year:
+            first = min(yrs)
+            if mat == "classic" and first > latest_year - 20:
+                F.add("W104", m.path, f"maturity 'classic' (20+ years) but earliest catalog use is {first}", "maturity")
+            elif mat == "emerging" and first < latest_year - 10:
+                F.add("W104", m.path, f"maturity 'emerging' (last 10 years) but earliest catalog use is {first}", "maturity")
+        if mat == "experimental" and n >= 3:
+            F.add("W104", m.path, f"maturity 'experimental' (one-off attempts) but used by {n} games", "maturity")
 
     # ---- dates
     for t in ents.get("technique", []):

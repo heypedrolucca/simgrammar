@@ -28,9 +28,9 @@ A hospital management game where the player builds rooms, hires and trains staff
 | emergence | 3 |
 | influence | 3 |
 | influenced by | [Theme Park](../game/theme-park.md) |
-| cluster *(computed)* | C03 |
+| cluster *(computed)* | C01 |
 | core count *(computed)* | 4 |
-| mechanic count *(computed)* | 14 |
+| mechanic count *(computed)* | 16 |
 
 ## Summary
 
@@ -66,6 +66,8 @@ Theme Hospital turns medicine into routing. The GP and specialist diagnosis room
 - [Scenario objectives](../mechanic/scenario-objectives.md) (supporting): Each level sets goals for money, reputation, cures, and hospital value; negative funds or too many deaths lose the level.
 - [Advisors](../mechanic/advisors.md) (supporting)
 - [Loans and debt](../mechanic/loans-debt.md) (supporting)
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
+- [Utility action selection](../mechanic/utility-action-selection.md) (supporting)
 
 ## Backlinks (computed)
 
@@ -76,4 +78,4 @@ Theme Hospital turns medicine into routing. The GP and specialist diagnosis room
 - [Theme Hospital](../source/src-wikipedia-theme-hospital.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-ge`.
+Provenance: created in run `2026-10-24-catalog-ge`; reviewed in `2026-10-24-review-fixes`.

@@ -29,9 +29,9 @@ A counterinsurgency strategy game in which the player, as a coalition governor, 
 | emergence | 2 |
 | influence | 1 |
 | influenced by | [Plague Inc.](../game/plague-inc.md) |
-| cluster *(computed)* | C01 |
+| cluster *(computed)* | C04 |
 | core count *(computed)* | 3 |
-| mechanic count *(computed)* | 7 |
+| mechanic count *(computed)* | 8 |
 
 ## Summary
 
@@ -60,6 +60,7 @@ Rebel Inc. inverts Ndemic's earlier Plague Inc.: instead of spreading a disease,
 - [Triggered event chains](../mechanic/triggered-event-chains.md) (supporting): Random events interrupt plans and offer choices.
 - [Scenario objectives](../mechanic/scenario-objectives.md) (supporting): Each region has its own geography, and selectable governors such as the Economist and the Warlord change the rules.
 - [Corruption leakage](../mechanic/corruption-leakage.md) (supporting): Funding more civilian initiatives raises corruption and inflation, which erode what the monthly budget achieves; the governance tab offers anti-corruption measures.
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
 
 ## Backlinks (computed)
 
@@ -70,4 +71,4 @@ Rebel Inc. inverts Ndemic's earlier Plague Inc.: instead of spreading a disease,
 - [Rebel Inc. (video game)](../source/src-wikipedia-rebel-inc.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-gi`.
+Provenance: created in run `2026-10-24-catalog-gi`; reviewed in `2026-10-24-review-fixes`.

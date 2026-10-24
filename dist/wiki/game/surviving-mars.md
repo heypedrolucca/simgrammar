@@ -27,9 +27,9 @@ A Mars colony city builder in which drones build power, water, and oxygen networ
 | agent count order | ~100 |
 | emergence | 3 |
 | influence | 1 |
-| cluster *(computed)* | C01 |
+| cluster *(computed)* | C02 |
 | core count *(computed)* | 4 |
-| mechanic count *(computed)* | 13 |
+| mechanic count *(computed)* | 15 |
 
 ## Summary
 
@@ -60,14 +60,16 @@ Surviving Mars splits construction from population: drones working within range 
 - [Planetary climate](../mechanic/planetary-climate.md) (supporting): Green Planet (2019) adds terraforming of atmosphere, temperature, and water.
 - [Triggered event chains](../mechanic/triggered-event-chains.md) (supporting): Mysteries run storylines such as plagues, rival corporations, AI revolts, and alien contact.
 - [Resource extraction](../mechanic/resource-extraction.md) (supporting): Metals, rare metals, concrete, and water are extracted; rare metal exports fund imports.
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
+- [Building placement](../mechanic/free-placement.md) (supporting)
 
 ## Backlinks (computed)
 
-**precedent for:** [Branch preview of policy futures](../opportunity/branch-preview-forecasts.md), [Weather-coupled energy grids](../opportunity/weather-coupled-grids.md)
+**precedent for:** [Branch preview of policy futures](../opportunity/branch-preview-forecasts.md)
 
 ## Sources
 
 - [Surviving Mars](../source/src-wikipedia-surviving-mars.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-ga`.
+Provenance: created in run `2026-10-24-catalog-ga`; reviewed in `2026-10-24-review-fixes`.

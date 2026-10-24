@@ -1,8 +1,8 @@
 id: project-hospital
 type: game
 name: Project Hospital
-summary: A hospital management sim in which the player builds departments and hires staff while doctors diagnose
-  patients by ordering examinations that reveal symptoms until one diagnosis remains.
+summary: A hospital management sim in which the player builds departments and hires staff while doctors
+  diagnose patients by ordering examinations that reveal symptoms until one diagnosis remains.
 year: 2018
 developer: Oxymoron Games
 platforms:
@@ -31,29 +31,29 @@ production_tier: indie
 agent_count_order: '100'
 emergence: 2
 influence: 1
-core_loop: sign insurer contracts -> patients arrive with complaints -> doctors order examinations and lab tests
-  -> revealed symptoms narrow the diagnosis -> treat, hospitalize, or operate -> insurers pay -> build departments
-  and hire staff
-design_notes: 'Oxymoron Games reduced medicine to symptom rules: each diagnosis has symptoms with tuned occurrence
-  frequencies, examinations reveal them, and a diagnosis becomes clear once enough are found; frequencies were set
-  so a case is rarely obvious after the first exam. Patients reach the hospital through insurance company contracts,
-  and the developers say the resulting economy came to resemble the American system. The free Doctor Mode update
-  lets the player make individual doctors'' exam and treatment choices, turning the facility sim into a diagnosis
-  game.'
+core_loop: sign insurer contracts -> patients arrive with complaints -> doctors order examinations and
+  lab tests -> revealed symptoms narrow the diagnosis -> treat, hospitalize, or operate -> insurers pay
+  -> build departments and hire staff
+design_notes: 'Oxymoron Games reduced medicine to symptom rules: each diagnosis has symptoms with tuned
+  occurrence frequencies, examinations reveal them, and a diagnosis becomes clear once enough are found;
+  frequencies were set so a case is rarely obvious after the first exam. Patients reach the hospital through
+  insurance company contracts, and the developers say the resulting economy came to resemble the American
+  system. The free Doctor Mode update lets the player make individual doctors'' exam and treatment choices,
+  turning the facility sim into a diagnosis game.'
 mechanics:
 - id: diagnosis-treatment
   role: core
-  note: Each patient has a hidden diagnosis; doctors order examinations, lab tests, and equipment procedures that
-    each reveal symptoms, symptom frequencies are tuned so one exam rarely settles a case, and treatment, hospitalization,
-    or surgery follows.
+  note: Each patient has a hidden diagnosis; doctors order examinations, lab tests, and equipment procedures
+    that each reveal symptoms, symptom frequencies are tuned so one exam rarely settles a case, and treatment,
+    hospitalization, or surgery follows.
 - id: staff-hiring
   role: core
-  note: The player hires and specializes doctors, nurses, lab staff, and janitors and manages their job satisfaction;
-    the Hospital Services DLC adds staff training.
+  note: The player hires and specializes doctors, nurses, lab staff, and janitors and manages their job
+    satisfaction; the Hospital Services DLC adds staff training.
 - id: free-placement
   role: core
-  note: The player lays foundations, walls, floor tiles, doors, and windows and places equipment for each department,
-    or starts from prefabs.
+  note: The player lays foundations, walls, floor tiles, doors, and windows and places equipment for each
+    department, or starts from prefabs.
 - id: room-recognition
   role: supporting
 - id: agent-skills
@@ -64,11 +64,13 @@ mechanics:
   role: supporting
 - id: unit-commands
   role: supporting
-  note: Doctor Mode (2019) lets the player choose exams, diagnoses, and treatments for individual doctors and their
-    patients.
+  note: Doctor Mode (2019) lets the player choose exams, diagnoses, and treatments for individual doctors
+    and their patients.
 - id: scenario-objectives
   role: supporting
   note: A campaign and six challenge levels set goals; sandbox mode removes them.
+- id: variable-speed
+  role: supporting
 sources:
 - src-wikipedia-project-hospital
 - src-jgeekstudies-2020-project-hospital
@@ -76,3 +78,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-catalog-gf
+  reviewed:
+  - 2026-10-24-review-fixes

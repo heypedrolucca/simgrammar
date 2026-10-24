@@ -18,7 +18,7 @@ Information about events spreads through social contacts, changing what agents k
 | compute cost | 3 |
 | tuning difficulty | 3 |
 | ai leverage | 4 |
-| maturity | Experimental |
+| maturity | Emerging |
 | core count *(computed)* | 2 |
 | earliest game *(computed)* | [Generative Agents (Smallville)](../game/generative-agents-smallville.md) |
 | earliest year *(computed)* | 2023 |
@@ -83,4 +83,4 @@ Actions have a spreading radius: a crime matters once someone talks, so the play
 - [Generative Agents: Interactive Simulacra of Human Behavior](../source/src-park-2023-generative-agents.md)
 
 ---
-Provenance: created in run `2026-10-24-taxonomy-m3`.
+Provenance: created in run `2026-10-24-taxonomy-m3`; reviewed in `2026-10-24-review-fixes`.

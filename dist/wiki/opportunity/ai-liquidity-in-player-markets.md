@@ -15,7 +15,7 @@ Keep player-driven markets liquid on small servers with model-driven traders who
 | impact | 2 |
 | horizon | 1-2 years |
 | key risks | Players perceive bots as unfair competition., Agents can be exploited for arbitrage., Calibration drift as the human population changes. |
-| falsifiable signal | {'prediction': 'A persistent online game will announce AI market participants calibrated to player behavior.', 'resolve_by': '2029-06-30', 'criteria': 'Developer announcement or documentation of AI traders in a player-driven market.'} |
+| falsifiable signal | {'prediction': 'A persistent online game will add AI traders to its player-driven market, with their behavior fitted to observed player trading.', 'resolve_by': '2029-06-30', 'criteria': 'Announced or shipped after 2026-10-24 in a persistent online game with a player-driven market; developer material states that AI market participants were trained or calibrated on player trade data. NPC vendors with fixed prices do not count.'} |
 | priority *(computed)* | 2.5 |
 
 ## Thesis
@@ -38,9 +38,9 @@ Simulate a 200-player market with and without calibrated agents using logged ord
 
 ## Falsifiable signal
 
-- **Prediction:** A persistent online game will announce AI market participants calibrated to player behavior.
+- **Prediction:** A persistent online game will add AI traders to its player-driven market, with their behavior fitted to observed player trading.
 - **Resolve by:** 2029-06-30
-- **Criteria:** Developer announcement or documentation of AI traders in a player-driven market.
+- **Criteria:** Announced or shipped after 2026-10-24 in a persistent online game with a player-driven market; developer material states that AI market participants were trained or calibrated on player trade data. NPC vendors with fixed prices do not count.
 
 ## Relations
 
@@ -65,4 +65,4 @@ Simulate a 200-player market with and without calibrated agents using logged ord
 - [M.U.L.E.](../game/mule.md)
 
 ---
-Provenance: created in run `2026-10-24-synthesis`.
+Provenance: created in run `2026-10-24-synthesis`; reviewed in `2026-10-24-review-fixes`.

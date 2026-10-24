@@ -15,7 +15,7 @@ Turn a run's event log into a readable, illustrated saga that players can share,
 | impact | 2 |
 | horizon | Now |
 | key risks | Summaries invent drama the log does not support., Generated art quality and disclosure., Players who enjoy writing their own stories may feel replaced. |
-| falsifiable signal | {'prediction': "A systemic simulation game will ship an automatic, player-shareable narrative summary of a run's history.", 'resolve_by': '2027-12-31', 'criteria': 'Shipped feature in a released title or official expansion, described in patch notes or store text.'} |
+| falsifiable signal | {'prediction': "A systemic simulation game will ship an automatic, shareable narrative summary of a run's history generated from its event log.", 'resolve_by': '2027-12-31', 'criteria': 'Feature first shipped after 2026-10-24 in a released title or official expansion with at least 1,000 Steam user reviews; patch notes or store text describe an automatically written run history the player can export or share.'} |
 | priority *(computed)* | 2.756 |
 
 ## Thesis
@@ -38,9 +38,9 @@ Generate chronicles for 30 logged colony runs and have their players rate accura
 
 ## Falsifiable signal
 
-- **Prediction:** A systemic simulation game will ship an automatic, player-shareable narrative summary of a run's history.
+- **Prediction:** A systemic simulation game will ship an automatic, shareable narrative summary of a run's history generated from its event log.
 - **Resolve by:** 2027-12-31
-- **Criteria:** Shipped feature in a released title or official expansion, described in patch notes or store text.
+- **Criteria:** Feature first shipped after 2026-10-24 in a released title or official expansion with at least 1,000 Steam user reviews; patch notes or store text describe an automatically written run history the player can export or share.
 
 ## Relations
 
@@ -65,4 +65,4 @@ Generate chronicles for 30 logged colony runs and have their players rate accura
 - [Kenshi](../game/kenshi.md)
 
 ---
-Provenance: created in run `2026-10-24-synthesis`.
+Provenance: created in run `2026-10-24-synthesis`; reviewed in `2026-10-24-review-fixes`.

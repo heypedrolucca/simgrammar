@@ -29,9 +29,9 @@ A transport business sim in which the player builds road, rail, sea, and air net
 | emergence | 3 |
 | influence | 4 |
 | influenced by | [Railroad Tycoon](../game/railroad-tycoon.md), [SimCity 2000](../game/simcity-2000.md), [Theme Park](../game/theme-park.md) |
-| cluster *(computed)* | C01 |
+| cluster *(computed)* | C02 |
 | core count *(computed)* | 3 |
-| mechanic count *(computed)* | 17 |
+| mechanic count *(computed)* | 18 |
 
 ## Summary
 
@@ -72,6 +72,7 @@ Transport Tycoon extends Railroad Tycoon to four transport modes on one isometri
 - [Delivery-time payment](../mechanic/delivery-time-payment.md) (supporting): Revenue per delivery depends on cargo type, quantity, distance, and transit time; mail and passengers lose value quickly while coal tolerates long, slow hauls.
 - [Dated technology timeline](../mechanic/dated-tech-timeline.md) (supporting): Road, rail, sea, and air models are introduced on a timeline from 1930 to 2030 (1950 to 2050 in Deluxe), new models carry reliability risk, and aging fleets must be renewed as better models arrive.
 - [Track laying](../mechanic/track-laying.md) (supporting): Rail track, including slopes, bridges, and tunnels, is laid piece by piece on the isometric tile map, with costs for terrain changes and demolition.
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
 
 ## Backlinks (computed)
 
@@ -82,4 +83,4 @@ Transport Tycoon extends Railroad Tycoon to four transport modes on one isometri
 - [Transport Tycoon](../source/src-wikipedia-transport-tycoon.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-ge`.
+Provenance: created in run `2026-10-24-catalog-ge`; reviewed in `2026-10-24-review-fixes`.

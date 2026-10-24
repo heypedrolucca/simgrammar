@@ -28,9 +28,9 @@ A colony sim set after a plague in which settlers with traits, needs, and moods 
 | emergence | 3 |
 | influence | 1 |
 | influenced by | [RimWorld](../game/rimworld.md) |
-| cluster *(computed)* | C04 |
+| cluster *(computed)* | C01 |
 | core count *(computed)* | 4 |
-| mechanic count *(computed)* | 17 |
+| mechanic count *(computed)* | 21 |
 
 ## Core Loop
 
@@ -65,6 +65,10 @@ It follows the RimWorld pattern of named settlers with traits, perks, skills, ne
 - [Animal husbandry](../mechanic/animal-husbandry.md) (supporting)
 - [Tech tree](../mechanic/tech-tree.md) (supporting): Research unlocks medieval technology.
 - [Permadeath](../mechanic/permadeath.md) (supporting)
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
+- [Building placement](../mechanic/free-placement.md) (supporting)
+- [Utility action selection](../mechanic/utility-action-selection.md) (supporting)
+- [Storage and buffers](../mechanic/storage-capacity.md) (supporting)
 
 ## Sources
 
@@ -72,4 +76,4 @@ It follows the RimWorld pattern of named settlers with traits, perks, skills, ne
 - [Going Medieval on Steam](../source/src-steam-2026-going-medieval.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-gb`.
+Provenance: created in run `2026-10-24-catalog-gb`; reviewed in `2026-10-24-review-fixes`.

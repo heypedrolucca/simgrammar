@@ -93,6 +93,10 @@ mechanics:
   note: City-wide free will keeps Zois across the city living autonomously while the player directs one
     household, producing rumors, trends, and disease; the fidelity of the update for distant Zois is not
     documented.
+- id: variable-speed
+  role: supporting
+- id: utility-action-selection
+  role: supporting
 influenced_by:
 - the-sims
 sources:
@@ -101,3 +105,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-catalog-gc
+  reviewed:
+  - 2026-10-24-review-fixes

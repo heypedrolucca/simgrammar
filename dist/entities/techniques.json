@@ -500,10 +500,12 @@
     "provenance": {
       "created": "2026-10-24-techniques-rl-design",
       "reviewed": [
-        "2026-10-24-technique-links"
+        "2026-10-24-technique-links",
+        "2026-10-24-review-fixes"
       ]
     },
     "risks": [
+      "determinism",
       "consistency",
       "controllability",
       "content-safety",
@@ -1138,9 +1140,13 @@
     "mechanism": "A game is recorded as pairs of frames and player actions (from an RL agent in GameNGen, human play in DIAMOND's CS:GO model, or gameplay video in Oasis). A generator is trained to predict frame t+1 from the last N frames and the action at t: a latent diffusion model in GameNGen, DIAMOND, and Oasis, or a transformer over interleaved image and action tokens in MineWorld. Context frames are noised during training (noise augmentation, Diffusion Forcing, dynamic noising) so the model can recover from its own errors during long rollouts, and sampling is cut to a few denoising steps for real-time play. There is no explicit game state: position, health, enemies, and map layout exist only as pixels or latents inside the context window, so anything that leaves the window is forgotten unless it is visible on screen.",
     "name": "Diffusion and autoregressive neural game engines",
     "provenance": {
-      "created": "2026-10-24-techniques-world-models"
+      "created": "2026-10-24-techniques-world-models",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "risks": [
+      "determinism",
       "consistency",
       "compute-cost",
       "controllability",
@@ -1661,10 +1667,12 @@
     "provenance": {
       "created": "2026-10-24-techniques-llm-agents",
       "reviewed": [
-        "2026-10-24-technique-links"
+        "2026-10-24-technique-links",
+        "2026-10-24-review-fixes"
       ]
     },
     "risks": [
+      "determinism",
       "compute-cost",
       "consistency",
       "latency",
@@ -1811,9 +1819,13 @@
     "mechanism": "Genie (2024) learned from 30k hours of unlabeled 2D platformer video: a video tokenizer, a latent action model that infers 8 discrete actions between frames without labels, and a 10.1B-parameter dynamics model that predicts the next frame tokens given an action. Genie 2 (December 2024) is an autoregressive latent diffusion model with a transformer dynamics model that turns a single image into a 3D world controlled by keyboard and mouse. Genie 3 (August 2025) generates frames auto-regressively in real time from a text prompt, keeps visual memory of earlier frames for about a minute so revisited places look the same, and accepts text 'promptable world events' during play that add objects, characters, or weather changes. No explicit 3D scene or game state is stored; consistency comes from the frame history.",
     "name": "Genie foundation world models",
     "provenance": {
-      "created": "2026-10-24-techniques-world-models"
+      "created": "2026-10-24-techniques-world-models",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "risks": [
+      "determinism",
       "consistency",
       "compute-cost",
       "controllability",
@@ -2621,10 +2633,12 @@
     "provenance": {
       "created": "2026-10-24-techniques-llm-agents",
       "reviewed": [
-        "2026-10-24-technique-links"
+        "2026-10-24-technique-links",
+        "2026-10-24-review-fixes"
       ]
     },
     "risks": [
+      "determinism",
       "compute-cost",
       "consistency",
       "controllability",
@@ -2942,9 +2956,13 @@
     "mechanism": "The player types an intent; the system assembles a prompt from recent story, pinned memories, and setting notes and asks the model to continue the story, as AI Dungeon has since 2019. Grounded variants split the job: actors state intended actions in language, a Game Master component checks plausibility against rules and state, decides what happens, writes state changes, and only then narrates (Concordia). Hidden Door runs intent through plan, canon check, and world-state update steps over a typed, auditable world model, using many small tuned models for about 100 narrative tasks; its example blocks Dracula from entering a house uninvited. Research systems generate setting, items, and NPCs from designer criteria and use the model to validate free-text input against the story (PANGeA), or assist a human Dungeon Master (CALYPSO).",
     "name": "LLM game master and narrative director",
     "provenance": {
-      "created": "2026-10-24-techniques-llm-agents"
+      "created": "2026-10-24-techniques-llm-agents",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "risks": [
+      "determinism",
       "consistency",
       "content-safety",
       "controllability",
@@ -3034,7 +3052,7 @@
         "sources": [
           "src-wikipedia-infinite-craft"
         ],
-        "text": "Infinite Craft (January 2024) starts from water, fire, wind, and earth and generates a new element and emoji with Llama 2 and Llama 3.1 for any untried pair, storing the result so each pair gives every player the same answer; traffic reached hundreds of millions of recipes a day."
+        "text": "Infinite Craft (January 2024) starts from water, fire, wind, and earth and generates a new element and emoji with Llama 2 and Llama 3.1 for any untried pair, storing the result so each pair gives every player the same answer."
       },
       {
         "confidence": "high",
@@ -3063,7 +3081,8 @@
     "provenance": {
       "created": "2026-10-24-techniques-llm-agents",
       "reviewed": [
-        "2026-10-24-technique-links"
+        "2026-10-24-technique-links",
+        "2026-10-24-review-fixes"
       ]
     },
     "risks": [
@@ -3415,8 +3434,7 @@
       },
       "incoming": {
         "applied_in": [
-          "learned-weather-layer",
-          "weather-coupled-grids"
+          "learned-weather-layer"
         ]
       }
     },
@@ -3869,9 +3887,13 @@
     "mechanism": "Frames are encoded into discrete image tokens and controller inputs into action tokens; a decoder-only transformer models the interleaved sequence, so it predicts both how the world evolves and what a human player is likely to do next. Prompting with a few frames yields many plausible continuations (diversity); a designer can edit a frame, such as inserting a character, and the model carries the edit forward (persistency). WHAM-1.6B produces about one frame per second at 300x180. WHAMM replaces token-by-token decoding with MaskGIT-style parallel prediction (a 500M backbone plus a 250M refiner) to reach more than 10 fps at 640x360 on Quake II.",
     "name": "Muse World and Human Action Model (WHAM)",
     "provenance": {
-      "created": "2026-10-24-techniques-world-models"
+      "created": "2026-10-24-techniques-world-models",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "risks": [
+      "determinism",
       "consistency",
       "compute-cost",
       "controllability",
@@ -4531,9 +4553,13 @@
     "mechanism": "A pretrained text- or image-to-video diffusion transformer (SkyReels-V2 for Matrix-Game 2.0, HunyuanVideo for GameCraft) gets action modules: keyboard and mouse mapped to camera translation and rotation, injected through cross-attention, token addition, or Plucker camera embeddings. Training uses gameplay recordings from Unreal Engine scenes, GTA V, Minecraft, Temple Run, or 100+ AAA titles. The bidirectional model is then distilled into a causal few-step generator (Self-Forcing with distribution matching, or phased consistency models) that streams chunks with a rolling KV cache. 2026 systems add memory by retrieving past frames whose camera pose overlaps the current view (Matrix-Game 3.0, WorldPlay). Yan, Mirage 2, and Odyssey-2 accept typed text during play to edit the world.",
     "name": "Open real-time interactive video world models",
     "provenance": {
-      "created": "2026-10-24-techniques-world-models"
+      "created": "2026-10-24-techniques-world-models",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "risks": [
+      "determinism",
       "consistency",
       "compute-cost",
       "ip-provenance",
@@ -4636,9 +4662,13 @@
     "mechanism": "Cosmos curates about 20M hours of raw video into about 100M clips, compresses them with causal video tokenizers, and pretrains diffusion (Text2World, Video2World) and autoregressive world models that developers post-train into action- or camera-conditioned simulators; Cosmos 3 (2026) is an omni family at 4B, 16B, and 64B parameters. V-JEPA 2 instead predicts masked video in a learned embedding space, not pixels, from over 1M hours of video; its action-conditioned variant V-JEPA 2-AC is post-trained on under 62 hours of robot video and plans by searching for action sequences whose predicted embedding approaches a goal image.",
     "name": "Physical-world foundation models",
     "provenance": {
-      "created": "2026-10-24-techniques-world-models"
+      "created": "2026-10-24-techniques-world-models",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "risks": [
+      "determinism",
       "consistency",
       "compute-cost",
       "evaluation",
@@ -5129,9 +5159,13 @@
     "mechanism": "Two pipelines. Cascaded: streaming speech recognition, then an LLM, then streaming TTS, each optimized for time to first output. Speech-native: the model reads and writes audio tokens from a neural codec. Moshi models the user's and its own speech as parallel streams (full duplex, so it can listen while speaking) and predicts time-aligned text tokens before audio tokens. Hosted realtime APIs keep a persistent WebSocket session with voice activity detection, interruption handling, and function calls that can trigger game actions. Expressive TTS conditions delivery on context: Sesame's CSM feeds prior conversation audio and text to a Llama-style backbone over codec tokens, and Eleven v3 accepts inline tags such as [whispers] or [sighs]. Small ASR and TTS models (hundreds of millions of parameters) can run on device.",
     "name": "Realtime speech-to-speech and expressive TTS for characters",
     "provenance": {
-      "created": "2026-10-24-techniques-llm-agents"
+      "created": "2026-10-24-techniques-llm-agents",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "risks": [
+      "determinism",
       "compute-cost",
       "latency",
       "labor",
@@ -5272,8 +5306,7 @@
         "applied_in": [
           "calibrated-serious-sims",
           "human-calibrated-customers",
-          "participatory-planning-sandboxes",
-          "weather-coupled-grids"
+          "participatory-planning-sandboxes"
         ]
       }
     },

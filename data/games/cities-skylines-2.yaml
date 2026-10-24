@@ -85,11 +85,25 @@ mechanics:
   role: supporting
   note: Citizens compare driving, transit, and walking using a cost of time, comfort, money, and personal
     behavior, and parking fees enter the driving cost.
+- id: variable-speed
+  role: supporting
+- id: free-placement
+  role: supporting
+- id: power-grid
+  role: supporting
+  note: Generation, a connected grid, and batteries; solar output varies with weather and time of day
+    and wind with wind strength.
+- id: weather
+  role: supporting
+  note: Weather and seasons affect solar and wind output and climate conditions.
 influenced_by:
 - cities-skylines
 sources:
 - src-wikipedia-cities-skylines-2
 - src-paradox-2023-cs2-traffic-ai
+- src-paradox-2023-cs2-electricity-water
 status: sourced
 provenance:
   created: 2026-10-24-catalog-ga
+  reviewed:
+  - 2026-10-24-review-fixes

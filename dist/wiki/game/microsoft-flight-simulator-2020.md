@@ -27,9 +27,9 @@ A flight sim that streams a photorealistic model of the whole Earth built from m
 | agent count order | ~100 |
 | emergence | 2 |
 | influence | 3 |
-| cluster *(computed)* | C06 |
+| cluster *(computed)* | C03 |
 | core count *(computed)* | 3 |
-| mechanic count *(computed)* | 8 |
+| mechanic count *(computed)* | 9 |
 
 ## Summary
 
@@ -55,6 +55,7 @@ The world is data rather than authored terrain: Bing Maps imagery refreshed ever
 - [Scenario objectives](../mechanic/scenario-objectives.md) (supporting)
 - [Modding API](../mechanic/modding-api.md) (supporting): An in-game marketplace and third-party aircraft and airports extend the sim.
 - [Real-world data feeds](../mechanic/real-world-data-feeds.md) (core): The whole Earth is built from Bing Maps imagery updated every 28 days and AI-generated 3D content streamed from more than two petabytes in the cloud, while Meteoblue live weather and live air traffic feed the sim at runtime.
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
 
 ## Backlinks (computed)
 
@@ -69,4 +70,4 @@ The world is data rather than authored terrain: Bing Maps imagery refreshed ever
 - [Microsoft Flight Simulator (2020 video game)](../source/src-wikipedia-microsoft-flight-simulator-2020.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-gf`.
+Provenance: created in run `2026-10-24-catalog-gf`; reviewed in `2026-10-24-review-fixes`.

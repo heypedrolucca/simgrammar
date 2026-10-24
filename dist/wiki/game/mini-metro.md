@@ -27,7 +27,7 @@ A minimalist subway-design game where the player draws and redraws lines between
 | agent count order | ~100 |
 | emergence | 2 |
 | influence | 2 |
-| cluster *(computed)* | C12 |
+| cluster *(computed)* | C09 |
 | core count *(computed)* | 2 |
 | mechanic count *(computed)* | 5 |
 

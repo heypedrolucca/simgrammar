@@ -15,7 +15,7 @@ Extend Townscaper-style procedural assist to full city builders with learned sty
 | impact | 3 |
 | horizon | Now |
 | key risks | Assist removes the planning players enjoy., Learned priors import real-world layout biases., Unclear ownership of generated layouts. |
-| falsifiable signal | {'prediction': 'A commercial city builder will ship a learned layout generator that converts player gestures into detailed districts.', 'resolve_by': '2028-06-30', 'criteria': 'Developer documentation naming a learned or data-driven layout model in a shipped feature.'} |
+| falsifiable signal | {'prediction': 'A city builder will ship a machine-learned layout generator that turns player strokes into detailed streets or districts.', 'resolve_by': '2028-06-30', 'criteria': 'Feature first shipped after 2026-10-24 in a title with at least 1,000 Steam user reviews; developer documentation states that a model trained on layout data, as opposed to hand-written procedural rules, generates the layout from player brushes or strokes.'} |
 | priority *(computed)* | 3.318 |
 
 ## Summary
@@ -42,9 +42,9 @@ Train a layout generator on open street-network data and compare player-built di
 
 ## Falsifiable signal
 
-- **Prediction:** A commercial city builder will ship a learned layout generator that converts player gestures into detailed districts.
+- **Prediction:** A city builder will ship a machine-learned layout generator that turns player strokes into detailed streets or districts.
 - **Resolve by:** 2028-06-30
-- **Criteria:** Developer documentation naming a learned or data-driven layout model in a shipped feature.
+- **Criteria:** Feature first shipped after 2026-10-24 in a title with at least 1,000 Steam user reviews; developer documentation states that a model trained on layout data, as opposed to hand-written procedural rules, generates the layout from player brushes or strokes.
 
 ## Relations
 
@@ -70,4 +70,4 @@ Train a layout generator on open street-network data and compare player-built di
 - [Cities: Skylines II](../game/cities-skylines-2.md)
 
 ---
-Provenance: created in run `2026-10-24-synthesis`.
+Provenance: created in run `2026-10-24-synthesis`; reviewed in `2026-10-24-review-fixes`.

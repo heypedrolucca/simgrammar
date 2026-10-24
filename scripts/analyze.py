@@ -157,6 +157,14 @@ def compute(ents: dict, edges: list, vocabs: dict) -> dict:
         r, p = corr(a, b)
         stats[f"rho_{a}_{b}"] = r
         stats[f"p_{a}_{b}"] = ("<0.001" if p is not None and p < 0.001 else (_r(p, 3) if p is not None else None))
+    # robustness: interface families (legibility, time and pacing) are scored emergence 1 by rubric design
+    iface = {"information-legibility", "time-pacing"}
+    sub = [m for m in mechs if m.data["family"] not in iface]
+    if len(sub) > 2:
+        r, _ = spearmanr([m.data["legibility"] for m in sub], [m.data["emergence_potential"] for m in sub])
+        stats["rho_legibility_emergence_potential_excl_interface"] = _r(r, 2)
+    im = [m for m in mechs if m.data["family"] in iface]
+    stats["pct_interface_emergence_1"] = _r(100 * sum(1 for m in im if m.data["emergence_potential"] == 1) / len(im), 0) if im else None
     if mechs and techs:
         xs = [m.data["ai_leverage"] for m in mechs]
         ys = [derived[m.id]["technique_exposure"] for m in mechs]
@@ -196,6 +204,8 @@ def compute(ents: dict, edges: list, vocabs: dict) -> dict:
     for a, b in combinations(sorted(common), 2):
         if ws["exclude_same_family"] and by_id[a].data["family"] == by_id[b].data["family"]:
             continue
+        if by_id[a].data["family"] in ws.get("exclude_families", []) or by_id[b].data["family"] in ws.get("exclude_families", []):
+            continue
         if (a, b) in tension_pairs:
             continue
         obs = pair_count.get((a, b), 0)
@@ -205,7 +215,7 @@ def compute(ents: dict, edges: list, vocabs: dict) -> dict:
         wrows.append({"mechanic_a": a, "mechanic_b": b, "family_a": by_id[a].data["family"], "family_b": by_id[b].data["family"],
                       "observed": obs, "expected": _r(expected, 2), "gap": _r(expected - obs, 2)})
     wrows.sort(key=lambda r: (-r["gap"], r["mechanic_a"], r["mechanic_b"]))
-    tables["whitespace"] = {"description": f"Pairs of common mechanics (each in >= {int(ws['min_prevalence_share']*100)}% of games, different families, not marked as tension) that co-occur at most {ws['max_observed']} time(s). Gap = expected - observed co-occurrence under independence.",
+    tables["whitespace"] = {"description": f"Pairs of common mechanics (each in >= {int(ws['min_prevalence_share']*100)}% of games, different families, not marked as tension{', excluding ' + ', '.join(fam_terms[f]['label'] for f in ws.get('exclude_families', [])) if ws.get('exclude_families') else ''}) that co-occur at most {ws['max_observed']} time(s). Gap = expected - observed co-occurrence under independence.",
                             "columns": ["mechanic_a", "mechanic_b", "family_a", "family_b", "observed", "expected", "gap"], "rows": wrows[: ws["top_n"]], "link_columns": ["mechanic_a", "mechanic_b"]}
     stats["n_whitespace_pairs"] = len(wrows)
     stats["n_common_mechanics"] = len(common)
@@ -214,11 +224,13 @@ def compute(ents: dict, edges: list, vocabs: dict) -> dict:
     cl = cfg["clustering"]
     if N >= cl["k"] and mids:
         idx = {m: i for i, m in enumerate(mids)}
+        gidx = {g.id: i for i, g in enumerate(games)}
         X = np.zeros((N, len(mids)))
+        idf = {m: (math.log(N / prev[m]) if cl.get("idf") else 1.0) for m in mids}
         for gi, g in enumerate(games):
             for mid, role in gm[g.id].items():
                 if mid in idx:
-                    X[gi, idx[mid]] = cl["core_weight"] if role == "core" else 1.0
+                    X[gi, idx[mid]] = (cl["core_weight"] if role == "core" else 1.0) * idf[mid]
         D = np.zeros((N, N))
         for i in range(N):
             for j in range(i + 1, N):
@@ -249,10 +261,10 @@ def compute(ents: dict, edges: list, vocabs: dict) -> dict:
             crow.append({"cluster": f"C{ci:02d}", "label": label, "size": len(members),
                          "dominant_subgenres": ", ".join(f"{sub_terms.get(s, {}).get('label', s)} ({n})" for s, n in subs),
                          "signature_mechanics": topm,
-                         "members": sorted([g.id for g in members])})
-        tables["game-clusters"] = {"description": f"Games clustered by weighted Jaccard similarity of mechanic sets (average linkage, k={cl['k']}, core weight {cl['core_weight']}). Signature mechanics maximize within-cluster share x log-lift.",
+                         "members": [g.id for g in sorted(members, key=lambda g: (float(np.mean([D[gidx[g.id], gidx[o.id]] for o in members])), g.id))]})
+        tables["game-clusters"] = {"description": f"Games clustered by weighted Jaccard similarity of mechanic sets (average linkage, k={cl['k']}, core weight {cl['core_weight']}{', inverse-prevalence weighting so ubiquitous mechanics do not dominate' if cl.get('idf') else ''}). Signature mechanics maximize within-cluster share x log-lift. Members are ordered by centrality (mean distance to the rest of the cluster), so the first members are the most typical.",
                                    "columns": ["cluster", "label", "size", "dominant_subgenres", "signature_mechanics", "members"], "rows": crow,
-                                   "link_columns": ["signature_mechanics", "members"]}
+                                   "link_columns": ["signature_mechanics", "members"], "max_links": 8}
         # how often clusters cut across subgenres
         cross = sum(1 for r in crow if len(set(by_id[g].data.get("subgenre") for g in r["members"])) > 1)
         stats["n_clusters"] = len(crow)
@@ -290,10 +302,11 @@ def compute(ents: dict, edges: list, vocabs: dict) -> dict:
             "mean_authoring_cost": _r(np.mean([m.data["authoring_cost"] for m in ms]), 2),
             "mean_ai_leverage": _r(np.mean([m.data["ai_leverage"] for m in ms]), 2),
             "technique_exposure": _r(sum(derived[m.id]["technique_exposure"] for m in ms), 2),
+            "mean_exposure": _r(sum(derived[m.id]["technique_exposure"] for m in ms) / len(ms), 2),
         })
     famrows.sort(key=lambda r: (-r["technique_exposure"], r["family"]))
-    tables["family-summary"] = {"description": "Per mechanic family: size, total game uses, mean rubric scores, and summed technique exposure (maturity x effect weights from vocab/rubrics.yaml).",
-                                "columns": ["family", "mechanics", "uses", "mean_legibility", "mean_emergence", "mean_authoring_cost", "mean_ai_leverage", "technique_exposure"], "rows": famrows}
+    tables["family-summary"] = {"description": "Per mechanic family: size, total game uses, mean rubric scores, summed technique exposure (maturity x effect weights from vocab/rubrics.yaml), and exposure per mechanic. Sorted by summed exposure.",
+                                "columns": ["family", "mechanics", "uses", "mean_legibility", "mean_emergence", "mean_authoring_cost", "mean_ai_leverage", "technique_exposure", "mean_exposure"], "rows": famrows}
     comp_by_fam = {f: np.mean([m.data["compute_cost"] for m in mechs if m.data["family"] == f]) for f in fam_ids if any(m.data["family"] == f for m in mechs)}
     if comp_by_fam:
         stats["top_compute_family"] = fam_terms[max(comp_by_fam, key=lambda f: (comp_by_fam[f], f))]["label"]
@@ -301,6 +314,7 @@ def compute(ents: dict, edges: list, vocabs: dict) -> dict:
     if famrows and famrows[0]["technique_exposure"] > 0:
         stats["top_exposed_family"] = fam_terms[famrows[0]["family"]]["label"]
         stats["least_exposed_family"] = fam_terms[famrows[-1]["family"]]["label"]
+        stats["top_mean_exposed_family"] = fam_terms[max(famrows, key=lambda r: (r["mean_exposure"], r["family"]))["family"]]["label"]
 
     # ---------------- AI leverage gap: high judged leverage but low current technique exposure
     gap_rows = []
@@ -311,7 +325,7 @@ def compute(ents: dict, edges: list, vocabs: dict) -> dict:
                              "technique_exposure": derived[m.id]["technique_exposure"], "prevalence": derived[m.id]["prevalence"],
                              "gap": _r(m.data["ai_leverage"] / 5 - derived[m.id]["technique_exposure"] / max_exp, 3)})
         gap_rows.sort(key=lambda r: (-r["gap"], -r["prevalence"], r["mechanic"]))
-    tables["leverage-gap"] = {"description": "Mechanics where expert-judged AI leverage outruns the techniques currently linked to them (normalized). High gap = under-researched opportunity or missing technique links.",
+    tables["leverage-gap"] = {"description": "Mechanics where rater-judged AI leverage outruns the techniques currently linked to them (normalized). High gap = under-researched opportunity or missing technique links. Equal gaps are ordered by prevalence, so more-used mechanics come first.",
                               "columns": ["mechanic", "family", "ai_leverage", "technique_exposure", "prevalence", "gap"], "rows": gap_rows[:25], "link_columns": ["mechanic"]}
     exp_rows = sorted(({"mechanic": m.id, "family": m.data["family"], "technique_exposure": derived[m.id]["technique_exposure"],
                         "technique_count": derived[m.id]["technique_count"], "prevalence": derived[m.id]["prevalence"]} for m in mechs),
@@ -351,6 +365,10 @@ def compute(ents: dict, edges: list, vocabs: dict) -> dict:
         stats[f"n_technique_{k.replace('-', '_')}"] = mat_counts.get(k, 0)
     det = Counter(t.data["determinism_impact"] for t in techs)
     stats["n_technique_breaks_determinism"] = det.get("breaks", 0)
+    rt = [t for t in techs if {"client-realtime", "server-realtime"} & set(t.data["runtime"])]
+    stats["n_technique_runtime"] = len(rt)
+    for k in ("breaks", "mitigable", "preserves"):
+        stats[f"n_technique_runtime_{k}"] = sum(1 for t in rt if t.data["determinism_impact"] == k)
 
     # ---------------- opportunities ranked
     orows = sorted(({"opportunity": o.id, "type": o.data["opportunity_type"], "priority": derived[o.id]["priority"], "impact": o.data["impact"],
@@ -372,6 +390,17 @@ def compute(ents: dict, edges: list, vocabs: dict) -> dict:
             by_decade[f"{(y // 10) * 10}s"] += 1
     tables["mechanic-origins-by-decade"] = {"description": "Mechanics by decade of earliest appearance in the dataset (a lower bound on true origin; dataset is a sample).",
                                             "columns": ["decade", "mechanics"], "rows": [{"decade": k, "mechanics": v} for k, v in sorted(by_decade.items())]}
+    late = sorted((m for m in mechs if (derived[m.id]["earliest_year"] or 0) >= 2010),
+                  key=lambda m: (m.data["family"], derived[m.id]["earliest_year"], m.id))
+    tables["mechanics-since-2010"] = {"description": "Mechanics whose earliest appearance in the dataset is 2010 or later, grouped by family.",
+                                      "columns": ["family", "mechanic", "earliest_year", "earliest_game"],
+                                      "rows": [{"family": fam_terms[m.data["family"]]["label"], "mechanic": m.id,
+                                                "earliest_year": derived[m.id]["earliest_year"], "earliest_game": derived[m.id]["earliest_game"]} for m in late],
+                                      "link_columns": ["mechanic", "earliest_game"]}
+    stats["n_mechanics_since_2010"] = len(late)
+    total_dated = sum(by_decade.values())
+    stats["pct_mechanics_first_seen_1980_1999"] = _r(100 * (by_decade.get("1980s", 0) + by_decade.get("1990s", 0)) / total_dated, 0) if total_dated else None
+    stats["peak_origin_decade"] = max(by_decade.items(), key=lambda x: (x[1], x[0]))[0] if by_decade else None
     games_by_decade = Counter(f"{(y // 10) * 10}s" for y in yrs)
     tables["games-by-decade"] = {"description": "Games in the dataset by decade of first release.", "columns": ["decade", "games"],
                                  "rows": [{"decade": k, "games": v} for k, v in sorted(games_by_decade.items())]}

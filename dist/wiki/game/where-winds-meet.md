@@ -29,7 +29,7 @@ An open-world martial-arts RPG whose NPCs answer free-text and voice chat throug
 | influence | 2 |
 | boundary case | True |
 | core loop | explore the open world -> talk to NPCs in free text or voice -> take quests and fights -> build reputation and skills -> explore further |
-| cluster *(computed)* | C09 |
+| cluster *(computed)* | C08 |
 | core count *(computed)* | 2 |
 | mechanic count *(computed)* | 5 |
 

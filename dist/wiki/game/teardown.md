@@ -27,7 +27,7 @@ A heist and destruction game set in fully destructible voxel levels where the pl
 | agent count order | ~10 |
 | emergence | 3 |
 | influence | 2 |
-| cluster *(computed)* | C02 |
+| cluster *(computed)* | C07 |
 | core count *(computed)* | 3 |
 | mechanic count *(computed)* | 8 |
 

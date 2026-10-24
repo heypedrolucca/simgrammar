@@ -96,6 +96,8 @@ mechanics:
   role: core
   note: Zombies respond to sight and hearing, so noise from actions such as gunfire or breaking windows
     draws them toward the survivor, and hordes migrate.
+- id: variable-speed
+  role: supporting
 sources:
 - src-wikipedia-project-zomboid
 - src-steam-2026-project-zomboid
@@ -103,3 +105,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-catalog-gb
+  reviewed:
+  - 2026-10-24-review-fixes

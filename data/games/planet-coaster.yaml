@@ -90,6 +90,12 @@ mechanics:
   role: supporting
   note: Coasters are built in a hybrid spline and piece-by-piece editor, joining track elements end to
     end.
+- id: variable-speed
+  role: supporting
+- id: free-placement
+  role: supporting
+- id: utility-action-selection
+  role: supporting
 influenced_by:
 - rollercoaster-tycoon
 sources:
@@ -98,3 +104,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-catalog-ge
+  reviewed:
+  - 2026-10-24-review-fixes

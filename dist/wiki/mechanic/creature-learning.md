@@ -18,7 +18,7 @@ A creature's behavior is learned from player reward and punishment or from neura
 | compute cost | 2 |
 | tuning difficulty | 4 |
 | ai leverage | 4 |
-| maturity | Experimental |
+| maturity | Established |
 | core count *(computed)* | 3 |
 | earliest game *(computed)* | [Creatures](../game/creatures.md) |
 | earliest year *(computed)* | 1996 |
@@ -82,4 +82,4 @@ The player becomes a parent or trainer. Each reward is a bet about what the crea
 - [Black & White (video game)](../source/src-wikipedia-black-and-white.md)
 
 ---
-Provenance: created in run `2026-10-24-taxonomy-m3`.
+Provenance: created in run `2026-10-24-taxonomy-m3`; reviewed in `2026-10-24-review-fixes`.

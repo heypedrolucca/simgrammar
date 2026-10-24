@@ -28,9 +28,9 @@ A survival city builder in which the leader of the last city around a coal gener
 | emergence | 3 |
 | influence | 3 |
 | influenced by | [This War of Mine](../game/this-war-of-mine.md) |
-| cluster *(computed)* | C01 |
+| cluster *(computed)* | C04 |
 | core count *(computed)* | 4 |
-| mechanic count *(computed)* | 11 |
+| mechanic count *(computed)* | 14 |
 
 ## Summary
 
@@ -63,6 +63,9 @@ The city is radial around one generator that heats a circular area, so layout is
 - [Dilemma cards](../mechanic/dilemma-cards.md) (supporting): Individual decisions, such as how to handle an injured child, offer choices that shift hope and discontent.
 - [Tech tree](../mechanic/tech-tree.md) (supporting): Workshops research heat, extraction, and automaton technologies.
 - [Weather](../mechanic/weather.md) (supporting)
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
+- [Building placement](../mechanic/free-placement.md) (supporting)
+- [Storage and buffers](../mechanic/storage-capacity.md) (supporting)
 
 ## Backlinks (computed)
 
@@ -75,4 +78,4 @@ The city is radial around one generator that heats a circular area, so layout is
 - [Frostpunk](../source/src-wikipedia-frostpunk.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-ga`.
+Provenance: created in run `2026-10-24-catalog-ga`; reviewed in `2026-10-24-review-fixes`.

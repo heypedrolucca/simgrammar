@@ -27,7 +27,7 @@ A real-time-with-pause grand strategy game in which the player directs one of ov
 | agent count order | ~100 |
 | emergence | 4 |
 | influence | 3 |
-| cluster *(computed)* | C01 |
+| cluster *(computed)* | C04 |
 | core count *(computed)* | 5 |
 | mechanic count *(computed)* | 20 |
 

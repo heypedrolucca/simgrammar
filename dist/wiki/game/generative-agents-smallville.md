@@ -29,7 +29,7 @@ A research sandbox in which 25 language-model agents in a Sims-like town keep na
 | emergence | 3 |
 | influence | 4 |
 | influenced by | [The Sims](../game/the-sims.md) |
-| cluster *(computed)* | C09 |
+| cluster *(computed)* | C08 |
 | core count *(computed)* | 3 |
 | mechanic count *(computed)* | 7 |
 

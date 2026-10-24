@@ -28,7 +28,7 @@ A physics construction game where the player builds medieval siege machines from
 | agent count order | ~100 |
 | emergence | 3 |
 | influence | 2 |
-| cluster *(computed)* | C02 |
+| cluster *(computed)* | C07 |
 | core count *(computed)* | 3 |
 | mechanic count *(computed)* | 8 |
 

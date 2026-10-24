@@ -26,7 +26,7 @@ A 1996 keychain virtual pet whose hunger, happiness, and training meters run on 
 | agent count order | ~1 |
 | emergence | 2 |
 | influence | 4 |
-| cluster *(computed)* | C04 |
+| cluster *(computed)* | C13 |
 | core count *(computed)* | 4 |
 | mechanic count *(computed)* | 8 |
 

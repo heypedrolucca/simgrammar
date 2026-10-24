@@ -28,7 +28,7 @@ A real-time-with-pause space 4X and grand strategy game in which the player desi
 | emergence | 3 |
 | influence | 2 |
 | influenced by | [Europa Universalis IV](../game/europa-universalis-4.md) |
-| cluster *(computed)* | C01 |
+| cluster *(computed)* | C04 |
 | core count *(computed)* | 3 |
 | mechanic count *(computed)* | 20 |
 

@@ -18,7 +18,7 @@ Objects built from mass nodes and spring beams bend, crumple, and break under st
 | compute cost | 4 |
 | tuning difficulty | 3 |
 | ai leverage | 3 |
-| maturity | Emerging |
+| maturity | Experimental |
 | core count *(computed)* | 1 |
 | earliest game *(computed)* | [BeamNG.drive](../game/beamng-drive.md) |
 | earliest year *(computed)* | 2013 |
@@ -82,4 +82,4 @@ Visceral, readable damage. Crashes crumple metal where they hit, and the damage 
 - [Introduction to JBeam](../source/src-beamng-2026-intro-jbeam.md)
 
 ---
-Provenance: created in run `2026-10-24-taxonomy-m4`.
+Provenance: created in run `2026-10-24-taxonomy-m4`; reviewed in `2026-10-24-review-fixes`.

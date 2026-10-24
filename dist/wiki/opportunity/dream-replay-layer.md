@@ -15,7 +15,7 @@ Use generative world models for non-authoritative views such as memories, rumors
 | impact | 2 |
 | horizon | 1-2 years |
 | key risks | Generation latency breaks the inspection flow., Generated imagery of violent events needs content controls., Players may read subjective views as ground truth. |
-| falsifiable signal | {'prediction': 'A shipped game will use a generative video or world model to show character memories or in-world histories.', 'resolve_by': '2028-12-31', 'criteria': 'Store page, trailer, or patch notes describing generated memory or history visualizations.'} |
+| falsifiable signal | {'prediction': "A game will use a generative video or world model to show character memories or in-world histories drawn from the simulation's own event log.", 'resolve_by': '2028-12-31', 'criteria': "Feature first shipped after 2026-10-24 in a title with at least 1,000 Steam user reviews or a console release; store page, trailer, or patch notes describe generated visuals of past in-game events specific to the player's run. Pre-rendered cutscenes do not count."} |
 | priority *(computed)* | 2.769 |
 
 ## Thesis
@@ -38,9 +38,9 @@ Prototype generated memory clips from 50 logged events in a colony sim using an 
 
 ## Falsifiable signal
 
-- **Prediction:** A shipped game will use a generative video or world model to show character memories or in-world histories.
+- **Prediction:** A game will use a generative video or world model to show character memories or in-world histories drawn from the simulation's own event log.
 - **Resolve by:** 2028-12-31
-- **Criteria:** Store page, trailer, or patch notes describing generated memory or history visualizations.
+- **Criteria:** Feature first shipped after 2026-10-24 in a title with at least 1,000 Steam user reviews or a console release; store page, trailer, or patch notes describe generated visuals of past in-game events specific to the player's run. Pre-rendered cutscenes do not count.
 
 ## Relations
 
@@ -65,4 +65,4 @@ Prototype generated memory clips from 50 logged events in a colony sim using an 
 - [Kenshi](../game/kenshi.md)
 
 ---
-Provenance: created in run `2026-10-24-synthesis`.
+Provenance: created in run `2026-10-24-synthesis`; reviewed in `2026-10-24-review-fixes`.

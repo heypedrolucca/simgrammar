@@ -14,7 +14,7 @@ Keep cheap utility scoring for every tick and call a language model only at sali
 | feasibility | 4 |
 | impact | 4 |
 | horizon | Now |
-| falsifiable signal | {'prediction': 'At least three commercially released colony or life sims with over 1,000 Steam reviews will use language-model calls gated by event salience rather than per-decision.', 'resolve_by': '2028-12-31', 'criteria': 'Developer documentation, postmortems, or mod-verified behavior showing model calls triggered by discrete events, in titles with more than 1,000 Steam reviews.'} |
+| falsifiable signal | {'prediction': 'At least three colony or life sims with over 1,000 Steam user reviews will call a language model for agents only on salient events rather than per decision.', 'resolve_by': '2028-12-31', 'criteria': 'Count titles released or patched after 2026-10-24 with more than 1,000 Steam user reviews; developer documentation, postmortems, or mod-verified behavior show model calls triggered by discrete events while routine behavior runs on non-model systems.'} |
 | priority *(computed)* | 3.776 |
 
 ## Thesis
@@ -37,9 +37,9 @@ Build a 20-colonist prototype with a pure-utility baseline and a salience-gated 
 
 ## Falsifiable signal
 
-- **Prediction:** At least three commercially released colony or life sims with over 1,000 Steam reviews will use language-model calls gated by event salience rather than per-decision.
+- **Prediction:** At least three colony or life sims with over 1,000 Steam user reviews will call a language model for agents only on salient events rather than per decision.
 - **Resolve by:** 2028-12-31
-- **Criteria:** Developer documentation, postmortems, or mod-verified behavior showing model calls triggered by discrete events, in titles with more than 1,000 Steam reviews.
+- **Criteria:** Count titles released or patched after 2026-10-24 with more than 1,000 Steam user reviews; developer documentation, postmortems, or mod-verified behavior show model calls triggered by discrete events while routine behavior runs on non-model systems.
 
 ## Relations
 
@@ -66,4 +66,4 @@ Build a 20-colonist prototype with a pure-utility baseline and a salience-gated 
 - [Dwarf Fortress](../game/dwarf-fortress.md)
 
 ---
-Provenance: created in run `2026-10-24-synthesis`.
+Provenance: created in run `2026-10-24-synthesis`; reviewed in `2026-10-24-review-fixes`.

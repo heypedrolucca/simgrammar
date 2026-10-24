@@ -27,8 +27,9 @@ A roguelite action game in which every pixel of the world is simulated as a fall
 | agent count order | ~100 |
 | emergence | 4 |
 | influence | 2 |
+| boundary case | True |
 | influenced by | [The Powder Toy](../game/the-powder-toy.md) |
-| cluster *(computed)* | C02 |
+| cluster *(computed)* | C07 |
 | core count *(computed)* | 4 |
 | mechanic count *(computed)* | 11 |
 
@@ -73,4 +74,4 @@ Noita's Falling Everything engine simulates each pixel as a material with state 
 - [Noita (video game)](../source/src-wikipedia-noita.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-gg`.
+Provenance: created in run `2026-10-24-catalog-gg`; reviewed in `2026-10-24-review-fixes`.

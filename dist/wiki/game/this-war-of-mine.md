@@ -26,7 +26,7 @@ A survival sim about civilians in a besieged city who maintain a shelter by day,
 | agent count order | ~10 |
 | emergence | 3 |
 | influence | 2 |
-| cluster *(computed)* | C11 |
+| cluster *(computed)* | C14 |
 | core count *(computed)* | 4 |
 | mechanic count *(computed)* | 12 |
 

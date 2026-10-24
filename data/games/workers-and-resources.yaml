@@ -3,8 +3,9 @@ type: game
 name: 'Workers & Resources: Soviet Republic'
 aliases:
 - Workers and Resources
-summary: A planned-economy city builder in which every building, commodity, and citizen moves through explicit logistics,
-  from construction materials delivered by truck to exports at border customs for rubles or dollars.
+summary: A planned-economy city builder in which every building, commodity, and citizen moves through
+  explicit logistics, from construction materials delivered by truck to exports at border customs for
+  rubles or dollars.
 year: 2019
 year_full_release: 2024
 developer: 3Division
@@ -36,23 +37,24 @@ agent_count_order: 1k
 emergence: 3
 influence: 1
 core_loop: set up construction offices and deliver materials to sites -> extract and process over 30 commodities
-  by truck, rail, conveyor, and pipe -> house citizens near jobs and transit -> supply food, clothing, heat, and
-  services to keep health, happiness, and loyalty -> export at customs for rubles or dollars -> import what the
-  republic lacks
-design_notes: 'Workers & Resources treats construction itself as logistics: buildings and roads need delivered concrete,
-  steel, and prefab panels plus workers from the player''s construction offices, or imported foreign labor at a
-  cost, a system the taxonomy lacks (see run proposal). Over 30 commodities move by mode suited to their form (pipes
-  and tanks for liquids, conveyors and trucks for ores, covered vehicles for goods), so freight network design is
-  the main puzzle. Trade runs through East and West customs houses, flooding one bloc''s market lowers returns,
-  and heating demand rising in winter ties utilities to the calendar.'
+  by truck, rail, conveyor, and pipe -> house citizens near jobs and transit -> supply food, clothing,
+  heat, and services to keep health, happiness, and loyalty -> export at customs for rubles or dollars
+  -> import what the republic lacks
+design_notes: 'Workers & Resources treats construction itself as logistics: buildings and roads need delivered
+  concrete, steel, and prefab panels plus workers from the player''s construction offices, or imported
+  foreign labor at a cost, a system the taxonomy lacks (see run proposal). Over 30 commodities move by
+  mode suited to their form (pipes and tanks for liquids, conveyors and trucks for ores, covered vehicles
+  for goods), so freight network design is the main puzzle. Trade runs through East and West customs houses,
+  flooding one bloc''s market lowers returns, and heating demand rising in winter ties utilities to the
+  calendar.'
 mechanics:
 - id: production-chain
   role: core
   note: Over 30 commodities are extracted, processed, and stored in staffed plants.
 - id: vehicle-route-scheduling
   role: core
-  note: Trucks, trains, ships, and aircraft are assigned to depots and routes that move goods and workers between
-    buildings.
+  note: Trucks, trains, ships, and aircraft are assigned to depots and routes that move goods and workers
+    between buildings.
 - id: trade-routes
   role: core
   note: Exports and imports pass through customs houses at Eastern (rubles) and Western (dollars) borders.
@@ -85,9 +87,15 @@ mechanics:
   note: Optional seasons raise heating demand in winter.
 - id: storage-capacity
   role: supporting
+- id: variable-speed
+  role: supporting
+- id: free-placement
+  role: supporting
 sources:
 - src-wikipedia-workers-and-resources
 - src-steam-2026-workers-and-resources
 status: sourced
 provenance:
   created: 2026-10-24-catalog-ga
+  reviewed:
+  - 2026-10-24-review-fixes

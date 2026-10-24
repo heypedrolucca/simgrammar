@@ -15,7 +15,7 @@ City-builder interfaces over calibrated urban models with simulated resident voi
 | impact | 3 |
 | horizon | 1-2 years |
 | key risks | Simulated residents substitute for real community input., False precision of calibrated models., Political misuse. |
-| falsifiable signal | {'prediction': 'A city government will publicly use a game-style calibrated simulation with simulated resident feedback in a formal planning consultation.', 'resolve_by': '2029-12-31', 'criteria': 'Public planning document or press release naming the tool and its use in consultation.'} |
+| falsifiable signal | {'prediction': 'A city government will use a game-style calibrated simulation with simulated resident feedback in a formal planning consultation.', 'resolve_by': '2029-12-31', 'criteria': 'Public planning document or press release dated after 2026-10-24 that names the tool, states that it simulates resident responses, and records its use in an official consultation.'} |
 | priority *(computed)* | 3.0 |
 
 ## Thesis
@@ -38,9 +38,9 @@ Calibrate a traffic and housing model for one district, run three participatory 
 
 ## Falsifiable signal
 
-- **Prediction:** A city government will publicly use a game-style calibrated simulation with simulated resident feedback in a formal planning consultation.
+- **Prediction:** A city government will use a game-style calibrated simulation with simulated resident feedback in a formal planning consultation.
 - **Resolve by:** 2029-12-31
-- **Criteria:** Public planning document or press release naming the tool and its use in consultation.
+- **Criteria:** Public planning document or press release dated after 2026-10-24 that names the tool, states that it simulates resident responses, and records its use in an official consultation.
 
 ## Relations
 
@@ -66,4 +66,4 @@ Calibrate a traffic and housing model for one district, run three participatory 
 - [Democracy 4](../game/democracy-4.md)
 
 ---
-Provenance: created in run `2026-10-24-synthesis`.
+Provenance: created in run `2026-10-24-synthesis`; reviewed in `2026-10-24-review-fixes`.

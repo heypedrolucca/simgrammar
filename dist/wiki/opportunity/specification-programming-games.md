@@ -15,7 +15,7 @@ Programming puzzles where an AI writes the code and the player writes the specif
 | impact | 2 |
 | horizon | Now |
 | key risks | Niche audience., Model behavior changes over versions alter puzzle difficulty., Players may find being a reviewer less fun than being a builder. |
-| falsifiable signal | {'prediction': 'A commercial programming game will make specifying or testing AI-written code its core loop.', 'resolve_by': '2028-06-30', 'criteria': 'Steam page describing AI-generated code that players specify, test, or verify as the main mechanic.'} |
+| falsifiable signal | {'prediction': 'A programming game will make specifying or testing AI-written code its core loop.', 'resolve_by': '2028-06-30', 'criteria': 'Title released after 2026-10-24 with at least 1,000 Steam user reviews; its Steam page describes players specifying, testing, or verifying AI-generated code as the main mechanic.'} |
 | priority *(computed)* | 3.062 |
 
 ## Thesis
@@ -38,9 +38,9 @@ Ship a 10-puzzle web prototype where a model generates candidate implementations
 
 ## Falsifiable signal
 
-- **Prediction:** A commercial programming game will make specifying or testing AI-written code its core loop.
+- **Prediction:** A programming game will make specifying or testing AI-written code its core loop.
 - **Resolve by:** 2028-06-30
-- **Criteria:** Steam page describing AI-generated code that players specify, test, or verify as the main mechanic.
+- **Criteria:** Title released after 2026-10-24 with at least 1,000 Steam user reviews; its Steam page describes players specifying, testing, or verifying AI-generated code as the main mechanic.
 
 ## Relations
 
@@ -66,4 +66,4 @@ Ship a 10-puzzle web prototype where a model generates candidate implementations
 - [The Farmer Was Replaced](../game/the-farmer-was-replaced.md)
 
 ---
-Provenance: created in run `2026-10-24-synthesis`.
+Provenance: created in run `2026-10-24-synthesis`; reviewed in `2026-10-24-review-fixes`.

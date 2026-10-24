@@ -1,8 +1,8 @@
 id: frostpunk-2
 type: game
 name: Frostpunk 2
-summary: The sequel to Frostpunk, in which the Steward builds whole districts on the frost and must pass laws through
-  a council of 100 faction delegates while faction tension can escalate into civil war.
+summary: The sequel to Frostpunk, in which the Steward builds whole districts on the frost and must pass
+  laws through a council of 100 faction delegates while faction tension can escalate into civil war.
 year: 2024
 developer: 11 bit studios
 platforms:
@@ -34,22 +34,24 @@ production_tier: aa
 agent_count_order: aggregate
 emergence: 3
 influence: 1
-core_loop: build food, housing, extraction, and industry districts -> heat districts from the generator -> factions
-  propose ideas and laws -> negotiate council votes -> faction tension rises or falls -> survive whiteouts and found
-  colonies
-design_notes: 'Frostpunk 2 moves from single buildings to districts and from one leader''s decree to a council:
-  100 delegates, each tied to a faction, vote on every proposed law, with 51 votes for most laws and two thirds
-  for laws that expand the Steward''s power. Negotiated promises that are not kept anger factions, and tension between
-  factions can escalate into murder and civil war, so the developer describes social survival as more important
-  than environmental threats. Population is handled as district-level aggregates rather than individual workers.'
+core_loop: build food, housing, extraction, and industry districts -> heat districts from the generator
+  -> factions propose ideas and laws -> negotiate council votes -> faction tension rises or falls -> survive
+  whiteouts and found colonies
+design_notes: 'Frostpunk 2 moves from single buildings to districts and from one leader''s decree to a
+  council: 100 delegates, each tied to a faction, vote on every proposed law, with 51 votes for most laws
+  and two thirds for laws that expand the Steward''s power. Negotiated promises that are not kept anger
+  factions, and tension between factions can escalate into murder and civil war, so the developer describes
+  social survival as more important than environmental threats. Population is handled as district-level
+  aggregates rather than individual workers.'
 mechanics:
 - id: zoning
   role: core
-  note: Districts for food, housing, extraction, and industry are placed on frost; buildings inside add functions.
+  note: Districts for food, housing, extraction, and industry are placed on frost; buildings inside add
+    functions.
 - id: elections
   role: core
-  note: A council of 100 faction delegates votes on each proposed law; 51 votes pass most laws, two thirds pass
-    laws that grant the Steward more power.
+  note: A council of 100 faction delegates votes on each proposed law; 51 votes pass most laws, two thirds
+    pass laws that grant the Steward more power.
 - id: interest-groups
   role: core
   note: Factions with conflicting ideals react to adopted ideas and laws; radicals grow within factions.
@@ -71,6 +73,10 @@ mechanics:
 - id: scenario-objectives
   role: supporting
   note: Utopia Builder mode sets an objective and optional challenges that fail the run if missed.
+- id: variable-speed
+  role: supporting
+- id: free-placement
+  role: supporting
 influenced_by:
 - frostpunk
 sources:
@@ -78,3 +84,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-catalog-ga
+  reviewed:
+  - 2026-10-24-review-fixes

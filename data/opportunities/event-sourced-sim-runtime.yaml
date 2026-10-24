@@ -38,12 +38,15 @@ validation_experiment: 'Wrap the model calls of an AI-agent prototype in an even
   sessions and verify byte-identical state reconstruction and fork divergence only after the fork point.
   Success: 100 percent reproducible replays with log overhead under 20 percent of save size per hour.'
 falsifiable_signal:
-  prediction: A game engine or middleware vendor will ship an event-log-based replay and determinism layer
-    designed for generative AI components.
+  prediction: An engine, middleware vendor, or open-source project will ship an event-log replay and determinism
+    layer designed for games with generative AI components.
   resolve_by: '2028-12-31'
-  criteria: Public release from Unity, Epic, a major middleware vendor, or an open-source project with
-    documented adoption in a shipped game.
+  criteria: Released after 2026-10-24 by any engine or middleware vendor or as an open-source project;
+    documentation describes recording model outputs into a replayable log, and at least one shipped title
+    with at least 1,000 Steam user reviews uses it.
 sources: []
 status: asserted
 provenance:
   created: 2026-10-24-synthesis
+  reviewed:
+  - 2026-10-24-review-fixes

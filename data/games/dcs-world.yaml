@@ -72,11 +72,13 @@ mechanics:
     altitude, and range decide hits.
 - id: subsystem-damage
   role: supporting
-  note: Damage affects individual modeled subsystems such as engines, hydraulics, and electrical systems,
-    changing how the aircraft flies and what still works.
+  note: Modules carry damage models, revised over the platform's development, so hits degrade the aircraft's
+    modeled systems and how it flies.
+- id: variable-speed
+  role: supporting
 claims:
-- text: 'The `year` value records the 2008 release of DCS: Black Shark, the first DCS title (Russia 17
-    October, English 10 December 2008); the free DCS World platform entered open beta in May 2012.'
+- text: 'The `year` value records 2008, when DCS: Black Shark, the first standalone DCS title, was released;
+    the free DCS World platform entered open beta in May 2012.'
   sources:
   - src-wikipedia-dcs-world
   confidence: medium
@@ -85,3 +87,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-catalog-gf
+  reviewed:
+  - 2026-10-24-review-fixes

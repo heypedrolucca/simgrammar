@@ -27,7 +27,7 @@ A football club management series in which the player sets tactics, training, tr
 | agent count order | 10,000+ |
 | emergence | 4 |
 | influence | 4 |
-| cluster *(computed)* | C03 |
+| cluster *(computed)* | C01 |
 | core count *(computed)* | 4 |
 | mechanic count *(computed)* | 15 |
 

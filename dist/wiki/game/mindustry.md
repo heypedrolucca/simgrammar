@@ -27,9 +27,9 @@ An open-source automation tower defense game in which the player belts ore into 
 | emergence | 3 |
 | influence | 2 |
 | influenced by | [Factorio](../game/factorio.md) |
-| cluster *(computed)* | C01 |
+| cluster *(computed)* | C02 |
 | core count *(computed)* | 4 |
-| mechanic count *(computed)* | 15 |
+| mechanic count *(computed)* | 16 |
 
 ## Summary
 
@@ -66,6 +66,7 @@ Mindustry began as a 2017 itch.io jam game and fuses Factorio-style belt logisti
 - [Scenario objectives](../mechanic/scenario-objectives.md) (supporting): Campaign sectors set win conditions such as surviving a number of waves or destroying enemy cores on attack maps.
 - [Modding API](../mechanic/modding-api.md) (supporting): The GPL-3.0 source allows unrestricted mods, and community servers run plugins for custom maps and game modes.
 - [Machine boosting](../mechanic/machine-boosting.md) (supporting): Optional coolant and lubricant fed to turrets and factories raise their rates, and water boosts drill speed.
+- [Building placement](../mechanic/free-placement.md) (supporting)
 
 ## Claims
 
@@ -80,4 +81,4 @@ Mindustry began as a 2017 itch.io jam game and fuses Factorio-style belt logisti
 - [Mindustry Logic: Introduction](../source/src-mindustry-2026-logic-introduction.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-gh`.
+Provenance: created in run `2026-10-24-catalog-gh`; reviewed in `2026-10-24-review-fixes`.

@@ -28,7 +28,7 @@ A space physics sandbox where the player builds and alters star systems and watc
 | agent count order | None |
 | emergence | 2 |
 | influence | 1 |
-| cluster *(computed)* | C07 |
+| cluster *(computed)* | C11 |
 | core count *(computed)* | 2 |
 | mechanic count *(computed)* | 7 |
 

@@ -72,6 +72,8 @@ mechanics:
   role: supporting
   note: Funding more civilian initiatives raises corruption and inflation, which erode what the monthly
     budget achieves; the governance tab offers anti-corruption measures.
+- id: variable-speed
+  role: supporting
 influenced_by:
 - plague-inc
 sources:
@@ -79,3 +81,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-catalog-gi
+  reviewed:
+  - 2026-10-24-review-fixes

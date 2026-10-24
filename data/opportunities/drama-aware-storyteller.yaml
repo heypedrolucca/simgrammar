@@ -39,10 +39,15 @@ validation_experiment: 'Add narrative scoring to an incident deck in a colony pr
   causal links with the narrative storyteller.'
 falsifiable_signal:
   prediction: A colony sim or survival management game will ship an event director that uses a language
-    model to evaluate narrative state when choosing authored events.
+    model to rank authored events against the current story state.
   resolve_by: '2028-06-30'
-  criteria: Developer documentation describing model-based narrative scoring in event selection.
+  criteria: Feature first shipped after 2026-10-24 in a title with at least 1,000 Steam user reviews;
+    developer documentation, patch notes, or a technical talk states that a language model scores or ranks
+    candidate authored events against the current game state at runtime. Generated event text alone does
+    not count.
 sources: []
 status: asserted
 provenance:
   created: 2026-10-24-synthesis
+  reviewed:
+  - 2026-10-24-review-fixes

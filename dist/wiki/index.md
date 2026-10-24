@@ -5,8 +5,8 @@ Generated from `data/` by `scripts/build.py`. Do not edit; edit the YAML and reb
 ## [Games](game/index.md) (174)
 ## [Mechanics](mechanic/index.md) (199)
 ## [Techniques](technique/index.md) (45)
-## [Opportunities](opportunity/index.md) (43)
-## [Sources](source/index.md) (643)
+## [Opportunities](opportunity/index.md) (42)
+## [Sources](source/index.md) (644)
 
 ## Vocabularies
 

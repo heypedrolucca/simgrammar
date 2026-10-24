@@ -28,9 +28,9 @@ An artificial-life game in which the player hatches and raises Norns whose neura
 | agent count order | ~10 |
 | emergence | 4 |
 | influence | 3 |
-| cluster *(computed)* | C04 |
+| cluster *(computed)* | C13 |
 | core count *(computed)* | 4 |
-| mechanic count *(computed)* | 11 |
+| mechanic count *(computed)* | 12 |
 
 ## Summary
 
@@ -59,6 +59,7 @@ Steve Grand built each Norn as a stack of coupled models rather than a scripted 
 - [Content sharing](../mechanic/content-sharing.md) (supporting): Exported Norns and genomes were swapped and bred across players by a large online community.
 - [Modding API](../mechanic/modding-api.md) (supporting)
 - [Permadeath](../mechanic/permadeath.md) (supporting)
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
 
 ## Backlinks (computed)
 
@@ -74,4 +75,4 @@ Steve Grand built each Norn as a stack of coupled models rather than a scripted 
 - [Creatures (video game series)](../source/src-wikipedia-creatures-series.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-gd`.
+Provenance: created in run `2026-10-24-catalog-gd`; reviewed in `2026-10-24-review-fixes`.

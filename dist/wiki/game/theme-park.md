@@ -27,9 +27,9 @@ A theme park management game in which the player builds rides and shops, tunes p
 | agent count order | ~100 |
 | emergence | 3 |
 | influence | 4 |
-| cluster *(computed)* | C03 |
+| cluster *(computed)* | C01 |
 | core count *(computed)* | 5 |
-| mechanic count *(computed)* | 13 |
+| mechanic count *(computed)* | 14 |
 
 ## Summary
 
@@ -60,6 +60,7 @@ Theme Park gives every visitor its own record (about 200 bytes each) and lets th
 - [Loans and debt](../mechanic/loans-debt.md) (supporting)
 - [Pause and speed control](../mechanic/variable-speed.md) (supporting)
 - [Negotiation](../mechanic/negotiation.md) (supporting): On the full-simulation level, staff wage talks and supply negotiations are haggles; failed wage talks end in strikes and failed supply talks in lost shipments.
+- [Utility action selection](../mechanic/utility-action-selection.md) (supporting)
 
 ## Backlinks (computed)
 
@@ -70,4 +71,4 @@ Theme Park gives every visitor its own record (about 200 bytes each) and lets th
 - [Theme Park (video game)](../source/src-wikipedia-theme-park.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-ge`.
+Provenance: created in run `2026-10-24-catalog-ge`; reviewed in `2026-10-24-review-fixes`.

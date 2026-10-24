@@ -27,7 +27,7 @@ A first-person border-post sim set in 1981 in which the player checks drivers' d
 | emergence | 2 |
 | influence | 1 |
 | influenced by | [Papers, Please](../game/papers-please.md) |
-| cluster *(computed)* | C11 |
+| cluster *(computed)* | C14 |
 | core count *(computed)* | 2 |
 | mechanic count *(computed)* | 6 |
 

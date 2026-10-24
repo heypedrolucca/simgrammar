@@ -14,7 +14,7 @@ Run thousands of scripted, learned, and diversity-seeking agents through a game'
 | feasibility | 4 |
 | impact | 3 |
 | horizon | Now |
-| falsifiable signal | {'prediction': "At least two studios will publicly describe using large-scale agent search to balance a simulation or strategy game's economy before release.", 'resolve_by': '2027-12-31', 'criteria': 'GDC talks, technical blogs, or papers by studio staff describing the practice for a named commercial title.'} |
+| falsifiable signal | {'prediction': "At least two studios will publicly describe using large-scale agent search to balance a simulation or strategy game's economy before release.", 'resolve_by': '2027-12-31', 'criteria': 'Talks, technical blogs, or papers published after 2026-10-24 by staff of two different studios, each naming a commercial title with at least 1,000 Steam user reviews and describing automated agent play at scale used for economy balance.'} |
 | priority *(computed)* | 3.059 |
 
 ## Summary
@@ -43,7 +43,7 @@ Run a MAP-Elites search over strategies in an open-source economy game for one G
 
 - **Prediction:** At least two studios will publicly describe using large-scale agent search to balance a simulation or strategy game's economy before release.
 - **Resolve by:** 2027-12-31
-- **Criteria:** GDC talks, technical blogs, or papers by studio staff describing the practice for a named commercial title.
+- **Criteria:** Talks, technical blogs, or papers published after 2026-10-24 by staff of two different studios, each naming a commercial title with at least 1,000 Steam user reviews and describing automated agent play at scale used for economy balance.
 
 ## Relations
 
@@ -70,4 +70,4 @@ Run a MAP-Elites search over strategies in an open-source economy game for one G
 - [RimWorld](../game/rimworld.md)
 
 ---
-Provenance: created in run `2026-10-24-synthesis`.
+Provenance: created in run `2026-10-24-synthesis`; reviewed in `2026-10-24-review-fixes`.

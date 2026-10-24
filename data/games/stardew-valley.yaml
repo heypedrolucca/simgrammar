@@ -99,6 +99,8 @@ mechanics:
 - id: weather
   role: supporting
   note: Rain waters crops and changes fish and villager routines.
+- id: free-placement
+  role: supporting
 influenced_by:
 - harvest-moon
 sources:
@@ -108,3 +110,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-catalog-gc
+  reviewed:
+  - 2026-10-24-review-fixes

@@ -27,9 +27,9 @@ The isometric sequel to SimCity that adds terrain elevation, an underground laye
 | emergence | 3 |
 | influence | 3 |
 | influenced by | [SimCity](../game/simcity-1989.md) |
-| cluster *(computed)* | C10 |
+| cluster *(computed)* | C09 |
 | core count *(computed)* | 4 |
-| mechanic count *(computed)* | 15 |
+| mechanic count *(computed)* | 18 |
 
 ## Summary
 
@@ -66,6 +66,9 @@ SimCity 2000 keeps the original's grid-map model but adds a second plane: an und
 - [Traffic congestion](../mechanic/traffic-congestion.md) (supporting): Query tool reports traffic on roads; highways and transit relieve it.
 - [Random disasters](../mechanic/random-disasters.md) (supporting): Disasters strike in play, and scenarios based on real cities stage specific ones.
 - [Dated technology timeline](../mechanic/dated-tech-timeline.md) (supporting): Power plant types such as solar, fusion, and microwave and buildings such as arcologies become available in set invention years as the city's calendar advances.
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
+- [Building placement](../mechanic/free-placement.md) (supporting)
+- [Fire spread](../mechanic/fire-spread.md) (supporting)
 
 ## Backlinks (computed)
 
@@ -76,4 +79,4 @@ SimCity 2000 keeps the original's grid-map model but adds a second plane: an und
 - [SimCity 2000](../source/src-wikipedia-simcity-2000.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-ga`.
+Provenance: created in run `2026-10-24-catalog-ga`; reviewed in `2026-10-24-review-fixes`.

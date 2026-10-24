@@ -14,7 +14,7 @@ Meta's Cicero couples a dialogue language model with a planning engine that infe
 | runtime | Server real-time |
 | determinism impact | Breaks |
 | horizon | 1-2 years |
-| risks | Consistency / hallucination, Controllability, Content safety, Compute cost, Player trust / reception |
+| risks | Determinism, Consistency / hallucination, Controllability, Content safety, Compute cost, Player trust / reception |
 | builds on | [Regret minimization and search for imperfect-information games](../technique/imperfect-information-solvers.md) |
 | affects count *(computed)* | 5 |
 
@@ -66,4 +66,4 @@ Each phase, a planning module predicts every player's likely actions from the bo
 - [Richelieu: Self-Evolving LLM-Based Agents for AI Diplomacy](../source/src-guan-2024-richelieu.md)
 
 ---
-Provenance: created in run `2026-10-24-techniques-rl-design`; reviewed in `2026-10-24-technique-links`.
+Provenance: created in run `2026-10-24-techniques-rl-design`; reviewed in `2026-10-24-technique-links`, `2026-10-24-review-fixes`.

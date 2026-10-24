@@ -37,7 +37,7 @@ Every other artifact (tables, graph files, wiki, paper, site) is a projection bu
 
 **I9. Provenance is append-only.** Every entity names the run that created it. Run files are never rewritten after merge except for typos. Git history plus run records reconstruct how every fact entered the graph.
 
-**I10. Prose cannot outrun data.** Report text gets dataset numbers only through tokens (`{{count:game}}`, `{{stat:...}}`, `{{table:...}}`). Literal counts fail E021. Sentences that interpret data (a ranking, a sign, a cluster membership) carry `{{assert:...}}` tokens that fail the build when the data stops supporting them (E029). Every `[[id]]` link and `[@src-...]` citation must resolve.
+**I10. Prose cannot outrun data.** Report text gets dataset numbers only through tokens (`{{count:game}}`, `{{stat:...}}`, `{{table:...}}`). Literal counts fail E021. Sentences that interpret data (a ranking, a sign, a cluster membership, a technique's maturity or determinism impact) carry `{{assert:...}}` tokens that fail the build when the data stops supporting them (E029). Every `[[id]]` link and `[@src-...]` citation must resolve.
 
 **I11. Builds are deterministic.** Same inputs, byte-identical outputs. No timestamps, no unordered iteration, no network calls in the build.
 
@@ -120,9 +120,10 @@ Run `make check`. Every finding names a rule code; `--json` gives machine-readab
 | E026 | contested | `contested` entities carry at least one claim with `disputes` filled. | Record the dispute and its source. |
 | E027 | placeholder | No string in data/, log/, vocab/, or report/src contains a placeholder (TODO, TBD, FIXME, any case). | Fill every field `scripts/new.py` scaffolded. |
 | E028 | contract-version | The version in CONTRACT.md's header equals `contract_version` in schema/registry.yaml, every schema `$id` carries that version, and every run records that version. | Bump all three together. |
-| E029 | report-assertion | Every `{{assert:<stat> <op> <value>}}` in report/src holds. Assertions pin interpretive prose (rankings, signs, orderings) to the data it describes. | The data changed under the prose: rewrite the sentence next to the assertion, then update the assertion. |
+| E029 | report-assertion | Every `{{assert:<ref> <op> <value or ref>}}` in report/src holds, where a ref is a stat, `derived.<id>.<field>`, `field.<id>.<path>`, or `rank.<table>.<id>[.<id>]`. Assertions pin interpretive prose (rankings, signs, orderings, groupings, entity fields) to the data it describes. | The data changed under the prose: rewrite the sentence next to the assertion, then update the assertion. |
 | W101 | unused-vocab | Vocab terms not used by any entity (warning). | Fine early on; prune or document before 2.0. |
 | W103 | thin-decomposition | Games tagged with fewer than 5 mechanics (warning; AGENTS.md expects 6-14). | Tag every clearly present mechanic, or record why the game is thin in design_notes. |
+| W104 | maturity-dates | Mechanic maturity agrees with catalog dates: `classic` has a catalog use 20+ years before the newest game, `emerging` has none more than 10 years before it, `experimental` is used by fewer than 3 games (warning). | Change maturity to the anchor the evidence supports (take the lower one when between two), or tag the earlier games that use it. |
 | W102 | verification-queue | Count of `asserted` entities awaiting sources (info). | Pick one from dist/analysis/verification-queue.csv and source it. |
 <!-- END GENERATED: rules -->
 

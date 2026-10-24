@@ -27,9 +27,9 @@ A SimCity reboot built on the agent-based GlassBox engine, in which agents carry
 | emergence | 3 |
 | influence | 2 |
 | influenced by | [SimCity 4](../game/simcity-4.md) |
-| cluster *(computed)* | C10 |
+| cluster *(computed)* | C09 |
 | core count *(computed)* | 4 |
-| mechanic count *(computed)* | 12 |
+| mechanic count *(computed)* | 14 |
 
 ## Summary
 
@@ -63,6 +63,8 @@ GlassBox replaces statistical maps with units that hold resource bins and agents
 - [Pollution spread](../mechanic/pollution-spread.md) (supporting): Pollution and traffic cross city borders within a region.
 - [Population strata](../mechanic/population-strata.md) (supporting): Residents and businesses come in wealth levels with different demands.
 - [Treasury and budget](../mechanic/budget-treasury.md) (supporting)
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
+- [Building placement](../mechanic/free-placement.md) (supporting)
 
 ## Backlinks (computed)
 
@@ -74,4 +76,4 @@ GlassBox replaces statistical maps with units that hold resource bins and agents
 - [GDC 2012: Breaking down SimCity's Glassbox engine](../source/src-cifaldi-2012-glassbox-engine.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-ga`.
+Provenance: created in run `2026-10-24-catalog-ga`; reviewed in `2026-10-24-review-fixes`.

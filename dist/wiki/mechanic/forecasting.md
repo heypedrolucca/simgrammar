@@ -66,7 +66,7 @@ Monitoring turns into planning. The player sees the cliff before reaching it and
 
 **affected by:** [Machine-learned weather forecasting](../technique/ml-weather-models.md)
 
-**involved in:** [Branch preview of policy futures](../opportunity/branch-preview-forecasts.md), [Calibrated serious simulations](../opportunity/calibrated-serious-sims.md), [Generated dream and replay views](../opportunity/dream-replay-layer.md), [Event-sourced simulation runtime](../opportunity/event-sourced-sim-runtime.md), [Participatory planning sandboxes](../opportunity/participatory-planning-sandboxes.md), [Weather-coupled energy grids](../opportunity/weather-coupled-grids.md)
+**involved in:** [Branch preview of policy futures](../opportunity/branch-preview-forecasts.md), [Calibrated serious simulations](../opportunity/calibrated-serious-sims.md), [Generated dream and replay views](../opportunity/dream-replay-layer.md), [Event-sourced simulation runtime](../opportunity/event-sourced-sim-runtime.md), [Participatory planning sandboxes](../opportunity/participatory-planning-sandboxes.md)
 
 **used by:** [Lemonade Stand](../game/lemonade-stand.md), [This War of Mine](../game/this-war-of-mine.md)
 

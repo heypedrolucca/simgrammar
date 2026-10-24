@@ -26,9 +26,9 @@ A flight sim whose flight model computes forces on small elements of each wing, 
 | agent count order | ~10 |
 | emergence | 2 |
 | influence | 3 |
-| cluster *(computed)* | C06 |
+| cluster *(computed)* | C03 |
 | core count *(computed)* | 1 |
-| mechanic count *(computed)* | 7 |
+| mechanic count *(computed)* | 8 |
 
 ## Summary
 
@@ -53,6 +53,7 @@ X-Plane uses blade element theory: wings, control surfaces, and propellers are s
 - [Embodied skill control](../mechanic/embodied-skill-control.md) (supporting)
 - [Modding API](../mechanic/modding-api.md) (supporting): The plugin SDK lets developers read simulator data and add instruments, cockpit interfaces, and hardware support.
 - [Day-night cycle](../mechanic/day-night-cycle.md) (supporting)
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
 
 ## Backlinks (computed)
 
@@ -63,4 +64,4 @@ X-Plane uses blade element theory: wings, control surfaces, and propellers are s
 - [X-Plane (simulator)](../source/src-wikipedia-x-plane.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-gf`.
+Provenance: created in run `2026-10-24-catalog-gf`; reviewed in `2026-10-24-review-fixes`.

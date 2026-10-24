@@ -27,7 +27,7 @@ A real-time operational military simulation in which the player commands air, na
 | agent count order | ~1,000 |
 | emergence | 3 |
 | influence | 2 |
-| cluster *(computed)* | C06 |
+| cluster *(computed)* | C03 |
 | core count *(computed)* | 3 |
 | mechanic count *(computed)* | 11 |
 

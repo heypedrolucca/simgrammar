@@ -27,9 +27,9 @@ A city builder in which several cities share a region map and trade utilities, w
 | emergence | 3 |
 | influence | 2 |
 | influenced by | [SimCity 2000](../game/simcity-2000.md) |
-| cluster *(computed)* | C10 |
+| cluster *(computed)* | C09 |
 | core count *(computed)* | 4 |
-| mechanic count *(computed)* | 14 |
+| mechanic count *(computed)* | 16 |
 
 ## Summary
 
@@ -65,6 +65,8 @@ SimCity 4 splits each zone type by wealth level, so demand and desirability are 
 - [Random disasters](../mechanic/random-disasters.md) (supporting): God mode triggers disasters on the city.
 - [Advisors](../mechanic/advisors.md) (supporting): Mayor mode advisors comment on problems and suggest actions.
 - [Pollution spread](../mechanic/pollution-spread.md) (supporting): Industry and traffic pollute and reduce desirability.
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
+- [Building placement](../mechanic/free-placement.md) (supporting)
 
 ## Backlinks (computed)
 
@@ -75,4 +77,4 @@ SimCity 4 splits each zone type by wealth level, so demand and desirability are 
 - [SimCity 4](../source/src-wikipedia-simcity-4.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-ga`.
+Provenance: created in run `2026-10-24-catalog-ga`; reviewed in `2026-10-24-review-fixes`.

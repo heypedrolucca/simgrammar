@@ -14,7 +14,7 @@ Replace hand-tuned customer and crowd preference curves with models that predict
 | feasibility | 3 |
 | impact | 3 |
 | horizon | 1-2 years |
-| falsifiable signal | {'prediction': 'A commercial management or tycoon game will state that its customer or citizen preferences were derived from a learned model of human behavior.', 'resolve_by': '2028-12-31', 'criteria': 'Developer blog, talk, or store text attributing in-game demand or preference parameters to a behavioral or language model.'} |
+| falsifiable signal | {'prediction': 'A management or tycoon game will state that its customer or citizen preferences come from a model of human behavior learned from data.', 'resolve_by': '2028-12-31', 'criteria': 'Released or patched after 2026-10-24 in a title with at least 1,000 Steam user reviews; developer blog, talk, or store text attributes in-game demand or preference parameters to a behavioral, survey-fitted, or language model.'} |
 | priority *(computed)* | 3.178 |
 
 ## Thesis
@@ -37,9 +37,9 @@ Generate preference parameters for a theme-park prototype from a behavior model,
 
 ## Falsifiable signal
 
-- **Prediction:** A commercial management or tycoon game will state that its customer or citizen preferences were derived from a learned model of human behavior.
+- **Prediction:** A management or tycoon game will state that its customer or citizen preferences come from a model of human behavior learned from data.
 - **Resolve by:** 2028-12-31
-- **Criteria:** Developer blog, talk, or store text attributing in-game demand or preference parameters to a behavioral or language model.
+- **Criteria:** Released or patched after 2026-10-24 in a title with at least 1,000 Steam user reviews; developer blog, talk, or store text attributes in-game demand or preference parameters to a behavioral, survey-fitted, or language model.
 
 ## Relations
 
@@ -63,4 +63,4 @@ Generate preference parameters for a theme-park prototype from a behavior model,
 - [Big Ambitions](../game/big-ambitions.md)
 
 ---
-Provenance: created in run `2026-10-24-synthesis`.
+Provenance: created in run `2026-10-24-synthesis`; reviewed in `2026-10-24-review-fixes`.

@@ -26,7 +26,7 @@ A subscription online racing sim with laser-scanned cars and tracks in which dri
 | agent count order | ~10 |
 | emergence | 3 |
 | influence | 3 |
-| cluster *(computed)* | C06 |
+| cluster *(computed)* | C03 |
 | core count *(computed)* | 3 |
 | mechanic count *(computed)* | 4 |
 

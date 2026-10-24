@@ -28,7 +28,7 @@ A planetary god game built on James Lovelock's Gaia hypothesis in which geology,
 | agent count order | Aggregate only |
 | emergence | 3 |
 | influence | 2 |
-| cluster *(computed)* | C07 |
+| cluster *(computed)* | C10 |
 | core count *(computed)* | 3 |
 | mechanic count *(computed)* | 10 |
 

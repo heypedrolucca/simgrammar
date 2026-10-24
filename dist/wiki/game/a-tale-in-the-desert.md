@@ -27,7 +27,7 @@ A combat-free MMO set in ancient Egypt in which players gather, craft, and build
 | agent count order | ~100 |
 | emergence | 3 |
 | influence | 2 |
-| cluster *(computed)* | C08 |
+| cluster *(computed)* | C06 |
 | core count *(computed)* | 3 |
 | mechanic count *(computed)* | 8 |
 

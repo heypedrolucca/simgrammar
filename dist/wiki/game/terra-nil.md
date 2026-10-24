@@ -27,7 +27,7 @@ A reverse city builder in which the player places machines to clean toxic soil, 
 | agent count order | None |
 | emergence | 2 |
 | influence | 1 |
-| cluster *(computed)* | C07 |
+| cluster *(computed)* | C10 |
 | core count *(computed)* | 2 |
 | mechanic count *(computed)* | 6 |
 

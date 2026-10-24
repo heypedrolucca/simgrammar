@@ -27,9 +27,9 @@ An Egyptian city builder on the Caesar III engine in which a yearly Nile flood w
 | emergence | 3 |
 | influence | 2 |
 | influenced by | [Caesar III](../game/caesar-3.md) |
-| cluster *(computed)* | C01 |
+| cluster *(computed)* | C02 |
 | core count *(computed)* | 3 |
-| mechanic count *(computed)* | 11 |
+| mechanic count *(computed)* | 15 |
 
 ## Summary
 
@@ -62,10 +62,14 @@ Pharaoh reuses Caesar III's walker model and adds a calendar driven by the Nile:
 - [Scenario objectives](../mechanic/scenario-objectives.md) (supporting): Missions set population, rating, and monument goals.
 - [Labor market](../mechanic/labor-market.md) (supporting): Buildings and monument crews draw workers from housing.
 - [Megaproject sink](../mechanic/megaproject-sink.md) (supporting): Monuments such as pyramids need delivered materials and worker crews over in-game years, and many missions require completing them.
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
+- [Building placement](../mechanic/free-placement.md) (supporting)
+- [Fire spread](../mechanic/fire-spread.md) (supporting)
+- [Storage and buffers](../mechanic/storage-capacity.md) (supporting)
 
 ## Sources
 
 - [Pharaoh (video game)](../source/src-wikipedia-pharaoh.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-ga`.
+Provenance: created in run `2026-10-24-catalog-ga`; reviewed in `2026-10-24-review-fixes`.

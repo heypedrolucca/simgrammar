@@ -18,7 +18,7 @@ The player splits a fixed power budget among a vehicle's subsystems in real time
 | compute cost | 1 |
 | tuning difficulty | 3 |
 | ai leverage | 2 |
-| maturity | Classic |
+| maturity | Established |
 | core count *(computed)* | 1 |
 | earliest game *(computed)* | [FTL: Faster Than Light](../game/ftl.md) |
 | earliest year *(computed)* | 2012 |
@@ -68,4 +68,4 @@ A running triage under pressure. The player pulls power from oxygen to charge on
 **used by:** [Elite Dangerous](../game/elite-dangerous.md), [FTL: Faster Than Light](../game/ftl.md)
 
 ---
-Provenance: created in run `2026-10-24-taxonomy-triage-b`.
+Provenance: created in run `2026-10-24-taxonomy-triage-b`; reviewed in `2026-10-24-review-fixes`.

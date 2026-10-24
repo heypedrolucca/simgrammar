@@ -23,8 +23,8 @@ Weather states such as rain, storms, snow, wind, and temperature change over tim
 | core count *(computed)* | 4 |
 | earliest game *(computed)* | [The Oregon Trail](../game/oregon-trail.md) |
 | earliest year *(computed)* | 1971 |
-| prevalence *(computed)* | 26 |
-| prevalence share *(computed)* | 0.149 |
+| prevalence *(computed)* | 27 |
+| prevalence share *(computed)* | 0.155 |
 | subgenre spread *(computed)* | 15 |
 | technique count *(computed)* | 2 |
 | technique exposure *(computed)* | 0.688 |
@@ -65,9 +65,9 @@ Adapting plans to conditions outside the player's control. The player checks the
 
 **affected by:** [Genie foundation world models](../technique/genie-world-models.md), [Machine-learned weather forecasting](../technique/ml-weather-models.md)
 
-**involved in:** [Learned regional weather](../opportunity/learned-weather-layer.md), [Weather-coupled energy grids](../opportunity/weather-coupled-grids.md)
+**involved in:** [Learned regional weather](../opportunity/learned-weather-layer.md)
 
-**used by:** [Animal Crossing: New Horizons](../game/animal-crossing-new-horizons.md), [Arma 3](../game/arma-3.md), [Black & White](../game/black-and-white.md), [Command: Modern Operations](../game/command-modern-operations.md), [DCS World](../game/dcs-world.md), [Euro Truck Simulator 2](../game/euro-truck-simulator-2.md), [Farming Simulator 25](../game/farming-simulator-25.md), [Frostpunk](../game/frostpunk.md), [Gran Turismo 7](../game/gran-turismo-7.md), [Hearts of Iron IV](../game/hearts-of-iron-4.md), [Kenshi](../game/kenshi.md), [Lemonade Stand](../game/lemonade-stand.md), [Microsoft Flight Simulator (2020)](../game/microsoft-flight-simulator-2020.md), [Microsoft Flight Simulator 2024](../game/microsoft-flight-simulator-2024.md), [Motorsport Manager](../game/motorsport-manager.md), [The Oregon Trail](../game/oregon-trail.md), [Planet Zoo](../game/planet-zoo.md), [Project Zomboid](../game/project-zomboid.md), [Silent Hunter III](../game/silent-hunter-3.md), [SimAnt](../game/simant.md), [Stardew Valley](../game/stardew-valley.md), [The Long Dark](../game/the-long-dark.md), [Utopia](../game/utopia.md), [Valheim](../game/valheim.md), [X-Plane](../game/x-plane.md), [The Legend of Zelda: Breath of the Wild](../game/zelda-breath-of-the-wild.md)
+**used by:** [Animal Crossing: New Horizons](../game/animal-crossing-new-horizons.md), [Arma 3](../game/arma-3.md), [Black & White](../game/black-and-white.md), [Cities: Skylines II](../game/cities-skylines-2.md), [Command: Modern Operations](../game/command-modern-operations.md), [DCS World](../game/dcs-world.md), [Euro Truck Simulator 2](../game/euro-truck-simulator-2.md), [Farming Simulator 25](../game/farming-simulator-25.md), [Frostpunk](../game/frostpunk.md), [Gran Turismo 7](../game/gran-turismo-7.md), [Hearts of Iron IV](../game/hearts-of-iron-4.md), [Kenshi](../game/kenshi.md), [Lemonade Stand](../game/lemonade-stand.md), [Microsoft Flight Simulator (2020)](../game/microsoft-flight-simulator-2020.md), [Microsoft Flight Simulator 2024](../game/microsoft-flight-simulator-2024.md), [Motorsport Manager](../game/motorsport-manager.md), [The Oregon Trail](../game/oregon-trail.md), [Planet Zoo](../game/planet-zoo.md), [Project Zomboid](../game/project-zomboid.md), [Silent Hunter III](../game/silent-hunter-3.md), [SimAnt](../game/simant.md), [Stardew Valley](../game/stardew-valley.md), [The Long Dark](../game/the-long-dark.md), [Utopia](../game/utopia.md), [Valheim](../game/valheim.md), [X-Plane](../game/x-plane.md), [The Legend of Zelda: Breath of the Wild](../game/zelda-breath-of-the-wild.md)
 
 ## Sources
 

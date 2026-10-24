@@ -27,9 +27,9 @@ A roguelite city builder in which each settlement must fill a reputation gauge b
 | agent count order | ~100 |
 | emergence | 3 |
 | influence | 2 |
-| cluster *(computed)* | C01 |
+| cluster *(computed)* | C04 |
 | core count *(computed)* | 4 |
-| mechanic count *(computed)* | 11 |
+| mechanic count *(computed)* | 13 |
 
 ## Summary
 
@@ -58,6 +58,8 @@ Against the Storm compresses a city builder into short runs: each settlement is 
 - [Adaptive threat scaling](../mechanic/adaptive-threat-scaling.md) (supporting): Forest hostility rises as the settlement cuts trees and opens glades.
 - [Tech tree](../mechanic/tech-tree.md) (supporting): Meta-progression resources upgrade the Smoldering City between runs.
 - [Trade routes](../mechanic/trade-routes.md) (supporting): A visiting trader's wares change each year.
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
+- [Building placement](../mechanic/free-placement.md) (supporting)
 
 ## Sources
 
@@ -66,4 +68,4 @@ Against the Storm compresses a city builder into short runs: each settlement is 
 - [Against the Storm on Steam](../source/src-steam-2026-against-the-storm.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-ga`.
+Provenance: created in run `2026-10-24-catalog-ga`; reviewed in `2026-10-24-review-fixes`.

@@ -101,6 +101,10 @@ mechanics:
   note: Neighborhood Stories, added in a free update, advances unplayed households with events such as
     moves, relationships, and births, with settings that limit which households and event types it may
     touch.
+- id: variable-speed
+  role: supporting
+- id: utility-action-selection
+  role: supporting
 influenced_by:
 - the-sims-3
 sources:
@@ -109,3 +113,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-catalog-gc
+  reviewed:
+  - 2026-10-24-review-fixes

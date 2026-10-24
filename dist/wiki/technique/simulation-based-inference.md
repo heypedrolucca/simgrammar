@@ -47,7 +47,7 @@ Draw parameters theta from a prior, run the simulator to get outputs x, and trai
 
 ## Backlinks (computed)
 
-**applied in:** [Calibrated serious simulations](../opportunity/calibrated-serious-sims.md), [Human-calibrated customers](../opportunity/human-calibrated-customers.md), [Participatory planning sandboxes](../opportunity/participatory-planning-sandboxes.md), [Weather-coupled energy grids](../opportunity/weather-coupled-grids.md)
+**applied in:** [Calibrated serious simulations](../opportunity/calibrated-serious-sims.md), [Human-calibrated customers](../opportunity/human-calibrated-customers.md), [Participatory planning sandboxes](../opportunity/participatory-planning-sandboxes.md)
 
 ## Claims
 

@@ -26,7 +26,7 @@ A 2012 browser social sim in which the player picks social exchanges among 18 hi
 | agent count order | ~10 |
 | emergence | 3 |
 | influence | 2 |
-| cluster *(computed)* | C04 |
+| cluster *(computed)* | C01 |
 | core count *(computed)* | 2 |
 | mechanic count *(computed)* | 6 |
 

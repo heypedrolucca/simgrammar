@@ -5,24 +5,23 @@ aliases:
 - asynchronous multiplayer
 - region play
 - shared region
-summary: Separate players' simulations affect each other asynchronously through shared regions, visits, or exchanges of goods
-  and services.
+summary: Separate players' simulations affect each other asynchronously through shared regions, visits,
+  or exchanges of goods and services.
 family: multiplayer-persistence
 substrate:
 - network-graph
 - aggregate-stocks
-definition: >-
-  Each player runs a local simulation that publishes a small exported state to a server, such as surplus resources, service
-  capacity, pollution, or a snapshot of a town, and periodically imports neighbors' exported state as boundary conditions.
-  Exchanges resolve with delay, so play does not require both players online at once. In SimCity (2013), cities in a region
-  connect by highways, rail, and waterways, trade resources, share services such as garbage collection or health care, see
-  traffic and pollution cross borders, and pool wealth into Great Works such as an arcology; the connection was asynchronous,
-  with brief disruptions tolerated. Animal Crossing island visits and Death Stranding's shared structures are related forms.
-  Inputs: local surpluses and needs. Outputs: imported flows and shared projects.
-player_experience: >-
-  The player is part of a neighborhood without coordinating schedules. They specialize, relying on neighbors for what they
-  lack, and notice others' choices arrive as traffic, pollution, or help. Cooperation feels light because commitments are
-  small and delayed.
+definition: 'Each player runs a local simulation that publishes a small exported state to a server, such
+  as surplus resources, service capacity, pollution, or a snapshot of a town, and periodically imports
+  neighbors'' exported state as boundary conditions. Exchanges resolve with delay, so play does not require
+  both players online at once. In SimCity (2013), cities in a region connect by highways, rail, and waterways,
+  trade resources, share services such as garbage collection or health care, see traffic and pollution
+  cross borders, and pool wealth into Great Works such as an arcology; the connection was asynchronous,
+  with brief disruptions tolerated. Animal Crossing island visits and Death Stranding''s shared structures
+  are related forms. Inputs: local surpluses and needs. Outputs: imported flows and shared projects.'
+player_experience: The player is part of a neighborhood without coordinating schedules. They specialize,
+  relying on neighbors for what they lack, and notice others' choices arrive as traffic, pollution, or
+  help. Cooperation feels light because commitments are small and delayed.
 design_levers:
 - which variables are exported and imported (goods, services, pollution, visitors)
 - synchronization interval and conflict resolution
@@ -30,13 +29,16 @@ design_levers:
 - shared projects that require pooled contributions
 - fallback behavior when the server or a neighbor is offline
 failure_modes:
-- Server dependence makes single-player play fragile; SimCity (2013) launched with outages and save problems, and an offline
-  mode came later.
+- Server dependence makes single-player play fragile; SimCity (2013) launched with outages and save problems,
+  and an offline mode came later.
 - Abandoned neighbor cities leave dependent players short of the services they relied on.
-- Small play areas forced by the region design made specialization a necessity rather than a choice, which players criticized.
+- Small play areas forced by the region design made specialization a necessity rather than a choice, which
+  players criticized.
 dynamics:
-- 'Specialization emerges: one city goes industrial or hosts the hospital and the others import those services.'
-- Externalities such as pollution and traffic cross borders, creating friction between players who never speak.
+- 'Specialization emerges: one city goes industrial or hosts the hospital and the others import those
+  services.'
+- Externalities such as pollution and traffic cross borders, creating friction between players who never
+  speak.
 - Shared projects create focal points that coordinate otherwise independent players.
 math_basis:
 - network-flow
@@ -51,12 +53,16 @@ authoring_cost: 2
 compute_cost: 2
 tuning_difficulty: 3
 ai_leverage: 3
-maturity: emerging
+maturity: established
 open_questions:
-- Can AI-controlled stand-in neighbors, trained on real player cities, keep regions alive when players leave?
-- What exchange latency preserves the feeling of a shared region while keeping each player's simulation independent?
+- Can AI-controlled stand-in neighbors, trained on real player cities, keep regions alive when players
+  leave?
+- What exchange latency preserves the feeling of a shared region while keeping each player's simulation
+  independent?
 sources:
 - src-wikipedia-simcity-2013
 status: sourced
 provenance:
   created: 2026-10-24-taxonomy-m7
+  reviewed:
+  - 2026-10-24-review-fixes

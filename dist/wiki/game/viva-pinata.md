@@ -27,7 +27,7 @@ A garden sim in which the player shapes terrain, plants, and water to attract 60
 | agent count order | ~100 |
 | emergence | 2 |
 | influence | 2 |
-| cluster *(computed)* | C07 |
+| cluster *(computed)* | C05 |
 | core count *(computed)* | 4 |
 | mechanic count *(computed)* | 9 |
 

@@ -1,9 +1,10 @@
 mechanic_a,mechanic_b,family_a,family_b,observed,expected,gap
+free-placement,triggered-event-chains,space-construction,narrative-generation,1,7.33,6.33
+embodied-skill-control,free-placement,control-automation,space-construction,0,6.03,6.03
 lifecycle-aging,production-chain,population-lineage,resources-production,0,4.8,4.8
 permadeath,scenario-objectives,risk-failure,progression-goals,0,4.6,4.6
 content-sharing,production-chain,multiplayer-persistence,resources-production,1,5.24,4.24
 relationship-values,tech-tree,social-relations,progression-goals,1,5.19,4.19
-free-placement,triggered-event-chains,space-construction,narrative-generation,0,4.1,4.1
 content-sharing,resource-extraction,multiplayer-persistence,resources-production,0,4,4
 hand-crafting,scenario-objectives,resources-production,progression-goals,0,3.91,3.91
 budget-treasury,crop-cultivation,economy-finance,resources-production,0,3.88,3.88
@@ -11,8 +12,6 @@ budget-treasury,direct-avatar,economy-finance,control-automation,1,4.81,3.81
 procedural-terrain,scenario-objectives,world-generation,progression-goals,1,4.6,3.6
 content-sharing,crop-cultivation,multiplayer-persistence,resources-production,0,3.45,3.45
 faction-diplomacy,scenario-objectives,social-relations,progression-goals,0,3.45,3.45
-direct-avatar,variable-speed,control-automation,time-pacing,0,3.39,3.39
-embodied-skill-control,free-placement,control-automation,space-construction,0,3.38,3.38
 permadeath,production-chain,risk-failure,resources-production,1,4.37,3.37
 modding-api,terraforming,multiplayer-persistence,space-construction,0,3.28,3.28
 modular-assembly,relationship-values,space-construction,social-relations,0,3.26,3.26
@@ -20,12 +19,13 @@ agent-skills,random-disasters,agents-behavior,risk-failure,0,3.22,3.22
 embodied-skill-control,production-chain,control-automation,resources-production,0,3.06,3.06
 agent-skills,goods-consumption,agents-behavior,resources-production,0,3.03,3.03
 direct-avatar,trade-routes,control-automation,economy-finance,0,3.03,3.03
+budget-treasury,storage-capacity,economy-finance,resources-production,0,2.95,2.95
 modding-api,trade-routes,multiplayer-persistence,economy-finance,0,2.93,2.93
 scenario-objectives,triggered-event-chains,progression-goals,narrative-generation,1,3.91,2.91
 modular-assembly,personality-traits,space-construction,agents-behavior,1,3.88,2.88
-free-placement,goods-consumption,space-construction,resources-production,1,3.86,2.86
 agent-skills,policy-toggles,agents-behavior,governance-policy,0,2.84,2.84
-power-grid,weather,resources-production,environment-ecology,0,2.84,2.84
+utility-action-selection,weather,agents-behavior,environment-ecology,0,2.79,2.79
 goods-consumption,needs-decay,resources-production,agents-behavior,0,2.76,2.76
 budget-treasury,content-sharing,economy-finance,multiplayer-persistence,1,3.72,2.72
 production-chain,triggered-event-chains,resources-production,narrative-generation,1,3.71,2.71
+direct-avatar,policy-toggles,control-automation,governance-policy,0,2.67,2.67

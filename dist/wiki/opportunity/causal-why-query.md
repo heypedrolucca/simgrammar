@@ -14,7 +14,7 @@ Let players ask why something happened and answer from the simulation's own even
 | feasibility | 4 |
 | impact | 5 |
 | horizon | 1-2 years |
-| falsifiable signal | {'prediction': "A simulation or strategy title in Steam's top 100 by concurrent players will ship a natural-language why-query grounded in game state.", 'resolve_by': '2027-12-31', 'criteria': "Official release notes or store page describing a player-facing feature that answers causal questions about the player's own game state in natural language."} |
+| falsifiable signal | {'prediction': 'A widely played simulation or strategy game will let players ask in natural language why something happened in their own game and answer from game state.', 'resolve_by': '2027-12-31', 'criteria': "Feature first shipped after 2026-10-24 in a title with at least 10,000 Steam user reviews; release notes or the store page describe free-text causal questions answered from the player's own save state, not from a wiki or general help text."} |
 | priority *(computed)* | 4.423 |
 
 ## Thesis
@@ -37,9 +37,9 @@ Instrument an open-source simulation (a city or colony sim) to log events with p
 
 ## Falsifiable signal
 
-- **Prediction:** A simulation or strategy title in Steam's top 100 by concurrent players will ship a natural-language why-query grounded in game state.
+- **Prediction:** A widely played simulation or strategy game will let players ask in natural language why something happened in their own game and answer from game state.
 - **Resolve by:** 2027-12-31
-- **Criteria:** Official release notes or store page describing a player-facing feature that answers causal questions about the player's own game state in natural language.
+- **Criteria:** Feature first shipped after 2026-10-24 in a title with at least 10,000 Steam user reviews; release notes or the store page describe free-text causal questions answered from the player's own save state, not from a wiki or general help text.
 
 ## Relations
 
@@ -65,4 +65,4 @@ Instrument an open-source simulation (a city or colony sim) to log events with p
 - [Cities: Skylines II](../game/cities-skylines-2.md)
 
 ---
-Provenance: created in run `2026-10-24-synthesis`.
+Provenance: created in run `2026-10-24-synthesis`; reviewed in `2026-10-24-review-fixes`.

@@ -1,9 +1,9 @@
 id: frostpunk
 type: game
 name: Frostpunk
-summary: A survival city builder in which the leader of the last city around a coal generator must keep falling
-  temperatures at bay while signing laws that trade citizens' welfare against productivity under hope and discontent
-  meters.
+summary: A survival city builder in which the leader of the last city around a coal generator must keep
+  falling temperatures at bay while signing laws that trade citizens' welfare against productivity under
+  hope and discontent meters.
 year: 2018
 developer: 11 bit studios
 platforms:
@@ -35,31 +35,33 @@ production_tier: aa
 agent_count_order: '100'
 emergence: 3
 influence: 3
-core_loop: keep the coal generator fueled -> heat districts and insulate buildings as temperatures fall -> assign
-  workers to gather coal, wood, steel, and food -> sign laws that trade welfare for productivity -> balance hope
-  and discontent -> survive the storm
-design_notes: The city is radial around one generator that heats a circular area, so layout is a function of heat
-  range and fuel, and a coal shortage or overload can end the run. The Book of Laws sequences laws so that early
-  compromises such as child labor or extended shifts open harsher later options, and Order or Faith paths lead toward
-  totalitarian rule, turning policy into moral pressure tracked by hope and discontent. Building heat versus falling
-  outside temperature has no exact taxonomy mechanic (see run proposal); 11 bit studios cites This War of Mine as
-  the origin of its aim for meaningful entertainment, now applied to a whole society.
+core_loop: keep the coal generator fueled -> heat districts and insulate buildings as temperatures fall
+  -> assign workers to gather coal, wood, steel, and food -> sign laws that trade welfare for productivity
+  -> balance hope and discontent -> survive the storm
+design_notes: The city is radial around one generator that heats a circular area, so layout is a function
+  of heat range and fuel, and a coal shortage or overload can end the run. The Book of Laws sequences
+  laws so that early compromises such as child labor or extended shifts open harsher later options, and
+  Order or Faith paths lead toward totalitarian rule, turning policy into moral pressure tracked by hope
+  and discontent. Building heat versus falling outside temperature has no exact taxonomy mechanic (see
+  run proposal); 11 bit studios cites This War of Mine as the origin of its aim for meaningful entertainment,
+  now applied to a whole society.
 mechanics:
 - id: policy-toggles
   role: core
-  note: The Book of Laws offers adaptation laws such as child labor, extended shifts, and prosthetics, plus Order
-    or Faith paths whose later laws are harsher.
+  note: The Book of Laws offers adaptation laws such as child labor, extended shifts, and prosthetics,
+    plus Order or Faith paths whose later laws are harsher.
 - id: citizen-satisfaction
   role: core
-  note: Hope and Discontent meters respond to laws, events, and conditions; hope too low or discontent too high
-    for too long ends the game in revolt.
+  note: Hope and Discontent meters respond to laws, events, and conditions; hope too low or discontent
+    too high for too long ends the game in revolt.
 - id: crisis-countdown
   role: core
-  note: Temperature falls on a schedule toward the Great Storm, which the main scenario must be survived through.
+  note: Temperature falls on a schedule toward the Great Storm, which the main scenario must be survived
+    through.
 - id: service-coverage
   role: core
-  note: The generator heats a circular area whose range and level the player raises; buildings outside heat need
-    insulation or heaters.
+  note: The generator heats a circular area whose range and level the player raises; buildings outside
+    heat need insulation or heaters.
 - id: resource-extraction
   role: supporting
   note: Coal, wood, steel, and food come from thumpers, sawmills, mines, and hunters.
@@ -71,14 +73,22 @@ mechanics:
   note: Citizens work daylight shifts; emergency shifts extend hours at a cost.
 - id: fog-of-war
   role: supporting
-  note: Scouts explore the frozen wasteland map for survivors and resources, the only way to grow the workforce.
+  note: Scouts explore the frozen wasteland map for survivors and resources, the only way to grow the
+    workforce.
 - id: dilemma-cards
   role: supporting
-  note: Individual decisions, such as how to handle an injured child, offer choices that shift hope and discontent.
+  note: Individual decisions, such as how to handle an injured child, offer choices that shift hope and
+    discontent.
 - id: tech-tree
   role: supporting
   note: Workshops research heat, extraction, and automaton technologies.
 - id: weather
+  role: supporting
+- id: variable-speed
+  role: supporting
+- id: free-placement
+  role: supporting
+- id: storage-capacity
   role: supporting
 influenced_by:
 - this-war-of-mine
@@ -87,3 +97,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-catalog-ga
+  reviewed:
+  - 2026-10-24-review-fixes

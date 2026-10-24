@@ -27,9 +27,9 @@ A vehicle sim built on soft-body physics in which every vehicle is a node-and-be
 | agent count order | ~10 |
 | emergence | 3 |
 | influence | 3 |
-| cluster *(computed)* | C06 |
+| cluster *(computed)* | C03 |
 | core count *(computed)* | 2 |
-| mechanic count *(computed)* | 6 |
+| mechanic count *(computed)* | 7 |
 
 ## Summary
 
@@ -53,6 +53,7 @@ Vehicles are defined in JBeam, a JSON format of nodes and beams, and the same st
 - [Scenario objectives](../mechanic/scenario-objectives.md) (supporting): Campaigns group short races, chases, and stunts, and time trials race against the player's best times.
 - [Modding API](../mechanic/modding-api.md) (supporting): The game relies heavily on Lua, and mods add real and fictional vehicles.
 - [Content sharing](../mechanic/content-sharing.md) (supporting): An official mod repository is browsable from the website and in game, with a manager that keeps mods updated.
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
 
 ## Backlinks (computed)
 
@@ -67,4 +68,4 @@ Vehicles are defined in JBeam, a JSON format of nodes and beams, and the same st
 - [BeamNG.drive](../source/src-wikipedia-beamng-drive.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-gf`.
+Provenance: created in run `2026-10-24-catalog-gf`; reviewed in `2026-10-24-review-fixes`.

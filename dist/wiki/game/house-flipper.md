@@ -26,7 +26,7 @@ A first-person renovation sim in which the player cleans, paints, demolishes, an
 | agent count order | None |
 | emergence | 1 |
 | influence | 2 |
-| cluster *(computed)* | C02 |
+| cluster *(computed)* | C15 |
 | core count *(computed)* | 3 |
 | mechanic count *(computed)* | 7 |
 

@@ -1,9 +1,8 @@
 id: zoo-tycoon
 type: game
 name: Zoo Tycoon
-summary: >-
-  A zoo management game in which the player builds exhibits whose terrain, foliage, shelters, and toys must suit each species,
-  balancing animal happiness against guest happiness and income.
+summary: A zoo management game in which the player builds exhibits whose terrain, foliage, shelters, and
+  toys must suit each species, balancing animal happiness against guest happiness and income.
 year: 2001
 developer: Blue Fang Games
 platforms:
@@ -31,25 +30,24 @@ production_tier: aa
 agent_count_order: '100'
 emergence: 2
 influence: 3
-core_loop: >-
-  fence an exhibit -> match terrain, foliage, rocks, shelter, and toys to the species -> animals grow happy and breed -> guests
-  visit, spend, and react -> awards and income -> research and adopt more animals
-design_notes: >-
-  Zoo Tycoon's core rule is exhibit suitability: each species reports how well its exhibit's terrain mix, foliage, rocks,
-  shelters, toys, and keeper care match its needs, and that suitability drives animal happiness. Guest happiness depends on
-  animal happiness, the species on show, buildings, and scenery, so the two satisfaction meters are chained. Failures are
-  physical: incompatible species in one exhibit kill each other, fences decay, and escaped animals attack guests and staff.
-  Too many complaints about unhappy animals block new adoptions until habitats are fixed.
+core_loop: fence an exhibit -> match terrain, foliage, rocks, shelter, and toys to the species -> animals
+  grow happy and breed -> guests visit, spend, and react -> awards and income -> research and adopt more
+  animals
+design_notes: 'Zoo Tycoon''s core rule is exhibit suitability: each species reports how well its exhibit''s
+  terrain mix, foliage, rocks, shelters, toys, and keeper care match its needs, and that suitability drives
+  animal happiness. Guest happiness depends on animal happiness, the species on show, buildings, and scenery,
+  so the two satisfaction meters are chained. Failures are physical: incompatible species in one exhibit
+  kill each other, fences decay, and escaped animals attack guests and staff. Too many complaints about
+  unhappy animals block new adoptions until habitats are fixed.'
 mechanics:
 - id: habitat-suitability
   role: core
-  note: >-
-    Each species has preferred terrain types, foliage, rocks, shelters, toys, and companions; suitability drives happiness,
-    and incompatible species in one exhibit kill each other.
+  note: Each species has preferred terrain types, foliage, rocks, shelters, toys, and companions; suitability
+    drives happiness, and incompatible species in one exhibit kill each other.
 - id: crowd-preferences
   role: core
-  note: >-
-    Guest happiness depends on the animals on show, their happiness, buildings such as restrooms and shops, and scenery.
+  note: Guest happiness depends on the animals on show, their happiness, buildings such as restrooms and
+    shops, and scenery.
 - id: needs-decay
   role: core
   note: Animals need food, water, cleaning, and keeper attention that keepers supply on rounds.
@@ -67,16 +65,20 @@ mechanics:
   note: In freeform mode, money spent on research unlocks animals, buildings, and scenery.
 - id: scenario-objectives
   role: supporting
-  note: >-
-    Scenarios set targets such as a guest happiness level, exhibit suitability, animal count, or breeding a species.
+  note: Scenarios set targets such as a guest happiness level, exhibit suitability, animal count, or breeding
+    a species.
 - id: lifecycle-aging
   role: supporting
   note: Animals breed when content; babies grow into adults.
 - id: decoration-beauty
   role: supporting
   note: Scenery such as topiary, lamp posts, and benches gives a small guest happiness boost.
+- id: variable-speed
+  role: supporting
 sources:
 - src-wikipedia-zoo-tycoon
 status: sourced
 provenance:
   created: 2026-10-24-catalog-ge
+  reviewed:
+  - 2026-10-24-review-fixes

@@ -1,8 +1,8 @@
 id: kingdoms-and-castles
 type: game
 name: Kingdoms and Castles
-summary: A medieval town builder in which peasants farm and stockpile for an annual winter while the player stacks
-  castle blocks into walls and towers to defend against vikings, dragons, and ogres.
+summary: A medieval town builder in which peasants farm and stockpile for an annual winter while the player
+  stacks castle blocks into walls and towers to defend against vikings, dragons, and ogres.
 year: 2017
 developer: Lion Shield
 platforms:
@@ -30,26 +30,26 @@ production_tier: indie
 agent_count_order: '100'
 emergence: 2
 influence: 1
-core_loop: place a keep and houses on an island -> peasants farm, cut wood, and quarry -> store food for the annual
-  winter -> tax peasants to pay workers and unlock buildings -> stack castle blocks into walls and towers -> repel
-  vikings, dragons, and ogres
-design_notes: 'Kingdoms and Castles pairs a light town economy with a block-built castle: walls and towers form
-  from how blocks are stacked, and taller archer towers reach farther, so defense is shaped geometry rather than
-  a building menu. Each villager and resource is individually simulated, and an annual winter that destroys crops
-  sets a regular survival check. Raiders kidnap peasants and burn buildings, and a dragon targets granaries, linking
-  defense to food security.'
+core_loop: place a keep and houses on an island -> peasants farm, cut wood, and quarry -> store food for
+  the annual winter -> tax peasants to pay workers and unlock buildings -> stack castle blocks into walls
+  and towers -> repel vikings, dragons, and ogres
+design_notes: 'Kingdoms and Castles pairs a light town economy with a block-built castle: walls and towers
+  form from how blocks are stacked, and taller archer towers reach farther, so defense is shaped geometry
+  rather than a building menu. Each villager and resource is individually simulated, and an annual winter
+  that destroys crops sets a regular survival check. Raiders kidnap peasants and burn buildings, and a
+  dragon targets granaries, linking defense to food security.'
 mechanics:
 - id: raid-defense
   role: core
-  note: Vikings kidnap peasants, steal resources, and burn the town; dragons torch granaries; ogres attack; soldiers
-    and archer towers defend.
+  note: Vikings kidnap peasants, steal resources, and burn the town; dragons torch granaries; ogres attack;
+    soldiers and archer towers defend.
 - id: seasons
   role: core
   note: An annual winter destroys crops, so food must be stored in granaries to prevent starvation.
 - id: modular-assembly
   role: supporting
-  note: Castle blocks stack into walls and towers whose shape forms automatically; taller archer towers have longer
-    range.
+  note: Castle blocks stack into walls and towers whose shape forms automatically; taller archer towers
+    have longer range.
 - id: taxation
   role: supporting
   note: Peasant taxes pay workers and unlock buildings.
@@ -75,9 +75,19 @@ mechanics:
   note: Diplomats make trade agreements, alliances, and wars with AI kingdoms.
 - id: procedural-terrain
   role: supporting
+- id: variable-speed
+  role: supporting
+- id: free-placement
+  role: supporting
+- id: fire-spread
+  role: supporting
+- id: storage-capacity
+  role: supporting
 sources:
 - src-wikipedia-kingdoms-and-castles
 - src-steam-2026-kingdoms-and-castles
 status: sourced
 provenance:
   created: 2026-10-24-catalog-ga
+  reviewed:
+  - 2026-10-24-review-fixes

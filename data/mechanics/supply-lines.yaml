@@ -5,21 +5,22 @@ aliases:
 - logistics
 - supply
 - encirclement
-summary: Remote units or outposts need a continuous connection to a supply source; cutting the connection causes attrition.
+summary: Remote units or outposts need a continuous connection to a supply source; cutting the connection
+  causes attrition.
 family: logistics-networks
 substrate:
 - network-graph
-definition: >-
-  Units or outposts draw supply from sources (hubs, depots, capitals, ports) through a connected path of controlled territory,
-  rail, roads, or sea lanes. Each tick, supply delivered falls off with distance and is capped by the weakest link; units
-  below a supply threshold lose strength, organization, or health. Hearts of Iron IV routes supply from the capital by railway
-  to supply hubs, with hub capacity from 15 to 35 by railway level and capped by the weakest link; supply falls off per province
-  from the hub, and attrition starts at 35% supply or less. Unity of Command makes supply range central to its operational
-  puzzle, and Company of Heroes yields resources only from territory connected to the player's base. Inputs: source capacity,
-  network connectivity, distance. Outputs: per-unit supply level and attrition.
-player_experience: >-
-  Strategy at the level of the map. Players plan advances along supply routes, pause to bring up hubs, and seek to cut enemy
-  lines. Encircling an enemy and watching it starve is a strong, systemic win.
+definition: 'Units or outposts draw supply from sources (hubs, depots, capitals, ports) through a connected
+  path of controlled territory, rail, roads, or sea lanes. Each tick, supply delivered falls off with
+  distance and is capped by the weakest link; units below a supply threshold lose strength, organization,
+  or health. Hearts of Iron IV routes supply from the capital by railway to supply hubs, with hub capacity
+  from 15 to 35 by railway level and capped by the weakest link; supply falls off per province from the
+  hub, and attrition starts at 35% supply or less. Unity of Command makes supply range central to its
+  operational puzzle, and Company of Heroes yields resources only from territory connected to the player''s
+  base. Inputs: source capacity, network connectivity, distance. Outputs: per-unit supply level and attrition.'
+player_experience: Strategy at the level of the map. Players plan advances along supply routes, pause
+  to bring up hubs, and seek to cut enemy lines. Encircling an enemy and watching it starve is a strong,
+  systemic win.
 design_levers:
 - falloff curve with distance from source
 - 'network carriers: territory, rail, roads, or sea'
@@ -48,11 +49,14 @@ authoring_cost: 1
 compute_cost: 2
 tuning_difficulty: 3
 ai_leverage: 2
-maturity: classic
+maturity: established
 open_questions:
-- Could an AI opponent that reasons about supply networks produce more convincing operational play than current scripted AIs?
+- Could an AI opponent that reasons about supply networks produce more convincing operational play than
+  current scripted AIs?
 sources:
 - src-paradoxwikis-2026-hoi4-supply
 status: sourced
 provenance:
   created: 2026-10-24-taxonomy-m1
+  reviewed:
+  - 2026-10-24-review-fixes

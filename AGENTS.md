@@ -97,7 +97,7 @@ Names at least one mechanic in `involves`, has a `validation_experiment` a small
 | `{{table:<name>}}` | a table from `report/tables.yaml` or `dist/analysis/*.csv` |
 | `{{figure:<name>}}` | an SVG from `dist/analysis/figures/` |
 | `{{vocab:<vocab>:<term>}}` | a vocab label |
-| `{{assert:<stat> <op> <value>}}` | renders nothing; fails the build (E029) if false. Put one next to every sentence that interprets a ranking, sign, or ordering, e.g. `{{assert:rho_legibility_emergence_potential < 0}}` |
+| `{{assert:<ref> <op> <value\|ref>}}` | renders nothing; fails the build (E029) if false. Put one next to every sentence that interprets a ranking, sign, ordering, or grouping. `<ref>` is a stat (`rho_legibility_emergence_potential < 0`), an entity's derived field (`derived.rimworld.cluster == derived.the-sims.cluster`), a stored field (`field.genie-world-models.maturity == prototype`), or a row rank in a generated table (`rank.whitespace.lifecycle-aging.production-chain <= 10`; 9999 when absent) |
 | `[[id]]`, `[[id\|text]]` | link to an entity |
 | `[@src-id]`, `[@src-a; @src-b]` | numbered citation |
 

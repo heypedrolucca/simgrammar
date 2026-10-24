@@ -26,7 +26,7 @@ A 1973 educational business sim in which the player runs a lemonade stand for 12
 | agent count order | Aggregate only |
 | emergence | 1 |
 | influence | 2 |
-| cluster *(computed)* | C05 |
+| cluster *(computed)* | C12 |
 | core count *(computed)* | 3 |
 | mechanic count *(computed)* | 7 |
 

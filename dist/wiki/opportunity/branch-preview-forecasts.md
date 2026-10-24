@@ -14,7 +14,7 @@ Fork the simulation in the background and show the player likely futures of a de
 | feasibility | 4 |
 | impact | 4 |
 | horizon | 1-2 years |
-| falsifiable signal | {'prediction': "At least one commercial city builder, colony sim, or grand strategy game will ship a feature that simulates multiple stochastic futures of the player's current state before a decision.", 'resolve_by': '2028-06-30', 'criteria': 'Store page, patch notes, or developer talk describing multi-run forward simulation of the live game state shown to players.'} |
+| falsifiable signal | {'prediction': 'A city builder, colony sim, or grand strategy game will show players several simulated stochastic futures of their current game state before a decision.', 'resolve_by': '2028-06-30', 'criteria': 'Feature first shipped after 2026-10-24 in a title with at least 1,000 Steam user reviews; store page, patch notes, or a developer talk describes multiple forward runs from the live save state, shown to the player. A single deterministic projection does not count.'} |
 | priority *(computed)* | 4.0 |
 
 ## Thesis
@@ -37,9 +37,9 @@ Take a deterministic city or colony prototype, implement state snapshot plus N-w
 
 ## Falsifiable signal
 
-- **Prediction:** At least one commercial city builder, colony sim, or grand strategy game will ship a feature that simulates multiple stochastic futures of the player's current state before a decision.
+- **Prediction:** A city builder, colony sim, or grand strategy game will show players several simulated stochastic futures of their current game state before a decision.
 - **Resolve by:** 2028-06-30
-- **Criteria:** Store page, patch notes, or developer talk describing multi-run forward simulation of the live game state shown to players.
+- **Criteria:** Feature first shipped after 2026-10-24 in a title with at least 1,000 Steam user reviews; store page, patch notes, or a developer talk describes multiple forward runs from the live save state, shown to the player. A single deterministic projection does not count.
 
 ## Relations
 
@@ -64,4 +64,4 @@ Take a deterministic city or colony prototype, implement state snapshot plus N-w
 - [Surviving Mars](../game/surviving-mars.md)
 
 ---
-Provenance: created in run `2026-10-24-synthesis`.
+Provenance: created in run `2026-10-24-synthesis`; reviewed in `2026-10-24-review-fixes`.

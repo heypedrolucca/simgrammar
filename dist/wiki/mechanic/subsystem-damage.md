@@ -18,7 +18,7 @@ A vehicle or ship is a set of named components with their own integrity, and dam
 | compute cost | 1 |
 | tuning difficulty | 3 |
 | ai leverage | 2 |
-| maturity | Classic |
+| maturity | Established |
 | core count *(computed)* | 1 |
 | earliest game *(computed)* | [DCS World](../game/dcs-world.md) |
 | earliest year *(computed)* | 2008 |
@@ -70,4 +70,4 @@ Damage is specific and tactical. Losing shields, engines, or oxygen each forces 
 **used by:** [DCS World](../game/dcs-world.md), [Elite Dangerous](../game/elite-dangerous.md), [FTL: Faster Than Light](../game/ftl.md), [Kerbal Space Program](../game/kerbal-space-program.md), [Space Engineers](../game/space-engineers.md)
 
 ---
-Provenance: created in run `2026-10-24-taxonomy-triage-b`.
+Provenance: created in run `2026-10-24-taxonomy-triage-b`; reviewed in `2026-10-24-review-fixes`.

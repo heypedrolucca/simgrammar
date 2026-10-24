@@ -29,7 +29,7 @@ A god game in which the player wins villagers' belief through miracles, help, or
 | emergence | 3 |
 | influence | 3 |
 | influenced by | [Populous](../game/populous.md) |
-| cluster *(computed)* | C08 |
+| cluster *(computed)* | C13 |
 | core count *(computed)* | 3 |
 | mechanic count *(computed)* | 9 |
 

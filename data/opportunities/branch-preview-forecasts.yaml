@@ -40,12 +40,15 @@ validation_experiment: 'Take a deterministic city or colony prototype, implement
   off and on; measure decision regret (outcome versus best available) and session length. Success: preview
   of 64 branches under 5 seconds on a mid-range PC and a measurable drop in regret without lower engagement.'
 falsifiable_signal:
-  prediction: At least one commercial city builder, colony sim, or grand strategy game will ship a feature
-    that simulates multiple stochastic futures of the player's current state before a decision.
+  prediction: A city builder, colony sim, or grand strategy game will show players several simulated stochastic
+    futures of their current game state before a decision.
   resolve_by: '2028-06-30'
-  criteria: Store page, patch notes, or developer talk describing multi-run forward simulation of the
-    live game state shown to players.
+  criteria: Feature first shipped after 2026-10-24 in a title with at least 1,000 Steam user reviews;
+    store page, patch notes, or a developer talk describes multiple forward runs from the live save state,
+    shown to the player. A single deterministic projection does not count.
 sources: []
 status: asserted
 provenance:
   created: 2026-10-24-synthesis
+  reviewed:
+  - 2026-10-24-review-fixes

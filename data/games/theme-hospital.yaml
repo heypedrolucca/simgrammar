@@ -1,9 +1,8 @@
 id: theme-hospital
 type: game
 name: Theme Hospital
-summary: >-
-  A hospital management game where the player builds rooms, hires and trains staff, and routes patients with comic diseases
-  through diagnosis and treatment to meet level goals.
+summary: A hospital management game where the player builds rooms, hires and trains staff, and routes
+  patients with comic diseases through diagnosis and treatment to meet level goals.
 year: 1997
 developer: Bullfrog Productions
 platforms:
@@ -35,36 +34,32 @@ production_tier: aa
 agent_count_order: '100'
 emergence: 3
 influence: 3
-core_loop: >-
-  build rooms from blueprints -> hire and train staff -> patients queue for GP diagnosis and referrals -> treatment cures
-  or kills -> fees and reputation -> research new rooms and meet level goals
-design_notes: >-
-  Theme Hospital turns medicine into routing. The GP and specialist diagnosis rooms raise a patient's diagnosis certainty,
-  and the player sets the threshold at which treatment starts (it can be set above 100%), trading throughput against deaths
-  from wrong cures. Rooms are fixed blueprints that need set furniture and, for some, specialist staff, so the staff roster
-  and the floor plan gate each other. Machines that explode without a handyman, epidemics that can be covered up before the
-  health inspector arrives, and timed emergencies add pressure on top of the queues. Much of the code came from Theme Park;
-  CorsixTH is an open-source reimplementation with a level editor.
+core_loop: build rooms from blueprints -> hire and train staff -> patients queue for GP diagnosis and
+  referrals -> treatment cures or kills -> fees and reputation -> research new rooms and meet level goals
+design_notes: Theme Hospital turns medicine into routing. The GP and specialist diagnosis rooms raise
+  a patient's diagnosis certainty, and the player sets the threshold at which treatment starts (it can
+  be set above 100%), trading throughput against deaths from wrong cures. Rooms are fixed blueprints that
+  need set furniture and, for some, specialist staff, so the staff roster and the floor plan gate each
+  other. Machines that explode without a handyman, epidemics that can be covered up before the health
+  inspector arrives, and timed emergencies add pressure on top of the queues. Much of the code came from
+  Theme Park; CorsixTH is an open-source reimplementation with a level editor.
 mechanics:
 - id: diagnosis-treatment
   role: core
-  note: >-
-    A GP diagnoses or refers patients to specialist diagnosis rooms; treatment starts once certainty passes a player-set threshold,
-    and diseases are fictional, such as Bloaty Head.
+  note: A GP diagnoses or refers patients to specialist diagnosis rooms; treatment starts once certainty
+    passes a player-set threshold, and diseases are fictional, such as Bloaty Head.
 - id: free-placement
   role: core
-  note: >-
-    Rooms are placed as blueprints with doors and windows, then furnished with required items; many rooms must be researched
-    first.
+  note: Rooms are placed as blueprints with doors and windows, then furnished with required items; many
+    rooms must be researched first.
 - id: staff-hiring
   role: core
-  note: >-
-    Doctors, nurses, handymen, and receptionists are hired with performance stats; some rooms need doctors with specialist
-    skills.
+  note: Doctors, nurses, handymen, and receptionists are hired with performance stats; some rooms need
+    doctors with specialist skills.
 - id: service-queues
   role: core
-  note: >-
-    Patients queue outside each room; the player can rearrange queues, and long waits push patients to leave.
+  note: Patients queue outside each room; the player can rearrange queues, and long waits push patients
+    to leave.
 - id: agent-skills
   role: supporting
   note: Doctors can be trained to gain skills and specialisms.
@@ -73,8 +68,8 @@ mechanics:
   note: Machines such as the Inflator need handyman servicing or they explode.
 - id: contagion
   role: supporting
-  note: >-
-    Epidemics break out and can be covered up before a health inspector visits; failure brings fines and lost reputation.
+  note: Epidemics break out and can be covered up before a health inspector visits; failure brings fines
+    and lost reputation.
 - id: tech-tree
   role: supporting
   note: Research unlocks rooms, drugs, and machine improvements.
@@ -89,11 +84,15 @@ mechanics:
   note: Emergencies require curing a group of patients within a time limit for a bonus.
 - id: scenario-objectives
   role: supporting
-  note: >-
-    Each level sets goals for money, reputation, cures, and hospital value; negative funds or too many deaths lose the level.
+  note: Each level sets goals for money, reputation, cures, and hospital value; negative funds or too
+    many deaths lose the level.
 - id: advisors
   role: supporting
 - id: loans-debt
+  role: supporting
+- id: variable-speed
+  role: supporting
+- id: utility-action-selection
   role: supporting
 influenced_by:
 - theme-park
@@ -102,3 +101,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-catalog-ge
+  reviewed:
+  - 2026-10-24-review-fixes

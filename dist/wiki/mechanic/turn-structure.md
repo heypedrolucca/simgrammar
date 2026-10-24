@@ -23,9 +23,9 @@ The simulation advances in discrete turns, each divided into ordered phases in w
 | core count *(computed)* | 6 |
 | earliest game *(computed)* | [Hamurabi](../game/hamurabi.md) |
 | earliest year *(computed)* | 1968 |
-| prevalence *(computed)* | 11 |
-| prevalence share *(computed)* | 0.063 |
-| subgenre spread *(computed)* | 8 |
+| prevalence *(computed)* | 12 |
+| prevalence share *(computed)* | 0.069 |
+| subgenre spread *(computed)* | 9 |
 | technique count *(computed)* | 1 |
 | technique exposure *(computed)* | 0.2 |
 
@@ -65,7 +65,7 @@ Unlimited time to think. The player studies the state, plans, and commits, then 
 
 **affected by:** [Automated generation of game rules and mechanics](../technique/automated-rule-generation.md)
 
-**used by:** [AI Dungeon](../game/ai-dungeon.md), [Aurora 4X](../game/aurora-4x.md), [Balance of Power](../game/balance-of-power.md), [Caves of Qud](../game/caves-of-qud.md), [Sid Meier's Civilization](../game/civilization.md), [Democracy 4](../game/democracy-4.md), [Hamurabi](../game/hamurabi.md), [Lemonade Stand](../game/lemonade-stand.md), [M.U.L.E.](../game/mule.md), [The Oregon Trail](../game/oregon-trail.md), [Princess Maker 2](../game/princess-maker-2.md)
+**used by:** [AI Dungeon](../game/ai-dungeon.md), [Aurora 4X](../game/aurora-4x.md), [Balance of Power](../game/balance-of-power.md), [Caves of Qud](../game/caves-of-qud.md), [Sid Meier's Civilization](../game/civilization.md), [Democracy 4](../game/democracy-4.md), [Conway's Game of Life](../game/game-of-life.md), [Hamurabi](../game/hamurabi.md), [Lemonade Stand](../game/lemonade-stand.md), [M.U.L.E.](../game/mule.md), [The Oregon Trail](../game/oregon-trail.md), [Princess Maker 2](../game/princess-maker-2.md)
 
 ## Sources
 

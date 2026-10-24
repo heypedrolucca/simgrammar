@@ -3,8 +3,8 @@ type: game
 name: SimTower
 aliases:
 - The Tower
-summary: A skyscraper management game in which the player stacks offices, condos, hotels, and shops and designs
-  elevator service so tenants on daily routines do not wait long enough to stress out and leave.
+summary: A skyscraper management game in which the player stacks offices, condos, hotels, and shops and
+  designs elevator service so tenants on daily routines do not wait long enough to stress out and leave.
 year: 1994
 developer: OPeNBooK (Yoot Saito)
 platforms:
@@ -34,33 +34,35 @@ production_tier: indie
 agent_count_order: 1k
 emergence: 3
 influence: 2
-core_loop: build floors, lobbies, and elevators -> place offices, condos, hotels, and shops -> tenants travel by
-  elevator on daily routines -> long waits raise stress and drive tenants out -> rent and population raise the star
-  rating -> unlock new facilities
-design_notes: 'SimTower turns a building into a vertical transit problem: standard elevators span up to 30 floors
-  and express elevators the full height, so the player designs shafts, sky lobbies, and stops to keep queues short
-  as the tower grows toward 100 floors above ground and 9 below. Tenant stress, not money alone, gates the star
-  rating from one to five and finally the Tower rating, which needs a cathedral on top. Events such as a terrorist
-  bomb ransom, VIP visits that can unlock a star, fires, and pests interrupt the routine.'
+core_loop: build floors, lobbies, and elevators -> place offices, condos, hotels, and shops -> tenants
+  travel by elevator on daily routines -> long waits raise stress and drive tenants out -> rent and population
+  raise the star rating -> unlock new facilities
+design_notes: 'SimTower turns a building into a vertical transit problem: standard elevators span up to
+  30 floors and express elevators the full height, so the player designs shafts, sky lobbies, and stops
+  to keep queues short as the tower grows toward 100 floors above ground and 9 below. Tenant stress, not
+  money alone, gates the star rating from one to five and finally the Tower rating, which needs a cathedral
+  on top. Events such as a terrorist bomb ransom, VIP visits that can unlock a star, fires, and pests
+  interrupt the routine.'
 mechanics:
 - id: service-queues
   role: core
   note: Tenants wait at elevator lobbies; long waits raise stress, and stressed tenants move out.
 - id: free-placement
   role: core
-  note: Floors and tenant units are placed on a side-view grid; tenant type and position set elevator demand.
+  note: Floors and tenant units are placed on a side-view grid; tenant type and position set elevator
+    demand.
 - id: daily-schedules
   role: core
-  note: Office workers, residents, shoppers, and hotel guests travel at different times of day, creating rush periods
-    at lobbies.
+  note: Office workers, residents, shoppers, and hotel guests travel at different times of day, creating
+    rush periods at lobbies.
 - id: milestone-unlocks
   role: core
-  note: Population and conditions advance the tower from one to five stars and then to Tower status, each step unlocking
-    facility types.
+  note: Population and conditions advance the tower from one to five stars and then to Tower status, each
+    step unlocking facility types.
 - id: vertical-layers
   role: supporting
-  note: Up to 100 floors above ground and 9 below; standard elevators span 30 floors, express elevators the full
-    height.
+  note: Up to 100 floors above ground and 9 below; standard elevators span 30 floors, express elevators
+    the full height.
 - id: agent-pathfinding
   role: supporting
   note: People route between floors by elevators, escalators, and stairs.
@@ -70,8 +72,12 @@ mechanics:
 - id: random-disasters
   role: supporting
   note: Terrorist bomb threats with a ransom or search, fires, and pest infestations.
+- id: variable-speed
+  role: supporting
 sources:
 - src-wikipedia-simtower
 status: sourced
 provenance:
   created: 2026-10-24-catalog-ga
+  reviewed:
+  - 2026-10-24-review-fixes

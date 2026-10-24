@@ -92,9 +92,13 @@ mechanics:
   role: supporting
   note: Fights resolve from character combat skills, weapon stats, and armor, with damage applied to individual
     limbs.
+- id: variable-speed
+  role: supporting
 sources:
 - src-wikipedia-kenshi
 - src-steam-2026-kenshi
 status: sourced
 provenance:
   created: 2026-10-24-catalog-gb
+  reviewed:
+  - 2026-10-24-review-fixes

@@ -27,7 +27,7 @@ A Rube Goldberg puzzle game in which the player places supplied parts such as ba
 | agent count order | None |
 | emergence | 2 |
 | influence | 3 |
-| cluster *(computed)* | C02 |
+| cluster *(computed)* | C07 |
 | core count *(computed)* | 3 |
 | mechanic count *(computed)* | 6 |
 

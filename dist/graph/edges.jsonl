@@ -511,6 +511,7 @@
 {"source":"cities-skylines","target":"src-wikipedia-cities-skylines","type":"cites"}
 {"source":"cities-skylines","target":"src-wikipedia-city-building-game","type":"cites"}
 {"source":"cities-skylines","target":"src-wikipedia-city-building-game","type":"cites"}
+{"source":"cities-skylines-2","target":"src-paradox-2023-cs2-electricity-water","type":"cites"}
 {"source":"cities-skylines-2","target":"src-paradox-2023-cs2-traffic-ai","type":"cites"}
 {"source":"cities-skylines-2","target":"src-wikipedia-cities-skylines-2","type":"cites"}
 {"source":"citizen-satisfaction","target":"src-hopkins-2008-micropolis","type":"cites"}
@@ -2301,6 +2302,7 @@
 {"attrs":{"note":"Contentment per species responds to met needs; discontented villagers leave and content ones raise reputation.","role":"core"},"source":"against-the-storm","target":"citizen-satisfaction","type":"uses"}
 {"attrs":{"note":"The Queen's Impatience gauge fills over time and recalls the player when full; recurring storms raise pressure between calm periods.","role":"core"},"source":"against-the-storm","target":"crisis-countdown","type":"uses"}
 {"attrs":{"note":"Forest glades stay hidden until cut open and may hold boons or threats.","role":"supporting"},"source":"against-the-storm","target":"fog-of-war","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"against-the-storm","target":"free-placement","type":"uses"}
 {"attrs":{"note":"Seven species with distinct preferences; three per village.","role":"supporting"},"source":"against-the-storm","target":"population-strata","type":"uses"}
 {"attrs":{"note":"A new map is generated for each settlement across six biomes.","role":"supporting"},"source":"against-the-storm","target":"procedural-terrain","type":"uses"}
 {"attrs":{"note":"Production buildings convert goods by recipes such as raincoats, ale, and pies, chosen from a run-specific building set.","role":"core"},"source":"against-the-storm","target":"production-chain","type":"uses"}
@@ -2308,6 +2310,7 @@
 {"attrs":{"note":"A calm building period alternates with the storm.","role":"supporting"},"source":"against-the-storm","target":"seasons","type":"uses"}
 {"attrs":{"note":"Meta-progression resources upgrade the Smoldering City between runs.","role":"supporting"},"source":"against-the-storm","target":"tech-tree","type":"uses"}
 {"attrs":{"note":"A visiting trader's wares change each year.","role":"supporting"},"source":"against-the-storm","target":"trade-routes","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"against-the-storm","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"Players publish custom adventures and scenarios that others can start from.","role":"supporting"},"source":"ai-dungeon","target":"content-sharing","type":"uses"}
 {"attrs":{"note":"A language model continues the story text from a prompt of scenario, pinned memory, and recent turns; the See input generates an image that does not change play.","role":"core"},"source":"ai-dungeon","target":"generative-content","type":"uses"}
 {"attrs":{"note":"Free-text input typed as Do (action), Say (dialogue), or Story (narration or facts), with blank input asking the model to continue.","role":"core"},"source":"ai-dungeon","target":"natural-language-interaction","type":"uses"}
@@ -2326,6 +2329,7 @@
 {"attrs":{"note":"The Island Designer edits cliffs, rivers and ponds, and paths.","role":"supporting"},"source":"animal-crossing-new-horizons","target":"terraforming","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"animal-crossing-new-horizons","target":"weather","type":"uses"}
 {"attrs":{"note":"Production buildings have positive or negative effects on nearby structures.","role":"supporting"},"source":"anno-117","target":"adjacency-scoring","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"anno-117","target":"free-placement","type":"uses"}
 {"attrs":{"note":"Needs are grouped into categories that can be partly fulfilled; each good's attributes add benefits and drawbacks to population, income, health, and satisfaction.","role":"core"},"source":"anno-117","target":"goods-consumption","type":"uses"}
 {"attrs":{"note":"Ships are modular; adding oars or sails changes how they move.","role":"supporting"},"source":"anno-117","target":"modular-assembly","type":"uses"}
 {"attrs":{"note":"Residences advance from Liberti up to Patricians based on access to goods and on nearby prestige or polluting buildings.","role":"core"},"source":"anno-117","target":"population-strata","type":"uses"}
@@ -2335,8 +2339,10 @@
 {"attrs":{"note":"Schools generate research points for a tree of over 100 unlocks, including repeatable technologies.","role":"supporting"},"source":"anno-117","target":"tech-tree","type":"uses"}
 {"attrs":{"note":"Assigned ships carry goods between islands along routes that can be tracked and rerouted.","role":"supporting"},"source":"anno-117","target":"trade-routes","type":"uses"}
 {"attrs":{"note":"Melee, ranged, and siege units in a rock-paper-scissors system; warships protect routes from pirates.","role":"supporting"},"source":"anno-117","target":"unit-commands","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"anno-117","target":"variable-speed","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"anno-117","target":"vehicle-route-scheduling","type":"uses"}
 {"attrs":{"note":"Blueprint mode places silhouettes that are built later with one click when resources exist.","role":"supporting"},"source":"anno-1800","target":"blueprints","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"anno-1800","target":"free-placement","type":"uses"}
 {"attrs":{"note":"Each residence consumes goods per second; basic needs add inhabitants per house, luxury needs add taxes and happiness.","role":"core"},"source":"anno-1800","target":"goods-consumption","type":"uses"}
 {"attrs":{"note":"Each tier staffs only its tier's production buildings.","role":"supporting"},"source":"anno-1800","target":"labor-market","type":"uses"}
 {"attrs":{"note":"The World's Fair monument is built in stages, each consuming large deliveries of goods, and once complete hosts exhibitions.","role":"supporting"},"source":"anno-1800","target":"megaproject-sink","type":"uses"}
@@ -2346,6 +2352,7 @@
 {"attrs":{"note":"AI opponents settle the same map and compete for islands and trade.","role":"supporting"},"source":"anno-1800","target":"rival-firms","type":"uses"}
 {"attrs":{"note":"Warehouses set island storage limits and pickup range.","role":"supporting"},"source":"anno-1800","target":"storage-capacity","type":"uses"}
 {"attrs":{"note":"Ships carry goods between the player's islands, the New World session, and traders.","role":"core"},"source":"anno-1800","target":"trade-routes","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"anno-1800","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"Trade route ships follow ordered stops with load and unload amounts per good.","role":"supporting"},"source":"anno-1800","target":"vehicle-route-scheduling","type":"uses"}
 {"attrs":{"note":"Scenarios and mods are shared through the Steam Workshop.","role":"supporting"},"source":"arma-3","target":"content-sharing","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"arma-3","target":"day-night-cycle","type":"uses"}
@@ -2390,6 +2397,8 @@
 {"attrs":{"note":"Eight one-year turns; each turn resolves both superpowers' policies and then presents the year's incidents as crises to settle before advancing.","role":"core"},"source":"balance-of-power","target":"turn-structure","type":"uses"}
 {"attrs":{"note":"Trade ships can bring illness from abroad.","role":"supporting"},"source":"banished","target":"contagion","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"banished","target":"crop-cultivation","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"banished","target":"fire-spread","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"banished","target":"free-placement","type":"uses"}
 {"attrs":{"note":"Each household consumes food, firewood, clothing, and tools; shortages lead to cold, illness, and starvation.","role":"core"},"source":"banished","target":"goods-consumption","type":"uses"}
 {"attrs":{"note":"Laborers carry resources to stockpiles and construction sites, so their number sets delivery speed.","role":"supporting"},"source":"banished","target":"hauling-jobs","type":"uses"}
 {"attrs":{"note":"Nomad groups can arrive and ask to join the town.","role":"supporting"},"source":"banished","target":"immigration-attractiveness","type":"uses"}
@@ -2400,12 +2409,14 @@
 {"attrs":{"note":"Crops are planted and harvested on an annual cycle, and winter demands stored food and firewood.","role":"core"},"source":"banished","target":"seasons","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"banished","target":"storage-capacity","type":"uses"}
 {"attrs":{"note":"Resources are bartered with trade vessels at a trading post; there is no currency.","role":"supporting"},"source":"banished","target":"trade-routes","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"banished","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"The player sets worker counts per workplace and profession; unassigned citizens become laborers.","role":"supporting"},"source":"banished","target":"work-priorities","type":"uses"}
 {"attrs":{"note":"An official mod repository is browsable from the website and in game, with a manager that keeps mods updated.","role":"supporting"},"source":"beamng-drive","target":"content-sharing","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"beamng-drive","target":"embodied-skill-control","type":"uses"}
 {"attrs":{"note":"The game relies heavily on Lua, and mods add real and fictional vehicles.","role":"supporting"},"source":"beamng-drive","target":"modding-api","type":"uses"}
 {"attrs":{"note":"Campaigns group short races, chases, and stunts, and time trials race against the player's best times.","role":"supporting"},"source":"beamng-drive","target":"scenario-objectives","type":"uses"}
 {"attrs":{"note":"Vehicles are JBeam node-and-beam skeletons that flex and deform under impact; damage degrades engines, detaches doors, shatters windows, blows tires, and can make fuel tanks explode.","role":"core"},"source":"beamng-drive","target":"soft-body-deformation","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"beamng-drive","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"Handling comes from the same node-beam structure, so suspension, chassis flex, and tires respond to the vehicle's build and its damage.","role":"core"},"source":"beamng-drive","target":"vehicle-dynamics","type":"uses"}
 {"attrs":{"note":"Machines and levels are shared on Steam Workshop.","role":"supporting"},"source":"besiege","target":"content-sharing","type":"uses"}
 {"attrs":{"note":"The player drives the finished machine in real time with keys bound to its powered parts.","role":"supporting"},"source":"besiege","target":"embodied-skill-control","type":"uses"}
@@ -2425,6 +2436,7 @@
 {"attrs":{"note":"Employees are hired with skills and wages for each business, then HR managers, logistics managers, and purchasing agents automate operations from an HQ.","role":"core"},"source":"big-ambitions","target":"staff-hiring","type":"uses"}
 {"attrs":{"note":"Stock fills store shelves and warehouses; empty shelves lose sales.","role":"supporting"},"source":"big-ambitions","target":"storage-capacity","type":"uses"}
 {"attrs":{"note":"The avatar must eat food stored at home, sleep, and stay healthy and happy.","role":"supporting"},"source":"big-ambitions","target":"survival-meters","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"big-ambitions","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"Delivery trucks carry goods from harbour importers to warehouses and stores.","role":"supporting"},"source":"big-ambitions","target":"vehicle-route-scheduling","type":"uses"}
 {"attrs":{"note":"Conveyor belts move materials between machines from intake ports to output ports, and machine order along the belt sets the recipe.","role":"core"},"source":"big-pharma","target":"conveyor-transport","type":"uses"}
 {"attrs":{"note":"Machines are placed on a fixed factory floor where space limits line length.","role":"supporting"},"source":"big-pharma","target":"free-placement","type":"uses"}
@@ -2435,6 +2447,7 @@
 {"attrs":{"note":"Explorers search for new ingredients, and analysis machines reveal an ingredient's effects and maximum potency.","role":"supporting"},"source":"big-pharma","target":"scouting-knowledge","type":"uses"}
 {"attrs":{"note":"Price and sales for each cure depend on demand and how crowded its market is.","role":"supporting"},"source":"big-pharma","target":"supply-demand-pricing","type":"uses"}
 {"attrs":{"note":"A research tree unlocks better machines and other benefits.","role":"supporting"},"source":"big-pharma","target":"tech-tree","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"big-pharma","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"Hacking, combat, and charisma stats rise with use; hacking level raises success chance and money stolen, shortens hack time, and gates which servers can be hacked.","role":"supporting"},"source":"bitburner","target":"agent-skills","type":"uses"}
 {"attrs":{"note":"Coding contracts found on servers pose programming problems that earn rewards when solved.","role":"supporting"},"source":"bitburner","target":"contracts-orders","type":"uses"}
 {"attrs":{"note":"Each script has a RAM cost, and a server's RAM caps how many script threads can run on it, so buying RAM and writing lean scripts both raise income.","role":"supporting"},"source":"bitburner","target":"execution-budget","type":"uses"}
@@ -2453,6 +2466,8 @@
 {"attrs":{"note":"Villagers gather wood and food, for example by fishing.","role":"supporting"},"source":"black-and-white","target":"resource-extraction","type":"uses"}
 {"attrs":{"note":"Real local weather can be imported.","role":"supporting"},"source":"black-and-white","target":"weather","type":"uses"}
 {"attrs":{"note":"Gardens, statues, and plazas raise desirability that houses need to evolve.","role":"supporting"},"source":"caesar-3","target":"decoration-beauty","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"caesar-3","target":"fire-spread","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"caesar-3","target":"free-placement","type":"uses"}
 {"attrs":{"note":"Higher houses need food plus pottery, furniture, oil, and wine delivered by market walkers.","role":"supporting"},"source":"caesar-3","target":"goods-consumption","type":"uses"}
 {"attrs":{"note":"Buildings need workers from housing; shortages idle walkers and industry.","role":"supporting"},"source":"caesar-3","target":"labor-market","type":"uses"}
 {"attrs":{"note":"Housing evolves through levels from tents up to villas and palaces when food, goods, services, and desirability are met, and devolves when they lapse.","role":"core"},"source":"caesar-3","target":"population-strata","type":"uses"}
@@ -2461,8 +2476,10 @@
 {"attrs":{"note":"Favor with Caesar rises with timely tribute and gifts and falls when requests are missed.","role":"supporting"},"source":"caesar-3","target":"reputation","type":"uses"}
 {"attrs":{"note":"Walkers and goods move on roads, so road layout sets coverage.","role":"supporting"},"source":"caesar-3","target":"road-network","type":"uses"}
 {"attrs":{"note":"Each assignment sets population and thresholds for four ratings: culture, prosperity, peace, and favor.","role":"core"},"source":"caesar-3","target":"scenario-objectives","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"caesar-3","target":"storage-capacity","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"caesar-3","target":"taxation","type":"uses"}
 {"attrs":{"note":"An empire map opens land and sea routes to cities that buy and sell specific goods.","role":"supporting"},"source":"caesar-3","target":"trade-routes","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"caesar-3","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"Service walkers leave their building and roam roads; each house passed gets coverage set to 96, which decays by 1 per update until the next visit.","role":"core"},"source":"caesar-3","target":"walker-service-delivery","type":"uses"}
 {"attrs":{"note":"Buildings accumulate fire and collapse risk that prefects and engineers reset to zero.","role":"supporting"},"source":"caesar-3","target":"wear-breakdown","type":"uses"}
 {"attrs":{"note":"Advertising units inside firms spend money to raise a product's brand rating, which customers weigh with price and quality when choosing among stores.","role":"supporting"},"source":"capitalism","target":"advertising-awareness","type":"uses"}
@@ -2477,10 +2494,12 @@
 {"attrs":{"note":"AI corporations with aggressive to conservative management styles compete in the same cities for market share.","role":"core"},"source":"capitalism","target":"rival-firms","type":"uses"}
 {"attrs":{"note":"Seventeen scenarios set goals such as market-share dominance within a time limit.","role":"supporting"},"source":"capitalism","target":"scenario-objectives","type":"uses"}
 {"attrs":{"note":"R&D centers run projects from six months to ten years that raise technology and unlock new products.","role":"supporting"},"source":"capitalism","target":"tech-tree","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"capitalism","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"Production emits slag, waste, carbon dioxide, wastewater, and spent nuclear fuel that must be dumped, treated, recycled, or stored.","role":"supporting"},"source":"captain-of-industry","target":"byproducts-waste","type":"uses"}
 {"attrs":{"note":"Belts and pipes give high-throughput direct links between machines once truck logistics become a bottleneck.","role":"supporting"},"source":"captain-of-industry","target":"conveyor-transport","type":"uses"}
 {"attrs":{"note":"Farms grow crops for food and industrial inputs, fertilizer boosts yields, and greenhouses grow advanced crops.","role":"supporting"},"source":"captain-of-industry","target":"crop-cultivation","type":"uses"}
 {"attrs":{"note":"The player paints mining and dumping designations, and excavators and trucks assigned to a Mine Control Tower carry out the work inside its area.","role":"supporting"},"source":"captain-of-industry","target":"designation-orders","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"captain-of-industry","target":"free-placement","type":"uses"}
 {"attrs":{"note":"Residents consume food, water, electricity, healthcare, and household goods; each fully satisfied need yields Unity, and unmet food or health shrinks the population.","role":"core"},"source":"captain-of-industry","target":"goods-consumption","type":"uses"}
 {"attrs":{"note":"Trucks are assigned to mines, storages, and buildings and automatically deliver products where they are needed, so fleet size and road layout cap throughput before belts and trains replace them.","role":"core"},"source":"captain-of-industry","target":"hauling-jobs","type":"uses"}
 {"attrs":{"note":"Unity is spent on building boosts (0.25 Unity each) that speed up individual buildings.","role":"supporting"},"source":"captain-of-industry","target":"machine-boosting","type":"uses"}
@@ -2495,6 +2514,7 @@
 {"attrs":{"note":"Research labs consume products and Unity to unlock over 100 technologies from basic smelting to space flight.","role":"supporting"},"source":"captain-of-industry","target":"tech-tree","type":"uses"}
 {"attrs":{"note":"Mining designations inside a Mine Control Tower area lower terrain and dumping designations raise it; loose material settles at per-material angles of repose, retaining walls stabilize slopes, and dumping can reclaim ocean.","role":"core"},"source":"captain-of-industry","target":"terraforming","type":"uses"}
 {"attrs":{"note":"Ships explore a world map to discover islands and trading partners; quick trades and recurring contracts exchange goods.","role":"supporting"},"source":"captain-of-industry","target":"trade-routes","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"captain-of-industry","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"Trains move bulk cargo over long distances, and ships run trade contracts between the home island and partners.","role":"supporting"},"source":"captain-of-industry","target":"vehicle-route-scheduling","type":"uses"}
 {"attrs":{"note":"Working vehicles and buildings consume Maintenance I to III crafted at depots (idle at about a third); below 75% maintenance a breakdown is rolled monthly with chance rising to 50% at zero.","role":"core"},"source":"captain-of-industry","target":"wear-breakdown","type":"uses"}
 {"attrs":{"note":"Experience feeds a skills and garage-upgrade system.","role":"supporting"},"source":"car-mechanic-simulator-2021","target":"agent-skills","type":"uses"}
@@ -2515,6 +2535,7 @@
 {"attrs":{"note":"Citizens and vehicles path individually through roads, paths, and transit.","role":"supporting"},"source":"cities-skylines","target":"agent-pathfinding","type":"uses"}
 {"attrs":{"note":"Elementary (300), high school (1,000), and university (4,500) capacities move citizens through four education levels that higher-level jobs require.","role":"supporting"},"source":"cities-skylines","target":"education-workforce","type":"uses"}
 {"attrs":{"note":"Water and sewage pipes; sewage released upstream contaminates downstream intakes.","role":"supporting"},"source":"cities-skylines","target":"fluid-pipe-network","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"cities-skylines","target":"free-placement","type":"uses"}
 {"attrs":{"note":"Services and parks raise land value, pollution and noise lower it, and land value helps buildings level up.","role":"supporting"},"source":"cities-skylines","target":"land-value","type":"uses"}
 {"attrs":{"note":"Citizens age and die; an initial cohort moving in together can age into a wave of deaths that overloads hearses.","role":"supporting"},"source":"cities-skylines","target":"lifecycle-aging","type":"uses"}
 {"attrs":{"note":"Population milestones unlock services, zoning types, policies, and purchase of up to 25 map tiles.","role":"supporting"},"source":"cities-skylines","target":"milestone-unlocks","type":"uses"}
@@ -2526,12 +2547,15 @@
 {"attrs":{"note":"Service buildings reach buildings by network distance and dispatch vehicles.","role":"supporting"},"source":"cities-skylines","target":"service-coverage","type":"uses"}
 {"attrs":{"note":"Each citizen takes the fastest route to work or other destinations; poor road design shows up as visible jams that delay services and deliveries.","role":"core"},"source":"cities-skylines","target":"traffic-congestion","type":"uses"}
 {"attrs":{"note":"Citizens choose between walking, driving, and the player's bus, tram, train, metro, ferry, and taxi lines when routing to destinations, so new lines shift demand off roads.","role":"supporting"},"source":"cities-skylines","target":"travel-mode-choice","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"cities-skylines","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"Zoning cells follow the shape of drawn roads; residential, commercial, industrial, and office zones develop and level up.","role":"core"},"source":"cities-skylines","target":"zoning","type":"uses"}
 {"attrs":{"note":"Citizens compare driving, transit, and walking with a cost combining time, comfort, money, and personal preference.","role":"core"},"source":"cities-skylines-2","target":"agent-pathfinding","type":"uses"}
 {"attrs":{"note":"Each day and night cycle equals one simulated month.","role":"supporting"},"source":"cities-skylines-2","target":"day-night-cycle","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"cities-skylines-2","target":"free-placement","type":"uses"}
 {"attrs":{"note":"Signature buildings and services change land value in their zone.","role":"supporting"},"source":"cities-skylines-2","target":"land-value","type":"uses"}
 {"attrs":{"note":"Milestones grant development points and map tiles, from 9 starting tiles up to 441.","role":"supporting"},"source":"cities-skylines-2","target":"milestone-unlocks","type":"uses"}
 {"attrs":{"note":"Paradox Mods since 2024-03-25; mods can override game code.","role":"supporting"},"source":"cities-skylines-2","target":"modding-api","type":"uses"}
+{"attrs":{"note":"Generation, a connected grid, and batteries; solar output varies with weather and time of day and wind with wind strength.","role":"supporting"},"source":"cities-skylines-2","target":"power-grid","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"cities-skylines-2","target":"public-transit","type":"uses"}
 {"attrs":{"note":"Floods, forest fires, and tornadoes, mitigated by disaster response services.","role":"supporting"},"source":"cities-skylines-2","target":"random-disasters","type":"uses"}
 {"attrs":{"note":"Each map has a preset climate; winters bring snow.","role":"supporting"},"source":"cities-skylines-2","target":"seasons","type":"uses"}
@@ -2540,6 +2564,8 @@
 {"attrs":{"note":"Development points are spent in a tree to unlock transport options and services.","role":"supporting"},"source":"cities-skylines-2","target":"tech-tree","type":"uses"}
 {"attrs":{"note":"Vehicles spread across lanes, parking fees enter route cost, and accident checks run per road segment.","role":"core"},"source":"cities-skylines-2","target":"traffic-congestion","type":"uses"}
 {"attrs":{"note":"Citizens compare driving, transit, and walking using a cost of time, comfort, money, and personal behavior, and parking fees enter the driving cost.","role":"supporting"},"source":"cities-skylines-2","target":"travel-mode-choice","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"cities-skylines-2","target":"variable-speed","type":"uses"}
+{"attrs":{"note":"Weather and seasons affect solar and wind output and climate conditions.","role":"supporting"},"source":"cities-skylines-2","target":"weather","type":"uses"}
 {"attrs":{"note":"Residential, commercial, industrial, and office zones along roads, with signature buildings unlocked at milestones.","role":"core"},"source":"cities-skylines-2","target":"zoning","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"civilization","target":"advisors","type":"uses"}
 {"attrs":{"note":"Cities track content and unhappy citizens; luxuries, temples, and wonders keep cities out of civil disorder.","role":"supporting"},"source":"civilization","target":"citizen-satisfaction","type":"uses"}
@@ -2582,6 +2608,7 @@
 {"attrs":{"note":"Drives such as hunger and tiredness are concentrations in a simulated biochemistry that rise over time and fall when actions such as eating or resting succeed.","role":"core"},"source":"creatures","target":"needs-decay","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"creatures","target":"permadeath","type":"uses"}
 {"attrs":{"note":"Haploid digital genomes with no dominant or recessive genes encode brain wiring, biochemistry, and organs; offspring genomes mutate, and every boxed copy shipped a unique starting set of egg genomes.","role":"core"},"source":"creatures","target":"trait-inheritance","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"creatures","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"Skills grow from education and from perks in six lifestyles, each with three skill trees.","role":"supporting"},"source":"crusader-kings-3","target":"agent-skills","type":"uses"}
 {"attrs":{"note":"Nested tooltips let players open explanations of terms inside other tooltips.","role":"supporting"},"source":"crusader-kings-3","target":"causal-tooltips","type":"uses"}
 {"attrs":{"note":"Counties carry a faith and a culture; the court chaplain can convert a county's faith and the steward can promote the ruler's culture, while faith hostility sets opinion penalties from 0 to -30.","role":"supporting"},"source":"crusader-kings-3","target":"culture-religion-conversion","type":"uses"}
@@ -2600,6 +2627,7 @@
 {"attrs":{"note":"Counties belong to titles with de jure hierarchies, and wars are fought to press claims on them; conquered counties start with low county control.","role":"supporting"},"source":"crusader-kings-3","target":"territorial-control","type":"uses"}
 {"attrs":{"note":"Genetic traits such as strong or poor health pass to children.","role":"supporting"},"source":"crusader-kings-3","target":"trait-inheritance","type":"uses"}
 {"attrs":{"note":"Events are called from on_actions, decisions, and interactions, with weighted options and scheduled follow-ups.","role":"supporting"},"source":"crusader-kings-3","target":"triggered-event-chains","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"crusader-kings-3","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"War score from battles and occupation lets the attacker enforce the war goal at full score, while either side can offer white peace.","role":"supporting"},"source":"crusader-kings-3","target":"war-score-peace","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"dcs-world","target":"embodied-skill-control","type":"uses"}
 {"attrs":{"note":"Aircraft modules are built from real-world data; the F-16C uses a professional flight model with a fly-by-wire flight control system.","role":"core"},"source":"dcs-world","target":"flight-aerodynamics","type":"uses"}
@@ -2608,7 +2636,8 @@
 {"attrs":{"note":"Clickable cockpits operate modeled engines, fuel, electrical, hydraulic, and radio systems, so start-up and weapon employment follow real procedures.","role":"core"},"source":"dcs-world","target":"procedural-checklists","type":"uses"}
 {"attrs":{"note":"Missiles, bombs, and gun rounds fly as simulated projectiles, so release parameters such as speed, altitude, and range decide hits.","role":"supporting"},"source":"dcs-world","target":"projectile-ballistics","type":"uses"}
 {"attrs":{"note":"The mission editor builds single-player and multiplayer missions with Lua scripting.","role":"supporting"},"source":"dcs-world","target":"scenario-objectives","type":"uses"}
-{"attrs":{"note":"Damage affects individual modeled subsystems such as engines, hydraulics, and electrical systems, changing how the aircraft flies and what still works.","role":"supporting"},"source":"dcs-world","target":"subsystem-damage","type":"uses"}
+{"attrs":{"note":"Modules carry damage models, revised over the platform's development, so hits degrade the aircraft's modeled systems and how it flies.","role":"supporting"},"source":"dcs-world","target":"subsystem-damage","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"dcs-world","target":"variable-speed","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"dcs-world","target":"weather","type":"uses"}
 {"attrs":{"note":"Dilemmas, such as appointing a senior judge, must be resolved before the turn can end.","role":"supporting"},"source":"democracy-4","target":"dilemma-cards","type":"uses"}
 {"attrs":{"note":"Before each general election the player makes two promises to the electorate; broken promises raise voter cynicism, and losing the election ends the game.","role":"core"},"source":"democracy-4","target":"elections","type":"uses"}
@@ -2640,6 +2669,7 @@
 {"attrs":{"note":"The player designates digging, chopping, construction, and workshop jobs; dwarves with the matching labor enabled pick them up, and a manager can queue work orders automatically.","role":"core"},"source":"dwarf-fortress","target":"designation-orders","type":"uses"}
 {"attrs":{"note":"Fires spread and burn dwarves and furniture.","role":"supporting"},"source":"dwarf-fortress","target":"fire-spread","type":"uses"}
 {"attrs":{"note":"Water and magma flow tile by tile with up to seven depth levels per tile, so breaching a river, cavern lake, or magma source floods connected tunnels.","role":"core"},"source":"dwarf-fortress","target":"fluid-gas-simulation","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"dwarf-fortress","target":"free-placement","type":"uses"}
 {"attrs":{"note":"Dwarves carry goods to player-defined stockpiles.","role":"supporting"},"source":"dwarf-fortress","target":"hauling-jobs","type":"uses"}
 {"attrs":{"note":"Tiles, materials, and creatures carry temperatures.","role":"supporting"},"source":"dwarf-fortress","target":"heat-transfer","type":"uses"}
 {"attrs":{"note":"Legends mode lists historical figures, sites, artifacts, and civilizations with a historical map; fortress deeds and retired adventurers are added, and the archive exports to XML.","role":"core"},"source":"dwarf-fortress","target":"history-chronicle","type":"uses"}
@@ -2654,15 +2684,19 @@
 {"attrs":{"note":"Ambushes, sieges, megabeasts, and forgotten beasts are met with squads, fortifications, and traps triggered by levers or pressure plates.","role":"supporting"},"source":"dwarf-fortress","target":"raid-defense","type":"uses"}
 {"attrs":{"note":"Friends, family, and pets; their deaths are major stressors.","role":"supporting"},"source":"dwarf-fortress","target":"relationship-values","type":"uses"}
 {"attrs":{"note":"Furniture defines bedrooms, dining halls, and offices; nobles demand rooms of rising value.","role":"supporting"},"source":"dwarf-fortress","target":"room-recognition","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"dwarf-fortress","target":"storage-capacity","type":"uses"}
 {"attrs":{"note":"Emotions from events add to or subtract from a hidden stress value (-1,000,000 to +1,000,000) scaled by facets such as stress vulnerability and bravery; above +10,000, +25,000, and +50,000 dwarves risk tantrums, depression, obliviousness, and insanity, and long-term memories keep adding stress.","role":"core"},"source":"dwarf-fortress","target":"stress-accumulation","type":"uses"}
 {"attrs":{"note":"Yearly caravans from neighboring civilizations are handled by a broker; caravans can be absent or hostile depending on history.","role":"supporting"},"source":"dwarf-fortress","target":"trade-routes","type":"uses"}
 {"attrs":{"note":"Military squads in uniforms train at barracks and can be ordered to attack.","role":"supporting"},"source":"dwarf-fortress","target":"unit-commands","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"dwarf-fortress","target":"utility-action-selection","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"dwarf-fortress","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"Z-levels, added in 2007, let the fortress descend level by level through soil and stone to caverns, the magma sea, and the underworld, connected by stairs and ramps.","role":"core"},"source":"dwarf-fortress","target":"vertical-layers","type":"uses"}
 {"attrs":{"note":"Dark Fog threat accumulates from the player's power generation and from combat, bases and hives gain levels from experience, and aggressiveness settings scale attack sizes.","role":"supporting"},"source":"dyson-sphere-program","target":"adaptive-threat-scaling","type":"uses"}
 {"attrs":{"note":"Layouts are saved and pasted as blueprints, and the mech's construction drones place them.","role":"supporting"},"source":"dyson-sphere-program","target":"blueprints","type":"uses"}
 {"attrs":{"note":"Three belt tiers carry items between sorters and machines on a planetary grid that wraps around a sphere and narrows toward the poles.","role":"core"},"source":"dyson-sphere-program","target":"conveyor-transport","type":"uses"}
 {"attrs":{"note":"Planets rotate around their axes and orbit their stars, so solar panel output varies with the local day.","role":"supporting"},"source":"dyson-sphere-program","target":"day-night-cycle","type":"uses"}
 {"attrs":{"note":"The player flies the Icarus mech across planets and through space to build within its range.","role":"supporting"},"source":"dyson-sphere-program","target":"direct-avatar","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"dyson-sphere-program","target":"free-placement","type":"uses"}
 {"attrs":{"note":"The Icarus mech hand-crafts early buildings from inventory before assemblers take over.","role":"supporting"},"source":"dyson-sphere-program","target":"hand-crafting","type":"uses"}
 {"attrs":{"note":"Proliferator coating on input items lets the consuming machine choose extra products or faster production.","role":"supporting"},"source":"dyson-sphere-program","target":"machine-boosting","type":"uses"}
 {"attrs":{"note":"The Dyson sphere is designed in a node-and-frame editor and built from solar sails fired by EM-Rail Ejectors and frames carried by rockets; unabsorbed sails expire after 5,400 seconds, and the finished sphere's energy feeds endgame production.","role":"core"},"source":"dyson-sphere-program","target":"megaproject-sink","type":"uses"}
@@ -2774,6 +2808,7 @@
 {"attrs":{"note":"Ore tiles run out as they are mined, and crude oil wells decline toward a 20% yield floor, pushing expansion to new patches.","role":"supporting"},"source":"factorio","target":"deposit-depletion","type":"uses"}
 {"attrs":{"note":"The engineer walks the map, mines by hand early, and places buildings within reach, later driving cars, tanks, and spidertrons.","role":"supporting"},"source":"factorio","target":"direct-avatar","type":"uses"}
 {"attrs":{"note":"Pipes and pumps carry water, crude oil, petroleum, and steam; version 2.0 merged pipes into segments that share contents.","role":"supporting"},"source":"factorio","target":"fluid-pipe-network","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"factorio","target":"free-placement","type":"uses"}
 {"attrs":{"note":"The engineer crafts early buildings and items from inventory using the same recipes as assemblers, with a crafting queue.","role":"supporting"},"source":"factorio","target":"hand-crafting","type":"uses"}
 {"attrs":{"note":"Speed, productivity, efficiency, and (Space Age) quality modules fill machine slots, and beacons project module effects onto neighboring machines at a power cost; productivity bonuses are capped at +300%.","role":"supporting"},"source":"factorio","target":"machine-boosting","type":"uses"}
 {"attrs":{"note":"The rocket silo consumes rocket parts for each launch, and launching a rocket ends the base game; Space Age moves the goal to a space platform reaching the edge of the solar system.","role":"supporting"},"source":"factorio","target":"megaproject-sink","type":"uses"}
@@ -2805,6 +2840,7 @@
 {"attrs":{"note":"Twisters and hail can damage crops.","role":"supporting"},"source":"farming-simulator-25","target":"random-disasters","type":"uses"}
 {"attrs":{"note":"A seasonal cycle, introduced in FS22, sets planting and harvest windows.","role":"supporting"},"source":"farming-simulator-25","target":"seasons","type":"uses"}
 {"attrs":{"note":"Tires leave tracks that deform soft ground.","role":"supporting"},"source":"farming-simulator-25","target":"terrain-deformation","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"farming-simulator-25","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"The player drives over 400 licensed vehicles and implements from more than 150 brands, each with its own power, speed, and weight; GPS-assisted steering automates straight passes.","role":"core"},"source":"farming-simulator-25","target":"vehicle-dynamics","type":"uses"}
 {"attrs":{"note":"Vehicles accumulate wear and damage that reduce performance until repaired at a workshop.","role":"supporting"},"source":"farming-simulator-25","target":"wear-breakdown","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"farming-simulator-25","target":"weather","type":"uses"}
@@ -2812,13 +2848,16 @@
 {"attrs":{"note":"Dysentery, cholera, tetanus, rabies, frostbite, and plague spread or strike based on water, clothing, rats, and healer coverage.","role":"core"},"source":"farthest-frontier","target":"contagion","type":"uses"}
 {"attrs":{"note":"Twelve crops with rotation to preserve soil fertility; fields improve by clearing weeds and rocks and adjusting the soil mix.","role":"core"},"source":"farthest-frontier","target":"crop-cultivation","type":"uses"}
 {"attrs":{"note":"Desirability from surroundings gates housing upgrades.","role":"supporting"},"source":"farthest-frontier","target":"decoration-beauty","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"farthest-frontier","target":"free-placement","type":"uses"}
 {"attrs":{"note":"Nineteen food types; diet variety, including berries and greens against scurvy, is needed for health.","role":"core"},"source":"farthest-frontier","target":"goods-consumption","type":"uses"}
 {"attrs":{"note":"Housing and the town center advance through tiers as prosperity and desirability grow.","role":"supporting"},"source":"farthest-frontier","target":"population-strata","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"farthest-frontier","target":"production-chain","type":"uses"}
 {"attrs":{"note":"Palisades, stone walls, towers, barracks, and equipped soldiers.","role":"supporting"},"source":"farthest-frontier","target":"raid-defense","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"farthest-frontier","target":"seasons","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"farthest-frontier","target":"storage-capacity","type":"uses"}
 {"attrs":{"note":"A tree of over 140 points of upgrades.","role":"supporting"},"source":"farthest-frontier","target":"tech-tree","type":"uses"}
 {"attrs":{"note":"Crafted goods are traded for resources the town lacks.","role":"supporting"},"source":"farthest-frontier","target":"trade-routes","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"farthest-frontier","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"Player attributes develop through training schedules, match experience, and coaching quality up to individual potential.","role":"core"},"source":"football-manager","target":"agent-skills","type":"uses"}
 {"attrs":{"note":"Fixtures are simulated event by event from each player's attributes, condition, and morale and the manager's tactics and touchline instructions, shown in 2D or 3D.","role":"core"},"source":"football-manager","target":"attribute-match-engine","type":"uses"}
 {"attrs":{"note":"The board sets season expectations and, with fan confidence, judges results against them; falling confidence brings warnings and then sacking.","role":"supporting"},"source":"football-manager","target":"board-confidence","type":"uses"}
@@ -2841,6 +2880,7 @@
 {"attrs":{"role":"supporting"},"source":"foundation","target":"production-chain","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"foundation","target":"taxation","type":"uses"}
 {"attrs":{"note":"Trade with neighboring villages.","role":"supporting"},"source":"foundation","target":"trade-routes","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"foundation","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"A painting tool marks areas for homes, roads, patrol routes, and forest extraction; homes fill residential zones organically.","role":"core"},"source":"foundation","target":"zoning","type":"uses"}
 {"attrs":{"note":"Wildfires spread through vegetation and can be extinguished.","role":"supporting"},"source":"from-dust","target":"fire-spread","type":"uses"}
 {"attrs":{"note":"Powers such as jellifying water are granted by completing objectives; magical stones protect against water and fire.","role":"supporting"},"source":"from-dust","target":"god-powers","type":"uses"}
@@ -2855,20 +2895,25 @@
 {"attrs":{"note":"Citizens work daylight shifts; emergency shifts extend hours at a cost.","role":"supporting"},"source":"frostpunk","target":"daily-schedules","type":"uses"}
 {"attrs":{"note":"Individual decisions, such as how to handle an injured child, offer choices that shift hope and discontent.","role":"supporting"},"source":"frostpunk","target":"dilemma-cards","type":"uses"}
 {"attrs":{"note":"Scouts explore the frozen wasteland map for survivors and resources, the only way to grow the workforce.","role":"supporting"},"source":"frostpunk","target":"fog-of-war","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"frostpunk","target":"free-placement","type":"uses"}
 {"attrs":{"note":"Workers, engineers, and children fill different job types.","role":"supporting"},"source":"frostpunk","target":"labor-market","type":"uses"}
 {"attrs":{"note":"The Book of Laws offers adaptation laws such as child labor, extended shifts, and prosthetics, plus Order or Faith paths whose later laws are harsher.","role":"core"},"source":"frostpunk","target":"policy-toggles","type":"uses"}
 {"attrs":{"note":"Coal, wood, steel, and food come from thumpers, sawmills, mines, and hunters.","role":"supporting"},"source":"frostpunk","target":"resource-extraction","type":"uses"}
 {"attrs":{"note":"The generator heats a circular area whose range and level the player raises; buildings outside heat need insulation or heaters.","role":"core"},"source":"frostpunk","target":"service-coverage","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"frostpunk","target":"storage-capacity","type":"uses"}
 {"attrs":{"note":"Workshops research heat, extraction, and automaton technologies.","role":"supporting"},"source":"frostpunk","target":"tech-tree","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"frostpunk","target":"variable-speed","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"frostpunk","target":"weather","type":"uses"}
 {"attrs":{"note":"Whiteouts are severe storms prepared for with fuel reserves.","role":"supporting"},"source":"frostpunk-2","target":"crisis-countdown","type":"uses"}
 {"attrs":{"note":"A council of 100 faction delegates votes on each proposed law; 51 votes pass most laws, two thirds pass laws that grant the Steward more power.","role":"core"},"source":"frostpunk-2","target":"elections","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"frostpunk-2","target":"free-placement","type":"uses"}
 {"attrs":{"note":"Factions with conflicting ideals react to adopted ideas and laws; radicals grow within factions.","role":"core"},"source":"frostpunk-2","target":"interest-groups","type":"uses"}
 {"attrs":{"note":"Laws are proposed, negotiated with promises, and enacted when the council approves.","role":"core"},"source":"frostpunk-2","target":"policy-toggles","type":"uses"}
 {"attrs":{"note":"Food, coal, oil, and steam come from frostland deposits and districts.","role":"supporting"},"source":"frostpunk-2","target":"resource-extraction","type":"uses"}
 {"attrs":{"note":"Utopia Builder mode sets an objective and optional challenges that fail the run if missed.","role":"supporting"},"source":"frostpunk-2","target":"scenario-objectives","type":"uses"}
 {"attrs":{"note":"Faction tension can escalate into murder and civil war.","role":"supporting"},"source":"frostpunk-2","target":"stability-unrest","type":"uses"}
 {"attrs":{"note":"An Idea Tree of faction-proposed ideas to solve problems.","role":"supporting"},"source":"frostpunk-2","target":"tech-tree","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"frostpunk-2","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"Districts for food, housing, extraction, and industry are placed on frost; buildings inside add functions.","role":"core"},"source":"frostpunk-2","target":"zoning","type":"uses"}
 {"attrs":{"note":"Crew gain skill in piloting, engines, shields, weapons, repair, and combat through use, improving station bonuses.","role":"supporting"},"source":"ftl","target":"agent-skills","type":"uses"}
 {"attrs":{"note":"Each jump advances the rebel fleet across the sector map; overtaken beacons yield hard fights and no reward, forcing a trade between exploration and speed.","role":"core"},"source":"ftl","target":"crisis-countdown","type":"uses"}
@@ -2895,10 +2940,10 @@
 {"attrs":{"note":"After moving out of the garage, the player hires designers and programmers with design, technology, and speed stats and assigns them to development tasks.","role":"core"},"source":"game-dev-tycoon","target":"staff-hiring","type":"uses"}
 {"attrs":{"note":"Research points unlock new topics, genres, and engine features; custom engines bundle researched features and raise technology output.","role":"core"},"source":"game-dev-tycoon","target":"tech-tree","type":"uses"}
 {"attrs":{"note":"Industry news, console launches, and studio events fire on a fixed historical timeline.","role":"supporting"},"source":"game-dev-tycoon","target":"triggered-event-chains","type":"uses"}
-{"attrs":{"note":"A dead cell with exactly 3 live neighbors is born, a live cell with 2 or 3 survives, and all others die; the neighbor count is the whole update rule.","role":"core"},"source":"game-of-life","target":"adjacency-scoring","type":"uses"}
-{"attrs":{"note":"Implementations store patterns as files and libraries that can be stamped into a grid and shared.","role":"supporting"},"source":"game-of-life","target":"blueprints","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"game-dev-tycoon","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"The player's only act is toggling cells on the grid to set the seed before running generations.","role":"core"},"source":"game-of-life","target":"free-placement","type":"uses"}
-{"attrs":{"note":"Simulators step one generation at a time or run fast, and Hashlife in Golly jumps far ahead in time.","role":"supporting"},"source":"game-of-life","target":"variable-speed","type":"uses"}
+{"attrs":{"note":"Each generation is a discrete synchronous update the player can step through one at a time.","role":"supporting"},"source":"game-of-life","target":"turn-structure","type":"uses"}
+{"attrs":{"note":"Computer implementations step one generation at a time or run continuously; later simulators such as Golly use Hashlife to jump far ahead in time.","role":"supporting"},"source":"game-of-life","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"The duplicator tool and Advanced Duplicator addon copy and paste multi-prop contraptions.","role":"supporting"},"source":"garrys-mod","target":"blueprints","type":"uses"}
 {"attrs":{"note":"Steam Workshop distributes saves, dupes, maps, and addons.","role":"supporting"},"source":"garrys-mod","target":"content-sharing","type":"uses"}
 {"attrs":{"note":"The player is a first-person character who walks, flies with noclip, and wields the physics and tool guns.","role":"supporting"},"source":"garrys-mod","target":"direct-avatar","type":"uses"}
@@ -2917,6 +2962,7 @@
 {"attrs":{"role":"supporting"},"source":"going-medieval","target":"animal-husbandry","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"going-medieval","target":"crop-cultivation","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"going-medieval","target":"designation-orders","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"going-medieval","target":"free-placement","type":"uses"}
 {"attrs":{"note":"Settlers in poor conditions become dissatisfied and may leave the settlement.","role":"supporting"},"source":"going-medieval","target":"mood-breakdown","type":"uses"}
 {"attrs":{"note":"Settlers track needs such as hunger, sleep, clothing preferences, and religion, and meeting them keeps settlers content.","role":"core"},"source":"going-medieval","target":"needs-decay","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"going-medieval","target":"permadeath","type":"uses"}
@@ -2925,9 +2971,12 @@
 {"attrs":{"note":"Workshops, chapels, libraries, and bedrooms are furnished and decorated rooms.","role":"supporting"},"source":"going-medieval","target":"room-recognition","type":"uses"}
 {"attrs":{"note":"Seasonal changes govern food production and storage.","role":"supporting"},"source":"going-medieval","target":"seasons","type":"uses"}
 {"attrs":{"note":"Food keeps longer in cool storage such as cellars.","role":"supporting"},"source":"going-medieval","target":"spoilage","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"going-medieval","target":"storage-capacity","type":"uses"}
 {"attrs":{"note":"Built structures need support, and unsupported sections collapse.","role":"supporting"},"source":"going-medieval","target":"structural-integrity","type":"uses"}
 {"attrs":{"note":"Research unlocks medieval technology.","role":"supporting"},"source":"going-medieval","target":"tech-tree","type":"uses"}
 {"attrs":{"note":"A 3D terrain toolset digs out or fills voxel earth and water on a randomly generated multi-level map, so cellars, moats, and caverns are carved from the ground.","role":"core"},"source":"going-medieval","target":"terraforming","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"going-medieval","target":"utility-action-selection","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"going-medieval","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"Settlements stack multi-storey buildings above ground and cellars and caverns below, connected by stairs and ladders.","role":"core"},"source":"going-medieval","target":"vertical-layers","type":"uses"}
 {"attrs":{"note":"Settlers are assigned to roles that fit their skills.","role":"supporting"},"source":"going-medieval","target":"work-priorities","type":"uses"}
 {"attrs":{"note":"Simulation mode requires earning driver's licenses through timed tests before entering higher events.","role":"core"},"source":"gran-turismo","target":"career-ladder","type":"uses"}
@@ -3004,6 +3053,8 @@
 {"attrs":{"note":"Personality and life experience shape each Zoi's actions and relationships.","role":"supporting"},"source":"inzoi","target":"personality-traits","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"inzoi","target":"relationship-values","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"inzoi","target":"romance-family","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"inzoi","target":"utility-action-selection","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"inzoi","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"Licenses progress Rookie, D, C, B, A, with Pro for esports qualifiers; promotion depends on a per-discipline Safety Rating computed from incident points and corners per incident.","role":"core"},"source":"iracing","target":"career-ladder","type":"uses"}
 {"attrs":{"note":"Races are against human drivers on the publisher's servers, so results depend on the driver's braking, throttle, and line precision.","role":"core"},"source":"iracing","target":"embodied-skill-control","type":"uses"}
 {"attrs":{"note":"A new tire model replaced the one in the NASCAR Racing 2003 Season code iRacing was built from, and cars and tracks are LIDAR-scanned.","role":"core"},"source":"iracing","target":"vehicle-dynamics","type":"uses"}
@@ -3027,6 +3078,7 @@
 {"attrs":{"note":"Science, Security, and Entertainment divisions track reputation; low standing in one triggers sabotage such as power cuts or disease outbreaks.","role":"core"},"source":"jurassic-world-evolution","target":"reputation","type":"uses"}
 {"attrs":{"note":"The Expedition Center sends teams to global dig sites that yield fossils for DNA and for sale.","role":"supporting"},"source":"jurassic-world-evolution","target":"resource-extraction","type":"uses"}
 {"attrs":{"note":"Fossil DNA completion unlocks species, and the research center unlocks buildings, upgrades, and genome modifications.","role":"supporting"},"source":"jurassic-world-evolution","target":"tech-tree","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"jurassic-world-evolution","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"Skills rise from the actions they describe, such as stealing for thievery and fighting for combat, with stats and appearance changing as characters grow.","role":"core"},"source":"kenshi","target":"agent-skills","type":"uses"}
 {"attrs":{"note":"Zone soil types and terrain affect outpost farming.","role":"supporting"},"source":"kenshi","target":"crop-cultivation","type":"uses"}
 {"attrs":{"note":"Many factions and species with relations to each other; the player can aid or oppose them, and deaths of notable figures shift world states.","role":"core"},"source":"kenshi","target":"faction-diplomacy","type":"uses"}
@@ -3040,6 +3092,7 @@
 {"attrs":{"note":"Starvation reduces character stats.","role":"supporting"},"source":"kenshi","target":"survival-meters","type":"uses"}
 {"attrs":{"note":"Research unlocks equipment and technologies.","role":"supporting"},"source":"kenshi","target":"tech-tree","type":"uses"}
 {"attrs":{"note":"The player commands any squad member directly in real time with pause; no character is privileged, and the squad acts together.","role":"core"},"source":"kenshi","target":"unit-commands","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"kenshi","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"Some weather, such as acid rain, harms characters.","role":"supporting"},"source":"kenshi","target":"weather","type":"uses"}
 {"attrs":{"note":"Squad members keep job lists for base work and production.","role":"supporting"},"source":"kenshi","target":"work-priorities","type":"uses"}
 {"attrs":{"note":"Career funds pay for parts, fuel, crew, and facility upgrades; contract payouts are the income.","role":"supporting"},"source":"kerbal-space-program","target":"budget-treasury","type":"uses"}
@@ -3061,6 +3114,8 @@
 {"attrs":{"note":"Plagues spread and must be healed.","role":"supporting"},"source":"kingdoms-and-castles","target":"contagion","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"kingdoms-and-castles","target":"crop-cultivation","type":"uses"}
 {"attrs":{"note":"Diplomats make trade agreements, alliances, and wars with AI kingdoms.","role":"supporting"},"source":"kingdoms-and-castles","target":"faction-diplomacy","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"kingdoms-and-castles","target":"fire-spread","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"kingdoms-and-castles","target":"free-placement","type":"uses"}
 {"attrs":{"note":"Happiness and housing attract new residents.","role":"supporting"},"source":"kingdoms-and-castles","target":"immigration-attractiveness","type":"uses"}
 {"attrs":{"note":"Castle blocks stack into walls and towers whose shape forms automatically; taller archer towers have longer range.","role":"supporting"},"source":"kingdoms-and-castles","target":"modular-assembly","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"kingdoms-and-castles","target":"procedural-terrain","type":"uses"}
@@ -3068,7 +3123,9 @@
 {"attrs":{"note":"Lightning starts fires.","role":"supporting"},"source":"kingdoms-and-castles","target":"random-disasters","type":"uses"}
 {"attrs":{"note":"Foresters cut and replant trees.","role":"supporting"},"source":"kingdoms-and-castles","target":"renewable-regrowth","type":"uses"}
 {"attrs":{"note":"An annual winter destroys crops, so food must be stored in granaries to prevent starvation.","role":"core"},"source":"kingdoms-and-castles","target":"seasons","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"kingdoms-and-castles","target":"storage-capacity","type":"uses"}
 {"attrs":{"note":"Peasant taxes pay workers and unlock buildings.","role":"supporting"},"source":"kingdoms-and-castles","target":"taxation","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"kingdoms-and-castles","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"Advertising signs bought each day raise that day's demand alongside price and weather, with no carryover between days.","role":"supporting"},"source":"lemonade-stand","target":"advertising-awareness","type":"uses"}
 {"attrs":{"note":"Cash on hand limits how many glasses and signs can be bought each day.","role":"supporting"},"source":"lemonade-stand","target":"budget-treasury","type":"uses"}
 {"attrs":{"note":"Aggregate customers buy more at lower prices and with more advertising signs; sales are capped by the glasses made that day.","role":"core"},"source":"lemonade-stand","target":"customer-value-choice","type":"uses"}
@@ -3084,15 +3141,18 @@
 {"attrs":{"note":"The disk serial number seeds his name from a pool of 256, his shirt color, personality, and behavior parameters.","role":"core"},"source":"little-computer-people","target":"procedural-characters","type":"uses"}
 {"attrs":{"note":"Approval responds to supply, taxes, and tithes.","role":"supporting"},"source":"manor-lords","target":"citizen-satisfaction","type":"uses"}
 {"attrs":{"note":"Fields depend on soil fertility per crop; rotation and fallow maintain yields, and overuse exhausts soil.","role":"core"},"source":"manor-lords","target":"crop-cultivation","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"manor-lords","target":"free-placement","type":"uses"}
 {"attrs":{"note":"Households need basic goods and luxuries; shortfalls lower satisfaction.","role":"supporting"},"source":"manor-lords","target":"goods-consumption","type":"uses"}
 {"attrs":{"note":"Raw materials pass through workshops into goods, weapons, and armor.","role":"supporting"},"source":"manor-lords","target":"production-chain","type":"uses"}
 {"attrs":{"note":"Bandit raids threaten the town and loot stores.","role":"supporting"},"source":"manor-lords","target":"raid-defense","type":"uses"}
 {"attrs":{"note":"Hunting grounds depend on animal populations; overexpansion drives deer away and deforests land.","role":"supporting"},"source":"manor-lords","target":"renewable-regrowth","type":"uses"}
 {"attrs":{"note":"Roads curve freely and plots and buildings take their shape from them.","role":"supporting"},"source":"manor-lords","target":"road-network","type":"uses"}
 {"attrs":{"note":"Spring rains and winter snow change work and needs.","role":"supporting"},"source":"manor-lords","target":"seasons","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"manor-lords","target":"storage-capacity","type":"uses"}
 {"attrs":{"note":"Six tax types, a yearly King's tax, and tithes on villagers.","role":"supporting"},"source":"manor-lords","target":"taxation","type":"uses"}
 {"attrs":{"note":"Surpluses sold to traveling merchants; imports and exports balanced through trade.","role":"supporting"},"source":"manor-lords","target":"trade-routes","type":"uses"}
 {"attrs":{"note":"Real-time battles with fatigue, weather, and equipment; retinue, mercenaries, and militia drawn from townspeople.","role":"supporting"},"source":"manor-lords","target":"unit-commands","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"manor-lords","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"Residential plots drawn along roads are divided into burgage plots that families build on and extend with backyard production.","role":"core"},"source":"manor-lords","target":"zoning","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"microsoft-flight-simulator-2020","target":"day-night-cycle","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"microsoft-flight-simulator-2020","target":"embodied-skill-control","type":"uses"}
@@ -3101,6 +3161,7 @@
 {"attrs":{"role":"supporting"},"source":"microsoft-flight-simulator-2020","target":"procedural-checklists","type":"uses"}
 {"attrs":{"note":"The whole Earth is built from Bing Maps imagery updated every 28 days and AI-generated 3D content streamed from more than two petabytes in the cloud, while Meteoblue live weather and live air traffic feed the sim at runtime.","role":"core"},"source":"microsoft-flight-simulator-2020","target":"real-world-data-feeds","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"microsoft-flight-simulator-2020","target":"scenario-objectives","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"microsoft-flight-simulator-2020","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"Meteoblue live global weather sets clouds, wind, and precipitation in real time, and wind interacts with the terrain model.","role":"core"},"source":"microsoft-flight-simulator-2020","target":"weather","type":"uses"}
 {"attrs":{"note":"Starting from an airport the player chooses, experience earns certifications and specializations that unlock job types.","role":"core"},"source":"microsoft-flight-simulator-2024","target":"career-ladder","type":"uses"}
 {"attrs":{"note":"Career jobs include aerial firefighting, search and rescue, crop dusting, helicopter cargo hook, Beluga outsize cargo, A400M arctic cargo, and airline passenger flights.","role":"core"},"source":"microsoft-flight-simulator-2024","target":"contracts-orders","type":"uses"}
@@ -3112,12 +3173,14 @@
 {"attrs":{"note":"A walk-around preflight handles covers, doors, and service items, and revised electrical, fuel, pneumatic, and hydraulic systems gate start-up.","role":"supporting"},"source":"microsoft-flight-simulator-2024","target":"procedural-checklists","type":"uses"}
 {"attrs":{"note":"The streamed whole-Earth world of the 2020 game continues, and the launch showed the dependence when an overwhelmed database cache caused long loads and missing content.","role":"supporting"},"source":"microsoft-flight-simulator-2024","target":"real-world-data-feeds","type":"uses"}
 {"attrs":{"note":"Career reputation accumulates alongside experience.","role":"supporting"},"source":"microsoft-flight-simulator-2024","target":"reputation","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"microsoft-flight-simulator-2024","target":"variable-speed","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"microsoft-flight-simulator-2024","target":"weather","type":"uses"}
 {"attrs":{"note":"Survival maps send progressively stronger waves with tougher unit types and bosses as wave numbers rise; the cited sources do not tie wave strength to the player's own wealth.","role":"supporting"},"source":"mindustry","target":"adaptive-threat-scaling","type":"uses"}
 {"attrs":{"note":"Schematics save layouts as shareable text and are traded on Steam Workshop.","role":"supporting"},"source":"mindustry","target":"blueprints","type":"uses"}
 {"attrs":{"note":"Conveyors, junctions, routers, sorters, overflow gates, and bridges move items from drills to the core, factories, and turret ammo inputs.","role":"core"},"source":"mindustry","target":"conveyor-transport","type":"uses"}
 {"attrs":{"note":"A visible timer counts down to the next wave, and wave timing can be changed in custom game rules.","role":"supporting"},"source":"mindustry","target":"crisis-countdown","type":"uses"}
 {"attrs":{"note":"Conduits carry water, slag, oil, and cryofluid; optional coolant and lubricant raise turret and factory rates.","role":"supporting"},"source":"mindustry","target":"fluid-pipe-network","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"mindustry","target":"free-placement","type":"uses"}
 {"attrs":{"note":"Optional coolant and lubricant fed to turrets and factories raise their rates, and water boosts drill speed.","role":"supporting"},"source":"mindustry","target":"machine-boosting","type":"uses"}
 {"attrs":{"note":"The GPL-3.0 source allows unrestricted mods, and community servers run plugins for custom maps and game modes.","role":"supporting"},"source":"mindustry","target":"modding-api","type":"uses"}
 {"attrs":{"note":"Micro, logic, and hyper processors run Mindustry Logic, an assembly-like language with one operation per instruction that reads sensors and memory cells, controls linked buildings and turrets, and binds units with ubind to command them.","role":"supporting"},"source":"mindustry","target":"player-programming","type":"uses"}
@@ -3188,6 +3251,7 @@
 {"attrs":{"note":"Box2D rigid bodies such as crates, bricks, and detached terrain chunks can be kicked, thrown, and shattered.","role":"supporting"},"source":"noita","target":"rigid-body-physics","type":"uses"}
 {"attrs":{"note":"Some resource tiles and patents are sold by auction.","role":"supporting"},"source":"offworld-trading-company","target":"auctions","type":"uses"}
 {"attrs":{"note":"Players buy shares in rival companies and win by holding a majority of every company; debt lowers stock price, and buying back one's own stock raises buyout cost.","role":"core"},"source":"offworld-trading-company","target":"equity-buyouts","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"offworld-trading-company","target":"free-placement","type":"uses"}
 {"attrs":{"note":"Each HQ consumes life support resources such as water, food, oxygen, and power, which must be produced or bought.","role":"supporting"},"source":"offworld-trading-company","target":"goods-consumption","type":"uses"}
 {"attrs":{"note":"Companies can run into debt, which depresses their share price.","role":"supporting"},"source":"offworld-trading-company","target":"loans-debt","type":"uses"}
 {"attrs":{"note":"Each match generates a new Martian map, so resource layouts and claims differ.","role":"supporting"},"source":"offworld-trading-company","target":"procedural-terrain","type":"uses"}
@@ -3196,6 +3260,7 @@
 {"attrs":{"note":"Up to eight companies, AI or human, compete in one market and attack each other through black market sabotage such as nukes, EMPs, and mutinies.","role":"core"},"source":"offworld-trading-company","target":"rival-firms","type":"uses"}
 {"attrs":{"note":"Each of 13 resources has a market price that falls when players sell and rises when they buy, with shortages and gluts driving rapid swings.","role":"core"},"source":"offworld-trading-company","target":"supply-demand-pricing","type":"uses"}
 {"attrs":{"note":"Patents and HQ upgrades unlock buildings and bonuses.","role":"supporting"},"source":"offworld-trading-company","target":"tech-tree","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"offworld-trading-company","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"Cost, cycles, and area are shown on histograms of all players' scores and against friends' scores; Zachtronics deliberately attaches no rewards to optimization.","role":"core"},"source":"opus-magnum","target":"comparative-histograms","type":"uses"}
 {"attrs":{"note":"A puzzle editor publishes solvable user puzzles to Steam Workshop, curated puzzles appear in the Journal of Alchemical Engineering, and solutions export as looping GIFs.","role":"supporting"},"source":"opus-magnum","target":"content-sharing","type":"uses"}
 {"attrs":{"note":"Solutions are scored on cost in gold, cycles to complete, and area in hex tiles, with the community adding an unofficial sum metric.","role":"core"},"source":"opus-magnum","target":"design-performance-rating","type":"uses"}
@@ -3228,6 +3293,7 @@
 {"attrs":{"note":"Dig, build, mop, and deconstruct orders placed on tiles.","role":"supporting"},"source":"oxygen-not-included","target":"designation-orders","type":"uses"}
 {"attrs":{"note":"Every tile holds one gas, liquid, or solid with a mass; gases diffuse and equalize when a chamber is opened, and liquids drain under gravity, so breathable oxygen must be produced and carbon dioxide managed.","role":"core"},"source":"oxygen-not-included","target":"fluid-gas-simulation","type":"uses"}
 {"attrs":{"note":"Gas and liquid pipes carry packets between buildings; a liquid pipe segment holds 10 kg and moves packets once per second, capping a line at 10 kg/s, and pipe contents exchange heat with their tiles.","role":"core"},"source":"oxygen-not-included","target":"fluid-pipe-network","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"oxygen-not-included","target":"free-placement","type":"uses"}
 {"attrs":{"note":"Cells exchange heat each 0.2 s tick with q = dT x dt x k x 1000, with multipliers for solid-gas and liquid-liquid contact; insulated tiles divide conductivity, and temperature thresholds melt, freeze, boil, or damage things.","role":"core"},"source":"oxygen-not-included","target":"heat-transfer","type":"uses"}
 {"attrs":{"note":"Morale is the sum of timed buffs (Mess Hall +3, Private Bedroom +3, food up to +16, decor up to +12) compared to an expectation that rises with skills learned; each point under adds 2.5% stress per cycle up to 25%, full stress triggers a stress response, and 8 or more points over can trigger overjoyed responses.","role":"core"},"source":"oxygen-not-included","target":"mood-breakdown","type":"uses"}
 {"attrs":{"note":"Traits such as Germ Resistant or Allergies change resistances and stress reactions.","role":"supporting"},"source":"oxygen-not-included","target":"personality-traits","type":"uses"}
@@ -3236,7 +3302,9 @@
 {"attrs":{"note":"Enclosed rooms that meet requirements become Mess Halls, Bedrooms, and similar rooms that grant morale buffs.","role":"supporting"},"source":"oxygen-not-included","target":"room-recognition","type":"uses"}
 {"attrs":{"note":"Automation wires, sensors, and logic gates control doors, pumps, and generators; extended by the Automation Innovation update.","role":"supporting"},"source":"oxygen-not-included","target":"signal-circuits","type":"uses"}
 {"attrs":{"note":"Food rots unless refrigerated or kept in a sterile atmosphere.","role":"supporting"},"source":"oxygen-not-included","target":"spoilage","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"oxygen-not-included","target":"storage-capacity","type":"uses"}
 {"attrs":{"note":"Research unlocks buildings.","role":"supporting"},"source":"oxygen-not-included","target":"tech-tree","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"oxygen-not-included","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"Every errand carries a priority, and each duplicant has per-errand-type priorities on the Priorities screen; duplicants pick the highest available errand and favor tasks they are good at.","role":"core"},"source":"oxygen-not-included","target":"work-priorities","type":"uses"}
 {"attrs":{"note":"The end-of-day ledger adds wages and bribes, subtracts citation penalties, and requires paying rent, food, heat, and other necessities; going into debt ends the game.","role":"core"},"source":"papers-please","target":"budget-treasury","type":"uses"}
 {"attrs":{"note":"Each shift is a fixed real-time working day and pay is per properly processed entrant, so processing speed trades against error risk.","role":"core"},"source":"papers-please","target":"daily-action-budget","type":"uses"}
@@ -3255,6 +3323,8 @@
 {"attrs":{"role":"supporting"},"source":"paralives","target":"personality-traits","type":"uses"}
 {"attrs":{"note":"Conversation fills a together bar between two Parafolks, and a full bar unlocks together cards.","role":"supporting"},"source":"paralives","target":"relationship-values","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"paralives","target":"romance-family","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"paralives","target":"utility-action-selection","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"paralives","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"Monthly rent and electricity bills must be paid or the player incurs debt.","role":"supporting"},"source":"pc-building-simulator","target":"budget-treasury","type":"uses"}
 {"attrs":{"note":"Customer requests, discount alerts, spam, and scams arrive in an inbox; accepted orders left unfulfilled are rejected, and timed jobs grow more common as the career advances.","role":"core"},"source":"pc-building-simulator","target":"contracts-orders","type":"uses"}
 {"attrs":{"note":"3DMark benchmarking scores built or repaired machines.","role":"supporting"},"source":"pc-building-simulator","target":"design-performance-rating","type":"uses"}
@@ -3262,6 +3332,8 @@
 {"attrs":{"note":"Leveling up from job experience unlocks more advanced parts.","role":"supporting"},"source":"pc-building-simulator","target":"milestone-unlocks","type":"uses"}
 {"attrs":{"note":"PCs are assembled from licensed cases, motherboards, CPUs, coolers, GPUs, memory, and storage; part choice and installation details such as thermal paste decide whether and how well the machine runs.","role":"core"},"source":"pc-building-simulator","target":"modular-assembly","type":"uses"}
 {"attrs":{"note":"Floodplain and meadow farms yield by fertility and season.","role":"supporting"},"source":"pharaoh","target":"crop-cultivation","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"pharaoh","target":"fire-spread","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"pharaoh","target":"free-placement","type":"uses"}
 {"attrs":{"note":"Houses need food and goods to advance.","role":"supporting"},"source":"pharaoh","target":"goods-consumption","type":"uses"}
 {"attrs":{"note":"A yearly Nile flood waters floodplain farms; irrigation ditches extend fertile land, and Osiris can raise or lower the flood quality.","role":"core"},"source":"pharaoh","target":"hydrology","type":"uses"}
 {"attrs":{"note":"Buildings and monument crews draw workers from housing.","role":"supporting"},"source":"pharaoh","target":"labor-market","type":"uses"}
@@ -3270,7 +3342,9 @@
 {"attrs":{"role":"supporting"},"source":"pharaoh","target":"production-chain","type":"uses"}
 {"attrs":{"note":"Missions set population, rating, and monument goals.","role":"supporting"},"source":"pharaoh","target":"scenario-objectives","type":"uses"}
 {"attrs":{"note":"The flood season fixes when floodplain land can be farmed.","role":"supporting"},"source":"pharaoh","target":"seasons","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"pharaoh","target":"storage-capacity","type":"uses"}
 {"attrs":{"note":"Raw materials and goods trade with other cities for money.","role":"supporting"},"source":"pharaoh","target":"trade-routes","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"pharaoh","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"Fire marshals, constables, and other service walkers roam roads from their buildings and cover the houses they pass.","role":"core"},"source":"pharaoh","target":"walker-service-delivery","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"plague-inc","target":"alerts-feed","type":"uses"}
 {"attrs":{"note":"Infection spreads within countries and between them along travel links, at rates set by the pathogen's transmission traits and each country's conditions, until countries are fully infected and then depopulated.","role":"core"},"source":"plague-inc","target":"contagion","type":"uses"}
@@ -3287,6 +3361,7 @@
 {"attrs":{"note":"Ticket, ride, and shop prices are weighed against ride ratings and guest budgets.","role":"supporting"},"source":"planet-coaster","target":"customer-value-choice","type":"uses"}
 {"attrs":{"note":"Scenery around rides and paths raises guest happiness and ride appeal.","role":"supporting"},"source":"planet-coaster","target":"decoration-beauty","type":"uses"}
 {"attrs":{"note":"Coasters are test-run and rated on excitement, fear, and nausea, which set guest demand and ride value.","role":"core"},"source":"planet-coaster","target":"design-performance-rating","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"planet-coaster","target":"free-placement","type":"uses"}
 {"attrs":{"note":"Coasters are built in a hybrid spline and piece-by-piece editor, and structures are assembled from modular wall, roof, and prop pieces.","role":"core"},"source":"planet-coaster","target":"modular-assembly","type":"uses"}
 {"attrs":{"note":"Guests need food, drink, toilets, and rest during their visit.","role":"supporting"},"source":"planet-coaster","target":"needs-decay","type":"uses"}
 {"attrs":{"note":"Career scenarios set goals such as building coasters, reaching park ratings, and hiring staff; a scenario editor was added in 2017.","role":"supporting"},"source":"planet-coaster","target":"scenario-objectives","type":"uses"}
@@ -3294,10 +3369,13 @@
 {"attrs":{"note":"Challenge and Career modes gate rides and items behind research.","role":"supporting"},"source":"planet-coaster","target":"tech-tree","type":"uses"}
 {"attrs":{"note":"A voxel terrain editor sculpts and tunnels the ground.","role":"supporting"},"source":"planet-coaster","target":"terraforming","type":"uses"}
 {"attrs":{"note":"Coasters are built in a hybrid spline and piece-by-piece editor, joining track elements end to end.","role":"supporting"},"source":"planet-coaster","target":"track-laying","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"planet-coaster","target":"utility-action-selection","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"planet-coaster","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"Rides age and break down without mechanic inspections.","role":"supporting"},"source":"planet-coaster","target":"wear-breakdown","type":"uses"}
 {"attrs":{"note":"Habitat and building blueprints are shared on the Steam Workshop.","role":"supporting"},"source":"planet-zoo","target":"content-sharing","type":"uses"}
 {"attrs":{"note":"Guests choose exhibits, shops, and talks and react to animal welfare and park layout.","role":"supporting"},"source":"planet-zoo","target":"crowd-preferences","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"planet-zoo","target":"day-night-cycle","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"planet-zoo","target":"free-placement","type":"uses"}
 {"attrs":{"note":"Each species needs habitat size, land and water area, biome terrain and plants, temperature, shelter, and enrichment; welfare drops when any requirement is unmet.","role":"core"},"source":"planet-zoo","target":"habitat-suitability","type":"uses"}
 {"attrs":{"note":"Animals age from juveniles to adults and die of old age.","role":"supporting"},"source":"planet-zoo","target":"lifecycle-aging","type":"uses"}
 {"attrs":{"note":"Barriers, buildings, and scenery use Planet Coaster's modular piece system.","role":"supporting"},"source":"planet-zoo","target":"modular-assembly","type":"uses"}
@@ -3307,6 +3385,7 @@
 {"attrs":{"note":"Keepers, vets, mechanics, security, and vendors are hired with work zones and facility needs.","role":"supporting"},"source":"planet-zoo","target":"staff-hiring","type":"uses"}
 {"attrs":{"note":"Vets research species to unlock knowledge and enrichment items.","role":"supporting"},"source":"planet-zoo","target":"tech-tree","type":"uses"}
 {"attrs":{"note":"Animals carry genomes that set lifespan, size, health, and fertility; offspring inherit them, and inbreeding causes harmful effects.","role":"core"},"source":"planet-zoo","target":"trait-inheritance","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"planet-zoo","target":"variable-speed","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"planet-zoo","target":"weather","type":"uses"}
 {"attrs":{"note":"Sandbox designs are published as Workshop levels, and test runs export as GIF replays.","role":"supporting"},"source":"poly-bridge","target":"content-sharing","type":"uses"}
 {"attrs":{"note":"A level passes when its vehicles reach their flags; total material cost against the level budget is the measure of a good solution, and Steam leaderboards compare results.","role":"core"},"source":"poly-bridge","target":"design-performance-rating","type":"uses"}
@@ -3348,6 +3427,8 @@
 {"attrs":{"note":"Needs left unmet for long periods make prisoners irritated, then likely to fight, attack staff, attempt escape, or riot, and violence spreads to nearby prisoners until guards restore order.","role":"core"},"source":"prison-architect","target":"stability-unrest","type":"uses"}
 {"attrs":{"note":"Staff such as guards, cooks, janitors, doctors, psychologists, and lawyers are hired individually, and administrators unlock features.","role":"supporting"},"source":"prison-architect","target":"staff-hiring","type":"uses"}
 {"attrs":{"note":"A bureaucracy research tree unlocked through administrative staff.","role":"supporting"},"source":"prison-architect","target":"tech-tree","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"prison-architect","target":"utility-action-selection","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"prison-architect","target":"variable-speed","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"project-hospital","target":"agent-skills","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"project-hospital","target":"budget-treasury","type":"uses"}
 {"attrs":{"note":"Each patient has a hidden diagnosis; doctors order examinations, lab tests, and equipment procedures that each reveal symptoms, symptom frequencies are tuned so one exam rarely settles a case, and treatment, hospitalization, or surgery follows.","role":"core"},"source":"project-hospital","target":"diagnosis-treatment","type":"uses"}
@@ -3357,6 +3438,7 @@
 {"attrs":{"role":"supporting"},"source":"project-hospital","target":"service-queues","type":"uses"}
 {"attrs":{"note":"The player hires and specializes doctors, nurses, lab staff, and janitors and manages their job satisfaction; the Hospital Services DLC adds staff training.","role":"core"},"source":"project-hospital","target":"staff-hiring","type":"uses"}
 {"attrs":{"note":"Doctor Mode (2019) lets the player choose exams, diagnoses, and treatments for individual doctors and their patients.","role":"supporting"},"source":"project-hospital","target":"unit-commands","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"project-hospital","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"Constituents give feedback on a constitution, amendments are generated, agents vote, and the amended constitution is distributed on a fixed schedule (feedback at 300 s, vote at 420 s, distribution at 600 s).","role":"core"},"source":"project-sid","target":"elections","type":"uses"}
 {"attrs":{"note":"Goal generation, talking, and the cognitive controller run on language-model calls, with GPT-4o as the base model in the strongest configuration.","role":"supporting"},"source":"project-sid","target":"generative-content","type":"uses"}
 {"attrs":{"note":"Memes and a religion (Pastafarianism, seeded by 20 priests in one town) spread through agent conversations and travel; conversion was tracked by keyword use and had not saturated after two hours.","role":"core"},"source":"project-sid","target":"gossip-propagation","type":"uses"}
@@ -3380,6 +3462,7 @@
 {"attrs":{"note":"Food rots, and refrigeration ends when power fails.","role":"supporting"},"source":"project-zomboid","target":"spoilage","type":"uses"}
 {"attrs":{"note":"Zombies respond to sight and hearing, so noise from actions such as gunfire or breaking windows draws them toward the survivor, and hordes migrate.","role":"core"},"source":"project-zomboid","target":"stimulus-attraction","type":"uses"}
 {"attrs":{"note":"Moodles for hunger, thirst, fatigue, endurance, panic, stress, boredom, unhappiness, temperature, wetness, pain, bleeding, and sickness each grow in severity and penalize combat, movement, carrying, or healing.","role":"core"},"source":"project-zomboid","target":"survival-meters","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"project-zomboid","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"Vehicles have physics and part condition.","role":"supporting"},"source":"project-zomboid","target":"vehicle-dynamics","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"project-zomboid","target":"weather","type":"uses"}
 {"attrs":{"note":"Past exchanges are stored as social history that later rules reference.","role":"supporting"},"source":"prom-week","target":"memories-thoughts","type":"uses"}
@@ -3410,6 +3493,7 @@
 {"attrs":{"note":"Each region has its own geography, and selectable governors such as the Economist and the Warlord change the rules.","role":"supporting"},"source":"rebel-inc","target":"scenario-objectives","type":"uses"}
 {"attrs":{"note":"An insurgency emerges partway through and contests regions against coalition forces; later, peace can be negotiated with insurgent leaders.","role":"core"},"source":"rebel-inc","target":"stability-unrest","type":"uses"}
 {"attrs":{"note":"Random events interrupt plans and offer choices.","role":"supporting"},"source":"rebel-inc","target":"triggered-event-chains","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"rebel-inc","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"Advisers present cards that the player swipes left or right; each choice moves one or more of four meters (church, people, army, treasury), and the reign ends when any meter becomes completely full or completely empty.","role":"core"},"source":"reigns","target":"dilemma-cards","type":"uses"}
 {"attrs":{"note":"When a king's reign ends, play continues with a new king; unlocked cards and some effects carry across reigns, and the in-game years keep advancing.","role":"core"},"source":"reigns","target":"dynasty-succession","type":"uses"}
 {"attrs":{"note":"Completing tasks unlocks new cards.","role":"supporting"},"source":"reigns","target":"milestone-unlocks","type":"uses"}
@@ -3422,6 +3506,7 @@
 {"attrs":{"role":"supporting"},"source":"rimworld","target":"crop-cultivation","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"rimworld","target":"decoration-beauty","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"rimworld","target":"designation-orders","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"rimworld","target":"fire-spread","type":"uses"}
 {"attrs":{"note":"Bodies are hierarchies of parts with hit points, bleeding, infection, scars, and prosthetics that change capacities like moving and manipulation.","role":"core"},"source":"rimworld","target":"injury-body-model","type":"uses"}
 {"attrs":{"note":"Every mood effect is an itemized thought with a source and expiry, visible in the needs tab.","role":"core"},"source":"rimworld","target":"memories-thoughts","type":"uses"}
 {"attrs":{"note":"Mood below trait-adjusted break thresholds triggers minor, major, or extreme mental breaks; high mood can grant inspirations.","role":"core"},"source":"rimworld","target":"mood-breakdown","type":"uses"}
@@ -3433,7 +3518,9 @@
 {"attrs":{"role":"supporting"},"source":"rimworld","target":"relationship-values","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"rimworld","target":"room-recognition","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"rimworld","target":"spoilage","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"rimworld","target":"storage-capacity","type":"uses"}
 {"attrs":{"note":"Selectable storytellers (Cassandra, Phoebe, Randy) choose incidents using a threat budget derived from colony wealth and time since the last major event.","role":"core"},"source":"rimworld","target":"storyteller-director","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"rimworld","target":"utility-action-selection","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"rimworld","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"A work tab matrix sets 1-4 priorities per colonist per job type; colonists self-assign.","role":"core"},"source":"rimworld","target":"work-priorities","type":"uses"}
 {"attrs":{"note":"The marketing panel runs time-limited paid campaigns, such as park or ride advertising and free-entry or half-price vouchers, that raise guest arrivals or demand for a chosen ride or stall while they last.","role":"supporting"},"source":"rollercoaster-tycoon","target":"advertising-awareness","type":"uses"}
@@ -3443,6 +3530,7 @@
 {"attrs":{"note":"Guests compare ride and shop prices with ride value and their remaining cash; overpriced items show up as complaints in guest thoughts.","role":"core"},"source":"rollercoaster-tycoon","target":"customer-value-choice","type":"uses"}
 {"attrs":{"note":"Scenery and trees improve guest views and ride appeal.","role":"supporting"},"source":"rollercoaster-tycoon","target":"decoration-beauty","type":"uses"}
 {"attrs":{"note":"Each ride is test-run and rated on excitement, intensity, and nausea from its track geometry, speeds, and g-forces; ratings set demand and fair price.","role":"core"},"source":"rollercoaster-tycoon","target":"design-performance-rating","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"rollercoaster-tycoon","target":"free-placement","type":"uses"}
 {"attrs":{"note":"Parks start with a loan, such as $50,000 in Mega Park.","role":"supporting"},"source":"rollercoaster-tycoon","target":"loans-debt","type":"uses"}
 {"attrs":{"note":"Coasters are built track piece by piece on a tile grid, choosing direction, height, steepness, and elements such as loops and corkscrews.","role":"core"},"source":"rollercoaster-tycoon","target":"modular-assembly","type":"uses"}
 {"attrs":{"note":"Guests get hungry, thirsty, tired, and need toilets during a visit.","role":"supporting"},"source":"rollercoaster-tycoon","target":"needs-decay","type":"uses"}
@@ -3452,6 +3540,8 @@
 {"attrs":{"note":"Paid research unlocks new rides and improvements over time.","role":"supporting"},"source":"rollercoaster-tycoon","target":"tech-tree","type":"uses"}
 {"attrs":{"note":"Land can be raised and lowered and water added to fit rides and add appeal.","role":"supporting"},"source":"rollercoaster-tycoon","target":"terraforming","type":"uses"}
 {"attrs":{"note":"Coaster track is built piece by piece on the tile grid by direction, height, steepness, and elements such as loops and corkscrews, and the result is rated by test run.","role":"supporting"},"source":"rollercoaster-tycoon","target":"track-laying","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"rollercoaster-tycoon","target":"utility-action-selection","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"rollercoaster-tycoon","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"Ride reliability decays with use and age; breakdown chance rises as reliability falls, and mechanics inspect and repair on a set interval.","role":"core"},"source":"rollercoaster-tycoon","target":"wear-breakdown","type":"uses"}
 {"attrs":{"note":"A Blueprint Designer (40 x 40 m at Mk.1, larger tiers in 1.0) saves layouts that appear as build-menu entries and draw materials from storage or inventory.","role":"supporting"},"source":"satisfactory","target":"blueprints","type":"uses"}
 {"attrs":{"note":"Refinery recipes emit heavy oil residue or polymer resin that must be routed or the line backs up, and nuclear plants emit waste that has to be stored or reprocessed.","role":"supporting"},"source":"satisfactory","target":"byproducts-waste","type":"uses"}
@@ -3538,6 +3628,7 @@
 {"attrs":{"note":"Human footsteps, lawnmowers, bug spray, and electrical outlets kill ants without warning.","role":"supporting"},"source":"simant","target":"random-disasters","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"simant","target":"scenario-objectives","type":"uses"}
 {"attrs":{"note":"The yellow ant lays trails to food or enemy nests that other black ants follow, and can recruit a group of nearby ants to follow it into fights against spiders, caterpillars, antlions, or red ants.","role":"core"},"source":"simant","target":"unit-commands","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"simant","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"Surface yard play is viewed from above while nests are shown in side view underground.","role":"supporting"},"source":"simant","target":"vertical-layers","type":"uses"}
 {"attrs":{"note":"Rain washes away trails and can flood nests.","role":"supporting"},"source":"simant","target":"weather","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"simant","target":"work-priorities","type":"uses"}
@@ -3545,6 +3636,8 @@
 {"attrs":{"note":"A yearly evaluation turns problem scores into a 0-1000 rating and an approval poll.","role":"supporting"},"source":"simcity-1989","target":"citizen-satisfaction","type":"uses"}
 {"attrs":{"note":"Crime per cell is 128 - land value + density minus smoothed police effect, clamped 0-250.","role":"supporting"},"source":"simcity-1989","target":"crime-policing","type":"uses"}
 {"attrs":{"note":"Map windows show land value, crime, pollution, traffic density, police and fire coverage, and population density.","role":"supporting"},"source":"simcity-1989","target":"data-overlays","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"simcity-1989","target":"fire-spread","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"simcity-1989","target":"free-placement","type":"uses"}
 {"attrs":{"note":"Each 2x2 block's value falls with distance from the population-weighted center, rises near trees and water, and drops with pollution and high crime, clamped to 1-250.","role":"core"},"source":"simcity-1989","target":"land-value","type":"uses"}
 {"attrs":{"note":"Industry and traffic write a pollution map that depresses land value and can summon the monster.","role":"supporting"},"source":"simcity-1989","target":"pollution-spread","type":"uses"}
 {"attrs":{"note":"Zones must connect to coal or nuclear plants through power lines or adjacent zones; unpowered zones do not grow and lower the city score.","role":"core"},"source":"simcity-1989","target":"power-grid","type":"uses"}
@@ -3554,10 +3647,13 @@
 {"attrs":{"note":"Police and fire stations write funding-scaled effect values to a block map that is smoothed outward.","role":"supporting"},"source":"simcity-1989","target":"service-coverage","type":"uses"}
 {"attrs":{"note":"One city-wide tax rate adds a positive offset to demand at low rates and a negative offset at high rates.","role":"supporting"},"source":"simcity-1989","target":"taxation","type":"uses"}
 {"attrs":{"note":"Zones generate trips along roads; the resulting traffic density map adds to pollution and complaints.","role":"supporting"},"source":"simcity-1989","target":"traffic-congestion","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"simcity-1989","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"The player paints 3x3 residential, commercial, and industrial zones; simulated developers build, densify, or abandon them.","role":"core"},"source":"simcity-1989","target":"zoning","type":"uses"}
 {"attrs":{"note":"Yearly budget with department funding; extreme deficit spending ends the game.","role":"core"},"source":"simcity-2000","target":"budget-treasury","type":"uses"}
 {"attrs":{"note":"Power plant types such as solar, fusion, and microwave and buildings such as arcologies become available in set invention years as the city's calendar advances.","role":"supporting"},"source":"simcity-2000","target":"dated-tech-timeline","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"simcity-2000","target":"fire-spread","type":"uses"}
 {"attrs":{"note":"Water from pumps travels through underground pipes to zones.","role":"supporting"},"source":"simcity-2000","target":"fluid-pipe-network","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"simcity-2000","target":"free-placement","type":"uses"}
 {"attrs":{"note":"Query tool shows land value per tile, which shapes development.","role":"supporting"},"source":"simcity-2000","target":"land-value","type":"uses"}
 {"attrs":{"note":"The player issues bonds to raise capital and pays interest on them.","role":"supporting"},"source":"simcity-2000","target":"loans-debt","type":"uses"}
 {"attrs":{"note":"City ordinances enacted for ongoing cost and effect.","role":"supporting"},"source":"simcity-2000","target":"policy-toggles","type":"uses"}
@@ -3568,6 +3664,7 @@
 {"attrs":{"note":"Separate tax rates for residential, commercial, and industrial zones.","role":"supporting"},"source":"simcity-2000","target":"taxation","type":"uses"}
 {"attrs":{"note":"Land has elevation that the player can raise or lower before and during play.","role":"supporting"},"source":"simcity-2000","target":"terraforming","type":"uses"}
 {"attrs":{"note":"Query tool reports traffic on roads; highways and transit relieve it.","role":"supporting"},"source":"simcity-2000","target":"traffic-congestion","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"simcity-2000","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"An underground layer holds water pipes, subways, and road tunnels separate from the surface.","role":"supporting"},"source":"simcity-2000","target":"vertical-layers","type":"uses"}
 {"attrs":{"note":"Residential, commercial, and industrial zones in light and dense variants, plus seaport and airport zones.","role":"core"},"source":"simcity-2000","target":"zoning","type":"uses"}
 {"attrs":{"note":"Sims go to the first job and first empty home they find; vehicles take the shortest route rather than the one with spare capacity.","role":"core"},"source":"simcity-2013","target":"agent-pathfinding","type":"uses"}
@@ -3575,15 +3672,18 @@
 {"attrs":{"role":"supporting"},"source":"simcity-2013","target":"budget-treasury","type":"uses"}
 {"attrs":{"note":"Map resources are mostly finite, though groundwater recharges.","role":"supporting"},"source":"simcity-2013","target":"deposit-depletion","type":"uses"}
 {"attrs":{"note":"Water and sewage move as units through pipes between pumps, treatment, and buildings.","role":"supporting"},"source":"simcity-2013","target":"fluid-pipe-network","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"simcity-2013","target":"free-placement","type":"uses"}
 {"attrs":{"note":"Pollution and traffic cross city borders within a region.","role":"supporting"},"source":"simcity-2013","target":"pollution-spread","type":"uses"}
 {"attrs":{"note":"Residents and businesses come in wealth levels with different demands.","role":"supporting"},"source":"simcity-2013","target":"population-strata","type":"uses"}
 {"attrs":{"note":"Power is carried as resource units from plants to buildings.","role":"supporting"},"source":"simcity-2013","target":"power-grid","type":"uses"}
 {"attrs":{"note":"Service buildings dispatch vehicle agents to calls.","role":"supporting"},"source":"simcity-2013","target":"service-coverage","type":"uses"}
 {"attrs":{"note":"A simulated global market raises and lowers prices of key resources with supply and demand.","role":"supporting"},"source":"simcity-2013","target":"supply-demand-pricing","type":"uses"}
 {"attrs":{"note":"Jams emerge from masses of commuting Sim agents on the road network.","role":"core"},"source":"simcity-2013","target":"traffic-congestion","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"simcity-2013","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"Residential, commercial, and industrial zones are painted along roads; buildings develop inside them.","role":"core"},"source":"simcity-2013","target":"zoning","type":"uses"}
 {"attrs":{"note":"Mayor mode advisors comment on problems and suggest actions.","role":"supporting"},"source":"simcity-4","target":"advisors","type":"uses"}
 {"attrs":{"note":"Civic buildings need ongoing funding set per building.","role":"supporting"},"source":"simcity-4","target":"budget-treasury","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"simcity-4","target":"free-placement","type":"uses"}
 {"attrs":{"note":"Desirability is computed separately for each wealth level, so the same lot attracts different classes as services and nuisances change.","role":"core"},"source":"simcity-4","target":"land-value","type":"uses"}
 {"attrs":{"note":"City ordinances with monthly costs and effects.","role":"supporting"},"source":"simcity-4","target":"policy-toggles","type":"uses"}
 {"attrs":{"note":"Industry and traffic pollute and reduce desirability.","role":"supporting"},"source":"simcity-4","target":"pollution-spread","type":"uses"}
@@ -3595,6 +3695,7 @@
 {"attrs":{"note":"Tax rates per zone type and wealth level.","role":"supporting"},"source":"simcity-4","target":"taxation","type":"uses"}
 {"attrs":{"note":"God mode reshapes terrain; most terraforming locks once a city is founded.","role":"supporting"},"source":"simcity-4","target":"terraforming","type":"uses"}
 {"attrs":{"note":"Commuters route trips over roads, rail, and transit; Rush Hour adds traffic flow tracing, avenues, and elevated rail.","role":"core"},"source":"simcity-4","target":"traffic-congestion","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"simcity-4","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"Residential, commercial, and industrial zones at low, medium, and high density, with agriculture as a separate industrial zone; buildings need road frontage.","role":"core"},"source":"simcity-4","target":"zoning","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"simearth","target":"data-overlays","type":"uses"}
 {"attrs":{"note":"Placing terrain, life, monoliths, oxygen generators, and terraforming devices costs energy (50 per terrain square, 500 per device) from a budget that grows with planetary development.","role":"core"},"source":"simearth","target":"god-powers","type":"uses"}
@@ -3621,6 +3722,7 @@
 {"attrs":{"note":"Population and conditions advance the tower from one to five stars and then to Tower status, each step unlocking facility types.","role":"core"},"source":"simtower","target":"milestone-unlocks","type":"uses"}
 {"attrs":{"note":"Terrorist bomb threats with a ransom or search, fires, and pest infestations.","role":"supporting"},"source":"simtower","target":"random-disasters","type":"uses"}
 {"attrs":{"note":"Tenants wait at elevator lobbies; long waits raise stress, and stressed tenants move out.","role":"core"},"source":"simtower","target":"service-queues","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"simtower","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"Up to 100 floors above ground and 9 below; standard elevators span 30 floors, express elevators the full height.","role":"supporting"},"source":"simtower","target":"vertical-layers","type":"uses"}
 {"attrs":{"note":"Missions deliver cargo or complete construction and repair jobs; optional timed contests pay more the faster they are finished.","role":"core"},"source":"snowrunner","target":"contracts-orders","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"snowrunner","target":"embodied-skill-control","type":"uses"}
@@ -3631,6 +3733,7 @@
 {"attrs":{"note":"Damage is shown on the vehicle model and in the interface and must be repaired.","role":"supporting"},"source":"snowrunner","target":"wear-breakdown","type":"uses"}
 {"attrs":{"note":"Tens of thousands of agents path through streets to work and services.","role":"supporting"},"source":"songs-of-syx","target":"agent-pathfinding","type":"uses"}
 {"attrs":{"note":"Alliances, trade, and war with other kingdoms.","role":"supporting"},"source":"songs-of-syx","target":"faction-diplomacy","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"songs-of-syx","target":"free-placement","type":"uses"}
 {"attrs":{"note":"Each citizen's needs and desires drive behavior.","role":"supporting"},"source":"songs-of-syx","target":"needs-decay","type":"uses"}
 {"attrs":{"note":"Citizens and slaves of several races, each with distinct needs, religion, and roles.","role":"core"},"source":"songs-of-syx","target":"population-strata","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"songs-of-syx","target":"production-chain","type":"uses"}
@@ -3638,6 +3741,7 @@
 {"attrs":{"note":"Every soldier must be supplied.","role":"supporting"},"source":"songs-of-syx","target":"supply-lines","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"songs-of-syx","target":"trade-routes","type":"uses"}
 {"attrs":{"note":"Real-time battles of up to 50,000 individual units commanded by the player.","role":"core"},"source":"songs-of-syx","target":"unit-commands","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"songs-of-syx","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"Grids save as blueprints that a projector block displays for welding and that are shared on Steam Workshop.","role":"supporting"},"source":"space-engineers","target":"blueprints","type":"uses"}
 {"attrs":{"note":"Conveyor blocks connect inventories so refineries, assemblers, and cargo containers move items automatically, with sorters filtering flow.","role":"supporting"},"source":"space-engineers","target":"conveyor-transport","type":"uses"}
 {"attrs":{"note":"Air vents pressurize sealed rooms with oxygen; breaches depressurize them.","role":"supporting"},"source":"space-engineers","target":"fluid-gas-simulation","type":"uses"}
@@ -3667,6 +3771,8 @@
 {"attrs":{"note":"Standing with pirates, slavers, merchants, cults, and android factions.","role":"supporting"},"source":"space-haven","target":"reputation","type":"uses"}
 {"attrs":{"note":"Asteroids are mined for raw materials.","role":"supporting"},"source":"space-haven","target":"resource-extraction","type":"uses"}
 {"attrs":{"note":"Crew are drafted and equipped for ground combat and away missions.","role":"supporting"},"source":"space-haven","target":"unit-commands","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"space-haven","target":"utility-action-selection","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"space-haven","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"After completion the player's cycles, reactors, and instructions are plotted on global histograms of other players' solutions, chosen over a ranked leaderboard to avoid discouraging players.","role":"core"},"source":"spacechem","target":"comparative-histograms","type":"uses"}
 {"attrs":{"note":"ResearchNet distributes user-made puzzles that other players download and solve.","role":"supporting"},"source":"spacechem","target":"content-sharing","type":"uses"}
 {"attrs":{"note":"A solution passes when it outputs the required molecule quota and is then scored on cycles, number of reactors, and number of instructions used.","role":"core"},"source":"spacechem","target":"design-performance-rating","type":"uses"}
@@ -3695,6 +3801,7 @@
 {"attrs":{"note":"Seasonal seeds need daily watering (rain or sprinklers substitute) and grow through stages over set day counts; most crops must be harvested before the season changes.","role":"core"},"source":"stardew-valley","target":"crop-cultivation","type":"uses"}
 {"attrs":{"note":"An energy bar refills each morning, drains with tool use, and is restored by food; the clock forces bed by 2 a.m. or the player passes out and loses money.","role":"core"},"source":"stardew-valley","target":"daily-action-budget","type":"uses"}
 {"attrs":{"note":"Villagers follow routines that vary by weekday, season, and weather.","role":"supporting"},"source":"stardew-valley","target":"daily-schedules","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"stardew-valley","target":"free-placement","type":"uses"}
 {"attrs":{"note":"Recipes turn gathered materials into sprinklers, fences, machines, and bombs.","role":"supporting"},"source":"stardew-valley","target":"hand-crafting","type":"uses"}
 {"attrs":{"note":"Kegs, preserves jars, and other machines convert crops and animal products into higher-value artisan goods over fixed processing times.","role":"supporting"},"source":"stardew-valley","target":"production-chain","type":"uses"}
 {"attrs":{"note":"Crops and animal products come in normal, silver, gold, and iridium quality.","role":"supporting"},"source":"stardew-valley","target":"quality-tiers","type":"uses"}
@@ -3754,6 +3861,7 @@
 {"attrs":{"note":"Instruments, organs, and bones are physics objects that collide, slip, and fall, so most mistakes are physical accidents rather than authored failure states.","role":"core"},"source":"surgeon-simulator","target":"rigid-body-physics","type":"uses"}
 {"attrs":{"note":"Procedures such as heart and kidney transplants are replayed in an operating room, a bouncing ambulance, and zero gravity.","role":"supporting"},"source":"surgeon-simulator","target":"scenario-objectives","type":"uses"}
 {"attrs":{"note":"Water and oxygen travel by pipe from extractors and producers to domes.","role":"core"},"source":"surviving-mars","target":"fluid-pipe-network","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"surviving-mars","target":"free-placement","type":"uses"}
 {"attrs":{"note":"Drones within a hub's range carry resources, build, and maintain buildings.","role":"core"},"source":"surviving-mars","target":"hauling-jobs","type":"uses"}
 {"attrs":{"note":"Unhappy colonists may become Earthsick or rebels.","role":"supporting"},"source":"surviving-mars","target":"mood-breakdown","type":"uses"}
 {"attrs":{"note":"Comfort, sanity, health, and morale change with services and events.","role":"supporting"},"source":"surviving-mars","target":"needs-decay","type":"uses"}
@@ -3765,6 +3873,7 @@
 {"attrs":{"note":"Drone hubs and dome services serve within a range.","role":"supporting"},"source":"surviving-mars","target":"service-coverage","type":"uses"}
 {"attrs":{"note":"Research spans physics, engineering, social, biotechnology, and robotics fields.","role":"core"},"source":"surviving-mars","target":"tech-tree","type":"uses"}
 {"attrs":{"note":"Mysteries run storylines such as plagues, rival corporations, AI revolts, and alien contact.","role":"supporting"},"source":"surviving-mars","target":"triggered-event-chains","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"surviving-mars","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"Buildings need drone maintenance to keep working.","role":"supporting"},"source":"surviving-mars","target":"wear-breakdown","type":"uses"}
 {"attrs":{"note":"Ministers and advisers brief the president and argue positions.","role":"supporting"},"source":"suzerain","target":"advisors","type":"uses"}
 {"attrs":{"note":"Available budget and resources are shown and drawn down by decisions.","role":"supporting"},"source":"suzerain","target":"budget-treasury","type":"uses"}
@@ -3838,6 +3947,7 @@
 {"attrs":{"note":"Each of the 150-plus base-game objects advertises motive gains (a refrigerator advertises Hunger, a bed Energy), and Sims query the lot's objects to find interactions.","role":"core"},"source":"the-sims","target":"smart-objects","type":"uses"}
 {"attrs":{"note":"Talk, joke, compliment, hug, kiss, tease, slap, and similar interactions succeed or fail on relationship, mood, and personality.","role":"supporting"},"source":"the-sims","target":"social-exchanges","type":"uses"}
 {"attrs":{"note":"Free will scores advertised interactions against current motive levels so the most depleted motive tends to win; players can cancel queued autonomous actions.","role":"supporting"},"source":"the-sims","target":"utility-action-selection","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"the-sims","target":"variable-speed","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"the-sims-2","target":"agent-skills","type":"uses"}
 {"attrs":{"note":"Each Sim's aspiration (one of eight, such as Romance, Family, Knowledge, or Popularity) biases which wants and fears roll; fulfilled wants fill the aspiration meter, realized fears drain it, and an elder's remaining life depends on the meter.","role":"core"},"source":"the-sims-2","target":"aspiration-wants","type":"uses"}
 {"attrs":{"note":"Careers have ten levels (25 tracks counting expansions); promotions need skills and a number of family friends, and chance cards can reward or cost the job.","role":"supporting"},"source":"the-sims-2","target":"career-ladder","type":"uses"}
@@ -3852,6 +3962,8 @@
 {"attrs":{"note":"Objects advertise motive and skill gains that autonomous Sims weigh against their current motive levels.","role":"core"},"source":"the-sims-2","target":"smart-objects","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"the-sims-2","target":"social-exchanges","type":"uses"}
 {"attrs":{"note":"Children inherit eye color, hair color, facial structure, and personality from both parents through dominant and recessive genes; pregnancy lasts 3 Sim days.","role":"core"},"source":"the-sims-2","target":"trait-inheritance","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"the-sims-2","target":"utility-action-selection","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"the-sims-2","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"Ten-level skills such as Logic, Cooking, Painting, Gardening, Writing, Guitar, Athletic, Handiness, Charisma, and Fishing feed careers and opportunities.","role":"supporting"},"source":"the-sims-3","target":"agent-skills","type":"uses"}
 {"attrs":{"note":"A Lifetime Wish is chosen at creation and short-term wishes appear from traits and events; fulfilled wishes pay Lifetime Happiness points spent on Lifetime Rewards.","role":"supporting"},"source":"the-sims-3","target":"aspiration-wants","type":"uses"}
 {"attrs":{"note":"Twelve base careers that branch around level 6, plus part-time jobs; a performance style (Work Hard, Take It Easy, Suck Up to Boss) trades mood against promotion speed.","role":"supporting"},"source":"the-sims-3","target":"career-ladder","type":"uses"}
@@ -3867,6 +3979,8 @@
 {"attrs":{"role":"supporting"},"source":"the-sims-3","target":"romance-family","type":"uses"}
 {"attrs":{"note":"Objects advertise motive, skill, and fun gains; traits bias which advertisements a Sim picks.","role":"supporting"},"source":"the-sims-3","target":"smart-objects","type":"uses"}
 {"attrs":{"note":"Conversation menus offer trait- and mood-gated interactions whose acceptance depends on relationship state.","role":"supporting"},"source":"the-sims-3","target":"social-exchanges","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"the-sims-3","target":"utility-action-selection","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"the-sims-3","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"Opportunities arrive from neighbors, community lots, and jobs, such as skill requests or overtime, and pay cash, raises, or relationship gains.","role":"supporting"},"source":"the-sims-3","target":"villager-requests","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"the-sims-4","target":"agent-skills","type":"uses"}
 {"attrs":{"note":"The chosen aspiration grants a bonus trait and a track of milestones whose completion earns reward traits; short-term whims, later reworked as wants and fears, appear from emotions and traits.","role":"supporting"},"source":"the-sims-4","target":"aspiration-wants","type":"uses"}
@@ -3885,6 +3999,8 @@
 {"attrs":{"role":"supporting"},"source":"the-sims-4","target":"romance-family","type":"uses"}
 {"attrs":{"note":"Objects advertise need, skill, and emotion gains, and Sims multitask, such as talking while cooking.","role":"supporting"},"source":"the-sims-4","target":"smart-objects","type":"uses"}
 {"attrs":{"note":"Social menus are filtered by emotion and traits, with emotion-specific variants of interactions.","role":"supporting"},"source":"the-sims-4","target":"social-exchanges","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"the-sims-4","target":"utility-action-selection","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"the-sims-4","target":"variable-speed","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"theme-hospital","target":"advisors","type":"uses"}
 {"attrs":{"note":"Doctors can be trained to gain skills and specialisms.","role":"supporting"},"source":"theme-hospital","target":"agent-skills","type":"uses"}
 {"attrs":{"note":"Epidemics break out and can be covered up before a health inspector visits; failure brings fines and lost reputation.","role":"supporting"},"source":"theme-hospital","target":"contagion","type":"uses"}
@@ -3898,6 +4014,8 @@
 {"attrs":{"note":"Patients queue outside each room; the player can rearrange queues, and long waits push patients to leave.","role":"core"},"source":"theme-hospital","target":"service-queues","type":"uses"}
 {"attrs":{"note":"Doctors, nurses, handymen, and receptionists are hired with performance stats; some rooms need doctors with specialist skills.","role":"core"},"source":"theme-hospital","target":"staff-hiring","type":"uses"}
 {"attrs":{"note":"Research unlocks rooms, drugs, and machine improvements.","role":"supporting"},"source":"theme-hospital","target":"tech-tree","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"theme-hospital","target":"utility-action-selection","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"theme-hospital","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"Machines such as the Inflator need handyman servicing or they explode.","role":"supporting"},"source":"theme-hospital","target":"wear-breakdown","type":"uses"}
 {"attrs":{"note":"Thugs appear when visitors are unhappy; security guards counter them.","role":"supporting"},"source":"theme-park","target":"crime-policing","type":"uses"}
 {"attrs":{"note":"Each visitor is an individual with its own personality and arrives and leaves by bus; unhappy crowds draw thugs who vandalize and attack entertainers.","role":"core"},"source":"theme-park","target":"crowd-preferences","type":"uses"}
@@ -3910,6 +4028,7 @@
 {"attrs":{"note":"Visitors queue for rides and shops.","role":"supporting"},"source":"theme-park","target":"service-queues","type":"uses"}
 {"attrs":{"note":"Entertainers, security guards, mechanics, and handymen are hired and their wages negotiated; understaffing brings litter, breakdowns, and crime.","role":"core"},"source":"theme-park","target":"staff-hiring","type":"uses"}
 {"attrs":{"note":"A funding level drives research into new items, ride durability, staff efficiency, and bus capacity.","role":"supporting"},"source":"theme-park","target":"tech-tree","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"theme-park","target":"utility-action-selection","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"theme-park","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"Rides wear down and explode if mechanics do not maintain them; research can make rides more durable.","role":"core"},"source":"theme-park","target":"wear-breakdown","type":"uses"}
 {"attrs":{"note":"Snipers confine survivors to the shelter by day for crafting, cooking, and care; at night survivors are assigned to sleep, guard, or scavenge.","role":"core"},"source":"this-war-of-mine","target":"day-night-cycle","type":"uses"}
@@ -3926,6 +4045,7 @@
 {"attrs":{"note":"Neighbors and strangers arrive with requests tied to the shelter's state.","role":"supporting"},"source":"this-war-of-mine","target":"triggered-event-chains","type":"uses"}
 {"attrs":{"note":"Recurring droughts switch sources off and badtides release contaminating badwater; both grow harsher over time and are signalled in advance.","role":"core"},"source":"timberborn","target":"crisis-countdown","type":"uses"}
 {"attrs":{"note":"Crops grow only on irrigated soil and fail when it dries.","role":"supporting"},"source":"timberborn","target":"crop-cultivation","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"timberborn","target":"free-placement","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"timberborn","target":"hauling-jobs","type":"uses"}
 {"attrs":{"note":"Tiles exchange water through virtual pipes with evaporation; moisture spreads to nearby land and falls off sharply uphill; dams, levees, floodgates, and canals redirect flow.","role":"core"},"source":"timberborn","target":"hydrology","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"timberborn","target":"lifecycle-aging","type":"uses"}
@@ -3934,6 +4054,7 @@
 {"attrs":{"note":"Sensors, relays, and counters control dams and factories.","role":"supporting"},"source":"timberborn","target":"signal-circuits","type":"uses"}
 {"attrs":{"note":"Water tanks and warehouses buffer droughts.","role":"supporting"},"source":"timberborn","target":"storage-capacity","type":"uses"}
 {"attrs":{"note":"Explosives dig tunnels and reshape terrain.","role":"supporting"},"source":"timberborn","target":"terraforming","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"timberborn","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"Lodges and workshops stack on platforms; ziplines and tubeways move beavers between levels.","role":"supporting"},"source":"timberborn","target":"vertical-layers","type":"uses"}
 {"attrs":{"note":"Strokes are drawn freely without a grid.","role":"supporting"},"source":"tiny-glade","target":"free-placement","type":"uses"}
 {"attrs":{"note":"Walls, paths, and building outlines are turned into detailed geometry; a path through a building creates a door and raising a building adds supporting columns and beams.","role":"core"},"source":"tiny-glade","target":"procedural-build-assist","type":"uses"}
@@ -3964,6 +4085,7 @@
 {"attrs":{"note":"Stations accept and supply cargo only within a catchment around them, and station ratings set how much nearby industries hand over.","role":"core"},"source":"transport-tycoon","target":"service-coverage","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"transport-tycoon","target":"terraforming","type":"uses"}
 {"attrs":{"note":"Rail track, including slopes, bridges, and tunnels, is laid piece by piece on the isometric tile map, with costs for terrain changes and demolition.","role":"supporting"},"source":"transport-tycoon","target":"track-laying","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"transport-tycoon","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"Trains, road vehicles, ships, aircraft, and helicopters run order lists between stations; revenue depends on cargo type, distance, quantity, and delivery time.","role":"core"},"source":"transport-tycoon","target":"vehicle-route-scheduling","type":"uses"}
 {"attrs":{"note":"Vehicle reliability falls with age, breakdowns become more frequent, and vehicles must be serviced and eventually replaced; prototypes offer better specs with reliability risk.","role":"core"},"source":"transport-tycoon","target":"wear-breakdown","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"tropico-6","target":"budget-treasury","type":"uses"}
@@ -3977,6 +4099,7 @@
 {"attrs":{"role":"supporting"},"source":"tropico-6","target":"production-chain","type":"uses"}
 {"attrs":{"note":"Low approval breeds rebels, protests, and coup attempts.","role":"supporting"},"source":"tropico-6","target":"stability-unrest","type":"uses"}
 {"attrs":{"note":"Exports through docks fund the treasury.","role":"supporting"},"source":"tropico-6","target":"trade-routes","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"tropico-6","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"Assistants in the marketing room run paid campaigns that draw more patients, optionally targeted at specific illnesses.","role":"supporting"},"source":"two-point-hospital","target":"advertising-awareness","type":"uses"}
 {"attrs":{"note":"Staff earn qualifications in the training room that unlock or improve tasks.","role":"supporting"},"source":"two-point-hospital","target":"agent-skills","type":"uses"}
 {"attrs":{"note":"Later levels bring epidemics with a limited vaccine supply; immunizing every infected patient earns a reward.","role":"supporting"},"source":"two-point-hospital","target":"contagion","type":"uses"}
@@ -3991,6 +4114,8 @@
 {"attrs":{"note":"Patients queue at rooms while their health falls; untreated patients die, and long waits lower satisfaction.","role":"core"},"source":"two-point-hospital","target":"service-queues","type":"uses"}
 {"attrs":{"note":"Doctors, nurses, janitors, and assistants come with personality traits and specialisations that change performance; wages and morale must be managed.","role":"core"},"source":"two-point-hospital","target":"staff-hiring","type":"uses"}
 {"attrs":{"note":"The Research room unlocks new rooms and machine upgrades.","role":"supporting"},"source":"two-point-hospital","target":"tech-tree","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"two-point-hospital","target":"utility-action-selection","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"two-point-hospital","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"Machines degrade and need janitor maintenance.","role":"supporting"},"source":"two-point-hospital","target":"wear-breakdown","type":"uses"}
 {"attrs":{"note":"Progression is skill-based with no levels or classes; skills improve as the character uses them, so a character's abilities record what the player has practiced.","role":"core"},"source":"ultima-online","target":"agent-skills","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"ultima-online","target":"direct-avatar","type":"uses"}
@@ -4054,6 +4179,7 @@
 {"attrs":{"role":"supporting"},"source":"victoria-3","target":"taxation","type":"uses"}
 {"attrs":{"note":"Technologies such as the Atmospheric Engine unlock buildings and production methods.","role":"supporting"},"source":"victoria-3","target":"tech-tree","type":"uses"}
 {"attrs":{"note":"States change hands through diplomatic plays and wars, and newly acquired states are incorporated over time before they count fully.","role":"supporting"},"source":"victoria-3","target":"territorial-control","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"victoria-3","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"Each side's war support falls with exhaustion until one capitulates or the sides settle on the demands from the diplomatic play.","role":"supporting"},"source":"victoria-3","target":"war-score-peace","type":"uses"}
 {"attrs":{"note":"Two residents of a species that meet romance requirements perform a romance dance and a maze minigame that yields an egg; piñatas are ungendered, and candy skips romance requirements after a species' first romance.","role":"core"},"source":"viva-pinata","target":"animal-husbandry","type":"uses"}
 {"attrs":{"note":"Eggs and piñatas could be sent to other players over Xbox Live.","role":"supporting"},"source":"viva-pinata","target":"async-shared-region","type":"uses"}
@@ -4076,6 +4202,7 @@
 {"attrs":{"note":"Conveyors move ores and bulk goods between facilities.","role":"supporting"},"source":"workers-and-resources","target":"conveyor-transport","type":"uses"}
 {"attrs":{"note":"Optional complex education gates skilled jobs.","role":"supporting"},"source":"workers-and-resources","target":"education-workforce","type":"uses"}
 {"attrs":{"note":"Liquids, water, and heating travel through pipes and tanks.","role":"supporting"},"source":"workers-and-resources","target":"fluid-pipe-network","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"workers-and-resources","target":"free-placement","type":"uses"}
 {"attrs":{"note":"Citizens need food, clothing, and alcohol from shops.","role":"supporting"},"source":"workers-and-resources","target":"goods-consumption","type":"uses"}
 {"attrs":{"note":"Over 30 commodities are extracted, processed, and stored in staffed plants.","role":"core"},"source":"workers-and-resources","target":"production-chain","type":"uses"}
 {"attrs":{"note":"Buses, trams, trains, subways, ships, and planes carry citizens.","role":"supporting"},"source":"workers-and-resources","target":"public-transit","type":"uses"}
@@ -4084,6 +4211,7 @@
 {"attrs":{"role":"supporting"},"source":"workers-and-resources","target":"storage-capacity","type":"uses"}
 {"attrs":{"note":"Flooding one market lowers returns there.","role":"supporting"},"source":"workers-and-resources","target":"supply-demand-pricing","type":"uses"}
 {"attrs":{"note":"Exports and imports pass through customs houses at Eastern (rubles) and Western (dollars) borders.","role":"core"},"source":"workers-and-resources","target":"trade-routes","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"workers-and-resources","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"Trucks, trains, ships, and aircraft are assigned to depots and routes that move goods and workers between buildings.","role":"core"},"source":"workers-and-resources","target":"vehicle-route-scheduling","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"x-plane","target":"day-night-cycle","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"x-plane","target":"embodied-skill-control","type":"uses"}
@@ -4091,6 +4219,7 @@
 {"attrs":{"note":"The plugin SDK lets developers read simulator data and add instruments, cockpit interfaces, and hardware support.","role":"supporting"},"source":"x-plane","target":"modding-api","type":"uses"}
 {"attrs":{"note":"Plane Maker lets users define aircraft geometry and components and then fly the result in the simulator.","role":"supporting"},"source":"x-plane","target":"modular-assembly","type":"uses"}
 {"attrs":{"role":"supporting"},"source":"x-plane","target":"procedural-checklists","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"x-plane","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"X-Plane 12 reworked clouds, turbulence, and atmospheric effects, and version 12.3 added a weather-radar system.","role":"supporting"},"source":"x-plane","target":"weather","type":"uses"}
 {"attrs":{"note":"Time of day changes enemy and creature activity, and the Blood Moon respawns defeated enemies.","role":"supporting"},"source":"zelda-breath-of-the-wild","target":"day-night-cycle","type":"uses"}
 {"attrs":{"note":"Link can climb almost any surface, glide, ride horses, and use runes.","role":"supporting"},"source":"zelda-breath-of-the-wild","target":"direct-avatar","type":"uses"}
@@ -4111,4 +4240,5 @@
 {"attrs":{"note":"Scenarios set targets such as a guest happiness level, exhibit suitability, animal count, or breeding a species.","role":"supporting"},"source":"zoo-tycoon","target":"scenario-objectives","type":"uses"}
 {"attrs":{"note":"Zookeepers, maintenance workers, and tour guides are hired.","role":"supporting"},"source":"zoo-tycoon","target":"staff-hiring","type":"uses"}
 {"attrs":{"note":"In freeform mode, money spent on research unlocks animals, buildings, and scenery.","role":"supporting"},"source":"zoo-tycoon","target":"tech-tree","type":"uses"}
+{"attrs":{"role":"supporting"},"source":"zoo-tycoon","target":"variable-speed","type":"uses"}
 {"attrs":{"note":"Fences decay and must be repaired by maintenance workers to prevent escapes.","role":"supporting"},"source":"zoo-tycoon","target":"wear-breakdown","type":"uses"}

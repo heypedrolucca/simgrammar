@@ -106,6 +106,8 @@ mechanics:
   role: supporting
   note: Rail track, including slopes, bridges, and tunnels, is laid piece by piece on the isometric tile
     map, with costs for terrain changes and demolition.
+- id: variable-speed
+  role: supporting
 influenced_by:
 - railroad-tycoon
 - simcity-2000
@@ -115,3 +117,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-catalog-ge
+  reviewed:
+  - 2026-10-24-review-fixes

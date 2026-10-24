@@ -27,9 +27,9 @@ A low-fantasy city builder in which tens of thousands of individually simulated 
 | agent count order | 10,000+ |
 | emergence | 3 |
 | influence | 1 |
-| cluster *(computed)* | C01 |
+| cluster *(computed)* | C02 |
 | core count *(computed)* | 2 |
-| mechanic count *(computed)* | 9 |
+| mechanic count *(computed)* | 11 |
 
 ## Summary
 
@@ -56,10 +56,12 @@ Songs of Syx scales individual simulation to city size: each of tens of thousand
 - [Trade routes](../mechanic/trade-routes.md) (supporting)
 - [Production chains](../mechanic/production-chain.md) (supporting)
 - [Stability and unrest](../mechanic/stability-unrest.md) (supporting): Appointed nobles may try to usurp the ruler.
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
+- [Building placement](../mechanic/free-placement.md) (supporting)
 
 ## Sources
 
 - [Songs of Syx on Steam](../source/src-steam-2026-songs-of-syx.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-ga`.
+Provenance: created in run `2026-10-24-catalog-ga`; reviewed in `2026-10-24-review-fixes`.

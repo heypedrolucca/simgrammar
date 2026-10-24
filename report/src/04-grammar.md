@@ -22,7 +22,7 @@ Owns stocks of goods and the recipes that transform them. [[production-chain]] i
 {{table:family-resources-production}}
 
 #### Logistics and networks
-Owns movement across space or graphs: roads, belts, pipes, rails, transit lines, service reach. These mechanics turn production into geography, and they are where compute and legibility first bind: [[traffic-congestion]] is the most visible place a city builder can be wrong, and [[walker-service-delivery]] made service coverage legible by putting it on walking bodies. Networks couple to almost everything, which is why their bugs (pathfinding loops, gridlock) are the genre's most famous.
+Owns movement across space or graphs: roads, belts, pipes, rails, transit lines, service reach. These mechanics turn production into geography, and they are where compute and legibility first bind: [[traffic-congestion]] is the most visible place a city builder can be wrong, and [[walker-service-delivery]] made service coverage legible by putting it on walking bodies. Networks couple to almost everything, so their bugs (pathfinding loops, gridlock) spread to every system they feed.
 {{table:family-logistics-networks}}
 
 #### Economy and finance
@@ -58,7 +58,7 @@ Owns the world's own processes: weather, seasons, food webs, habitats, pollution
 {{table:family-environment-ecology}}
 
 #### Biology and health
-Owns bodies: survival meters, injuries, diagnosis, creature care, husbandry. [[survival-meters]] define a subgenre; [[injury-body-model]] gives colony sims their grim specificity; [[creature-care]] is the oldest bond between player and simulated being.
+Owns bodies: survival meters, injuries, diagnosis, creature care, husbandry. [[survival-meters]] define a subgenre; [[injury-body-model]] tracks wounds per body part in colony sims; [[creature-care]] is the oldest bond between player and simulated being.
 {{table:family-biology-health}}
 
 #### Time and pacing
@@ -86,7 +86,7 @@ Owns what events happen and how they are told: storytellers, dilemma cards, trig
 {{table:family-narrative-generation}}
 
 #### World generation
-Owns initial conditions: terrain, simulated history, characters. [[history-generation]] in [[dwarf-fortress]] remains the high-water mark: a world that has a past before the player arrives.
+Owns initial conditions: terrain, simulated history, characters. [[history-generation]] in [[dwarf-fortress]] simulates centuries of events before play, so the world has a past before the player arrives.
 {{table:family-world-generation}}
 
 #### Multiplayer and persistence

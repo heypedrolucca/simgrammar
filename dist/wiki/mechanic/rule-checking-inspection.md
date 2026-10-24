@@ -18,7 +18,7 @@ The player checks documents, people, or cargo against a rulebook that changes ov
 | compute cost | 1 |
 | tuning difficulty | 3 |
 | ai leverage | 4 |
-| maturity | Emerging |
+| maturity | Established |
 | core count *(computed)* | 2 |
 | earliest game *(computed)* | [Papers, Please](../game/papers-please.md) |
 | earliest year *(computed)* | 2013 |
@@ -73,4 +73,4 @@ Rising cognitive load and moral pressure. Players scan for mismatches against a 
 - [Papers, Please](../source/src-wikipedia-papers-please.md)
 
 ---
-Provenance: created in run `2026-10-24-taxonomy-m7`.
+Provenance: created in run `2026-10-24-taxonomy-m7`; reviewed in `2026-10-24-review-fixes`.

@@ -29,7 +29,7 @@ A voice-controlled comedy game in which the player, as a disguised vampire, talk
 | emergence | 2 |
 | influence | 1 |
 | boundary case | True |
-| cluster *(computed)* | C09 |
+| cluster *(computed)* | C08 |
 | core count *(computed)* | 2 |
 | mechanic count *(computed)* | 6 |
 

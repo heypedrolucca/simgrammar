@@ -14,7 +14,7 @@ Explain where and why a production network is starved or blocked by combining se
 | feasibility | 5 |
 | impact | 3 |
 | horizon | Now |
-| falsifiable signal | {'prediction': "A factory or city-building game will ship a feature that identifies the binding constraint in the player's production network by simulation sensitivity rather than static ratio display.", 'resolve_by': '2028-06-30', 'criteria': 'Shipped feature described in patch notes or developer blog of a released title or official mod tool.'} |
+| falsifiable signal | {'prediction': "A factory or city-building game will ship a feature that names the binding constraint in the player's production network by testing the simulation, not by displaying static ratios.", 'resolve_by': '2028-06-30', 'criteria': "Feature first shipped after 2026-10-24 in a released title or official mod tool with at least 1,000 Steam user reviews; patch notes or a developer blog state that it perturbs or re-runs the player's network to identify the limiting resource, machine, or link."} |
 | priority *(computed)* | 3.587 |
 
 ## Thesis
@@ -37,9 +37,9 @@ Implement sensitivity analysis over a factory prototype's production graph and t
 
 ## Falsifiable signal
 
-- **Prediction:** A factory or city-building game will ship a feature that identifies the binding constraint in the player's production network by simulation sensitivity rather than static ratio display.
+- **Prediction:** A factory or city-building game will ship a feature that names the binding constraint in the player's production network by testing the simulation, not by displaying static ratios.
 - **Resolve by:** 2028-06-30
-- **Criteria:** Shipped feature described in patch notes or developer blog of a released title or official mod tool.
+- **Criteria:** Feature first shipped after 2026-10-24 in a released title or official mod tool with at least 1,000 Steam user reviews; patch notes or a developer blog state that it perturbs or re-runs the player's network to identify the limiting resource, machine, or link.
 
 ## Relations
 
@@ -65,4 +65,4 @@ Implement sensitivity analysis over a factory prototype's production graph and t
 - [Oxygen Not Included](../game/oxygen-not-included.md)
 
 ---
-Provenance: created in run `2026-10-24-synthesis`.
+Provenance: created in run `2026-10-24-synthesis`; reviewed in `2026-10-24-review-fixes`.

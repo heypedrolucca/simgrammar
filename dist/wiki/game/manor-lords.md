@@ -26,9 +26,9 @@ An early-access medieval city builder in which families settle gridless burgage 
 | agent count order | ~100 |
 | emergence | 3 |
 | influence | 1 |
-| cluster *(computed)* | C01 |
+| cluster *(computed)* | C02 |
 | core count *(computed)* | 2 |
-| mechanic count *(computed)* | 12 |
+| mechanic count *(computed)* | 15 |
 
 ## Summary
 
@@ -58,6 +58,9 @@ Manor Lords drops the zoning grid: the player draws plots against freely curved 
 - [Unit commands](../mechanic/unit-commands.md) (supporting): Real-time battles with fatigue, weather, and equipment; retinue, mercenaries, and militia drawn from townspeople.
 - [Raid defense](../mechanic/raid-defense.md) (supporting): Bandit raids threaten the town and loot stores.
 - [Trade routes](../mechanic/trade-routes.md) (supporting): Surpluses sold to traveling merchants; imports and exports balanced through trade.
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
+- [Building placement](../mechanic/free-placement.md) (supporting)
+- [Storage and buffers](../mechanic/storage-capacity.md) (supporting)
 
 ## Backlinks (computed)
 
@@ -69,4 +72,4 @@ Manor Lords drops the zoning grid: the player draws plots against freely curved 
 - [Manor Lords on Steam](../source/src-steam-2026-manor-lords.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-ga`.
+Provenance: created in run `2026-10-24-catalog-ga`; reviewed in `2026-10-24-review-fixes`.

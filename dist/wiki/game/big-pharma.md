@@ -27,9 +27,9 @@ A pharmaceutical factory and business sim in which the player routes ingredients
 | agent count order | None |
 | emergence | 2 |
 | influence | 1 |
-| cluster *(computed)* | C01 |
+| cluster *(computed)* | C02 |
 | core count *(computed)* | 4 |
-| mechanic count *(computed)* | 9 |
+| mechanic count *(computed)* | 10 |
 
 ## Summary
 
@@ -56,10 +56,11 @@ Big Pharma's production puzzle is numeric: each ingredient carries cures and sid
 - [Tech tree](../mechanic/tech-tree.md) (supporting): A research tree unlocks better machines and other benefits.
 - [Scouting knowledge](../mechanic/scouting-knowledge.md) (supporting): Explorers search for new ingredients, and analysis machines reveal an ingredient's effects and maximum potency.
 - [Scenario objectives](../mechanic/scenario-objectives.md) (supporting): Scenarios set targets such as a financial milestone within a set number of years, at several difficulties.
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
 
 ## Sources
 
 - [Big Pharma (video game)](../source/src-wikipedia-big-pharma.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-ge`.
+Provenance: created in run `2026-10-24-catalog-ge`; reviewed in `2026-10-24-review-fixes`.

@@ -27,9 +27,9 @@ A hospital management sim in which the player builds departments and hires staff
 | agent count order | ~100 |
 | emergence | 2 |
 | influence | 1 |
-| cluster *(computed)* | C03 |
+| cluster *(computed)* | C01 |
 | core count *(computed)* | 3 |
-| mechanic count *(computed)* | 9 |
+| mechanic count *(computed)* | 10 |
 
 ## Summary
 
@@ -56,6 +56,7 @@ Oxymoron Games reduced medicine to symptom rules: each diagnosis has symptoms wi
 - [Service queues](../mechanic/service-queues.md) (supporting)
 - [Unit commands](../mechanic/unit-commands.md) (supporting): Doctor Mode (2019) lets the player choose exams, diagnoses, and treatments for individual doctors and their patients.
 - [Scenario objectives](../mechanic/scenario-objectives.md) (supporting): A campaign and six challenge levels set goals; sandbox mode removes them.
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
 
 ## Sources
 
@@ -64,4 +65,4 @@ Oxymoron Games reduced medicine to symptom rules: each diagnosis has symptoms wi
 - [Project Hospital on Steam](../source/src-steam-2026-project-hospital.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-gf`.
+Provenance: created in run `2026-10-24-catalog-gf`; reviewed in `2026-10-24-review-fixes`.

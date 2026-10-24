@@ -26,7 +26,7 @@ A two-player Intellivision strategy game in which rival island rulers spend gold
 | agent count order | Aggregate only |
 | emergence | 2 |
 | influence | 2 |
-| cluster *(computed)* | C01 |
+| cluster *(computed)* | C04 |
 | core count *(computed)* | 3 |
 | mechanic count *(computed)* | 8 |
 

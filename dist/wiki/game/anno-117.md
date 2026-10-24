@@ -29,9 +29,9 @@ A Roman-era Anno city builder in which residents advance from Liberti to Patrici
 | emergence | 3 |
 | influence | 1 |
 | influenced by | [Anno 1800](../game/anno-1800.md) |
-| cluster *(computed)* | C01 |
+| cluster *(computed)* | C02 |
 | core count *(computed)* | 3 |
-| mechanic count *(computed)* | 11 |
+| mechanic count *(computed)* | 13 |
 
 ## Summary
 
@@ -64,10 +64,12 @@ Anno 117 loosens the strict tier-need ladder: needs fall into categories that ca
 - [Unit commands](../mechanic/unit-commands.md) (supporting): Melee, ranged, and siege units in a rock-paper-scissors system; warships protect routes from pirates.
 - [Modular assembly](../mechanic/modular-assembly.md) (supporting): Ships are modular; adding oars or sails changes how they move.
 - [Reputation](../mechanic/reputation.md) (supporting): Standing with the emperor's successor Calidus can earn Consul status or Proconsular authority.
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
+- [Building placement](../mechanic/free-placement.md) (supporting)
 
 ## Sources
 
 - [Anno 117: Pax Romana](../source/src-wikipedia-anno-117.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-ga`.
+Provenance: created in run `2026-10-24-catalog-ga`; reviewed in `2026-10-24-review-fixes`.

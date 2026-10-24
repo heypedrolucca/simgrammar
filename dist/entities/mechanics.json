@@ -113,9 +113,9 @@
   },
   {
     "_derived": {
-      "core_count": 2,
-      "earliest_game": "game-of-life",
-      "earliest_year": 1970,
+      "core_count": 1,
+      "earliest_game": "mule",
+      "earliest_year": 1983,
       "incoming": {
         "involved_in": [
           "learned-build-assist",
@@ -123,15 +123,14 @@
         ],
         "used_by": [
           "anno-117",
-          "game-of-life",
           "islanders",
           "mule",
           "the-farmer-was-replaced"
         ]
       },
-      "prevalence": 5,
-      "prevalence_share": 0.029,
-      "subgenre_spread": 4,
+      "prevalence": 4,
+      "prevalence_share": 0.023,
+      "subgenre_spread": 3,
       "technique_count": 0,
       "technique_exposure": 0.0
     },
@@ -1056,7 +1055,7 @@
       "network-flow",
       "game-theory"
     ],
-    "maturity": "emerging",
+    "maturity": "established",
     "name": "Asynchronous shared regions",
     "open_questions": [
       "Can AI-controlled stand-in neighbors, trained on real player cities, keep regions alive when players leave?",
@@ -1068,7 +1067,10 @@
       "placement"
     ],
     "provenance": {
-      "created": "2026-10-24-taxonomy-m7"
+      "created": "2026-10-24-taxonomy-m7",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [
       "src-wikipedia-simcity-2013"
@@ -1346,8 +1348,8 @@
   {
     "_derived": {
       "core_count": 1,
-      "earliest_game": "game-of-life",
-      "earliest_year": 1970,
+      "earliest_game": "capitalism",
+      "earliest_year": 1995,
       "incoming": {
         "involved_in": [
           "teachable-sim-companion"
@@ -1357,7 +1359,6 @@
           "capitalism",
           "dyson-sphere-program",
           "factorio",
-          "game-of-life",
           "garrys-mod",
           "mindustry",
           "planet-coaster",
@@ -1367,9 +1368,9 @@
           "the-sims-4"
         ]
       },
-      "prevalence": 12,
-      "prevalence_share": 0.069,
-      "subgenre_spread": 8,
+      "prevalence": 11,
+      "prevalence_share": 0.063,
+      "subgenre_spread": 7,
       "technique_count": 0,
       "technique_exposure": 0.0
     },
@@ -3141,7 +3142,7 @@
       "machine-learning",
       "utility-decision"
     ],
-    "maturity": "experimental",
+    "maturity": "established",
     "name": "Creature learning",
     "open_questions": [
       "Can modern reinforcement learning or language-conditioned policies give creatures learning that generalizes the way players intend, with explainable credit assignment?",
@@ -3153,7 +3154,10 @@
       "observation"
     ],
     "provenance": {
-      "created": "2026-10-24-taxonomy-m3"
+      "created": "2026-10-24-taxonomy-m3",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [
       "src-grand-1996-creatures-alife",
@@ -5986,29 +5990,36 @@
   {
     "_derived": {
       "core_count": 0,
-      "earliest_game": "dwarf-fortress",
-      "earliest_year": 2006,
+      "earliest_game": "simcity-1989",
+      "earliest_year": 1989,
       "incoming": {
         "involved_in": [
           "learned-weather-layer"
         ],
         "used_by": [
+          "banished",
+          "caesar-3",
           "dont-starve",
           "dwarf-fortress",
           "from-dust",
           "ftl",
+          "kingdoms-and-castles",
           "minecraft",
           "noita",
+          "pharaoh",
           "prison-architect",
+          "rimworld",
+          "simcity-1989",
+          "simcity-2000",
           "space-haven",
           "teardown",
           "the-powder-toy",
           "zelda-breath-of-the-wild"
         ]
       },
-      "prevalence": 11,
-      "prevalence_share": 0.063,
-      "subgenre_spread": 7,
+      "prevalence": 18,
+      "prevalence_share": 0.103,
+      "subgenre_spread": 8,
       "technique_count": 0,
       "technique_exposure": 0.0
     },
@@ -6585,8 +6596,7 @@
           "calibrated-serious-sims",
           "dream-replay-layer",
           "event-sourced-sim-runtime",
-          "participatory-planning-sandboxes",
-          "weather-coupled-grids"
+          "participatory-planning-sandboxes"
         ],
         "used_by": [
           "lemonade-stand",
@@ -6675,32 +6685,63 @@
           "room-recognition"
         ],
         "used_by": [
+          "against-the-storm",
           "animal-crossing-new-horizons",
+          "anno-117",
+          "anno-1800",
+          "banished",
           "big-ambitions",
           "big-pharma",
           "black-and-white",
+          "caesar-3",
           "capitalism",
+          "captain-of-industry",
+          "cities-skylines",
+          "cities-skylines-2",
+          "dwarf-fortress",
+          "dyson-sphere-program",
           "equilinox",
+          "factorio",
+          "farthest-frontier",
           "foundation",
+          "frostpunk",
+          "frostpunk-2",
           "game-of-life",
+          "going-medieval",
           "house-flipper",
           "inzoi",
           "islanders",
           "jurassic-world-evolution",
           "kenshi",
+          "kingdoms-and-castles",
+          "manor-lords",
+          "mindustry",
           "minecraft",
+          "offworld-trading-company",
+          "oxygen-not-included",
           "paralives",
+          "pharaoh",
+          "planet-coaster",
+          "planet-zoo",
           "prison-architect",
           "project-hospital",
           "project-zomboid",
           "railroad-tycoon",
+          "rollercoaster-tycoon",
           "satisfactory",
           "schedule-i",
           "shapez-2",
+          "simcity-1989",
+          "simcity-2000",
+          "simcity-2013",
+          "simcity-4",
           "simtower",
+          "songs-of-syx",
           "space-haven",
+          "stardew-valley",
           "stationeers",
           "subnautica",
+          "surviving-mars",
           "terra-nil",
           "the-sims",
           "the-sims-2",
@@ -6708,6 +6749,7 @@
           "the-sims-4",
           "theme-hospital",
           "theme-park",
+          "timberborn",
           "tiny-glade",
           "townscaper",
           "transport-tycoon",
@@ -6716,12 +6758,13 @@
           "ultima-online",
           "utopia",
           "viva-pinata",
+          "workers-and-resources",
           "zoo-tycoon"
         ]
       },
-      "prevalence": 42,
-      "prevalence_share": 0.241,
-      "subgenre_spread": 16,
+      "prevalence": 75,
+      "prevalence_share": 0.431,
+      "subgenre_spread": 17,
       "technique_count": 0,
       "technique_exposure": 0.0
     },
@@ -7171,7 +7214,7 @@
       "epidemiology",
       "information-theory"
     ],
-    "maturity": "experimental",
+    "maturity": "emerging",
     "name": "Gossip propagation",
     "open_questions": [
       "Can language-model gossip be constrained to facts in the simulation log while keeping distortion as a designed, tunable variable?",
@@ -7183,7 +7226,10 @@
       "choice-cards"
     ],
     "provenance": {
-      "created": "2026-10-24-taxonomy-m3"
+      "created": "2026-10-24-taxonomy-m3",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [
       "src-mccoy-2014-social-story-worlds",
@@ -7756,7 +7802,7 @@
       "markov-stochastic",
       "social-network"
     ],
-    "maturity": "emerging",
+    "maturity": "established",
     "name": "Simulated history generation",
     "open_questions": [
       "Can language models turn coarse simulated histories into readable myths and chronicles without contradicting the record?",
@@ -7768,7 +7814,10 @@
       "observation"
     ],
     "provenance": {
-      "created": "2026-10-24-taxonomy-m7"
+      "created": "2026-10-24-taxonomy-m7",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [
       "src-wikipedia-dwarf-fortress",
@@ -9613,7 +9662,7 @@
       "machine-learning",
       "information-theory"
     ],
-    "maturity": "emerging",
+    "maturity": "established",
     "name": "Natural-language interaction",
     "open_questions": [
       "How can free-form dialogue be grounded so that what characters say always matches simulation state and what they can do?",
@@ -9624,7 +9673,10 @@
       "language"
     ],
     "provenance": {
-      "created": "2026-10-24-taxonomy-m3"
+      "created": "2026-10-24-taxonomy-m3",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [
       "src-mateas-2004-facade-nlu",
@@ -9706,7 +9758,7 @@
       "genetics-evolution",
       "population-dynamics"
     ],
-    "maturity": "experimental",
+    "maturity": "established",
     "name": "Natural selection",
     "open_questions": [
       "Can learned simulators or GPU-accelerated physics make open-ended evolution fast enough to watch in a session?",
@@ -9718,7 +9770,10 @@
       "parameter"
     ],
     "provenance": {
-      "created": "2026-10-24-taxonomy-m3"
+      "created": "2026-10-24-taxonomy-m3",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "requires": [
       "trait-inheritance"
@@ -9803,7 +9858,7 @@
       "motives",
       "need meters"
     ],
-    "authoring_cost": 3,
+    "authoring_cost": 2,
     "compute_cost": 2,
     "definition": "Each agent holds a vector of bounded need stocks (typically 0-100). Every tick each stock decays at a per-need rate, optionally modified by traits, activity, and environment. Actions or objects restore specific needs by fixed or quality-scaled amounts. Low values feed downstream systems: mood, action selection priority, health, or death.",
     "design_levers": [
@@ -9846,7 +9901,10 @@
       "placement"
     ],
     "provenance": {
-      "created": "2026-10-23-bootstrap"
+      "created": "2026-10-23-bootstrap",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [],
     "status": "asserted",
@@ -10860,7 +10918,7 @@
       "computation-theory",
       "game-theory"
     ],
-    "maturity": "emerging",
+    "maturity": "established",
     "name": "Player legislation",
     "open_questions": [
       "Can LLMs compile natural-language laws into enforceable rules faithfully enough that players trust the translation?",
@@ -10873,7 +10931,10 @@
       "language"
     ],
     "provenance": {
-      "created": "2026-10-24-taxonomy-m2"
+      "created": "2026-10-24-taxonomy-m2",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [
       "src-wikipedia-eco-2018"
@@ -11635,7 +11696,7 @@
     "math_basis": [
       "optimization"
     ],
-    "maturity": "classic",
+    "maturity": "established",
     "name": "Power allocation",
     "open_questions": [
       "Could an AI crew officer that proposes splits from the tactical situation keep allocation a decision rather than a reflex?",
@@ -11646,7 +11707,10 @@
       "parameter"
     ],
     "provenance": {
-      "created": "2026-10-24-taxonomy-triage-b"
+      "created": "2026-10-24-taxonomy-triage-b",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [],
     "status": "asserted",
@@ -11665,12 +11729,12 @@
       "earliest_year": 1989,
       "incoming": {
         "involved_in": [
-          "sims-as-agent-benchmarks",
-          "weather-coupled-grids"
+          "sims-as-agent-benchmarks"
         ],
         "used_by": [
           "captain-of-industry",
           "cities-skylines",
+          "cities-skylines-2",
           "dyson-sphere-program",
           "elite-dangerous",
           "factorio",
@@ -11690,8 +11754,8 @@
           "timberborn"
         ]
       },
-      "prevalence": 19,
-      "prevalence_share": 0.109,
+      "prevalence": 20,
+      "prevalence_share": 0.115,
       "subgenre_spread": 7,
       "technique_count": 0,
       "technique_exposure": 0.0
@@ -14344,7 +14408,7 @@
       "information-theory",
       "combinatorics"
     ],
-    "maturity": "emerging",
+    "maturity": "established",
     "name": "Rule-checking inspection",
     "open_questions": [
       "Can language models generate cases and dialogue whose discrepancies are subtle yet verifiable against a formal rulebook?",
@@ -14356,7 +14420,10 @@
       "choice-cards"
     ],
     "provenance": {
-      "created": "2026-10-24-taxonomy-m7"
+      "created": "2026-10-24-taxonomy-m7",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [
       "src-wikipedia-papers-please"
@@ -15300,7 +15367,7 @@
       "continuum-mechanics",
       "classical-mechanics"
     ],
-    "maturity": "emerging",
+    "maturity": "experimental",
     "name": "Soft-body deformation",
     "open_questions": [
       "Can node-beam structures be generated automatically from a visual mesh and material labels?",
@@ -15312,7 +15379,10 @@
       "direct-manipulation"
     ],
     "provenance": {
-      "created": "2026-10-24-taxonomy-m4"
+      "created": "2026-10-24-taxonomy-m4",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [
       "src-beamng-2026-intro-jbeam"
@@ -15873,28 +15943,37 @@
   {
     "_derived": {
       "core_count": 0,
-      "earliest_game": "factorio",
-      "earliest_year": 2013,
+      "earliest_game": "caesar-3",
+      "earliest_year": 1998,
       "incoming": {
         "involved_in": [
-          "bottleneck-explainer",
-          "weather-coupled-grids"
+          "bottleneck-explainer"
         ],
         "used_by": [
           "anno-1800",
           "banished",
           "big-ambitions",
+          "caesar-3",
           "captain-of-industry",
+          "dwarf-fortress",
           "dyson-sphere-program",
           "factorio",
+          "farthest-frontier",
+          "frostpunk",
+          "going-medieval",
+          "kingdoms-and-castles",
+          "manor-lords",
+          "oxygen-not-included",
+          "pharaoh",
+          "rimworld",
           "satisfactory",
           "timberborn",
           "workers-and-resources"
         ]
       },
-      "prevalence": 9,
-      "prevalence_share": 0.052,
-      "subgenre_spread": 3,
+      "prevalence": 19,
+      "prevalence_share": 0.109,
+      "subgenre_spread": 4,
       "technique_count": 0,
       "technique_exposure": 0.0
     },
@@ -16302,7 +16381,7 @@
       "system-dynamics",
       "markov-stochastic"
     ],
-    "maturity": "classic",
+    "maturity": "established",
     "name": "Subsystem damage",
     "open_questions": [
       "Can AI opponents choose subsystem targets based on a model of the player's ship and plan rather than fixed priorities?",
@@ -16314,7 +16393,10 @@
       "observation"
     ],
     "provenance": {
-      "created": "2026-10-24-taxonomy-triage-b"
+      "created": "2026-10-24-taxonomy-triage-b",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [],
     "status": "asserted",
@@ -16341,8 +16423,7 @@
           "ai-liquidity-in-player-markets",
           "calibrated-serious-sims",
           "human-calibrated-customers",
-          "parallel-autobalance",
-          "weather-coupled-grids"
+          "parallel-autobalance"
         ],
         "used_by": [
           "big-pharma",
@@ -16481,7 +16562,7 @@
       "graph-search",
       "network-flow"
     ],
-    "maturity": "classic",
+    "maturity": "established",
     "name": "Supply lines",
     "open_questions": [
       "Could an AI opponent that reasons about supply networks produce more convincing operational play than current scripted AIs?"
@@ -16493,7 +16574,10 @@
       "observation"
     ],
     "provenance": {
-      "created": "2026-10-24-taxonomy-m1"
+      "created": "2026-10-24-taxonomy-m1",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "sources": [
       "src-paradoxwikis-2026-hoi4-supply"
@@ -17747,6 +17831,7 @@
           "caves-of-qud",
           "civilization",
           "democracy-4",
+          "game-of-life",
           "hamurabi",
           "lemonade-stand",
           "mule",
@@ -17754,9 +17839,9 @@
           "princess-maker-2"
         ]
       },
-      "prevalence": 11,
-      "prevalence_share": 0.063,
-      "subgenre_spread": 8,
+      "prevalence": 12,
+      "prevalence_share": 0.069,
+      "subgenre_spread": 9,
       "technique_count": 1,
       "technique_exposure": 0.2
     },
@@ -17923,8 +18008,8 @@
   {
     "_derived": {
       "core_count": 1,
-      "earliest_game": "the-sims",
-      "earliest_year": 2000,
+      "earliest_game": "theme-park",
+      "earliest_year": 1994,
       "incoming": {
         "affected_by": [
           "alphaevolve-algorithm-discovery",
@@ -17939,14 +18024,29 @@
           "salience-gated-llm-agents"
         ],
         "used_by": [
+          "dwarf-fortress",
+          "going-medieval",
+          "inzoi",
+          "paralives",
+          "planet-coaster",
+          "prison-architect",
           "prom-week",
+          "rimworld",
+          "rollercoaster-tycoon",
+          "space-haven",
           "the-sims",
+          "the-sims-2",
+          "the-sims-3",
+          "the-sims-4",
+          "theme-hospital",
+          "theme-park",
+          "two-point-hospital",
           "versu"
         ]
       },
-      "prevalence": 3,
-      "prevalence_share": 0.017,
-      "subgenre_spread": 2,
+      "prevalence": 18,
+      "prevalence_share": 0.103,
+      "subgenre_spread": 4,
       "technique_count": 7,
       "technique_exposure": 2.95
     },
@@ -18022,30 +18122,93 @@
           "branch-preview-forecasts"
         ],
         "used_by": [
+          "against-the-storm",
+          "anno-117",
+          "anno-1800",
+          "banished",
+          "beamng-drive",
+          "big-ambitions",
+          "big-pharma",
+          "caesar-3",
+          "capitalism",
+          "captain-of-industry",
+          "cities-skylines",
+          "cities-skylines-2",
           "command-modern-operations",
+          "creatures",
+          "crusader-kings-3",
+          "dcs-world",
+          "dwarf-fortress",
           "europa-universalis-4",
+          "farming-simulator-25",
+          "farthest-frontier",
+          "foundation",
+          "frostpunk",
+          "frostpunk-2",
           "ftl",
+          "game-dev-tycoon",
           "game-of-life",
+          "going-medieval",
           "hearts-of-iron-4",
+          "inzoi",
+          "jurassic-world-evolution",
+          "kenshi",
           "kerbal-space-program",
+          "kingdoms-and-castles",
+          "manor-lords",
+          "microsoft-flight-simulator-2020",
+          "microsoft-flight-simulator-2024",
           "mini-metro",
           "motorsport-manager",
+          "offworld-trading-company",
+          "oxygen-not-included",
+          "paralives",
+          "pharaoh",
           "plague-inc",
+          "planet-coaster",
+          "planet-zoo",
+          "prison-architect",
+          "project-hospital",
+          "project-zomboid",
           "railroad-tycoon",
+          "rebel-inc",
           "rimworld",
+          "rollercoaster-tycoon",
           "silent-hunter-3",
+          "simant",
+          "simcity-1989",
+          "simcity-2000",
+          "simcity-2013",
+          "simcity-4",
           "simearth",
           "simlife",
+          "simtower",
+          "songs-of-syx",
+          "space-haven",
           "species-alre",
           "stellaris",
+          "surviving-mars",
           "the-powder-toy",
+          "the-sims",
+          "the-sims-2",
+          "the-sims-3",
+          "the-sims-4",
+          "theme-hospital",
           "theme-park",
-          "universe-sandbox"
+          "timberborn",
+          "transport-tycoon",
+          "tropico-6",
+          "two-point-hospital",
+          "universe-sandbox",
+          "victoria-3",
+          "workers-and-resources",
+          "x-plane",
+          "zoo-tycoon"
         ]
       },
-      "prevalence": 19,
-      "prevalence_share": 0.109,
-      "subgenre_spread": 13,
+      "prevalence": 82,
+      "prevalence_share": 0.471,
+      "subgenre_spread": 23,
       "technique_count": 0,
       "technique_exposure": 0.0
     },
@@ -18573,7 +18736,7 @@
     ],
     "authoring_cost": 2,
     "compute_cost": 2,
-    "definition": "Each service building periodically spawns a walker that follows roads; as it passes, it writes a coverage value to nearby houses, which decays over time until the next visit. In Caesar III, as reproduced by the Julius reimplementation, a roaming walker first heads for a road point about 8 tiles out in a cardinal direction that rotates with each spawn, then wanders, turning pseudo-randomly at intersections and ending its walk at dead ends. Culture, health, and religion walkers set a per-service house value to 96, which decays by 1 on each periodic update; prefects reset fire risk to zero and engineers reset collapse risk to zero. Pharaoh and Zeus keep the model, and Pharaoh added roadblocks that turn roaming walkers back; Augustus, a Julius fork, brings roadblocks to Caesar III. Inputs: building location, road network, random turns. Outputs: per-house coverage values that gate housing evolution and prevent fires or collapses.",
+    "definition": "Each service building periodically spawns a walker that follows roads; as it passes, it writes a coverage value to nearby houses, which decays over time until the next visit. In Caesar III, as reproduced by the Julius reimplementation, a roaming walker first heads for a road point about 8 tiles out in a cardinal direction that rotates with each spawn, then wanders, turning pseudo-randomly at intersections and ending its walk at dead ends. Culture, health, and religion walkers set a per-service house value to 96, which decays by 1 on each periodic update; prefects reset fire risk to zero and engineers reset collapse risk to zero. Inputs: building location, road network, random turns. Outputs: per-house coverage values that gate housing evolution and prevent fires or collapses.",
     "design_levers": [
       "walker roaming range and spawn interval",
       "turn rule at intersections: random, biased, or destination-based",
@@ -18611,7 +18774,10 @@
       "observation"
     ],
     "provenance": {
-      "created": "2026-10-24-taxonomy-m1"
+      "created": "2026-10-24-taxonomy-m1",
+      "reviewed": [
+        "2026-10-24-review-fixes"
+      ]
     },
     "requires": [
       "road-network"
@@ -18823,13 +18989,13 @@
           "ml-weather-models"
         ],
         "involved_in": [
-          "learned-weather-layer",
-          "weather-coupled-grids"
+          "learned-weather-layer"
         ],
         "used_by": [
           "animal-crossing-new-horizons",
           "arma-3",
           "black-and-white",
+          "cities-skylines-2",
           "command-modern-operations",
           "dcs-world",
           "euro-truck-simulator-2",
@@ -18855,8 +19021,8 @@
           "zelda-breath-of-the-wild"
         ]
       },
-      "prevalence": 26,
-      "prevalence_share": 0.149,
+      "prevalence": 27,
+      "prevalence_share": 0.155,
       "subgenre_spread": 15,
       "technique_count": 2,
       "technique_exposure": 0.688

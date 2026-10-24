@@ -53,7 +53,7 @@ authoring_cost: 2
 compute_cost: 3
 tuning_difficulty: 3
 ai_leverage: 4
-maturity: experimental
+maturity: emerging
 synergy:
 - id: reputation
   note: Reputation travels through gossip, so deeds have audiences.
@@ -69,3 +69,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-taxonomy-m3
+  reviewed:
+  - 2026-10-24-review-fixes

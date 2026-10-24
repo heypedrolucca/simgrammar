@@ -29,7 +29,7 @@ A programming puzzle game in which the player builds alchemical machines from ar
 | influence | 2 |
 | boundary case | True |
 | influenced by | [SpaceChem](../game/spacechem.md) |
-| cluster *(computed)* | C02 |
+| cluster *(computed)* | C06 |
 | core count *(computed)* | 4 |
 | mechanic count *(computed)* | 6 |
 

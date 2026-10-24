@@ -14,7 +14,7 @@ An observer-gardener genre where players seed and nudge a persistent society of 
 | feasibility | 2 |
 | impact | 4 |
 | horizon | 3-5 years |
-| falsifiable signal | {'prediction': 'A commercially released game whose core loop is observing and nudging a society of at least 50 language-model agents will reach 1,000 Steam reviews.', 'resolve_by': '2029-12-31', 'criteria': 'Steam page confirming LLM-driven agent society as the core loop and a review count of at least 1,000.'} |
+| falsifiable signal | {'prediction': 'A game whose core loop is observing and nudging a society of at least 50 language-model agents will reach 1,000 Steam user reviews.', 'resolve_by': '2029-12-31', 'criteria': 'Title released after 2026-10-24; its Steam page or developer documentation confirms an LLM-driven agent society of at least 50 agents as the core loop, and it has at least 1,000 Steam user reviews by the resolve date.'} |
 | priority *(computed)* | 3.282 |
 
 ## Thesis
@@ -37,9 +37,9 @@ Run 100 agents for 30 simulated days on a small local model with a chronicle sum
 
 ## Falsifiable signal
 
-- **Prediction:** A commercially released game whose core loop is observing and nudging a society of at least 50 language-model agents will reach 1,000 Steam reviews.
+- **Prediction:** A game whose core loop is observing and nudging a society of at least 50 language-model agents will reach 1,000 Steam user reviews.
 - **Resolve by:** 2029-12-31
-- **Criteria:** Steam page confirming LLM-driven agent society as the core loop and a review count of at least 1,000.
+- **Criteria:** Title released after 2026-10-24; its Steam page or developer documentation confirms an LLM-driven agent society of at least 50 agents as the core loop, and it has at least 1,000 Steam user reviews by the resolve date.
 
 ## Relations
 
@@ -67,4 +67,4 @@ Run 100 agents for 30 simulated days on a small local model with a chronicle sum
 - [Black & White](../game/black-and-white.md)
 
 ---
-Provenance: created in run `2026-10-24-synthesis`.
+Provenance: created in run `2026-10-24-synthesis`; reviewed in `2026-10-24-review-fixes`.

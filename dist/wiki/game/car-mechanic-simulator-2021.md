@@ -27,7 +27,7 @@ A first-person garage sim in which the player diagnoses and repairs customer car
 | agent count order | None |
 | emergence | 1 |
 | influence | 1 |
-| cluster *(computed)* | C02 |
+| cluster *(computed)* | C15 |
 | core count *(computed)* | 2 |
 | mechanic count *(computed)* | 6 |
 

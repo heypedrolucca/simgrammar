@@ -28,9 +28,9 @@ A hospital management game and spiritual successor to Theme Hospital in which th
 | emergence | 3 |
 | influence | 2 |
 | influenced by | [Theme Hospital](../game/theme-hospital.md) |
-| cluster *(computed)* | C03 |
+| cluster *(computed)* | C01 |
 | core count *(computed)* | 4 |
-| mechanic count *(computed)* | 15 |
+| mechanic count *(computed)* | 17 |
 
 ## Summary
 
@@ -67,10 +67,12 @@ Two Point Hospital keeps Theme Hospital's room-blueprint and diagnosis-pipeline 
 - [Scenario objectives](../mechanic/scenario-objectives.md) (supporting): Each hospital has star objectives; extra objectives raise the rating to two or three stars.
 - [Content sharing](../mechanic/content-sharing.md) (supporting): Steam Workshop support added in 2019.
 - [Advertising and awareness](../mechanic/advertising-awareness.md) (supporting): Assistants in the marketing room run paid campaigns that draw more patients, optionally targeted at specific illnesses.
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
+- [Utility action selection](../mechanic/utility-action-selection.md) (supporting)
 
 ## Sources
 
 - [Two Point Hospital](../source/src-wikipedia-two-point-hospital.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-ge`.
+Provenance: created in run `2026-10-24-catalog-ge`; reviewed in `2026-10-24-review-fixes`.

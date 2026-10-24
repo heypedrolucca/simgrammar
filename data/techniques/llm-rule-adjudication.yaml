@@ -21,7 +21,7 @@ mechanism: The game describes the inputs (two items, or an object state plus an 
 key_results:
 - text: Infinite Craft (January 2024) starts from water, fire, wind, and earth and generates a new element
     and emoji with Llama 2 and Llama 3.1 for any untried pair, storing the result so each pair gives every
-    player the same answer; traffic reached hundreds of millions of recipes a day.
+    player the same answer.
   sources:
   - src-wikipedia-infinite-craft
   confidence: high
@@ -89,3 +89,4 @@ provenance:
   created: 2026-10-24-techniques-llm-agents
   reviewed:
   - 2026-10-24-technique-links
+  - 2026-10-24-review-fixes

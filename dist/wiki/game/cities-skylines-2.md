@@ -28,9 +28,9 @@ The sequel to Cities: Skylines, with citizens choosing routes by time, comfort, 
 | emergence | 3 |
 | influence | 1 |
 | influenced by | [Cities: Skylines](../game/cities-skylines.md) |
-| cluster *(computed)* | C10 |
+| cluster *(computed)* | C09 |
 | core count *(computed)* | 3 |
-| mechanic count *(computed)* | 14 |
+| mechanic count *(computed)* | 18 |
 
 ## Summary
 
@@ -66,17 +66,22 @@ Route choice is a weighted cost over time, comfort, money, and behavior, so park
 - [Service coverage](../mechanic/service-coverage.md) (supporting)
 - [Modding API](../mechanic/modding-api.md) (supporting): Paradox Mods since 2024-03-25; mods can override game code.
 - [Travel mode choice](../mechanic/travel-mode-choice.md) (supporting): Citizens compare driving, transit, and walking using a cost of time, comfort, money, and personal behavior, and parking fees enter the driving cost.
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
+- [Building placement](../mechanic/free-placement.md) (supporting)
+- [Power grid](../mechanic/power-grid.md) (supporting): Generation, a connected grid, and batteries; solar output varies with weather and time of day and wind with wind strength.
+- [Weather](../mechanic/weather.md) (supporting): Weather and seasons affect solar and wind output and climate conditions.
 
 ## Backlinks (computed)
 
 **deploys:** [Neural rendering in the graphics pipeline](../technique/neural-rendering-shaders.md)
 
-**precedent for:** [Why-query over the simulation log](../opportunity/causal-why-query.md), [Learned build assist for cities](../opportunity/learned-build-assist.md), [Mean-field crowds and traffic](../opportunity/mean-field-crowds.md), [Weather-coupled energy grids](../opportunity/weather-coupled-grids.md)
+**precedent for:** [Why-query over the simulation log](../opportunity/causal-why-query.md), [Learned build assist for cities](../opportunity/learned-build-assist.md), [Mean-field crowds and traffic](../opportunity/mean-field-crowds.md)
 
 ## Sources
 
 - [Cities: Skylines II](../source/src-wikipedia-cities-skylines-2.md)
 - [Cities: Skylines II Feature Highlight #2: Traffic AI](../source/src-paradox-2023-cs2-traffic-ai.md)
+- [Cities: Skylines II features: Electricity and Water](../source/src-paradox-2023-cs2-electricity-water.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-ga`.
+Provenance: created in run `2026-10-24-catalog-ga`; reviewed in `2026-10-24-review-fixes`.

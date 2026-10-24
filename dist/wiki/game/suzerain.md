@@ -27,7 +27,7 @@ A text-based political narrative game in which the player, as newly elected Pres
 | emergence | 1 |
 | influence | 1 |
 | boundary case | True |
-| cluster *(computed)* | C11 |
+| cluster *(computed)* | C14 |
 | core count *(computed)* | 2 |
 | mechanic count *(computed)* | 6 |
 

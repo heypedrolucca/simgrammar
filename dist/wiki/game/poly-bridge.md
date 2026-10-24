@@ -27,7 +27,7 @@ A bridge-building puzzle game where the player places beams and roads from mater
 | agent count order | None |
 | emergence | 2 |
 | influence | 2 |
-| cluster *(computed)* | C02 |
+| cluster *(computed)* | C07 |
 | core count *(computed)* | 3 |
 | mechanic count *(computed)* | 7 |
 

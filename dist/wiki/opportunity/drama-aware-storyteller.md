@@ -15,7 +15,7 @@ A storyteller that models characters' arcs and relationships, not only threat bu
 | impact | 3 |
 | horizon | Now |
 | key risks | Players perceive arc-shaped events as rigged., Narrative scoring adds latency at incident time., Arcs can repeat across runs if scoring is too deterministic. |
-| falsifiable signal | {'prediction': 'A colony sim or survival management game will ship an event director that uses a language model to evaluate narrative state when choosing authored events.', 'resolve_by': '2028-06-30', 'criteria': 'Developer documentation describing model-based narrative scoring in event selection.'} |
+| falsifiable signal | {'prediction': 'A colony sim or survival management game will ship an event director that uses a language model to rank authored events against the current story state.', 'resolve_by': '2028-06-30', 'criteria': 'Feature first shipped after 2026-10-24 in a title with at least 1,000 Steam user reviews; developer documentation, patch notes, or a technical talk states that a language model scores or ranks candidate authored events against the current game state at runtime. Generated event text alone does not count.'} |
 | priority *(computed)* | 3.318 |
 
 ## Summary
@@ -42,9 +42,9 @@ Add narrative scoring to an incident deck in a colony prototype; run blind playt
 
 ## Falsifiable signal
 
-- **Prediction:** A colony sim or survival management game will ship an event director that uses a language model to evaluate narrative state when choosing authored events.
+- **Prediction:** A colony sim or survival management game will ship an event director that uses a language model to rank authored events against the current story state.
 - **Resolve by:** 2028-06-30
-- **Criteria:** Developer documentation describing model-based narrative scoring in event selection.
+- **Criteria:** Feature first shipped after 2026-10-24 in a title with at least 1,000 Steam user reviews; developer documentation, patch notes, or a technical talk states that a language model scores or ranks candidate authored events against the current game state at runtime. Generated event text alone does not count.
 
 ## Relations
 
@@ -69,4 +69,4 @@ Add narrative scoring to an incident deck in a colony prototype; run blind playt
 - [This War of Mine](../game/this-war-of-mine.md)
 
 ---
-Provenance: created in run `2026-10-24-synthesis`.
+Provenance: created in run `2026-10-24-synthesis`; reviewed in `2026-10-24-review-fixes`.

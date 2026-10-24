@@ -14,7 +14,7 @@ Automation games whose workers age, learn, form families, and retire, so a produ
 | feasibility | 4 |
 | impact | 3 |
 | horizon | Now |
-| falsifiable signal | {'prediction': 'A factory or automation game where workers age, train, and are replaced by a simulated next generation will reach 1,000 Steam reviews.', 'resolve_by': '2029-12-31', 'criteria': 'Steam page describing generational workforce mechanics in a factory or automation game with at least 1,000 reviews.'} |
+| falsifiable signal | {'prediction': 'A factory or automation game in which workers age, train, and are replaced by a simulated next generation will reach 1,000 Steam user reviews.', 'resolve_by': '2029-12-31', 'criteria': 'Title released after 2026-10-24; its Steam page describes generational workforce mechanics (aging, training, succession) in a factory or automation game, and it has at least 1,000 Steam user reviews by the resolve date.'} |
 | priority *(computed)* | 3.318 |
 
 ## Thesis
@@ -37,9 +37,9 @@ Prototype a small automation map where each machine needs a skilled operator dra
 
 ## Falsifiable signal
 
-- **Prediction:** A factory or automation game where workers age, train, and are replaced by a simulated next generation will reach 1,000 Steam reviews.
+- **Prediction:** A factory or automation game in which workers age, train, and are replaced by a simulated next generation will reach 1,000 Steam user reviews.
 - **Resolve by:** 2029-12-31
-- **Criteria:** Steam page describing generational workforce mechanics in a factory or automation game with at least 1,000 reviews.
+- **Criteria:** Title released after 2026-10-24; its Steam page describes generational workforce mechanics (aging, training, succession) in a factory or automation game, and it has at least 1,000 Steam user reviews by the resolve date.
 
 ## Relations
 
@@ -67,4 +67,4 @@ Prototype a small automation map where each machine needs a skilled operator dra
 - [Banished](../game/banished.md)
 
 ---
-Provenance: created in run `2026-10-24-synthesis`.
+Provenance: created in run `2026-10-24-synthesis`; reviewed in `2026-10-24-review-fixes`.

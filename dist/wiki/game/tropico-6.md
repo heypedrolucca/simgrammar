@@ -27,9 +27,9 @@ A political city builder in which El Presidente develops an island archipelago a
 | agent count order | ~1,000 |
 | emergence | 3 |
 | influence | 1 |
-| cluster *(computed)* | C01 |
+| cluster *(computed)* | C04 |
 | core count *(computed)* | 3 |
-| mechanic count *(computed)* | 11 |
+| mechanic count *(computed)* | 12 |
 
 ## Summary
 
@@ -58,10 +58,11 @@ Tropico couples a conventional production and services city builder to a politic
 - [Treasury and budget](../mechanic/budget-treasury.md) (supporting)
 - [Education and workforce](../mechanic/education-workforce.md) (supporting): Skilled jobs require citizens with high school or college education.
 - [Faction diplomacy](../mechanic/faction-diplomacy.md) (supporting): Relations with foreign powers affect trade and aid.
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
 
 ## Sources
 
 - [Tropico 6](../source/src-wikipedia-tropico-6.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-ga`.
+Provenance: created in run `2026-10-24-catalog-ga`; reviewed in `2026-10-24-review-fixes`.

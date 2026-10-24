@@ -18,7 +18,7 @@ Separate players' simulations affect each other asynchronously through shared re
 | compute cost | 2 |
 | tuning difficulty | 3 |
 | ai leverage | 3 |
-| maturity | Emerging |
+| maturity | Established |
 | core count *(computed)* | 1 |
 | earliest game *(computed)* | [Nintendogs](../game/nintendogs.md) |
 | earliest year *(computed)* | 2005 |
@@ -72,4 +72,4 @@ The player is part of a neighborhood without coordinating schedules. They specia
 - [SimCity (2013 video game)](../source/src-wikipedia-simcity-2013.md)
 
 ---
-Provenance: created in run `2026-10-24-taxonomy-m7`.
+Provenance: created in run `2026-10-24-taxonomy-m7`; reviewed in `2026-10-24-review-fixes`.

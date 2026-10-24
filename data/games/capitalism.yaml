@@ -83,8 +83,12 @@ mechanics:
   role: supporting
   note: Advertising units inside firms spend money to raise a product's brand rating, which customers
     weigh with price and quality when choosing among stores.
+- id: variable-speed
+  role: supporting
 sources:
 - src-wikipedia-capitalism-video-game
 status: sourced
 provenance:
   created: 2026-10-24-catalog-ge
+  reviewed:
+  - 2026-10-24-review-fixes

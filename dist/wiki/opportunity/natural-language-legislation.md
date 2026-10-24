@@ -14,7 +14,7 @@ Players write laws in plain language that are compiled into typed policy paramet
 | feasibility | 3 |
 | impact | 3 |
 | horizon | 1-2 years |
-| falsifiable signal | {'prediction': 'A released political or city-building game will let players enact free-text laws that change simulation parameters.', 'resolve_by': '2028-12-31', 'criteria': 'A shipped title (early access counts) whose documentation shows free-text law input mapped to simulation rules.'} |
+| falsifiable signal | {'prediction': 'A political or city-building game will let players enact free-text laws that change simulation parameters.', 'resolve_by': '2028-12-31', 'criteria': 'Feature first shipped after 2026-10-24 (early access counts) in a title with at least 1,000 Steam user reviews; documentation shows free-text law input mapped to changes in simulation rules or parameters.'} |
 | priority *(computed)* | 3.178 |
 
 ## Thesis
@@ -37,9 +37,9 @@ Build a policy compiler over a 40-parameter city model. Collect 300 player-writt
 
 ## Falsifiable signal
 
-- **Prediction:** A released political or city-building game will let players enact free-text laws that change simulation parameters.
+- **Prediction:** A political or city-building game will let players enact free-text laws that change simulation parameters.
 - **Resolve by:** 2028-12-31
-- **Criteria:** A shipped title (early access counts) whose documentation shows free-text law input mapped to simulation rules.
+- **Criteria:** Feature first shipped after 2026-10-24 (early access counts) in a title with at least 1,000 Steam user reviews; documentation shows free-text law input mapped to changes in simulation rules or parameters.
 
 ## Relations
 
@@ -67,4 +67,4 @@ Build a policy compiler over a 40-parameter city model. Collect 300 player-writt
 - [Victoria 3](../game/victoria-3.md)
 
 ---
-Provenance: created in run `2026-10-24-synthesis`.
+Provenance: created in run `2026-10-24-synthesis`; reviewed in `2026-10-24-review-fixes`.

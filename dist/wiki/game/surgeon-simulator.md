@@ -28,7 +28,7 @@ A physics comedy surgery game in which the player controls one hand with separat
 | emergence | 2 |
 | influence | 2 |
 | boundary case | True |
-| cluster *(computed)* | C02 |
+| cluster *(computed)* | C07 |
 | core count *(computed)* | 2 |
 | mechanic count *(computed)* | 4 |
 

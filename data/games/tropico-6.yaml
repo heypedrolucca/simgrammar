@@ -1,8 +1,9 @@
 id: tropico-6
 type: game
 name: Tropico 6
-summary: A political city builder in which El Presidente develops an island archipelago across four eras while individually
-  simulated citizens' happiness and faction loyalties decide elections, protests, and revolts.
+summary: A political city builder in which El Presidente develops an island archipelago across four eras
+  while individually simulated citizens' happiness and faction loyalties decide elections, protests, and
+  revolts.
 year: 2019
 developer: Limbic Entertainment
 platforms:
@@ -36,25 +37,26 @@ production_tier: aa
 agent_count_order: 1k
 emergence: 3
 influence: 1
-core_loop: build housing, jobs, and services across the islands -> each citizen's happiness and faction alignment
-  shift with conditions -> issue edicts, trade, and raid to fund the treasury -> advance through four eras -> win
-  elections or suppress rebels to stay in power
-design_notes: 'Tropico couples a conventional production and services city builder to a political layer: each simulated
-  citizen holds happiness and faction alignments, and those aggregate into election results and rebel recruitment.
-  Edicts and policies trade one faction''s approval against another''s, so building decisions double as political
-  ones. Tropico 6 moves play to an archipelago joined by bridges from the World Wars era onward and organizes progress
-  into Colonial, World Wars, Cold War, and Modern eras.'
+core_loop: build housing, jobs, and services across the islands -> each citizen's happiness and faction
+  alignment shift with conditions -> issue edicts, trade, and raid to fund the treasury -> advance through
+  four eras -> win elections or suppress rebels to stay in power
+design_notes: 'Tropico couples a conventional production and services city builder to a political layer:
+  each simulated citizen holds happiness and faction alignments, and those aggregate into election results
+  and rebel recruitment. Edicts and policies trade one faction''s approval against another''s, so building
+  decisions double as political ones. Tropico 6 moves play to an archipelago joined by bridges from the
+  World Wars era onward and organizes progress into Colonial, World Wars, Cold War, and Modern eras.'
 mechanics:
 - id: interest-groups
   role: core
-  note: Political factions each approve or disapprove of El Presidente based on conditions and decisions that match
-    their ideology.
+  note: Political factions each approve or disapprove of El Presidente based on conditions and decisions
+    that match their ideology.
 - id: elections
   role: core
   note: Elections can be held or rigged; losing one removes El Presidente and ends the game.
 - id: citizen-satisfaction
   role: core
-  note: Each citizen's happiness across categories such as food, housing, and liberty aggregates into approval.
+  note: Each citizen's happiness across categories such as food, housing, and liberty aggregates into
+    approval.
 - id: policy-toggles
   role: supporting
   note: Edicts with costs and effects on factions and citizens.
@@ -77,8 +79,12 @@ mechanics:
 - id: faction-diplomacy
   role: supporting
   note: Relations with foreign powers affect trade and aid.
+- id: variable-speed
+  role: supporting
 sources:
 - src-wikipedia-tropico-6
 status: sourced
 provenance:
   created: 2026-10-24-catalog-ga
+  reviewed:
+  - 2026-10-24-review-fixes

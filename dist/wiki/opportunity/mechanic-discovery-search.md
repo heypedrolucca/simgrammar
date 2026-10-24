@@ -15,7 +15,7 @@ Search the space of rule programs with language-model-guided evolution and agent
 | impact | 4 |
 | horizon | 3-5 years |
 | key risks | Proxies for fun are weak; search optimizes the proxy., Discovered mechanics may be illegible to humans., Compute cost of agent evaluation. |
-| falsifiable signal | {'prediction': 'A shipped commercial game will credit a mechanic to an automated rule-discovery system.', 'resolve_by': '2030-12-31', 'criteria': "Developer statement or paper attributing a shipped mechanic's origin to automated search."} |
+| falsifiable signal | {'prediction': 'A commercial game will credit one of its shipped mechanics to an automated rule-discovery system.', 'resolve_by': '2030-12-31', 'criteria': 'Title released after 2026-10-24 with at least 1,000 Steam user reviews or a console release; a developer statement or paper attributes the origin of a shipped rule to automated search over rule sets.'} |
 | priority *(computed)* | 3.282 |
 
 ## Summary
@@ -42,9 +42,9 @@ Run LLM-guided evolution over rule variants of a small production-chain sim with
 
 ## Falsifiable signal
 
-- **Prediction:** A shipped commercial game will credit a mechanic to an automated rule-discovery system.
+- **Prediction:** A commercial game will credit one of its shipped mechanics to an automated rule-discovery system.
 - **Resolve by:** 2030-12-31
-- **Criteria:** Developer statement or paper attributing a shipped mechanic's origin to automated search.
+- **Criteria:** Title released after 2026-10-24 with at least 1,000 Steam user reviews or a console release; a developer statement or paper attributes the origin of a shipped rule to automated search over rule sets.
 
 ## Relations
 
@@ -69,4 +69,4 @@ Run LLM-guided evolution over rule variants of a small production-chain sim with
 - [SpaceChem](../game/spacechem.md)
 
 ---
-Provenance: created in run `2026-10-24-synthesis`.
+Provenance: created in run `2026-10-24-synthesis`; reviewed in `2026-10-24-review-fixes`.

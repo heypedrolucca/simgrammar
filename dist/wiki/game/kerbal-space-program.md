@@ -29,7 +29,7 @@ A space flight sim where the player assembles rockets from parts and flies them 
 | agent count order | None |
 | emergence | 3 |
 | influence | 4 |
-| cluster *(computed)* | C02 |
+| cluster *(computed)* | C11 |
 | core count *(computed)* | 3 |
 | mechanic count *(computed)* | 15 |
 

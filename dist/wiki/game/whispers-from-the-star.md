@@ -28,7 +28,7 @@ A voice-driven sci-fi narrative game in which the player helps stranded astronau
 | emergence | 2 |
 | influence | 1 |
 | boundary case | True |
-| cluster *(computed)* | C09 |
+| cluster *(computed)* | C08 |
 | core count *(computed)* | 2 |
 | mechanic count *(computed)* | 3 |
 

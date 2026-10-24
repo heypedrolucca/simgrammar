@@ -27,7 +27,7 @@ A swipe-based card game in which the player, as a succession of medieval monarch
 | emergence | 2 |
 | influence | 3 |
 | boundary case | True |
-| cluster *(computed)* | C11 |
+| cluster *(computed)* | C14 |
 | core count *(computed)* | 2 |
 | mechanic count *(computed)* | 5 |
 

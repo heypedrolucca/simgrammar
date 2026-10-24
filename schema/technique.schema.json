@@ -21,7 +21,7 @@
     "runtime": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "x-vocab": "runtime" } },
     "determinism_impact": { "type": "string", "x-vocab": "determinism_impact" },
     "horizon": { "type": "string", "x-vocab": "horizon" },
-    "risks": { "type": "array", "minItems": 1, "maxItems": 5, "uniqueItems": true, "items": { "type": "string", "x-vocab": "risk" } },
+    "risks": { "type": "array", "minItems": 1, "maxItems": 6, "uniqueItems": true, "items": { "type": "string", "x-vocab": "risk" }, "description": "Must include determinism when determinism_impact is breaks (see allOf)." },
     "affects": {
       "type": "array",
       "minItems": 1,
@@ -44,5 +44,8 @@
     "status": { "$ref": "common.schema.json#/$defs/status" },
     "deprecated": { "$ref": "common.schema.json#/$defs/deprecated" },
     "provenance": { "$ref": "common.schema.json#/$defs/provenance" }
-  }
+  },
+  "allOf": [
+    { "description": "A technique that breaks determinism lists determinism among its risks.", "if": { "properties": { "determinism_impact": { "const": "breaks" } }, "required": ["determinism_impact"] }, "then": { "properties": { "risks": { "contains": { "const": "determinism" } } } } }
+  ]
 }

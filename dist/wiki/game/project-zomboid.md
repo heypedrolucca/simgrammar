@@ -29,7 +29,7 @@ An isometric zombie survival sandbox in which one survivor manages moodles, inju
 | influence | 2 |
 | cluster *(computed)* | C05 |
 | core count *(computed)* | 4 |
-| mechanic count *(computed)* | 17 |
+| mechanic count *(computed)* | 18 |
 
 ## Summary
 
@@ -64,6 +64,7 @@ The framing question is how the character dies, not whether: zombie infection is
 - [Permadeath](../mechanic/permadeath.md) (supporting): Death ends the character; a new survivor can start in the same world.
 - [Modding API](../mechanic/modding-api.md) (supporting): Full Lua modding through the Steam Workshop.
 - [Stimulus attraction](../mechanic/stimulus-attraction.md) (core): Zombies respond to sight and hearing, so noise from actions such as gunfire or breaking windows draws them toward the survivor, and hordes migrate.
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
 
 ## Sources
 
@@ -72,4 +73,4 @@ The framing question is how the character dies, not whether: zombie infection is
 - [Moodles](../source/src-pzwiki-2026-moodles.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-gb`.
+Provenance: created in run `2026-10-24-catalog-gb`; reviewed in `2026-10-24-review-fixes`.

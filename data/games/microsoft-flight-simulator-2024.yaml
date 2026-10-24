@@ -79,6 +79,8 @@ mechanics:
   role: supporting
   note: The streamed whole-Earth world of the 2020 game continues, and the launch showed the dependence
     when an overwhelmed database cache caused long loads and missing content.
+- id: variable-speed
+  role: supporting
 influenced_by:
 - microsoft-flight-simulator-2020
 sources:
@@ -86,3 +88,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-catalog-gf
+  reviewed:
+  - 2026-10-24-review-fixes

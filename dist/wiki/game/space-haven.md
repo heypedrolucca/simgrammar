@@ -29,9 +29,9 @@ A spaceship colony sim in which the player builds a ship tile by tile and keeps 
 | emergence | 3 |
 | influence | 1 |
 | influenced by | [RimWorld](../game/rimworld.md), [Dwarf Fortress](../game/dwarf-fortress.md), [Oxygen Not Included](../game/oxygen-not-included.md) |
-| cluster *(computed)* | C04 |
+| cluster *(computed)* | C01 |
 | core count *(computed)* | 4 |
-| mechanic count *(computed)* | 15 |
+| mechanic count *(computed)* | 17 |
 
 ## Summary
 
@@ -70,6 +70,8 @@ Bugbyte describes it as combining RimWorld-style emergent storytelling with a ti
 - [Unit commands](../mechanic/unit-commands.md) (supporting): Crew are drafted and equipped for ground combat and away missions.
 - [Fire spread](../mechanic/fire-spread.md) (supporting): Fire and smoke spread through damaged compartments.
 - [Procedural terrain](../mechanic/procedural-terrain.md) (supporting): Each playthrough generates a new galaxy of sectors, stations, and ships.
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
+- [Utility action selection](../mechanic/utility-action-selection.md) (supporting)
 
 ## Sources
 
@@ -78,4 +80,4 @@ Bugbyte describes it as combining RimWorld-style emergent storytelling with a ti
 - [Space Haven](../source/src-bugbyte-2026-space-haven.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-gb`.
+Provenance: created in run `2026-10-24-catalog-gb`; reviewed in `2026-10-24-review-fixes`.

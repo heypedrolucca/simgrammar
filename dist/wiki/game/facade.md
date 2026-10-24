@@ -28,7 +28,7 @@ A free 2005 interactive drama in which the player types natural language as a di
 | emergence | 2 |
 | influence | 2 |
 | boundary case | True |
-| cluster *(computed)* | C09 |
+| cluster *(computed)* | C08 |
 | core count *(computed)* | 2 |
 | mechanic count *(computed)* | 5 |
 

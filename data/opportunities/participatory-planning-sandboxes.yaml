@@ -40,11 +40,14 @@ validation_experiment: 'Calibrate a traffic and housing model for one district, 
   relative to a slide presentation. Success: significant improvement with participants rating the tool
   as fair.'
 falsifiable_signal:
-  prediction: A city government will publicly use a game-style calibrated simulation with simulated resident
-    feedback in a formal planning consultation.
+  prediction: A city government will use a game-style calibrated simulation with simulated resident feedback
+    in a formal planning consultation.
   resolve_by: '2029-12-31'
-  criteria: Public planning document or press release naming the tool and its use in consultation.
+  criteria: Public planning document or press release dated after 2026-10-24 that names the tool, states
+    that it simulates resident responses, and records its use in an official consultation.
 sources: []
 status: asserted
 provenance:
   created: 2026-10-24-synthesis
+  reviewed:
+  - 2026-10-24-review-fixes

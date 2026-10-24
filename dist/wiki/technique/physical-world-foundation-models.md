@@ -14,7 +14,7 @@ Video-pretrained models of physical dynamics, NVIDIA Cosmos for generating actio
 | runtime | Offline authoring, Server real-time |
 | determinism impact | Breaks |
 | horizon | 5+ years |
-| risks | Consistency / hallucination, Compute cost, Evaluation difficulty, Controllability |
+| risks | Determinism, Consistency / hallucination, Compute cost, Evaluation difficulty, Controllability |
 | builds on | [Massively parallel GPU simulation](../technique/massively-parallel-simulation.md) |
 | affects count *(computed)* | 3 |
 
@@ -60,4 +60,4 @@ Cosmos curates about 20M hours of raw video into about 100M clips, compresses th
 - [Introducing V-JEPA 2 world model and new physical reasoning benchmarks](../source/src-meta-2025-v-jepa-2-blog.md)
 
 ---
-Provenance: created in run `2026-10-24-techniques-world-models`.
+Provenance: created in run `2026-10-24-techniques-world-models`; reviewed in `2026-10-24-review-fixes`.

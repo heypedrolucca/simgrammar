@@ -75,6 +75,14 @@ mechanics:
   role: supporting
   note: Monuments such as pyramids need delivered materials and worker crews over in-game years, and many
     missions require completing them.
+- id: variable-speed
+  role: supporting
+- id: free-placement
+  role: supporting
+- id: fire-spread
+  role: supporting
+- id: storage-capacity
+  role: supporting
 influenced_by:
 - caesar-3
 sources:
@@ -82,3 +90,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-catalog-ga
+  reviewed:
+  - 2026-10-24-review-fixes

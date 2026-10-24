@@ -26,9 +26,9 @@ A medieval town builder in which peasants farm and stockpile for an annual winte
 | agent count order | ~100 |
 | emergence | 2 |
 | influence | 1 |
-| cluster *(computed)* | C05 |
+| cluster *(computed)* | C02 |
 | core count *(computed)* | 2 |
-| mechanic count *(computed)* | 12 |
+| mechanic count *(computed)* | 16 |
 
 ## Summary
 
@@ -58,6 +58,10 @@ Kingdoms and Castles pairs a light town economy with a block-built castle: walls
 - [Renewable regrowth](../mechanic/renewable-regrowth.md) (supporting): Foresters cut and replant trees.
 - [Faction diplomacy](../mechanic/faction-diplomacy.md) (supporting): Diplomats make trade agreements, alliances, and wars with AI kingdoms.
 - [Procedural terrain](../mechanic/procedural-terrain.md) (supporting)
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
+- [Building placement](../mechanic/free-placement.md) (supporting)
+- [Fire spread](../mechanic/fire-spread.md) (supporting)
+- [Storage and buffers](../mechanic/storage-capacity.md) (supporting)
 
 ## Sources
 
@@ -65,4 +69,4 @@ Kingdoms and Castles pairs a light town economy with a block-built castle: walls
 - [Kingdoms and Castles on Steam](../source/src-steam-2026-kingdoms-and-castles.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-ga`.
+Provenance: created in run `2026-10-24-catalog-ga`; reviewed in `2026-10-24-review-fixes`.

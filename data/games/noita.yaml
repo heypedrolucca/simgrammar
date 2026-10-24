@@ -29,6 +29,7 @@ production_tier: indie
 agent_count_order: '100'
 emergence: 4
 influence: 2
+boundary_case: true
 core_loop: descend into a procedurally generated biome -> fight enemies with wands that also reshape the
   pixel world -> survive fire, liquids, and gases set off by fighting -> buy or find spells and rebuild
   wands at the Holy Mountain -> descend again or die and restart
@@ -85,3 +86,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-catalog-gg
+  reviewed:
+  - 2026-10-24-review-fixes

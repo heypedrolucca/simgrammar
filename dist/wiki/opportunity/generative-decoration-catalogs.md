@@ -15,7 +15,7 @@ Let players generate furniture, scenery, and building pieces from text or sketch
 | impact | 3 |
 | horizon | Now |
 | key risks | Copyright and trademark in generated pieces., Player and press backlash against generated assets., Gameplay tags misassigned to generated objects. |
-| falsifiable signal | {'prediction': 'A major life or management sim will ship player-facing generation of placeable 3D objects.', 'resolve_by': '2027-12-31', 'criteria': 'Shipped feature in a title from EA/Maxis, Frontier, Krafton, Paradox, or a peer studio.'} |
+| falsifiable signal | {'prediction': 'A life or management sim other than inZOI will let players generate new placeable 3D objects from text or images.', 'resolve_by': '2027-12-31', 'criteria': 'Feature first shipped after 2026-10-24 in a life or management sim other than inZOI with at least 5,000 Steam user reviews or a console release; store page or patch notes describe player-facing text-to-3D or image-to-3D object generation inside the game.'} |
 | priority *(computed)* | 3.059 |
 
 ## Summary
@@ -42,9 +42,9 @@ Generate 200 decor items from player prompts within a game's style guide; have a
 
 ## Falsifiable signal
 
-- **Prediction:** A major life or management sim will ship player-facing generation of placeable 3D objects.
+- **Prediction:** A life or management sim other than inZOI will let players generate new placeable 3D objects from text or images.
 - **Resolve by:** 2027-12-31
-- **Criteria:** Shipped feature in a title from EA/Maxis, Frontier, Krafton, Paradox, or a peer studio.
+- **Criteria:** Feature first shipped after 2026-10-24 in a life or management sim other than inZOI with at least 5,000 Steam user reviews or a console release; store page or patch notes describe player-facing text-to-3D or image-to-3D object generation inside the game.
 
 ## Relations
 
@@ -70,4 +70,4 @@ Generate 200 decor items from player prompts within a game's style guide; have a
 - [Tiny Glade](../game/tiny-glade.md)
 
 ---
-Provenance: created in run `2026-10-24-synthesis`.
+Provenance: created in run `2026-10-24-synthesis`; reviewed in `2026-10-24-review-fixes`.

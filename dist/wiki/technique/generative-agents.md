@@ -14,7 +14,7 @@ LLM-driven characters that store observations in a natural-language memory strea
 | runtime | Server real-time, Client real-time |
 | determinism impact | Breaks |
 | horizon | Now |
-| risks | Compute cost, Consistency / hallucination, Latency, Controllability, Evaluation difficulty |
+| risks | Determinism, Compute cost, Consistency / hallucination, Latency, Controllability, Evaluation difficulty |
 | builds on |  |
 | deployed in | [Generative Agents (Smallville)](../game/generative-agents-smallville.md), [inZOI](../game/inzoi.md) |
 | affects count *(computed)* | 9 |
@@ -85,4 +85,4 @@ Each agent appends observations as natural-language records to a memory stream. 
 - [inZOI on Steam](../source/src-steam-2025-inzoi.md)
 
 ---
-Provenance: created in run `2026-10-24-techniques-llm-agents`; reviewed in `2026-10-24-technique-links`.
+Provenance: created in run `2026-10-24-techniques-llm-agents`; reviewed in `2026-10-24-technique-links`, `2026-10-24-review-fixes`.

@@ -14,7 +14,7 @@ Action-conditioned generative models trained on recordings of one existing game 
 | runtime | Server real-time, Client real-time |
 | determinism impact | Breaks |
 | horizon | 3-5 years |
-| risks | Consistency / hallucination, Compute cost, Controllability, IP / provenance, Latency |
+| risks | Determinism, Consistency / hallucination, Compute cost, Controllability, IP / provenance, Latency |
 | affects count *(computed)* | 5 |
 
 ## Summary
@@ -78,4 +78,4 @@ A game is recorded as pairs of frames and player actions (from an RL agent in Ga
 - [MineWorld: a Real-Time and Open-Source Interactive World Model on Minecraft](../source/src-guo-2025-mineworld.md)
 
 ---
-Provenance: created in run `2026-10-24-techniques-world-models`.
+Provenance: created in run `2026-10-24-techniques-world-models`; reviewed in `2026-10-24-review-fixes`.

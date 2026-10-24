@@ -28,7 +28,7 @@ A workshop sim in which the player takes email jobs to build, upgrade, repair, a
 | agent count order | None |
 | emergence | 1 |
 | influence | 1 |
-| cluster *(computed)* | C02 |
+| cluster *(computed)* | C15 |
 | core count *(computed)* | 3 |
 | mechanic count *(computed)* | 6 |
 

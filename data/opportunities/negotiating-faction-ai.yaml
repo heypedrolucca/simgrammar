@@ -41,12 +41,15 @@ validation_experiment: 'In a five-faction diplomacy sandbox, compare menu-only A
   Success: higher plausibility and a commitment-keeping rate above 80 percent without exploitable persuasion
   loops in red-team play.'
 falsifiable_signal:
-  prediction: A major grand strategy or 4X release will ship AI opponents that negotiate through free-text
-    or generated-language diplomacy backed by a planner.
+  prediction: A grand strategy or 4X game will ship AI opponents that negotiate in free-text or generated-language
+    diplomacy backed by a planner.
   resolve_by: '2029-06-30'
-  criteria: Developer statement or documentation describing language-based AI diplomacy in a title from
-    Paradox, Firaxis, Amplitude, or a peer studio.
+  criteria: Feature first shipped after 2026-10-24 in a grand strategy or 4X title with at least 5,000
+    Steam user reviews; developer statement or documentation describes language-based AI diplomacy whose
+    offers are chosen by a planner or game-state evaluation.
 sources: []
 status: asserted
 provenance:
   created: 2026-10-24-synthesis
+  reviewed:
+  - 2026-10-24-review-fixes

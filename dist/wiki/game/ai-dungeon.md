@@ -28,7 +28,7 @@ A text adventure in which a large language model continues the story after each 
 | emergence | 2 |
 | influence | 3 |
 | boundary case | True |
-| cluster *(computed)* | C09 |
+| cluster *(computed)* | C08 |
 | core count *(computed)* | 2 |
 | mechanic count *(computed)* | 4 |
 

@@ -27,7 +27,7 @@ A five-stage game in which the player guides a species from cell to galactic emp
 | agent count order | ~100 |
 | emergence | 2 |
 | influence | 2 |
-| cluster *(computed)* | C02 |
+| cluster *(computed)* | C11 |
 | core count *(computed)* | 3 |
 | mechanic count *(computed)* | 8 |
 

@@ -6,8 +6,10 @@ whitespace:
   min_prevalence_share: 0.08   # both mechanics used by at least this share of games
   max_observed: 1              # pair co-occurs at most this many times
   exclude_same_family: true
+  exclude_families: [time-pacing]   # pacing controls are interface choices fixed by the time model, not design gaps
   top_n: 30
 clustering:
-  k: 12                    # number of game clusters (average linkage on Jaccard distance of mechanic sets)
+  k: 16                    # number of game clusters (average linkage on weighted Jaccard distance); 16 is the smallest k at which city builders separate into the zoning lineage and the production-chain lineage
   core_weight: 2.0         # weight of core vs supporting mechanics in game vectors
+  idf: true                # weight each mechanic by log(N / prevalence) so ubiquitous mechanics (pause, placement) do not dominate
   top_mechanics_per_cluster: 5

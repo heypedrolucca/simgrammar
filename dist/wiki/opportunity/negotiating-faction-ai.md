@@ -14,7 +14,7 @@ Grand strategy rivals that negotiate in language and plan around their promises,
 | feasibility | 3 |
 | impact | 3 |
 | horizon | 1-2 years |
-| falsifiable signal | {'prediction': 'A major grand strategy or 4X release will ship AI opponents that negotiate through free-text or generated-language diplomacy backed by a planner.', 'resolve_by': '2029-06-30', 'criteria': 'Developer statement or documentation describing language-based AI diplomacy in a title from Paradox, Firaxis, Amplitude, or a peer studio.'} |
+| falsifiable signal | {'prediction': 'A grand strategy or 4X game will ship AI opponents that negotiate in free-text or generated-language diplomacy backed by a planner.', 'resolve_by': '2029-06-30', 'criteria': 'Feature first shipped after 2026-10-24 in a grand strategy or 4X title with at least 5,000 Steam user reviews; developer statement or documentation describes language-based AI diplomacy whose offers are chosen by a planner or game-state evaluation.'} |
 | priority *(computed)* | 3.0 |
 
 ## Thesis
@@ -37,9 +37,9 @@ In a five-faction diplomacy sandbox, compare menu-only AI with planner-plus-dial
 
 ## Falsifiable signal
 
-- **Prediction:** A major grand strategy or 4X release will ship AI opponents that negotiate through free-text or generated-language diplomacy backed by a planner.
+- **Prediction:** A grand strategy or 4X game will ship AI opponents that negotiate in free-text or generated-language diplomacy backed by a planner.
 - **Resolve by:** 2029-06-30
-- **Criteria:** Developer statement or documentation describing language-based AI diplomacy in a title from Paradox, Firaxis, Amplitude, or a peer studio.
+- **Criteria:** Feature first shipped after 2026-10-24 in a grand strategy or 4X title with at least 5,000 Steam user reviews; developer statement or documentation describes language-based AI diplomacy whose offers are chosen by a planner or game-state evaluation.
 
 ## Relations
 
@@ -65,4 +65,4 @@ In a five-faction diplomacy sandbox, compare menu-only AI with planner-plus-dial
 - [Balance of Power](../game/balance-of-power.md)
 
 ---
-Provenance: created in run `2026-10-24-synthesis`.
+Provenance: created in run `2026-10-24-synthesis`; reviewed in `2026-10-24-review-fixes`.

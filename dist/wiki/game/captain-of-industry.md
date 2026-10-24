@@ -28,9 +28,9 @@ An industrial colony builder in which the player reshapes island terrain with ex
 | emergence | 3 |
 | influence | 1 |
 | influenced by |  |
-| cluster *(computed)* | C01 |
+| cluster *(computed)* | C02 |
 | core count *(computed)* | 6 |
-| mechanic count *(computed)* | 20 |
+| mechanic count *(computed)* | 22 |
 
 ## Summary
 
@@ -68,6 +68,8 @@ Captain of Industry joins a factory game to a settlement whose population is bot
 - [Periodic ticks](../mechanic/periodic-ticks.md) (supporting): Unity income, population change, edict costs, and maintenance breakdown rolls resolve monthly.
 - [Political capital](../mechanic/political-capital.md) (supporting): Each fully satisfied settlement need yields about 1 to 2 Unity per month, spent on edicts, outposts, quick trades, instant construction, and emergency repairs.
 - [Machine boosting](../mechanic/machine-boosting.md) (supporting): Unity is spent on building boosts (0.25 Unity each) that speed up individual buildings.
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
+- [Building placement](../mechanic/free-placement.md) (supporting)
 
 ## Backlinks (computed)
 
@@ -86,4 +88,4 @@ Captain of Industry joins a factory game to a settlement whose population is bot
 - [Dumping Designation](../source/src-coiwiki-2026-dumping-designation.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-gh`.
+Provenance: created in run `2026-10-24-catalog-gh`; reviewed in `2026-10-24-review-fixes`.

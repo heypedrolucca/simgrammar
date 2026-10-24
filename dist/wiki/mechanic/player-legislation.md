@@ -18,7 +18,7 @@ Players author, propose, and vote on rules that the game then enforces inside a 
 | compute cost | 1 |
 | tuning difficulty | 4 |
 | ai leverage | 4 |
-| maturity | Emerging |
+| maturity | Established |
 | core count *(computed)* | 2 |
 | earliest game *(computed)* | [A Tale in the Desert](../game/a-tale-in-the-desert.md) |
 | earliest year *(computed)* | 2003 |
@@ -80,4 +80,4 @@ Politics with real teeth. Players argue about what should be allowed, draft rule
 - [Eco (2018 video game)](../source/src-wikipedia-eco-2018.md)
 
 ---
-Provenance: created in run `2026-10-24-taxonomy-m2`.
+Provenance: created in run `2026-10-24-taxonomy-m2`; reviewed in `2026-10-24-review-fixes`.

@@ -28,7 +28,7 @@ A town-building toy in which clicking colored blocks onto an irregular grid lets
 | emergence | 2 |
 | influence | 2 |
 | boundary case | True |
-| cluster *(computed)* | C03 |
+| cluster *(computed)* | C16 |
 | core count *(computed)* | 1 |
 | mechanic count *(computed)* | 3 |
 

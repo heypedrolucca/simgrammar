@@ -14,7 +14,7 @@ Each agent has needs such as hunger, energy, social, and fun that decay over tim
 | player interface | Observation only, Placement |
 | legibility | 4 |
 | emergence potential | 3 |
-| authoring cost | 3 |
+| authoring cost | 2 |
 | compute cost | 2 |
 | tuning difficulty | 3 |
 | ai leverage | 3 |
@@ -77,4 +77,4 @@ Constant low-grade triage. The player reads meters, anticipates which need will 
 **used by:** [Black & White](../game/black-and-white.md), [Creatures](../game/creatures.md), [Dwarf Fortress](../game/dwarf-fortress.md), [Going Medieval](../game/going-medieval.md), [inZOI](../game/inzoi.md), [Jurassic World Evolution](../game/jurassic-world-evolution.md), [Little Computer People](../game/little-computer-people.md), [Nintendogs](../game/nintendogs.md), [Papers, Please](../game/papers-please.md), [Paralives](../game/paralives.md), [Planet Coaster](../game/planet-coaster.md), [Planet Zoo](../game/planet-zoo.md), [Princess Maker 2](../game/princess-maker-2.md), [Prison Architect](../game/prison-architect.md), [RimWorld](../game/rimworld.md), [RollerCoaster Tycoon](../game/rollercoaster-tycoon.md), [Songs of Syx](../game/songs-of-syx.md), [Space Haven](../game/space-haven.md), [Surviving Mars](../game/surviving-mars.md), [Tamagotchi](../game/tamagotchi.md), [The Sims](../game/the-sims.md), [The Sims 2](../game/the-sims-2.md), [The Sims 3](../game/the-sims-3.md), [The Sims 4](../game/the-sims-4.md), [Theme Hospital](../game/theme-hospital.md), [Theme Park](../game/theme-park.md), [This War of Mine](../game/this-war-of-mine.md), [Timberborn](../game/timberborn.md), [Two Point Hospital](../game/two-point-hospital.md), [Zoo Tycoon](../game/zoo-tycoon.md)
 
 ---
-Provenance: created in run `2026-10-23-bootstrap`.
+Provenance: created in run `2026-10-23-bootstrap`; reviewed in `2026-10-24-review-fixes`.

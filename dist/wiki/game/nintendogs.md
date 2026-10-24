@@ -26,7 +26,7 @@ A Nintendo DS puppy sim in which the player pets, washes, feeds, and walks up to
 | agent count order | ~1 |
 | emergence | 2 |
 | influence | 3 |
-| cluster *(computed)* | C04 |
+| cluster *(computed)* | C13 |
 | core count *(computed)* | 2 |
 | mechanic count *(computed)* | 7 |
 

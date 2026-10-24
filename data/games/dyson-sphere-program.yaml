@@ -116,6 +116,8 @@ mechanics:
   note: Logistics stations set each item slot to local or remote supply, demand, or storage and are paired
     automatically by priority; up to 100 drones per station haul within a planet and 10 vessels between
     planets, with range and minimum-load sliders.
+- id: free-placement
+  role: supporting
 influenced_by:
 - stellaris
 claims:
@@ -138,3 +140,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-catalog-gh
+  reviewed:
+  - 2026-10-24-review-fixes

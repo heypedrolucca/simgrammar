@@ -42,12 +42,15 @@ validation_experiment: 'Instrument an open-source simulation (a city or colony s
   to correct diagnosis and the share of answer sentences whose cited events actually support them (human
   audit). Success: 40 percent faster diagnosis with at least 95 percent supported sentences.'
 falsifiable_signal:
-  prediction: A simulation or strategy title in Steam's top 100 by concurrent players will ship a natural-language
-    why-query grounded in game state.
+  prediction: A widely played simulation or strategy game will let players ask in natural language why
+    something happened in their own game and answer from game state.
   resolve_by: '2027-12-31'
-  criteria: Official release notes or store page describing a player-facing feature that answers causal
-    questions about the player's own game state in natural language.
+  criteria: Feature first shipped after 2026-10-24 in a title with at least 10,000 Steam user reviews;
+    release notes or the store page describe free-text causal questions answered from the player's own
+    save state, not from a wiki or general help text.
 sources: []
 status: asserted
 provenance:
   created: 2026-10-24-synthesis
+  reviewed:
+  - 2026-10-24-review-fixes

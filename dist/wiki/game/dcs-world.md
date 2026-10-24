@@ -28,9 +28,9 @@ A combat flight sim platform of study-level aircraft modules with clickable cock
 | agent count order | ~100 |
 | emergence | 3 |
 | influence | 3 |
-| cluster *(computed)* | C06 |
+| cluster *(computed)* | C03 |
 | core count *(computed)* | 3 |
-| mechanic count *(computed)* | 9 |
+| mechanic count *(computed)* | 10 |
 
 ## Summary
 
@@ -56,7 +56,8 @@ DCS treats each aircraft as a set of subsystems (engines, fuel, electrical, hydr
 - [Modding API](../mechanic/modding-api.md) (supporting): Lua mission scripting and third-party module development extend the platform.
 - [Weather](../mechanic/weather.md) (supporting)
 - [Projectile ballistics](../mechanic/projectile-ballistics.md) (supporting): Missiles, bombs, and gun rounds fly as simulated projectiles, so release parameters such as speed, altitude, and range decide hits.
-- [Subsystem damage](../mechanic/subsystem-damage.md) (supporting): Damage affects individual modeled subsystems such as engines, hydraulics, and electrical systems, changing how the aircraft flies and what still works.
+- [Subsystem damage](../mechanic/subsystem-damage.md) (supporting): Modules carry damage models, revised over the platform's development, so hits degrade the aircraft's modeled systems and how it flies.
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
 
 ## Backlinks (computed)
 
@@ -64,11 +65,11 @@ DCS treats each aircraft as a set of subsystems (engines, fuel, electrical, hydr
 
 ## Claims
 
-- The `year` value records the 2008 release of DCS: Black Shark, the first DCS title (Russia 17 October, English 10 December 2008); the free DCS World platform entered open beta in May 2012. *(confidence: medium)* [[16](../source/src-wikipedia-dcs-world.md)]
+- The `year` value records 2008, when DCS: Black Shark, the first standalone DCS title, was released; the free DCS World platform entered open beta in May 2012. *(confidence: medium)* [[16](../source/src-wikipedia-dcs-world.md)]
 
 ## Sources
 
 - [DCS World](../source/src-wikipedia-dcs-world.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-gf`.
+Provenance: created in run `2026-10-24-catalog-gf`; reviewed in `2026-10-24-review-fixes`.

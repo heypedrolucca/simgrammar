@@ -97,6 +97,10 @@ mechanics:
   note: Each Sim's aspiration (one of eight, such as Romance, Family, Knowledge, or Popularity) biases
     which wants and fears roll; fulfilled wants fill the aspiration meter, realized fears drain it, and
     an elder's remaining life depends on the meter.
+- id: variable-speed
+  role: supporting
+- id: utility-action-selection
+  role: supporting
 influenced_by:
 - the-sims
 sources:
@@ -105,3 +109,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-catalog-gc
+  reviewed:
+  - 2026-10-24-review-fixes

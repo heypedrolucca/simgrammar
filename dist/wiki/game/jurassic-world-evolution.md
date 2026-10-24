@@ -26,9 +26,9 @@ A dinosaur park management game in which the player excavates fossils for DNA, b
 | agent count order | ~100 |
 | emergence | 3 |
 | influence | 2 |
-| cluster *(computed)* | C08 |
+| cluster *(computed)* | C02 |
 | core count *(computed)* | 4 |
-| mechanic count *(computed)* | 12 |
+| mechanic count *(computed)* | 13 |
 
 ## Summary
 
@@ -58,10 +58,11 @@ Jurassic World Evolution turns a park sim into a containment problem. Each speci
 - [Contagion](../mechanic/contagion.md) (supporting): Diseases spread among dinosaurs and must be treated by rangers or ACU.
 - [Building placement](../mechanic/free-placement.md) (supporting)
 - [Milestone unlocks](../mechanic/milestone-unlocks.md) (supporting): Island star ratings unlock the next island in the Las Cinco Muertes archipelago.
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
 
 ## Sources
 
 - [Jurassic World Evolution](../source/src-wikipedia-jurassic-world-evolution.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-ge`.
+Provenance: created in run `2026-10-24-catalog-ge`; reviewed in `2026-10-24-review-fixes`.

@@ -28,9 +28,9 @@ An economic grand strategy game set from 1836 to 1936 in which the player indust
 | agent count order | Aggregate only |
 | emergence | 3 |
 | influence | 2 |
-| cluster *(computed)* | C01 |
+| cluster *(computed)* | C04 |
 | core count *(computed)* | 4 |
-| mechanic count *(computed)* | 18 |
+| mechanic count *(computed)* | 19 |
 
 ## Summary
 
@@ -75,6 +75,7 @@ Victoria 3 moves the player's main lever from units to the economy: the player q
 - [Culture and religion conversion](../mechanic/culture-religion-conversion.md) (supporting): Pops carry a culture and a religion; over time pops assimilate toward primary cultures and convert toward the state religion, and citizenship and church laws decide which identities face discrimination.
 - [Territorial control](../mechanic/territorial-control.md) (supporting): States change hands through diplomatic plays and wars, and newly acquired states are incorporated over time before they count fully.
 - [War score and peace terms](../mechanic/war-score-peace.md) (supporting): Each side's war support falls with exhaustion until one capitulates or the sides settle on the demands from the diplomatic play.
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
 
 ## Backlinks (computed)
 
@@ -90,4 +91,4 @@ Victoria 3 moves the player's main lever from units to the economy: the player q
 - [Victoria 3 Dev Diary #74 - UX Improvements](../source/src-paradox-2023-victoria-3-dev-diary-74.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-gi`.
+Provenance: created in run `2026-10-24-catalog-gi`; reviewed in `2026-10-24-review-fixes`.

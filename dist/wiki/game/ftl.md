@@ -27,7 +27,7 @@ A roguelite starship sim where the player allocates reactor power and directs cr
 | agent count order | ~10 |
 | emergence | 3 |
 | influence | 3 |
-| cluster *(computed)* | C02 |
+| cluster *(computed)* | C01 |
 | core count *(computed)* | 6 |
 | mechanic count *(computed)* | 14 |
 

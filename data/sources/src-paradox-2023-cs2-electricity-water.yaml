@@ -1,0 +1,13 @@
+id: src-paradox-2023-cs2-electricity-water
+type: source
+name: "Cities: Skylines II features: Electricity and Water"
+kind: docs
+authors:
+  - Paradox Interactive
+venue: paradoxinteractive.com
+date: "2023"
+url: https://www.paradoxinteractive.com/games/cities-skylines-ii/features/electricity-water
+accessed: "2026-10-24"
+notes: Solar output depends on weather and time of day, wind turbines on wind strength; batteries and accumulators store surplus power; power flows through a connected grid.
+provenance:
+  created: 2026-10-24-review-fixes

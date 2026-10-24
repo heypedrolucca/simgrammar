@@ -26,7 +26,7 @@ The first god game, in which the player raises and lowers land so followers can 
 | agent count order | ~100 |
 | emergence | 2 |
 | influence | 5 |
-| cluster *(computed)* | C07 |
+| cluster *(computed)* | C10 |
 | core count *(computed)* | 2 |
 | mechanic count *(computed)* | 5 |
 

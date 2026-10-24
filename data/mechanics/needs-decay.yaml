@@ -42,7 +42,7 @@ player_interface:
 - placement
 legibility: 4
 emergence_potential: 3
-authoring_cost: 3
+authoring_cost: 2
 compute_cost: 2
 tuning_difficulty: 3
 ai_leverage: 3
@@ -58,3 +58,5 @@ sources: []
 status: asserted
 provenance:
   created: 2026-10-23-bootstrap
+  reviewed:
+  - 2026-10-24-review-fixes

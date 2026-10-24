@@ -55,7 +55,7 @@ authoring_cost: 2
 compute_cost: 2
 tuning_difficulty: 4
 ai_leverage: 4
-maturity: experimental
+maturity: established
 synergy:
 - id: god-powers
   note: The creature learns from how the god acts, making the player's own behavior a training signal
@@ -70,3 +70,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-taxonomy-m3
+  reviewed:
+  - 2026-10-24-review-fixes

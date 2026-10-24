@@ -14,7 +14,7 @@ Flight, driving, and procedure sims with a voice instructor that watches inputs 
 | feasibility | 4 |
 | impact | 3 |
 | horizon | Now |
-| falsifiable signal | {'prediction': 'A major flight or racing simulator will ship an AI voice instructor that comments on live telemetry.', 'resolve_by': '2027-12-31', 'criteria': 'Official feature in Microsoft Flight Simulator, X-Plane, DCS, iRacing, Gran Turismo, or a peer title.'} |
+| falsifiable signal | {'prediction': 'A flight or racing simulator will ship an AI voice instructor that comments on live telemetry.', 'resolve_by': '2027-12-31', 'criteria': "Official feature first shipped after 2026-10-24 in a flight or racing simulator with at least 5,000 Steam user reviews or a console release; the instructor speaks generated feedback based on the player's live inputs. Third-party apps do not count."} |
 | priority *(computed)* | 3.059 |
 
 ## Thesis
@@ -37,9 +37,9 @@ Add a telemetry-grounded voice instructor to a flight sim landing lesson; compar
 
 ## Falsifiable signal
 
-- **Prediction:** A major flight or racing simulator will ship an AI voice instructor that comments on live telemetry.
+- **Prediction:** A flight or racing simulator will ship an AI voice instructor that comments on live telemetry.
 - **Resolve by:** 2027-12-31
-- **Criteria:** Official feature in Microsoft Flight Simulator, X-Plane, DCS, iRacing, Gran Turismo, or a peer title.
+- **Criteria:** Official feature first shipped after 2026-10-24 in a flight or racing simulator with at least 5,000 Steam user reviews or a console release; the instructor speaks generated feedback based on the player's live inputs. Third-party apps do not count.
 
 ## Relations
 
@@ -66,4 +66,4 @@ Add a telemetry-grounded voice instructor to a flight sim landing lesson; compar
 - [Euro Truck Simulator 2](../game/euro-truck-simulator-2.md)
 
 ---
-Provenance: created in run `2026-10-24-synthesis`.
+Provenance: created in run `2026-10-24-synthesis`; reviewed in `2026-10-24-review-fixes`.

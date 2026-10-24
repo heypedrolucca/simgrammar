@@ -27,7 +27,7 @@ An educational turn-based travel sim in which the player buys supplies and sets 
 | agent count order | None |
 | emergence | 2 |
 | influence | 4 |
-| cluster *(computed)* | C05 |
+| cluster *(computed)* | C12 |
 | core count *(computed)* | 3 |
 | mechanic count *(computed)* | 5 |
 

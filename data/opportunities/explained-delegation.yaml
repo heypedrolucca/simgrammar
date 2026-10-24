@@ -38,11 +38,15 @@ validation_experiment: 'Train a manager by imitation on a player''s first 10 hou
   prototype, then measure agreement with the player''s choices in held-out situations and player trust
   ratings. Success: 75 percent agreement and higher trust than the baseline AI manager.'
 falsifiable_signal:
-  prediction: A grand strategy or management game will ship AI managers that learn from the individual
-    player's past decisions.
+  prediction: A grand strategy or management game will ship AI managers that learn delegation policy from
+    the individual player's own past decisions.
   resolve_by: '2028-12-31'
-  criteria: Developer documentation describing per-player preference learning for delegated subsystems.
+  criteria: Feature first shipped after 2026-10-24 in a title with at least 1,000 Steam user reviews;
+    developer documentation states that delegated subsystems adapt to the specific player's recorded choices.
+    Fixed presets or global difficulty settings do not count.
 sources: []
 status: asserted
 provenance:
   created: 2026-10-24-synthesis
+  reviewed:
+  - 2026-10-24-review-fixes

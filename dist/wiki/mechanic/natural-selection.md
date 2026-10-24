@@ -18,7 +18,7 @@ Differential survival and reproduction by fitness shifts trait distributions acr
 | compute cost | 3 |
 | tuning difficulty | 4 |
 | ai leverage | 3 |
-| maturity | Experimental |
+| maturity | Established |
 | requires | [Trait inheritance](../mechanic/trait-inheritance.md) |
 | core count *(computed)* | 3 |
 | earliest game *(computed)* | [SimEarth](../game/simearth.md) |
@@ -90,4 +90,4 @@ The player shifts from designer to gardener: setting conditions and watching whi
 - [Spore (2008 video game)](../source/src-wikipedia-spore.md)
 
 ---
-Provenance: created in run `2026-10-24-taxonomy-m3`.
+Provenance: created in run `2026-10-24-taxonomy-m3`; reviewed in `2026-10-24-review-fixes`.

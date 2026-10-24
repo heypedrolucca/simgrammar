@@ -28,9 +28,9 @@ A zoo management game where the player builds habitats to meet each species' wel
 | emergence | 3 |
 | influence | 2 |
 | influenced by | [Zoo Tycoon](../game/zoo-tycoon.md), [Planet Coaster](../game/planet-coaster.md) |
-| cluster *(computed)* | C03 |
+| cluster *(computed)* | C01 |
 | core count *(computed)* | 3 |
-| mechanic count *(computed)* | 13 |
+| mechanic count *(computed)* | 15 |
 
 ## Summary
 
@@ -66,6 +66,8 @@ Planet Zoo gives each animal species a requirements profile (habitat size, land 
 - [Content sharing](../mechanic/content-sharing.md) (supporting): Habitat and building blueprints are shared on the Steam Workshop.
 - [Day-night cycle](../mechanic/day-night-cycle.md) (supporting)
 - [Weather](../mechanic/weather.md) (supporting)
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
+- [Building placement](../mechanic/free-placement.md) (supporting)
 
 ## Backlinks (computed)
 
@@ -76,4 +78,4 @@ Planet Zoo gives each animal species a requirements profile (habitat size, land 
 - [Planet Zoo](../source/src-wikipedia-planet-zoo.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-ge`.
+Provenance: created in run `2026-10-24-catalog-ge`; reviewed in `2026-10-24-review-fixes`.

@@ -28,7 +28,7 @@ A turn-based 4X game in which the player guides a civilization from 4000 BC towa
 | emergence | 3 |
 | influence | 5 |
 | influenced by | [SimCity](../game/simcity-1989.md), [Populous](../game/populous.md), [Railroad Tycoon](../game/railroad-tycoon.md) |
-| cluster *(computed)* | C01 |
+| cluster *(computed)* | C04 |
 | core count *(computed)* | 3 |
 | mechanic count *(computed)* | 13 |
 

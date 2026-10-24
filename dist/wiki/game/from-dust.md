@@ -28,7 +28,7 @@ A god game in which the player carries sand, water, and lava across islands whos
 | emergence | 3 |
 | influence | 2 |
 | influenced by | [Populous](../game/populous.md) |
-| cluster *(computed)* | C07 |
+| cluster *(computed)* | C10 |
 | core count *(computed)* | 3 |
 | mechanic count *(computed)* | 8 |
 

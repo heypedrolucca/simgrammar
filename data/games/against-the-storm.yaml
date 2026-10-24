@@ -1,8 +1,9 @@
 id: against-the-storm
 type: game
 name: Against the Storm
-summary: A roguelite city builder in which each settlement must fill a reputation gauge before the Queen's impatience
-  runs out, balancing three villager species' needs while opening dangerous forest glades under a recurring blightstorm.
+summary: A roguelite city builder in which each settlement must fill a reputation gauge before the Queen's
+  impatience runs out, balancing three villager species' needs while opening dangerous forest glades under
+  a recurring blightstorm.
 year: 2021
 year_full_release: 2023
 developer: Eremite Games
@@ -32,31 +33,32 @@ production_tier: indie
 agent_count_order: '100'
 emergence: 3
 influence: 2
-core_loop: embark with three species and a few goods -> build camps, production, and housing in a cleared glade
-  -> meet each species' needs to keep it content -> complete orders and open glades for reputation -> win before
-  the Queen's impatience fills -> carry rewards to the Smoldering City
-design_notes: 'Against the Storm compresses a city builder into short runs: each settlement is a fresh generated
-  map with a race between two gauges, reputation that the player fills and the Queen''s impatience that fills on
-  its own, and earning reputation also lowers impatience. Each village hosts three of seven species with distinct
-  housing, food, luxury, and recreation preferences, so the same production network must serve conflicting demands.
-  Rewards carry over to upgrade the Smoldering City between runs, a meta-progression system the taxonomy lacks (see
-  run proposal).'
+core_loop: embark with three species and a few goods -> build camps, production, and housing in a cleared
+  glade -> meet each species' needs to keep it content -> complete orders and open glades for reputation
+  -> win before the Queen's impatience fills -> carry rewards to the Smoldering City
+design_notes: 'Against the Storm compresses a city builder into short runs: each settlement is a fresh
+  generated map with a race between two gauges, reputation that the player fills and the Queen''s impatience
+  that fills on its own, and earning reputation also lowers impatience. Each village hosts three of seven
+  species with distinct housing, food, luxury, and recreation preferences, so the same production network
+  must serve conflicting demands. Rewards carry over to upgrade the Smoldering City between runs, a meta-progression
+  system the taxonomy lacks (see run proposal).'
 mechanics:
 - id: crisis-countdown
   role: core
-  note: The Queen's Impatience gauge fills over time and recalls the player when full; recurring storms raise pressure
-    between calm periods.
+  note: The Queen's Impatience gauge fills over time and recalls the player when full; recurring storms
+    raise pressure between calm periods.
 - id: scenario-objectives
   role: core
-  note: Each settlement is won by filling the Reputation gauge through orders, villager contentment, and opened
-    glades.
+  note: Each settlement is won by filling the Reputation gauge through orders, villager contentment, and
+    opened glades.
 - id: production-chain
   role: core
-  note: Production buildings convert goods by recipes such as raincoats, ale, and pies, chosen from a run-specific
-    building set.
+  note: Production buildings convert goods by recipes such as raincoats, ale, and pies, chosen from a
+    run-specific building set.
 - id: citizen-satisfaction
   role: core
-  note: Contentment per species responds to met needs; discontented villagers leave and content ones raise reputation.
+  note: Contentment per species responds to met needs; discontented villagers leave and content ones raise
+    reputation.
 - id: population-strata
   role: supporting
   note: Seven species with distinct preferences; three per village.
@@ -78,6 +80,10 @@ mechanics:
 - id: trade-routes
   role: supporting
   note: A visiting trader's wares change each year.
+- id: variable-speed
+  role: supporting
+- id: free-placement
+  role: supporting
 sources:
 - src-wikipedia-against-the-storm
 - src-pcgamingwiki-2026-against-the-storm
@@ -85,3 +91,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-catalog-ga
+  reviewed:
+  - 2026-10-24-review-fixes

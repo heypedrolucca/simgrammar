@@ -38,11 +38,15 @@ validation_experiment: 'Train a layout generator on open street-network data and
   districts with and without assist on build time and simulated performance. Success: 50 percent less
   build time at equal or better simulated metrics, with players preferring assist.'
 falsifiable_signal:
-  prediction: A commercial city builder will ship a learned layout generator that converts player gestures
-    into detailed districts.
+  prediction: A city builder will ship a machine-learned layout generator that turns player strokes into
+    detailed streets or districts.
   resolve_by: '2028-06-30'
-  criteria: Developer documentation naming a learned or data-driven layout model in a shipped feature.
+  criteria: Feature first shipped after 2026-10-24 in a title with at least 1,000 Steam user reviews;
+    developer documentation states that a model trained on layout data, as opposed to hand-written procedural
+    rules, generates the layout from player brushes or strokes.
 sources: []
 status: asserted
 provenance:
   created: 2026-10-24-synthesis
+  reviewed:
+  - 2026-10-24-review-fixes

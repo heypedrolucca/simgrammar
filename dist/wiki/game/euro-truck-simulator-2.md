@@ -28,7 +28,7 @@ A truck driving sim in which the player hauls timed cargo deliveries across a sc
 | agent count order | ~100 |
 | emergence | 2 |
 | influence | 3 |
-| cluster *(computed)* | C06 |
+| cluster *(computed)* | C03 |
 | core count *(computed)* | 2 |
 | mechanic count *(computed)* | 11 |
 

@@ -28,9 +28,9 @@ A real-time economic strategy game on Mars where companies claim resource tiles,
 | emergence | 3 |
 | influence | 2 |
 | influenced by | [M.U.L.E.](../game/mule.md), [Railroad Tycoon](../game/railroad-tycoon.md) |
-| cluster *(computed)* | C01 |
+| cluster *(computed)* | C02 |
 | core count *(computed)* | 5 |
-| mechanic count *(computed)* | 10 |
+| mechanic count *(computed)* | 12 |
 
 ## Summary
 
@@ -70,6 +70,8 @@ Soren Johnson replaced combat with a shared market: 13 resources trade at prices
 - [Loans and debt](../mechanic/loans-debt.md) (supporting): Companies can run into debt, which depresses their share price.
 - [Tech tree](../mechanic/tech-tree.md) (supporting): Patents and HQ upgrades unlock buildings and bonuses.
 - [Procedural terrain](../mechanic/procedural-terrain.md) (supporting): Each match generates a new Martian map, so resource layouts and claims differ.
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
+- [Building placement](../mechanic/free-placement.md) (supporting)
 
 ## Backlinks (computed)
 
@@ -83,4 +85,4 @@ Soren Johnson replaced combat with a shared market: 13 resources trade at prices
 - [Offworld Trading Company: Early Access First Impressions](../source/src-spacesector-2015-offworld-early-access.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-ge`.
+Provenance: created in run `2026-10-24-catalog-ge`; reviewed in `2026-10-24-review-fixes`.

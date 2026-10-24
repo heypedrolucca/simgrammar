@@ -14,7 +14,7 @@ Open and startup interactive video models (Matrix-Game, Hunyuan-GameCraft, World
 | runtime | Server real-time |
 | determinism impact | Breaks |
 | horizon | 3-5 years |
-| risks | Consistency / hallucination, Compute cost, IP / provenance, Controllability, Latency |
+| risks | Determinism, Consistency / hallucination, Compute cost, IP / provenance, Controllability, Latency |
 | builds on | [Diffusion and autoregressive neural game engines](../technique/diffusion-game-engines.md) |
 | affects count *(computed)* | 6 |
 
@@ -84,4 +84,4 @@ A pretrained text- or image-to-video diffusion transformer (SkyReels-V2 for Matr
 - [Introducing Odyssey-2: A General-Purpose World Model](../source/src-odyssey-2025-odyssey-2.md)
 
 ---
-Provenance: created in run `2026-10-24-techniques-world-models`.
+Provenance: created in run `2026-10-24-techniques-world-models`; reviewed in `2026-10-24-review-fixes`.

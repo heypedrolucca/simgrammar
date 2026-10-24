@@ -61,6 +61,7 @@ runtime:
 determinism_impact: breaks
 horizon: 3-5y
 risks:
+- determinism
 - compute-cost
 - consistency
 - controllability
@@ -129,3 +130,4 @@ provenance:
   created: 2026-10-24-techniques-llm-agents
   reviewed:
   - 2026-10-24-technique-links
+  - 2026-10-24-review-fixes

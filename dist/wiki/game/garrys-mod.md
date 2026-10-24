@@ -27,7 +27,7 @@ A Source engine physics sandbox in which players spawn props, ragdolls, and NPCs
 | agent count order | ~10 |
 | emergence | 3 |
 | influence | 4 |
-| cluster *(computed)* | C02 |
+| cluster *(computed)* | C07 |
 | core count *(computed)* | 3 |
 | mechanic count *(computed)* | 7 |
 

@@ -55,7 +55,7 @@ authoring_cost: 3
 compute_cost: 4
 tuning_difficulty: 4
 ai_leverage: 4
-maturity: emerging
+maturity: established
 synergy:
 - id: procedural-terrain
   note: Generated terrain constrains where simulated civilizations settle, fight, and leave ruins.
@@ -71,3 +71,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-taxonomy-m7
+  reviewed:
+  - 2026-10-24-review-fixes

@@ -26,7 +26,7 @@ A border inspection game in which the player checks entrants' documents against 
 | agent count order | ~10 |
 | emergence | 2 |
 | influence | 3 |
-| cluster *(computed)* | C11 |
+| cluster *(computed)* | C14 |
 | core count *(computed)* | 3 |
 | mechanic count *(computed)* | 7 |
 

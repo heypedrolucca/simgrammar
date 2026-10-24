@@ -90,6 +90,12 @@ mechanics:
   role: supporting
   note: Power plant types such as solar, fusion, and microwave and buildings such as arcologies become
     available in set invention years as the city's calendar advances.
+- id: variable-speed
+  role: supporting
+- id: free-placement
+  role: supporting
+- id: fire-spread
+  role: supporting
 influenced_by:
 - simcity-1989
 sources:
@@ -97,3 +103,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-catalog-ga
+  reviewed:
+  - 2026-10-24-review-fixes

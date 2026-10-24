@@ -14,7 +14,7 @@ Microsoft Research's WHAM is a transformer trained on seven years of Bleeding Ed
 | runtime | Design assist, Server real-time |
 | determinism impact | Breaks |
 | horizon | 3-5 years |
-| risks | Consistency / hallucination, Compute cost, Controllability, Labor displacement, Player trust / reception |
+| risks | Determinism, Consistency / hallucination, Compute cost, Controllability, Labor displacement, Player trust / reception |
 | affects count *(computed)* | 3 |
 
 ## Summary
@@ -53,4 +53,4 @@ Frames are encoded into discrete image tokens and controller inputs into action 
 - [WHAMM real-time Quake II world model (Microsoft Research blog)](../source/src-microsoft-2025-whamm.md)
 
 ---
-Provenance: created in run `2026-10-24-techniques-world-models`.
+Provenance: created in run `2026-10-24-techniques-world-models`; reviewed in `2026-10-24-review-fixes`.

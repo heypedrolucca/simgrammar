@@ -26,9 +26,9 @@ A survival city builder without money or a tech tree in which exiled families ga
 | agent count order | ~100 |
 | emergence | 3 |
 | influence | 4 |
-| cluster *(computed)* | C05 |
+| cluster *(computed)* | C02 |
 | core count *(computed)* | 3 |
-| mechanic count *(computed)* | 13 |
+| mechanic count *(computed)* | 16 |
 
 ## Summary
 
@@ -59,6 +59,9 @@ Citizens are the main resource: every worker is a person who was born, ages, nee
 - [Random disasters](../mechanic/random-disasters.md) (supporting): Fires and tornadoes destroy buildings.
 - [Romance and family](../mechanic/romance-family.md) (supporting): Couples need an empty house to start a family and have children.
 - [Immigration by attractiveness](../mechanic/immigration-attractiveness.md) (supporting): Nomad groups can arrive and ask to join the town.
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
+- [Building placement](../mechanic/free-placement.md) (supporting)
+- [Fire spread](../mechanic/fire-spread.md) (supporting)
 
 ## Backlinks (computed)
 
@@ -75,4 +78,4 @@ Citizens are the main resource: every worker is a person who was born, ages, nee
 - [City-building game](../source/src-wikipedia-city-building-game.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-ga`.
+Provenance: created in run `2026-10-24-catalog-ga`; reviewed in `2026-10-24-review-fixes`.

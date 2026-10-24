@@ -14,7 +14,7 @@ A language model that adjudicates player and NPC intentions, decides outcomes, g
 | runtime | Server real-time |
 | determinism impact | Breaks |
 | horizon | Now |
-| risks | Consistency / hallucination, Content safety, Controllability, Compute cost, Evaluation difficulty |
+| risks | Determinism, Consistency / hallucination, Content safety, Controllability, Compute cost, Evaluation difficulty |
 | builds on |  |
 | deployed in | [AI Dungeon](../game/ai-dungeon.md) |
 | affects count *(computed)* | 6 |
@@ -104,4 +104,4 @@ The player types an intent; the system assembles a prompt from recent story, pin
 - [Games With AI Disclosures Have Grossed an Estimated $660M on Steam](../source/src-totallyhuman-2025-steam-ai-revenue.md)
 
 ---
-Provenance: created in run `2026-10-24-techniques-llm-agents`.
+Provenance: created in run `2026-10-24-techniques-llm-agents`; reviewed in `2026-10-24-review-fixes`.

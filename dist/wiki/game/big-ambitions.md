@@ -28,9 +28,9 @@ A business life sim set in a simulated New York City in which the player's avata
 | agent count order | ~100 |
 | emergence | 2 |
 | influence | 1 |
-| cluster *(computed)* | C03 |
+| cluster *(computed)* | C01 |
 | core count *(computed)* | 4 |
-| mechanic count *(computed)* | 11 |
+| mechanic count *(computed)* | 12 |
 
 ## Summary
 
@@ -59,6 +59,7 @@ Big Ambitions starts the business at street level: the avatar personally rents, 
 - [Loans and debt](../mechanic/loans-debt.md) (supporting): Bank loans fund early expansion.
 - [Daily schedules](../mechanic/daily-schedules.md) (supporting): Businesses keep opening hours and staff work scheduled shifts.
 - [Advertising and awareness](../mechanic/advertising-awareness.md) (supporting): Paid marketing campaigns raise customer traffic to the player's businesses.
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
 
 ## Backlinks (computed)
 
@@ -69,4 +70,4 @@ Big Ambitions starts the business at street level: the avatar personally rents, 
 - [Big Ambitions on Steam](../source/src-steam-2026-big-ambitions.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-ge`.
+Provenance: created in run `2026-10-24-catalog-ge`; reviewed in `2026-10-24-review-fixes`.

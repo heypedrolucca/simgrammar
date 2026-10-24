@@ -15,7 +15,7 @@ Players describe a rule change in plain language; a model writes the mod against
 | impact | 4 |
 | horizon | 1-2 years |
 | key risks | Generated mods with subtle bugs corrupt saves., Security of executing generated code., Flood of low-quality mods drowns curation. |
-| falsifiable signal | {'prediction': 'A popular moddable simulation game will ship or officially endorse a natural-language mod creation tool.', 'resolve_by': '2028-06-30', 'criteria': 'Official tool or partnership announced by the developer of a simulation game with an active modding scene.'} |
+| falsifiable signal | {'prediction': 'The developer of a moddable simulation game will ship or officially endorse a tool that builds working mods from natural-language descriptions.', 'resolve_by': '2028-06-30', 'criteria': 'Shipped or announced after 2026-10-24 by the developer of a simulation game with at least 10,000 Steam user reviews and an official modding API; the tool outputs mod code or data from text descriptions.'} |
 | priority *(computed)* | 3.776 |
 
 ## Thesis
@@ -38,9 +38,9 @@ Collect 100 mod requests from a modding community, generate mods against a docum
 
 ## Falsifiable signal
 
-- **Prediction:** A popular moddable simulation game will ship or officially endorse a natural-language mod creation tool.
+- **Prediction:** The developer of a moddable simulation game will ship or officially endorse a tool that builds working mods from natural-language descriptions.
 - **Resolve by:** 2028-06-30
-- **Criteria:** Official tool or partnership announced by the developer of a simulation game with an active modding scene.
+- **Criteria:** Shipped or announced after 2026-10-24 by the developer of a simulation game with at least 10,000 Steam user reviews and an official modding API; the tool outputs mod code or data from text descriptions.
 
 ## Relations
 
@@ -66,4 +66,4 @@ Collect 100 mod requests from a modding community, generate mods against a docum
 - [Cities: Skylines](../game/cities-skylines.md)
 
 ---
-Provenance: created in run `2026-10-24-synthesis`.
+Provenance: created in run `2026-10-24-synthesis`; reviewed in `2026-10-24-review-fixes`.

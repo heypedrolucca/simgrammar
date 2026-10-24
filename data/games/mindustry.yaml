@@ -105,6 +105,8 @@ mechanics:
   role: supporting
   note: Optional coolant and lubricant fed to turrets and factories raise their rates, and water boosts
     drill speed.
+- id: free-placement
+  role: supporting
 influenced_by:
 - factorio
 claims:
@@ -128,3 +130,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-catalog-gh
+  reviewed:
+  - 2026-10-24-review-fixes

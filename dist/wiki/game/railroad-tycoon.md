@@ -29,7 +29,7 @@ A railroad business sim in which the player lays track, builds stations, schedul
 | emergence | 3 |
 | influence | 4 |
 | influenced by | [SimCity](../game/simcity-1989.md) |
-| cluster *(computed)* | C01 |
+| cluster *(computed)* | C02 |
 | core count *(computed)* | 6 |
 | mechanic count *(computed)* | 15 |
 

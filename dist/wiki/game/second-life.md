@@ -29,7 +29,7 @@ A persistent 3D virtual world in which residents build objects from prims and me
 | emergence | 3 |
 | influence | 3 |
 | boundary case | True |
-| cluster *(computed)* | C02 |
+| cluster *(computed)* | C06 |
 | core count *(computed)* | 3 |
 | mechanic count *(computed)* | 8 |
 

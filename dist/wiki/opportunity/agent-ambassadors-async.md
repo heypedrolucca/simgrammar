@@ -15,7 +15,7 @@ Let each player's simulation send language-agent representatives that trade and 
 | impact | 3 |
 | horizon | 1-2 years |
 | key risks | Agents exploited by adversarial players., Mandate violations create disputes., Server cost of agent negotiation. |
-| falsifiable signal | {'prediction': "A released game will let players' AI representatives trade or negotiate with other players' worlds asynchronously.", 'resolve_by': '2029-06-30', 'criteria': 'Store page or documentation describing autonomous AI envoys acting between players.'} |
+| falsifiable signal | {'prediction': "A game will let each player's AI representative trade or negotiate with other players' worlds while those players are offline.", 'resolve_by': '2029-06-30', 'criteria': 'Feature first shipped after 2026-10-24 in a title with at least 1,000 Steam user reviews or a console release; developer material (store page, patch notes, documentation, or talk) states that an AI agent acts for an absent player in trades or negotiations with other players.'} |
 | priority *(computed)* | 3.178 |
 
 ## Thesis
@@ -38,9 +38,9 @@ Run 100 simulated player worlds with envoy agents under mandates for 30 days; me
 
 ## Falsifiable signal
 
-- **Prediction:** A released game will let players' AI representatives trade or negotiate with other players' worlds asynchronously.
+- **Prediction:** A game will let each player's AI representative trade or negotiate with other players' worlds while those players are offline.
 - **Resolve by:** 2029-06-30
-- **Criteria:** Store page or documentation describing autonomous AI envoys acting between players.
+- **Criteria:** Feature first shipped after 2026-10-24 in a title with at least 1,000 Steam user reviews or a console release; developer material (store page, patch notes, documentation, or talk) states that an AI agent acts for an absent player in trades or negotiations with other players.
 
 ## Relations
 
@@ -66,4 +66,4 @@ Run 100 simulated player worlds with envoy agents under mandates for 30 days; me
 - [Offworld Trading Company](../game/offworld-trading-company.md)
 
 ---
-Provenance: created in run `2026-10-24-synthesis`.
+Provenance: created in run `2026-10-24-synthesis`; reviewed in `2026-10-24-review-fixes`.

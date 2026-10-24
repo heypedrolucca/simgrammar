@@ -68,6 +68,10 @@ mechanics:
 - id: modding-api
   role: supporting
   note: An in-game modding interface lets players edit or add content.
+- id: variable-speed
+  role: supporting
+- id: utility-action-selection
+  role: supporting
 influenced_by:
 - the-sims
 - cities-skylines
@@ -77,3 +81,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-catalog-gc
+  reviewed:
+  - 2026-10-24-review-fixes

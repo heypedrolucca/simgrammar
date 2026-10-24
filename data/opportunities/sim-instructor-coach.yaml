@@ -40,12 +40,14 @@ validation_experiment: 'Add a telemetry-grounded voice instructor to a flight si
   novice landing success after five attempts with and without the instructor. Success: at least 25 percent
   higher success with no increase in reported frustration.'
 falsifiable_signal:
-  prediction: A major flight or racing simulator will ship an AI voice instructor that comments on live
-    telemetry.
+  prediction: A flight or racing simulator will ship an AI voice instructor that comments on live telemetry.
   resolve_by: '2027-12-31'
-  criteria: Official feature in Microsoft Flight Simulator, X-Plane, DCS, iRacing, Gran Turismo, or a
-    peer title.
+  criteria: Official feature first shipped after 2026-10-24 in a flight or racing simulator with at least
+    5,000 Steam user reviews or a console release; the instructor speaks generated feedback based on the
+    player's live inputs. Third-party apps do not count.
 sources: []
 status: asserted
 provenance:
   created: 2026-10-24-synthesis
+  reviewed:
+  - 2026-10-24-review-fixes

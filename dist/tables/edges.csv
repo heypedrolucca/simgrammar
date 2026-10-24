@@ -512,6 +512,7 @@ cities-skylines,game,cites,src-wikipedia-cities-skylines,source,,,
 cities-skylines,game,cites,src-wikipedia-cities-skylines,source,,,
 cities-skylines,game,cites,src-wikipedia-city-building-game,source,,,
 cities-skylines,game,cites,src-wikipedia-city-building-game,source,,,
+cities-skylines-2,game,cites,src-paradox-2023-cs2-electricity-water,source,,,
 cities-skylines-2,game,cites,src-paradox-2023-cs2-traffic-ai,source,,,
 cities-skylines-2,game,cites,src-wikipedia-cities-skylines-2,source,,,
 citizen-satisfaction,mechanic,cites,src-hopkins-2008-micropolis,source,,,
@@ -2302,6 +2303,7 @@ against-the-storm,game,uses,adaptive-threat-scaling,mechanic,supporting,,Forest 
 against-the-storm,game,uses,citizen-satisfaction,mechanic,core,,Contentment per species responds to met needs; discontented villagers leave and content ones raise reputation.
 against-the-storm,game,uses,crisis-countdown,mechanic,core,,The Queen's Impatience gauge fills over time and recalls the player when full; recurring storms raise pressure between calm periods.
 against-the-storm,game,uses,fog-of-war,mechanic,supporting,,Forest glades stay hidden until cut open and may hold boons or threats.
+against-the-storm,game,uses,free-placement,mechanic,supporting,,
 against-the-storm,game,uses,population-strata,mechanic,supporting,,Seven species with distinct preferences; three per village.
 against-the-storm,game,uses,procedural-terrain,mechanic,supporting,,A new map is generated for each settlement across six biomes.
 against-the-storm,game,uses,production-chain,mechanic,core,,"Production buildings convert goods by recipes such as raincoats, ale, and pies, chosen from a run-specific building set."
@@ -2309,6 +2311,7 @@ against-the-storm,game,uses,scenario-objectives,mechanic,core,,"Each settlement 
 against-the-storm,game,uses,seasons,mechanic,supporting,,A calm building period alternates with the storm.
 against-the-storm,game,uses,tech-tree,mechanic,supporting,,Meta-progression resources upgrade the Smoldering City between runs.
 against-the-storm,game,uses,trade-routes,mechanic,supporting,,A visiting trader's wares change each year.
+against-the-storm,game,uses,variable-speed,mechanic,supporting,,
 ai-dungeon,game,uses,content-sharing,mechanic,supporting,,Players publish custom adventures and scenarios that others can start from.
 ai-dungeon,game,uses,generative-content,mechanic,core,,"A language model continues the story text from a prompt of scenario, pinned memory, and recent turns; the See input generates an image that does not change play."
 ai-dungeon,game,uses,natural-language-interaction,mechanic,core,,"Free-text input typed as Do (action), Say (dialogue), or Story (narration or facts), with blank input asking the model to continue."
@@ -2327,6 +2330,7 @@ animal-crossing-new-horizons,game,uses,spoilage,mechanic,supporting,,Turnips bou
 animal-crossing-new-horizons,game,uses,terraforming,mechanic,supporting,,"The Island Designer edits cliffs, rivers and ponds, and paths."
 animal-crossing-new-horizons,game,uses,weather,mechanic,supporting,,
 anno-117,game,uses,adjacency-scoring,mechanic,supporting,,Production buildings have positive or negative effects on nearby structures.
+anno-117,game,uses,free-placement,mechanic,supporting,,
 anno-117,game,uses,goods-consumption,mechanic,core,,"Needs are grouped into categories that can be partly fulfilled; each good's attributes add benefits and drawbacks to population, income, health, and satisfaction."
 anno-117,game,uses,modular-assembly,mechanic,supporting,,Ships are modular; adding oars or sails changes how they move.
 anno-117,game,uses,population-strata,mechanic,core,,Residences advance from Liberti up to Patricians based on access to goods and on nearby prestige or polluting buildings.
@@ -2336,8 +2340,10 @@ anno-117,game,uses,road-network,mechanic,supporting,,Paved roads extend the rang
 anno-117,game,uses,tech-tree,mechanic,supporting,,"Schools generate research points for a tree of over 100 unlocks, including repeatable technologies."
 anno-117,game,uses,trade-routes,mechanic,supporting,,Assigned ships carry goods between islands along routes that can be tracked and rerouted.
 anno-117,game,uses,unit-commands,mechanic,supporting,,"Melee, ranged, and siege units in a rock-paper-scissors system; warships protect routes from pirates."
+anno-117,game,uses,variable-speed,mechanic,supporting,,
 anno-117,game,uses,vehicle-route-scheduling,mechanic,supporting,,
 anno-1800,game,uses,blueprints,mechanic,supporting,,Blueprint mode places silhouettes that are built later with one click when resources exist.
+anno-1800,game,uses,free-placement,mechanic,supporting,,
 anno-1800,game,uses,goods-consumption,mechanic,core,,"Each residence consumes goods per second; basic needs add inhabitants per house, luxury needs add taxes and happiness."
 anno-1800,game,uses,labor-market,mechanic,supporting,,Each tier staffs only its tier's production buildings.
 anno-1800,game,uses,megaproject-sink,mechanic,supporting,,"The World's Fair monument is built in stages, each consuming large deliveries of goods, and once complete hosts exhibitions."
@@ -2347,6 +2353,7 @@ anno-1800,game,uses,production-chain,mechanic,core,,Fixed-recipe buildings chain
 anno-1800,game,uses,rival-firms,mechanic,supporting,,AI opponents settle the same map and compete for islands and trade.
 anno-1800,game,uses,storage-capacity,mechanic,supporting,,Warehouses set island storage limits and pickup range.
 anno-1800,game,uses,trade-routes,mechanic,core,,"Ships carry goods between the player's islands, the New World session, and traders."
+anno-1800,game,uses,variable-speed,mechanic,supporting,,
 anno-1800,game,uses,vehicle-route-scheduling,mechanic,supporting,,Trade route ships follow ordered stops with load and unload amounts per good.
 arma-3,game,uses,content-sharing,mechanic,supporting,,Scenarios and mods are shared through the Steam Workshop.
 arma-3,game,uses,day-night-cycle,mechanic,supporting,,
@@ -2391,6 +2398,8 @@ balance-of-power,game,uses,stability-unrest,mechanic,supporting,,Minor-country g
 balance-of-power,game,uses,turn-structure,mechanic,core,,Eight one-year turns; each turn resolves both superpowers' policies and then presents the year's incidents as crises to settle before advancing.
 banished,game,uses,contagion,mechanic,supporting,,Trade ships can bring illness from abroad.
 banished,game,uses,crop-cultivation,mechanic,supporting,,
+banished,game,uses,fire-spread,mechanic,supporting,,
+banished,game,uses,free-placement,mechanic,supporting,,
 banished,game,uses,goods-consumption,mechanic,core,,"Each household consumes food, firewood, clothing, and tools; shortages lead to cold, illness, and starvation."
 banished,game,uses,hauling-jobs,mechanic,supporting,,"Laborers carry resources to stockpiles and construction sites, so their number sets delivery speed."
 banished,game,uses,immigration-attractiveness,mechanic,supporting,,Nomad groups can arrive and ask to join the town.
@@ -2401,12 +2410,14 @@ banished,game,uses,romance-family,mechanic,supporting,,Couples need an empty hou
 banished,game,uses,seasons,mechanic,core,,"Crops are planted and harvested on an annual cycle, and winter demands stored food and firewood."
 banished,game,uses,storage-capacity,mechanic,supporting,,
 banished,game,uses,trade-routes,mechanic,supporting,,Resources are bartered with trade vessels at a trading post; there is no currency.
+banished,game,uses,variable-speed,mechanic,supporting,,
 banished,game,uses,work-priorities,mechanic,supporting,,The player sets worker counts per workplace and profession; unassigned citizens become laborers.
 beamng-drive,game,uses,content-sharing,mechanic,supporting,,"An official mod repository is browsable from the website and in game, with a manager that keeps mods updated."
 beamng-drive,game,uses,embodied-skill-control,mechanic,supporting,,
 beamng-drive,game,uses,modding-api,mechanic,supporting,,"The game relies heavily on Lua, and mods add real and fictional vehicles."
 beamng-drive,game,uses,scenario-objectives,mechanic,supporting,,"Campaigns group short races, chases, and stunts, and time trials race against the player's best times."
 beamng-drive,game,uses,soft-body-deformation,mechanic,core,,"Vehicles are JBeam node-and-beam skeletons that flex and deform under impact; damage degrades engines, detaches doors, shatters windows, blows tires, and can make fuel tanks explode."
+beamng-drive,game,uses,variable-speed,mechanic,supporting,,
 beamng-drive,game,uses,vehicle-dynamics,mechanic,core,,"Handling comes from the same node-beam structure, so suspension, chassis flex, and tires respond to the vehicle's build and its damage."
 besiege,game,uses,content-sharing,mechanic,supporting,,Machines and levels are shared on Steam Workshop.
 besiege,game,uses,embodied-skill-control,mechanic,supporting,,The player drives the finished machine in real time with keys bound to its powered parts.
@@ -2426,6 +2437,7 @@ big-ambitions,game,uses,loans-debt,mechanic,supporting,,Bank loans fund early ex
 big-ambitions,game,uses,staff-hiring,mechanic,core,,"Employees are hired with skills and wages for each business, then HR managers, logistics managers, and purchasing agents automate operations from an HQ."
 big-ambitions,game,uses,storage-capacity,mechanic,supporting,,Stock fills store shelves and warehouses; empty shelves lose sales.
 big-ambitions,game,uses,survival-meters,mechanic,supporting,,"The avatar must eat food stored at home, sleep, and stay healthy and happy."
+big-ambitions,game,uses,variable-speed,mechanic,supporting,,
 big-ambitions,game,uses,vehicle-route-scheduling,mechanic,supporting,,Delivery trucks carry goods from harbour importers to warehouses and stores.
 big-pharma,game,uses,conveyor-transport,mechanic,core,,"Conveyor belts move materials between machines from intake ports to output ports, and machine order along the belt sets the recipe."
 big-pharma,game,uses,free-placement,mechanic,supporting,,Machines are placed on a fixed factory floor where space limits line length.
@@ -2436,6 +2448,7 @@ big-pharma,game,uses,scenario-objectives,mechanic,supporting,,"Scenarios set tar
 big-pharma,game,uses,scouting-knowledge,mechanic,supporting,,"Explorers search for new ingredients, and analysis machines reveal an ingredient's effects and maximum potency."
 big-pharma,game,uses,supply-demand-pricing,mechanic,supporting,,Price and sales for each cure depend on demand and how crowded its market is.
 big-pharma,game,uses,tech-tree,mechanic,supporting,,A research tree unlocks better machines and other benefits.
+big-pharma,game,uses,variable-speed,mechanic,supporting,,
 bitburner,game,uses,agent-skills,mechanic,supporting,,"Hacking, combat, and charisma stats rise with use; hacking level raises success chance and money stolen, shortens hack time, and gates which servers can be hacked."
 bitburner,game,uses,contracts-orders,mechanic,supporting,,Coding contracts found on servers pose programming problems that earn rewards when solved.
 bitburner,game,uses,execution-budget,mechanic,supporting,,"Each script has a RAM cost, and a server's RAM caps how many script threads can run on it, so buying RAM and writing lean scripts both raise income."
@@ -2454,6 +2467,8 @@ black-and-white,game,uses,reputation,mechanic,core,,"Each villager holds a belie
 black-and-white,game,uses,resource-extraction,mechanic,supporting,,"Villagers gather wood and food, for example by fishing."
 black-and-white,game,uses,weather,mechanic,supporting,,Real local weather can be imported.
 caesar-3,game,uses,decoration-beauty,mechanic,supporting,,"Gardens, statues, and plazas raise desirability that houses need to evolve."
+caesar-3,game,uses,fire-spread,mechanic,supporting,,
+caesar-3,game,uses,free-placement,mechanic,supporting,,
 caesar-3,game,uses,goods-consumption,mechanic,supporting,,"Higher houses need food plus pottery, furniture, oil, and wine delivered by market walkers."
 caesar-3,game,uses,labor-market,mechanic,supporting,,Buildings need workers from housing; shortages idle walkers and industry.
 caesar-3,game,uses,population-strata,mechanic,core,,"Housing evolves through levels from tents up to villas and palaces when food, goods, services, and desirability are met, and devolves when they lapse."
@@ -2462,8 +2477,10 @@ caesar-3,game,uses,raid-defense,mechanic,supporting,,"Military assignments bring
 caesar-3,game,uses,reputation,mechanic,supporting,,Favor with Caesar rises with timely tribute and gifts and falls when requests are missed.
 caesar-3,game,uses,road-network,mechanic,supporting,,"Walkers and goods move on roads, so road layout sets coverage."
 caesar-3,game,uses,scenario-objectives,mechanic,core,,"Each assignment sets population and thresholds for four ratings: culture, prosperity, peace, and favor."
+caesar-3,game,uses,storage-capacity,mechanic,supporting,,
 caesar-3,game,uses,taxation,mechanic,supporting,,
 caesar-3,game,uses,trade-routes,mechanic,supporting,,An empire map opens land and sea routes to cities that buy and sell specific goods.
+caesar-3,game,uses,variable-speed,mechanic,supporting,,
 caesar-3,game,uses,walker-service-delivery,mechanic,core,,"Service walkers leave their building and roam roads; each house passed gets coverage set to 96, which decays by 1 per update until the next visit."
 caesar-3,game,uses,wear-breakdown,mechanic,supporting,,Buildings accumulate fire and collapse risk that prefects and engineers reset to zero.
 capitalism,game,uses,advertising-awareness,mechanic,supporting,,"Advertising units inside firms spend money to raise a product's brand rating, which customers weigh with price and quality when choosing among stores."
@@ -2478,10 +2495,12 @@ capitalism,game,uses,resource-extraction,mechanic,supporting,,"Mines, oil wells,
 capitalism,game,uses,rival-firms,mechanic,core,,AI corporations with aggressive to conservative management styles compete in the same cities for market share.
 capitalism,game,uses,scenario-objectives,mechanic,supporting,,Seventeen scenarios set goals such as market-share dominance within a time limit.
 capitalism,game,uses,tech-tree,mechanic,supporting,,R&D centers run projects from six months to ten years that raise technology and unlock new products.
+capitalism,game,uses,variable-speed,mechanic,supporting,,
 captain-of-industry,game,uses,byproducts-waste,mechanic,supporting,,"Production emits slag, waste, carbon dioxide, wastewater, and spent nuclear fuel that must be dumped, treated, recycled, or stored."
 captain-of-industry,game,uses,conveyor-transport,mechanic,supporting,,Belts and pipes give high-throughput direct links between machines once truck logistics become a bottleneck.
 captain-of-industry,game,uses,crop-cultivation,mechanic,supporting,,"Farms grow crops for food and industrial inputs, fertilizer boosts yields, and greenhouses grow advanced crops."
 captain-of-industry,game,uses,designation-orders,mechanic,supporting,,"The player paints mining and dumping designations, and excavators and trucks assigned to a Mine Control Tower carry out the work inside its area."
+captain-of-industry,game,uses,free-placement,mechanic,supporting,,
 captain-of-industry,game,uses,goods-consumption,mechanic,core,,"Residents consume food, water, electricity, healthcare, and household goods; each fully satisfied need yields Unity, and unmet food or health shrinks the population."
 captain-of-industry,game,uses,hauling-jobs,mechanic,core,,"Trucks are assigned to mines, storages, and buildings and automatically deliver products where they are needed, so fleet size and road layout cap throughput before belts and trains replace them."
 captain-of-industry,game,uses,machine-boosting,mechanic,supporting,,Unity is spent on building boosts (0.25 Unity each) that speed up individual buildings.
@@ -2496,6 +2515,7 @@ captain-of-industry,game,uses,storage-capacity,mechanic,supporting,,"Storages an
 captain-of-industry,game,uses,tech-tree,mechanic,supporting,,Research labs consume products and Unity to unlock over 100 technologies from basic smelting to space flight.
 captain-of-industry,game,uses,terraforming,mechanic,core,,"Mining designations inside a Mine Control Tower area lower terrain and dumping designations raise it; loose material settles at per-material angles of repose, retaining walls stabilize slopes, and dumping can reclaim ocean."
 captain-of-industry,game,uses,trade-routes,mechanic,supporting,,Ships explore a world map to discover islands and trading partners; quick trades and recurring contracts exchange goods.
+captain-of-industry,game,uses,variable-speed,mechanic,supporting,,
 captain-of-industry,game,uses,vehicle-route-scheduling,mechanic,supporting,,"Trains move bulk cargo over long distances, and ships run trade contracts between the home island and partners."
 captain-of-industry,game,uses,wear-breakdown,mechanic,core,,Working vehicles and buildings consume Maintenance I to III crafted at depots (idle at about a third); below 75% maintenance a breakdown is rolled monthly with chance rising to 50% at zero.
 car-mechanic-simulator-2021,game,uses,agent-skills,mechanic,supporting,,Experience feeds a skills and garage-upgrade system.
@@ -2516,6 +2536,7 @@ caves-of-qud,game,uses,turn-structure,mechanic,supporting,,
 cities-skylines,game,uses,agent-pathfinding,mechanic,supporting,,"Citizens and vehicles path individually through roads, paths, and transit."
 cities-skylines,game,uses,education-workforce,mechanic,supporting,,"Elementary (300), high school (1,000), and university (4,500) capacities move citizens through four education levels that higher-level jobs require."
 cities-skylines,game,uses,fluid-pipe-network,mechanic,supporting,,Water and sewage pipes; sewage released upstream contaminates downstream intakes.
+cities-skylines,game,uses,free-placement,mechanic,supporting,,
 cities-skylines,game,uses,land-value,mechanic,supporting,,"Services and parks raise land value, pollution and noise lower it, and land value helps buildings level up."
 cities-skylines,game,uses,lifecycle-aging,mechanic,supporting,,Citizens age and die; an initial cohort moving in together can age into a wave of deaths that overloads hearses.
 cities-skylines,game,uses,milestone-unlocks,mechanic,supporting,,"Population milestones unlock services, zoning types, policies, and purchase of up to 25 map tiles."
@@ -2527,12 +2548,15 @@ cities-skylines,game,uses,road-network,mechanic,core,,"Road type sets lanes, spe
 cities-skylines,game,uses,service-coverage,mechanic,supporting,,Service buildings reach buildings by network distance and dispatch vehicles.
 cities-skylines,game,uses,traffic-congestion,mechanic,core,,Each citizen takes the fastest route to work or other destinations; poor road design shows up as visible jams that delay services and deliveries.
 cities-skylines,game,uses,travel-mode-choice,mechanic,supporting,,"Citizens choose between walking, driving, and the player's bus, tram, train, metro, ferry, and taxi lines when routing to destinations, so new lines shift demand off roads."
+cities-skylines,game,uses,variable-speed,mechanic,supporting,,
 cities-skylines,game,uses,zoning,mechanic,core,,"Zoning cells follow the shape of drawn roads; residential, commercial, industrial, and office zones develop and level up."
 cities-skylines-2,game,uses,agent-pathfinding,mechanic,core,,"Citizens compare driving, transit, and walking with a cost combining time, comfort, money, and personal preference."
 cities-skylines-2,game,uses,day-night-cycle,mechanic,supporting,,Each day and night cycle equals one simulated month.
+cities-skylines-2,game,uses,free-placement,mechanic,supporting,,
 cities-skylines-2,game,uses,land-value,mechanic,supporting,,Signature buildings and services change land value in their zone.
 cities-skylines-2,game,uses,milestone-unlocks,mechanic,supporting,,"Milestones grant development points and map tiles, from 9 starting tiles up to 441."
 cities-skylines-2,game,uses,modding-api,mechanic,supporting,,Paradox Mods since 2024-03-25; mods can override game code.
+cities-skylines-2,game,uses,power-grid,mechanic,supporting,,"Generation, a connected grid, and batteries; solar output varies with weather and time of day and wind with wind strength."
 cities-skylines-2,game,uses,public-transit,mechanic,supporting,,
 cities-skylines-2,game,uses,random-disasters,mechanic,supporting,,"Floods, forest fires, and tornadoes, mitigated by disaster response services."
 cities-skylines-2,game,uses,seasons,mechanic,supporting,,Each map has a preset climate; winters bring snow.
@@ -2541,6 +2565,8 @@ cities-skylines-2,game,uses,taxation,mechanic,supporting,,"Tax rates, fees, and 
 cities-skylines-2,game,uses,tech-tree,mechanic,supporting,,Development points are spent in a tree to unlock transport options and services.
 cities-skylines-2,game,uses,traffic-congestion,mechanic,core,,"Vehicles spread across lanes, parking fees enter route cost, and accident checks run per road segment."
 cities-skylines-2,game,uses,travel-mode-choice,mechanic,supporting,,"Citizens compare driving, transit, and walking using a cost of time, comfort, money, and personal behavior, and parking fees enter the driving cost."
+cities-skylines-2,game,uses,variable-speed,mechanic,supporting,,
+cities-skylines-2,game,uses,weather,mechanic,supporting,,Weather and seasons affect solar and wind output and climate conditions.
 cities-skylines-2,game,uses,zoning,mechanic,core,,"Residential, commercial, industrial, and office zones along roads, with signature buildings unlocked at milestones."
 civilization,game,uses,advisors,mechanic,supporting,,
 civilization,game,uses,citizen-satisfaction,mechanic,supporting,,"Cities track content and unhappy citizens; luxuries, temples, and wonders keep cities out of civil disorder."
@@ -2583,6 +2609,7 @@ creatures,game,uses,natural-language-interaction,mechanic,supporting,,"Players t
 creatures,game,uses,needs-decay,mechanic,core,,Drives such as hunger and tiredness are concentrations in a simulated biochemistry that rise over time and fall when actions such as eating or resting succeed.
 creatures,game,uses,permadeath,mechanic,supporting,,
 creatures,game,uses,trait-inheritance,mechanic,core,,"Haploid digital genomes with no dominant or recessive genes encode brain wiring, biochemistry, and organs; offspring genomes mutate, and every boxed copy shipped a unique starting set of egg genomes."
+creatures,game,uses,variable-speed,mechanic,supporting,,
 crusader-kings-3,game,uses,agent-skills,mechanic,supporting,,"Skills grow from education and from perks in six lifestyles, each with three skill trees."
 crusader-kings-3,game,uses,causal-tooltips,mechanic,supporting,,Nested tooltips let players open explanations of terms inside other tooltips.
 crusader-kings-3,game,uses,culture-religion-conversion,mechanic,supporting,,"Counties carry a faith and a culture; the court chaplain can convert a county's faith and the steward can promote the ruler's culture, while faith hostility sets opinion penalties from 0 to -30."
@@ -2601,6 +2628,7 @@ crusader-kings-3,game,uses,tech-tree,mechanic,supporting,,Lifestyle perk trees a
 crusader-kings-3,game,uses,territorial-control,mechanic,supporting,,"Counties belong to titles with de jure hierarchies, and wars are fought to press claims on them; conquered counties start with low county control."
 crusader-kings-3,game,uses,trait-inheritance,mechanic,supporting,,Genetic traits such as strong or poor health pass to children.
 crusader-kings-3,game,uses,triggered-event-chains,mechanic,supporting,,"Events are called from on_actions, decisions, and interactions, with weighted options and scheduled follow-ups."
+crusader-kings-3,game,uses,variable-speed,mechanic,supporting,,
 crusader-kings-3,game,uses,war-score-peace,mechanic,supporting,,"War score from battles and occupation lets the attacker enforce the war goal at full score, while either side can offer white peace."
 dcs-world,game,uses,embodied-skill-control,mechanic,supporting,,
 dcs-world,game,uses,flight-aerodynamics,mechanic,core,,Aircraft modules are built from real-world data; the F-16C uses a professional flight model with a fly-by-wire flight control system.
@@ -2609,7 +2637,8 @@ dcs-world,game,uses,modding-api,mechanic,supporting,,Lua mission scripting and t
 dcs-world,game,uses,procedural-checklists,mechanic,core,,"Clickable cockpits operate modeled engines, fuel, electrical, hydraulic, and radio systems, so start-up and weapon employment follow real procedures."
 dcs-world,game,uses,projectile-ballistics,mechanic,supporting,,"Missiles, bombs, and gun rounds fly as simulated projectiles, so release parameters such as speed, altitude, and range decide hits."
 dcs-world,game,uses,scenario-objectives,mechanic,supporting,,The mission editor builds single-player and multiplayer missions with Lua scripting.
-dcs-world,game,uses,subsystem-damage,mechanic,supporting,,"Damage affects individual modeled subsystems such as engines, hydraulics, and electrical systems, changing how the aircraft flies and what still works."
+dcs-world,game,uses,subsystem-damage,mechanic,supporting,,"Modules carry damage models, revised over the platform's development, so hits degrade the aircraft's modeled systems and how it flies."
+dcs-world,game,uses,variable-speed,mechanic,supporting,,
 dcs-world,game,uses,weather,mechanic,supporting,,
 democracy-4,game,uses,dilemma-cards,mechanic,supporting,,"Dilemmas, such as appointing a senior judge, must be resolved before the turn can end."
 democracy-4,game,uses,elections,mechanic,core,,"Before each general election the player makes two promises to the electorate; broken promises raise voter cynicism, and losing the election ends the game."
@@ -2641,6 +2670,7 @@ dwarf-fortress,game,uses,crop-cultivation,mechanic,supporting,,Underground farmi
 dwarf-fortress,game,uses,designation-orders,mechanic,core,,"The player designates digging, chopping, construction, and workshop jobs; dwarves with the matching labor enabled pick them up, and a manager can queue work orders automatically."
 dwarf-fortress,game,uses,fire-spread,mechanic,supporting,,Fires spread and burn dwarves and furniture.
 dwarf-fortress,game,uses,fluid-gas-simulation,mechanic,core,,"Water and magma flow tile by tile with up to seven depth levels per tile, so breaching a river, cavern lake, or magma source floods connected tunnels."
+dwarf-fortress,game,uses,free-placement,mechanic,supporting,,
 dwarf-fortress,game,uses,hauling-jobs,mechanic,supporting,,Dwarves carry goods to player-defined stockpiles.
 dwarf-fortress,game,uses,heat-transfer,mechanic,supporting,,"Tiles, materials, and creatures carry temperatures."
 dwarf-fortress,game,uses,history-chronicle,mechanic,core,,"Legends mode lists historical figures, sites, artifacts, and civilizations with a historical map; fortress deeds and retired adventurers are added, and the archive exports to XML."
@@ -2655,15 +2685,19 @@ dwarf-fortress,game,uses,production-chain,mechanic,supporting,,"Ore is smelted t
 dwarf-fortress,game,uses,raid-defense,mechanic,supporting,,"Ambushes, sieges, megabeasts, and forgotten beasts are met with squads, fortifications, and traps triggered by levers or pressure plates."
 dwarf-fortress,game,uses,relationship-values,mechanic,supporting,,"Friends, family, and pets; their deaths are major stressors."
 dwarf-fortress,game,uses,room-recognition,mechanic,supporting,,"Furniture defines bedrooms, dining halls, and offices; nobles demand rooms of rising value."
+dwarf-fortress,game,uses,storage-capacity,mechanic,supporting,,
 dwarf-fortress,game,uses,stress-accumulation,mechanic,core,,"Emotions from events add to or subtract from a hidden stress value (-1,000,000 to +1,000,000) scaled by facets such as stress vulnerability and bravery; above +10,000, +25,000, and +50,000 dwarves risk tantrums, depression, obliviousness, and insanity, and long-term memories keep adding stress."
 dwarf-fortress,game,uses,trade-routes,mechanic,supporting,,Yearly caravans from neighboring civilizations are handled by a broker; caravans can be absent or hostile depending on history.
 dwarf-fortress,game,uses,unit-commands,mechanic,supporting,,Military squads in uniforms train at barracks and can be ordered to attack.
+dwarf-fortress,game,uses,utility-action-selection,mechanic,supporting,,
+dwarf-fortress,game,uses,variable-speed,mechanic,supporting,,
 dwarf-fortress,game,uses,vertical-layers,mechanic,core,,"Z-levels, added in 2007, let the fortress descend level by level through soil and stone to caverns, the magma sea, and the underworld, connected by stairs and ramps."
 dyson-sphere-program,game,uses,adaptive-threat-scaling,mechanic,supporting,,"Dark Fog threat accumulates from the player's power generation and from combat, bases and hives gain levels from experience, and aggressiveness settings scale attack sizes."
 dyson-sphere-program,game,uses,blueprints,mechanic,supporting,,"Layouts are saved and pasted as blueprints, and the mech's construction drones place them."
 dyson-sphere-program,game,uses,conveyor-transport,mechanic,core,,Three belt tiers carry items between sorters and machines on a planetary grid that wraps around a sphere and narrows toward the poles.
 dyson-sphere-program,game,uses,day-night-cycle,mechanic,supporting,,"Planets rotate around their axes and orbit their stars, so solar panel output varies with the local day."
 dyson-sphere-program,game,uses,direct-avatar,mechanic,supporting,,The player flies the Icarus mech across planets and through space to build within its range.
+dyson-sphere-program,game,uses,free-placement,mechanic,supporting,,
 dyson-sphere-program,game,uses,hand-crafting,mechanic,supporting,,The Icarus mech hand-crafts early buildings from inventory before assemblers take over.
 dyson-sphere-program,game,uses,machine-boosting,mechanic,supporting,,Proliferator coating on input items lets the consuming machine choose extra products or faster production.
 dyson-sphere-program,game,uses,megaproject-sink,mechanic,core,,"The Dyson sphere is designed in a node-and-frame editor and built from solar sails fired by EM-Rail Ejectors and frames carried by rockets; unabsorbed sails expire after 5,400 seconds, and the finished sphere's energy feeds endgame production."
@@ -2775,6 +2809,7 @@ factorio,game,uses,conveyor-transport,mechanic,core,,"Two-lane belts in four tie
 factorio,game,uses,deposit-depletion,mechanic,supporting,,"Ore tiles run out as they are mined, and crude oil wells decline toward a 20% yield floor, pushing expansion to new patches."
 factorio,game,uses,direct-avatar,mechanic,supporting,,"The engineer walks the map, mines by hand early, and places buildings within reach, later driving cars, tanks, and spidertrons."
 factorio,game,uses,fluid-pipe-network,mechanic,supporting,,"Pipes and pumps carry water, crude oil, petroleum, and steam; version 2.0 merged pipes into segments that share contents."
+factorio,game,uses,free-placement,mechanic,supporting,,
 factorio,game,uses,hand-crafting,mechanic,supporting,,"The engineer crafts early buildings and items from inventory using the same recipes as assemblers, with a crafting queue."
 factorio,game,uses,machine-boosting,mechanic,supporting,,"Speed, productivity, efficiency, and (Space Age) quality modules fill machine slots, and beacons project module effects onto neighboring machines at a power cost; productivity bonuses are capped at +300%."
 factorio,game,uses,megaproject-sink,mechanic,supporting,,"The rocket silo consumes rocket parts for each launch, and launching a rocket ends the base game; Space Age moves the goal to a space platform reaching the edge of the solar system."
@@ -2806,6 +2841,7 @@ farming-simulator-25,game,uses,production-chain,mechanic,supporting,,Productions
 farming-simulator-25,game,uses,random-disasters,mechanic,supporting,,Twisters and hail can damage crops.
 farming-simulator-25,game,uses,seasons,mechanic,supporting,,"A seasonal cycle, introduced in FS22, sets planting and harvest windows."
 farming-simulator-25,game,uses,terrain-deformation,mechanic,supporting,,Tires leave tracks that deform soft ground.
+farming-simulator-25,game,uses,variable-speed,mechanic,supporting,,
 farming-simulator-25,game,uses,vehicle-dynamics,mechanic,core,,"The player drives over 400 licensed vehicles and implements from more than 150 brands, each with its own power, speed, and weight; GPS-assisted steering automates straight passes."
 farming-simulator-25,game,uses,wear-breakdown,mechanic,supporting,,Vehicles accumulate wear and damage that reduce performance until repaired at a workshop.
 farming-simulator-25,game,uses,weather,mechanic,supporting,,
@@ -2813,13 +2849,16 @@ farthest-frontier,game,uses,adaptive-threat-scaling,mechanic,supporting,,Rising 
 farthest-frontier,game,uses,contagion,mechanic,core,,"Dysentery, cholera, tetanus, rabies, frostbite, and plague spread or strike based on water, clothing, rats, and healer coverage."
 farthest-frontier,game,uses,crop-cultivation,mechanic,core,,Twelve crops with rotation to preserve soil fertility; fields improve by clearing weeds and rocks and adjusting the soil mix.
 farthest-frontier,game,uses,decoration-beauty,mechanic,supporting,,Desirability from surroundings gates housing upgrades.
+farthest-frontier,game,uses,free-placement,mechanic,supporting,,
 farthest-frontier,game,uses,goods-consumption,mechanic,core,,"Nineteen food types; diet variety, including berries and greens against scurvy, is needed for health."
 farthest-frontier,game,uses,population-strata,mechanic,supporting,,Housing and the town center advance through tiers as prosperity and desirability grow.
 farthest-frontier,game,uses,production-chain,mechanic,supporting,,
 farthest-frontier,game,uses,raid-defense,mechanic,supporting,,"Palisades, stone walls, towers, barracks, and equipped soldiers."
 farthest-frontier,game,uses,seasons,mechanic,supporting,,
+farthest-frontier,game,uses,storage-capacity,mechanic,supporting,,
 farthest-frontier,game,uses,tech-tree,mechanic,supporting,,A tree of over 140 points of upgrades.
 farthest-frontier,game,uses,trade-routes,mechanic,supporting,,Crafted goods are traded for resources the town lacks.
+farthest-frontier,game,uses,variable-speed,mechanic,supporting,,
 football-manager,game,uses,agent-skills,mechanic,core,,"Player attributes develop through training schedules, match experience, and coaching quality up to individual potential."
 football-manager,game,uses,attribute-match-engine,mechanic,core,,"Fixtures are simulated event by event from each player's attributes, condition, and morale and the manager's tactics and touchline instructions, shown in 2D or 3D."
 football-manager,game,uses,board-confidence,mechanic,supporting,,"The board sets season expectations and, with fan confidence, judges results against them; falling confidence brings warnings and then sacking."
@@ -2842,6 +2881,7 @@ foundation,game,uses,modular-assembly,mechanic,core,,Buildings and monuments are
 foundation,game,uses,production-chain,mechanic,supporting,,
 foundation,game,uses,taxation,mechanic,supporting,,
 foundation,game,uses,trade-routes,mechanic,supporting,,Trade with neighboring villages.
+foundation,game,uses,variable-speed,mechanic,supporting,,
 foundation,game,uses,zoning,mechanic,core,,"A painting tool marks areas for homes, roads, patrol routes, and forest extraction; homes fill residential zones organically."
 from-dust,game,uses,fire-spread,mechanic,supporting,,Wildfires spread through vegetation and can be extinguished.
 from-dust,game,uses,god-powers,mechanic,supporting,,Powers such as jellifying water are granted by completing objectives; magical stones protect against water and fire.
@@ -2856,20 +2896,25 @@ frostpunk,game,uses,crisis-countdown,mechanic,core,,"Temperature falls on a sche
 frostpunk,game,uses,daily-schedules,mechanic,supporting,,Citizens work daylight shifts; emergency shifts extend hours at a cost.
 frostpunk,game,uses,dilemma-cards,mechanic,supporting,,"Individual decisions, such as how to handle an injured child, offer choices that shift hope and discontent."
 frostpunk,game,uses,fog-of-war,mechanic,supporting,,"Scouts explore the frozen wasteland map for survivors and resources, the only way to grow the workforce."
+frostpunk,game,uses,free-placement,mechanic,supporting,,
 frostpunk,game,uses,labor-market,mechanic,supporting,,"Workers, engineers, and children fill different job types."
 frostpunk,game,uses,policy-toggles,mechanic,core,,"The Book of Laws offers adaptation laws such as child labor, extended shifts, and prosthetics, plus Order or Faith paths whose later laws are harsher."
 frostpunk,game,uses,resource-extraction,mechanic,supporting,,"Coal, wood, steel, and food come from thumpers, sawmills, mines, and hunters."
 frostpunk,game,uses,service-coverage,mechanic,core,,The generator heats a circular area whose range and level the player raises; buildings outside heat need insulation or heaters.
+frostpunk,game,uses,storage-capacity,mechanic,supporting,,
 frostpunk,game,uses,tech-tree,mechanic,supporting,,"Workshops research heat, extraction, and automaton technologies."
+frostpunk,game,uses,variable-speed,mechanic,supporting,,
 frostpunk,game,uses,weather,mechanic,supporting,,
 frostpunk-2,game,uses,crisis-countdown,mechanic,supporting,,Whiteouts are severe storms prepared for with fuel reserves.
 frostpunk-2,game,uses,elections,mechanic,core,,"A council of 100 faction delegates votes on each proposed law; 51 votes pass most laws, two thirds pass laws that grant the Steward more power."
+frostpunk-2,game,uses,free-placement,mechanic,supporting,,
 frostpunk-2,game,uses,interest-groups,mechanic,core,,Factions with conflicting ideals react to adopted ideas and laws; radicals grow within factions.
 frostpunk-2,game,uses,policy-toggles,mechanic,core,,"Laws are proposed, negotiated with promises, and enacted when the council approves."
 frostpunk-2,game,uses,resource-extraction,mechanic,supporting,,"Food, coal, oil, and steam come from frostland deposits and districts."
 frostpunk-2,game,uses,scenario-objectives,mechanic,supporting,,Utopia Builder mode sets an objective and optional challenges that fail the run if missed.
 frostpunk-2,game,uses,stability-unrest,mechanic,supporting,,Faction tension can escalate into murder and civil war.
 frostpunk-2,game,uses,tech-tree,mechanic,supporting,,An Idea Tree of faction-proposed ideas to solve problems.
+frostpunk-2,game,uses,variable-speed,mechanic,supporting,,
 frostpunk-2,game,uses,zoning,mechanic,core,,"Districts for food, housing, extraction, and industry are placed on frost; buildings inside add functions."
 ftl,game,uses,agent-skills,mechanic,supporting,,"Crew gain skill in piloting, engines, shields, weapons, repair, and combat through use, improving station bonuses."
 ftl,game,uses,crisis-countdown,mechanic,core,,"Each jump advances the rebel fleet across the sector map; overtaken beacons yield hard fights and no reward, forcing a trade between exploration and speed."
@@ -2896,10 +2941,10 @@ game-dev-tycoon,game,uses,reputation,mechanic,supporting,,A fan count from past 
 game-dev-tycoon,game,uses,staff-hiring,mechanic,core,,"After moving out of the garage, the player hires designers and programmers with design, technology, and speed stats and assigns them to development tasks."
 game-dev-tycoon,game,uses,tech-tree,mechanic,core,,"Research points unlock new topics, genres, and engine features; custom engines bundle researched features and raise technology output."
 game-dev-tycoon,game,uses,triggered-event-chains,mechanic,supporting,,"Industry news, console launches, and studio events fire on a fixed historical timeline."
-game-of-life,game,uses,adjacency-scoring,mechanic,core,,"A dead cell with exactly 3 live neighbors is born, a live cell with 2 or 3 survives, and all others die; the neighbor count is the whole update rule."
-game-of-life,game,uses,blueprints,mechanic,supporting,,Implementations store patterns as files and libraries that can be stamped into a grid and shared.
+game-dev-tycoon,game,uses,variable-speed,mechanic,supporting,,
 game-of-life,game,uses,free-placement,mechanic,core,,The player's only act is toggling cells on the grid to set the seed before running generations.
-game-of-life,game,uses,variable-speed,mechanic,supporting,,"Simulators step one generation at a time or run fast, and Hashlife in Golly jumps far ahead in time."
+game-of-life,game,uses,turn-structure,mechanic,supporting,,Each generation is a discrete synchronous update the player can step through one at a time.
+game-of-life,game,uses,variable-speed,mechanic,supporting,,Computer implementations step one generation at a time or run continuously; later simulators such as Golly use Hashlife to jump far ahead in time.
 garrys-mod,game,uses,blueprints,mechanic,supporting,,The duplicator tool and Advanced Duplicator addon copy and paste multi-prop contraptions.
 garrys-mod,game,uses,content-sharing,mechanic,supporting,,"Steam Workshop distributes saves, dupes, maps, and addons."
 garrys-mod,game,uses,direct-avatar,mechanic,supporting,,"The player is a first-person character who walks, flies with noclip, and wields the physics and tool guns."
@@ -2918,6 +2963,7 @@ going-medieval,game,uses,agent-skills,mechanic,supporting,,"Skills such as Anima
 going-medieval,game,uses,animal-husbandry,mechanic,supporting,,
 going-medieval,game,uses,crop-cultivation,mechanic,supporting,,
 going-medieval,game,uses,designation-orders,mechanic,supporting,,
+going-medieval,game,uses,free-placement,mechanic,supporting,,
 going-medieval,game,uses,mood-breakdown,mechanic,supporting,,Settlers in poor conditions become dissatisfied and may leave the settlement.
 going-medieval,game,uses,needs-decay,mechanic,core,,"Settlers track needs such as hunger, sleep, clothing preferences, and religion, and meeting them keeps settlers content."
 going-medieval,game,uses,permadeath,mechanic,supporting,,
@@ -2926,9 +2972,12 @@ going-medieval,game,uses,raid-defense,mechanic,core,,"Repeated bandit raids and 
 going-medieval,game,uses,room-recognition,mechanic,supporting,,"Workshops, chapels, libraries, and bedrooms are furnished and decorated rooms."
 going-medieval,game,uses,seasons,mechanic,supporting,,Seasonal changes govern food production and storage.
 going-medieval,game,uses,spoilage,mechanic,supporting,,Food keeps longer in cool storage such as cellars.
+going-medieval,game,uses,storage-capacity,mechanic,supporting,,
 going-medieval,game,uses,structural-integrity,mechanic,supporting,,"Built structures need support, and unsupported sections collapse."
 going-medieval,game,uses,tech-tree,mechanic,supporting,,Research unlocks medieval technology.
 going-medieval,game,uses,terraforming,mechanic,core,,"A 3D terrain toolset digs out or fills voxel earth and water on a randomly generated multi-level map, so cellars, moats, and caverns are carved from the ground."
+going-medieval,game,uses,utility-action-selection,mechanic,supporting,,
+going-medieval,game,uses,variable-speed,mechanic,supporting,,
 going-medieval,game,uses,vertical-layers,mechanic,core,,"Settlements stack multi-storey buildings above ground and cellars and caverns below, connected by stairs and ladders."
 going-medieval,game,uses,work-priorities,mechanic,supporting,,Settlers are assigned to roles that fit their skills.
 gran-turismo,game,uses,career-ladder,mechanic,core,,Simulation mode requires earning driver's licenses through timed tests before entering higher events.
@@ -3005,6 +3054,8 @@ inzoi,game,uses,offscreen-life-progression,mechanic,supporting,,"City-wide free 
 inzoi,game,uses,personality-traits,mechanic,supporting,,Personality and life experience shape each Zoi's actions and relationships.
 inzoi,game,uses,relationship-values,mechanic,supporting,,
 inzoi,game,uses,romance-family,mechanic,supporting,,
+inzoi,game,uses,utility-action-selection,mechanic,supporting,,
+inzoi,game,uses,variable-speed,mechanic,supporting,,
 iracing,game,uses,career-ladder,mechanic,core,,"Licenses progress Rookie, D, C, B, A, with Pro for esports qualifiers; promotion depends on a per-discipline Safety Rating computed from incident points and corners per incident."
 iracing,game,uses,embodied-skill-control,mechanic,core,,"Races are against human drivers on the publisher's servers, so results depend on the driver's braking, throttle, and line precision."
 iracing,game,uses,vehicle-dynamics,mechanic,core,,"A new tire model replaced the one in the NASCAR Racing 2003 Season code iRacing was built from, and cars and tracks are LIDAR-scanned."
@@ -3028,6 +3079,7 @@ jurassic-world-evolution,game,uses,random-disasters,mechanic,core,,Storms damage
 jurassic-world-evolution,game,uses,reputation,mechanic,core,,"Science, Security, and Entertainment divisions track reputation; low standing in one triggers sabotage such as power cuts or disease outbreaks."
 jurassic-world-evolution,game,uses,resource-extraction,mechanic,supporting,,The Expedition Center sends teams to global dig sites that yield fossils for DNA and for sale.
 jurassic-world-evolution,game,uses,tech-tree,mechanic,supporting,,"Fossil DNA completion unlocks species, and the research center unlocks buildings, upgrades, and genome modifications."
+jurassic-world-evolution,game,uses,variable-speed,mechanic,supporting,,
 kenshi,game,uses,agent-skills,mechanic,core,,"Skills rise from the actions they describe, such as stealing for thievery and fighting for combat, with stats and appearance changing as characters grow."
 kenshi,game,uses,crop-cultivation,mechanic,supporting,,Zone soil types and terrain affect outpost farming.
 kenshi,game,uses,faction-diplomacy,mechanic,core,,"Many factions and species with relations to each other; the player can aid or oppose them, and deaths of notable figures shift world states."
@@ -3041,6 +3093,7 @@ kenshi,game,uses,stat-combat-resolution,mechanic,supporting,,"Fights resolve fro
 kenshi,game,uses,survival-meters,mechanic,supporting,,Starvation reduces character stats.
 kenshi,game,uses,tech-tree,mechanic,supporting,,Research unlocks equipment and technologies.
 kenshi,game,uses,unit-commands,mechanic,core,,"The player commands any squad member directly in real time with pause; no character is privileged, and the squad acts together."
+kenshi,game,uses,variable-speed,mechanic,supporting,,
 kenshi,game,uses,weather,mechanic,supporting,,"Some weather, such as acid rain, harms characters."
 kenshi,game,uses,work-priorities,mechanic,supporting,,Squad members keep job lists for base work and production.
 kerbal-space-program,game,uses,budget-treasury,mechanic,supporting,,"Career funds pay for parts, fuel, crew, and facility upgrades; contract payouts are the income."
@@ -3062,6 +3115,8 @@ kingdoms-and-castles,game,uses,citizen-satisfaction,mechanic,supporting,,"Happin
 kingdoms-and-castles,game,uses,contagion,mechanic,supporting,,Plagues spread and must be healed.
 kingdoms-and-castles,game,uses,crop-cultivation,mechanic,supporting,,
 kingdoms-and-castles,game,uses,faction-diplomacy,mechanic,supporting,,"Diplomats make trade agreements, alliances, and wars with AI kingdoms."
+kingdoms-and-castles,game,uses,fire-spread,mechanic,supporting,,
+kingdoms-and-castles,game,uses,free-placement,mechanic,supporting,,
 kingdoms-and-castles,game,uses,immigration-attractiveness,mechanic,supporting,,Happiness and housing attract new residents.
 kingdoms-and-castles,game,uses,modular-assembly,mechanic,supporting,,Castle blocks stack into walls and towers whose shape forms automatically; taller archer towers have longer range.
 kingdoms-and-castles,game,uses,procedural-terrain,mechanic,supporting,,
@@ -3069,7 +3124,9 @@ kingdoms-and-castles,game,uses,raid-defense,mechanic,core,,"Vikings kidnap peasa
 kingdoms-and-castles,game,uses,random-disasters,mechanic,supporting,,Lightning starts fires.
 kingdoms-and-castles,game,uses,renewable-regrowth,mechanic,supporting,,Foresters cut and replant trees.
 kingdoms-and-castles,game,uses,seasons,mechanic,core,,"An annual winter destroys crops, so food must be stored in granaries to prevent starvation."
+kingdoms-and-castles,game,uses,storage-capacity,mechanic,supporting,,
 kingdoms-and-castles,game,uses,taxation,mechanic,supporting,,Peasant taxes pay workers and unlock buildings.
+kingdoms-and-castles,game,uses,variable-speed,mechanic,supporting,,
 lemonade-stand,game,uses,advertising-awareness,mechanic,supporting,,"Advertising signs bought each day raise that day's demand alongside price and weather, with no carryover between days."
 lemonade-stand,game,uses,budget-treasury,mechanic,supporting,,Cash on hand limits how many glasses and signs can be bought each day.
 lemonade-stand,game,uses,customer-value-choice,mechanic,core,,Aggregate customers buy more at lower prices and with more advertising signs; sales are capped by the glasses made that day.
@@ -3085,15 +3142,18 @@ little-computer-people,game,uses,personality-traits,mechanic,supporting,,"Seeded
 little-computer-people,game,uses,procedural-characters,mechanic,core,,"The disk serial number seeds his name from a pool of 256, his shirt color, personality, and behavior parameters."
 manor-lords,game,uses,citizen-satisfaction,mechanic,supporting,,"Approval responds to supply, taxes, and tithes."
 manor-lords,game,uses,crop-cultivation,mechanic,core,,"Fields depend on soil fertility per crop; rotation and fallow maintain yields, and overuse exhausts soil."
+manor-lords,game,uses,free-placement,mechanic,supporting,,
 manor-lords,game,uses,goods-consumption,mechanic,supporting,,Households need basic goods and luxuries; shortfalls lower satisfaction.
 manor-lords,game,uses,production-chain,mechanic,supporting,,"Raw materials pass through workshops into goods, weapons, and armor."
 manor-lords,game,uses,raid-defense,mechanic,supporting,,Bandit raids threaten the town and loot stores.
 manor-lords,game,uses,renewable-regrowth,mechanic,supporting,,Hunting grounds depend on animal populations; overexpansion drives deer away and deforests land.
 manor-lords,game,uses,road-network,mechanic,supporting,,Roads curve freely and plots and buildings take their shape from them.
 manor-lords,game,uses,seasons,mechanic,supporting,,Spring rains and winter snow change work and needs.
+manor-lords,game,uses,storage-capacity,mechanic,supporting,,
 manor-lords,game,uses,taxation,mechanic,supporting,,"Six tax types, a yearly King's tax, and tithes on villagers."
 manor-lords,game,uses,trade-routes,mechanic,supporting,,Surpluses sold to traveling merchants; imports and exports balanced through trade.
 manor-lords,game,uses,unit-commands,mechanic,supporting,,"Real-time battles with fatigue, weather, and equipment; retinue, mercenaries, and militia drawn from townspeople."
+manor-lords,game,uses,variable-speed,mechanic,supporting,,
 manor-lords,game,uses,zoning,mechanic,core,,Residential plots drawn along roads are divided into burgage plots that families build on and extend with backyard production.
 microsoft-flight-simulator-2020,game,uses,day-night-cycle,mechanic,supporting,,
 microsoft-flight-simulator-2020,game,uses,embodied-skill-control,mechanic,supporting,,
@@ -3102,6 +3162,7 @@ microsoft-flight-simulator-2020,game,uses,modding-api,mechanic,supporting,,An in
 microsoft-flight-simulator-2020,game,uses,procedural-checklists,mechanic,supporting,,
 microsoft-flight-simulator-2020,game,uses,real-world-data-feeds,mechanic,core,,"The whole Earth is built from Bing Maps imagery updated every 28 days and AI-generated 3D content streamed from more than two petabytes in the cloud, while Meteoblue live weather and live air traffic feed the sim at runtime."
 microsoft-flight-simulator-2020,game,uses,scenario-objectives,mechanic,supporting,,
+microsoft-flight-simulator-2020,game,uses,variable-speed,mechanic,supporting,,
 microsoft-flight-simulator-2020,game,uses,weather,mechanic,core,,"Meteoblue live global weather sets clouds, wind, and precipitation in real time, and wind interacts with the terrain model."
 microsoft-flight-simulator-2024,game,uses,career-ladder,mechanic,core,,"Starting from an airport the player chooses, experience earns certifications and specializations that unlock job types."
 microsoft-flight-simulator-2024,game,uses,contracts-orders,mechanic,core,,"Career jobs include aerial firefighting, search and rescue, crop dusting, helicopter cargo hook, Beluga outsize cargo, A400M arctic cargo, and airline passenger flights."
@@ -3113,12 +3174,14 @@ microsoft-flight-simulator-2024,game,uses,modding-api,mechanic,supporting,,
 microsoft-flight-simulator-2024,game,uses,procedural-checklists,mechanic,supporting,,"A walk-around preflight handles covers, doors, and service items, and revised electrical, fuel, pneumatic, and hydraulic systems gate start-up."
 microsoft-flight-simulator-2024,game,uses,real-world-data-feeds,mechanic,supporting,,"The streamed whole-Earth world of the 2020 game continues, and the launch showed the dependence when an overwhelmed database cache caused long loads and missing content."
 microsoft-flight-simulator-2024,game,uses,reputation,mechanic,supporting,,Career reputation accumulates alongside experience.
+microsoft-flight-simulator-2024,game,uses,variable-speed,mechanic,supporting,,
 microsoft-flight-simulator-2024,game,uses,weather,mechanic,supporting,,
 mindustry,game,uses,adaptive-threat-scaling,mechanic,supporting,,Survival maps send progressively stronger waves with tougher unit types and bosses as wave numbers rise; the cited sources do not tie wave strength to the player's own wealth.
 mindustry,game,uses,blueprints,mechanic,supporting,,Schematics save layouts as shareable text and are traded on Steam Workshop.
 mindustry,game,uses,conveyor-transport,mechanic,core,,"Conveyors, junctions, routers, sorters, overflow gates, and bridges move items from drills to the core, factories, and turret ammo inputs."
 mindustry,game,uses,crisis-countdown,mechanic,supporting,,"A visible timer counts down to the next wave, and wave timing can be changed in custom game rules."
 mindustry,game,uses,fluid-pipe-network,mechanic,supporting,,"Conduits carry water, slag, oil, and cryofluid; optional coolant and lubricant raise turret and factory rates."
+mindustry,game,uses,free-placement,mechanic,supporting,,
 mindustry,game,uses,machine-boosting,mechanic,supporting,,"Optional coolant and lubricant fed to turrets and factories raise their rates, and water boosts drill speed."
 mindustry,game,uses,modding-api,mechanic,supporting,,"The GPL-3.0 source allows unrestricted mods, and community servers run plugins for custom maps and game modes."
 mindustry,game,uses,player-programming,mechanic,supporting,,"Micro, logic, and hyper processors run Mindustry Logic, an assembly-like language with one operation per instruction that reads sensors and memory cells, controls linked buildings and turrets, and binds units with ubind to command them."
@@ -3189,6 +3252,7 @@ noita,game,uses,procedural-terrain,mechanic,supporting,,Each seed generates biom
 noita,game,uses,rigid-body-physics,mechanic,supporting,,"Box2D rigid bodies such as crates, bricks, and detached terrain chunks can be kicked, thrown, and shattered."
 offworld-trading-company,game,uses,auctions,mechanic,supporting,,Some resource tiles and patents are sold by auction.
 offworld-trading-company,game,uses,equity-buyouts,mechanic,core,,"Players buy shares in rival companies and win by holding a majority of every company; debt lowers stock price, and buying back one's own stock raises buyout cost."
+offworld-trading-company,game,uses,free-placement,mechanic,supporting,,
 offworld-trading-company,game,uses,goods-consumption,mechanic,supporting,,"Each HQ consumes life support resources such as water, food, oxygen, and power, which must be produced or bought."
 offworld-trading-company,game,uses,loans-debt,mechanic,supporting,,"Companies can run into debt, which depresses their share price."
 offworld-trading-company,game,uses,procedural-terrain,mechanic,supporting,,"Each match generates a new Martian map, so resource layouts and claims differ."
@@ -3197,6 +3261,7 @@ offworld-trading-company,game,uses,resource-extraction,mechanic,core,,"Extractor
 offworld-trading-company,game,uses,rival-firms,mechanic,core,,"Up to eight companies, AI or human, compete in one market and attack each other through black market sabotage such as nukes, EMPs, and mutinies."
 offworld-trading-company,game,uses,supply-demand-pricing,mechanic,core,,"Each of 13 resources has a market price that falls when players sell and rises when they buy, with shortages and gluts driving rapid swings."
 offworld-trading-company,game,uses,tech-tree,mechanic,supporting,,Patents and HQ upgrades unlock buildings and bonuses.
+offworld-trading-company,game,uses,variable-speed,mechanic,supporting,,
 opus-magnum,game,uses,comparative-histograms,mechanic,core,,"Cost, cycles, and area are shown on histograms of all players' scores and against friends' scores; Zachtronics deliberately attaches no rewards to optimization."
 opus-magnum,game,uses,content-sharing,mechanic,supporting,,"A puzzle editor publishes solvable user puzzles to Steam Workshop, curated puzzles appear in the Journal of Alchemical Engineering, and solutions export as looping GIFs."
 opus-magnum,game,uses,design-performance-rating,mechanic,core,,"Solutions are scored on cost in gold, cycles to complete, and area in hex tiles, with the community adding an unofficial sum metric."
@@ -3229,6 +3294,7 @@ oxygen-not-included,game,uses,decoration-beauty,mechanic,supporting,,Decor aroun
 oxygen-not-included,game,uses,designation-orders,mechanic,supporting,,"Dig, build, mop, and deconstruct orders placed on tiles."
 oxygen-not-included,game,uses,fluid-gas-simulation,mechanic,core,,"Every tile holds one gas, liquid, or solid with a mass; gases diffuse and equalize when a chamber is opened, and liquids drain under gravity, so breathable oxygen must be produced and carbon dioxide managed."
 oxygen-not-included,game,uses,fluid-pipe-network,mechanic,core,,"Gas and liquid pipes carry packets between buildings; a liquid pipe segment holds 10 kg and moves packets once per second, capping a line at 10 kg/s, and pipe contents exchange heat with their tiles."
+oxygen-not-included,game,uses,free-placement,mechanic,supporting,,
 oxygen-not-included,game,uses,heat-transfer,mechanic,core,,"Cells exchange heat each 0.2 s tick with q = dT x dt x k x 1000, with multipliers for solid-gas and liquid-liquid contact; insulated tiles divide conductivity, and temperature thresholds melt, freeze, boil, or damage things."
 oxygen-not-included,game,uses,mood-breakdown,mechanic,core,,"Morale is the sum of timed buffs (Mess Hall +3, Private Bedroom +3, food up to +16, decor up to +12) compared to an expectation that rises with skills learned; each point under adds 2.5% stress per cycle up to 25%, full stress triggers a stress response, and 8 or more points over can trigger overjoyed responses."
 oxygen-not-included,game,uses,personality-traits,mechanic,supporting,,Traits such as Germ Resistant or Allergies change resistances and stress reactions.
@@ -3237,7 +3303,9 @@ oxygen-not-included,game,uses,procedural-terrain,mechanic,supporting,,Asteroids 
 oxygen-not-included,game,uses,room-recognition,mechanic,supporting,,"Enclosed rooms that meet requirements become Mess Halls, Bedrooms, and similar rooms that grant morale buffs."
 oxygen-not-included,game,uses,signal-circuits,mechanic,supporting,,"Automation wires, sensors, and logic gates control doors, pumps, and generators; extended by the Automation Innovation update."
 oxygen-not-included,game,uses,spoilage,mechanic,supporting,,Food rots unless refrigerated or kept in a sterile atmosphere.
+oxygen-not-included,game,uses,storage-capacity,mechanic,supporting,,
 oxygen-not-included,game,uses,tech-tree,mechanic,supporting,,Research unlocks buildings.
+oxygen-not-included,game,uses,variable-speed,mechanic,supporting,,
 oxygen-not-included,game,uses,work-priorities,mechanic,core,,"Every errand carries a priority, and each duplicant has per-errand-type priorities on the Priorities screen; duplicants pick the highest available errand and favor tasks they are good at."
 papers-please,game,uses,budget-treasury,mechanic,core,,"The end-of-day ledger adds wages and bribes, subtracts citation penalties, and requires paying rent, food, heat, and other necessities; going into debt ends the game."
 papers-please,game,uses,daily-action-budget,mechanic,core,,"Each shift is a fixed real-time working day and pay is per properly processed entrant, so processing speed trades against error risk."
@@ -3256,6 +3324,8 @@ paralives,game,uses,needs-decay,mechanic,core,,"Parafolks carry needs, wants, an
 paralives,game,uses,personality-traits,mechanic,supporting,,
 paralives,game,uses,relationship-values,mechanic,supporting,,"Conversation fills a together bar between two Parafolks, and a full bar unlocks together cards."
 paralives,game,uses,romance-family,mechanic,supporting,,
+paralives,game,uses,utility-action-selection,mechanic,supporting,,
+paralives,game,uses,variable-speed,mechanic,supporting,,
 pc-building-simulator,game,uses,budget-treasury,mechanic,supporting,,Monthly rent and electricity bills must be paid or the player incurs debt.
 pc-building-simulator,game,uses,contracts-orders,mechanic,core,,"Customer requests, discount alerts, spam, and scams arrive in an inbox; accepted orders left unfulfilled are rejected, and timed jobs grow more common as the career advances."
 pc-building-simulator,game,uses,design-performance-rating,mechanic,supporting,,3DMark benchmarking scores built or repaired machines.
@@ -3263,6 +3333,8 @@ pc-building-simulator,game,uses,diagnose-repair,mechanic,core,,"Email jobs ask f
 pc-building-simulator,game,uses,milestone-unlocks,mechanic,supporting,,Leveling up from job experience unlocks more advanced parts.
 pc-building-simulator,game,uses,modular-assembly,mechanic,core,,"PCs are assembled from licensed cases, motherboards, CPUs, coolers, GPUs, memory, and storage; part choice and installation details such as thermal paste decide whether and how well the machine runs."
 pharaoh,game,uses,crop-cultivation,mechanic,supporting,,Floodplain and meadow farms yield by fertility and season.
+pharaoh,game,uses,fire-spread,mechanic,supporting,,
+pharaoh,game,uses,free-placement,mechanic,supporting,,
 pharaoh,game,uses,goods-consumption,mechanic,supporting,,Houses need food and goods to advance.
 pharaoh,game,uses,hydrology,mechanic,core,,"A yearly Nile flood waters floodplain farms; irrigation ditches extend fertile land, and Osiris can raise or lower the flood quality."
 pharaoh,game,uses,labor-market,mechanic,supporting,,Buildings and monument crews draw workers from housing.
@@ -3271,7 +3343,9 @@ pharaoh,game,uses,population-strata,mechanic,core,,"Housing improves in level wh
 pharaoh,game,uses,production-chain,mechanic,supporting,,
 pharaoh,game,uses,scenario-objectives,mechanic,supporting,,"Missions set population, rating, and monument goals."
 pharaoh,game,uses,seasons,mechanic,supporting,,The flood season fixes when floodplain land can be farmed.
+pharaoh,game,uses,storage-capacity,mechanic,supporting,,
 pharaoh,game,uses,trade-routes,mechanic,supporting,,Raw materials and goods trade with other cities for money.
+pharaoh,game,uses,variable-speed,mechanic,supporting,,
 pharaoh,game,uses,walker-service-delivery,mechanic,core,,"Fire marshals, constables, and other service walkers roam roads from their buildings and cover the houses they pass."
 plague-inc,game,uses,alerts-feed,mechanic,supporting,,
 plague-inc,game,uses,contagion,mechanic,core,,"Infection spreads within countries and between them along travel links, at rates set by the pathogen's transmission traits and each country's conditions, until countries are fully infected and then depopulated."
@@ -3288,6 +3362,7 @@ planet-coaster,game,uses,crowd-preferences,mechanic,core,,"Thousands of guests w
 planet-coaster,game,uses,customer-value-choice,mechanic,supporting,,"Ticket, ride, and shop prices are weighed against ride ratings and guest budgets."
 planet-coaster,game,uses,decoration-beauty,mechanic,supporting,,Scenery around rides and paths raises guest happiness and ride appeal.
 planet-coaster,game,uses,design-performance-rating,mechanic,core,,"Coasters are test-run and rated on excitement, fear, and nausea, which set guest demand and ride value."
+planet-coaster,game,uses,free-placement,mechanic,supporting,,
 planet-coaster,game,uses,modular-assembly,mechanic,core,,"Coasters are built in a hybrid spline and piece-by-piece editor, and structures are assembled from modular wall, roof, and prop pieces."
 planet-coaster,game,uses,needs-decay,mechanic,supporting,,"Guests need food, drink, toilets, and rest during their visit."
 planet-coaster,game,uses,scenario-objectives,mechanic,supporting,,"Career scenarios set goals such as building coasters, reaching park ratings, and hiring staff; a scenario editor was added in 2017."
@@ -3295,10 +3370,13 @@ planet-coaster,game,uses,staff-hiring,mechanic,supporting,,"Janitors, mechanics,
 planet-coaster,game,uses,tech-tree,mechanic,supporting,,Challenge and Career modes gate rides and items behind research.
 planet-coaster,game,uses,terraforming,mechanic,supporting,,A voxel terrain editor sculpts and tunnels the ground.
 planet-coaster,game,uses,track-laying,mechanic,supporting,,"Coasters are built in a hybrid spline and piece-by-piece editor, joining track elements end to end."
+planet-coaster,game,uses,utility-action-selection,mechanic,supporting,,
+planet-coaster,game,uses,variable-speed,mechanic,supporting,,
 planet-coaster,game,uses,wear-breakdown,mechanic,supporting,,Rides age and break down without mechanic inspections.
 planet-zoo,game,uses,content-sharing,mechanic,supporting,,Habitat and building blueprints are shared on the Steam Workshop.
 planet-zoo,game,uses,crowd-preferences,mechanic,supporting,,"Guests choose exhibits, shops, and talks and react to animal welfare and park layout."
 planet-zoo,game,uses,day-night-cycle,mechanic,supporting,,
+planet-zoo,game,uses,free-placement,mechanic,supporting,,
 planet-zoo,game,uses,habitat-suitability,mechanic,core,,"Each species needs habitat size, land and water area, biome terrain and plants, temperature, shelter, and enrichment; welfare drops when any requirement is unmet."
 planet-zoo,game,uses,lifecycle-aging,mechanic,supporting,,Animals age from juveniles to adults and die of old age.
 planet-zoo,game,uses,modular-assembly,mechanic,supporting,,"Barriers, buildings, and scenery use Planet Coaster's modular piece system."
@@ -3308,6 +3386,7 @@ planet-zoo,game,uses,reputation,mechanic,supporting,,"A conservation rating rise
 planet-zoo,game,uses,staff-hiring,mechanic,supporting,,"Keepers, vets, mechanics, security, and vendors are hired with work zones and facility needs."
 planet-zoo,game,uses,tech-tree,mechanic,supporting,,Vets research species to unlock knowledge and enrichment items.
 planet-zoo,game,uses,trait-inheritance,mechanic,core,,"Animals carry genomes that set lifespan, size, health, and fertility; offspring inherit them, and inbreeding causes harmful effects."
+planet-zoo,game,uses,variable-speed,mechanic,supporting,,
 planet-zoo,game,uses,weather,mechanic,supporting,,
 poly-bridge,game,uses,content-sharing,mechanic,supporting,,"Sandbox designs are published as Workshop levels, and test runs export as GIF replays."
 poly-bridge,game,uses,design-performance-rating,mechanic,core,,"A level passes when its vehicles reach their flags; total material cost against the level budget is the measure of a good solution, and Steam leaderboards compare results."
@@ -3349,6 +3428,8 @@ prison-architect,game,uses,power-grid,mechanic,supporting,,"Generators and cable
 prison-architect,game,uses,stability-unrest,mechanic,core,,"Needs left unmet for long periods make prisoners irritated, then likely to fight, attack staff, attempt escape, or riot, and violence spreads to nearby prisoners until guards restore order."
 prison-architect,game,uses,staff-hiring,mechanic,supporting,,"Staff such as guards, cooks, janitors, doctors, psychologists, and lawyers are hired individually, and administrators unlock features."
 prison-architect,game,uses,tech-tree,mechanic,supporting,,A bureaucracy research tree unlocked through administrative staff.
+prison-architect,game,uses,utility-action-selection,mechanic,supporting,,
+prison-architect,game,uses,variable-speed,mechanic,supporting,,
 project-hospital,game,uses,agent-skills,mechanic,supporting,,
 project-hospital,game,uses,budget-treasury,mechanic,supporting,,
 project-hospital,game,uses,diagnosis-treatment,mechanic,core,,"Each patient has a hidden diagnosis; doctors order examinations, lab tests, and equipment procedures that each reveal symptoms, symptom frequencies are tuned so one exam rarely settles a case, and treatment, hospitalization, or surgery follows."
@@ -3358,6 +3439,7 @@ project-hospital,game,uses,scenario-objectives,mechanic,supporting,,A campaign a
 project-hospital,game,uses,service-queues,mechanic,supporting,,
 project-hospital,game,uses,staff-hiring,mechanic,core,,"The player hires and specializes doctors, nurses, lab staff, and janitors and manages their job satisfaction; the Hospital Services DLC adds staff training."
 project-hospital,game,uses,unit-commands,mechanic,supporting,,"Doctor Mode (2019) lets the player choose exams, diagnoses, and treatments for individual doctors and their patients."
+project-hospital,game,uses,variable-speed,mechanic,supporting,,
 project-sid,game,uses,elections,mechanic,core,,"Constituents give feedback on a constitution, amendments are generated, agents vote, and the amended constitution is distributed on a fixed schedule (feedback at 300 s, vote at 420 s, distribution at 600 s)."
 project-sid,game,uses,generative-content,mechanic,supporting,,"Goal generation, talking, and the cognitive controller run on language-model calls, with GPT-4o as the base model in the strongest configuration."
 project-sid,game,uses,gossip-propagation,mechanic,core,,"Memes and a religion (Pastafarianism, seeded by 20 priests in one town) spread through agent conversations and travel; conversion was tracked by keyword use and had not saturated after two hours."
@@ -3381,6 +3463,7 @@ project-zomboid,game,uses,seasons,mechanic,supporting,,A climate system with sea
 project-zomboid,game,uses,spoilage,mechanic,supporting,,"Food rots, and refrigeration ends when power fails."
 project-zomboid,game,uses,stimulus-attraction,mechanic,core,,"Zombies respond to sight and hearing, so noise from actions such as gunfire or breaking windows draws them toward the survivor, and hordes migrate."
 project-zomboid,game,uses,survival-meters,mechanic,core,,"Moodles for hunger, thirst, fatigue, endurance, panic, stress, boredom, unhappiness, temperature, wetness, pain, bleeding, and sickness each grow in severity and penalize combat, movement, carrying, or healing."
+project-zomboid,game,uses,variable-speed,mechanic,supporting,,
 project-zomboid,game,uses,vehicle-dynamics,mechanic,supporting,,Vehicles have physics and part condition.
 project-zomboid,game,uses,weather,mechanic,supporting,,
 prom-week,game,uses,memories-thoughts,mechanic,supporting,,Past exchanges are stored as social history that later rules reference.
@@ -3411,6 +3494,7 @@ rebel-inc,game,uses,policy-toggles,mechanic,supporting,,A governance tab offers 
 rebel-inc,game,uses,scenario-objectives,mechanic,supporting,,"Each region has its own geography, and selectable governors such as the Economist and the Warlord change the rules."
 rebel-inc,game,uses,stability-unrest,mechanic,core,,"An insurgency emerges partway through and contests regions against coalition forces; later, peace can be negotiated with insurgent leaders."
 rebel-inc,game,uses,triggered-event-chains,mechanic,supporting,,Random events interrupt plans and offer choices.
+rebel-inc,game,uses,variable-speed,mechanic,supporting,,
 reigns,game,uses,dilemma-cards,mechanic,core,,"Advisers present cards that the player swipes left or right; each choice moves one or more of four meters (church, people, army, treasury), and the reign ends when any meter becomes completely full or completely empty."
 reigns,game,uses,dynasty-succession,mechanic,core,,"When a king's reign ends, play continues with a new king; unlocked cards and some effects carry across reigns, and the in-game years keep advancing."
 reigns,game,uses,milestone-unlocks,mechanic,supporting,,Completing tasks unlocks new cards.
@@ -3423,6 +3507,7 @@ rimworld,game,uses,autonomy-levels,mechanic,supporting,,Drafting switches a colo
 rimworld,game,uses,crop-cultivation,mechanic,supporting,,
 rimworld,game,uses,decoration-beauty,mechanic,supporting,,
 rimworld,game,uses,designation-orders,mechanic,supporting,,
+rimworld,game,uses,fire-spread,mechanic,supporting,,
 rimworld,game,uses,injury-body-model,mechanic,core,,"Bodies are hierarchies of parts with hit points, bleeding, infection, scars, and prosthetics that change capacities like moving and manipulation."
 rimworld,game,uses,memories-thoughts,mechanic,core,,"Every mood effect is an itemized thought with a source and expiry, visible in the needs tab."
 rimworld,game,uses,mood-breakdown,mechanic,core,,"Mood below trait-adjusted break thresholds triggers minor, major, or extreme mental breaks; high mood can grant inspirations."
@@ -3434,7 +3519,9 @@ rimworld,game,uses,raid-defense,mechanic,supporting,,
 rimworld,game,uses,relationship-values,mechanic,supporting,,
 rimworld,game,uses,room-recognition,mechanic,supporting,,
 rimworld,game,uses,spoilage,mechanic,supporting,,
+rimworld,game,uses,storage-capacity,mechanic,supporting,,
 rimworld,game,uses,storyteller-director,mechanic,core,,"Selectable storytellers (Cassandra, Phoebe, Randy) choose incidents using a threat budget derived from colony wealth and time since the last major event."
+rimworld,game,uses,utility-action-selection,mechanic,supporting,,
 rimworld,game,uses,variable-speed,mechanic,supporting,,
 rimworld,game,uses,work-priorities,mechanic,core,,A work tab matrix sets 1-4 priorities per colonist per job type; colonists self-assign.
 rollercoaster-tycoon,game,uses,advertising-awareness,mechanic,supporting,,"The marketing panel runs time-limited paid campaigns, such as park or ride advertising and free-entry or half-price vouchers, that raise guest arrivals or demand for a chosen ride or stall while they last."
@@ -3444,6 +3531,7 @@ rollercoaster-tycoon,game,uses,crowd-preferences,mechanic,core,,"Guests have mon
 rollercoaster-tycoon,game,uses,customer-value-choice,mechanic,core,,Guests compare ride and shop prices with ride value and their remaining cash; overpriced items show up as complaints in guest thoughts.
 rollercoaster-tycoon,game,uses,decoration-beauty,mechanic,supporting,,Scenery and trees improve guest views and ride appeal.
 rollercoaster-tycoon,game,uses,design-performance-rating,mechanic,core,,"Each ride is test-run and rated on excitement, intensity, and nausea from its track geometry, speeds, and g-forces; ratings set demand and fair price."
+rollercoaster-tycoon,game,uses,free-placement,mechanic,supporting,,
 rollercoaster-tycoon,game,uses,loans-debt,mechanic,supporting,,"Parks start with a loan, such as $50,000 in Mega Park."
 rollercoaster-tycoon,game,uses,modular-assembly,mechanic,core,,"Coasters are built track piece by piece on a tile grid, choosing direction, height, steepness, and elements such as loops and corkscrews."
 rollercoaster-tycoon,game,uses,needs-decay,mechanic,supporting,,"Guests get hungry, thirsty, tired, and need toilets during a visit."
@@ -3453,6 +3541,8 @@ rollercoaster-tycoon,game,uses,staff-hiring,mechanic,supporting,,"Handymen sweep
 rollercoaster-tycoon,game,uses,tech-tree,mechanic,supporting,,Paid research unlocks new rides and improvements over time.
 rollercoaster-tycoon,game,uses,terraforming,mechanic,supporting,,Land can be raised and lowered and water added to fit rides and add appeal.
 rollercoaster-tycoon,game,uses,track-laying,mechanic,supporting,,"Coaster track is built piece by piece on the tile grid by direction, height, steepness, and elements such as loops and corkscrews, and the result is rated by test run."
+rollercoaster-tycoon,game,uses,utility-action-selection,mechanic,supporting,,
+rollercoaster-tycoon,game,uses,variable-speed,mechanic,supporting,,
 rollercoaster-tycoon,game,uses,wear-breakdown,mechanic,core,,"Ride reliability decays with use and age; breakdown chance rises as reliability falls, and mechanics inspect and repair on a set interval."
 satisfactory,game,uses,blueprints,mechanic,supporting,,"A Blueprint Designer (40 x 40 m at Mk.1, larger tiers in 1.0) saves layouts that appear as build-menu entries and draw materials from storage or inventory."
 satisfactory,game,uses,byproducts-waste,mechanic,supporting,,"Refinery recipes emit heavy oil residue or polymer resin that must be routed or the line backs up, and nuclear plants emit waste that has to be stored or reprocessed."
@@ -3539,6 +3629,7 @@ simant,game,uses,population-strata,mechanic,core,,"The colony divides into worke
 simant,game,uses,random-disasters,mechanic,supporting,,"Human footsteps, lawnmowers, bug spray, and electrical outlets kill ants without warning."
 simant,game,uses,scenario-objectives,mechanic,supporting,,
 simant,game,uses,unit-commands,mechanic,core,,"The yellow ant lays trails to food or enemy nests that other black ants follow, and can recruit a group of nearby ants to follow it into fights against spiders, caterpillars, antlions, or red ants."
+simant,game,uses,variable-speed,mechanic,supporting,,
 simant,game,uses,vertical-layers,mechanic,supporting,,Surface yard play is viewed from above while nests are shown in side view underground.
 simant,game,uses,weather,mechanic,supporting,,Rain washes away trails and can flood nests.
 simant,game,uses,work-priorities,mechanic,supporting,,
@@ -3546,6 +3637,8 @@ simcity-1989,game,uses,budget-treasury,mechanic,core,,"Tax revenue is collected 
 simcity-1989,game,uses,citizen-satisfaction,mechanic,supporting,,A yearly evaluation turns problem scores into a 0-1000 rating and an approval poll.
 simcity-1989,game,uses,crime-policing,mechanic,supporting,,"Crime per cell is 128 - land value + density minus smoothed police effect, clamped 0-250."
 simcity-1989,game,uses,data-overlays,mechanic,supporting,,"Map windows show land value, crime, pollution, traffic density, police and fire coverage, and population density."
+simcity-1989,game,uses,fire-spread,mechanic,supporting,,
+simcity-1989,game,uses,free-placement,mechanic,supporting,,
 simcity-1989,game,uses,land-value,mechanic,core,,"Each 2x2 block's value falls with distance from the population-weighted center, rises near trees and water, and drops with pollution and high crime, clamped to 1-250."
 simcity-1989,game,uses,pollution-spread,mechanic,supporting,,Industry and traffic write a pollution map that depresses land value and can summon the monster.
 simcity-1989,game,uses,power-grid,mechanic,core,,Zones must connect to coal or nuclear plants through power lines or adjacent zones; unpowered zones do not grow and lower the city score.
@@ -3555,10 +3648,13 @@ simcity-1989,game,uses,scenario-objectives,mechanic,supporting,,"Time-limited sc
 simcity-1989,game,uses,service-coverage,mechanic,supporting,,Police and fire stations write funding-scaled effect values to a block map that is smoothed outward.
 simcity-1989,game,uses,taxation,mechanic,supporting,,One city-wide tax rate adds a positive offset to demand at low rates and a negative offset at high rates.
 simcity-1989,game,uses,traffic-congestion,mechanic,supporting,,Zones generate trips along roads; the resulting traffic density map adds to pollution and complaints.
+simcity-1989,game,uses,variable-speed,mechanic,supporting,,
 simcity-1989,game,uses,zoning,mechanic,core,,"The player paints 3x3 residential, commercial, and industrial zones; simulated developers build, densify, or abandon them."
 simcity-2000,game,uses,budget-treasury,mechanic,core,,Yearly budget with department funding; extreme deficit spending ends the game.
 simcity-2000,game,uses,dated-tech-timeline,mechanic,supporting,,"Power plant types such as solar, fusion, and microwave and buildings such as arcologies become available in set invention years as the city's calendar advances."
+simcity-2000,game,uses,fire-spread,mechanic,supporting,,
 simcity-2000,game,uses,fluid-pipe-network,mechanic,supporting,,Water from pumps travels through underground pipes to zones.
+simcity-2000,game,uses,free-placement,mechanic,supporting,,
 simcity-2000,game,uses,land-value,mechanic,supporting,,"Query tool shows land value per tile, which shapes development."
 simcity-2000,game,uses,loans-debt,mechanic,supporting,,The player issues bonds to raise capital and pays interest on them.
 simcity-2000,game,uses,policy-toggles,mechanic,supporting,,City ordinances enacted for ongoing cost and effect.
@@ -3569,6 +3665,7 @@ simcity-2000,game,uses,service-coverage,mechanic,supporting,,"Schools, libraries
 simcity-2000,game,uses,taxation,mechanic,supporting,,"Separate tax rates for residential, commercial, and industrial zones."
 simcity-2000,game,uses,terraforming,mechanic,supporting,,Land has elevation that the player can raise or lower before and during play.
 simcity-2000,game,uses,traffic-congestion,mechanic,supporting,,Query tool reports traffic on roads; highways and transit relieve it.
+simcity-2000,game,uses,variable-speed,mechanic,supporting,,
 simcity-2000,game,uses,vertical-layers,mechanic,supporting,,"An underground layer holds water pipes, subways, and road tunnels separate from the surface."
 simcity-2000,game,uses,zoning,mechanic,core,,"Residential, commercial, and industrial zones in light and dense variants, plus seaport and airport zones."
 simcity-2013,game,uses,agent-pathfinding,mechanic,core,,Sims go to the first job and first empty home they find; vehicles take the shortest route rather than the one with spare capacity.
@@ -3576,15 +3673,18 @@ simcity-2013,game,uses,async-shared-region,mechanic,core,,"Cities in a region co
 simcity-2013,game,uses,budget-treasury,mechanic,supporting,,
 simcity-2013,game,uses,deposit-depletion,mechanic,supporting,,"Map resources are mostly finite, though groundwater recharges."
 simcity-2013,game,uses,fluid-pipe-network,mechanic,supporting,,"Water and sewage move as units through pipes between pumps, treatment, and buildings."
+simcity-2013,game,uses,free-placement,mechanic,supporting,,
 simcity-2013,game,uses,pollution-spread,mechanic,supporting,,Pollution and traffic cross city borders within a region.
 simcity-2013,game,uses,population-strata,mechanic,supporting,,Residents and businesses come in wealth levels with different demands.
 simcity-2013,game,uses,power-grid,mechanic,supporting,,Power is carried as resource units from plants to buildings.
 simcity-2013,game,uses,service-coverage,mechanic,supporting,,Service buildings dispatch vehicle agents to calls.
 simcity-2013,game,uses,supply-demand-pricing,mechanic,supporting,,A simulated global market raises and lowers prices of key resources with supply and demand.
 simcity-2013,game,uses,traffic-congestion,mechanic,core,,Jams emerge from masses of commuting Sim agents on the road network.
+simcity-2013,game,uses,variable-speed,mechanic,supporting,,
 simcity-2013,game,uses,zoning,mechanic,core,,"Residential, commercial, and industrial zones are painted along roads; buildings develop inside them."
 simcity-4,game,uses,advisors,mechanic,supporting,,Mayor mode advisors comment on problems and suggest actions.
 simcity-4,game,uses,budget-treasury,mechanic,supporting,,Civic buildings need ongoing funding set per building.
+simcity-4,game,uses,free-placement,mechanic,supporting,,
 simcity-4,game,uses,land-value,mechanic,core,,"Desirability is computed separately for each wealth level, so the same lot attracts different classes as services and nuisances change."
 simcity-4,game,uses,policy-toggles,mechanic,supporting,,City ordinances with monthly costs and effects.
 simcity-4,game,uses,pollution-spread,mechanic,supporting,,Industry and traffic pollute and reduce desirability.
@@ -3596,6 +3696,7 @@ simcity-4,game,uses,service-coverage,mechanic,supporting,,"Schools, hospitals, p
 simcity-4,game,uses,taxation,mechanic,supporting,,Tax rates per zone type and wealth level.
 simcity-4,game,uses,terraforming,mechanic,supporting,,God mode reshapes terrain; most terraforming locks once a city is founded.
 simcity-4,game,uses,traffic-congestion,mechanic,core,,"Commuters route trips over roads, rail, and transit; Rush Hour adds traffic flow tracing, avenues, and elevated rail."
+simcity-4,game,uses,variable-speed,mechanic,supporting,,
 simcity-4,game,uses,zoning,mechanic,core,,"Residential, commercial, and industrial zones at low, medium, and high density, with agriculture as a separate industrial zone; buildings need road frontage."
 simearth,game,uses,data-overlays,mechanic,supporting,,
 simearth,game,uses,god-powers,mechanic,core,,"Placing terrain, life, monoliths, oxygen generators, and terraforming devices costs energy (50 per terrain square, 500 per device) from a budget that grows with planetary development."
@@ -3622,6 +3723,7 @@ simtower,game,uses,free-placement,mechanic,core,,Floors and tenant units are pla
 simtower,game,uses,milestone-unlocks,mechanic,core,,"Population and conditions advance the tower from one to five stars and then to Tower status, each step unlocking facility types."
 simtower,game,uses,random-disasters,mechanic,supporting,,"Terrorist bomb threats with a ransom or search, fires, and pest infestations."
 simtower,game,uses,service-queues,mechanic,core,,"Tenants wait at elevator lobbies; long waits raise stress, and stressed tenants move out."
+simtower,game,uses,variable-speed,mechanic,supporting,,
 simtower,game,uses,vertical-layers,mechanic,supporting,,"Up to 100 floors above ground and 9 below; standard elevators span 30 floors, express elevators the full height."
 snowrunner,game,uses,contracts-orders,mechanic,core,,Missions deliver cargo or complete construction and repair jobs; optional timed contests pay more the faster they are finished.
 snowrunner,game,uses,embodied-skill-control,mechanic,supporting,,
@@ -3632,6 +3734,7 @@ snowrunner,game,uses,vehicle-dynamics,mechanic,core,,"Tire types, frame attachme
 snowrunner,game,uses,wear-breakdown,mechanic,supporting,,Damage is shown on the vehicle model and in the interface and must be repaired.
 songs-of-syx,game,uses,agent-pathfinding,mechanic,supporting,,Tens of thousands of agents path through streets to work and services.
 songs-of-syx,game,uses,faction-diplomacy,mechanic,supporting,,"Alliances, trade, and war with other kingdoms."
+songs-of-syx,game,uses,free-placement,mechanic,supporting,,
 songs-of-syx,game,uses,needs-decay,mechanic,supporting,,Each citizen's needs and desires drive behavior.
 songs-of-syx,game,uses,population-strata,mechanic,core,,"Citizens and slaves of several races, each with distinct needs, religion, and roles."
 songs-of-syx,game,uses,production-chain,mechanic,supporting,,
@@ -3639,6 +3742,7 @@ songs-of-syx,game,uses,stability-unrest,mechanic,supporting,,Appointed nobles ma
 songs-of-syx,game,uses,supply-lines,mechanic,supporting,,Every soldier must be supplied.
 songs-of-syx,game,uses,trade-routes,mechanic,supporting,,
 songs-of-syx,game,uses,unit-commands,mechanic,core,,"Real-time battles of up to 50,000 individual units commanded by the player."
+songs-of-syx,game,uses,variable-speed,mechanic,supporting,,
 space-engineers,game,uses,blueprints,mechanic,supporting,,Grids save as blueprints that a projector block displays for welding and that are shared on Steam Workshop.
 space-engineers,game,uses,conveyor-transport,mechanic,supporting,,"Conveyor blocks connect inventories so refineries, assemblers, and cargo containers move items automatically, with sorters filtering flow."
 space-engineers,game,uses,fluid-gas-simulation,mechanic,supporting,,Air vents pressurize sealed rooms with oxygen; breaches depressurize them.
@@ -3668,6 +3772,8 @@ space-haven,game,uses,relationship-values,mechanic,supporting,,Crew relationship
 space-haven,game,uses,reputation,mechanic,supporting,,"Standing with pirates, slavers, merchants, cults, and android factions."
 space-haven,game,uses,resource-extraction,mechanic,supporting,,Asteroids are mined for raw materials.
 space-haven,game,uses,unit-commands,mechanic,supporting,,Crew are drafted and equipped for ground combat and away missions.
+space-haven,game,uses,utility-action-selection,mechanic,supporting,,
+space-haven,game,uses,variable-speed,mechanic,supporting,,
 spacechem,game,uses,comparative-histograms,mechanic,core,,"After completion the player's cycles, reactors, and instructions are plotted on global histograms of other players' solutions, chosen over a ranked leaderboard to avoid discouraging players."
 spacechem,game,uses,content-sharing,mechanic,supporting,,ResearchNet distributes user-made puzzles that other players download and solve.
 spacechem,game,uses,design-performance-rating,mechanic,core,,"A solution passes when it outputs the required molecule quota and is then scored on cycles, number of reactors, and number of instructions used."
@@ -3696,6 +3802,7 @@ stardew-valley,game,uses,collection-goals,mechanic,core,,"Community Center bundl
 stardew-valley,game,uses,crop-cultivation,mechanic,core,,Seasonal seeds need daily watering (rain or sprinklers substitute) and grow through stages over set day counts; most crops must be harvested before the season changes.
 stardew-valley,game,uses,daily-action-budget,mechanic,core,,"An energy bar refills each morning, drains with tool use, and is restored by food; the clock forces bed by 2 a.m. or the player passes out and loses money."
 stardew-valley,game,uses,daily-schedules,mechanic,supporting,,"Villagers follow routines that vary by weekday, season, and weather."
+stardew-valley,game,uses,free-placement,mechanic,supporting,,
 stardew-valley,game,uses,hand-crafting,mechanic,supporting,,"Recipes turn gathered materials into sprinklers, fences, machines, and bombs."
 stardew-valley,game,uses,production-chain,mechanic,supporting,,"Kegs, preserves jars, and other machines convert crops and animal products into higher-value artisan goods over fixed processing times."
 stardew-valley,game,uses,quality-tiers,mechanic,supporting,,"Crops and animal products come in normal, silver, gold, and iridium quality."
@@ -3755,6 +3862,7 @@ surgeon-simulator,game,uses,injury-body-model,mechanic,supporting,,Damage to the
 surgeon-simulator,game,uses,rigid-body-physics,mechanic,core,,"Instruments, organs, and bones are physics objects that collide, slip, and fall, so most mistakes are physical accidents rather than authored failure states."
 surgeon-simulator,game,uses,scenario-objectives,mechanic,supporting,,"Procedures such as heart and kidney transplants are replayed in an operating room, a bouncing ambulance, and zero gravity."
 surviving-mars,game,uses,fluid-pipe-network,mechanic,core,,Water and oxygen travel by pipe from extractors and producers to domes.
+surviving-mars,game,uses,free-placement,mechanic,supporting,,
 surviving-mars,game,uses,hauling-jobs,mechanic,core,,"Drones within a hub's range carry resources, build, and maintain buildings."
 surviving-mars,game,uses,mood-breakdown,mechanic,supporting,,Unhappy colonists may become Earthsick or rebels.
 surviving-mars,game,uses,needs-decay,mechanic,supporting,,"Comfort, sanity, health, and morale change with services and events."
@@ -3766,6 +3874,7 @@ surviving-mars,game,uses,resource-extraction,mechanic,supporting,,"Metals, rare 
 surviving-mars,game,uses,service-coverage,mechanic,supporting,,Drone hubs and dome services serve within a range.
 surviving-mars,game,uses,tech-tree,mechanic,core,,"Research spans physics, engineering, social, biotechnology, and robotics fields."
 surviving-mars,game,uses,triggered-event-chains,mechanic,supporting,,"Mysteries run storylines such as plagues, rival corporations, AI revolts, and alien contact."
+surviving-mars,game,uses,variable-speed,mechanic,supporting,,
 surviving-mars,game,uses,wear-breakdown,mechanic,supporting,,Buildings need drone maintenance to keep working.
 suzerain,game,uses,advisors,mechanic,supporting,,Ministers and advisers brief the president and argue positions.
 suzerain,game,uses,budget-treasury,mechanic,supporting,,Available budget and resources are shown and drawn down by decisions.
@@ -3839,6 +3948,7 @@ the-sims,game,uses,romance-family,mechanic,supporting,,"Sims can become partners
 the-sims,game,uses,smart-objects,mechanic,core,,"Each of the 150-plus base-game objects advertises motive gains (a refrigerator advertises Hunger, a bed Energy), and Sims query the lot's objects to find interactions."
 the-sims,game,uses,social-exchanges,mechanic,supporting,,"Talk, joke, compliment, hug, kiss, tease, slap, and similar interactions succeed or fail on relationship, mood, and personality."
 the-sims,game,uses,utility-action-selection,mechanic,supporting,,Free will scores advertised interactions against current motive levels so the most depleted motive tends to win; players can cancel queued autonomous actions.
+the-sims,game,uses,variable-speed,mechanic,supporting,,
 the-sims-2,game,uses,agent-skills,mechanic,supporting,,
 the-sims-2,game,uses,aspiration-wants,mechanic,core,,"Each Sim's aspiration (one of eight, such as Romance, Family, Knowledge, or Popularity) biases which wants and fears roll; fulfilled wants fill the aspiration meter, realized fears drain it, and an elder's remaining life depends on the meter."
 the-sims-2,game,uses,career-ladder,mechanic,supporting,,"Careers have ten levels (25 tracks counting expansions); promotions need skills and a number of family friends, and chance cards can reward or cost the job."
@@ -3853,6 +3963,8 @@ the-sims-2,game,uses,romance-family,mechanic,supporting,,"Sims court, marry, and
 the-sims-2,game,uses,smart-objects,mechanic,core,,Objects advertise motive and skill gains that autonomous Sims weigh against their current motive levels.
 the-sims-2,game,uses,social-exchanges,mechanic,supporting,,
 the-sims-2,game,uses,trait-inheritance,mechanic,core,,"Children inherit eye color, hair color, facial structure, and personality from both parents through dominant and recessive genes; pregnancy lasts 3 Sim days."
+the-sims-2,game,uses,utility-action-selection,mechanic,supporting,,
+the-sims-2,game,uses,variable-speed,mechanic,supporting,,
 the-sims-3,game,uses,agent-skills,mechanic,supporting,,"Ten-level skills such as Logic, Cooking, Painting, Gardening, Writing, Guitar, Athletic, Handiness, Charisma, and Fishing feed careers and opportunities."
 the-sims-3,game,uses,aspiration-wants,mechanic,supporting,,A Lifetime Wish is chosen at creation and short-term wishes appear from traits and events; fulfilled wishes pay Lifetime Happiness points spent on Lifetime Rewards.
 the-sims-3,game,uses,career-ladder,mechanic,supporting,,"Twelve base careers that branch around level 6, plus part-time jobs; a performance style (Work Hard, Take It Easy, Suck Up to Boss) trades mood against promotion speed."
@@ -3868,6 +3980,8 @@ the-sims-3,game,uses,relationship-values,mechanic,supporting,,
 the-sims-3,game,uses,romance-family,mechanic,supporting,,
 the-sims-3,game,uses,smart-objects,mechanic,supporting,,"Objects advertise motive, skill, and fun gains; traits bias which advertisements a Sim picks."
 the-sims-3,game,uses,social-exchanges,mechanic,supporting,,Conversation menus offer trait- and mood-gated interactions whose acceptance depends on relationship state.
+the-sims-3,game,uses,utility-action-selection,mechanic,supporting,,
+the-sims-3,game,uses,variable-speed,mechanic,supporting,,
 the-sims-3,game,uses,villager-requests,mechanic,supporting,,"Opportunities arrive from neighbors, community lots, and jobs, such as skill requests or overtime, and pay cash, raises, or relationship gains."
 the-sims-4,game,uses,agent-skills,mechanic,supporting,,
 the-sims-4,game,uses,aspiration-wants,mechanic,supporting,,"The chosen aspiration grants a bonus trait and a track of milestones whose completion earns reward traits; short-term whims, later reworked as wants and fears, appear from emotions and traits."
@@ -3886,6 +4000,8 @@ the-sims-4,game,uses,relationship-values,mechanic,supporting,,Separate friendshi
 the-sims-4,game,uses,romance-family,mechanic,supporting,,
 the-sims-4,game,uses,smart-objects,mechanic,supporting,,"Objects advertise need, skill, and emotion gains, and Sims multitask, such as talking while cooking."
 the-sims-4,game,uses,social-exchanges,mechanic,supporting,,"Social menus are filtered by emotion and traits, with emotion-specific variants of interactions."
+the-sims-4,game,uses,utility-action-selection,mechanic,supporting,,
+the-sims-4,game,uses,variable-speed,mechanic,supporting,,
 theme-hospital,game,uses,advisors,mechanic,supporting,,
 theme-hospital,game,uses,agent-skills,mechanic,supporting,,Doctors can be trained to gain skills and specialisms.
 theme-hospital,game,uses,contagion,mechanic,supporting,,Epidemics break out and can be covered up before a health inspector visits; failure brings fines and lost reputation.
@@ -3899,6 +4015,8 @@ theme-hospital,game,uses,scenario-objectives,mechanic,supporting,,"Each level se
 theme-hospital,game,uses,service-queues,mechanic,core,,"Patients queue outside each room; the player can rearrange queues, and long waits push patients to leave."
 theme-hospital,game,uses,staff-hiring,mechanic,core,,"Doctors, nurses, handymen, and receptionists are hired with performance stats; some rooms need doctors with specialist skills."
 theme-hospital,game,uses,tech-tree,mechanic,supporting,,"Research unlocks rooms, drugs, and machine improvements."
+theme-hospital,game,uses,utility-action-selection,mechanic,supporting,,
+theme-hospital,game,uses,variable-speed,mechanic,supporting,,
 theme-hospital,game,uses,wear-breakdown,mechanic,supporting,,Machines such as the Inflator need handyman servicing or they explode.
 theme-park,game,uses,crime-policing,mechanic,supporting,,Thugs appear when visitors are unhappy; security guards counter them.
 theme-park,game,uses,crowd-preferences,mechanic,core,,Each visitor is an individual with its own personality and arrives and leaves by bus; unhappy crowds draw thugs who vandalize and attack entertainers.
@@ -3911,6 +4029,7 @@ theme-park,game,uses,rival-firms,mechanic,supporting,,The park is judged against
 theme-park,game,uses,service-queues,mechanic,supporting,,Visitors queue for rides and shops.
 theme-park,game,uses,staff-hiring,mechanic,core,,"Entertainers, security guards, mechanics, and handymen are hired and their wages negotiated; understaffing brings litter, breakdowns, and crime."
 theme-park,game,uses,tech-tree,mechanic,supporting,,"A funding level drives research into new items, ride durability, staff efficiency, and bus capacity."
+theme-park,game,uses,utility-action-selection,mechanic,supporting,,
 theme-park,game,uses,variable-speed,mechanic,supporting,,
 theme-park,game,uses,wear-breakdown,mechanic,core,,Rides wear down and explode if mechanics do not maintain them; research can make rides more durable.
 this-war-of-mine,game,uses,day-night-cycle,mechanic,core,,"Snipers confine survivors to the shelter by day for crafting, cooking, and care; at night survivors are assigned to sleep, guard, or scavenge."
@@ -3927,6 +4046,7 @@ this-war-of-mine,game,uses,supply-demand-pricing,mechanic,supporting,,Barter val
 this-war-of-mine,game,uses,triggered-event-chains,mechanic,supporting,,Neighbors and strangers arrive with requests tied to the shelter's state.
 timberborn,game,uses,crisis-countdown,mechanic,core,,Recurring droughts switch sources off and badtides release contaminating badwater; both grow harsher over time and are signalled in advance.
 timberborn,game,uses,crop-cultivation,mechanic,supporting,,Crops grow only on irrigated soil and fail when it dries.
+timberborn,game,uses,free-placement,mechanic,supporting,,
 timberborn,game,uses,hauling-jobs,mechanic,supporting,,
 timberborn,game,uses,hydrology,mechanic,core,,"Tiles exchange water through virtual pipes with evaporation; moisture spreads to nearby land and falls off sharply uphill; dams, levees, floodgates, and canals redirect flow."
 timberborn,game,uses,lifecycle-aging,mechanic,supporting,,
@@ -3935,6 +4055,7 @@ timberborn,game,uses,power-grid,mechanic,supporting,,Water wheels and other gene
 timberborn,game,uses,signal-circuits,mechanic,supporting,,"Sensors, relays, and counters control dams and factories."
 timberborn,game,uses,storage-capacity,mechanic,supporting,,Water tanks and warehouses buffer droughts.
 timberborn,game,uses,terraforming,mechanic,supporting,,Explosives dig tunnels and reshape terrain.
+timberborn,game,uses,variable-speed,mechanic,supporting,,
 timberborn,game,uses,vertical-layers,mechanic,supporting,,Lodges and workshops stack on platforms; ziplines and tubeways move beavers between levels.
 tiny-glade,game,uses,free-placement,mechanic,supporting,,Strokes are drawn freely without a grid.
 tiny-glade,game,uses,procedural-build-assist,mechanic,core,,"Walls, paths, and building outlines are turned into detailed geometry; a path through a building creates a door and raising a building adds supporting columns and beams."
@@ -3965,6 +4086,7 @@ transport-tycoon,game,uses,road-network,mechanic,supporting,,Road vehicles use t
 transport-tycoon,game,uses,service-coverage,mechanic,core,,"Stations accept and supply cargo only within a catchment around them, and station ratings set how much nearby industries hand over."
 transport-tycoon,game,uses,terraforming,mechanic,supporting,,
 transport-tycoon,game,uses,track-laying,mechanic,supporting,,"Rail track, including slopes, bridges, and tunnels, is laid piece by piece on the isometric tile map, with costs for terrain changes and demolition."
+transport-tycoon,game,uses,variable-speed,mechanic,supporting,,
 transport-tycoon,game,uses,vehicle-route-scheduling,mechanic,core,,"Trains, road vehicles, ships, aircraft, and helicopters run order lists between stations; revenue depends on cargo type, distance, quantity, and delivery time."
 transport-tycoon,game,uses,wear-breakdown,mechanic,core,,"Vehicle reliability falls with age, breakdowns become more frequent, and vehicles must be serviced and eventually replaced; prototypes offer better specs with reliability risk."
 tropico-6,game,uses,budget-treasury,mechanic,supporting,,
@@ -3978,6 +4100,7 @@ tropico-6,game,uses,policy-toggles,mechanic,supporting,,Edicts with costs and ef
 tropico-6,game,uses,production-chain,mechanic,supporting,,
 tropico-6,game,uses,stability-unrest,mechanic,supporting,,"Low approval breeds rebels, protests, and coup attempts."
 tropico-6,game,uses,trade-routes,mechanic,supporting,,Exports through docks fund the treasury.
+tropico-6,game,uses,variable-speed,mechanic,supporting,,
 two-point-hospital,game,uses,advertising-awareness,mechanic,supporting,,"Assistants in the marketing room run paid campaigns that draw more patients, optionally targeted at specific illnesses."
 two-point-hospital,game,uses,agent-skills,mechanic,supporting,,Staff earn qualifications in the training room that unlock or improve tasks.
 two-point-hospital,game,uses,contagion,mechanic,supporting,,Later levels bring epidemics with a limited vaccine supply; immunizing every infected patient earns a reward.
@@ -3992,6 +4115,8 @@ two-point-hospital,game,uses,scenario-objectives,mechanic,supporting,,Each hospi
 two-point-hospital,game,uses,service-queues,mechanic,core,,"Patients queue at rooms while their health falls; untreated patients die, and long waits lower satisfaction."
 two-point-hospital,game,uses,staff-hiring,mechanic,core,,"Doctors, nurses, janitors, and assistants come with personality traits and specialisations that change performance; wages and morale must be managed."
 two-point-hospital,game,uses,tech-tree,mechanic,supporting,,The Research room unlocks new rooms and machine upgrades.
+two-point-hospital,game,uses,utility-action-selection,mechanic,supporting,,
+two-point-hospital,game,uses,variable-speed,mechanic,supporting,,
 two-point-hospital,game,uses,wear-breakdown,mechanic,supporting,,Machines degrade and need janitor maintenance.
 ultima-online,game,uses,agent-skills,mechanic,core,,"Progression is skill-based with no levels or classes; skills improve as the character uses them, so a character's abilities record what the player has practiced."
 ultima-online,game,uses,direct-avatar,mechanic,supporting,,
@@ -4055,6 +4180,7 @@ victoria-3,game,uses,supply-demand-pricing,mechanic,core,,"Each good has a base 
 victoria-3,game,uses,taxation,mechanic,supporting,,
 victoria-3,game,uses,tech-tree,mechanic,supporting,,Technologies such as the Atmospheric Engine unlock buildings and production methods.
 victoria-3,game,uses,territorial-control,mechanic,supporting,,"States change hands through diplomatic plays and wars, and newly acquired states are incorporated over time before they count fully."
+victoria-3,game,uses,variable-speed,mechanic,supporting,,
 victoria-3,game,uses,war-score-peace,mechanic,supporting,,Each side's war support falls with exhaustion until one capitulates or the sides settle on the demands from the diplomatic play.
 viva-pinata,game,uses,animal-husbandry,mechanic,core,,"Two residents of a species that meet romance requirements perform a romance dance and a maze minigame that yields an egg; piñatas are ungendered, and candy skips romance requirements after a species' first romance."
 viva-pinata,game,uses,async-shared-region,mechanic,supporting,,Eggs and piñatas could be sent to other players over Xbox Live.
@@ -4077,6 +4203,7 @@ workers-and-resources,game,uses,citizen-satisfaction,mechanic,supporting,,Health
 workers-and-resources,game,uses,conveyor-transport,mechanic,supporting,,Conveyors move ores and bulk goods between facilities.
 workers-and-resources,game,uses,education-workforce,mechanic,supporting,,Optional complex education gates skilled jobs.
 workers-and-resources,game,uses,fluid-pipe-network,mechanic,supporting,,"Liquids, water, and heating travel through pipes and tanks."
+workers-and-resources,game,uses,free-placement,mechanic,supporting,,
 workers-and-resources,game,uses,goods-consumption,mechanic,supporting,,"Citizens need food, clothing, and alcohol from shops."
 workers-and-resources,game,uses,production-chain,mechanic,core,,"Over 30 commodities are extracted, processed, and stored in staffed plants."
 workers-and-resources,game,uses,public-transit,mechanic,supporting,,"Buses, trams, trains, subways, ships, and planes carry citizens."
@@ -4085,6 +4212,7 @@ workers-and-resources,game,uses,seasons,mechanic,supporting,,Optional seasons ra
 workers-and-resources,game,uses,storage-capacity,mechanic,supporting,,
 workers-and-resources,game,uses,supply-demand-pricing,mechanic,supporting,,Flooding one market lowers returns there.
 workers-and-resources,game,uses,trade-routes,mechanic,core,,Exports and imports pass through customs houses at Eastern (rubles) and Western (dollars) borders.
+workers-and-resources,game,uses,variable-speed,mechanic,supporting,,
 workers-and-resources,game,uses,vehicle-route-scheduling,mechanic,core,,"Trucks, trains, ships, and aircraft are assigned to depots and routes that move goods and workers between buildings."
 x-plane,game,uses,day-night-cycle,mechanic,supporting,,
 x-plane,game,uses,embodied-skill-control,mechanic,supporting,,
@@ -4092,6 +4220,7 @@ x-plane,game,uses,flight-aerodynamics,mechanic,core,,"Blade element theory split
 x-plane,game,uses,modding-api,mechanic,supporting,,"The plugin SDK lets developers read simulator data and add instruments, cockpit interfaces, and hardware support."
 x-plane,game,uses,modular-assembly,mechanic,supporting,,Plane Maker lets users define aircraft geometry and components and then fly the result in the simulator.
 x-plane,game,uses,procedural-checklists,mechanic,supporting,,
+x-plane,game,uses,variable-speed,mechanic,supporting,,
 x-plane,game,uses,weather,mechanic,supporting,,"X-Plane 12 reworked clouds, turbulence, and atmospheric effects, and version 12.3 added a weather-radar system."
 zelda-breath-of-the-wild,game,uses,day-night-cycle,mechanic,supporting,,"Time of day changes enemy and creature activity, and the Blood Moon respawns defeated enemies."
 zelda-breath-of-the-wild,game,uses,direct-avatar,mechanic,supporting,,"Link can climb almost any surface, glide, ride horses, and use runes."
@@ -4112,4 +4241,5 @@ zoo-tycoon,game,uses,needs-decay,mechanic,core,,"Animals need food, water, clean
 zoo-tycoon,game,uses,scenario-objectives,mechanic,supporting,,"Scenarios set targets such as a guest happiness level, exhibit suitability, animal count, or breeding a species."
 zoo-tycoon,game,uses,staff-hiring,mechanic,supporting,,"Zookeepers, maintenance workers, and tour guides are hired."
 zoo-tycoon,game,uses,tech-tree,mechanic,supporting,,"In freeform mode, money spent on research unlocks animals, buildings, and scenery."
+zoo-tycoon,game,uses,variable-speed,mechanic,supporting,,
 zoo-tycoon,game,uses,wear-breakdown,mechanic,supporting,,Fences decay and must be repaired by maintenance workers to prevent escapes.

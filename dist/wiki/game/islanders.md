@@ -27,7 +27,7 @@ A minimalist placement puzzle in which every building scores points from compati
 | emergence | 2 |
 | influence | 2 |
 | boundary case | True |
-| cluster *(computed)* | C03 |
+| cluster *(computed)* | C11 |
 | core count *(computed)* | 3 |
 | mechanic count *(computed)* | 4 |
 

@@ -28,7 +28,7 @@ A console racing simulator that combines a detailed vehicle dynamics model and c
 | influence | 3 |
 | core loop | buy or tune a car -> race against AI or players -> earn credits -> expand the collection -> harder events |
 | influenced by | [Gran Turismo](../game/gran-turismo.md) |
-| cluster *(computed)* | C06 |
+| cluster *(computed)* | C03 |
 | core count *(computed)* | 2 |
 | mechanic count *(computed)* | 6 |
 

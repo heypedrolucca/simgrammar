@@ -26,9 +26,9 @@ A game-studio business sim where the player picks topic, genre, and platform for
 | agent count order | ~10 |
 | emergence | 2 |
 | influence | 2 |
-| cluster *(computed)* | C03 |
+| cluster *(computed)* | C01 |
 | core count *(computed)* | 3 |
-| mechanic count *(computed)* | 11 |
+| mechanic count *(computed)* | 12 |
 
 ## Summary
 
@@ -57,6 +57,7 @@ Game Dev Tycoon reduces game making to a configuration problem scored by a hidde
 - [Modding API](../mechanic/modding-api.md) (supporting): Mods are written in JavaScript through the gdt-modAPI and shared on the Steam Workshop.
 - [Advertising and awareness](../mechanic/advertising-awareness.md) (supporting): Marketing campaigns bought during development raise a game's hype, which boosts its launch sales.
 - [Dated technology timeline](../mechanic/dated-tech-timeline.md) (supporting): Fictional consoles launch and retire on a fixed in-game calendar from the 1980s onward, so platform choice is a bet on a console's remaining market life.
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
 
 ## Backlinks (computed)
 
@@ -67,4 +68,4 @@ Game Dev Tycoon reduces game making to a configuration problem scored by a hidde
 - [Game Dev Tycoon](../source/src-wikipedia-game-dev-tycoon.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-ge`.
+Provenance: created in run `2026-10-24-catalog-ge`; reviewed in `2026-10-24-review-fixes`.

@@ -27,9 +27,9 @@ A Krafton life sim in early access since March 2025 in which the player oversees
 | emergence | 3 |
 | influence | 1 |
 | influenced by | [The Sims](../game/the-sims.md) |
-| cluster *(computed)* | C04 |
+| cluster *(computed)* | C01 |
 | core count *(computed)* | 2 |
-| mechanic count *(computed)* | 15 |
+| mechanic count *(computed)* | 17 |
 
 ## Summary
 
@@ -66,6 +66,8 @@ inZOI casts the player as an intern at AR Company who manages a city of virtual 
 - [Content sharing](../mechanic/content-sharing.md) (supporting): Canvas is the in-game platform for sharing characters, homes, and stories.
 - [Direct avatar control](../mechanic/direct-avatar.md) (supporting): Players can switch from point-and-click orders to direct control of a Zoi or a vehicle.
 - [Off-screen life progression](../mechanic/offscreen-life-progression.md) (supporting): City-wide free will keeps Zois across the city living autonomously while the player directs one household, producing rumors, trends, and disease; the fidelity of the update for distant Zois is not documented.
+- [Pause and speed control](../mechanic/variable-speed.md) (supporting)
+- [Utility action selection](../mechanic/utility-action-selection.md) (supporting)
 
 ## Backlinks (computed)
 
@@ -79,4 +81,4 @@ inZOI casts the player as an intern at AR Company who manages a city of virtual 
 - [inZOI on Steam](../source/src-steam-2025-inzoi.md)
 
 ---
-Provenance: created in run `2026-10-24-catalog-gc`.
+Provenance: created in run `2026-10-24-catalog-gc`; reviewed in `2026-10-24-review-fixes`.
