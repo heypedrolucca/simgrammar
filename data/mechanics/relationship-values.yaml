@@ -1,0 +1,8 @@
+id: relationship-values
+type: mechanic
+name: Relationship values
+summary: Pairwise numeric affinity between characters changes with interactions and drives social choices.
+family: social-relations
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

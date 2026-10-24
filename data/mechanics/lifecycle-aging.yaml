@@ -1,0 +1,8 @@
+id: lifecycle-aging
+type: mechanic
+name: Lifecycle and aging
+summary: Agents are born, age through life stages with different capabilities, and die.
+family: population-lineage
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

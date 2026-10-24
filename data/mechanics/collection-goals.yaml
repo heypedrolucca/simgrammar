@@ -1,0 +1,8 @@
+id: collection-goals
+type: mechanic
+name: Collection goals
+summary: Catalogs of items, species, or bundles give the player sets to complete.
+family: progression-goals
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

@@ -1,0 +1,9 @@
+id: free-placement
+type: mechanic
+name: Building placement
+summary: The player places discrete structures on a grid or freely, and placement constraints define the
+  layout puzzle.
+family: space-construction
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

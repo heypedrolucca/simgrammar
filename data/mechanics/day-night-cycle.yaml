@@ -1,0 +1,8 @@
+id: day-night-cycle
+type: mechanic
+name: Day-night cycle
+summary: A diurnal cycle changes visibility, schedules, and activity.
+family: environment-ecology
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

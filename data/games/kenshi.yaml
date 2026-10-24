@@ -1,0 +1,10 @@
+id: kenshi
+type: game
+name: Kenshi
+summary: TODO
+year: 2013
+developer: Lo-Fi Games
+subgenre: rpg-sim
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

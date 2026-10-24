@@ -1,0 +1,24 @@
+id: effect
+description: How a technique changes a mechanic (attribute of the technique→mechanic `affects` edge).
+terms:
+  - id: replaces-substrate
+    label: Replaces substrate
+    definition: Swaps the mechanic's implementation (e.g., hand-written utility AI → LLM policy) while keeping its player-facing role.
+  - id: deepens
+    label: Deepens
+    definition: Same mechanic, much higher fidelity, scale, or variety than was feasible.
+  - id: enables-new
+    label: Enables new form
+    definition: Makes a qualitatively new version of the mechanic possible.
+  - id: cuts-authoring-cost
+    label: Cuts authoring cost
+    definition: Reduces developer cost of content the mechanic consumes.
+  - id: explains
+    label: Explains
+    definition: Makes the mechanic's state or causes legible to the player.
+  - id: tunes
+    label: Tunes / balances
+    definition: Automates balancing, testing, or parameter search for the mechanic.
+  - id: accelerates
+    label: Accelerates
+    definition: Same output at lower runtime compute, allowing more scale.

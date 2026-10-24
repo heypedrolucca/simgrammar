@@ -1,0 +1,8 @@
+id: room-recognition
+type: mechanic
+name: Room recognition
+summary: Enclosed spaces are classified into room types by contents and size, granting effects.
+family: space-construction
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

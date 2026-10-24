@@ -1,0 +1,8 @@
+id: variable-speed
+type: mechanic
+name: Pause and speed control
+summary: The player pauses and changes simulation speed.
+family: time-pacing
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

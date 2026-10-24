@@ -1,0 +1,10 @@
+id: teardown
+type: game
+name: Teardown
+summary: TODO
+year: 2020
+developer: Tuxedo Labs
+subgenre: physics-sandbox
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

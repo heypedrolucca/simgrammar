@@ -1,0 +1,8 @@
+id: planetary-climate
+type: mechanic
+name: Planetary climate
+summary: Global atmosphere, temperature, and biosphere variables evolve and can be deliberately altered.
+family: environment-ecology
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

@@ -1,0 +1,96 @@
+id: edge_types
+description: >-
+  Every typed relation in the graph. Each edge is stored exactly once, on the `owner` side named here.
+  Inverses are computed by the build and never stored. Symmetric edges are stored on the entity whose id sorts first.
+terms:
+  - id: uses
+    label: uses
+    definition: A game uses a mechanic. Attributes role (mechanic_role) and note.
+    owner: game
+    target: mechanic
+    inverse: used_by
+    symmetric: false
+  - id: influenced_by
+    label: influenced by
+    definition: A game's design draws on an earlier game.
+    owner: game
+    target: game
+    inverse: influenced
+    symmetric: false
+  - id: requires
+    label: requires
+    definition: A mechanic cannot function without another mechanic.
+    owner: mechanic
+    target: mechanic
+    inverse: required_by
+    symmetric: false
+  - id: specializes
+    label: specializes
+    definition: A mechanic is a narrower form of a parent mechanic.
+    owner: mechanic
+    target: mechanic
+    inverse: generalizes
+    symmetric: false
+  - id: synergy
+    label: synergy
+    definition: Two mechanics amplify each other's dynamics when combined.
+    owner: mechanic
+    target: mechanic
+    inverse: synergy
+    symmetric: true
+  - id: tension
+    label: tension
+    definition: Two mechanics pull design in opposite directions; combining them needs a resolution.
+    owner: mechanic
+    target: mechanic
+    inverse: tension
+    symmetric: true
+  - id: affects
+    label: affects
+    definition: A technique changes a mechanic. Attributes effect (effect vocab) and note.
+    owner: technique
+    target: mechanic
+    inverse: affected_by
+    symmetric: false
+  - id: builds_on
+    label: builds on
+    definition: A technique depends on or extends an earlier technique.
+    owner: technique
+    target: technique
+    inverse: built_upon_by
+    symmetric: false
+  - id: deployed_in
+    label: deployed in
+    definition: A technique is used in a specific game, shipped or prototype.
+    owner: technique
+    target: game
+    inverse: deploys
+    symmetric: false
+  - id: involves
+    label: involves
+    definition: An opportunity reworks or combines a mechanic.
+    owner: opportunity
+    target: mechanic
+    inverse: involved_in
+    symmetric: false
+  - id: applies
+    label: applies
+    definition: An opportunity depends on a technique.
+    owner: opportunity
+    target: technique
+    inverse: applied_in
+    symmetric: false
+  - id: precedent
+    label: precedent
+    definition: A game partially demonstrates an opportunity.
+    owner: opportunity
+    target: game
+    inverse: precedent_for
+    symmetric: false
+  - id: cites
+    label: cites
+    definition: An entity or claim relies on a source.
+    owner: any
+    target: source
+    inverse: cited_by
+    symmetric: false

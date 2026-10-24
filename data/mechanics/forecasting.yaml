@@ -1,0 +1,8 @@
+id: forecasting
+type: mechanic
+name: Forecasting
+summary: The interface projects future states such as resource runway or upcoming weather.
+family: information-legibility
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

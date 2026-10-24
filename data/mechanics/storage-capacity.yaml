@@ -1,0 +1,9 @@
+id: storage-capacity
+type: mechanic
+name: Storage and buffers
+summary: Goods occupy finite storage; buffers decouple producers from consumers, and full storage blocks
+  production.
+family: resources-production
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

@@ -1,0 +1,10 @@
+id: populous
+type: game
+name: Populous
+summary: TODO
+year: 1989
+developer: Bullfrog Productions
+subgenre: god-game
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

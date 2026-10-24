@@ -1,0 +1,8 @@
+id: equity-buyouts
+type: mechanic
+name: Equity and buyouts
+summary: Companies issue shares that players buy to profit or to take control of rivals.
+family: economy-finance
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

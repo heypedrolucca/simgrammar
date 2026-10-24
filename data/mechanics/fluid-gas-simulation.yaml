@@ -1,0 +1,8 @@
+id: fluid-gas-simulation
+type: mechanic
+name: Fluid and gas simulation
+summary: Liquids and gases flow, mix, and pressurize across space.
+family: physics-materials
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

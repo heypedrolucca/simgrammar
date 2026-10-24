@@ -1,0 +1,10 @@
+id: zoo-tycoon
+type: game
+name: Zoo Tycoon
+summary: TODO
+year: 2001
+developer: Blue Fang Games
+subgenre: management-tycoon
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

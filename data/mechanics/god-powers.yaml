@@ -1,0 +1,8 @@
+id: god-powers
+type: mechanic
+name: God powers
+summary: The player spends power on miracles that alter terrain, weather, or creatures.
+family: control-automation
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

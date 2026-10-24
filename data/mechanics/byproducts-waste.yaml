@@ -1,0 +1,9 @@
+id: byproducts-waste
+type: mechanic
+name: Byproducts and waste
+summary: Production emits secondary outputs such as sludge, garbage, heat, or spent fuel that must be
+  handled or they impair the system.
+family: resources-production
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

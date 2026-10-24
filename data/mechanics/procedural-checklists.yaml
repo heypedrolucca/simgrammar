@@ -1,0 +1,8 @@
+id: procedural-checklists
+type: mechanic
+name: Procedural checklists
+summary: Operating equipment requires ordered steps that mirror real procedures.
+family: operation-procedure
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

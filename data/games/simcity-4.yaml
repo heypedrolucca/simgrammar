@@ -1,0 +1,10 @@
+id: simcity-4
+type: game
+name: SimCity 4
+summary: TODO
+year: 2003
+developer: Maxis
+subgenre: city-builder
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

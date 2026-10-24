@@ -1,0 +1,10 @@
+id: gran-turismo
+type: game
+name: Gran Turismo
+summary: TODO
+year: 1997
+developer: Polys Entertainment
+subgenre: vehicle-sim
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

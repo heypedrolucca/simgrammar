@@ -1,0 +1,4 @@
+#!/bin/sh
+# Enable with: make hooks
+python3 scripts/validate.py || exit 1
+python3 scripts/build.py --check || { echo "Run 'make build' and stage dist/ before committing."; exit 1; }

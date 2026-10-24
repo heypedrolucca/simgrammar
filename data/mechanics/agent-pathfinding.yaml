@@ -1,0 +1,8 @@
+id: agent-pathfinding
+type: mechanic
+name: Agent pathfinding
+summary: Agents compute routes through space with movement costs; route choices shape congestion and access.
+family: agents-behavior
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

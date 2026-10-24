@@ -1,0 +1,10 @@
+id: crusader-kings-3
+type: game
+name: Crusader Kings III
+summary: TODO
+year: 2020
+developer: Paradox Development Studio
+subgenre: grand-strategy
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

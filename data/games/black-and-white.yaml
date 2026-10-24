@@ -1,0 +1,10 @@
+id: black-and-white
+type: game
+name: Black & White
+summary: TODO
+year: 2001
+developer: Lionhead Studios
+subgenre: god-game
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

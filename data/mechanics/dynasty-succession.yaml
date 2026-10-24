@@ -1,0 +1,8 @@
+id: dynasty-succession
+type: mechanic
+name: Dynasty succession
+summary: When the player character dies, play continues as an heir under inheritance rules.
+family: population-lineage
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

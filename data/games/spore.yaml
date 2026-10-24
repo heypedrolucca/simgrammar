@@ -1,0 +1,10 @@
+id: spore
+type: game
+name: Spore
+summary: TODO
+year: 2008
+developer: Maxis
+subgenre: ecosystem-evolution
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

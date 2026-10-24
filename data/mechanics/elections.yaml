@@ -1,0 +1,8 @@
+id: elections
+type: mechanic
+name: Elections
+summary: Periodic votes by simulated or real voters determine tenure or policy.
+family: governance-policy
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

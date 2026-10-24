@@ -1,0 +1,8 @@
+id: wear-breakdown
+type: mechanic
+name: Wear and breakdown
+summary: Assets degrade with use and time, and maintenance prevents breakdown.
+family: risk-failure
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

@@ -1,0 +1,10 @@
+id: dwarf-fortress
+type: game
+name: Dwarf Fortress
+summary: TODO
+year: 2006
+developer: Bay 12 Games
+subgenre: colony-sim
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

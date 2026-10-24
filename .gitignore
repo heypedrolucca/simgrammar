@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+.venv/
+dist/simgrammar.sqlite
+.DS_Store

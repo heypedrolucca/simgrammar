@@ -1,0 +1,10 @@
+id: project-hospital
+type: game
+name: Project Hospital
+summary: TODO
+year: 2018
+developer: Oxymoron Games
+subgenre: medical-sim
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

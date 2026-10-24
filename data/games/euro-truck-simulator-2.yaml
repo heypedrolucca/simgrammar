@@ -1,0 +1,10 @@
+id: euro-truck-simulator-2
+type: game
+name: Euro Truck Simulator 2
+summary: TODO
+year: 2012
+developer: SCS Software
+subgenre: vehicle-sim
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

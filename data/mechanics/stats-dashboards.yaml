@@ -1,0 +1,8 @@
+id: stats-dashboards
+type: mechanic
+name: Stats dashboards
+summary: Graphs and tables show the history of simulation variables.
+family: information-legibility
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

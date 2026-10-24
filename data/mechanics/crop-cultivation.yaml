@@ -1,0 +1,9 @@
+id: crop-cultivation
+type: mechanic
+name: Crop cultivation
+summary: Planted crops progress through growth stages over days or seasons depending on water, soil, and
+  season, then are harvested.
+family: resources-production
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

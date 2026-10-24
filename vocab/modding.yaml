@@ -1,0 +1,15 @@
+id: modding
+description: Depth of player modification supported or widely practiced.
+terms:
+  - id: none
+    label: None
+    definition: No meaningful modding.
+  - id: content
+    label: Content
+    definition: New assets or data (buildings, items, skins) without new logic.
+  - id: scripting
+    label: Scripting
+    definition: Official or de facto scripting of new logic.
+  - id: total-conversion
+    label: Total conversion
+    definition: Mods routinely replace core systems or create new games.

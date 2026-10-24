@@ -1,0 +1,10 @@
+id: elite-dangerous
+type: game
+name: Elite Dangerous
+summary: TODO
+year: 2014
+developer: Frontier Developments
+subgenre: space-sim
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

@@ -1,0 +1,10 @@
+id: spacechem
+type: game
+name: SpaceChem
+summary: TODO
+year: 2011
+developer: Zachtronics
+subgenre: programming-sim
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

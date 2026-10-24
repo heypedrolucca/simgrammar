@@ -1,0 +1,8 @@
+id: player-organizations
+type: mechanic
+name: Player organizations
+summary: Players form corporations, guilds, or governments with roles and shared assets.
+family: multiplayer-persistence
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

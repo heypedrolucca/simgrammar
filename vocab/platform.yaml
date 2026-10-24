@@ -1,0 +1,27 @@
+id: platform
+description: Platform families a game shipped on at any point.
+terms:
+  - id: pc
+    label: PC
+    definition: Windows, macOS, Linux, or DOS desktop computers.
+  - id: console
+    label: Console
+    definition: Home consoles (PlayStation, Xbox, Nintendo home systems, earlier generations).
+  - id: handheld
+    label: Handheld
+    definition: Dedicated handheld game devices and hybrids (Game Boy, DS, Switch in handheld use).
+  - id: mobile
+    label: Mobile
+    definition: Phones and tablets.
+  - id: web
+    label: Web
+    definition: Runs in a browser.
+  - id: vr
+    label: VR
+    definition: Head-mounted virtual reality.
+  - id: dedicated-device
+    label: Dedicated device
+    definition: Single-purpose hardware such as a keychain pet.
+  - id: mainframe-early
+    label: Mainframe / early micro
+    definition: Pre-1985 mainframes, minicomputers, and early home micros.

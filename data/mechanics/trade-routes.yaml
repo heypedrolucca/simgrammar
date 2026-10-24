@@ -1,0 +1,9 @@
+id: trade-routes
+type: mechanic
+name: Trade routes
+summary: Goods are exchanged between settlements, regions, or foreign markets along routes with price
+  differences, tariffs, and transit time.
+family: economy-finance
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

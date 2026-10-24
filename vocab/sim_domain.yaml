@@ -1,0 +1,48 @@
+id: sim_domain
+description: Real-world domain the simulation models. One to three per game.
+terms:
+  - id: urban
+    label: Urban
+    definition: Cities, settlements, land use, services, infrastructure.
+  - id: economic
+    label: Economic
+    definition: Markets, firms, prices, capital, trade.
+  - id: industrial-logistics
+    label: Industrial / logistics
+    definition: Production, manufacturing, transport of goods.
+  - id: social-interpersonal
+    label: Social / interpersonal
+    definition: Relationships, conversation, households, communities.
+  - id: biological-ecological
+    label: Biological / ecological
+    definition: Organisms, populations, food webs, evolution, bodies.
+  - id: physical-mechanical
+    label: Physical / mechanical
+    definition: Forces, vehicles, structures, materials, fluids.
+  - id: political-governance
+    label: Political / governance
+    definition: States, laws, factions, legitimacy, policy.
+  - id: military-conflict
+    label: Military / conflict
+    definition: Armed conflict, defense, operations, logistics of war.
+  - id: planetary-natural
+    label: Planetary / natural
+    definition: Climate, geology, hydrology, weather at landscape-to-planet scale.
+  - id: cosmic-space
+    label: Cosmic / space
+    definition: Orbits, spacecraft, astrophysics, interstellar polities.
+  - id: domestic-personal
+    label: Domestic / personal
+    definition: Homes, daily routines, chores, personal care.
+  - id: medical
+    label: Medical
+    definition: Disease, diagnosis, treatment, surgery.
+  - id: occupational
+    label: Occupational
+    definition: The procedures of a specific job or trade.
+  - id: sports
+    label: Sports
+    definition: Athletic competition and its organizations.
+  - id: computational-abstract
+    label: Computational / abstract
+    definition: Rule systems, automata, or programs with no direct real-world referent.

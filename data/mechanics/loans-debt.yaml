@@ -1,0 +1,9 @@
+id: loans-debt
+type: mechanic
+name: Loans and debt
+summary: Capital can be borrowed at interest with repayment schedules, so leverage accelerates both growth
+  and failure.
+family: economy-finance
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

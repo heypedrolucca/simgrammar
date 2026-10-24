@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://simgrammar.dev/schema/1.0/opportunity.schema.json",
+  "title": "Opportunity",
+  "description": "A synthesized design opportunity combining mechanics and techniques. Scores follow rubrics; the composite priority is computed in build and never stored.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "type", "name", "summary", "opportunity_type", "thesis", "design_sketch", "involves", "novelty", "feasibility", "impact", "horizon", "key_risks", "validation_experiment", "falsifiable_signal", "status", "provenance"],
+  "properties": {
+    "id": { "$ref": "common.schema.json#/$defs/id" },
+    "type": { "const": "opportunity" },
+    "name": { "$ref": "common.schema.json#/$defs/name" },
+    "aliases": { "$ref": "common.schema.json#/$defs/aliases" },
+    "summary": { "$ref": "common.schema.json#/$defs/summary" },
+    "opportunity_type": { "type": "string", "x-vocab": "opportunity_type" },
+    "thesis": { "type": "string", "minLength": 80, "maxLength": 2000, "description": "Why this is possible now and why it matters." },
+    "design_sketch": { "type": "string", "minLength": 80, "maxLength": 2000, "description": "What the player does, concretely." },
+    "involves": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "common.schema.json#/$defs/id", "x-edge": "involves" } },
+    "applies": { "type": "array", "uniqueItems": true, "items": { "$ref": "common.schema.json#/$defs/id", "x-edge": "applies" } },
+    "precedent": { "type": "array", "uniqueItems": true, "items": { "$ref": "common.schema.json#/$defs/id", "x-edge": "precedent" } },
+    "novelty": { "$ref": "common.schema.json#/$defs/score", "x-rubric": "novelty" },
+    "feasibility": { "$ref": "common.schema.json#/$defs/score", "x-rubric": "feasibility" },
+    "impact": { "$ref": "common.schema.json#/$defs/score", "x-rubric": "impact" },
+    "horizon": { "type": "string", "x-vocab": "horizon" },
+    "key_risks": { "$ref": "common.schema.json#/$defs/text_list", "minItems": 1 },
+    "validation_experiment": { "type": "string", "minLength": 40, "maxLength": 1200, "description": "Smallest prototype that would test the thesis, with the metric that decides it." },
+    "falsifiable_signal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["prediction", "resolve_by", "criteria"],
+      "properties": {
+        "prediction": { "type": "string", "minLength": 20, "maxLength": 500 },
+        "resolve_by": { "$ref": "common.schema.json#/$defs/date" },
+        "criteria": { "type": "string", "minLength": 20, "maxLength": 500 }
+      }
+    },
+    "claims": { "$ref": "common.schema.json#/$defs/claims" },
+    "sources": { "$ref": "common.schema.json#/$defs/sources" },
+    "status": { "$ref": "common.schema.json#/$defs/status" },
+    "deprecated": { "$ref": "common.schema.json#/$defs/deprecated" },
+    "provenance": { "$ref": "common.schema.json#/$defs/provenance" }
+  }
+}

@@ -1,0 +1,10 @@
+id: surgeon-simulator
+type: game
+name: Surgeon Simulator
+summary: TODO
+year: 2013
+developer: Bossa Studios
+subgenre: medical-sim
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

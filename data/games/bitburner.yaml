@@ -1,0 +1,10 @@
+id: bitburner
+type: game
+name: Bitburner
+summary: TODO
+year: 2017
+developer: danielyxie
+subgenre: programming-sim
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

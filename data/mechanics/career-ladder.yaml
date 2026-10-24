@@ -1,0 +1,8 @@
+id: career-ladder
+type: mechanic
+name: Career ladder
+summary: Characters advance through job levels by meeting performance requirements.
+family: progression-goals
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

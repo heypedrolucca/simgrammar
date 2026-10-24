@@ -1,0 +1,10 @@
+id: simcity-1989
+type: game
+name: SimCity
+summary: TODO
+year: 1989
+developer: Maxis
+subgenre: city-builder
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

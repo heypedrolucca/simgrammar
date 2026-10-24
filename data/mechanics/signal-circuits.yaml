@@ -1,0 +1,8 @@
+id: signal-circuits
+type: mechanic
+name: Signal circuits
+summary: In-world wires, sensors, and logic combinators control machines.
+family: control-automation
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

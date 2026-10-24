@@ -1,0 +1,10 @@
+id: arma-3
+type: game
+name: Arma 3
+summary: TODO
+year: 2013
+developer: Bohemia Interactive
+subgenre: wargame
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

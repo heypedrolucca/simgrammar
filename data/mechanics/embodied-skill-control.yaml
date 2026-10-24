@@ -1,0 +1,9 @@
+id: embodied-skill-control
+type: mechanic
+name: Embodied skill control
+summary: Real-time motor skill operating a simulated mechanism, such as hand-flying, driving, or surgery,
+  is the main challenge.
+family: control-automation
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

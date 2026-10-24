@@ -1,0 +1,8 @@
+id: permadeath
+type: mechanic
+name: Permadeath
+summary: Death of agents or the avatar is permanent.
+family: risk-failure
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

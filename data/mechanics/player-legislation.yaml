@@ -1,0 +1,8 @@
+id: player-legislation
+type: mechanic
+name: Player legislation
+summary: Players author and vote on enforceable rules inside a shared world.
+family: governance-policy
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

@@ -1,0 +1,18 @@
+id: narrative_mode
+description: Where story comes from.
+terms:
+  - id: none
+    label: None
+    definition: No narrative layer.
+  - id: authored
+    label: Authored
+    definition: Writers script story beats and dialogue.
+  - id: emergent
+    label: Emergent
+    definition: Story is the player's interpretation of simulation events.
+  - id: hybrid
+    label: Hybrid
+    definition: Authored events or templates triggered and recombined by simulation state.
+  - id: generative
+    label: Generative
+    definition: A learned model produces narrative text, dialogue, or events at runtime.

@@ -1,0 +1,8 @@
+id: terraforming
+type: mechanic
+name: Terraforming
+summary: The player edits terrain height, water, or surface material.
+family: space-construction
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

@@ -1,0 +1,10 @@
+id: eve-online
+type: game
+name: EVE Online
+summary: TODO
+year: 2003
+developer: CCP Games
+subgenre: mmo-world
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

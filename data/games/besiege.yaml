@@ -1,0 +1,10 @@
+id: besiege
+type: game
+name: Besiege
+summary: TODO
+year: 2015
+developer: Spiderling Studios
+subgenre: construction-engineering
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

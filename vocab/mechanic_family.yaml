@@ -1,0 +1,66 @@
+id: mechanic_family
+description: Primary functional family of a mechanic. Exactly one per mechanic. Assign by the state the mechanic owns, not by the genre it appears in.
+terms:
+  - id: resources-production
+    label: Resources & production
+    definition: Stocks of goods and the rules that create, convert, store, or destroy them.
+  - id: logistics-networks
+    label: Logistics & networks
+    definition: Movement of goods, people, energy, or service coverage across space or graphs.
+  - id: economy-finance
+    label: Economy & finance
+    definition: Money, prices, markets, debt, and valuation.
+  - id: agents-behavior
+    label: Agents & behavior
+    definition: Individual agents' needs, decisions, schedules, skills, and internal states.
+  - id: social-relations
+    label: Social relations
+    definition: Pairwise and group relationships, reputation, factions, conversation, and norms.
+  - id: population-lineage
+    label: Population & lineage
+    definition: Birth, death, aging, migration, inheritance, and population structure.
+  - id: governance-policy
+    label: Governance & policy
+    definition: Laws, policies, elections, legitimacy, and institutional rules.
+  - id: space-construction
+    label: Space & construction
+    definition: Placement, zoning, layout, terrain, and built structure.
+  - id: physics-materials
+    label: Physics & materials
+    definition: Forces, motion, materials, fluids, heat, and destruction.
+  - id: environment-ecology
+    label: Environment & ecology
+    definition: Weather, seasons, ecosystems, contagion, pollution, and hydrology.
+  - id: biology-health
+    label: Biology & health
+    definition: Bodies, injury, disease, survival meters, and creature care.
+  - id: time-pacing
+    label: Time & pacing
+    definition: How simulated time advances and how the player controls it.
+  - id: information-legibility
+    label: Information & legibility
+    definition: How simulation state is revealed, hidden, summarized, or explained to the player.
+  - id: control-automation
+    label: Control & automation
+    definition: How player intent is expressed, delegated, or automated.
+  - id: progression-goals
+    label: Progression & goals
+    definition: Unlocks, research, milestones, and scenario structure.
+  - id: risk-failure
+    label: Risk & failure
+    definition: Disasters, threats, degradation, and fail states.
+  - id: narrative-generation
+    label: Narrative & generation
+    definition: Event selection, story structure, dialogue, and runtime content generation.
+  - id: world-generation
+    label: World generation
+    definition: Procedural creation of maps, histories, and initial conditions.
+  - id: multiplayer-persistence
+    label: Multiplayer & persistence
+    definition: Shared worlds, player-to-player interaction, content sharing, and modding.
+  - id: conflict-defense
+    label: Conflict & defense
+    definition: Combat, raids, military units, and defense.
+  - id: operation-procedure
+    label: Operation & procedure
+    definition: Hands-on procedural tasks, tool use, and embodied skill.

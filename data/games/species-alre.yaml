@@ -1,0 +1,10 @@
+id: species-alre
+type: game
+name: 'Species: Artificial Life, Real Evolution'
+summary: TODO
+year: 2018
+developer: Quasar (Sam Harrison)
+subgenre: artificial-life
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

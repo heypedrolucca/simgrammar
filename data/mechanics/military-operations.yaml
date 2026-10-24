@@ -1,0 +1,8 @@
+id: military-operations
+type: mechanic
+name: Military operations
+summary: Units with sensors, weapons, and doctrine are simulated at operational fidelity.
+family: conflict-defense
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

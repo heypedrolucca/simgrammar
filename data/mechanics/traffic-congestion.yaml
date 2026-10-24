@@ -1,0 +1,9 @@
+id: traffic-congestion
+type: mechanic
+name: Traffic congestion
+summary: Trips route over a capacitated network; volume beyond capacity raises travel time and delays
+  services and deliveries.
+family: logistics-networks
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

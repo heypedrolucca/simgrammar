@@ -1,0 +1,9 @@
+id: design-performance-rating
+type: mechanic
+name: Design performance rating
+summary: Player-built designs are evaluated by simulated metrics such as ride excitement, bridge stress,
+  or cost and cycles.
+family: space-construction
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

@@ -1,0 +1,10 @@
+id: project-zomboid
+type: game
+name: Project Zomboid
+summary: TODO
+year: 2011
+developer: The Indie Stone
+subgenre: survival-sim
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

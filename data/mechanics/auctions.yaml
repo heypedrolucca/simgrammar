@@ -1,0 +1,8 @@
+id: auctions
+type: mechanic
+name: Auctions
+summary: Goods or rights are allocated through bidding procedures among players or agents.
+family: economy-finance
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

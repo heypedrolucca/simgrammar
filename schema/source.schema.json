@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://simgrammar.dev/schema/1.0/source.schema.json",
+  "title": "Source",
+  "description": "A citable source. Must have at least one locator (url, doi, arxiv, isbn). Ids start with `src-`. Must be cited by at least one entity.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "type", "name", "kind", "date", "accessed", "provenance"],
+  "anyOf": [
+    { "required": ["url"] },
+    { "required": ["doi"] },
+    { "required": ["arxiv"] },
+    { "required": ["isbn"] }
+  ],
+  "properties": {
+    "id": { "type": "string", "pattern": "^src-[a-z0-9]+(-[a-z0-9]+)*$", "maxLength": 80 },
+    "type": { "const": "source" },
+    "name": { "$ref": "common.schema.json#/$defs/name", "description": "Title of the work." },
+    "kind": { "type": "string", "x-vocab": "source_kind" },
+    "authors": { "type": "array", "items": { "type": "string", "minLength": 1, "maxLength": 200 } },
+    "venue": { "type": "string", "maxLength": 200 },
+    "date": { "$ref": "common.schema.json#/$defs/date" },
+    "url": { "type": "string", "pattern": "^https?://" },
+    "doi": { "type": "string", "pattern": "^10\\." },
+    "arxiv": { "type": "string", "pattern": "^[0-9]{4}\\.[0-9]{4,5}(v[0-9]+)?$" },
+    "isbn": { "type": "string", "pattern": "^[0-9X-]{10,17}$" },
+    "accessed": { "$ref": "common.schema.json#/$defs/date" },
+    "notes": { "type": "string", "maxLength": 600 },
+    "provenance": { "$ref": "common.schema.json#/$defs/provenance" }
+  }
+}

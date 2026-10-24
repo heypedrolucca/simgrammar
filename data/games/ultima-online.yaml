@@ -1,0 +1,10 @@
+id: ultima-online
+type: game
+name: Ultima Online
+summary: TODO
+year: 1997
+developer: Origin Systems
+subgenre: mmo-world
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

@@ -1,0 +1,8 @@
+id: memories-thoughts
+type: mechanic
+name: Memories and thoughts
+summary: Events create time-limited mood modifiers or lasting memories that shape later behavior.
+family: agents-behavior
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

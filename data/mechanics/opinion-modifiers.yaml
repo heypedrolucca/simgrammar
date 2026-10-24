@@ -1,0 +1,8 @@
+id: opinion-modifiers
+type: mechanic
+name: Opinion modifiers
+summary: Opinions are sums of named, decaying modifiers from events and traits, itemized for the player.
+family: social-relations
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

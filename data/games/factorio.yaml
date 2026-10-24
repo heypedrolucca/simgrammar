@@ -1,0 +1,10 @@
+id: factorio
+type: game
+name: Factorio
+summary: TODO
+year: 2016
+developer: Wube Software
+subgenre: factory-automation
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

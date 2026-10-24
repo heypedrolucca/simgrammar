@@ -1,0 +1,10 @@
+id: reigns
+type: game
+name: Reigns
+summary: TODO
+year: 2016
+developer: Nerial
+subgenre: political-sim
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

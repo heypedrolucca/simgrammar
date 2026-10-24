@@ -1,0 +1,13 @@
+# Parameters for scripts/analyze.py. Changing a value changes generated numbers; record why in the commit message.
+cooccurrence:
+  min_support: 3          # pair must co-occur in at least this many games to be ranked by lift
+  top_n: 30
+whitespace:
+  min_prevalence_share: 0.08   # both mechanics used by at least this share of games
+  max_observed: 1              # pair co-occurs at most this many times
+  exclude_same_family: true
+  top_n: 30
+clustering:
+  k: 12                    # number of game clusters (average linkage on Jaccard distance of mechanic sets)
+  core_weight: 2.0         # weight of core vs supporting mechanics in game vectors
+  top_mechanics_per_cluster: 5

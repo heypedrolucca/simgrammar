@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://simgrammar.dev/schema/1.0/technique.schema.json",
+  "title": "Technique",
+  "description": "A mathematical, AI, ML, or LLM technique or breakthrough relevant to simulation games. Must cite at least one source. Owns affects/builds_on/deployed_in edges.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "type", "name", "summary", "category", "year", "mechanism", "key_results", "maturity", "trl", "runtime", "determinism_impact", "horizon", "risks", "affects", "limitations", "sources", "status", "provenance"],
+  "properties": {
+    "id": { "$ref": "common.schema.json#/$defs/id" },
+    "type": { "const": "technique" },
+    "name": { "$ref": "common.schema.json#/$defs/name" },
+    "aliases": { "$ref": "common.schema.json#/$defs/aliases" },
+    "summary": { "$ref": "common.schema.json#/$defs/summary" },
+    "category": { "type": "string", "x-vocab": "technique_category" },
+    "year": { "$ref": "common.schema.json#/$defs/year", "description": "Year of the key result that makes this a breakthrough." },
+    "mechanism": { "type": "string", "minLength": 40, "maxLength": 1500, "description": "How it works, in plain technical language." },
+    "key_results": { "type": "array", "minItems": 1, "items": { "$ref": "common.schema.json#/$defs/claim" } },
+    "maturity": { "type": "string", "x-vocab": "technique_maturity" },
+    "trl": { "type": "integer", "minimum": 1, "maximum": 9, "x-rubric": "trl" },
+    "runtime": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "x-vocab": "runtime" } },
+    "determinism_impact": { "type": "string", "x-vocab": "determinism_impact" },
+    "horizon": { "type": "string", "x-vocab": "horizon" },
+    "risks": { "type": "array", "minItems": 1, "maxItems": 5, "uniqueItems": true, "items": { "type": "string", "x-vocab": "risk" } },
+    "affects": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "effect", "note"],
+        "properties": {
+          "id": { "$ref": "common.schema.json#/$defs/id", "x-edge": "affects" },
+          "effect": { "type": "string", "x-vocab": "effect" },
+          "note": { "type": "string", "minLength": 10, "maxLength": 500 }
+        }
+      }
+    },
+    "builds_on": { "type": "array", "uniqueItems": true, "items": { "$ref": "common.schema.json#/$defs/id", "x-edge": "builds_on" } },
+    "deployed_in": { "type": "array", "uniqueItems": true, "items": { "$ref": "common.schema.json#/$defs/id", "x-edge": "deployed_in" } },
+    "limitations": { "$ref": "common.schema.json#/$defs/text_list", "minItems": 1 },
+    "claims": { "$ref": "common.schema.json#/$defs/claims" },
+    "sources": { "$ref": "common.schema.json#/$defs/sources", "minItems": 1 },
+    "status": { "$ref": "common.schema.json#/$defs/status" },
+    "deprecated": { "$ref": "common.schema.json#/$defs/deprecated" },
+    "provenance": { "$ref": "common.schema.json#/$defs/provenance" }
+  }
+}

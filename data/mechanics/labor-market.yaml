@@ -1,0 +1,9 @@
+id: labor-market
+type: mechanic
+name: Labor market
+summary: Workers fill jobs by type and education; mismatches create unemployment or labor shortages that
+  throttle production.
+family: economy-finance
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

@@ -1,0 +1,18 @@
+id: failure_model
+description: What happens when the system goes wrong.
+terms:
+  - id: none
+    label: None
+    definition: No fail state; mistakes only reduce efficiency.
+  - id: soft-recoverable
+    label: Soft / recoverable
+    definition: Setbacks cost resources or time but play continues.
+  - id: hard-restart
+    label: Hard restart
+    definition: Defined fail state ends the scenario or run.
+  - id: permadeath
+    label: Permadeath
+    definition: Individual agents or the avatar die permanently; the world persists.
+  - id: cascading-collapse
+    label: Cascading collapse
+    definition: Failures propagate through coupled systems until the whole settlement or system collapses.

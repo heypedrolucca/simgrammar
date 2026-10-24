@@ -1,0 +1,9 @@
+id: hand-crafting
+type: mechanic
+name: Hand crafting
+summary: The player or avatar combines carried components into items from a recipe list, gated by workstations
+  and known recipes.
+family: resources-production
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

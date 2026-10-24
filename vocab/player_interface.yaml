@@ -1,0 +1,30 @@
+id: player_interface
+description: How the player touches this mechanic.
+terms:
+  - id: direct-manipulation
+    label: Direct manipulation
+    definition: Moves, grabs, or acts on objects directly.
+  - id: placement
+    label: Placement
+    definition: Places or paints structures or zones.
+  - id: parameter
+    label: Parameter
+    definition: Sets numbers, sliders, toggles, priorities.
+  - id: orders
+    label: Orders
+    definition: Issues commands or designations.
+  - id: programming
+    label: Programming
+    definition: Writes code, circuits, or rules.
+  - id: observation
+    label: Observation only
+    definition: Reads or watches; no input.
+  - id: language
+    label: Language
+    definition: Free text or speech.
+  - id: embodied-skill
+    label: Embodied skill
+    definition: Real-time motor skill with controller, stick, or body.
+  - id: choice-cards
+    label: Choice / cards
+    definition: Picks among presented discrete options.

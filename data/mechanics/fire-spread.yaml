@@ -1,0 +1,8 @@
+id: fire-spread
+type: mechanic
+name: Fire spread
+summary: Fire ignites and spreads across flammable materials based on fuel, wind, and moisture.
+family: environment-ecology
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

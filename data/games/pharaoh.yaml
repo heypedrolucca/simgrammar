@@ -1,0 +1,10 @@
+id: pharaoh
+type: game
+name: Pharaoh
+summary: TODO
+year: 1999
+developer: Impressions Games
+subgenre: city-builder
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

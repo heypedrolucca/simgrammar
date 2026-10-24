@@ -1,0 +1,36 @@
+id: source_kind
+description: Type of cited source.
+terms:
+  - id: paper
+    label: Peer-reviewed paper
+    definition: Journal or conference publication.
+  - id: preprint
+    label: Preprint
+    definition: arXiv or similar, not yet peer-reviewed.
+  - id: tech-report
+    label: Technical report / blog
+    definition: Lab or company technical write-up.
+  - id: news
+    label: News
+    definition: Journalism or trade press.
+  - id: docs
+    label: Documentation
+    definition: Official product, engine, or wiki documentation.
+  - id: store-page
+    label: Store page
+    definition: Steam, console, or app store listing.
+  - id: talk
+    label: Talk / video
+    definition: GDC talk, conference video, or recorded presentation.
+  - id: postmortem
+    label: Postmortem / interview
+    definition: Developer account of how a game was made.
+  - id: book
+    label: Book
+    definition: Published book or chapter.
+  - id: encyclopedia
+    label: Encyclopedia / wiki
+    definition: Wikipedia or a community wiki.
+  - id: repository
+    label: Code repository / dataset
+    definition: Source code or dataset release.

@@ -1,0 +1,10 @@
+id: beamng-drive
+type: game
+name: BeamNG.drive
+summary: TODO
+year: 2015
+developer: BeamNG GmbH
+subgenre: vehicle-sim
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

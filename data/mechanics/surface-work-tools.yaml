@@ -1,0 +1,8 @@
+id: surface-work-tools
+type: mechanic
+name: Surface work tools
+summary: The player applies a tool to surfaces to clean, paint, or cut them, with visible progress.
+family: operation-procedure
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

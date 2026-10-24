@@ -1,0 +1,10 @@
+id: tomodachi-life
+type: game
+name: Tomodachi Life
+summary: TODO
+year: 2013
+developer: Nintendo SPD
+subgenre: life-sim
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

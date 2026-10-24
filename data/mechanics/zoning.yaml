@@ -1,0 +1,8 @@
+id: zoning
+type: mechanic
+name: Zoning
+summary: The player paints land-use zones, and agents or the market develop buildings within them.
+family: space-construction
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

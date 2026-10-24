@@ -1,0 +1,9 @@
+id: goods-consumption
+type: mechanic
+name: Goods consumption
+summary: A population consumes goods at per-capita rates; unmet consumption lowers satisfaction or blocks
+  advancement.
+family: resources-production
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

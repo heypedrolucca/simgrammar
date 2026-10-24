@@ -1,0 +1,9 @@
+id: attribute-match-engine
+type: mechanic
+name: Attribute-driven match engine
+summary: Contest outcomes are simulated from participant attributes, tactics, and randomness, play by
+  play.
+family: agents-behavior
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

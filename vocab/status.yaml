@@ -1,0 +1,15 @@
+id: status
+description: Epistemic status of an entity. Ordered from weakest to strongest support. Status is a claim about evidence, never about importance.
+terms:
+  - id: asserted
+    label: Asserted
+    definition: Written from contributor or model knowledge with no cited source. Eligible for the verification queue.
+  - id: sourced
+    label: Sourced
+    definition: At least one cited source in `sources` supports the entity's factual fields (dates, names, results).
+  - id: verified
+    label: Verified
+    definition: Sourced, and a second run distinct from `provenance.created` re-checked the facts and is listed in `provenance.reviewed`.
+  - id: contested
+    label: Contested
+    definition: A contributor disputes a field. The dispute is recorded in `claims` with the opposing source. Projections flag the entity.

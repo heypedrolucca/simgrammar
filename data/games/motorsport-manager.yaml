@@ -1,0 +1,10 @@
+id: motorsport-manager
+type: game
+name: Motorsport Manager
+summary: TODO
+year: 2016
+developer: Playsport Games
+subgenre: sports-management
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

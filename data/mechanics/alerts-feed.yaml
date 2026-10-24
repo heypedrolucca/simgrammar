@@ -1,0 +1,8 @@
+id: alerts-feed
+type: mechanic
+name: Alerts feed
+summary: Notifications surface events and threshold crossings.
+family: information-legibility
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

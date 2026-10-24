@@ -1,0 +1,8 @@
+id: deposit-depletion
+type: mechanic
+name: Deposit depletion
+summary: Extractable deposits hold finite quantities and run out, forcing expansion, relocation, or substitution.
+family: resources-production
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

@@ -1,0 +1,9 @@
+id: smart-objects
+type: mechanic
+name: Smart objects
+summary: Objects advertise the need satisfaction they offer, and agents query nearby objects to decide
+  what to do.
+family: agents-behavior
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

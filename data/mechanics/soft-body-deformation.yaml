@@ -1,0 +1,8 @@
+id: soft-body-deformation
+type: mechanic
+name: Soft-body deformation
+summary: Objects deform under stress via node-beam or finite-element models.
+family: physics-materials
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

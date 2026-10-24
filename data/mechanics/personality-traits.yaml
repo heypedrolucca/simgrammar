@@ -1,0 +1,8 @@
+id: personality-traits
+type: mechanic
+name: Personality traits
+summary: Fixed traits change each agent's needs, preferences, and available actions.
+family: agents-behavior
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

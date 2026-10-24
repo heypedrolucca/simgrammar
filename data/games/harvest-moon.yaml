@@ -1,0 +1,10 @@
+id: harvest-moon
+type: game
+name: Harvest Moon
+summary: TODO
+year: 1996
+developer: Amccus
+subgenre: farming-sim
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

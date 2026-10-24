@@ -1,0 +1,9 @@
+id: rail-signaling
+type: mechanic
+name: Rail signaling
+summary: Block and path signals partition track so trains can share it without collision; throughput depends
+  on signal design.
+family: logistics-networks
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

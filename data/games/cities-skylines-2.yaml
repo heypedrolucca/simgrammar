@@ -1,0 +1,10 @@
+id: cities-skylines-2
+type: game
+name: 'Cities: Skylines II'
+summary: TODO
+year: 2023
+developer: Colossal Order
+subgenre: city-builder
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

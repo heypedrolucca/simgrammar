@@ -1,0 +1,24 @@
+id: agent_count_order
+description: Order of magnitude of individually simulated agents in typical play. Aggregate populations shown as a number but simulated as stocks count as `aggregate`.
+terms:
+  - id: none
+    label: None
+    definition: No autonomous agents.
+  - id: aggregate
+    label: Aggregate only
+    definition: Populations are numbers, not individuals.
+  - id: "1"
+    label: "~1"
+    definition: One autonomous agent (a pet, a creature).
+  - id: "10"
+    label: "~10"
+    definition: Around ten individually simulated agents.
+  - id: "100"
+    label: "~100"
+    definition: Tens to hundreds.
+  - id: "1k"
+    label: "~1,000"
+    definition: Hundreds to a few thousand.
+  - id: "10k-plus"
+    label: "10,000+"
+    definition: Ten thousand or more individually simulated agents.

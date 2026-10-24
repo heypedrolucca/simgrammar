@@ -1,0 +1,18 @@
+id: runtime
+description: Where in the lifecycle the technique runs.
+terms:
+  - id: offline-authoring
+    label: Offline authoring
+    definition: Used by developers before ship; outputs are baked.
+  - id: design-assist
+    label: Design assist
+    definition: Interactive tool in the editor or for designers and modders.
+  - id: server-realtime
+    label: Server real-time
+    definition: Runs during play on cloud or game servers.
+  - id: client-realtime
+    label: Client real-time
+    definition: Runs during play on the player's device.
+  - id: analytics
+    label: Analytics / live-ops
+    definition: Runs on telemetry to tune, test, or personalize.

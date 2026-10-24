@@ -1,0 +1,8 @@
+id: persistent-world
+type: mechanic
+name: Persistent shared world
+summary: A server-side world runs continuously for many players.
+family: multiplayer-persistence
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

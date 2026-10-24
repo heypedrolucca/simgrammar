@@ -1,0 +1,9 @@
+id: product-development
+type: mechanic
+name: Product development
+summary: The player configures a product's features, and a simulated market scores it against trends,
+  quality, and competition.
+family: economy-finance
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

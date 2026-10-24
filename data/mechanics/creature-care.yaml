@@ -1,0 +1,9 @@
+id: creature-care
+type: mechanic
+name: Creature care
+summary: The player directly feeds, cleans, and plays with a creature whose needs decay; neglect causes
+  sickness or death.
+family: biology-health
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

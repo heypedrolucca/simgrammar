@@ -1,0 +1,10 @@
+id: eco
+type: game
+name: Eco
+summary: TODO
+year: 2018
+developer: Strange Loop Games
+subgenre: mmo-world
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

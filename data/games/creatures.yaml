@@ -1,0 +1,10 @@
+id: creatures
+type: game
+name: Creatures
+summary: TODO
+year: 1996
+developer: Millennium Interactive / Cyberlife Technology
+subgenre: artificial-life
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

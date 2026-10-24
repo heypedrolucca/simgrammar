@@ -1,0 +1,9 @@
+id: public-transit
+type: mechanic
+name: Public transit lines
+summary: Player-drawn lines with stops and vehicles carry passengers whose ridership depends on coverage,
+  frequency, and transfers.
+family: logistics-networks
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

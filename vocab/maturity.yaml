@@ -1,0 +1,15 @@
+id: maturity
+description: Adoption maturity of a mechanic across shipped games.
+terms:
+  - id: classic
+    label: Classic
+    definition: Standard across a genre for 20+ years; players expect it.
+  - id: established
+    label: Established
+    definition: Widely shipped in multiple successful games; conventions exist.
+  - id: emerging
+    label: Emerging
+    definition: Shipped in a few games within the last 10 years; conventions unsettled.
+  - id: experimental
+    label: Experimental
+    definition: Research prototypes or one-off shipped attempts.

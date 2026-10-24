@@ -1,0 +1,15 @@
+id: feedback
+description: Dominant feedback loop polarity the mechanic creates in play.
+terms:
+  - id: reinforcing
+    label: Reinforcing (positive)
+    definition: Success compounds success or failure compounds failure (snowball, death spiral).
+  - id: balancing
+    label: Balancing (negative)
+    definition: Deviation triggers correction toward an equilibrium.
+  - id: both
+    label: Both
+    definition: Contains reinforcing and balancing loops whose dominance shifts with state.
+  - id: none
+    label: None
+    definition: No loop of its own; transmits or displays state.

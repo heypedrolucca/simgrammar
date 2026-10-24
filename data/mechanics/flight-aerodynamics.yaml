@@ -1,0 +1,8 @@
+id: flight-aerodynamics
+type: mechanic
+name: Flight aerodynamics
+summary: Lift, drag, thrust, and control-surface models govern aircraft motion.
+family: physics-materials
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

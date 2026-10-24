@@ -1,0 +1,8 @@
+id: trait-inheritance
+type: mechanic
+name: Trait inheritance
+summary: Offspring inherit traits or genes from parents with variation or mutation.
+family: population-lineage
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

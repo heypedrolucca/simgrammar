@@ -1,0 +1,8 @@
+id: weather
+type: mechanic
+name: Weather
+summary: Simulated weather conditions such as rain, storms, and temperature affect activities and systems.
+family: environment-ecology
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

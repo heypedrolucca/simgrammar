@@ -1,0 +1,8 @@
+id: raid-defense
+type: mechanic
+name: Raid defense
+summary: Settlements defend against periodic attacks with walls, turrets, and fighters.
+family: conflict-defense
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

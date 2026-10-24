@@ -1,0 +1,8 @@
+id: adaptive-threat-scaling
+type: mechanic
+name: Adaptive threat scaling
+summary: Threat intensity scales with the player's wealth, time survived, or success.
+family: risk-failure
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

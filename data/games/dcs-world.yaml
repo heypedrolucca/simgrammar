@@ -1,0 +1,10 @@
+id: dcs-world
+type: game
+name: DCS World
+summary: TODO
+year: 2008
+developer: Eagle Dynamics
+subgenre: flight-sim
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

@@ -1,0 +1,8 @@
+id: stability-unrest
+type: mechanic
+name: Stability and unrest
+summary: Grievances accumulate into unrest that triggers protests, strikes, or revolt.
+family: governance-policy
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

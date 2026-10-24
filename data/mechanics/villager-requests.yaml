@@ -1,0 +1,8 @@
+id: villager-requests
+type: mechanic
+name: Villager requests
+summary: Characters generate small requests or quests from templates tied to simulation state.
+family: narrative-generation
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

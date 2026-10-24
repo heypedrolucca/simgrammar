@@ -1,0 +1,10 @@
+id: garrys-mod
+type: game
+name: Garry's Mod
+summary: TODO
+year: 2004
+developer: Facepunch Studios
+subgenre: physics-sandbox
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

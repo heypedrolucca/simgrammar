@@ -1,0 +1,8 @@
+id: turn-structure
+type: mechanic
+name: Turn structure
+summary: The simulation advances in discrete turns divided into phases.
+family: time-pacing
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

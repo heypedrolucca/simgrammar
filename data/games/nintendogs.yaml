@@ -1,0 +1,10 @@
+id: nintendogs
+type: game
+name: Nintendogs
+summary: TODO
+year: 2005
+developer: Nintendo EAD
+subgenre: virtual-pet
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

@@ -1,0 +1,42 @@
+id: player_role
+description: The fiction-level role the player occupies relative to the simulation.
+terms:
+  - id: god
+    label: God
+    definition: Supernatural actor above the world, acting through powers.
+  - id: planner-mayor
+    label: Planner / mayor
+    definition: Civic planner shaping land use and services.
+  - id: manager-owner
+    label: Manager / owner
+    definition: Runs a business, facility, or team.
+  - id: overseer
+    label: Overseer
+    definition: Directs a group of semi-autonomous individuals (colony, crew, dwarves).
+  - id: ruler-statesman
+    label: Ruler / statesman
+    definition: Head of a polity or dynasty.
+  - id: commander
+    label: Commander
+    definition: Directs military forces.
+  - id: operator-pilot
+    label: Operator / pilot
+    definition: Directly operates a machine or vehicle.
+  - id: inhabitant
+    label: Inhabitant
+    definition: Lives inside the world as one embodied character.
+  - id: caretaker
+    label: Caretaker
+    definition: Tends creatures, plants, or a household.
+  - id: engineer-designer
+    label: Engineer / designer
+    definition: Designs machines, structures, or production systems.
+  - id: programmer
+    label: Programmer
+    definition: Writes code or logic the simulation executes.
+  - id: observer-gardener
+    label: Observer / gardener
+    definition: Seeds initial conditions and watches; intervention is sparse.
+  - id: worker
+    label: Worker
+    definition: Performs an occupation's hands-on tasks.

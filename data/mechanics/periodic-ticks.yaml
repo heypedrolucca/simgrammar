@@ -1,0 +1,8 @@
+id: periodic-ticks
+type: mechanic
+name: Periodic ticks
+summary: Accounting or growth resolves at fixed intervals such as a monthly budget or a yearly harvest.
+family: time-pacing
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

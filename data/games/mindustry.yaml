@@ -1,0 +1,10 @@
+id: mindustry
+type: game
+name: Mindustry
+summary: TODO
+year: 2017
+developer: Anuke
+subgenre: factory-automation
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

@@ -1,0 +1,10 @@
+id: theme-park
+type: game
+name: Theme Park
+summary: TODO
+year: 1994
+developer: Bullfrog Productions
+subgenre: management-tycoon
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

@@ -1,0 +1,8 @@
+id: history-generation
+type: mechanic
+name: Simulated history generation
+summary: World generation simulates centuries of civilizations, figures, and events before play begins.
+family: world-generation
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

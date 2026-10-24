@@ -1,0 +1,9 @@
+id: natural-language-interaction
+type: mechanic
+name: Natural-language interaction
+summary: The player communicates with characters by free text or voice, and the system interprets intent
+  and responds.
+family: social-relations
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

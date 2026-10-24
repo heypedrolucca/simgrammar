@@ -1,0 +1,8 @@
+id: blueprints
+type: mechanic
+name: Blueprints
+summary: Layouts can be saved, stamped, copied, and shared.
+family: control-automation
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

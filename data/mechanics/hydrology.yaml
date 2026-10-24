@@ -1,0 +1,8 @@
+id: hydrology
+type: mechanic
+name: Hydrology
+summary: Water flows across terrain and rivers, producing floods, droughts, and dam management.
+family: environment-ecology
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

@@ -1,0 +1,8 @@
+id: direct-avatar
+type: mechanic
+name: Direct avatar control
+summary: The player controls one embodied character's movement and actions.
+family: control-automation
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

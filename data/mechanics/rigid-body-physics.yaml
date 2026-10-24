@@ -1,0 +1,8 @@
+id: rigid-body-physics
+type: mechanic
+name: Rigid-body physics
+summary: Objects with mass collide and move under forces, joints, and constraints.
+family: physics-materials
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

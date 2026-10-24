@@ -1,0 +1,10 @@
+id: tamagotchi
+type: game
+name: Tamagotchi
+summary: TODO
+year: 1996
+developer: Bandai
+subgenre: virtual-pet
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

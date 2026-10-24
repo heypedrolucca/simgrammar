@@ -1,0 +1,10 @@
+id: house-flipper
+type: game
+name: House Flipper
+summary: TODO
+year: 2018
+developer: Empyrean
+subgenre: job-sim
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

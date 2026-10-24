@@ -1,0 +1,10 @@
+id: game-of-life
+type: game
+name: Conway's Game of Life
+summary: TODO
+year: 1970
+developer: John Horton Conway
+subgenre: artificial-life
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

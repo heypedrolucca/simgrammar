@@ -1,0 +1,8 @@
+id: scouting-knowledge
+type: mechanic
+name: Scouting knowledge
+summary: Entity attributes are known only with uncertainty that scouting reduces.
+family: information-legibility
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

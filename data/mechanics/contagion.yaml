@@ -1,0 +1,8 @@
+id: contagion
+type: mechanic
+name: Contagion
+summary: Disease spreads between agents or regions via contact rates and follows compartment dynamics.
+family: environment-ecology
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

@@ -1,0 +1,10 @@
+id: microsoft-flight-simulator-2020
+type: game
+name: Microsoft Flight Simulator (2020)
+summary: TODO
+year: 2020
+developer: Asobo Studio
+subgenre: flight-sim
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

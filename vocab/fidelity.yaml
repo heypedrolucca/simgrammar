@@ -1,0 +1,18 @@
+id: fidelity
+description: How closely the model tracks real-world causal structure. Independent of graphics.
+terms:
+  - id: abstract
+    label: Abstract
+    definition: Real-world referent is symbolic; a handful of variables stand in for a whole domain.
+  - id: stylized
+    label: Stylized
+    definition: Recognizable real-world causes with deliberate simplification for play.
+  - id: systemic
+    label: Systemic
+    definition: Many interacting subsystems with plausible causal links; outcomes emerge from rules rather than scripts.
+  - id: high-fidelity
+    label: High-fidelity
+    definition: Quantitative models calibrated against real data (aerodynamics, tire models, market data).
+  - id: professional
+    label: Professional-grade
+    definition: Used or certified for real training or analysis outside entertainment.

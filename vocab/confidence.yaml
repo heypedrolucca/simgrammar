@@ -1,0 +1,12 @@
+id: confidence
+description: Confidence in a specific claim.
+terms:
+  - id: low
+    label: Low
+    definition: Single weak source, extrapolation, or recollection.
+  - id: medium
+    label: Medium
+    definition: One credible source or several weak consistent ones.
+  - id: high
+    label: High
+    definition: Primary source or several independent credible sources.

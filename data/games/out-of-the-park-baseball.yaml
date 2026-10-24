@@ -1,0 +1,10 @@
+id: out-of-the-park-baseball
+type: game
+name: Out of the Park Baseball
+summary: TODO
+year: 1999
+developer: Out of the Park Developments
+subgenre: sports-management
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

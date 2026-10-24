@@ -1,0 +1,10 @@
+id: paralives
+type: game
+name: Paralives
+summary: TODO
+year: 2025
+developer: Paralives Studio
+subgenre: life-sim
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

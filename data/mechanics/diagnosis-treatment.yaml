@@ -1,0 +1,8 @@
+id: diagnosis-treatment
+type: mechanic
+name: Diagnosis and treatment
+summary: Patients present symptoms, diagnosis reduces uncertainty, and correct treatment cures.
+family: biology-health
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

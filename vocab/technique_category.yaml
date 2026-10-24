@@ -1,0 +1,54 @@
+id: technique_category
+description: Research area of a technique or breakthrough.
+terms:
+  - id: generative-world-model
+    label: Generative world model
+    definition: Learned model that predicts or renders interactive environment frames or states from actions.
+  - id: llm-agents
+    label: LLM agents
+    definition: Language-model-driven agents with memory, planning, and tool use acting inside a simulation.
+  - id: llm-narrative-dialogue
+    label: LLM narrative & dialogue
+    definition: Language models generating dialogue, quests, events, or descriptions at runtime.
+  - id: multi-agent-social-sim
+    label: Multi-agent social simulation
+    definition: Populations of model-driven agents producing collective social or economic behavior.
+  - id: procedural-generation
+    label: Procedural content generation
+    definition: Algorithmic or learned generation of levels, maps, assets, rules, or histories.
+  - id: reinforcement-learning
+    label: Reinforcement learning
+    definition: Agents learning policies from reward through interaction.
+  - id: game-theoretic-solvers
+    label: Game-theoretic solvers
+    definition: Equilibrium computation, search, and planning in multi-agent or imperfect-information games.
+  - id: neural-physics
+    label: Neural physics & surrogates
+    definition: Learned simulators replacing or accelerating numerical physics.
+  - id: differentiable-simulation
+    label: Differentiable & accelerated simulation
+    definition: Simulators exposing gradients or running massively parallel on accelerators.
+  - id: neural-rendering-3d
+    label: Neural rendering & 3D generation
+    definition: Learned scene representations and generators for geometry, materials, and environments.
+  - id: animation-motion
+    label: Animation & motion
+    definition: Learned character motion, control, and physically based animation.
+  - id: speech-audio
+    label: Speech & audio
+    definition: Speech recognition, synthesis, voice, and generative audio.
+  - id: artificial-life-research
+    label: Artificial life research
+    definition: Self-organizing systems, neural cellular automata, open-ended evolution.
+  - id: math-discovery
+    label: Mathematical & algorithmic discovery
+    definition: AI systems that find proofs, algorithms, or constructions; and new mathematical results relevant to simulation.
+  - id: inference-efficiency
+    label: Inference efficiency
+    definition: Smaller, faster, cheaper models; on-device inference; distillation and quantization.
+  - id: automated-game-design
+    label: Automated game design & playtesting
+    definition: Systems that generate rules, balance, or evaluate games and players.
+  - id: player-modeling
+    label: Player modeling
+    definition: Learned models of player behavior, preference, skill, or affect.

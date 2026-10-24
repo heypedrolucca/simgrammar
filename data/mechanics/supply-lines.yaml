@@ -1,0 +1,9 @@
+id: supply-lines
+type: mechanic
+name: Supply lines
+summary: Remote units or outposts need a continuous connection to a supply source; cutting the connection
+  causes attrition.
+family: logistics-networks
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

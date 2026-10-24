@@ -1,0 +1,8 @@
+id: storyteller-director
+type: mechanic
+name: Storyteller director
+summary: A director AI selects and paces events based on dramatic pacing and the current state.
+family: narrative-generation
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

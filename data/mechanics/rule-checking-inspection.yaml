@@ -1,0 +1,8 @@
+id: rule-checking-inspection
+type: mechanic
+name: Rule-checking inspection
+summary: The player checks documents or items against changing rules under time pressure.
+family: operation-procedure
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

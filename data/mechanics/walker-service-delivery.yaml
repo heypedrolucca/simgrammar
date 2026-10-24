@@ -1,0 +1,9 @@
+id: walker-service-delivery
+type: mechanic
+name: Walker service delivery
+summary: Services are delivered by agents walking routes from their building, so coverage depends on where
+  walkers actually go.
+family: logistics-networks
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

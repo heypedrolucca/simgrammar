@@ -1,0 +1,8 @@
+id: data-overlays
+type: mechanic
+name: Data overlays
+summary: Map layers visualize hidden variables such as land value, pollution, coverage, or traffic.
+family: information-legibility
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

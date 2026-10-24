@@ -1,0 +1,8 @@
+id: injury-body-model
+type: mechanic
+name: Injury body model
+summary: Bodies are hierarchies of parts, and wounds, bleeding, infection, and prosthetics change capacities.
+family: biology-health
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

@@ -1,0 +1,10 @@
+id: infinite-craft
+type: game
+name: Infinite Craft
+summary: TODO
+year: 2024
+developer: Neal Agarwal
+subgenre: ai-native
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

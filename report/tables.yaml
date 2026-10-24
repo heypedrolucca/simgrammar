@@ -1,0 +1,553 @@
+# Declarative table views for {{table:<name>}} tokens. Edit here, not in report prose.
+# kinds: rows (entity, columns, filter, sort, limit, caption) | count-by (entity, field, vocab, label)
+tables:
+- name: games-by-subgenre
+  kind: count-by
+  entity: game
+  field: subgenre
+  vocab: subgenre
+  label: Subgenre
+- name: games-by-domain
+  kind: count-by
+  entity: game
+  field: sim_domain
+  vocab: sim_domain
+  label: Simulated domain
+- name: games-by-time-model
+  kind: count-by
+  entity: game
+  field: time_model
+  vocab: time_model
+  label: Time model
+- name: games-by-agency
+  kind: count-by
+  entity: game
+  field: agency_model
+  vocab: agency_model
+  label: Agency model
+- name: games-by-failure
+  kind: count-by
+  entity: game
+  field: failure_model
+  vocab: failure_model
+  label: Failure model
+- name: games-by-narrative
+  kind: count-by
+  entity: game
+  field: narrative_mode
+  vocab: narrative_mode
+  label: Narrative mode
+- name: mechanics-by-family
+  kind: count-by
+  entity: mechanic
+  field: family
+  vocab: mechanic_family
+  label: Family
+- name: mechanics-by-substrate
+  kind: count-by
+  entity: mechanic
+  field: substrate
+  vocab: substrate
+  label: Substrate
+- name: mechanics-by-math
+  kind: count-by
+  entity: mechanic
+  field: math_basis
+  vocab: math_basis
+  label: Math basis
+- name: techniques-by-category
+  kind: count-by
+  entity: technique
+  field: category
+  vocab: technique_category
+  label: Category
+- name: techniques-by-maturity
+  kind: count-by
+  entity: technique
+  field: maturity
+  vocab: technique_maturity
+  label: Maturity in games
+- name: techniques-by-risk
+  kind: count-by
+  entity: technique
+  field: risks
+  vocab: risk
+  label: Risk
+- name: top-mechanics
+  kind: rows
+  entity: mechanic
+  columns:
+  - name
+  - family
+  - path: _derived.prevalence
+    label: games
+  - path: _derived.core_count
+    label: core in
+  - path: _derived.earliest_year
+    label: earliest
+  - legibility
+  - emergence_potential
+  - ai_leverage
+  sort:
+  - -_derived.prevalence
+  - name
+  limit: 30
+  caption: Most-used mechanics across the catalog. Scores are rubric anchors (1-5).
+- name: most-emergent-games
+  kind: rows
+  entity: game
+  columns:
+  - name
+  - year
+  - subgenre
+  - path: _derived.mechanic_count
+    label: mechanics
+  - emergence
+  - influence
+  sort:
+  - -emergence
+  - -influence
+  - name
+  limit: 20
+- name: game-catalog
+  kind: rows
+  entity: game
+  columns:
+  - name
+  - year
+  - developer
+  - subgenre
+  - time_model
+  - sim_scale
+  - path: _derived.mechanic_count
+    label: mechanics
+  - path: _derived.cluster
+    label: cluster
+  - status
+  sort:
+  - year
+  - name
+- name: technique-catalog
+  kind: rows
+  entity: technique
+  columns:
+  - name
+  - category
+  - year
+  - maturity
+  - trl
+  - horizon
+  - determinism_impact
+  sort:
+  - category
+  - -year
+  - name
+- name: opportunity-catalog
+  kind: rows
+  entity: opportunity
+  columns:
+  - name
+  - opportunity_type
+  - path: _derived.priority
+    label: priority
+  - impact
+  - feasibility
+  - novelty
+  - horizon
+  - path: falsifiable_signal.resolve_by
+    label: resolves
+  sort:
+  - -_derived.priority
+  - name
+- name: ai-native-games
+  kind: rows
+  entity: game
+  filter:
+    narrative_mode: generative
+  columns:
+  - name
+  - year
+  - developer
+  - subgenre
+  - production_tier
+  sort:
+  - year
+  - name
+- name: family-resources-production
+  kind: rows
+  entity: mechanic
+  filter:
+    family: resources-production
+  columns:
+  - name
+  - path: _derived.prevalence
+    label: games
+  - legibility
+  - emergence_potential
+  - authoring_cost
+  - compute_cost
+  - ai_leverage
+  - maturity
+  sort:
+  - -_derived.prevalence
+  - name
+- name: family-logistics-networks
+  kind: rows
+  entity: mechanic
+  filter:
+    family: logistics-networks
+  columns:
+  - name
+  - path: _derived.prevalence
+    label: games
+  - legibility
+  - emergence_potential
+  - authoring_cost
+  - compute_cost
+  - ai_leverage
+  - maturity
+  sort:
+  - -_derived.prevalence
+  - name
+- name: family-economy-finance
+  kind: rows
+  entity: mechanic
+  filter:
+    family: economy-finance
+  columns:
+  - name
+  - path: _derived.prevalence
+    label: games
+  - legibility
+  - emergence_potential
+  - authoring_cost
+  - compute_cost
+  - ai_leverage
+  - maturity
+  sort:
+  - -_derived.prevalence
+  - name
+- name: family-agents-behavior
+  kind: rows
+  entity: mechanic
+  filter:
+    family: agents-behavior
+  columns:
+  - name
+  - path: _derived.prevalence
+    label: games
+  - legibility
+  - emergence_potential
+  - authoring_cost
+  - compute_cost
+  - ai_leverage
+  - maturity
+  sort:
+  - -_derived.prevalence
+  - name
+- name: family-social-relations
+  kind: rows
+  entity: mechanic
+  filter:
+    family: social-relations
+  columns:
+  - name
+  - path: _derived.prevalence
+    label: games
+  - legibility
+  - emergence_potential
+  - authoring_cost
+  - compute_cost
+  - ai_leverage
+  - maturity
+  sort:
+  - -_derived.prevalence
+  - name
+- name: family-population-lineage
+  kind: rows
+  entity: mechanic
+  filter:
+    family: population-lineage
+  columns:
+  - name
+  - path: _derived.prevalence
+    label: games
+  - legibility
+  - emergence_potential
+  - authoring_cost
+  - compute_cost
+  - ai_leverage
+  - maturity
+  sort:
+  - -_derived.prevalence
+  - name
+- name: family-governance-policy
+  kind: rows
+  entity: mechanic
+  filter:
+    family: governance-policy
+  columns:
+  - name
+  - path: _derived.prevalence
+    label: games
+  - legibility
+  - emergence_potential
+  - authoring_cost
+  - compute_cost
+  - ai_leverage
+  - maturity
+  sort:
+  - -_derived.prevalence
+  - name
+- name: family-space-construction
+  kind: rows
+  entity: mechanic
+  filter:
+    family: space-construction
+  columns:
+  - name
+  - path: _derived.prevalence
+    label: games
+  - legibility
+  - emergence_potential
+  - authoring_cost
+  - compute_cost
+  - ai_leverage
+  - maturity
+  sort:
+  - -_derived.prevalence
+  - name
+- name: family-physics-materials
+  kind: rows
+  entity: mechanic
+  filter:
+    family: physics-materials
+  columns:
+  - name
+  - path: _derived.prevalence
+    label: games
+  - legibility
+  - emergence_potential
+  - authoring_cost
+  - compute_cost
+  - ai_leverage
+  - maturity
+  sort:
+  - -_derived.prevalence
+  - name
+- name: family-environment-ecology
+  kind: rows
+  entity: mechanic
+  filter:
+    family: environment-ecology
+  columns:
+  - name
+  - path: _derived.prevalence
+    label: games
+  - legibility
+  - emergence_potential
+  - authoring_cost
+  - compute_cost
+  - ai_leverage
+  - maturity
+  sort:
+  - -_derived.prevalence
+  - name
+- name: family-biology-health
+  kind: rows
+  entity: mechanic
+  filter:
+    family: biology-health
+  columns:
+  - name
+  - path: _derived.prevalence
+    label: games
+  - legibility
+  - emergence_potential
+  - authoring_cost
+  - compute_cost
+  - ai_leverage
+  - maturity
+  sort:
+  - -_derived.prevalence
+  - name
+- name: family-time-pacing
+  kind: rows
+  entity: mechanic
+  filter:
+    family: time-pacing
+  columns:
+  - name
+  - path: _derived.prevalence
+    label: games
+  - legibility
+  - emergence_potential
+  - authoring_cost
+  - compute_cost
+  - ai_leverage
+  - maturity
+  sort:
+  - -_derived.prevalence
+  - name
+- name: family-information-legibility
+  kind: rows
+  entity: mechanic
+  filter:
+    family: information-legibility
+  columns:
+  - name
+  - path: _derived.prevalence
+    label: games
+  - legibility
+  - emergence_potential
+  - authoring_cost
+  - compute_cost
+  - ai_leverage
+  - maturity
+  sort:
+  - -_derived.prevalence
+  - name
+- name: family-control-automation
+  kind: rows
+  entity: mechanic
+  filter:
+    family: control-automation
+  columns:
+  - name
+  - path: _derived.prevalence
+    label: games
+  - legibility
+  - emergence_potential
+  - authoring_cost
+  - compute_cost
+  - ai_leverage
+  - maturity
+  sort:
+  - -_derived.prevalence
+  - name
+- name: family-progression-goals
+  kind: rows
+  entity: mechanic
+  filter:
+    family: progression-goals
+  columns:
+  - name
+  - path: _derived.prevalence
+    label: games
+  - legibility
+  - emergence_potential
+  - authoring_cost
+  - compute_cost
+  - ai_leverage
+  - maturity
+  sort:
+  - -_derived.prevalence
+  - name
+- name: family-risk-failure
+  kind: rows
+  entity: mechanic
+  filter:
+    family: risk-failure
+  columns:
+  - name
+  - path: _derived.prevalence
+    label: games
+  - legibility
+  - emergence_potential
+  - authoring_cost
+  - compute_cost
+  - ai_leverage
+  - maturity
+  sort:
+  - -_derived.prevalence
+  - name
+- name: family-narrative-generation
+  kind: rows
+  entity: mechanic
+  filter:
+    family: narrative-generation
+  columns:
+  - name
+  - path: _derived.prevalence
+    label: games
+  - legibility
+  - emergence_potential
+  - authoring_cost
+  - compute_cost
+  - ai_leverage
+  - maturity
+  sort:
+  - -_derived.prevalence
+  - name
+- name: family-world-generation
+  kind: rows
+  entity: mechanic
+  filter:
+    family: world-generation
+  columns:
+  - name
+  - path: _derived.prevalence
+    label: games
+  - legibility
+  - emergence_potential
+  - authoring_cost
+  - compute_cost
+  - ai_leverage
+  - maturity
+  sort:
+  - -_derived.prevalence
+  - name
+- name: family-multiplayer-persistence
+  kind: rows
+  entity: mechanic
+  filter:
+    family: multiplayer-persistence
+  columns:
+  - name
+  - path: _derived.prevalence
+    label: games
+  - legibility
+  - emergence_potential
+  - authoring_cost
+  - compute_cost
+  - ai_leverage
+  - maturity
+  sort:
+  - -_derived.prevalence
+  - name
+- name: family-conflict-defense
+  kind: rows
+  entity: mechanic
+  filter:
+    family: conflict-defense
+  columns:
+  - name
+  - path: _derived.prevalence
+    label: games
+  - legibility
+  - emergence_potential
+  - authoring_cost
+  - compute_cost
+  - ai_leverage
+  - maturity
+  sort:
+  - -_derived.prevalence
+  - name
+- name: family-operation-procedure
+  kind: rows
+  entity: mechanic
+  filter:
+    family: operation-procedure
+  columns:
+  - name
+  - path: _derived.prevalence
+    label: games
+  - legibility
+  - emergence_potential
+  - authoring_cost
+  - compute_cost
+  - ai_leverage
+  - maturity
+  sort:
+  - -_derived.prevalence
+  - name

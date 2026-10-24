@@ -1,0 +1,9 @@
+id: immigration-attractiveness
+type: mechanic
+name: Immigration by attractiveness
+summary: Population arrives or leaves based on attractiveness such as jobs, housing, and happiness relative
+  to alternatives.
+family: population-lineage
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

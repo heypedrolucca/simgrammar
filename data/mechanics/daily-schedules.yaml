@@ -1,0 +1,9 @@
+id: daily-schedules
+type: mechanic
+name: Daily schedules
+summary: Agents follow time-blocked routines for work, sleep, and leisure that create rhythms of demand
+  across the day.
+family: agents-behavior
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

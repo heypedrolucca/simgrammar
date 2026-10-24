@@ -1,0 +1,8 @@
+id: player-programming
+type: mechanic
+name: Player programming
+summary: The player writes code in a language the game executes.
+family: control-automation
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

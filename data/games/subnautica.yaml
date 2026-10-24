@@ -1,0 +1,10 @@
+id: subnautica
+type: game
+name: Subnautica
+summary: TODO
+year: 2014
+developer: Unknown Worlds Entertainment
+subgenre: survival-sim
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

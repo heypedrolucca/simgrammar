@@ -1,0 +1,10 @@
+id: hardspace-shipbreaker
+type: game
+name: 'Hardspace: Shipbreaker'
+summary: TODO
+year: 2020
+developer: Blackbird Interactive
+subgenre: job-sim
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

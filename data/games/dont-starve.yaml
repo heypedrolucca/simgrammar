@@ -1,0 +1,10 @@
+id: dont-starve
+type: game
+name: Don't Starve
+summary: TODO
+year: 2013
+developer: Klei Entertainment
+subgenre: survival-sim
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

@@ -1,0 +1,10 @@
+id: the-powder-toy
+type: game
+name: The Powder Toy
+summary: TODO
+year: 2008
+developer: The Powder Toy contributors
+subgenre: physics-sandbox
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

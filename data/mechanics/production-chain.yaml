@@ -1,0 +1,9 @@
+id: production-chain
+type: mechanic
+name: Production chains
+summary: Buildings or machines convert input goods into output goods via fixed recipes and cycle times,
+  forming multi-step dependency trees.
+family: resources-production
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

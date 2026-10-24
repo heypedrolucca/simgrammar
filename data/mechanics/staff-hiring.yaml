@@ -1,0 +1,8 @@
+id: staff-hiring
+type: mechanic
+name: Staff hiring and rosters
+summary: The player hires individual staff with skills, traits, and wages to operate a facility or team.
+family: economy-finance
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

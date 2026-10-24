@@ -1,0 +1,10 @@
+id: oregon-trail
+type: game
+name: The Oregon Trail
+summary: TODO
+year: 1971
+developer: MECC (Rawitsch, Heinemann, Dillenberger)
+subgenre: survival-sim
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

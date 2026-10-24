@@ -1,0 +1,9 @@
+id: citizen-satisfaction
+type: mechanic
+name: Citizen satisfaction
+summary: An aggregate satisfaction score computed from services, conditions, and events modulates growth,
+  productivity, and unrest.
+family: governance-policy
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

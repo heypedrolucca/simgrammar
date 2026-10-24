@@ -1,0 +1,8 @@
+id: history-chronicle
+type: mechanic
+name: History chronicle
+summary: The game records simulation events into a browsable history or legends archive.
+family: narrative-generation
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

@@ -1,0 +1,8 @@
+id: diagnose-repair
+type: mechanic
+name: Diagnose and repair
+summary: The player disassembles machines, diagnoses faulty parts, and repairs or replaces them.
+family: operation-procedure
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

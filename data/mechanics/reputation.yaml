@@ -1,0 +1,8 @@
+id: reputation
+type: mechanic
+name: Reputation
+summary: A standing value with a faction or the public changes access, prices, and how others respond.
+family: social-relations
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

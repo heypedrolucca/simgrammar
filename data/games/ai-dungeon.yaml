@@ -1,0 +1,10 @@
+id: ai-dungeon
+type: game
+name: AI Dungeon
+summary: TODO
+year: 2019
+developer: Latitude
+subgenre: ai-native
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

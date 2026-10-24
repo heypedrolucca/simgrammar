@@ -1,0 +1,9 @@
+id: rci-demand
+type: mechanic
+name: RCI demand
+summary: A demand signal for residential, commercial, and industrial land derived from the balance of
+  jobs, workers, and goods.
+family: economy-finance
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

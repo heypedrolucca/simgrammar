@@ -1,0 +1,9 @@
+id: agent-skills
+type: mechanic
+name: Agent skills
+summary: Agents gain skill through practice or training, and skill sets work speed, quality, and access
+  to tasks.
+family: agents-behavior
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

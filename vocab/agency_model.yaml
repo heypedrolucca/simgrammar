@@ -1,0 +1,36 @@
+id: agency_model
+description: How player intent reaches the simulation. A game may use several.
+terms:
+  - id: direct-avatar
+    label: Direct avatar
+    definition: Player moves and acts as one character in real time.
+  - id: direct-unit
+    label: Direct unit control
+    definition: Player selects and commands specific units or agents.
+  - id: indirect-incentive
+    label: Indirect incentive
+    definition: Agents act autonomously; player shapes outcomes via environment, priorities, or incentives.
+  - id: zoning-placement
+    label: Zoning / placement
+    definition: Player places structures or designates areas; agents fill them.
+  - id: policy-parameter
+    label: Policy / parameter
+    definition: Player sets rates, laws, budgets, or sliders that change system rules.
+  - id: order-queue
+    label: Order queue
+    definition: Player issues designations or jobs that agents pick up in priority order.
+  - id: programmatic
+    label: Programmatic
+    definition: Player writes code, circuits, or scripts executed by the simulation.
+  - id: design-then-test
+    label: Design then test
+    definition: Player builds a configuration offline, then runs the sim to evaluate it.
+  - id: conversational
+    label: Conversational
+    definition: Player acts through free-text or voice language parsed by the system.
+  - id: caretaking-interaction
+    label: Caretaking interaction
+    definition: Player performs discrete care actions (feed, clean, play) on a creature or person.
+  - id: supernatural-intervention
+    label: Supernatural intervention
+    definition: Player casts powers or miracles that alter terrain, weather, or beings.

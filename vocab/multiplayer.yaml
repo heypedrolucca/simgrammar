@@ -1,0 +1,18 @@
+id: multiplayer
+description: Supported social play modes.
+terms:
+  - id: single
+    label: Single-player
+    definition: One player.
+  - id: coop
+    label: Co-op
+    definition: Players share one simulation toward shared goals.
+  - id: competitive
+    label: Competitive
+    definition: Players compete directly in one simulation or match.
+  - id: persistent-mmo
+    label: Persistent MMO
+    definition: Many players in a persistent server-side world.
+  - id: async-shared
+    label: Async / shared content
+    definition: Players affect each other asynchronously via shared content, markets, or regions.

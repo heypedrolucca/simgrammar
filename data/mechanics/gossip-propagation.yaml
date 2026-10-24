@@ -1,0 +1,8 @@
+id: gossip-propagation
+type: mechanic
+name: Gossip propagation
+summary: Information about events spreads through social contacts, changing what agents know and believe.
+family: social-relations
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

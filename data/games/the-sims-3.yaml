@@ -1,0 +1,10 @@
+id: the-sims-3
+type: game
+name: The Sims 3
+summary: TODO
+year: 2009
+developer: The Sims Studio
+subgenre: life-sim
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

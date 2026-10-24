@@ -1,0 +1,55 @@
+id: needs-decay
+type: mechanic
+name: Needs decay
+aliases:
+  - motives
+  - need meters
+summary: Each agent has needs such as hunger, energy, social, and fun that decay over time and are restored by actions.
+family: agents-behavior
+substrate:
+  - agent-based
+  - aggregate-stocks
+definition: >-
+  Each agent holds a vector of bounded need stocks (typically 0-100). Every tick each stock decays at a per-need rate,
+  optionally modified by traits, activity, and environment. Actions or objects restore specific needs by fixed or
+  quality-scaled amounts. Low values feed downstream systems: mood, action selection priority, health, or death.
+player_experience: >-
+  Constant low-grade triage. The player reads meters, anticipates which need will bottom out first, and arranges
+  the environment or schedule so agents can meet needs without supervision. Neglect is visible and personal.
+design_levers:
+  - number of needs and which are lethal versus mood-only
+  - decay rate per need and modifiers by trait, age, or activity
+  - restoration amount and duration per action or object quality
+  - threshold values that trigger warnings, priority overrides, or breakdowns
+  - whether needs are shown as raw meters, icons, or only through behavior
+failure_modes:
+  - Too many needs turn play into chore management with no strategic choice.
+  - Uniform decay rates make every agent identical and remove personality.
+  - Fast decay with slow restoration produces unavoidable death spirals early in a run.
+  - Hidden needs read as random misbehavior when agents act on them.
+dynamics:
+  - Synchronized decay creates rush hours at kitchens, beds, and bathrooms.
+  - Needs compete for agent time, so throughput falls as needs rise, coupling productivity to comfort.
+  - Better objects restore more per use, creating an upgrade treadmill.
+math_basis:
+  - system-dynamics
+  - queueing
+  - utility-decision
+feedback: balancing
+player_interface:
+  - observation
+  - placement
+legibility: 4
+emergence_potential: 3
+authoring_cost: 3
+compute_cost: 2
+tuning_difficulty: 3
+ai_leverage: 3
+maturity: classic
+open_questions:
+  - Can needs be inferred from behavior by learned agents rather than declared as fixed meters?
+  - What is the minimal need set that still yields distinct personalities?
+sources: []
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

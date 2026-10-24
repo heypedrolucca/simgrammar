@@ -1,0 +1,10 @@
+id: civilization
+type: game
+name: Sid Meier's Civilization
+summary: TODO
+year: 1991
+developer: MicroProse
+subgenre: 4x-strategy
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

@@ -1,0 +1,8 @@
+id: causal-tooltips
+type: mechanic
+name: Causal breakdown tooltips
+summary: Nested tooltips decompose a value into its contributing modifiers.
+family: information-legibility
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

@@ -1,0 +1,8 @@
+id: supply-demand-pricing
+type: mechanic
+name: Supply-demand pricing
+summary: Prices adjust to supply and demand, so scarcity raises prices and gluts lower them.
+family: economy-finance
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

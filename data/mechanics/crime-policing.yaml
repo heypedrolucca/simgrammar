@@ -1,0 +1,8 @@
+id: crime-policing
+type: mechanic
+name: Crime and policing
+summary: Crime arises from conditions, and policing, prisons, and justice reduce it.
+family: risk-failure
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

@@ -1,0 +1,9 @@
+id: creature-learning
+type: mechanic
+name: Creature learning
+summary: A creature's behavior is learned from player reward and punishment or from neural adaptation
+  over its life.
+family: agents-behavior
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

@@ -1,0 +1,10 @@
+id: autonauts
+type: game
+name: Autonauts
+summary: TODO
+year: 2019
+developer: Denki
+subgenre: programming-sim
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

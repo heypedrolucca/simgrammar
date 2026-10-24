@@ -1,0 +1,8 @@
+id: seasons
+type: mechanic
+name: Seasons
+summary: A seasonal calendar cycles conditions that govern growth, demand, and risk.
+family: environment-ecology
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

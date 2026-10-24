@@ -1,0 +1,36 @@
+id: risk
+description: Primary risks of using a technique in simulation games.
+terms:
+  - id: consistency
+    label: Consistency / hallucination
+    definition: Outputs contradict world state or prior outputs.
+  - id: latency
+    label: Latency
+    definition: Too slow for the interaction loop.
+  - id: compute-cost
+    label: Compute cost
+    definition: Per-player-hour inference or training cost threatens margins.
+  - id: controllability
+    label: Controllability
+    definition: Designers cannot reliably constrain or tune behavior.
+  - id: content-safety
+    label: Content safety
+    definition: May produce harmful, offensive, or age-inappropriate content.
+  - id: ip-provenance
+    label: IP / provenance
+    definition: Training data or output ownership is contested; platform disclosure rules apply.
+  - id: evaluation
+    label: Evaluation difficulty
+    definition: Hard to test or QA because output space is open-ended.
+  - id: player-trust
+    label: Player trust / reception
+    definition: Players or press may reject AI-generated content.
+  - id: determinism
+    label: Determinism
+    definition: Breaks replays, lockstep multiplayer, or bug reproduction.
+  - id: legibility
+    label: Legibility
+    definition: Players cannot form a mental model of why the system behaved as it did.
+  - id: labor
+    label: Labor displacement
+    definition: Changes or removes creative roles; may face workforce opposition.

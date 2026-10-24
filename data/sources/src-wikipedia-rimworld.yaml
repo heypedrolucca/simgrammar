@@ -1,0 +1,13 @@
+id: src-wikipedia-rimworld
+type: source
+name: RimWorld
+kind: encyclopedia
+authors:
+  - Wikipedia contributors
+venue: Wikipedia
+date: "2026"
+url: https://en.wikipedia.org/wiki/RimWorld
+accessed: "2026-10-24"
+notes: Release history (public alpha 2013-11-04, 1.0 2018-10-17), developer, platforms, storyteller description.
+provenance:
+  created: 2026-10-23-bootstrap

@@ -1,0 +1,9 @@
+id: contracts-orders
+type: mechanic
+name: Contracts and orders
+summary: Discrete jobs with requirements, deadlines, and payouts, such as deliveries or commissions, drive
+  income and planning.
+family: economy-finance
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

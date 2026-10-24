@@ -1,0 +1,8 @@
+id: procedural-terrain
+type: mechanic
+name: Procedural terrain
+summary: Maps are generated from seeds via noise, erosion, and placement rules.
+family: world-generation
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

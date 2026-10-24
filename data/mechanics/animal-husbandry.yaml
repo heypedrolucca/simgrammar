@@ -1,0 +1,8 @@
+id: animal-husbandry
+type: mechanic
+name: Animal husbandry
+summary: Domestic animals are raised, fed, bred, and yield products.
+family: biology-health
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

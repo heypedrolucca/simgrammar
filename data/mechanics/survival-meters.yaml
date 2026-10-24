@@ -1,0 +1,8 @@
+id: survival-meters
+type: mechanic
+name: Survival meters
+summary: The avatar's bodily stocks such as hunger, thirst, warmth, and fatigue deplete and kill if unmanaged.
+family: biology-health
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

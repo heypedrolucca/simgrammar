@@ -1,0 +1,10 @@
+id: simcity-2000
+type: game
+name: SimCity 2000
+summary: TODO
+year: 1993
+developer: Maxis
+subgenre: city-builder
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

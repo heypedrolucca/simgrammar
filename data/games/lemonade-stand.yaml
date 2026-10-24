@@ -1,0 +1,10 @@
+id: lemonade-stand
+type: game
+name: Lemonade Stand
+summary: TODO
+year: 1973
+developer: Bob Jamison (MECC)
+subgenre: business-economic-sim
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

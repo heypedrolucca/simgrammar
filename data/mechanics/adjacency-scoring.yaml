@@ -1,0 +1,8 @@
+id: adjacency-scoring
+type: mechanic
+name: Adjacency scoring
+summary: Placements gain or lose value from neighboring placements.
+family: space-construction
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

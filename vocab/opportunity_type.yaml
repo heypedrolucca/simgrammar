@@ -1,0 +1,27 @@
+id: opportunity_type
+description: Kind of opportunity.
+terms:
+  - id: new-mechanic
+    label: New mechanic
+    definition: A rule-system that did not exist in shipped games.
+  - id: mechanic-upgrade
+    label: Mechanic upgrade
+    definition: An existing mechanic made qualitatively deeper or broader.
+  - id: new-genre
+    label: New genre
+    definition: A recombination that could define a new design lineage.
+  - id: legibility-layer
+    label: Legibility layer
+    definition: Makes deep simulation understandable without simplifying it.
+  - id: authoring-tool
+    label: Authoring tool
+    definition: Developer- or modder-facing tool that changes what small teams can build.
+  - id: infrastructure
+    label: Infrastructure
+    definition: Runtime, engine, or platform component others build on.
+  - id: business-model
+    label: Business model
+    definition: New way of distributing, monetizing, or operating simulation games.
+  - id: non-game-transfer
+    label: Non-game transfer
+    definition: Simulation-game mechanics applied to research, policy, training, or agent evaluation.

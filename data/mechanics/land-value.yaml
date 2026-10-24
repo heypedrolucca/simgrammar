@@ -1,0 +1,9 @@
+id: land-value
+type: mechanic
+name: Land value
+summary: Each location's value is computed from nearby amenities, nuisances, and access, and it drives
+  density and building upgrades.
+family: economy-finance
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

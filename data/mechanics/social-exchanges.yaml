@@ -1,0 +1,9 @@
+id: social-exchanges
+type: mechanic
+name: Social exchanges
+summary: Discrete social moves such as flirt, insult, or apologize have preconditions on social state
+  and norms, and they update relationships.
+family: social-relations
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

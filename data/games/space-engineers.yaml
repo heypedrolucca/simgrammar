@@ -1,0 +1,10 @@
+id: space-engineers
+type: game
+name: Space Engineers
+summary: TODO
+year: 2013
+developer: Keen Software House
+subgenre: sandbox-world
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

@@ -1,0 +1,9 @@
+id: renewable-regrowth
+type: mechanic
+name: Renewable regrowth
+summary: Harvested stocks such as forests, fish, game, and soil regenerate over time at density-dependent
+  rates, allowing sustainable yield or overexploitation.
+family: resources-production
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

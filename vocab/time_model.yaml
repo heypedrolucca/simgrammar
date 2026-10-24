@@ -1,0 +1,21 @@
+id: time_model
+description: Dominant relation between simulation time and player time.
+terms:
+  - id: real-time
+    label: Real-time
+    definition: Simulation advances continuously at a fixed rate the player cannot pause in normal play.
+  - id: real-time-pausable
+    label: Real-time with pause
+    definition: Continuous time with pause and usually adjustable speed.
+  - id: turn-based
+    label: Turn-based
+    definition: Simulation advances in discrete player-triggered turns.
+  - id: real-world-clock
+    label: Real-world clock
+    definition: Simulation time is bound to the wall clock and advances while the game is closed.
+  - id: run-on-demand
+    label: Run on demand
+    definition: Player builds in a frozen state, then triggers a simulation run (design-then-test).
+  - id: asynchronous-persistent
+    label: Asynchronous persistent
+    definition: Shared world advances on servers independent of any one player's session.

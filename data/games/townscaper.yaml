@@ -1,0 +1,10 @@
+id: townscaper
+type: game
+name: Townscaper
+summary: TODO
+year: 2020
+developer: Oskar Stålberg
+subgenre: city-builder
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

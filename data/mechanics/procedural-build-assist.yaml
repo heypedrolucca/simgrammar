@@ -1,0 +1,8 @@
+id: procedural-build-assist
+type: mechanic
+name: Procedural build assist
+summary: Rough player input is turned into detailed, organic structures by procedural rules.
+family: space-construction
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

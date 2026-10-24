@@ -1,0 +1,10 @@
+id: iracing
+type: game
+name: iRacing
+summary: TODO
+year: 2008
+developer: iRacing.com Motorsport Simulations
+subgenre: vehicle-sim
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

@@ -1,0 +1,33 @@
+id: sim_scale
+description: Spatial or organizational scale of the primary simulated unit of play.
+terms:
+  - id: micro
+    label: Micro
+    definition: Sub-individual (cells, organs, components, particles).
+  - id: individual
+    label: Individual
+    definition: One person, creature, or vehicle.
+  - id: household
+    label: Household / crew
+    definition: A small group of named individuals (family, crew, squad).
+  - id: facility
+    label: Facility
+    definition: One site such as a park, hospital, factory, or farm.
+  - id: settlement
+    label: Settlement
+    definition: Village, colony, or base of tens to hundreds of agents.
+  - id: city
+    label: City
+    definition: Urban area of thousands to millions.
+  - id: region
+    label: Region
+    definition: Multi-settlement territory or transport network.
+  - id: nation
+    label: Nation / polity
+    definition: One or more states.
+  - id: planet
+    label: Planet
+    definition: Whole-world climate, biosphere, or civilization.
+  - id: interplanetary
+    label: Interplanetary+
+    definition: Solar system, galaxy, or universe.

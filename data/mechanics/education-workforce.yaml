@@ -1,0 +1,8 @@
+id: education-workforce
+type: mechanic
+name: Education and workforce
+summary: Education levels gate job types, and schooling transforms the labor pool over time.
+family: population-lineage
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

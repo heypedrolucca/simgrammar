@@ -1,0 +1,8 @@
+id: milestone-unlocks
+type: mechanic
+name: Milestone unlocks
+summary: Reaching thresholds such as population or output unlocks new content.
+family: progression-goals
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

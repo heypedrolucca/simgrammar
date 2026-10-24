@@ -1,0 +1,9 @@
+id: service-queues
+type: mechanic
+name: Service queues
+summary: Agents wait in lines for limited-capacity services; waiting time feeds back into satisfaction
+  and throughput.
+family: logistics-networks
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

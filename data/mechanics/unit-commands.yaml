@@ -1,0 +1,8 @@
+id: unit-commands
+type: mechanic
+name: Unit commands
+summary: The player issues direct orders to units or agents, overriding their autonomy.
+family: control-automation
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

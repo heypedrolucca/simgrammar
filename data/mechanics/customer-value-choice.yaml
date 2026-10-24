@@ -1,0 +1,8 @@
+id: customer-value-choice
+type: mechanic
+name: Customer value choice
+summary: Customers choose among offerings by comparing price to perceived value and personal preference.
+family: economy-finance
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

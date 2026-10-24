@@ -1,0 +1,8 @@
+id: agent-inspection
+type: mechanic
+name: Agent inspection
+summary: Selecting an agent reveals its needs, thoughts, and reasons.
+family: information-legibility
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

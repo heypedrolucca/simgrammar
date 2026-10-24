@@ -1,0 +1,8 @@
+id: advisors
+type: mechanic
+name: Advisors
+summary: In-world advisors summarize problems and suggest actions.
+family: information-legibility
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

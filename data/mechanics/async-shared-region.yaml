@@ -1,0 +1,9 @@
+id: async-shared-region
+type: mechanic
+name: Asynchronous shared regions
+summary: Separate players' simulations affect each other asynchronously through shared regions, visits,
+  or exchanges.
+family: multiplayer-persistence
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

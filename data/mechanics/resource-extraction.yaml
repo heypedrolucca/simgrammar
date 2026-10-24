@@ -1,0 +1,9 @@
+id: resource-extraction
+type: mechanic
+name: Resource extraction
+summary: Workers or machines harvest raw materials from map nodes (ore, trees, fish, oil) at rates set
+  by tools, labor, and node richness.
+family: resources-production
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

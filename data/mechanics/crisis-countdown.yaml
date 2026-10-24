@@ -1,0 +1,8 @@
+id: crisis-countdown
+type: mechanic
+name: Crisis countdown
+summary: A known future crisis such as a storm, winter, or deadline structures preparation.
+family: time-pacing
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

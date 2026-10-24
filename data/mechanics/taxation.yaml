@@ -1,0 +1,9 @@
+id: taxation
+type: mechanic
+name: Taxation
+summary: Player-set tax rates convert economic activity into revenue at the cost of growth, happiness,
+  or competitiveness.
+family: economy-finance
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

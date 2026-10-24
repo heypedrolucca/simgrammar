@@ -1,0 +1,8 @@
+id: triggered-event-chains
+type: mechanic
+name: Triggered event chains
+summary: Authored event templates fire when state conditions hold and chain into multi-step stories.
+family: narrative-generation
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

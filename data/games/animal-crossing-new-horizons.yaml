@@ -1,0 +1,10 @@
+id: animal-crossing-new-horizons
+type: game
+name: 'Animal Crossing: New Horizons'
+summary: TODO
+year: 2020
+developer: Nintendo EPD
+subgenre: life-sim
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

@@ -1,0 +1,8 @@
+id: policy-influence-network
+type: mechanic
+name: Policy influence network
+summary: Policies, indicators, and voter groups connect through a weighted causal graph with delays.
+family: governance-policy
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

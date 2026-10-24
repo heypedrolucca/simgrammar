@@ -1,0 +1,10 @@
+id: opus-magnum
+type: game
+name: Opus Magnum
+summary: TODO
+year: 2017
+developer: Zachtronics
+subgenre: programming-sim
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

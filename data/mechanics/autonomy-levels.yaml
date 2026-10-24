@@ -1,0 +1,9 @@
+id: autonomy-levels
+type: mechanic
+name: Autonomy levels
+summary: The degree to which agents act on their own is adjustable, from full free will to explicit commands
+  only.
+family: agents-behavior
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

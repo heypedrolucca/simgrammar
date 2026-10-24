@@ -1,0 +1,9 @@
+id: work-priorities
+type: mechanic
+name: Work priorities
+summary: The player sets which agents do which job types in what order, and agents self-assign from that
+  priority table.
+family: agents-behavior
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

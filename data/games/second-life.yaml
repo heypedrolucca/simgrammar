@@ -1,0 +1,10 @@
+id: second-life
+type: game
+name: Second Life
+summary: TODO
+year: 2003
+developer: Linden Lab
+subgenre: mmo-world
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

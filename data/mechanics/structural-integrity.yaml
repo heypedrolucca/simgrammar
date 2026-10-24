@@ -1,0 +1,8 @@
+id: structural-integrity
+type: mechanic
+name: Structural integrity
+summary: Structures are checked for support and load, and insufficient support causes collapse.
+family: space-construction
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

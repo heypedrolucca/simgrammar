@@ -1,0 +1,8 @@
+id: content-sharing
+type: mechanic
+name: Content sharing
+summary: Player creations are uploaded, browsed, and imported by other players.
+family: multiplayer-persistence
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

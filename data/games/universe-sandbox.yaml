@@ -1,0 +1,10 @@
+id: universe-sandbox
+type: game
+name: Universe Sandbox
+summary: TODO
+year: 2008
+developer: Giant Army
+subgenre: physics-sandbox
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

@@ -1,0 +1,10 @@
+id: ftl
+type: game
+name: 'FTL: Faster Than Light'
+summary: TODO
+year: 2012
+developer: Subset Games
+subgenre: space-sim
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

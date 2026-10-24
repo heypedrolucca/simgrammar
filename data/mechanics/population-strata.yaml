@@ -1,0 +1,8 @@
+id: population-strata
+type: mechanic
+name: Population strata
+summary: The population is divided into classes or tiers with distinct needs, roles, and upgrade paths.
+family: population-lineage
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

@@ -1,0 +1,12 @@
+id: actor
+description: Who performed a research run.
+terms:
+  - id: human
+    label: Human
+    definition: A person edited by hand.
+  - id: agent
+    label: Agent
+    definition: An AI agent edited under AGENTS.md, possibly supervised.
+  - id: mixed
+    label: Mixed
+    definition: Human and agent edits in one run.

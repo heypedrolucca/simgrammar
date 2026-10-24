@@ -1,0 +1,10 @@
+id: stellaris
+type: game
+name: Stellaris
+summary: TODO
+year: 2016
+developer: Paradox Development Studio
+subgenre: 4x-strategy
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

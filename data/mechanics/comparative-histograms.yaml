@@ -1,0 +1,8 @@
+id: comparative-histograms
+type: mechanic
+name: Comparative histograms
+summary: A player's solution is plotted against distributions of other players' scores on several metrics.
+family: information-legibility
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

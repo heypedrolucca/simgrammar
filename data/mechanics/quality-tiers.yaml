@@ -1,0 +1,9 @@
+id: quality-tiers
+type: mechanic
+name: Quality tiers
+summary: Produced items carry quality grades derived from inputs, worker skill, or chance, scaling their
+  value or effect.
+family: resources-production
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

@@ -1,0 +1,15 @@
+id: technique_maturity
+description: Deployment maturity of a technique in games specifically (not in general AI).
+terms:
+  - id: research
+    label: Research
+    definition: Papers and lab demos only.
+  - id: prototype
+    label: Prototype
+    definition: Public playable demos, jams, or tech previews; no sustained commercial title.
+  - id: shipped-niche
+    label: Shipped (niche)
+    definition: Used at runtime or in production by at least one commercial game, but not a genre norm.
+  - id: shipped-mainstream
+    label: Shipped (mainstream)
+    definition: Common in commercial pipelines or runtimes across studios.

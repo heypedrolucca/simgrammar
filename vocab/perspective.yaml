@@ -1,0 +1,24 @@
+id: perspective
+description: Primary camera or presentation.
+terms:
+  - id: first-person
+    label: First-person
+    definition: Camera at the avatar's eyes or cockpit.
+  - id: third-person
+    label: Third-person
+    definition: Camera follows an avatar.
+  - id: top-down-2d
+    label: Top-down / side 2D
+    definition: Orthographic 2D view from above or the side.
+  - id: isometric
+    label: Isometric
+    definition: Fixed-angle 2D or 2.5D projection.
+  - id: free-3d
+    label: Free 3D camera
+    definition: Player-controlled camera over a 3D world.
+  - id: text-ui
+    label: Text / UI
+    definition: Text, menus, cards, or spreadsheets are the primary view.
+  - id: device-lcd
+    label: Device LCD
+    definition: Low-resolution dedicated screen.

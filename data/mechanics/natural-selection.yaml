@@ -1,0 +1,8 @@
+id: natural-selection
+type: mechanic
+name: Natural selection
+summary: Differential survival and reproduction by fitness shifts trait distributions across generations.
+family: population-lineage
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

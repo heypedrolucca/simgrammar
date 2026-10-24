@@ -1,0 +1,8 @@
+id: terrain-deformation
+type: mechanic
+name: Terrain deformation
+summary: The ground surface deforms under vehicles or actions, as with mud and snow ruts.
+family: physics-materials
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

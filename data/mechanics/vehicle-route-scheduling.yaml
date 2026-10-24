@@ -1,0 +1,9 @@
+id: vehicle-route-scheduling
+type: mechanic
+name: Vehicle routes and schedules
+summary: Vehicles are assigned ordered stops with load and unload rules to move goods or passengers between
+  nodes.
+family: logistics-networks
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

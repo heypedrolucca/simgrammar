@@ -1,0 +1,9 @@
+id: power-grid
+type: mechanic
+name: Power grid
+summary: Generators produce energy that is distributed over a connected network to consumers; shortfalls
+  cause brownouts or shutdowns.
+family: resources-production
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

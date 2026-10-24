@@ -1,0 +1,8 @@
+id: food-web
+type: mechanic
+name: Food web
+summary: Species eat and are eaten, and populations oscillate under predator-prey dynamics.
+family: environment-ecology
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

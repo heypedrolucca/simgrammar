@@ -1,0 +1,10 @@
+id: transport-tycoon
+type: game
+name: Transport Tycoon
+summary: TODO
+year: 1994
+developer: Chris Sawyer
+subgenre: transport-logistics
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

@@ -1,0 +1,10 @@
+id: the-sims
+type: game
+name: The Sims
+summary: TODO
+year: 2000
+developer: Maxis
+subgenre: life-sim
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

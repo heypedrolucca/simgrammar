@@ -1,0 +1,9 @@
+id: hauling-jobs
+type: mechanic
+name: Hauling jobs
+summary: Agents pick up and carry items between locations via a job queue, making hauling capacity a hidden
+  throughput constraint.
+family: logistics-networks
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

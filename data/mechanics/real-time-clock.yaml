@@ -1,0 +1,8 @@
+id: real-time-clock
+type: mechanic
+name: Real-time clock
+summary: Game time follows the real-world clock and continues while the game is closed.
+family: time-pacing
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

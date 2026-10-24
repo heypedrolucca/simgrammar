@@ -1,0 +1,9 @@
+id: habitat-suitability
+type: mechanic
+name: Habitat suitability
+summary: Species or crops thrive only where biome conditions such as terrain, temperature, water, and
+  cover match their needs.
+family: environment-ecology
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

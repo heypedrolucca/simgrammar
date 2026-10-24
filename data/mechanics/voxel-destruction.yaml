@@ -1,0 +1,8 @@
+id: voxel-destruction
+type: mechanic
+name: Voxel destruction
+summary: The world is made of destructible units that break, fall, and burn.
+family: physics-materials
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

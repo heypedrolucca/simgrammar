@@ -1,0 +1,9 @@
+id: utility-action-selection
+type: mechanic
+name: Utility action selection
+summary: Agents choose actions by scoring options against needs and context and picking the highest or
+  a sampled utility.
+family: agents-behavior
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

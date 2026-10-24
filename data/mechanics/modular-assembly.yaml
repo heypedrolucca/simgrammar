@@ -1,0 +1,8 @@
+id: modular-assembly
+type: mechanic
+name: Modular assembly
+summary: The player builds machines, vehicles, or creatures from parts whose combination determines behavior.
+family: space-construction
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

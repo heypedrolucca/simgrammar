@@ -1,0 +1,9 @@
+id: service-coverage
+type: mechanic
+name: Service coverage
+summary: Service buildings such as police, fire, clinics, and schools satisfy demand within a radius or
+  network distance, up to a capacity.
+family: logistics-networks
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

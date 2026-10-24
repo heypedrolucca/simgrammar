@@ -1,0 +1,10 @@
+id: rollercoaster-tycoon
+type: game
+name: RollerCoaster Tycoon
+summary: TODO
+year: 1999
+developer: Chris Sawyer
+subgenre: management-tycoon
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

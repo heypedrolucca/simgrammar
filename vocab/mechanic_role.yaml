@@ -1,0 +1,9 @@
+id: mechanic_role
+description: Role a mechanic plays in a specific game (attribute of the game→mechanic `uses` edge).
+terms:
+  - id: core
+    label: Core
+    definition: Removing it would change the game's identity; it is in the core loop.
+  - id: supporting
+    label: Supporting
+    definition: Present and meaningful, but the game would remain recognizable without it.

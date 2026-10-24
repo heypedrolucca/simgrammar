@@ -1,0 +1,9 @@
+id: faction-diplomacy
+type: mechanic
+name: Faction diplomacy
+summary: Factions hold relations with each other, and treaties, alliances, and wars follow from interests
+  and opinion.
+family: social-relations
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

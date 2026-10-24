@@ -1,0 +1,10 @@
+id: railroad-tycoon
+type: game
+name: Railroad Tycoon
+summary: TODO
+year: 1990
+developer: MicroProse
+subgenre: transport-logistics
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

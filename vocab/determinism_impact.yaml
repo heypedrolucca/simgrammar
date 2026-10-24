@@ -1,0 +1,12 @@
+id: determinism_impact
+description: Effect on reproducibility, replays, lockstep multiplayer, and save integrity when used at runtime.
+terms:
+  - id: preserves
+    label: Preserves
+    definition: Deterministic given seed and inputs, or used only offline.
+  - id: mitigable
+    label: Mitigable
+    definition: Non-deterministic but can be made reproducible via caching, logging outputs, or fixed seeds.
+  - id: breaks
+    label: Breaks
+    definition: Outputs cannot be reproduced reliably; replays and lockstep sync require recording the outputs themselves.

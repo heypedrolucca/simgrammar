@@ -1,0 +1,10 @@
+id: islanders
+type: game
+name: Islanders
+summary: TODO
+year: 2019
+developer: Grizzly Games
+subgenre: city-builder
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

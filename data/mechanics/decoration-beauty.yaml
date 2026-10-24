@@ -1,0 +1,8 @@
+id: decoration-beauty
+type: mechanic
+name: Decoration and beauty
+summary: Aesthetic objects and scenery raise a beauty or environment score that affects agents or ratings.
+family: space-construction
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

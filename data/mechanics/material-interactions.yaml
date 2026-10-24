@@ -1,0 +1,8 @@
+id: material-interactions
+type: mechanic
+name: Material interactions
+summary: Elements and materials interact by rule, such as fire burning wood or water conducting electricity.
+family: physics-materials
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

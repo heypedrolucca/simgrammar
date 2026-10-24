@@ -1,0 +1,8 @@
+id: delegation-to-ai
+type: mechanic
+name: Delegation to AI managers
+summary: Subsystems are handed to AI managers or governors that pursue player-set goals.
+family: control-automation
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

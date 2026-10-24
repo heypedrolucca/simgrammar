@@ -1,0 +1,8 @@
+id: orbital-mechanics
+type: mechanic
+name: Orbital mechanics
+summary: Bodies move under gravity, and maneuvers trade delta-v for orbit changes.
+family: physics-materials
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

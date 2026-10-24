@@ -1,0 +1,8 @@
+id: romance-family
+type: mechanic
+name: Romance and family
+summary: Agents court, partner, marry, and form families according to compatibility and relationship state.
+family: social-relations
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

@@ -1,0 +1,10 @@
+id: minecraft
+type: game
+name: Minecraft
+summary: TODO
+year: 2009
+developer: Mojang Studios
+subgenre: sandbox-world
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

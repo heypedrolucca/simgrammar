@@ -1,0 +1,10 @@
+id: snowrunner
+type: game
+name: SnowRunner
+summary: TODO
+year: 2020
+developer: Saber Interactive
+subgenre: vehicle-sim
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

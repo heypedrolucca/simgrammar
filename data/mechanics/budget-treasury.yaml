@@ -1,0 +1,9 @@
+id: budget-treasury
+type: mechanic
+name: Treasury and budget
+summary: A money stock with income and expense flows such as taxes, upkeep, wages, and service funding;
+  a negative balance leads to debt or failure.
+family: economy-finance
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

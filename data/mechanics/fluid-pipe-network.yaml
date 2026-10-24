@@ -1,0 +1,9 @@
+id: fluid-pipe-network
+type: mechanic
+name: Fluid pipe networks
+summary: Fluids such as water, oil, sewage, or gas flow through pipes with pressure or throughput limits
+  between producers and consumers.
+family: logistics-networks
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

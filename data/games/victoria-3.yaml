@@ -1,0 +1,10 @@
+id: victoria-3
+type: game
+name: Victoria 3
+summary: TODO
+year: 2022
+developer: Paradox Development Studio
+subgenre: grand-strategy
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

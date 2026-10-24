@@ -1,0 +1,24 @@
+id: win_structure
+description: How play is bounded and evaluated.
+terms:
+  - id: open-sandbox
+    label: Open sandbox
+    definition: No end state; goals are player-set.
+  - id: scenario-goals
+    label: Scenario goals
+    definition: Discrete scenarios with stated objectives.
+  - id: campaign
+    label: Campaign
+    definition: Ordered sequence of scenarios or acts with narrative.
+  - id: survival-duration
+    label: Survival duration
+    definition: Success is lasting as long as possible or to a set time.
+  - id: score-ranking
+    label: Score / ranking
+    definition: Output is a score compared against self or others.
+  - id: competitive-victory
+    label: Competitive victory
+    definition: Win by beating rival players or AI on defined conditions.
+  - id: completion
+    label: Completion
+    definition: Finite set of tasks or collections to finish.

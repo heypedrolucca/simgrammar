@@ -1,0 +1,10 @@
+id: schedule-i
+type: game
+name: Schedule I
+summary: TODO
+year: 2025
+developer: TVGS
+subgenre: business-economic-sim
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

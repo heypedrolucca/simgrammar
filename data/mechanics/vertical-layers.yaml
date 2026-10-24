@@ -1,0 +1,8 @@
+id: vertical-layers
+type: mechanic
+name: Vertical layers
+summary: The world has multiple stacked layers such as z-levels or underground networks that interact.
+family: space-construction
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

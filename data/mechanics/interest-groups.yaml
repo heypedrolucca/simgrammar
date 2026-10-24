@@ -1,0 +1,9 @@
+id: interest-groups
+type: mechanic
+name: Interest groups
+summary: Factions within a polity have clout and preferences over policies, and their approval gates what
+  the player can do.
+family: governance-policy
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

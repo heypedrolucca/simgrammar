@@ -1,0 +1,10 @@
+id: generative-agents-smallville
+type: game
+name: Generative Agents (Smallville)
+summary: TODO
+year: 2023
+developer: Stanford University and Google Research
+subgenre: ai-native
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

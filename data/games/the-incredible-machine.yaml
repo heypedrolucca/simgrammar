@@ -1,0 +1,10 @@
+id: the-incredible-machine
+type: game
+name: The Incredible Machine
+summary: TODO
+year: 1993
+developer: Jeff Tunnell Productions
+subgenre: construction-engineering
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

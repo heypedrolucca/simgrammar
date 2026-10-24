@@ -1,0 +1,96 @@
+id: subgenre
+description: Design lineage a game belongs to. One primary per game, optional secondaries. Lineage, not marketing label.
+terms:
+  - id: city-builder
+    label: City builder
+    definition: Player plans and grows a settlement or city through placement, zoning, and services; citizens respond in aggregate.
+  - id: colony-sim
+    label: Colony sim
+    definition: Player indirectly manages a small named population whose individual needs, skills, and moods drive outcomes.
+  - id: life-sim
+    label: Life sim
+    definition: Player inhabits or directs individual characters' daily lives, relationships, homes, and careers.
+  - id: virtual-pet
+    label: Virtual pet
+    definition: Player cares for one or a few creatures whose state decays over time and responds to care.
+  - id: management-tycoon
+    label: Management / tycoon
+    definition: Player runs a facility or business (park, hospital, zoo, studio) balancing customers, staff, layout, and money.
+  - id: business-economic-sim
+    label: Business / economic sim
+    definition: Primary challenge is market competition, pricing, capital, and corporate strategy rather than physical layout.
+  - id: transport-logistics
+    label: Transport / logistics
+    definition: Player builds and schedules networks that move goods or passengers between nodes.
+  - id: factory-automation
+    label: Factory / automation
+    definition: Player designs production lines that run without intervention; throughput and ratios are the core puzzle.
+  - id: programming-sim
+    label: Programming sim
+    definition: Player authors code or logic that agents or machines execute; the program is the primary input.
+  - id: survival-sim
+    label: Survival sim
+    definition: Player keeps one or a few characters alive against bodily needs and hostile environment over time.
+  - id: god-game
+    label: God game
+    definition: Player acts as a deity influencing a world and its inhabitants through powers rather than unit control.
+  - id: artificial-life
+    label: Artificial life
+    definition: Simulated organisms with internal models (genomes, neural nets, rules) behave and reproduce; player observes, breeds, or seeds.
+  - id: ecosystem-evolution
+    label: Ecosystem / evolution
+    definition: Player shapes populations, food webs, or evolutionary trajectories of species over generations.
+  - id: grand-strategy
+    label: Grand strategy
+    definition: Player governs a polity over long time spans with economic, diplomatic, demographic, and military systems.
+  - id: 4x-strategy
+    label: 4X strategy
+    definition: Explore, expand, exploit, exterminate on a map of competing civilizations, usually turn-based.
+  - id: wargame
+    label: Wargame / military sim
+    definition: Simulation of military operations, units, sensors, and logistics with emphasis on doctrine and realism.
+  - id: political-sim
+    label: Political sim
+    definition: Core loop is policy, legitimacy, factions, and public opinion within a polity.
+  - id: sports-management
+    label: Sports management
+    definition: Player manages a team or organization; match outcomes are simulated from player and tactical attributes.
+  - id: farming-sim
+    label: Farming sim
+    definition: Crop and animal cycles on a calendar drive the loop; often paired with social life-sim systems.
+  - id: job-sim
+    label: Job sim
+    definition: Player performs a specific occupation's procedures (cleaning, trucking, repair, inspection) with tool fidelity as the pleasure.
+  - id: vehicle-sim
+    label: Vehicle sim
+    definition: Player operates a ground or water vehicle whose physics model is the main source of challenge.
+  - id: flight-sim
+    label: Flight sim
+    definition: Player operates aircraft with an aerodynamic model, instruments, and procedures.
+  - id: space-sim
+    label: Space sim
+    definition: Player operates spacecraft or space-based systems under orbital, resource, or trade rules.
+  - id: physics-sandbox
+    label: Physics sandbox
+    definition: Open-ended toy built around a physics or material simulation; goals are optional or player-set.
+  - id: construction-engineering
+    label: Construction / engineering
+    definition: Player designs a structure or machine, then a physics sim tests it.
+  - id: sandbox-world
+    label: Sandbox world
+    definition: Open persistent world with building, crafting, and self-directed goals.
+  - id: social-sim
+    label: Social sim
+    definition: Core state is relationships, conversation, and social norms between characters.
+  - id: medical-sim
+    label: Medical sim
+    definition: Diagnosis, treatment, or surgery is the primary simulated activity.
+  - id: rpg-sim
+    label: Systemic RPG
+    definition: Character-driven RPG whose world runs on persistent simulation (factions, economy, ecology) rather than scripted content.
+  - id: mmo-world
+    label: MMO world
+    definition: Persistent world shared by many players whose collective actions form the simulated economy or society.
+  - id: ai-native
+    label: AI-native
+    definition: Core loop is impossible without a learned model at runtime (LLM dialogue, generated content, learned world model).

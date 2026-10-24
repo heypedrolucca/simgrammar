@@ -1,0 +1,10 @@
+id: zelda-breath-of-the-wild
+type: game
+name: 'The Legend of Zelda: Breath of the Wild'
+summary: TODO
+year: 2017
+developer: Nintendo EPD
+subgenre: sandbox-world
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

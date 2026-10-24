@@ -1,0 +1,10 @@
+id: utopia
+type: game
+name: Utopia
+summary: TODO
+year: 1981
+developer: Don Daglow (Mattel Electronics)
+subgenre: city-builder
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

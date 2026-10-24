@@ -1,0 +1,8 @@
+id: conveyor-transport
+type: mechanic
+name: Conveyor transport
+summary: Items move continuously on belts or lanes with throughput limits, splitters, merges, and priorities.
+family: logistics-networks
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

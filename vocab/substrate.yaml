@@ -1,0 +1,33 @@
+id: substrate
+description: Computational representation the mechanic is usually implemented on. A mechanic may have several.
+terms:
+  - id: aggregate-stocks
+    label: Aggregate stocks
+    definition: Numbers updated by rates and equations (system dynamics).
+  - id: agent-based
+    label: Agent-based
+    definition: Individual entities with state and decision rules.
+  - id: cellular-grid
+    label: Cellular grid
+    definition: Values on a lattice updated by local neighbor rules.
+  - id: network-graph
+    label: Network / graph
+    definition: Nodes and edges with flows, paths, or influence weights.
+  - id: continuous-physics
+    label: Continuous physics
+    definition: Numerical integration of continuous dynamics (rigid bodies, fluids, orbits).
+  - id: rule-system
+    label: Rule system
+    definition: Discrete condition-action rules, recipes, or state machines.
+  - id: stochastic-events
+    label: Stochastic events
+    definition: Random draws from distributions or weighted decks.
+  - id: player-authored-logic
+    label: Player-authored logic
+    definition: Code, circuits, or blueprints written by the player.
+  - id: learned-model
+    label: Learned model
+    definition: Neural network or other trained model evaluated at runtime.
+  - id: ui-layer
+    label: UI layer
+    definition: Presentation logic over other substrates; owns no simulation state.

@@ -1,0 +1,9 @@
+id: road-network
+type: mechanic
+name: Road networks
+summary: Roads and paths define connectivity; buildings must connect to function, and travel cost depends
+  on network geometry.
+family: logistics-networks
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

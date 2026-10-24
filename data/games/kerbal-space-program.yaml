@@ -1,0 +1,10 @@
+id: kerbal-space-program
+type: game
+name: Kerbal Space Program
+summary: TODO
+year: 2011
+developer: Squad
+subgenre: space-sim
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

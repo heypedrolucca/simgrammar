@@ -1,0 +1,9 @@
+id: mood-breakdown
+type: mechanic
+name: Mood and breakdowns
+summary: Mood aggregates needs, memories, and environment; crossing thresholds triggers mental breaks
+  or inspired performance.
+family: agents-behavior
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

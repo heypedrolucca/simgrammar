@@ -1,0 +1,8 @@
+id: tech-tree
+type: mechanic
+name: Tech tree
+summary: A research or unlock graph gates buildings, recipes, or abilities.
+family: progression-goals
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

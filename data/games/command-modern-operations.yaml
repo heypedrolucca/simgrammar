@@ -1,0 +1,10 @@
+id: command-modern-operations
+type: game
+name: 'Command: Modern Operations'
+summary: TODO
+year: 2019
+developer: WarfareSims
+subgenre: wargame
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

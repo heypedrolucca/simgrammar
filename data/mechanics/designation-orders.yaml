@@ -1,0 +1,9 @@
+id: designation-orders
+type: mechanic
+name: Designation orders
+summary: The player marks tiles or objects for work such as dig, chop, or build, and agents execute the
+  jobs.
+family: control-automation
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

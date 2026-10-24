@@ -1,0 +1,9 @@
+id: spoilage
+type: mechanic
+name: Spoilage
+summary: Perishable goods lose value or rot over time depending on storage conditions such as temperature
+  and containers.
+family: resources-production
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

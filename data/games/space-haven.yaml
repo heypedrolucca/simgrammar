@@ -1,0 +1,10 @@
+id: space-haven
+type: game
+name: Space Haven
+summary: TODO
+year: 2020
+developer: Bugbyte
+subgenre: colony-sim
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

@@ -1,0 +1,10 @@
+id: a-tale-in-the-desert
+type: game
+name: A Tale in the Desert
+summary: TODO
+year: 2003
+developer: eGenesis
+subgenre: mmo-world
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

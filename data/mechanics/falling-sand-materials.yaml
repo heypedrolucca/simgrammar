@@ -1,0 +1,8 @@
+id: falling-sand-materials
+type: mechanic
+name: Falling-sand materials
+summary: Every pixel or cell of material follows local rules to fall, flow, burn, and react.
+family: physics-materials
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

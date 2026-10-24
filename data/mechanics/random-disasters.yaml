@@ -1,0 +1,8 @@
+id: random-disasters
+type: mechanic
+name: Random disasters
+summary: Stochastic disasters such as earthquakes, storms, or meteors damage the system.
+family: risk-failure
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

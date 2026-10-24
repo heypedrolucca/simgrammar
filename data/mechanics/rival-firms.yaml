@@ -1,0 +1,8 @@
+id: rival-firms
+type: mechanic
+name: Rival firms
+summary: AI or player competitors contest markets, prices, and assets; market share decides who wins.
+family: economy-finance
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

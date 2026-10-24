@@ -1,0 +1,8 @@
+id: fog-of-war
+type: mechanic
+name: Fog of war
+summary: Parts of the world state stay hidden until observed.
+family: information-legibility
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

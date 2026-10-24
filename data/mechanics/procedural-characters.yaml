@@ -1,0 +1,8 @@
+id: procedural-characters
+type: mechanic
+name: Procedural characters
+summary: Characters are generated with names, backstories, traits, and appearance.
+family: world-generation
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

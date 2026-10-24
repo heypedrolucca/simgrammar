@@ -1,0 +1,8 @@
+id: scenario-objectives
+type: mechanic
+name: Scenario objectives
+summary: Preset maps or situations come with explicit goals and constraints.
+family: progression-goals
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

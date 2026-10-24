@@ -1,0 +1,75 @@
+id: math_basis
+description: Formal mathematical model a mechanic instantiates, explicitly or implicitly. Used to connect mechanics to research literature.
+terms:
+  - id: system-dynamics
+    label: System dynamics / ODEs
+    definition: Stocks and flows, difference or differential equations.
+  - id: queueing
+    label: Queueing theory
+    definition: Arrivals, service rates, waiting lines, utilization.
+  - id: graph-search
+    label: Graph search
+    definition: Shortest paths, A*, flow fields, reachability.
+  - id: network-flow
+    label: Network flow
+    definition: Capacitated flows, max-flow, congestion, equilibrium assignment.
+  - id: cellular-automata
+    label: Cellular automata
+    definition: Local lattice update rules.
+  - id: markov-stochastic
+    label: Markov / stochastic processes
+    definition: State transitions with probabilities, random events, Poisson processes.
+  - id: game-theory
+    label: Game theory
+    definition: Strategic interaction, equilibria, bargaining.
+  - id: mechanism-design
+    label: Mechanism design / auctions
+    definition: Rules that shape incentives; auctions, voting, markets.
+  - id: optimization
+    label: Optimization
+    definition: Linear, integer, or combinatorial optimization; ratios and packing.
+  - id: control-theory
+    label: Control theory
+    definition: Feedback controllers, setpoints, stability, PID.
+  - id: classical-mechanics
+    label: Classical mechanics
+    definition: Rigid-body dynamics, constraints, collisions, orbits.
+  - id: continuum-mechanics
+    label: Continuum mechanics
+    definition: Fluids, heat transfer, deformation, stress.
+  - id: population-dynamics
+    label: Population dynamics
+    definition: Lotka-Volterra, logistic growth, age structure.
+  - id: epidemiology
+    label: Epidemiology
+    definition: SIR-family compartment models and contact networks.
+  - id: utility-decision
+    label: Utility / decision theory
+    definition: Agents choose by scoring options against needs or preferences.
+  - id: scheduling
+    label: Scheduling
+    definition: Job-shop, priority queues, timetabling.
+  - id: genetics-evolution
+    label: Genetics / evolutionary computation
+    definition: Inheritance, mutation, selection, fitness landscapes.
+  - id: social-network
+    label: Social network models
+    definition: Opinion dynamics, diffusion, homophily, influence graphs.
+  - id: procedural-noise
+    label: Procedural noise / generative grammars
+    definition: Perlin/simplex noise, L-systems, grammars, constraint solving for generation.
+  - id: probability-statistics
+    label: Probability / statistics
+    definition: Distributions, sampling, aggregation, ranking.
+  - id: information-theory
+    label: Information theory
+    definition: Uncertainty, signaling, hidden information.
+  - id: combinatorics
+    label: Combinatorics
+    definition: Recipe spaces, combination explosion, enumeration.
+  - id: computation-theory
+    label: Computation theory
+    definition: Automata, Turing-complete logic, program semantics.
+  - id: machine-learning
+    label: Machine learning
+    definition: Learned function approximation, reinforcement learning, generative models.

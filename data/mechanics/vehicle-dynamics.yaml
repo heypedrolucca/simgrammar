@@ -1,0 +1,8 @@
+id: vehicle-dynamics
+type: mechanic
+name: Vehicle dynamics
+summary: Tire, suspension, drivetrain, and weight-transfer models govern vehicle handling.
+family: physics-materials
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

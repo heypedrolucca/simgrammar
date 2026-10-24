@@ -1,0 +1,18 @@
+id: production_tier
+description: Production context at release.
+terms:
+  - id: hobbyist
+    label: Hobbyist / free
+    definition: Built by individuals without commercial release, or free software.
+  - id: indie
+    label: Indie
+    definition: Small independent team, commercial.
+  - id: aa
+    label: AA
+    definition: Mid-size studio or budget.
+  - id: aaa
+    label: AAA
+    definition: Major publisher, large budget.
+  - id: academic
+    label: Academic / research
+    definition: Research artifact or academic demonstration.

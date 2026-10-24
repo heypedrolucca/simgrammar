@@ -1,0 +1,9 @@
+id: crowd-preferences
+type: mechanic
+name: Crowd preferences
+summary: Large visitor populations with individual preferences, budgets, and tolerances choose attractions
+  and react with visible thoughts.
+family: agents-behavior
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

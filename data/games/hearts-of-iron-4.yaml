@@ -1,0 +1,10 @@
+id: hearts-of-iron-4
+type: game
+name: Hearts of Iron IV
+summary: TODO
+year: 2016
+developer: Paradox Development Studio
+subgenre: grand-strategy
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

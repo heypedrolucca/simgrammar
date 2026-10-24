@@ -1,0 +1,34 @@
+# Single registry of entity types. Code reads this; nothing else hardcodes directories.
+contract_version: "1.0"
+types:
+  game:
+    dir: data/games
+    schema: schema/game.schema.json
+    label: Game
+    plural: games
+  mechanic:
+    dir: data/mechanics
+    schema: schema/mechanic.schema.json
+    label: Mechanic
+    plural: mechanics
+  technique:
+    dir: data/techniques
+    schema: schema/technique.schema.json
+    label: Technique
+    plural: techniques
+  opportunity:
+    dir: data/opportunities
+    schema: schema/opportunity.schema.json
+    label: Opportunity
+    plural: opportunities
+  source:
+    dir: data/sources
+    schema: schema/source.schema.json
+    label: Source
+    plural: sources
+  run:
+    dir: log/runs
+    schema: schema/run.schema.json
+    label: Run
+    plural: runs
+    meta: true

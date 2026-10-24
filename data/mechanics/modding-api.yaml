@@ -1,0 +1,8 @@
+id: modding-api
+type: mechanic
+name: Modding API
+summary: Official hooks for scripts and data let players extend the simulation.
+family: multiplayer-persistence
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

@@ -1,0 +1,8 @@
+id: player-driven-market
+type: mechanic
+name: Player-driven markets
+summary: Players post buy and sell orders in shared order books, and prices emerge from player behavior.
+family: economy-finance
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://simgrammar.dev/schema/1.0/common.schema.json",
+  "title": "Common definitions",
+  "description": "Shared field definitions. Annotations: x-vocab names a vocab/*.yaml file; x-edge names an edge type in vocab/edge_types.yaml and marks the string as a reference; x-rubric names a scale in vocab/rubrics.yaml.",
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "minLength": 2,
+      "maxLength": 80,
+      "description": "Global, immutable, kebab-case. Equals the file stem."
+    },
+    "name": { "type": "string", "minLength": 1, "maxLength": 200 },
+    "summary": {
+      "type": "string",
+      "minLength": 20,
+      "maxLength": 320,
+      "description": "One sentence, no markdown. Used in tables, tooltips, and wiki leads."
+    },
+    "text": { "type": "string", "minLength": 1, "maxLength": 4000 },
+    "short_text": { "type": "string", "minLength": 1, "maxLength": 600 },
+    "text_list": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 3, "maxLength": 600 },
+      "uniqueItems": true
+    },
+    "aliases": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1, "maxLength": 200 },
+      "uniqueItems": true
+    },
+    "year": { "type": "integer", "minimum": 1940, "maximum": 2100 },
+    "date": {
+      "type": "string",
+      "pattern": "^[0-9]{4}(-[0-9]{2}(-[0-9]{2})?)?$",
+      "description": "ISO date at the precision known: YYYY, YYYY-MM, or YYYY-MM-DD."
+    },
+    "status": { "type": "string", "x-vocab": "status" },
+    "run_ref": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}-[a-z0-9]+(-[a-z0-9]+)*$", "x-ref": "run" },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["created"],
+      "properties": {
+        "created": { "$ref": "#/$defs/run_ref" },
+        "reviewed": { "type": "array", "items": { "$ref": "#/$defs/run_ref" }, "uniqueItems": true }
+      }
+    },
+    "source_ref": { "type": "string", "pattern": "^src-[a-z0-9]+(-[a-z0-9]+)*$", "x-edge": "cites" },
+    "sources": { "type": "array", "items": { "$ref": "#/$defs/source_ref" }, "uniqueItems": true },
+    "claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["text", "sources", "confidence"],
+      "properties": {
+        "text": { "type": "string", "minLength": 10, "maxLength": 800 },
+        "sources": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/source_ref" }, "uniqueItems": true },
+        "confidence": { "type": "string", "x-vocab": "confidence" },
+        "disputes": { "type": "string", "maxLength": 800, "description": "Set only when status is contested: what is disputed." }
+      }
+    },
+    "claims": { "type": "array", "items": { "$ref": "#/$defs/claim" } },
+    "deprecated": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["superseded_by", "reason"],
+      "properties": {
+        "superseded_by": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$", "x-ref": "any-entity" },
+        "reason": { "type": "string", "minLength": 5, "maxLength": 400 }
+      }
+    },
+    "score": { "type": "integer", "minimum": 1, "maximum": 5 }
+  }
+}

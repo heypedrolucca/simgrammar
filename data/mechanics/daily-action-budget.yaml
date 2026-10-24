@@ -1,0 +1,8 @@
+id: daily-action-budget
+type: mechanic
+name: Daily action budget
+summary: Energy or time per in-game day limits actions, and the day's end forces prioritization.
+family: time-pacing
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

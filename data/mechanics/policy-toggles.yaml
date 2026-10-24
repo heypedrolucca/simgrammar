@@ -1,0 +1,8 @@
+id: policy-toggles
+type: mechanic
+name: Policy toggles
+summary: Enactable laws or policies change simulation rules with explicit tradeoffs.
+family: governance-policy
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap

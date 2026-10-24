@@ -1,0 +1,9 @@
+id: pollution-spread
+type: mechanic
+name: Pollution spread
+summary: Pollution emitted by sources diffuses across land, water, or air and harms health, value, or
+  growth.
+family: environment-ecology
+status: asserted
+provenance:
+  created: 2026-10-23-bootstrap
