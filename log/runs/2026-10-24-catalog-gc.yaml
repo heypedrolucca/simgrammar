@@ -1,5 +1,6 @@
 id: 2026-10-24-catalog-gc
 type: run
+kind: catalog
 date: '2026-10-24'
 actor: agent
 operator: yoheinakajima
@@ -8,65 +9,58 @@ agent:
   harness: Claude app subagent
 purpose: Verify, characterize, and decompose life-sim, farming, virtual-pet, and social-sim games into
   mechanics.
-method: >-
-  Read AGENTS.md, CONTRACT.md sections 1-3, the game, source, run, and common schemas, every vocab file
-  the game schema references, rubrics.yaml, edge_types.yaml, and the RimWorld and needs-decay exemplars.
+method: Read AGENTS.md, CONTRACT.md sections 1-3, the game, source, run, and common schemas, every vocab
+  file the game schema references, rubrics.yaml, edge_types.yaml, and the RimWorld and needs-decay exemplars.
   For each of the 19 skeleton games, fetched the English Wikipedia article (or, for Prom Week and Versu,
   which have no Wikipedia article, the AIIDE papers, the Evans and Short IEEE TCIAIG paper, developer
   blog posts, and IFWiki) to verify first release year, developer, and platforms. Fetched Steam store
   pages for inZOI, Paralives, and Farming Simulator 25 to confirm early-access dates and feature lists,
-  and community wikis (C64-Wiki, Sims Wiki, Nookipedia, Stardew Valley Wiki, FoGu) for mechanic
-  details the encyclopedia articles omit. Created 31 sources after checking that each id did not exist,
-  and cited two existing orphan sources from run taxonomy-m6 (Stardew bundles, Sims 2 careers) whose
-  notes match facts used. Categorical fields come only from vocab; emergence and influence were matched
-  to rubric anchors, taking the lower anchor when between two. Mechanics were chosen only from the
-  existing id list; core entries carry implementation notes, and system-specific features with no
-  mechanic id are named in design_notes and proposed below. Web search budget ran out partway and the
-  fetch rate limit was hit at the end, so a few details rest on a single community wiki.
+  and community wikis (C64-Wiki, Sims Wiki, Nookipedia, Stardew Valley Wiki, FoGu) for mechanic details
+  the encyclopedia articles omit. Created 31 sources after checking that each id did not exist, and cited
+  two existing orphan sources from run taxonomy-m6 (Stardew bundles, Sims 2 careers) whose notes match
+  facts used. Categorical fields come only from vocab; emergence and influence were matched to rubric
+  anchors, taking the lower anchor when between two. Mechanics were chosen only from the existing id list;
+  core entries carry implementation notes, and system-specific features with no mechanic id are named
+  in design_notes and proposed below. Web search budget ran out partway and the fetch rate limit was hit
+  at the end, so a few details rest on a single community wiki.
 contract_version: '1.0'
 proposals:
-  - kind: new-mechanic
-    target: aspiration-wants
-    detail: >-
-      Aspiration wants: a per-agent generator rolls short-horizon wants (and sometimes fears) from a
-      long-term aspiration, traits, and current state; fulfilling them pays points into a reward
-      currency or meter. Levers: number of open slots, reroll and lock rules, point values, and the
-      aspiration bias. Used by the-sims-2 (wants and fears, aspiration meter), the-sims-3 (wishes and
-      Lifetime Happiness), the-sims-4 (aspiration milestones), and paralives (wants).
-  - kind: new-mechanic
-    target: background-life-progression
-    detail: >-
-      Background life progression: households or agents the player is not controlling keep aging,
-      working, moving, marrying, and dying on a cheap off-screen model, so the neighborhood changes
-      between visits. Levers: which events are allowed, event rates, player opt-out per household, and
-      fidelity relative to played agents. Used by the-sims-3 (Story Progression), the-sims-4
-      (Neighborhood Stories), and inzoi (city-wide free will).
-  - kind: new-mechanic
-    target: branching-development
-    detail: >-
-      Care-dependent development: a creature's or character's accumulated care or attribute history
-      selects which form or outcome it develops into at stage boundaries, from a fixed branching
-      table. Levers: which variables are tracked, thresholds, number of branches, and how visible the
-      table is. Used by tamagotchi (adult character set by care quality) and princess-maker-2 (74
-      endings from attributes and history).
-      Distinct from lifecycle-aging (stages exist without branching) and trait-inheritance.
-  - kind: new-mechanic
-    target: social-practices
-    detail: >-
-      Social practices: recurring social situations (a meal, a greeting, a conversation) are authored as
-      reactive joint plans that offer role-specific actions to participants without controlling them,
-      and track the situation's own state and norms. Levers: number of concurrent practices, strictness
-      of norm enforcement, and how many roles each practice defines. Used by versu; partial precedents
-      in prom-week (social exchanges as multi-character games) and facade (beats). Not covered by
-      social-exchanges, which models single moves rather than ongoing situations.
-notes: >-
-  All 19 owned games are complete, sourced, and validate with 0 errors in owned files. Paralives entered
-  Steam early access on 2026-05-25 (Wikipedia and store page agree), so year 2026 replaces the skeleton's
-  2025. inZOI early access is 2025-03-28 per Wikipedia and 2025-03-27 per Steam, which is a timezone
-  difference within the same year. The Sims 3 developer is credited on Wikipedia as Maxis Redwood Shores;
-  the skeleton's The Sims Studio is the later studio name, so the field now reads Maxis Redwood Shores.
-  Harvest Moon's North American date is inconsistent inside the Wikipedia article (1997-06-17 vs
-  1997-08-17); only the 1996 Japanese year is used. Lower-confidence details from community wikis or
-  recall: Harvest Moon's stamina and power berry system; The Sims 1 motive list and the five personality axes; Sims 4 emotion names; Farming
-  Simulator 25 loans, AI helpers, and vehicle wear; Stardew quality tiers, kegs, and the help-wanted
-  board. Another run should verify these.
+- kind: new-mechanic
+  target: aspiration-wants
+  detail: 'Aspiration wants: a per-agent generator rolls short-horizon wants (and sometimes fears) from
+    a long-term aspiration, traits, and current state; fulfilling them pays points into a reward currency
+    or meter. Levers: number of open slots, reroll and lock rules, point values, and the aspiration bias.
+    Used by the-sims-2 (wants and fears, aspiration meter), the-sims-3 (wishes and Lifetime Happiness),
+    the-sims-4 (aspiration milestones), and paralives (wants).'
+- kind: new-mechanic
+  target: background-life-progression
+  detail: 'Background life progression: households or agents the player is not controlling keep aging,
+    working, moving, marrying, and dying on a cheap off-screen model, so the neighborhood changes between
+    visits. Levers: which events are allowed, event rates, player opt-out per household, and fidelity
+    relative to played agents. Used by the-sims-3 (Story Progression), the-sims-4 (Neighborhood Stories),
+    and inzoi (city-wide free will).'
+- kind: new-mechanic
+  target: branching-development
+  detail: 'Care-dependent development: a creature''s or character''s accumulated care or attribute history
+    selects which form or outcome it develops into at stage boundaries, from a fixed branching table.
+    Levers: which variables are tracked, thresholds, number of branches, and how visible the table is.
+    Used by tamagotchi (adult character set by care quality) and princess-maker-2 (74 endings from attributes
+    and history). Distinct from lifecycle-aging (stages exist without branching) and trait-inheritance.'
+- kind: new-mechanic
+  target: social-practices
+  detail: 'Social practices: recurring social situations (a meal, a greeting, a conversation) are authored
+    as reactive joint plans that offer role-specific actions to participants without controlling them,
+    and track the situation''s own state and norms. Levers: number of concurrent practices, strictness
+    of norm enforcement, and how many roles each practice defines. Used by versu; partial precedents in
+    prom-week (social exchanges as multi-character games) and facade (beats). Not covered by social-exchanges,
+    which models single moves rather than ongoing situations.'
+notes: 'All 19 owned games are complete, sourced, and validate with 0 errors in owned files. Paralives
+  entered Steam early access on 2026-05-25 (Wikipedia and store page agree), so year 2026 replaces the
+  skeleton''s 2025. inZOI early access is 2025-03-28 per Wikipedia and 2025-03-27 per Steam, which is
+  a timezone difference within the same year. The Sims 3 developer is credited on Wikipedia as Maxis Redwood
+  Shores; the skeleton''s The Sims Studio is the later studio name, so the field now reads Maxis Redwood
+  Shores. Harvest Moon''s North American date is inconsistent inside the Wikipedia article (1997-06-17
+  vs 1997-08-17); only the 1996 Japanese year is used. Lower-confidence details from community wikis or
+  recall: Harvest Moon''s stamina and power berry system; The Sims 1 motive list and the five personality
+  axes; Sims 4 emotion names; Farming Simulator 25 loans, AI helpers, and vehicle wear; Stardew quality
+  tiers, kegs, and the help-wanted board. Another run should verify these.'

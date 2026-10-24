@@ -1,79 +1,81 @@
 id: 2026-10-24-catalog-gd
 type: run
+kind: catalog
 date: '2026-10-24'
 actor: agent
 operator: yoheinakajima
 agent:
   model: claude-opus-5-5
   harness: Claude app subagent
-purpose: Verify, characterize, and decompose artificial-life, ecosystem, and AI-native games and research demos
-  into mechanics.
-method: 'Read AGENTS.md, CONTRACT.md sections 1-3, game and common schemas, every vocab the game schema references,
-  rubrics, edge types, and the rimworld exemplar. Verified release year, developer, and platforms for all 16 works
-  with web search and direct fetches of Wikipedia articles (Creatures 1996 and series, Viva Pinata, Spore, SimEarth,
-  SimLife, SimAnt, Conway''s Game of Life, Plague Inc., AI Dungeon, Infinite Craft, Cai Haoyu), Steam store pages
-  (Equilinox, Species ALRE, Plague Inc: Evolved, Suck Up!, Whispers from the Star), the Species development blog
-  (alpha 0.4.0 post 2012-05-27, 0.7.0 post), a Revolutionary Games devblog on Species internals, the playsuckup.com
-  site and terms, and the two research papers (Park et al. 2023 via arXiv and ar5iv full text; Altera 2024 Project
-  Sid via arXiv and ar5iv) plus the generative_agents GitHub README. Reused existing sources src-wikipedia-simearth,
-  src-wikipedia-plague-inc, src-wikipedia-spore, and src-wikipedia-ai-dungeon; created 23 new sources after checking
-  each id did not exist. Chose mechanics only from the find.py list, read mechanic files whose scope was unclear
-  (generative-content, content-sharing), and scored emergence and influence by matching rubric anchor text, taking
-  the lower anchor when between two. For AI-native works, design_notes state what the model does at runtime (prompt
-  contents, model named by the source, caching, what output controls). The shared web search budget and then the
-  hourly fetch quota ran out near the end, so some mechanism details (Viva Pinata sickness, SimLife gene list, Plague
-  Inc. tree contents) were written only to the level the fetched sources support.'
+purpose: Verify, characterize, and decompose artificial-life, ecosystem, and AI-native games and research
+  demos into mechanics.
+method: 'Read AGENTS.md, CONTRACT.md sections 1-3, game and common schemas, every vocab the game schema
+  references, rubrics, edge types, and the rimworld exemplar. Verified release year, developer, and platforms
+  for all 16 works with web search and direct fetches of Wikipedia articles (Creatures 1996 and series,
+  Viva Pinata, Spore, SimEarth, SimLife, SimAnt, Conway''s Game of Life, Plague Inc., AI Dungeon, Infinite
+  Craft, Cai Haoyu), Steam store pages (Equilinox, Species ALRE, Plague Inc: Evolved, Suck Up!, Whispers
+  from the Star), the Species development blog (alpha 0.4.0 post 2012-05-27, 0.7.0 post), a Revolutionary
+  Games devblog on Species internals, the playsuckup.com site and terms, and the two research papers (Park
+  et al. 2023 via arXiv and ar5iv full text; Altera 2024 Project Sid via arXiv and ar5iv) plus the generative_agents
+  GitHub README. Reused existing sources src-wikipedia-simearth, src-wikipedia-plague-inc, src-wikipedia-spore,
+  and src-wikipedia-ai-dungeon; created 23 new sources after checking each id did not exist. Chose mechanics
+  only from the find.py list, read mechanic files whose scope was unclear (generative-content, content-sharing),
+  and scored emergence and influence by matching rubric anchor text, taking the lower anchor when between
+  two. For AI-native works, design_notes state what the model does at runtime (prompt contents, model
+  named by the source, caching, what output controls). The shared web search budget and then the hourly
+  fetch quota ran out near the end, so some mechanism details (Viva Pinata sickness, SimLife gene list,
+  Plague Inc. tree contents) were written only to the level the fetched sources support.'
 contract_version: '1.0'
 proposals:
 - kind: new-mechanic
   target: cellular-automaton-rule
-  detail: 'Cellular-automaton rule: every cell of a grid holds a discrete state and updates simultaneously from
-    a local neighborhood by a fixed rule table (Conway''s Life B3/S23, Life-like rules, Wireworld). Levers: neighborhood
-    shape, rule table (birth and survival counts), number of states, boundary conditions. Used by game-of-life;
-    also the substrate for The Powder Toy and Noita-style automata, but distinct from falling-sand-materials (material
-    chemistry) and adjacency-scoring (placement value). Overlaps the emergent-artificial-life-field proposal from
-    techniques-sim-math, which covers continuous fields.'
+  detail: 'Cellular-automaton rule: every cell of a grid holds a discrete state and updates simultaneously
+    from a local neighborhood by a fixed rule table (Conway''s Life B3/S23, Life-like rules, Wireworld).
+    Levers: neighborhood shape, rule table (birth and survival counts), number of states, boundary conditions.
+    Used by game-of-life; also the substrate for The Powder Toy and Noita-style automata, but distinct
+    from falling-sand-materials (material chemistry) and adjacency-scoring (placement value). Overlaps
+    the emergent-artificial-life-field proposal from techniques-sim-math, which covers continuous fields.'
 - kind: new-mechanic
   target: stigmergic-trails
-  detail: 'Stigmergic trails: agents deposit a decaying signal (pheromone, scent, path wear) on the map and other
-    agents bias movement toward it, so routes emerge from reinforcement and evaporation. Levers: deposit amount,
-    decay or wash-out rate, follow probability, who can deposit (player avatar only or all agents). Used by simant
-    (yellow ant lays trails other ants follow; rain erases them); desire paths in city builders are a related form.
-    Not covered by agent-pathfinding (explicit route search) or unit-commands.'
+  detail: 'Stigmergic trails: agents deposit a decaying signal (pheromone, scent, path wear) on the map
+    and other agents bias movement toward it, so routes emerge from reinforcement and evaporation. Levers:
+    deposit amount, decay or wash-out rate, follow probability, who can deposit (player avatar only or
+    all agents). Used by simant (yellow ant lays trails other ants follow; rain erases them); desire paths
+    in city builders are a related form. Not covered by agent-pathfinding (explicit route search) or unit-commands.'
 - kind: new-mechanic
   target: runtime-speciation
-  detail: 'Runtime speciation: species are not predefined; the simulation groups individuals into species by interbreeding
-    compatibility or genetic distance and splits a species when intermediate forms die out, recording the branching
-    in a clade view. Levers: distance threshold, mutation rate, whether reproduction is restricted across species,
-    clade visualization. Used by species-alre; requires trait-inheritance and natural-selection but appears in neither
-    definition.'
+  detail: 'Runtime speciation: species are not predefined; the simulation groups individuals into species
+    by interbreeding compatibility or genetic distance and splits a species when intermediate forms die
+    out, recording the branching in a clade view. Levers: distance threshold, mutation rate, whether reproduction
+    is restricted across species, clade visualization. Used by species-alre; requires trait-inheritance
+    and natural-selection but appears in neither definition.'
 - kind: new-mechanic
   target: combination-discovery
-  detail: 'Combination discovery: the player combines two owned elements to obtain a third from a hidden recipe
-    graph, and discovering recipes is the goal (Little Alchemy, Doodle God, Infinite Craft). Levers: graph size
-    (authored or generated), whether failed combinations cost anything, hint systems, shared first-discovery records.
-    Used by infinite-craft (graph generated by a language model on cache miss). hand-crafting covers known recipe
-    lists gated by workstations, which is a different player goal.'
+  detail: 'Combination discovery: the player combines two owned elements to obtain a third from a hidden
+    recipe graph, and discovering recipes is the goal (Little Alchemy, Doodle God, Infinite Craft). Levers:
+    graph size (authored or generated), whether failed combinations cost anything, hint systems, shared
+    first-discovery records. Used by infinite-craft (graph generated by a language model on cache miss).
+    hand-crafting covers known recipe lists gated by workstations, which is a different player goal.'
 - kind: other
   target: suck-up
-  detail: 'Release status: Steam lists Suck Up! release 2025-10-01 (1.0), but the game was sold and playable earlier
-    through Proxima''s own launcher, which the site calls Early Access; the terms page was last updated 2023-12-05
-    and already describes token-metered AI use. I kept year 2023 with year_full_release 2025 on that evidence; the
-    exact first public launcher date was not found in sources I could fetch (web search budget exhausted). A reviewer
-    should confirm the December 2023 launch date.'
+  detail: 'Release status: Steam lists Suck Up! release 2025-10-01 (1.0), but the game was sold and playable
+    earlier through Proxima''s own launcher, which the site calls Early Access; the terms page was last
+    updated 2023-12-05 and already describes token-metered AI use. I kept year 2023 with year_full_release
+    2025 on that evidence; the exact first public launcher date was not found in sources I could fetch
+    (web search budget exhausted). A reviewer should confirm the December 2023 launch date.'
 - kind: other
   target: species-alre
-  detail: 'Year and developer: the skeleton said 2018 and ''Quasar (Sam Harrison)''. Sources show a free public
-    alpha (0.4.0) on 2012-05-27 and Steam Early Access on 2018-09-28 with no 1.0, so year is set to 2012 under the
-    ''first public release including public alpha'' rule and year_full_release is omitted. No source checked names
-    the developer beyond the handle Quasar, so the developer field is ''Quasar''; the personal name was removed
-    as unverified.'
+  detail: 'Year and developer: the skeleton said 2018 and ''Quasar (Sam Harrison)''. Sources show a free
+    public alpha (0.4.0) on 2012-05-27 and Steam Early Access on 2018-09-28 with no 1.0, so year is set
+    to 2012 under the ''first public release including public alpha'' rule and year_full_release is omitted.
+    No source checked names the developer beyond the handle Quasar, so the developer field is ''Quasar'';
+    the personal name was removed as unverified.'
 - kind: merge
   target: src-steam-2025-whispers-from-the-star
-  detail: 'Duplicate source: src-steam-2025-whispers-from-the-star (run techniques-llm-agents, file created 01:29)
-    and src-steam-2026-whispers-from-the-star (this run, created 01:18) both describe https://store.steampowered.com/app/3730100/.
-    The game whispers-from-the-star cites the 2026 id. Suggest the orchestrator keep one id and repoint citations;
-    I did not edit the other run''s file.'
+  detail: 'Duplicate source: src-steam-2025-whispers-from-the-star (run techniques-llm-agents, file created
+    01:29) and src-steam-2026-whispers-from-the-star (this run, created 01:18) both describe https://store.steampowered.com/app/3730100/.
+    The game whispers-from-the-star cites the 2026 id. Suggest the orchestrator keep one id and repoint
+    citations; I did not edit the other run''s file.'
 scope:
 - data/games/creatures
 - data/games/viva-pinata
@@ -92,12 +94,13 @@ scope:
 - data/games/generative-agents-smallville
 - data/games/project-sid
 - data/sources (new files only)
-notes: 'Corrections to skeletons: species-alre year 2018 -> 2012 (free public alpha), developer ''Quasar (Sam Harrison)''
-  -> ''Quasar'' (name unverified); equilinox year 2019 -> 2018 (Steam release 2018-11-23); suck-up developer kept
-  as Proxima Enterprises, year 2023 with full release 2025. Five works are boundary_case true (ai-dungeon, infinite-craft,
-  suck-up, whispers-from-the-star): their only simulated state is model text or a generated recipe graph. The two
-  research demos are production_tier academic and cite their papers (src-park-2023-generative-agents, src-altera-2024-project-sid).
-  Low-confidence facts: Whispers from the Star platforms are listed as PC only (the Steam page lists only Windows;
-  mobile versions were not verified); Suck Up! first public date; SimLife mechanism detail is thin in its only source.
-  influenced_by left empty where lineage was not documented in fetched sources (e.g. Spore from SimEarth or SimLife,
+notes: 'Corrections to skeletons: species-alre year 2018 -> 2012 (free public alpha), developer ''Quasar
+  (Sam Harrison)'' -> ''Quasar'' (name unverified); equilinox year 2019 -> 2018 (Steam release 2018-11-23);
+  suck-up developer kept as Proxima Enterprises, year 2023 with full release 2025. Five works are boundary_case
+  true (ai-dungeon, infinite-craft, suck-up, whispers-from-the-star): their only simulated state is model
+  text or a generated recipe graph. The two research demos are production_tier academic and cite their
+  papers (src-park-2023-generative-agents, src-altera-2024-project-sid). Low-confidence facts: Whispers
+  from the Star platforms are listed as PC only (the Steam page lists only Windows; mobile versions were
+  not verified); Suck Up! first public date; SimLife mechanism detail is thin in its only source. influenced_by
+  left empty where lineage was not documented in fetched sources (e.g. Spore from SimEarth or SimLife,
   Plague Inc. from Pandemic 2, which is not in the catalog).'

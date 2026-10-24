@@ -39,10 +39,10 @@ make check       # validate + verify projections are fresh
 ```
 
 1. Read [`CONTRACT.md`](CONTRACT.md) (invariants and enforced rules) and [`AGENTS.md`](AGENTS.md) (procedure; written for AI agents, works for humans).
-2. Open a run: `python scripts/new.py run <slug> --actor human --operator <you> --purpose "..."`.
+2. Open a run: `python scripts/new.py run <slug> --kind catalog --actor human --operator <you> --purpose "..."`.
 3. Search first: `python scripts/find.py "<concept>"`.
 4. Scaffold: `python scripts/new.py mechanic <id> --run <run-id>`, fill every field, cite sources.
-5. `make check && make build`, commit, open a PR.
+5. `make build && make check`, commit, open a PR.
 
 The quickest high-value contribution is sourcing an entity from the verification queue: [`dist/analysis/verification-queue.csv`](dist/analysis/verification-queue.csv).
 

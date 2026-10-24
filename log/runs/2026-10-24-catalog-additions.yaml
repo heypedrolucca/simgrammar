@@ -1,21 +1,23 @@
 id: 2026-10-24-catalog-additions
 type: run
-date: "2026-10-24"
+kind: catalog
+date: '2026-10-24'
 actor: agent
 operator: yoheinakajima
 agent:
   model: claude-opus-5-5
   harness: Claude app (cloud workspace), orchestrator
-purpose: Add catalog games requested by technique runs so that deployed_in edges can point at shipped deployments.
-method: >-
-  Technique runs recorded proposals for games where their techniques ship (GT Sophy in Gran Turismo 7, live LLM NPC
-  chat in Where Winds Meet, wave function collapse in Caves of Qud). Applied the game inclusion test; all three qualify,
-  Where Winds Meet and Caves of Qud as boundary cases. Facts are taken from the sources those runs already filed;
-  where a field rests on knowledge rather than a filed source, status stays asserted.
+purpose: Add catalog games requested by technique runs so that deployed_in edges can point at shipped
+  deployments.
+method: Technique runs recorded proposals for games where their techniques ship (GT Sophy in Gran Turismo
+  7, live LLM NPC chat in Where Winds Meet, wave function collapse in Caves of Qud). Applied the game
+  inclusion test; all three qualify, Where Winds Meet and Caves of Qud as boundary cases. Facts are taken
+  from the sources those runs already filed; where a field rests on knowledge rather than a filed source,
+  status stays asserted.
 scope:
-  - data/games/gran-turismo-7.yaml
-  - data/games/where-winds-meet.yaml
-  - data/games/caves-of-qud.yaml
-  - data/techniques/* (deployed_in edges)
-contract_version: "1.0"
+- data/games/gran-turismo-7.yaml
+- data/games/where-winds-meet.yaml
+- data/games/caves-of-qud.yaml
+- data/techniques/* (deployed_in edges)
+contract_version: '1.0'
 proposals: []

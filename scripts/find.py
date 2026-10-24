@@ -37,7 +37,8 @@ def main():
         if t == "run" or (args.type and t != args.type):
             continue
         for e in lst:
-            hay = " ".join([e.id.replace("-", " "), str(e.data.get("name", "")), " ".join(e.data.get("aliases", []) or []), str(e.data.get("summary", ""))]).lower()
+            hay = " ".join([e.id.replace("-", " "), str(e.data.get("name", "")), " ".join(e.data.get("aliases", []) or []),
+                            str(e.data.get("summary", "")), str(e.data.get("definition", "")), str(e.data.get("design_notes", ""))]).lower()
             s = difflib.SequenceMatcher(None, q, e.id.replace("-", " ")).ratio()
             s += difflib.SequenceMatcher(None, q, str(e.data.get("name", "")).lower()).ratio()
             s += 0.6 * len(qtok & set(hay.replace("-", " ").split())) / max(len(qtok), 1)
@@ -45,6 +46,8 @@ def main():
                 s += 1
             scored.append((s, t, e.id, e.data.get("name", ""), e.data.get("summary", "")))
     scored.sort(key=lambda x: -x[0])
+    if not scored or scored[0][0] < 1.3:
+        print("No strong match (best score below 1.3). Scores near 1.0 are string similarity only; read the candidates before assuming a duplicate.")
     for s, t, i, n, summ in scored[: args.n]:
         print(f"{s:4.2f}  {t:<11} {i:<40} {n}  —  {str(summ)[:90]}")
 

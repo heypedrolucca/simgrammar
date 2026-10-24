@@ -5,39 +5,126 @@
   "description": "Provenance record for one research or editing pass. Append-only: once merged, a run file is never edited except to fix typos. Every entity's provenance points at runs.",
   "type": "object",
   "additionalProperties": false,
-  "required": ["id", "type", "date", "actor", "operator", "purpose", "method"],
+  "required": [
+    "id",
+    "type",
+    "kind",
+    "date",
+    "actor",
+    "operator",
+    "purpose",
+    "method"
+  ],
   "properties": {
-    "id": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}-[a-z0-9]+(-[a-z0-9]+)*$" },
-    "type": { "const": "run" },
-    "date": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
-    "actor": { "type": "string", "x-vocab": "actor" },
-    "operator": { "type": "string", "minLength": 1, "maxLength": 200, "description": "Accountable human (GitHub handle or name)." },
+    "id": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}-[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "type": {
+      "const": "run"
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "bootstrap",
+        "taxonomy",
+        "catalog",
+        "technique",
+        "synthesis",
+        "verification",
+        "maintenance"
+      ],
+      "description": "What the run is allowed to do. Only taxonomy (and bootstrap) runs create mechanics (E031); only verification runs can move an entity to status verified (E031)."
+    },
+    "date": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
+    "actor": {
+      "type": "string",
+      "x-vocab": "actor"
+    },
+    "operator": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200,
+      "description": "Accountable human (GitHub handle or name)."
+    },
     "agent": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "model": { "type": "string", "maxLength": 120 },
-        "harness": { "type": "string", "maxLength": 200 }
+        "model": {
+          "type": "string",
+          "maxLength": 120
+        },
+        "harness": {
+          "type": "string",
+          "maxLength": 200
+        }
       }
     },
-    "purpose": { "type": "string", "minLength": 10, "maxLength": 1000 },
-    "method": { "type": "string", "minLength": 10, "maxLength": 3000 },
-    "scope": { "type": "array", "items": { "type": "string", "maxLength": 200 }, "description": "Entity types or id globs this run touched." },
-    "contract_version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+$" },
+    "purpose": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 1000
+    },
+    "method": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 3000
+    },
+    "scope": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "maxLength": 200
+      },
+      "description": "Entity types or id globs this run touched."
+    },
+    "contract_version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+$"
+    },
     "proposals": {
       "type": "array",
       "description": "Changes this run wanted but was not allowed to make (new vocab terms, new mechanics, merges). Triaged by maintainers.",
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["kind", "detail"],
+        "required": [
+          "kind",
+          "detail"
+        ],
         "properties": {
-          "kind": { "type": "string", "enum": ["vocab-term", "new-mechanic", "merge", "split", "rubric", "schema", "other"] },
-          "target": { "type": "string", "maxLength": 200 },
-          "detail": { "type": "string", "minLength": 10, "maxLength": 1200 }
+          "kind": {
+            "type": "string",
+            "enum": [
+              "vocab-term",
+              "new-mechanic",
+              "merge",
+              "split",
+              "rubric",
+              "schema",
+              "rule",
+              "other"
+            ]
+          },
+          "target": {
+            "type": "string",
+            "maxLength": 200
+          },
+          "detail": {
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 1200
+          }
         }
       }
     },
-    "notes": { "type": "string", "maxLength": 3000 }
+    "notes": {
+      "type": "string",
+      "maxLength": 3000
+    }
   }
 }

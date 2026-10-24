@@ -1,5 +1,6 @@
 id: 2026-10-24-taxonomy-m5
 type: run
+kind: taxonomy
 date: '2026-10-24'
 actor: agent
 operator: yoheinakajima
@@ -7,22 +8,23 @@ agent:
   model: claude-opus-5-5
   harness: Claude app subagent
 purpose: Complete the mechanic analyses for the environment-ecology, biology-health, and time-pacing families.
-method: >-
-  Read AGENTS.md, CONTRACT.md sections 1-3, the mechanic and common schemas, every referenced vocab, rubrics, edge types,
-  and the needs-decay, rimworld, and src-wikipedia-rimworld exemplars. Listed mechanics and games, read neighboring skeletons
-  (material-interactions, heat-transfer, fluid-gas-simulation, random-disasters, renewable-regrowth, crop-cultivation,
-  daily-schedules, diagnose-repair) to keep boundaries clean. Searched and fetched primary or canonical sources for the
-  mechanics where facts mattered most: Kermack and McKendrick 1927, Lofgren and Fefferman 2007, and the Corrupted Blood and
-  Plague Inc. articles (contagion); the GDC 2017 Breath of the Wild session and press coverage of its chemistry rules (fire
-  spread); Volterra 1926 (food web); the 2023 Game Developer deep dive on Timberborn water (hydrology); Watson and Lovelock 1983
-  and SimEarth (planetary climate); the Factorio wiki pollution page and Lua API map settings (pollution spread); Don't Starve,
-  Stardew Valley, RimWorld, and The Long Dark wiki or encyclopedia pages for day-night, weather, animals, energy, hunger,
-  health, and time; a Journal of Geek Studies interview with Project Hospital's lead programmer and Theme Hospital (diagnosis);
-  Hamurabi, The Oregon Trail, and the Wikipedia time-keeping taxonomy (turns, ticks, pause). Wrote all 21 files with a
-  scratch generator that checked field lengths, vocab terms, relation targets, and banned tokens before writing. Scored
-  against rubric anchors, taking the lower level when between anchors. Cited existing shared sources (Stardew Valley,
-  Tamagotchi, Theme Hospital, Frostpunk, Micropolis) rather than rewriting them. Set status sourced where cited sources
-  support the named game facts; habitat-suitability stays asserted.
+method: 'Read AGENTS.md, CONTRACT.md sections 1-3, the mechanic and common schemas, every referenced vocab,
+  rubrics, edge types, and the needs-decay, rimworld, and src-wikipedia-rimworld exemplars. Listed mechanics
+  and games, read neighboring skeletons (material-interactions, heat-transfer, fluid-gas-simulation, random-disasters,
+  renewable-regrowth, crop-cultivation, daily-schedules, diagnose-repair) to keep boundaries clean. Searched
+  and fetched primary or canonical sources for the mechanics where facts mattered most: Kermack and McKendrick
+  1927, Lofgren and Fefferman 2007, and the Corrupted Blood and Plague Inc. articles (contagion); the
+  GDC 2017 Breath of the Wild session and press coverage of its chemistry rules (fire spread); Volterra
+  1926 (food web); the 2023 Game Developer deep dive on Timberborn water (hydrology); Watson and Lovelock
+  1983 and SimEarth (planetary climate); the Factorio wiki pollution page and Lua API map settings (pollution
+  spread); Don''t Starve, Stardew Valley, RimWorld, and The Long Dark wiki or encyclopedia pages for day-night,
+  weather, animals, energy, hunger, health, and time; a Journal of Geek Studies interview with Project
+  Hospital''s lead programmer and Theme Hospital (diagnosis); Hamurabi, The Oregon Trail, and the Wikipedia
+  time-keeping taxonomy (turns, ticks, pause). Wrote all 21 files with a scratch generator that checked
+  field lengths, vocab terms, relation targets, and banned tokens before writing. Scored against rubric
+  anchors, taking the lower level when between anchors. Cited existing shared sources (Stardew Valley,
+  Tamagotchi, Theme Hospital, Frostpunk, Micropolis) rather than rewriting them. Set status sourced where
+  cited sources support the named game facts; habitat-suitability stays asserted.'
 scope:
 - data/mechanics/contagion.yaml
 - data/mechanics/day-night-cycle.yaml
@@ -50,37 +52,36 @@ contract_version: '1.0'
 proposals:
 - kind: other
   target: fire-spread
-  detail: >-
-    fire-spread overlaps material-interactions (physics-materials), whose summary uses fire burning wood as its example.
-    Keep fire-spread for propagation of a burning state across fuel cells driven by wind and moisture, and keep
-    material-interactions for pairwise element-material rules such as Breath of the Wild's chemistry engine. The
-    orchestrator may want a tension or synergy edge and should check the two definitions do not drift together.
+  detail: fire-spread overlaps material-interactions (physics-materials), whose summary uses fire burning
+    wood as its example. Keep fire-spread for propagation of a burning state across fuel cells driven
+    by wind and moisture, and keep material-interactions for pairwise element-material rules such as Breath
+    of the Wild's chemistry engine. The orchestrator may want a tension or synergy edge and should check
+    the two definitions do not drift together.
 - kind: other
   target: pollution-spread
-  detail: >-
-    pollution-spread and byproducts-waste overlap at emission. Proposed boundary: byproducts-waste owns production of
-    secondary outputs as items or stocks that must be handled; pollution-spread owns the spatial field and its diffusion,
-    absorption, and effects. Both pass the admission test on their own (Factorio has pollution without waste items;
-    Oxygen Not Included has waste items with separate gas simulation).
+  detail: 'pollution-spread and byproducts-waste overlap at emission. Proposed boundary: byproducts-waste
+    owns production of secondary outputs as items or stocks that must be handled; pollution-spread owns
+    the spatial field and its diffusion, absorption, and effects. Both pass the admission test on their
+    own (Factorio has pollution without waste items; Oxygen Not Included has waste items with separate
+    gas simulation).'
 - kind: split
   target: variable-speed
-  detail: >-
-    Pause and speed multipliers usually ship together, but auto-pause rules (pause on raid or letter) appear in some games
-    as a separate lever. Not proposing a split now; recording that auto-pause could become its own mechanic if several
-    games are tagged with it as a distinct feature.
+  detail: Pause and speed multipliers usually ship together, but auto-pause rules (pause on raid or letter)
+    appear in some games as a separate lever. Not proposing a split now; recording that auto-pause could
+    become its own mechanic if several games are tagged with it as a distinct feature.
 - kind: new-mechanic
   target: action-points
-  detail: >-
-    Per-turn action points (X-COM, Advanced Squad Leader, Frozen Synapse-style tactical sims) are a per-turn budget distinct
-    from daily-action-budget (per in-game day) and from turn-structure (ordering and phases). If the catalog includes
-    tactical simulations, an action-points mechanic in time-pacing or control-automation would pass the admission test.
-notes: >-
-  Web search budget for the turn ran out mid-research, so habitat-suitability (Planet Zoo, Zoo Tycoon, Anno fertilities)
-  and some game facts are from contributor knowledge: Minecraft 20-minute day, Pharaoh yearly Nile flood, Civilization
-  global warming, Eco sea-level rise, Surviving Mars Green Planet terraforming, Cities: Skylines water and sewage pollution,
-  Persona time slots, Nintendogs voice commands, Seaman speech, Majora's Mask three-day moon, Far Cry 2 grass fire. The
-  Lofgren and Fefferman paper was read through secondary summaries because PubMed blocked fetching. src-thumbsticks-2017-botw-chemistry
-  does not describe fire spread itself; the fire-spread definition's claim that burning grass makes updrafts and rain stops
+  detail: Per-turn action points (X-COM, Advanced Squad Leader, Frozen Synapse-style tactical sims) are
+    a per-turn budget distinct from daily-action-budget (per in-game day) and from turn-structure (ordering
+    and phases). If the catalog includes tactical simulations, an action-points mechanic in time-pacing
+    or control-automation would pass the admission test.
+notes: 'Web search budget for the turn ran out mid-research, so habitat-suitability (Planet Zoo, Zoo Tycoon,
+  Anno fertilities) and some game facts are from contributor knowledge: Minecraft 20-minute day, Pharaoh
+  yearly Nile flood, Civilization global warming, Eco sea-level rise, Surviving Mars Green Planet terraforming,
+  Cities: Skylines water and sewage pollution, Persona time slots, Nintendogs voice commands, Seaman speech,
+  Majora''s Mask three-day moon, Far Cry 2 grass fire. The Lofgren and Fefferman paper was read through
+  secondary summaries because PubMed blocked fetching. src-thumbsticks-2017-botw-chemistry does not describe
+  fire spread itself; the fire-spread definition''s claim that burning grass makes updrafts and rain stops
   fire is from contributor knowledge of the game. Relations added: creature-care and survival-meters specialize
-  needs-decay. No family changes. E017 remains on several of my mechanics because few games are tagged yet; maturity reflects
-  real-world adoption per the task brief.
+  needs-decay. No family changes. E017 remains on several of my mechanics because few games are tagged
+  yet; maturity reflects real-world adoption per the task brief.'

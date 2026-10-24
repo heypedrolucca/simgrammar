@@ -18,9 +18,11 @@ Read, in order: `CONTRACT.md` §2 (invariants), the schema for every type you wi
 Every change belongs to exactly one run.
 
 ```bash
-python scripts/new.py run <slug> --actor agent --operator <github-handle-of-accountable-human> \
+python scripts/new.py run <slug> --kind <kind> --actor agent --operator <github-handle-of-accountable-human> \
   --model <model-id> --harness "<tool you run in>" --purpose "<one sentence>"
 ```
+
+`--kind` says what the run may do: `taxonomy` (the only kind that may create mechanics), `catalog` (games), `technique`, `synthesis` (opportunities, report), `verification` (the only kind that may set `status: verified`), `maintenance`. The validator enforces this (E031).
 
 Fill `method` (what you searched, read, or computed) and keep `proposals` for anything you wanted to do but this file does not allow. Every entity you create gets `provenance.created: <run-id>`. Every existing entity you re-check gets your run id appended to `provenance.reviewed`.
 
@@ -36,7 +38,9 @@ If something close exists, edit it instead of creating a near-duplicate. Duplica
 ## 3. Admission tests
 
 ### Game inclusion test
-Include a work if all hold: (a) released commercially, freely, or as a public research demo; (b) its core loop is driven by a model of some system (economy, ecology, physics, society, bodies, machines) whose state evolves without the player scripting each change; (c) it contributes at least one mechanic usage not already well represented, or it is a lineage-defining title. A game that is mostly authored content but has one notable simulated system is a `boundary_case: true`.
+Include a work if all hold: (a) released commercially, freely, or as a public research demo; (b) its core loop is driven by a model of some system (economy, ecology, physics, society, bodies, machines) whose state evolves without the player scripting each change; (c) it contributes at least one mechanic usage not already well represented, or it is a lineage-defining title. A work that fails (b) but is included anyway for specific mechanics (a puzzle or toy whose rules matter to simulation design) sets `boundary_case: true`; say in `design_notes` which mechanics justify it.
+
+If no subgenre or other vocab term fits, pick the closest term and file a `vocab-term` proposal. If no mechanic fits a rule-system the game clearly has, **do not force-fit** the nearest mechanic (a wrong tag distorts prevalence and clustering); leave it out, describe it in `design_notes`, and file a `new-mechanic` proposal.
 
 ### Mechanic admission test (all four must pass)
 1. **Nameable**: a designer would recognize it in games other than the one you are looking at.
@@ -44,7 +48,7 @@ Include a work if all hold: (a) released commercially, freely, or as a public re
 3. **Tunable**: has at least two levers you can list in `design_levers`.
 4. **Removable**: a game could drop it and still run.
 
-If a candidate fails, it is a game-specific feature (describe it in that game's `uses` note) or an opportunity. Agents doing game or technique work **may not create mechanics**; add a `new-mechanic` proposal to the run instead. Mechanic creation is reserved for runs whose purpose says "taxonomy".
+If a candidate fails, it is a game-specific feature (describe it in that game's `uses` note) or an opportunity. Agents doing game or technique work **may not create mechanics**; add a `new-mechanic` proposal to the run instead. Mechanic creation is reserved for runs of kind `taxonomy` (E031).
 
 ### Technique inclusion test
 A dated, citable result (paper, preprint, model release, shipped system, or engine feature) that changes at least one mechanic, with `affects` edges that say how (`effect` vocab). Vendor marketing alone fails. `year` is the year of the key result. `maturity` and `trl` describe deployment **in games**, not in AI generally.
@@ -60,7 +64,7 @@ Names at least one mechanic in `involves`, has a `validation_experiment` a small
 | Ordinal score | Read the anchors in `vocab/rubrics.yaml`. Pick the anchor whose text matches. Between two, take the lower. Never adjust a score to make a ranking come out a certain way. |
 | `summary` | One sentence, no markdown, no hype adjectives (revolutionary, groundbreaking, game-changing), no em-dashes. |
 | Long text | Specific and mechanical. Name the variables and the update rule. Cite numbers only if a source supports them. |
-| Game `mechanics` | 6–14 entries typical. `core` only for mechanics whose removal changes the game's identity; every core entry needs a `note` saying how this game implements it. |
+| Game `mechanics` | 6–14 entries typical; fewer than 5 raises W103. `core` only for mechanics whose removal changes the game's identity; every core entry needs a `note` saying how this game implements it. |
 | `influenced_by` | Only documented or widely acknowledged lineage. Earlier games only (E025). |
 | Mechanic relations | `requires` for hard dependencies; `specializes` for narrower forms; `synergy`/`tension` stored only on the id that sorts first alphabetically (E010). Never list games or techniques on a mechanic. |
 | Technique `affects` | One entry per mechanic actually changed; `effect` from `vocab/effect.yaml`; note says what changes. |
@@ -72,11 +76,11 @@ Names at least one mechanic in `involves`, has a `validation_experiment` a small
 
 - No source → `status: asserted`. That is fine; the verification queue exists for this.
 - You cite a source that supports the factual fields → `status: sourced`.
-- You re-check someone else's sourced entity against its sources → append your run to `provenance.reviewed` and set `verified`. Never verify an entity your own run created.
+- You re-check someone else's sourced entity against its sources in a run of kind `verification` → append your run to `provenance.reviewed` and set `verified`. Never verify an entity your own run created; a review by any other kind of run does not count (E031).
 - A source contradicts a sourced entity → `status: contested`, add a claim with `disputes`, cite both sides. Do not silently overwrite.
 
 ### Sources
-- Id: `src-<publisher-or-first-author-surname>-<year>-<short-slug>`, e.g. `src-park-2023-generative-agents`, `src-steam-2024-manor-lords`.
+- Id: `src-<publisher-or-first-author-surname>-<year>-<short-slug>`, e.g. `src-park-2023-generative-agents`, `src-steam-2024-manor-lords`; Wikipedia articles use `src-wikipedia-<slug>` (no year). The schema enforces both forms (E004).
 - Check `data/sources/` before creating; one file per work. If it exists, cite it.
 - Prefer primary sources (paper, official blog, store page, developer postmortem) over aggregators. `accessed` is the date you read it.
 - Every source must be cited by something (E011).
@@ -105,18 +109,18 @@ Never type a dataset count ("140 games") into prose (E021). When a sentence inte
 - Add a field, vocab term, edge type, or rubric anchor without an ADR (`decisions/`).
 - Change or reuse an id. Delete a merged entity (deprecate it).
 - Store an inverse edge or a derived number.
-- Leave `TODO` anywhere (E027).
+- Leave a placeholder (`TODO`, `TBD`, `FIXME`, any case) in data, runs, vocab, or report prose (E027).
 - Work around a failing rule. If you believe a rule is wrong, stop, keep `make check` green, and file a `rule` proposal.
 
 ## 8. Finish
 
 ```bash
+make build            # regenerate dist/ and GENERATED blocks from your edits
 make check            # validate + build --check; must be green
-make build            # regenerate dist/ and GENERATED blocks
 git add -A && git commit -m "<type>(<scope>): <what> [run:<run-id>]"
 ```
 
-Commit types: `data`, `taxonomy`, `vocab`, `schema`, `report`, `build`, `docs`. One run per PR. The PR template asks for the run id, the rule codes you hit, and your proposals.
+Commit types: `data`, `taxonomy`, `vocab`, `schema`, `report`, `build`, `docs`. One run per PR. The PR template asks for the run id, the rule codes you hit, and your proposals. Changes under `vocab/`, `schema/`, `scripts/`, `CONTRACT.md`, and `AGENTS.md` need maintainer review (`.github/CODEOWNERS`) because the validator cannot judge whether a contract change is justified; it can only enforce the contract as written.
 
 ## 9. Parallel agents
 

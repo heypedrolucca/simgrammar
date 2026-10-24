@@ -20,8 +20,9 @@ from lib import ROOT, get_path, read_yaml, vocab_terms
 TOKEN_RE = re.compile(r"\{\{([a-z_]+):([^}]+)\}\}")
 LINK_RE = re.compile(r"\[\[([a-z0-9-]+)(?:\|([^\]]+))?\]\]")
 CITE_RE = re.compile(r"\[(@src-[a-z0-9-]+(?:\s*;\s*@src-[a-z0-9-]+)*)\]")
+NOUNS = r"(games?|titles?|mechanics?|techniques?|opportunit(?:y|ies)|sources?|edges?|entities|entit(?:y)|pairs?|clusters?|predictions?|uses|entries|families|subgenres|runs?)"
 LITERAL_STAT_RE = re.compile(
-    r"\b\d{2,}(?:,\d{3})*\s+(?:simulation\s+|sim\s+|distinct\s+|unique\s+)?(games|titles|mechanics|techniques|opportunities|sources|edges|entities|pairs|clusters|predictions)\b",
+    r"(?<![\w.#])(?!(?:19|20)\d\d\b)(?:\d[\d,]*(?:\.\d+)?\s*(?:%|percent)\s+of|\d[\d,]*(?![\d.]))\s+(?:[A-Za-z-]+\s+)?" + NOUNS + r"\b",
     re.I,
 )
 
@@ -248,15 +249,19 @@ def render(text: str, ctx: Context, mode: str = "paper") -> tuple[str, list[tupl
 
 
 def literal_stats(text: str) -> list[str]:
+    """Literal numbers next to dataset nouns. A sentence that carries a citation is an external figure and is exempt."""
     hits = []
     in_code = False
     for line in text.splitlines():
         if line.strip().startswith("```"):
             in_code = not in_code
             continue
-        if in_code:
+        if in_code or line.lstrip().startswith(("|", "#")):
             continue
-        clean = TOKEN_RE.sub("", line)
-        for m in LITERAL_STAT_RE.finditer(clean):
-            hits.append(m.group(0))
+        clean = TOKEN_RE.sub("TOKEN", line)
+        for sentence in re.split(r"(?<=[.!?])\s+", clean):
+            if "[@src-" in sentence:
+                continue
+            for m in LITERAL_STAT_RE.finditer(sentence):
+                hits.append(m.group(0))
     return hits

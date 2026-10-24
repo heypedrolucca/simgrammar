@@ -1,5 +1,6 @@
 id: 2026-10-24-catalog-gf
 type: run
+kind: catalog
 date: '2026-10-24'
 actor: agent
 operator: yoheinakajima
@@ -7,64 +8,63 @@ agent:
   model: claude-opus-5-5
   harness: Claude app subagent
 purpose: Verify, characterize, and decompose job, medical, vehicle, and flight simulation games into mechanics.
-method: >-
-  Read AGENTS.md, CONTRACT.md, the game, common, and source schemas, every vocab the game schema references, rubrics,
-  edge types, and the rimworld, src-wikipedia-rimworld, and needs-decay exemplars. For each of the 20 skeleton games I
-  verified first release, developer, and platforms from the English Wikipedia article and, where gameplay detail was thin,
-  the Steam or Xbox store page (Project Hospital, Contraband Police, House Flipper, Car Mechanic Simulator 2021, Hardspace:
-  Shipbreaker, Euro Truck Simulator 2, SnowRunner), plus a developer interview (Project Hospital), a VR release article
-  (Surgeon Simulator), a trade-press article (Contraband Police), and the Truck Simulator community wiki (ETS2 loans, VR).
+method: 'Read AGENTS.md, CONTRACT.md, the game, common, and source schemas, every vocab the game schema
+  references, rubrics, edge types, and the rimworld, src-wikipedia-rimworld, and needs-decay exemplars.
+  For each of the 20 skeleton games I verified first release, developer, and platforms from the English
+  Wikipedia article and, where gameplay detail was thin, the Steam or Xbox store page (Project Hospital,
+  Contraband Police, House Flipper, Car Mechanic Simulator 2021, Hardspace: Shipbreaker, Euro Truck Simulator
+  2, SnowRunner), plus a developer interview (Project Hospital), a VR release article (Surgeon Simulator),
+  a trade-press article (Contraband Police), and the Truck Simulator community wiki (ETS2 loans, VR).
   Before writing each source I checked data/sources/ and cited existing ones instead (src-wikipedia-dcs-world,
   src-wikipedia-hardspace-shipbreaker, src-wikipedia-papers-please, src-wikipedia-powerwash-simulator,
-  src-wikipedia-car-mechanic-simulator-2018, src-wikipedia-x-plane, src-jgeekstudies-2020-project-hospital). Mechanics were
-  chosen only from the current find.py list after reading the definitions of the operation-procedure and physics
-  mechanics; core entries carry notes limited to sourced facts. Emergence and influence were scored by matching rubric
-  anchors and taking the lower score when a game fell between two. Web search budget ran out midway, so some supporting
-  details (VR support for X-Plane, DCS, and iRacing; weather in iRacing) were left out rather than asserted.
+  src-wikipedia-car-mechanic-simulator-2018, src-wikipedia-x-plane, src-jgeekstudies-2020-project-hospital).
+  Mechanics were chosen only from the current find.py list after reading the definitions of the operation-procedure
+  and physics mechanics; core entries carry notes limited to sourced facts. Emergence and influence were
+  scored by matching rubric anchors and taking the lower score when a game fell between two. Web search
+  budget ran out midway, so some supporting details (VR support for X-Plane, DCS, and iRacing; weather
+  in iRacing) were left out rather than asserted.'
 scope:
-  - data/games/{project-hospital,surgeon-simulator,papers-please,contraband-police,powerwash-simulator,house-flipper}
-  - data/games/{car-mechanic-simulator-2021,pc-building-simulator,job-simulator,hardspace-shipbreaker,euro-truck-simulator-2}
-  - data/games/{microsoft-flight-simulator-2020,microsoft-flight-simulator-2024,x-plane,dcs-world,gran-turismo,iracing}
-  - data/games/{beamng-drive,snowrunner,silent-hunter-3}
-  - data/sources (new files created by this run)
+- data/games/{project-hospital,surgeon-simulator,papers-please,contraband-police,powerwash-simulator,house-flipper}
+- data/games/{car-mechanic-simulator-2021,pc-building-simulator,job-simulator,hardspace-shipbreaker,euro-truck-simulator-2}
+- data/games/{microsoft-flight-simulator-2020,microsoft-flight-simulator-2024,x-plane,dcs-world,gran-turismo,iracing}
+- data/games/{beamng-drive,snowrunner,silent-hunter-3}
+- data/sources (new files created by this run)
 contract_version: '1.0'
 proposals:
-  - kind: new-mechanic
-    target: salvage-deconstruction
-    detail: >-
-      Salvage deconstruction: a constructed object is a graph of joined parts with typed hazards and salvage
-      destinations; the player chooses cut points and disassembly order, and hazardous parts (pressurized volumes, live
-      wiring, reactors, fuel) react physically when handled out of order. Levers: hazard density, value per part type,
-      penalty for wrong destination, time limit. Used by Hardspace: Shipbreaker; partially by Teardown and House Flipper
-      demolition. Distinct from diagnose-repair (goal is removal, not restoration) and voxel-destruction (part graph, not
-      voxels).
-  - kind: new-mechanic
-    target: real-world-data-feeds
-    detail: >-
-      Real-world data feeds: simulation state is initialized or driven at runtime by external real-world data (map
-      imagery, photogrammetry, live weather, live traffic) rather than authored or procedural content. Levers: refresh
-      rate, which subsystems are fed, fallback when offline, blending with simulated state. Used by Microsoft Flight
-      Simulator (2020) (Bing Maps every 28 days, Meteoblue weather, live air traffic) and Microsoft Flight Simulator 2024.
-  - kind: new-mechanic
-    target: skill-rating-matchmaking
-    detail: >-
-      Skill rating and matchmaking: each player carries a rating (Elo-style) updated from results against rated opponents,
-      and sessions are filled by rating; a separate conduct rating can gate access. Levers: rating update constant, minimum
-      field size for rated events, split thresholds, conduct-rating formula. Used by iRacing (iRating plus Safety Rating
-      from incident points per corner gating license classes); common in competitive multiplayer games.
-  - kind: other
-    target: dcs-world
-    detail: >-
-      Year convention: dcs-world uses year 2008 (DCS: Black Shark, the first DCS title); the free DCS World platform
-      entered open beta in May 2012. Recorded as a claim on the game. Maintainers may prefer 2012 if the entity is meant
-      to be the platform rather than the series.
-notes: >-
-  All 20 games are sourced. Corrections against the skeletons: beamng-drive year 2013 (tech demo and paid alpha
-  2013-08-03; Steam Early Access 2015), not 2015. Developer strings refined: papers-please "Lucas Pope (3909 LLC)",
-  contraband-police "Crazy Rocks Studios", pc-building-simulator "Claudiu Kiss and The Irregular Corporation",
-  silent-hunter-3 "Ubisoft Bucharest", gran-turismo "Polys Entertainment (Polyphony Digital)", iracing "iRacing Studios
-  (iRacing.com Motorsport Simulations)". year_full_release set for powerwash-simulator (2022),
-  pc-building-simulator (2019), hardspace-shipbreaker (2022). Subgenres kept; secondaries added where lineage is clear.
-  boundary_case true for surgeon-simulator and job-simulator (comic physics toys included for embodied control and
-  physics interaction). Two sources I planned to create were created by other runs moments before my write and are cited
-  instead: src-jgeekstudies-2020-project-hospital and src-wikipedia-x-plane.
+- kind: new-mechanic
+  target: salvage-deconstruction
+  detail: 'Salvage deconstruction: a constructed object is a graph of joined parts with typed hazards
+    and salvage destinations; the player chooses cut points and disassembly order, and hazardous parts
+    (pressurized volumes, live wiring, reactors, fuel) react physically when handled out of order. Levers:
+    hazard density, value per part type, penalty for wrong destination, time limit. Used by Hardspace:
+    Shipbreaker; partially by Teardown and House Flipper demolition. Distinct from diagnose-repair (goal
+    is removal, not restoration) and voxel-destruction (part graph, not voxels).'
+- kind: new-mechanic
+  target: real-world-data-feeds
+  detail: 'Real-world data feeds: simulation state is initialized or driven at runtime by external real-world
+    data (map imagery, photogrammetry, live weather, live traffic) rather than authored or procedural
+    content. Levers: refresh rate, which subsystems are fed, fallback when offline, blending with simulated
+    state. Used by Microsoft Flight Simulator (2020) (Bing Maps every 28 days, Meteoblue weather, live
+    air traffic) and Microsoft Flight Simulator 2024.'
+- kind: new-mechanic
+  target: skill-rating-matchmaking
+  detail: 'Skill rating and matchmaking: each player carries a rating (Elo-style) updated from results
+    against rated opponents, and sessions are filled by rating; a separate conduct rating can gate access.
+    Levers: rating update constant, minimum field size for rated events, split thresholds, conduct-rating
+    formula. Used by iRacing (iRating plus Safety Rating from incident points per corner gating license
+    classes); common in competitive multiplayer games.'
+- kind: other
+  target: dcs-world
+  detail: 'Year convention: dcs-world uses year 2008 (DCS: Black Shark, the first DCS title); the free
+    DCS World platform entered open beta in May 2012. Recorded as a claim on the game. Maintainers may
+    prefer 2012 if the entity is meant to be the platform rather than the series.'
+notes: 'All 20 games are sourced. Corrections against the skeletons: beamng-drive year 2013 (tech demo
+  and paid alpha 2013-08-03; Steam Early Access 2015), not 2015. Developer strings refined: papers-please
+  "Lucas Pope (3909 LLC)", contraband-police "Crazy Rocks Studios", pc-building-simulator "Claudiu Kiss
+  and The Irregular Corporation", silent-hunter-3 "Ubisoft Bucharest", gran-turismo "Polys Entertainment
+  (Polyphony Digital)", iracing "iRacing Studios (iRacing.com Motorsport Simulations)". year_full_release
+  set for powerwash-simulator (2022), pc-building-simulator (2019), hardspace-shipbreaker (2022). Subgenres
+  kept; secondaries added where lineage is clear. boundary_case true for surgeon-simulator and job-simulator
+  (comic physics toys included for embodied control and physics interaction). Two sources I planned to
+  create were created by other runs moments before my write and are cited instead: src-jgeekstudies-2020-project-hospital
+  and src-wikipedia-x-plane.'

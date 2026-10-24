@@ -1,0 +1,7 @@
+# Contract surfaces: the validator enforces the contract but cannot judge changes to it.
+/CONTRACT.md   @yoheinakajima
+/AGENTS.md     @yoheinakajima
+/vocab/        @yoheinakajima
+/schema/       @yoheinakajima
+/scripts/      @yoheinakajima
+/report/analysis.yaml @yoheinakajima

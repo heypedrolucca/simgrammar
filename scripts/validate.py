@@ -93,6 +93,10 @@ def run(data_only: bool = False) -> Findings:
     ents, parse_errors = load_entities(registry)
     for p, msg in parse_errors:
         F.add("E001", p, msg)
+    for r in ents.get("run", []):
+        rv = r.data.get("contract_version")
+        if rv is not None and str(rv) != cv:
+            F.add("E028", r.path, f"run records contract_version {rv}, current is {cv}", "contract_version")
 
     edge_types = vocab_terms(vocabs, "edge_types")
     rubrics = vocabs["rubrics"]["scales"]
@@ -117,7 +121,8 @@ def run(data_only: bool = False) -> Findings:
                 by_id[e.id] = e
             _ = spec
 
-    # ---- placeholders
+    # ---- placeholders (data, log, vocab, report prose)
+    PLACEHOLDER = re.compile(r"\b(TODO|TBD|FIXME)\b", re.I)
     def strings(o, path=()):
         if isinstance(o, str):
             yield path, o
@@ -131,8 +136,31 @@ def run(data_only: bool = False) -> Findings:
     for tname, lst in ents.items():
         for e in lst:
             for pth, s in strings(e.data):
-                if "TODO" in s:
-                    F.add("E027", e.path, "scaffold placeholder TODO left in field", "/".join(map(str, pth)))
+                if PLACEHOLDER.search(s):
+                    F.add("E027", e.path, f"placeholder '{PLACEHOLDER.search(s).group(0)}' left in field", "/".join(map(str, pth)))
+    for extra in sorted((ROOT / "vocab").glob("*.yaml")) + sorted((ROOT / "report" / "src").glob("*.md")):
+        for i, line in enumerate(extra.read_text(encoding="utf-8").splitlines(), 1):
+            hit = PLACEHOLDER.search(line)
+            if hit:
+                F.add("E027", extra, f"placeholder '{hit.group(0)}' on line {i}")
+
+    # ---- style of names and summaries
+    HYPE = re.compile(r"\b(revolutionary|groundbreaking|game-changing|unprecedented|cutting-edge|paradigm-shifting)\b", re.I)
+    MARKUP = re.compile(r"(\*\*|__|`|^#|\[[^\]]*\]\()")
+    for tname, lst in ents.items():
+        if tname in ("run", "source"):
+            continue
+        for e in lst:
+            for fld in ("name", "summary"):
+                v = e.data.get(fld)
+                if not isinstance(v, str):
+                    continue
+                if "\u2014" in v:
+                    F.add("E030", e.path, "em-dash in " + fld, fld)
+                if MARKUP.search(v):
+                    F.add("E030", e.path, "markdown in " + fld, fld)
+                if HYPE.search(v):
+                    F.add("E030", e.path, f"hype word '{HYPE.search(v).group(0)}' in {fld}", fld)
 
     # ---- schema, vocab, rubric, refs
     all_edges: list[Edge] = []
@@ -140,8 +168,16 @@ def run(data_only: bool = False) -> Findings:
         sfile = Path(registry["types"][tname]["schema"]).name
         val = validator_for(schemas[sfile], sreg)
         for e in lst:
-            for err in sorted(val.iter_errors(e.data), key=lambda x: list(map(str, x.absolute_path))):
-                F.add("E004", e.path, err.message[:400], "/".join(map(str, err.absolute_path)))
+            try:
+                errs = sorted(val.iter_errors(e.data), key=lambda x: list(map(str, x.absolute_path)))
+            except Exception as exc:  # unresolvable $ref after a $id change
+                F.add("E028", e.path, f"schema could not be resolved ({type(exc).__name__}); check that every schema $id carries the contract version")
+                continue
+            for err in errs:
+                msg = err.message[:400]
+                if err.validator == "type" and err.validator_value == "string" and isinstance(err.instance, (int, float)):
+                    msg += " (quote numeric-looking vocab terms, e.g. agent_count_order: \"10\")"
+                F.add("E004", e.path, msg, "/".join(map(str, err.absolute_path)))
             for ann in walk_annotations(sfile, e.data, schemas):
                 fpath = "/".join(map(str, ann.path))
                 if ann.kind == "vocab":
@@ -244,11 +280,21 @@ def run(data_only: bool = False) -> Findings:
             srcs = e.data.get("sources") or []
             if st in ("sourced", "verified") and not srcs:
                 F.add("E012", e.path, f"status '{st}' requires `sources`", "sources")
+            prov = e.data.get("provenance") or {}
+            created = runs.get(prov.get("created"))
+            if tname == "mechanic" and created is not None and created.data.get("kind") not in ("taxonomy", "bootstrap"):
+                F.add("E031", e.path, f"mechanic created by a '{created.data.get('kind')}' run; only taxonomy runs create mechanics", "provenance")
             if st == "verified":
-                prov = e.data.get("provenance") or {}
-                rev = [r for r in prov.get("reviewed") or [] if r != prov.get("created")]
-                if not rev:
-                    F.add("E012", e.path, "status 'verified' requires a reviewed run distinct from created", "provenance")
+                ok = False
+                for rid in prov.get("reviewed") or []:
+                    r = runs.get(rid)
+                    if r is None or rid == prov.get("created") or r.data.get("kind") != "verification":
+                        continue
+                    if created is not None and str(r.data.get("date")) < str(created.data.get("date")):
+                        continue
+                    ok = True
+                if not ok:
+                    F.add("E031", e.path, "status 'verified' requires a reviewed run of kind 'verification', distinct from and not earlier than the creating run", "provenance")
             if st == "contested" and not any(c.get("disputes") for c in e.data.get("claims") or []):
                 F.add("E026", e.path, "contested entity needs a claim with `disputes`", "claims")
 
@@ -268,6 +314,11 @@ def run(data_only: bool = False) -> Findings:
         for m in mechs:
             used_by[m.get("id")].add(g.id)
         y, yf = g.data.get("year"), g.data.get("year_full_release")
+        for fld, val in (("year", y), ("year_full_release", yf)):
+            if isinstance(val, int) and val > TODAY.year:
+                F.add("E024", g.path, f"{fld} {val} is in the future", fld)
+        if len(mechs) < 5:
+            F.add("W103", g.path, f"only {len(mechs)} mechanics tagged", "mechanics")
         if isinstance(y, int) and isinstance(yf, int) and yf < y:
             F.add("E024", g.path, f"year_full_release {yf} < year {y}", "year_full_release")
         for inf in g.data.get("influenced_by") or []:
@@ -292,9 +343,11 @@ def run(data_only: bool = False) -> Findings:
         if isinstance(y, int) and y > TODAY.year:
             F.add("E024", t.path, f"year {y} is in the future", "year")
     for s in ents.get("source", []):
-        d = str(s.data.get("date", ""))
-        if d[:4].isdigit() and int(d[:4]) > TODAY.year:
-            F.add("E024", s.path, f"date {d} is in the future", "date")
+        for fld in ("date", "accessed"):
+            d = str(s.data.get(fld, ""))
+            full = d + {4: "-01-01", 7: "-01"}.get(len(d), "")
+            if re.match(r"^\d{4}-\d{2}-\d{2}$", full) and full > TODAY.isoformat():
+                F.add("E024", s.path, f"{fld} {d} is in the future", fld)
 
     # ---- warnings
     used_terms = defaultdict(set)

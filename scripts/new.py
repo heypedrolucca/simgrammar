@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Scaffold a run record or an entity from its schema. Placeholders contain TODO and fail E027 until filled.
 
-  python scripts/new.py run <slug> --actor agent --operator yoheinakajima --model claude-opus-5-5 --purpose "..."
+  python scripts/new.py run <slug> --kind catalog --actor agent --operator <handle> --model <model-id> --purpose "..."
   python scripts/new.py game <id> --run <run-id>
   python scripts/new.py mechanic <id> --run <run-id>
   python scripts/new.py technique|opportunity|source <id> --run <run-id>
@@ -21,8 +21,10 @@ TEMPLATES = {
         "name": "TODO", "summary": "TODO one sentence", "year": "TODO", "developer": "TODO", "platforms": ["pc"],
         "subgenre": "TODO", "sim_domain": ["TODO"], "player_role": "TODO", "agency_model": ["TODO"], "time_model": "TODO",
         "sim_scale": "TODO", "fidelity": "TODO", "perspective": "TODO", "win_structure": "TODO", "failure_model": "TODO",
-        "narrative_mode": "TODO", "multiplayer": ["single"], "modding": "TODO", "production_tier": "TODO", "agent_count_order": "TODO",
-        "emergence": "TODO", "influence": "TODO", "core_loop": "TODO a -> b -> c", "mechanics": [{"id": "TODO", "role": "core", "note": "TODO"}],
+        "narrative_mode": "TODO", "multiplayer": ["TODO"], "modding": "TODO", "production_tier": "TODO", "agent_count_order": "TODO",
+        "emergence": "TODO", "influence": "TODO", "core_loop": "TODO a -> b -> c",
+        "design_notes": "TODO 2-4 sentences on what is distinctive about its simulation design",
+        "mechanics": [{"id": "TODO", "role": "core", "note": "TODO"}], "influenced_by": [],
         "sources": [], "status": "asserted",
     },
     "mechanic": {
@@ -52,6 +54,7 @@ def main():
     ap.add_argument("type")
     ap.add_argument("id")
     ap.add_argument("--run")
+    ap.add_argument("--kind", choices=["taxonomy", "catalog", "technique", "synthesis", "verification", "maintenance"], help="required for runs")
     ap.add_argument("--actor", default="agent")
     ap.add_argument("--operator", default="TODO")
     ap.add_argument("--model", default="")
@@ -64,7 +67,9 @@ def main():
     spec = reg["types"][args.type]
     if args.type == "run":
         rid = f"{dt.date.today().isoformat()}-{args.id}"
-        data = {"id": rid, "type": "run", "date": dt.date.today().isoformat(), "actor": args.actor, "operator": args.operator}
+        if not args.kind:
+            raise SystemExit("--kind is required for runs (taxonomy, catalog, technique, synthesis, verification, maintenance)")
+        data = {"id": rid, "type": "run", "kind": args.kind, "date": dt.date.today().isoformat(), "actor": args.actor, "operator": args.operator}
         if args.model or args.harness:
             data["agent"] = {k: v for k, v in (("model", args.model), ("harness", args.harness)) if v}
         data.update({"purpose": args.purpose, "method": "TODO", "contract_version": reg["contract_version"], "proposals": []})

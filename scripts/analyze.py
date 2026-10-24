@@ -294,6 +294,10 @@ def compute(ents: dict, edges: list, vocabs: dict) -> dict:
     famrows.sort(key=lambda r: (-r["technique_exposure"], r["family"]))
     tables["family-summary"] = {"description": "Per mechanic family: size, total game uses, mean rubric scores, and summed technique exposure (maturity x effect weights from vocab/rubrics.yaml).",
                                 "columns": ["family", "mechanics", "uses", "mean_legibility", "mean_emergence", "mean_authoring_cost", "mean_ai_leverage", "technique_exposure"], "rows": famrows}
+    comp_by_fam = {f: np.mean([m.data["compute_cost"] for m in mechs if m.data["family"] == f]) for f in fam_ids if any(m.data["family"] == f for m in mechs)}
+    if comp_by_fam:
+        stats["top_compute_family"] = fam_terms[max(comp_by_fam, key=lambda f: (comp_by_fam[f], f))]["label"]
+        stats["top_legibility_family"] = fam_terms[max(famrows, key=lambda r: (r["mean_legibility"], r["family"]))["family"]]["label"]
     if famrows and famrows[0]["technique_exposure"] > 0:
         stats["top_exposed_family"] = fam_terms[famrows[0]["family"]]["label"]
         stats["least_exposed_family"] = fam_terms[famrows[-1]["family"]]["label"]

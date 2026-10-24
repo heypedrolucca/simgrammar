@@ -1,5 +1,6 @@
 id: 2026-10-24-taxonomy-m7
 type: run
+kind: taxonomy
 date: '2026-10-24'
 actor: agent
 operator: yoheinakajima
@@ -8,54 +9,55 @@ agent:
   harness: Claude app subagent
 purpose: 'Taxonomy run: complete the mechanic analyses for the risk-failure, narrative-generation, world-generation,
   multiplayer-persistence, conflict-defense, and operation-procedure families.'
-method: >-
-  Read AGENTS.md, CONTRACT.md sections 1-3, the mechanic and common schemas, every referenced vocab file, rubrics.yaml,
-  edge_types.yaml, and the needs-decay and rimworld exemplars. Completed 25 skeleton mechanics to the full schema, analyzing
-  each as a cross-game primitive. Primary sources were read for the mechanics where rule-level numbers matter: Michael
-  Booth's AIIDE 2009 slides on the Left 4 Dead AI Director (intensity and phase timings); the RimWorld Wiki raid points,
-  AI storytellers, and backstories pages (threat budget formula, population-intent curve, backstory generation); the
-  GPL Micropolis Java engine source (crimeScan and doDisasters, read directly from the code); OpenRCT2 Ride.cpp
-  (reliability decay, age penalty, breakdown roll, inspection, repair, read directly from the code); the CK3 Wiki event
-  modding page; the Factorio Lua API docs; the Dwarf Fortress Wiki Legends and Historical figure pages; and Tarn Adams's Game
-  AI Pro 2 chapter abstract. Wikipedia articles were used for game-level facts (Papers, Please, Reigns, Eve Online, Spore,
-  SimCity 2013, AI Dungeon, PowerWash Simulator, Permadeath, Left 4 Dead, FTL, Command: Modern Operations, DCS World,
-  Hardspace: Shipbreaker, Car Mechanic Simulator 2018, Prison Architect, Dwarf Fortress). Checked every source id and URL
-  for existence immediately before creating it; none existed. Scores were set by matching rubric anchor text and taking the
-  lower anchor when between two. No requires or specializes edges were added because none of the candidate dependencies
-  were strict. Synergy and tension were left to the orchestrator. Facts that could not be confirmed against a source read in
-  this run were removed or kept to widely known general statements; mechanics without a supporting primary source stay asserted.
+method: 'Read AGENTS.md, CONTRACT.md sections 1-3, the mechanic and common schemas, every referenced vocab
+  file, rubrics.yaml, edge_types.yaml, and the needs-decay and rimworld exemplars. Completed 25 skeleton
+  mechanics to the full schema, analyzing each as a cross-game primitive. Primary sources were read for
+  the mechanics where rule-level numbers matter: Michael Booth''s AIIDE 2009 slides on the Left 4 Dead
+  AI Director (intensity and phase timings); the RimWorld Wiki raid points, AI storytellers, and backstories
+  pages (threat budget formula, population-intent curve, backstory generation); the GPL Micropolis Java
+  engine source (crimeScan and doDisasters, read directly from the code); OpenRCT2 Ride.cpp (reliability
+  decay, age penalty, breakdown roll, inspection, repair, read directly from the code); the CK3 Wiki event
+  modding page; the Factorio Lua API docs; the Dwarf Fortress Wiki Legends and Historical figure pages;
+  and Tarn Adams''s Game AI Pro 2 chapter abstract. Wikipedia articles were used for game-level facts
+  (Papers, Please, Reigns, Eve Online, Spore, SimCity 2013, AI Dungeon, PowerWash Simulator, Permadeath,
+  Left 4 Dead, FTL, Command: Modern Operations, DCS World, Hardspace: Shipbreaker, Car Mechanic Simulator
+  2018, Prison Architect, Dwarf Fortress). Checked every source id and URL for existence immediately before
+  creating it; none existed. Scores were set by matching rubric anchor text and taking the lower anchor
+  when between two. No requires or specializes edges were added because none of the candidate dependencies
+  were strict. Synergy and tension were left to the orchestrator. Facts that could not be confirmed against
+  a source read in this run were removed or kept to widely known general statements; mechanics without
+  a supporting primary source stay asserted.'
 scope:
-  - mechanic
-  - source
+- mechanic
+- source
 contract_version: '1.0'
 proposals:
-  - kind: split
-    target: military-operations
-    detail: >-
-      military-operations bundles several kinds of state (platform kinematics, sensor detection against signatures,
-      weapon engagement probabilities, doctrine or ROE settings). Sensor detection with signatures and emission control
-      appears without operational-level combat in games such as Silent Hunter 3 (sonar and hydrophone detection) and
-      Elite Dangerous (heat signatures), so a separate sensor-detection mechanic (detection probability as a function of
-      sensor, range, and target signature) may pass the atomicity test. Kept as one mechanic for now.
-  - kind: other
-    target: villager-requests
-    detail: >-
-      villager-requests overlaps contracts-orders (economy-finance): both are discrete tasks with requirements, rewards, and
-      deadlines. Consider a specializes edge from villager-requests to contracts-orders, or a note that villager-requests
-      is the character-issued, socially rewarded form. Not added here because contracts-orders is still a skeleton and the
-      relation is not clearly strict.
-  - kind: other
-    target: adaptive-threat-scaling
-    detail: >-
-      storyteller-director and adaptive-threat-scaling are written so the director owns event timing and selection while
-      threat scaling owns event magnitude (the budget). Games such as RimWorld implement both in one storyteller object.
-      The orchestrator may want a requires or synergy edge between them in the global relation pass.
-notes: >-
-  All 25 owned mechanic files completed; family unchanged on all. 24 are sourced and villager-requests is asserted
-  (no primary source fetched). 28 new sources created, all cited by owned mechanics. The shared web search budget ran out partway through the run, so planned primary sources for
-  Factorio enemy evolution, Skyrim radiant quests, Stardew Valley Help Wanted requests, Eve Online time dilation and
-  corporate thefts, and RimWorld sapper and breach raids were not fetched; these are stated briefly from general
-  knowledge and are good verification targets. The Command: Modern Operations Wikipedia infobox date (2013) appears to
-  describe the predecessor Command: Modern Air/Naval Operations; Command: Modern Operations itself is in the catalog
-  as 2019. Car Mechanic Simulator 2021 facts come from the Car Mechanic Simulator 2018 Wikipedia article, which covers
-  the series.
+- kind: split
+  target: military-operations
+  detail: military-operations bundles several kinds of state (platform kinematics, sensor detection against
+    signatures, weapon engagement probabilities, doctrine or ROE settings). Sensor detection with signatures
+    and emission control appears without operational-level combat in games such as Silent Hunter 3 (sonar
+    and hydrophone detection) and Elite Dangerous (heat signatures), so a separate sensor-detection mechanic
+    (detection probability as a function of sensor, range, and target signature) may pass the atomicity
+    test. Kept as one mechanic for now.
+- kind: other
+  target: villager-requests
+  detail: 'villager-requests overlaps contracts-orders (economy-finance): both are discrete tasks with
+    requirements, rewards, and deadlines. Consider a specializes edge from villager-requests to contracts-orders,
+    or a note that villager-requests is the character-issued, socially rewarded form. Not added here because
+    contracts-orders is still a skeleton and the relation is not clearly strict.'
+- kind: other
+  target: adaptive-threat-scaling
+  detail: storyteller-director and adaptive-threat-scaling are written so the director owns event timing
+    and selection while threat scaling owns event magnitude (the budget). Games such as RimWorld implement
+    both in one storyteller object. The orchestrator may want a requires or synergy edge between them
+    in the global relation pass.
+notes: 'All 25 owned mechanic files completed; family unchanged on all. 24 are sourced and villager-requests
+  is asserted (no primary source fetched). 28 new sources created, all cited by owned mechanics. The shared
+  web search budget ran out partway through the run, so planned primary sources for Factorio enemy evolution,
+  Skyrim radiant quests, Stardew Valley Help Wanted requests, Eve Online time dilation and corporate thefts,
+  and RimWorld sapper and breach raids were not fetched; these are stated briefly from general knowledge
+  and are good verification targets. The Command: Modern Operations Wikipedia infobox date (2013) appears
+  to describe the predecessor Command: Modern Air/Naval Operations; Command: Modern Operations itself
+  is in the catalog as 2019. Car Mechanic Simulator 2021 facts come from the Car Mechanic Simulator 2018
+  Wikipedia article, which covers the series.'

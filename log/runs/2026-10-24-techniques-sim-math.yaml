@@ -1,5 +1,6 @@
 id: 2026-10-24-techniques-sim-math
 type: run
+kind: technique
 date: '2026-10-24'
 actor: agent
 operator: yoheinakajima
@@ -8,72 +9,67 @@ agent:
   harness: Claude app subagent
 purpose: Research and record simulation acceleration, learned physics, artificial life, and mathematical
   techniques that change simulation game mechanics.
-method: >-
-  Read AGENTS.md, CONTRACT.md sections 1-3, the technique, source and common schemas, the vocab files they
-  reference, rubrics and edge types, and the exemplars. Listed mechanics, games and techniques before each
-  file to avoid duplicates (no other technique files existed when these were written). Searched the web for
-  2024-2026 developments (MuJoCo Playground, MuJoCo Warp, Newton, Genesis World, PhysX GPU open-sourcing,
-  Aurora in Nature, ECMWF AIFS operational, FGN, DiffLogic CA, ASAL, AlphaEvolve and its open-source
-  successors), then fetched the arXiv record, journal page, official lab blog, repository, or engine docs for
-  each work and took numbers only from those pages. The shared web-search budget ran out after about 40
-  queries, so later facts came from fetching known primary URLs (arXiv ids, Nature DOIs, Distill, lab blogs).
-  Created 10 techniques: the 9 candidates plus subspace-neural-physics, split from graph-network-simulators
-  because it is a separate result (offline-simulation-trained subspace or morph-target networks) with a
-  game-industry lineage (Ubisoft La Forge 2019, Unreal ML Deformer). Created 52 sources. Wrote affects edges
-  mechanic by mechanic, keeping only mechanics whose state or update rule a cited result changes, and set
-  maturity and trl for use in games, not in AI generally. deployed_in is empty for all 10 because no game in
-  data/games/ was confirmed to use any of them at runtime. Kept differentiable-simulation separate from
-  massively-parallel-simulation (Brax is both) because each appears without the other: Isaac Gym is not
-  differentiable and DiffTaichi is not batched across worlds. Validated with scripts/validate.py --only on owned
-  files.
+method: 'Read AGENTS.md, CONTRACT.md sections 1-3, the technique, source and common schemas, the vocab
+  files they reference, rubrics and edge types, and the exemplars. Listed mechanics, games and techniques
+  before each file to avoid duplicates (no other technique files existed when these were written). Searched
+  the web for 2024-2026 developments (MuJoCo Playground, MuJoCo Warp, Newton, Genesis World, PhysX GPU
+  open-sourcing, Aurora in Nature, ECMWF AIFS operational, FGN, DiffLogic CA, ASAL, AlphaEvolve and its
+  open-source successors), then fetched the arXiv record, journal page, official lab blog, repository,
+  or engine docs for each work and took numbers only from those pages. The shared web-search budget ran
+  out after about 40 queries, so later facts came from fetching known primary URLs (arXiv ids, Nature
+  DOIs, Distill, lab blogs). Created 10 techniques: the 9 candidates plus subspace-neural-physics, split
+  from graph-network-simulators because it is a separate result (offline-simulation-trained subspace or
+  morph-target networks) with a game-industry lineage (Ubisoft La Forge 2019, Unreal ML Deformer). Created
+  52 sources. Wrote affects edges mechanic by mechanic, keeping only mechanics whose state or update rule
+  a cited result changes, and set maturity and trl for use in games, not in AI generally. deployed_in
+  is empty for all 10 because no game in data/games/ was confirmed to use any of them at runtime. Kept
+  differentiable-simulation separate from massively-parallel-simulation (Brax is both) because each appears
+  without the other: Isaac Gym is not differentiable and DiffTaichi is not batched across worlds. Validated
+  with scripts/validate.py --only on owned files.'
 contract_version: '1.0'
 proposals:
-  - kind: other
-    target: massively-parallel-simulation
-    detail: builds_on any reinforcement-learning technique from run 2026-10-24-techniques-rl-design that
-      depends on batched simulators (for example RL-trained NPC or creature policies); the dependency actually
-      runs the other way, so the RL technique should list builds_on massively-parallel-simulation.
-  - kind: other
-    target: alphaevolve-algorithm-discovery
-    detail: builds_on any LLM code-generation or LLM-agent technique created by run
-      2026-10-24-techniques-llm-agents, since the system is an LLM sampler inside an evolutionary loop.
-  - kind: other
-    target: neural-cellular-automata
-    detail: builds_on any quality-diversity or procedural-generation search technique created by run
-      2026-10-24-techniques-rl-design (Earle et al. 2021 trains NCA level generators with CMA-ME).
-  - kind: other
-    target: mean-field-games
-    detail: builds_on any multi-agent RL or equilibrium-solver technique created by run
-      2026-10-24-techniques-rl-design (mean-field MARL and OMD are learning-in-games methods).
-  - kind: new-mechanic
-    target: flow-field-crowd-navigation
-    detail: Candidate mechanic in agents-behavior or logistics-networks; crowds follow a shared potential or
-      flow field over the map instead of per-agent path searches (common in RTS and crowd sims). It would be
-      the natural target for mean-field-games and massively-parallel-simulation edges; currently mapped to
-      agent-pathfinding and traffic-congestion.
-  - kind: new-mechanic
-    target: emergent-artificial-life-field
-    detail: Candidate artificial-life mechanic; a continuous field of matter under a local rule produces
-      creatures with no declared stats (Lenia-style). Current mechanics (falling-sand-materials,
-      natural-selection) are only partial fits for continuous-alife-and-asal and neural-cellular-automata.
-notes: >-
-  No source with market or adoption counts for games (Steam AI disclosures, studio surveys) was found in this
-  area. Adoption-relevant sources for the report:
-  src-ecmwf-2025-aifs-operational: a major forecasting centre made an ML weather model operational in Feb
-  2025 at about 1,000x less energy per forecast, so learned physics surrogates are past the lab stage in
-  science, though not in games.
-  src-thacker-2025-physx-gpu-open-source: PhysX GPU source went BSD-3 in April 2025, lowering the barrier to
-  GPU physics in engines other than Unreal (which uses Chaos).
-  src-larabel-2025-newton-linux-foundation: Newton (NVIDIA, Google DeepMind, Disney Research) moved to the
-  Linux Foundation in Sep 2025; GPU physics tooling is consolidating around open, multi-vendor-governed code.
-  src-epic-2026-ml-deformer: Unreal Engine ships a learned deformation framework trained on offline sims,
-  the most game-ready learned-physics path in this area.
-  src-deepmind-2025-alphaevolve-blog: an evolved scheduling heuristic has recovered about 0.7% of Google's
-  fleet compute in production for over a year, showing evolved code can ship when an evaluator exists.
-  src-matthews-2024-craftax: a full survival-crafting game ported to JAX trains RL 250x faster, evidence that
-  game logic (not only physics) can be batched on GPUs.
-  Facts with lower confidence: the Genesis 43M FPS / 430,000x figure is a launch claim reported by press, not
-  an independent benchmark; the Holden 2019 speedup is 300-5000x per Ubisoft and GDC but 300-4000x on the
-  author's project page; the NCA texture paper title on arXiv is "Texture Generation with Neural Cellular
-  Automata" (the CVPR 2021 version is "Self-Organising Textures"); src-lam-2023-graphcast cites the arXiv record
-  because the Science page could not be fetched.
+- kind: other
+  target: massively-parallel-simulation
+  detail: builds_on any reinforcement-learning technique from run 2026-10-24-techniques-rl-design that
+    depends on batched simulators (for example RL-trained NPC or creature policies); the dependency actually
+    runs the other way, so the RL technique should list builds_on massively-parallel-simulation.
+- kind: other
+  target: alphaevolve-algorithm-discovery
+  detail: builds_on any LLM code-generation or LLM-agent technique created by run 2026-10-24-techniques-llm-agents,
+    since the system is an LLM sampler inside an evolutionary loop.
+- kind: other
+  target: neural-cellular-automata
+  detail: builds_on any quality-diversity or procedural-generation search technique created by run 2026-10-24-techniques-rl-design
+    (Earle et al. 2021 trains NCA level generators with CMA-ME).
+- kind: other
+  target: mean-field-games
+  detail: builds_on any multi-agent RL or equilibrium-solver technique created by run 2026-10-24-techniques-rl-design
+    (mean-field MARL and OMD are learning-in-games methods).
+- kind: new-mechanic
+  target: flow-field-crowd-navigation
+  detail: Candidate mechanic in agents-behavior or logistics-networks; crowds follow a shared potential
+    or flow field over the map instead of per-agent path searches (common in RTS and crowd sims). It would
+    be the natural target for mean-field-games and massively-parallel-simulation edges; currently mapped
+    to agent-pathfinding and traffic-congestion.
+- kind: new-mechanic
+  target: emergent-artificial-life-field
+  detail: Candidate artificial-life mechanic; a continuous field of matter under a local rule produces
+    creatures with no declared stats (Lenia-style). Current mechanics (falling-sand-materials, natural-selection)
+    are only partial fits for continuous-alife-and-asal and neural-cellular-automata.
+notes: 'No source with market or adoption counts for games (Steam AI disclosures, studio surveys) was
+  found in this area. Adoption-relevant sources for the report: src-ecmwf-2025-aifs-operational: a major
+  forecasting centre made an ML weather model operational in Feb 2025 at about 1,000x less energy per
+  forecast, so learned physics surrogates are past the lab stage in science, though not in games. src-thacker-2025-physx-gpu-open-source:
+  PhysX GPU source went BSD-3 in April 2025, lowering the barrier to GPU physics in engines other than
+  Unreal (which uses Chaos). src-larabel-2025-newton-linux-foundation: Newton (NVIDIA, Google DeepMind,
+  Disney Research) moved to the Linux Foundation in Sep 2025; GPU physics tooling is consolidating around
+  open, multi-vendor-governed code. src-epic-2026-ml-deformer: Unreal Engine ships a learned deformation
+  framework trained on offline sims, the most game-ready learned-physics path in this area. src-deepmind-2025-alphaevolve-blog:
+  an evolved scheduling heuristic has recovered about 0.7% of Google''s fleet compute in production for
+  over a year, showing evolved code can ship when an evaluator exists. src-matthews-2024-craftax: a full
+  survival-crafting game ported to JAX trains RL 250x faster, evidence that game logic (not only physics)
+  can be batched on GPUs. Facts with lower confidence: the Genesis 43M FPS / 430,000x figure is a launch
+  claim reported by press, not an independent benchmark; the Holden 2019 speedup is 300-5000x per Ubisoft
+  and GDC but 300-4000x on the author''s project page; the NCA texture paper title on arXiv is "Texture
+  Generation with Neural Cellular Automata" (the CVPR 2021 version is "Self-Organising Textures"); src-lam-2023-graphcast
+  cites the arXiv record because the Science page could not be fetched.'

@@ -1,5 +1,6 @@
 id: 2026-10-24-catalog-gh
 type: run
+kind: catalog
 date: '2026-10-24'
 actor: agent
 operator: yoheinakajima
@@ -7,88 +8,84 @@ agent:
   model: claude-opus-5-5
   harness: Claude app subagent
 purpose: Verify, characterize, and decompose factory-automation and programming games into mechanics.
-method: >-
-  Read AGENTS.md, CONTRACT.md sections 1-3, the game, common, and source schemas, every vocab the game schema
-  references, rubrics, edge types, and the rimworld, needs-decay, and src-wikipedia-rimworld exemplars. For each of
-  the 12 partition games, verified release dates, developer, and platforms against Wikipedia, Steam store pages,
-  official docs or developer blogs, and community wikis (Factorio, Satisfactory, DSP, shapez 2, Captain of
-  Industry, TFWR, Autonauts wikis; docs.screeps.com; the Screeps blog archive; Bitburner changelogs on GitHub).
-  Pulled specific rule numbers (belt throughput, pollution diffusion, evolution formula, grid-trip rules, logistics
-  station limits, creep body rules, CPU bucket, tick costs) from those pages. Mapped each game only to existing
-  mechanic ids after reading the definitions of player-programming, signal-circuits, blueprints,
-  design-performance-rating, comparative-histograms, adaptive-threat-scaling, raid-defense, modular-assembly,
-  vertical-layers, tech-tree, milestone-unlocks, and wear-breakdown. Cited existing sources from taxonomy runs
-  (Factorio FFF posts and wiki, Screeps docs, Zachtronics Wikipedia pages) instead of duplicating them, checked
-  each new source id for existence immediately before writing it, and created 64 sources. Scored emergence and
-  influence against rubric anchors, taking the lower anchor when between two. The run's web search budget ran
-  out partway through; the remaining facts came from direct fetches of pages already found.
+method: Read AGENTS.md, CONTRACT.md sections 1-3, the game, common, and source schemas, every vocab the
+  game schema references, rubrics, edge types, and the rimworld, needs-decay, and src-wikipedia-rimworld
+  exemplars. For each of the 12 partition games, verified release dates, developer, and platforms against
+  Wikipedia, Steam store pages, official docs or developer blogs, and community wikis (Factorio, Satisfactory,
+  DSP, shapez 2, Captain of Industry, TFWR, Autonauts wikis; docs.screeps.com; the Screeps blog archive;
+  Bitburner changelogs on GitHub). Pulled specific rule numbers (belt throughput, pollution diffusion,
+  evolution formula, grid-trip rules, logistics station limits, creep body rules, CPU bucket, tick costs)
+  from those pages. Mapped each game only to existing mechanic ids after reading the definitions of player-programming,
+  signal-circuits, blueprints, design-performance-rating, comparative-histograms, adaptive-threat-scaling,
+  raid-defense, modular-assembly, vertical-layers, tech-tree, milestone-unlocks, and wear-breakdown. Cited
+  existing sources from taxonomy runs (Factorio FFF posts and wiki, Screeps docs, Zachtronics Wikipedia
+  pages) instead of duplicating them, checked each new source id for existence immediately before writing
+  it, and created 64 sources. Scored emergence and influence against rubric anchors, taking the lower
+  anchor when between two. The run's web search budget ran out partway through; the remaining facts came
+  from direct fetches of pages already found.
 scope:
-  - data/games/{factorio,satisfactory,dyson-sphere-program,shapez-2,captain-of-industry,mindustry,spacechem,opus-magnum,screeps,bitburner,the-farmer-was-replaced,autonauts}.yaml
-  - data/sources/ (new files created by this run)
+- data/games/{factorio,satisfactory,dyson-sphere-program,shapez-2,captain-of-industry,mindustry,spacechem,opus-magnum,screeps,bitburner,the-farmer-was-replaced,autonauts}.yaml
+- data/sources/ (new files created by this run)
 contract_version: '1.0'
 proposals:
-  - kind: new-mechanic
-    target: machine-boosting
-    detail: >-
-      Machine boosting: per-machine modifiers trade an extra cost (power, scarce items) for speed, productivity, or
-      efficiency, e.g. Factorio speed/productivity/efficiency modules and beacons, Satisfactory clock speed (1-250%)
-      with Power Shards and a nonlinear power exponent of about 1.32 plus Somersloop amplification, DSP proliferator
-      coating, Mindustry coolant and lubricant. Present in nearly every factory game; currently folded into
-      production-chain notes.
-  - kind: new-mechanic
-    target: megaproject-sink
-    detail: >-
-      Megaproject sink: a terminal construction absorbs very large quantities of produced goods in staged phases
-      and acts as the game's long-run goal and output sink, e.g. Factorio rocket silo and Space Age edge-of-system
-      platform, Satisfactory Space Elevator (five Project Assembly phases), DSP Dyson sphere and swarm, shapez 2
-      operator goal lines with exponential cost growth. Differs from milestone-unlocks (thresholds) and
-      tech-tree (research).
-  - kind: new-mechanic
-    target: prestige-reset
-    detail: >-
-      Prestige reset: the player voluntarily resets most progress in exchange for permanent multipliers that make
-      the next cycle faster, e.g. Bitburner augmentation installs and BitNode destruction granting Source-Files;
-      common across incremental games. No existing mechanic covers the reset-for-multiplier loop.
-  - kind: new-mechanic
-    target: welfare-currency
-    detail: >-
-      Welfare-generated political currency: satisfied population needs generate a spendable currency used for
-      edicts, instant actions, and expansion, e.g. Captain of Industry Unity (about 1-2 per fully met need per
-      month, spent on edicts, quick-build, repairs, outposts). Related to citizen-satisfaction and
-      policy-toggles but neither owns a spendable stock.
-  - kind: new-mechanic
-    target: programming-by-demonstration
-    detail: >-
-      Programming by demonstration: agents learn a routine by recording the player performing it, and the recorded
-      steps become an editable program, e.g. Autonauts workerbots (Scratch-style blocks, instruction cap set by bot
-      hardware) and Satisfactory vehicle route recording. Could be a specialization of player-programming.
-  - kind: new-mechanic
-    target: execution-budget
-    detail: >-
-      Execution budget: player code is metered by a simulated compute budget that becomes the scarce resource,
-      e.g. Screeps CPU limit with a 10,000 bucket, The Farmer Was Replaced per-operation tick costs (move 200),
-      Autonauts instruction caps, Bitburner script RAM. Currently described inside player-programming; may be a
-      lever of it rather than a separate mechanic.
-  - kind: other
-    target: factorio
-    detail: >-
-      Factorio `year` set to 2013 (purchasable alpha after the February 2013 Indiegogo campaign, per Game Developer
-      2014) instead of the skeleton's 2016 (Steam early access). No exact 2013 alpha date was found; confidence
-      medium. Orchestrator may prefer 2016 if the dataset standard treats crowdfunding alphas differently.
-  - kind: other
-    target: screeps
-    detail: >-
-      Screeps `year` set to 2014 (public browser Simulation mode during the late-2014 Indiegogo campaign; a December
-      2015 blog post says a year has passed since initial launch) with year_full_release 2016 (Steam full release
-      2016-11-16). The persistent MMO opened only to backers in May 2015. Developer changed to Screeps, LLC.
-notes: >-
-  All 12 games are complete and sourced. Skeleton corrections: Factorio year 2013; Screeps year 2014; Bitburner
-  year 2017 is inferred from the earliest dated changelog entry (v0.26.4, 2017-08-01), with 1.0 on 2021-11-10 and
-  Steam on 2021-12-10. Captain of Industry and Dyson Sphere Program were still in early access in October 2026,
-  so they have no year_full_release. shapez 2 1.0 was 2026-04-23. Satisfactory consoles 2025-11-04. Opus
-  Magnum Switch 2026-03-17 (Wikipedia only). Captain of Industry's subgenre stays factory-automation with
-  city-builder secondary. SpaceChem, Opus Magnum, and Bitburner are boundary_case: true: they are puzzle and
-  incremental games included for player-programming and the histogram mechanics. Influence edges: Factorio to
-  minecraft (IndustrialCraft and BuildCraft mods), Satisfactory and Mindustry to factorio (press comparison, medium
-  confidence), DSP to stellaris (stated), Opus Magnum to spacechem (same designer, medium). shapez (2020) and The
-  Codex of Alchemical Engineering are not in data/games, so those lineages are recorded as claims.
+- kind: new-mechanic
+  target: machine-boosting
+  detail: 'Machine boosting: per-machine modifiers trade an extra cost (power, scarce items) for speed,
+    productivity, or efficiency, e.g. Factorio speed/productivity/efficiency modules and beacons, Satisfactory
+    clock speed (1-250%) with Power Shards and a nonlinear power exponent of about 1.32 plus Somersloop
+    amplification, DSP proliferator coating, Mindustry coolant and lubricant. Present in nearly every
+    factory game; currently folded into production-chain notes.'
+- kind: new-mechanic
+  target: megaproject-sink
+  detail: 'Megaproject sink: a terminal construction absorbs very large quantities of produced goods in
+    staged phases and acts as the game''s long-run goal and output sink, e.g. Factorio rocket silo and
+    Space Age edge-of-system platform, Satisfactory Space Elevator (five Project Assembly phases), DSP
+    Dyson sphere and swarm, shapez 2 operator goal lines with exponential cost growth. Differs from milestone-unlocks
+    (thresholds) and tech-tree (research).'
+- kind: new-mechanic
+  target: prestige-reset
+  detail: 'Prestige reset: the player voluntarily resets most progress in exchange for permanent multipliers
+    that make the next cycle faster, e.g. Bitburner augmentation installs and BitNode destruction granting
+    Source-Files; common across incremental games. No existing mechanic covers the reset-for-multiplier
+    loop.'
+- kind: new-mechanic
+  target: welfare-currency
+  detail: 'Welfare-generated political currency: satisfied population needs generate a spendable currency
+    used for edicts, instant actions, and expansion, e.g. Captain of Industry Unity (about 1-2 per fully
+    met need per month, spent on edicts, quick-build, repairs, outposts). Related to citizen-satisfaction
+    and policy-toggles but neither owns a spendable stock.'
+- kind: new-mechanic
+  target: programming-by-demonstration
+  detail: 'Programming by demonstration: agents learn a routine by recording the player performing it,
+    and the recorded steps become an editable program, e.g. Autonauts workerbots (Scratch-style blocks,
+    instruction cap set by bot hardware) and Satisfactory vehicle route recording. Could be a specialization
+    of player-programming.'
+- kind: new-mechanic
+  target: execution-budget
+  detail: 'Execution budget: player code is metered by a simulated compute budget that becomes the scarce
+    resource, e.g. Screeps CPU limit with a 10,000 bucket, The Farmer Was Replaced per-operation tick
+    costs (move 200), Autonauts instruction caps, Bitburner script RAM. Currently described inside player-programming;
+    may be a lever of it rather than a separate mechanic.'
+- kind: other
+  target: factorio
+  detail: Factorio `year` set to 2013 (purchasable alpha after the February 2013 Indiegogo campaign, per
+    Game Developer 2014) instead of the skeleton's 2016 (Steam early access). No exact 2013 alpha date
+    was found; confidence medium. Orchestrator may prefer 2016 if the dataset standard treats crowdfunding
+    alphas differently.
+- kind: other
+  target: screeps
+  detail: Screeps `year` set to 2014 (public browser Simulation mode during the late-2014 Indiegogo campaign;
+    a December 2015 blog post says a year has passed since initial launch) with year_full_release 2016
+    (Steam full release 2016-11-16). The persistent MMO opened only to backers in May 2015. Developer
+    changed to Screeps, LLC.
+notes: 'All 12 games are complete and sourced. Skeleton corrections: Factorio year 2013; Screeps year
+  2014; Bitburner year 2017 is inferred from the earliest dated changelog entry (v0.26.4, 2017-08-01),
+  with 1.0 on 2021-11-10 and Steam on 2021-12-10. Captain of Industry and Dyson Sphere Program were still
+  in early access in October 2026, so they have no year_full_release. shapez 2 1.0 was 2026-04-23. Satisfactory
+  consoles 2025-11-04. Opus Magnum Switch 2026-03-17 (Wikipedia only). Captain of Industry''s subgenre
+  stays factory-automation with city-builder secondary. SpaceChem, Opus Magnum, and Bitburner are boundary_case:
+  true: they are puzzle and incremental games included for player-programming and the histogram mechanics.
+  Influence edges: Factorio to minecraft (IndustrialCraft and BuildCraft mods), Satisfactory and Mindustry
+  to factorio (press comparison, medium confidence), DSP to stellaris (stated), Opus Magnum to spacechem
+  (same designer, medium). shapez (2020) and The Codex of Alchemical Engineering are not in data/games,
+  so those lineages are recorded as claims.'

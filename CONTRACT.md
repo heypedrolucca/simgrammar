@@ -33,17 +33,17 @@ Every other artifact (tables, graph files, wiki, paper, site) is a projection bu
 
 **I7. Derived values are never stored.** Counts, prevalence, earliest appearance, clusters, exposure, priority, and backlinks are computed by `scripts/analyze.py`. A stored copy would drift; the schema has no field for them.
 
-**I8. Status is a claim about evidence.** `asserted` means unsourced. `sourced` requires citations. `verified` requires a second run, distinct from the creating run, listed in `provenance.reviewed`. No one verifies their own work. Techniques always cite (E012).
+**I8. Status is a claim about evidence.** `asserted` means unsourced. `sourced` requires citations. `verified` requires a run of kind `verification`, distinct from and not earlier than the creating run, listed in `provenance.reviewed`. No one verifies their own work. Only runs of kind `taxonomy` create mechanics (E031). Techniques always cite (E012).
 
 **I9. Provenance is append-only.** Every entity names the run that created it. Run files are never rewritten after merge except for typos. Git history plus run records reconstruct how every fact entered the graph.
 
-**I10. Prose cannot outrun data.** Report text gets dataset numbers only through tokens (`{{count:game}}`, `{{stat:...}}`, `{{table:...}}`). Literal counts fail E021. Every `[[id]]` link and `[@src-...]` citation must resolve.
+**I10. Prose cannot outrun data.** Report text gets dataset numbers only through tokens (`{{count:game}}`, `{{stat:...}}`, `{{table:...}}`). Literal counts fail E021. Sentences that interpret data (a ranking, a sign, a cluster membership) carry `{{assert:...}}` tokens that fail the build when the data stops supporting them (E029). Every `[[id]]` link and `[@src-...]` citation must resolve.
 
 **I11. Builds are deterministic.** Same inputs, byte-identical outputs. No timestamps, no unordered iteration, no network calls in the build.
 
 **I12. Admission tests are part of the contract.**
 
-- *Game*: a released or publicly demonstrated work whose core loop is driven by a model of some system (§AGENTS.md "Game inclusion test"). Works included only for specific mechanics set `boundary_case: true`.
+- *Game*: a released or publicly demonstrated work whose core loop is driven by a model of some system (§AGENTS.md "Game inclusion test"). Works that fail the "driven by a simulated system" condition but are included for specific mechanics set `boundary_case: true`.
 - *Mechanic*: passes all four: (1) **nameable**: designers would recognize it across games; (2) **atomic**: owns one kind of state and one update rule; if it decomposes into two mechanics that each appear without the other, split it; (3) **tunable**: has at least two levers; (4) **removable**: a game could drop it and keep running. Combinations of mechanics are opportunities or game features, not mechanics.
 - *Technique*: a dated, citable result (paper, release, shipped system) that changes what at least one mechanic can be. Vendor marketing alone is not sufficient.
 - *Opportunity*: names at least one mechanic, has a validation experiment, and a falsifiable signal with a resolve-by date.
@@ -96,7 +96,7 @@ Run `make check`. Every finding names a rule code; `--json` gives machine-readab
 | E004 | schema | Entity validates against its JSON Schema (no extra fields, required fields present, lengths and types). | Match schema/<type>.schema.json. Unknown fields are never allowed; propose schema changes in the run's `proposals`. |
 | E005 | vocab | Every `x-vocab` field uses a term defined in vocab/<name>.yaml. | Use an existing term. To add one, open an ADR (decisions/) and add it in the same PR. |
 | E006 | ref-missing | Every reference (`x-edge`, `x-ref`) resolves to an existing entity or run. | Create the target first or fix the id. |
-| E007 | ref-type | Edge targets have the type declared in vocab/edge_types.yaml, and the edge is stored on its declared owner type. | Store the edge on the owner side only; inverses are computed. |
+| E007 | ref-type | Edge targets have the type declared in vocab/edge_types.yaml, and the edge is stored on its declared owner type. | Point the edge at an entity of the declared target type, and store it only on the declared owner type (vocab/edge_types.yaml); inverses are computed. |
 | E008 | self-edge | No entity has an edge to itself. | Remove the self-reference. |
 | E009 | duplicate-edge | The same (source, type, target) appears at most once. | Merge duplicate entries. |
 | E010 | symmetric-owner | Symmetric edges (synergy, tension) are stored once, on the entity whose id sorts first. | Move the edge to the lexicographically smaller id and delete the mirror. |
@@ -110,17 +110,20 @@ Run `make check`. Every finding names a rule code; `--json` gives machine-readab
 | E018 | rubric | Ordinal fields name a rubric scale that exists, and values are anchor levels of that scale. | Score against the anchors in vocab/rubrics.yaml. |
 | E019 | report-token | Every `{{...}}` token in report/src resolves (count, stat, table, figure). | Use a defined token; tables live in report/tables.yaml, stats in scripts/analyze.py. |
 | E020 | report-link | Every `[[id]]` link and `[@src-id]` citation in report/src resolves. | Fix the id or create the entity. |
-| E021 | report-literal-stat | Report prose states no literal dataset counts (e.g. '142 games'); counts must come from tokens. | Replace the number with a token such as `{{count:game}}`. |
+| E021 | report-literal-stat | Report prose states no literal counts or percentages of dataset nouns (games, mechanics, techniques, uses, edges, sources...), allowing up to two words between number and noun, unless the same sentence carries a citation (an external figure). | Replace the number with a token such as `{{count:game}}`. |
+| E030 | style | Names and summaries of non-source entities contain no em-dash, no markdown, and none of the banned hype words (revolutionary, groundbreaking, game-changing, unprecedented, cutting-edge, paradigm-shifting). | Rewrite plainly: commas or parentheses for asides, no emphasis markup, specific words instead of hype. |
+| E031 | run-kind | Mechanics are created only by runs of kind `taxonomy` or `bootstrap`; status `verified` requires a `reviewed` run of kind `verification`, distinct from the creating run and dated on or after it. | Record a new-mechanic proposal instead of creating one; to verify, open a verification run and re-check the entity against its sources. |
 | E022 | vocab-integrity | Vocab files have unique term ids, a definition per term; edge_types declare owner, target, inverse, symmetric. | Repair the vocab file. |
-| E023 | dist-fresh | dist/ and GENERATED blocks equal a fresh build (`python scripts/build.py --check`). | Run `make build` and commit the result. Never hand-edit dist/ or GENERATED blocks. |
-| E024 | dates | `year_full_release` >= `year`; technique years and source dates are not in the future. | Correct the dates. |
+| E023 | dist-fresh | dist/ and GENERATED blocks equal a fresh build, and every required GENERATED block is present (enforced by `python scripts/build.py --check`, not by validate.py). | Run `make build` and commit the result. Never hand-edit dist/ or GENERATED blocks. |
+| E024 | dates | `year_full_release` >= `year`; game years, technique years, and source dates (full date) are not in the future. | Correct the dates. |
 | E025 | influence-order | A game's `influenced_by` targets were released in or before its year. | Reverse or remove the edge. |
 | E026 | contested | `contested` entities carry at least one claim with `disputes` filled. | Record the dispute and its source. |
-| E027 | placeholder | No string anywhere in data/ or log/ contains the scaffold placeholder `TODO`. | Fill every field `scripts/new.py` scaffolded. |
-| E028 | contract-version | The version in CONTRACT.md's header equals `contract_version` in schema/registry.yaml, and every schema `$id` carries that version. | Bump all three together. |
+| E027 | placeholder | No string in data/, log/, vocab/, or report/src contains a placeholder (TODO, TBD, FIXME, any case). | Fill every field `scripts/new.py` scaffolded. |
+| E028 | contract-version | The version in CONTRACT.md's header equals `contract_version` in schema/registry.yaml, every schema `$id` carries that version, and every run records that version. | Bump all three together. |
 | E029 | report-assertion | Every `{{assert:<stat> <op> <value>}}` in report/src holds. Assertions pin interpretive prose (rankings, signs, orderings) to the data it describes. | The data changed under the prose: rewrite the sentence next to the assertion, then update the assertion. |
 | W101 | unused-vocab | Vocab terms not used by any entity (warning). | Fine early on; prune or document before 2.0. |
-| W102 | verification-queue | Count of `asserted` entities awaiting sources (info). | Pick one from dist/analysis/verification_queue.csv and source it. |
+| W103 | thin-decomposition | Games tagged with fewer than 5 mechanics (warning; AGENTS.md expects 6-14). | Tag every clearly present mechanic, or record why the game is thin in design_notes. |
+| W102 | verification-queue | Count of `asserted` entities awaiting sources (info). | Pick one from dist/analysis/verification-queue.csv and source it. |
 <!-- END GENERATED: rules -->
 
 ## 6. Vocabularies

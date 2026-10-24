@@ -1,79 +1,88 @@
 id: 2026-10-24-catalog-ge
 type: run
+kind: catalog
 date: '2026-10-24'
 actor: agent
 operator: yoheinakajima
 agent:
   model: claude-opus-5-5
   harness: Claude app subagent
-purpose: Verify, characterize, and decompose management, tycoon, business, transport, and sports-management games into mechanics.
-method: Read AGENTS.md, CONTRACT.md sections 1-3, game/common/source/run schemas, all referenced vocab files, rubrics.yaml,
-  edge_types.yaml, and the rimworld, needs-decay, and src-wikipedia-rimworld exemplars. Verified year, developer, platforms,
-  and mechanics for 22 games from Wikipedia (game and series articles, plus Sid Meier and Football Manager 2005 articles)
-  via WebFetch, and Steam store pages for Big Ambitions, Schedule I, Offworld Trading Company, and Motorsport Manager. Used
-  GamesBeat and SpaceSector 2015 articles for Offworld's early access date and its M.U.L.E./Railroad Tycoon lineage. Seven
-  Wikipedia sources already existed from taxonomy runs (lemonade-stand, mule, railroad-tycoon, theme-hospital, offworld-trading-company,
-  rollercoaster-tycoon, capitalism-video-game) and were cited, not rewritten; a duplicate Capitalism source this run created
-  was removed in favor of the existing one. Mechanics were chosen only from `find.py --list mechanic`; categorical fields
-  from vocab; emergence and influence scored against rubric anchors, taking the lower anchor when between. The shared WebSearch
-  budget ran out midway, so some mechanic notes (e.g. RCT ratings, Planet Zoo habitat needs, Game Dev Tycoon sliders) rest
-  on series articles or general knowledge rather than a game-specific citation; numbers were stated only where a source gave
-  them. Corrected subgenre of big-pharma to factory-automation (secondary business-economic-sim).
+purpose: Verify, characterize, and decompose management, tycoon, business, transport, and sports-management
+  games into mechanics.
+method: Read AGENTS.md, CONTRACT.md sections 1-3, game/common/source/run schemas, all referenced vocab
+  files, rubrics.yaml, edge_types.yaml, and the rimworld, needs-decay, and src-wikipedia-rimworld exemplars.
+  Verified year, developer, platforms, and mechanics for 22 games from Wikipedia (game and series articles,
+  plus Sid Meier and Football Manager 2005 articles) via WebFetch, and Steam store pages for Big Ambitions,
+  Schedule I, Offworld Trading Company, and Motorsport Manager. Used GamesBeat and SpaceSector 2015 articles
+  for Offworld's early access date and its M.U.L.E./Railroad Tycoon lineage. Seven Wikipedia sources already
+  existed from taxonomy runs (lemonade-stand, mule, railroad-tycoon, theme-hospital, offworld-trading-company,
+  rollercoaster-tycoon, capitalism-video-game) and were cited, not rewritten; a duplicate Capitalism source
+  this run created was removed in favor of the existing one. Mechanics were chosen only from `find.py
+  --list mechanic`; categorical fields from vocab; emergence and influence scored against rubric anchors,
+  taking the lower anchor when between. The shared WebSearch budget ran out midway, so some mechanic notes
+  (e.g. RCT ratings, Planet Zoo habitat needs, Game Dev Tycoon sliders) rest on series articles or general
+  knowledge rather than a game-specific citation; numbers were stated only where a source gave them. Corrected
+  subgenre of big-pharma to factory-automation (secondary business-economic-sim).
 contract_version: '1.0'
 proposals:
 - kind: new-mechanic
   target: advertising-awareness
-  detail: 'Advertising awareness: spend on ads or marketing raises a demand or brand-awareness stock that decays without upkeep
-    and multiplies customer traffic. Used by lemonade-stand (signs), capitalism (advertising units and brand), two-point-hospital
-    (assistant marketing campaigns), big-ambitions (marketing), game-dev-tycoon (marketing and hype). Levers: cost per unit,
-    decay rate, saturation curve.'
+  detail: 'Advertising awareness: spend on ads or marketing raises a demand or brand-awareness stock that
+    decays without upkeep and multiplies customer traffic. Used by lemonade-stand (signs), capitalism
+    (advertising units and brand), two-point-hospital (assistant marketing campaigns), big-ambitions (marketing),
+    game-dev-tycoon (marketing and hype). Levers: cost per unit, decay rate, saturation curve.'
 - kind: new-mechanic
   target: negotiation
-  detail: 'Negotiation: a bilateral offer and counteroffer exchange over wages, prices, or contract terms against an AI''s
-    reservation value, with failure ending talks or causing strikes. Used by theme-park (wage and supply negotiations, strikes),
-    football-manager (transfer and contract talks with agents), out-of-the-park-baseball (contracts and trades), motorsport-manager
-    (driver contracts). Levers: reservation value spread, number of rounds, patience, information shown.'
+  detail: 'Negotiation: a bilateral offer and counteroffer exchange over wages, prices, or contract terms
+    against an AI''s reservation value, with failure ending talks or causing strikes. Used by theme-park
+    (wage and supply negotiations, strikes), football-manager (transfer and contract talks with agents),
+    out-of-the-park-baseball (contracts and trades), motorsport-manager (driver contracts). Levers: reservation
+    value spread, number of rounds, patience, information shown.'
 - kind: new-mechanic
   target: track-laying
-  detail: 'Track laying: the player builds rail or coaster track segment by segment with grade, curvature, and cost constraints,
-    distinct from free-placement of discrete buildings. Used by railroad-tycoon, transport-tycoon, rollercoaster-tycoon, planet-coaster.
-    Levers: grade limits, curve radius, cost by terrain, allowed elements.'
+  detail: 'Track laying: the player builds rail or coaster track segment by segment with grade, curvature,
+    and cost constraints, distinct from free-placement of discrete buildings. Used by railroad-tycoon,
+    transport-tycoon, rollercoaster-tycoon, planet-coaster. Levers: grade limits, curve radius, cost by
+    terrain, allowed elements.'
 - kind: new-mechanic
   target: dated-tech-timeline
-  detail: 'Dated technology timeline: new vehicle models, consoles, or products enter and retire on a calendar tied to in-game
-    years rather than research, forcing fleet or platform renewal. Used by transport-tycoon (1930-2030 vehicle models), railroad-tycoon
-    (locomotives by era), game-dev-tycoon (fictional consoles launching and retiring). Levers: introduction dates, lifespan,
-    prototype reliability.'
+  detail: 'Dated technology timeline: new vehicle models, consoles, or products enter and retire on a
+    calendar tied to in-game years rather than research, forcing fleet or platform renewal. Used by transport-tycoon
+    (1930-2030 vehicle models), railroad-tycoon (locomotives by era), game-dev-tycoon (fictional consoles
+    launching and retiring). Levers: introduction dates, lifespan, prototype reliability.'
 - kind: new-mechanic
   target: catch-up-balancing
-  detail: 'Catch-up balancing: rules that systematically favor trailing players, such as ties going to the loser, events that
-    spare last place, or removing auctions that compound the leader. Used by mule (documented by Bunten). Distinct from adaptive-threat-scaling,
-    which scales hostile pressure with player strength. Levers: which systems are biased, strength of bias, visibility to
-    players.'
+  detail: 'Catch-up balancing: rules that systematically favor trailing players, such as ties going to
+    the loser, events that spare last place, or removing auctions that compound the leader. Used by mule
+    (documented by Bunten). Distinct from adaptive-threat-scaling, which scales hostile pressure with
+    player strength. Levers: which systems are biased, strength of bias, visibility to players.'
 - kind: new-mechanic
   target: heat-wanted-level
-  detail: 'Heat or wanted level: illegal actions observed by authorities raise a decaying suspicion stock that escalates enforcement
-    (searches, roadblocks, pursuit, arrest). Used by schedule-i (wanted status, searches, curfews). Distinct from crime-policing,
-    which models crime arising from population conditions. Levers: observation radius, decay rate, escalation thresholds.'
+  detail: 'Heat or wanted level: illegal actions observed by authorities raise a decaying suspicion stock
+    that escalates enforcement (searches, roadblocks, pursuit, arrest). Used by schedule-i (wanted status,
+    searches, curfews). Distinct from crime-policing, which models crime arising from population conditions.
+    Levers: observation radius, decay rate, escalation thresholds.'
 - kind: new-mechanic
   target: genome-modification
-  detail: 'Genome modification: the player edits an organism''s genome directly by inserting gene segments that trade stats,
-    aggression, or appearance, without breeding. Used by jurassic-world-evolution (modern-species DNA fills genome gaps).
-    Distinct from trait-inheritance. Levers: completion threshold, stat tradeoffs, side effects.'
+  detail: 'Genome modification: the player edits an organism''s genome directly by inserting gene segments
+    that trade stats, aggression, or appearance, without breeding. Used by jurassic-world-evolution (modern-species
+    DNA fills genome gaps). Distinct from trait-inheritance. Levers: completion threshold, stat tradeoffs,
+    side effects.'
 - kind: new-mechanic
   target: board-confidence
-  detail: 'Board or owner confidence: an evaluator holds expectations (league position, budget, profit) and a confidence stock
-    updated by results; falling below a threshold gets the player fired. Used by football-manager (board and fan confidence,
-    sacking), out-of-the-park-baseball (owner expectations), motorsport-manager (chairman expectations). Levers: expectation
-    setting, update weight per result, firing threshold.'
+  detail: 'Board or owner confidence: an evaluator holds expectations (league position, budget, profit)
+    and a confidence stock updated by results; falling below a threshold gets the player fired. Used by
+    football-manager (board and fan confidence, sacking), out-of-the-park-baseball (owner expectations),
+    motorsport-manager (chairman expectations). Levers: expectation setting, update weight per result,
+    firing threshold.'
 - kind: other
   target: schedule-i
-  detail: 'Release status: Schedule I is in Steam Early Access since 2025-03-24 with a planned exit in Q4 2027; year set to
-    2025 and no year_full_release.'
+  detail: 'Release status: Schedule I is in Steam Early Access since 2025-03-24 with a planned exit in
+    Q4 2027; year set to 2025 and no year_full_release.'
 - kind: other
   target: big-ambitions
-  detail: 'Release status: Steam lists early access 2023-03-10 and release 2026-08-28; recorded year 2023 and year_full_release
-    2026. A second check of the 1.0 date is worthwhile because it is recent.'
+  detail: 'Release status: Steam lists early access 2023-03-10 and release 2026-08-28; recorded year 2023
+    and year_full_release 2026. A second check of the 1.0 date is worthwhile because it is recent.'
 scope:
 - data/games/lemonade-stand.yaml
 - data/games/mule.yaml
@@ -98,10 +107,11 @@ scope:
 - data/games/out-of-the-park-baseball.yaml
 - data/games/motorsport-manager.yaml
 - data/sources/
-notes: 'Facts to re-check when verifying: Lemonade Stand''s 1973 mainframe origin is flagged on Wikipedia as failing verification;
-  Mini Metro year uses the 2013 alpha (Ludum Dare prototype and free web version), with 1.0 in 2015; Offworld early access
-  began 2015-02-12 per GamesBeat (pre-launch article), 1.0 2016-04-28; Motorsport Manager entry covers the 2016 PC game (a
-  different 2014 iOS game shares the name); Football Manager year is 2004 (FM 2005). Football Manager platforms include PSP
-  and Switch; OOTP is PC-only here though a mobile spin-off exists. Planet Zoo, RCT, Zoo Tycoon, and Game Dev Tycoon mechanic
-  notes partly come from general knowledge after the shared search budget ran out; they avoid numbers not in sources. Existing
-  source src-openrct2-2026-ride-breakdowns is not cited because it documents RCT2 code.'
+notes: 'Facts to re-check when verifying: Lemonade Stand''s 1973 mainframe origin is flagged on Wikipedia
+  as failing verification; Mini Metro year uses the 2013 alpha (Ludum Dare prototype and free web version),
+  with 1.0 in 2015; Offworld early access began 2015-02-12 per GamesBeat (pre-launch article), 1.0 2016-04-28;
+  Motorsport Manager entry covers the 2016 PC game (a different 2014 iOS game shares the name); Football
+  Manager year is 2004 (FM 2005). Football Manager platforms include PSP and Switch; OOTP is PC-only here
+  though a mobile spin-off exists. Planet Zoo, RCT, Zoo Tycoon, and Game Dev Tycoon mechanic notes partly
+  come from general knowledge after the shared search budget ran out; they avoid numbers not in sources.
+  Existing source src-openrct2-2026-ride-breakdowns is not cited because it documents RCT2 code.'

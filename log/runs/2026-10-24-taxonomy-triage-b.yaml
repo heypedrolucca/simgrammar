@@ -1,80 +1,82 @@
 id: 2026-10-24-taxonomy-triage-b
 type: run
+kind: taxonomy
 date: '2026-10-24'
 actor: agent
 operator: yoheinakajima
 agent:
   model: claude-opus-5-5
   harness: Claude app subagent
-purpose: 'Taxonomy triage: create accepted new mechanics proposed by earlier runs (logistics, automation, conflict, physics,
-  risk, multiplayer, world-generation families).'
-method: >-
-  Read AGENTS.md (including its later revision), CONTRACT.md sections 1-3, the mechanic and common schemas, every vocab file
-  they reference, rubrics.yaml, and edge_types.yaml, plus the needs-decay, rimworld, and src-wikipedia-rimworld exemplars.
-  Extracted the 17 accepted new-mechanic proposals from catalog-gb, catalog-ge, catalog-gf, catalog-gg, catalog-gh, catalog-gi,
-  and taxonomy-m1 (noise-attraction was renamed stimulus-attraction, and territorial-claims-integration became
-  territorial-control). Read the closest existing mechanics in full (power-grid, production-chain, quality-tiers,
-  conveyor-transport, hauling-jobs, vehicle-route-scheduling, public-transit, traffic-congestion, agent-pathfinding,
-  player-programming, blueprints, faction-diplomacy, military-operations, attribute-match-engine, rigid-body-physics,
-  wear-breakdown, injury-body-model, fog-of-war, adaptive-threat-scaling, permadeath, persistent-world, free-placement,
-  road-network, modular-assembly, design-performance-rating, procedural-terrain, weather, raid-defense, supply-lines) and
-  wrote each definition to say what state the new mechanic owns that they do not. Ran find.py on each concept to rule out
-  near-duplicates. The web search budget was exhausted, so evidence came only from existing data/sources files, found by grep
-  on game and topic terms and read in full; no new sources were created. A mechanic is status sourced only where a cited
-  source supports the definition's specific claims; power-allocation, territorial-control, war-score-peace,
-  stat-combat-resolution, subsystem-damage, and track-laying are asserted because no existing source covers their mechanism.
-  Scores were matched to rubric anchors, taking the lower anchor when between two. Read all 45 candidate game files before
-  tagging and wrote 63 tags to the scratchpad tags file, skipping games where the mechanic was not clearly present.
+purpose: 'Taxonomy triage: create accepted new mechanics proposed by earlier runs (logistics, automation,
+  conflict, physics, risk, multiplayer, world-generation families).'
+method: Read AGENTS.md (including its later revision), CONTRACT.md sections 1-3, the mechanic and common
+  schemas, every vocab file they reference, rubrics.yaml, and edge_types.yaml, plus the needs-decay, rimworld,
+  and src-wikipedia-rimworld exemplars. Extracted the 17 accepted new-mechanic proposals from catalog-gb,
+  catalog-ge, catalog-gf, catalog-gg, catalog-gh, catalog-gi, and taxonomy-m1 (noise-attraction was renamed
+  stimulus-attraction, and territorial-claims-integration became territorial-control). Read the closest
+  existing mechanics in full (power-grid, production-chain, quality-tiers, conveyor-transport, hauling-jobs,
+  vehicle-route-scheduling, public-transit, traffic-congestion, agent-pathfinding, player-programming,
+  blueprints, faction-diplomacy, military-operations, attribute-match-engine, rigid-body-physics, wear-breakdown,
+  injury-body-model, fog-of-war, adaptive-threat-scaling, permadeath, persistent-world, free-placement,
+  road-network, modular-assembly, design-performance-rating, procedural-terrain, weather, raid-defense,
+  supply-lines) and wrote each definition to say what state the new mechanic owns that they do not. Ran
+  find.py on each concept to rule out near-duplicates. The web search budget was exhausted, so evidence
+  came only from existing data/sources files, found by grep on game and topic terms and read in full;
+  no new sources were created. A mechanic is status sourced only where a cited source supports the definition's
+  specific claims; power-allocation, territorial-control, war-score-peace, stat-combat-resolution, subsystem-damage,
+  and track-laying are asserted because no existing source covers their mechanism. Scores were matched
+  to rubric anchors, taking the lower anchor when between two. Read all 45 candidate game files before
+  tagging and wrote 63 tags to the scratchpad tags file, skipping games where the mechanic was not clearly
+  present.
 contract_version: '1.0'
 proposals:
 - kind: other
   target: ftl
-  detail: >-
-    FTL's power-grid core note describes reactor bar allocation, which is now power-allocation (tagged core). FTL has no network
-    distribution or shortfall rule, so the orchestrator may want to drop power-grid from FTL or demote it to supporting.
+  detail: FTL's power-grid core note describes reactor bar allocation, which is now power-allocation (tagged
+    core). FTL has no network distribution or shortfall rule, so the orchestrator may want to drop power-grid
+    from FTL or demote it to supporting.
 - kind: other
   target: factorio, dyson-sphere-program
-  detail: >-
-    The hauling-jobs tags on factorio (supporting) and dyson-sphere-program (core) describe logistic robots and logistics stations,
-    which are now request-provider-logistics. hauling-jobs is defined for general agents with other work, so those two tags should
-    move to request-provider-logistics and be removed from hauling-jobs.
+  detail: The hauling-jobs tags on factorio (supporting) and dyson-sphere-program (core) describe logistic
+    robots and logistics stations, which are now request-provider-logistics. hauling-jobs is defined for
+    general agents with other work, so those two tags should move to request-provider-logistics and be
+    removed from hauling-jobs.
 - kind: other
   target: railroad-tycoon, rollercoaster-tycoon, planet-coaster
-  detail: >-
-    railroad-tycoon's free-placement core note and the modular-assembly core notes on rollercoaster-tycoon and planet-coaster describe
-    building track segment by segment, which is now track-laying. Consider demoting those tags to supporting or removing them
-    once track-laying is applied.
+  detail: railroad-tycoon's free-placement core note and the modular-assembly core notes on rollercoaster-tycoon
+    and planet-coaster describe building track segment by segment, which is now track-laying. Consider
+    demoting those tags to supporting or removing them once track-laying is applied.
 - kind: other
   target: cities-skylines-2
-  detail: >-
-    The agent-pathfinding core note on cities-skylines-2 describes citizens comparing driving, transit, and walking, which is now
-    travel-mode-choice; the note could keep only route search.
+  detail: The agent-pathfinding core note on cities-skylines-2 describes citizens comparing driving, transit,
+    and walking, which is now travel-mode-choice; the note could keep only route search.
 - kind: other
   target: dont-starve
-  detail: >-
-    loss-on-death in Don't Starve exists only in Don't Starve Together (ghosts drop inventory); the single-player entry uses world
-    deletion, which permadeath covers, so no tag was written. Add a separate Don't Starve Together game if that usage matters.
+  detail: loss-on-death in Don't Starve exists only in Don't Starve Together (ghosts drop inventory);
+    the single-player entry uses world deletion, which permadeath covers, so no tag was written. Add a
+    separate Don't Starve Together game if that usage matters.
 - kind: vocab-term
   target: math_basis
-  detail: >-
-    travel-mode-choice uses multinomial logit discrete-choice models from transport economics; utility-decision is the closest
-    existing term and was used. A discrete-choice term could help connect city-builder mode split and customer choice to
-    transport research.
-notes: >-
-  Files completed: 17 mechanics in data/mechanics (power-allocation, machine-boosting, request-provider-logistics,
+  detail: travel-mode-choice uses multinomial logit discrete-choice models from transport economics; utility-decision
+    is the closest existing term and was used. A discrete-choice term could help connect city-builder
+    mode split and customer choice to transport research.
+notes: 'Files completed: 17 mechanics in data/mechanics (power-allocation, machine-boosting, request-provider-logistics,
   travel-mode-choice, execution-budget, programming-by-demonstration, territorial-control, war-score-peace,
-  stat-combat-resolution, projectile-ballistics, subsystem-damage, stimulus-attraction, loss-on-death, pvp-security-zones,
-  seasonal-world-reset, track-laying, real-world-data-feeds). E017 is expected on all 17 until the tags file is applied. Each
-  mechanic has at least two tagged games; programming-by-demonstration is maturity emerging (Autonauts and Satisfactory route
-  recording only). Edges: execution-budget requires player-programming; seasonal-world-reset requires persistent-world. No
-  specializes edges were set: execution-budget could be read as a lever of player-programming, but it also meters non-code
-  instruction caps, and programming-by-demonstration creates routines without writing code, so neither is strictly a narrower
-  form. Facts from contributor knowledge, without a supporting source, that a verifier should check: FTL shield layers cost two
-  reactor bars; Elite Dangerous distributor pips set capacitor recharge; Factorio beacons and module types; Dyson Sphere Program
-  proliferator extra-products or speed choice; Mindustry water boosting of drills; EU4 fire and shock phases and war score
-  pricing; CK3 county control and white peace; Victoria 3 war support and capitulation; HOI4 peace conference points and hourly
-  combat; Stellaris claims bought with influence and forced status quo at maximum war exhaustion; Civilization city capture;
-  DCS missile and subsystem damage modeling; Elite Dangerous module integrity; This War of Mine scavenging noise; EVE wreck
-  drops and ship insurance; Valheim tombstones; Minecraft inventory drop and despawn; Satisfactory recorded truck routes;
-  Transport Tycoon tunnels and bridges; Cities: Skylines (2015) mode choice; Bitburner per-script RAM cost; the Melbourne
-  skyscraper artifact in Microsoft Flight Simulator (2020), which is cited only as a failure-mode example.
+  stat-combat-resolution, projectile-ballistics, subsystem-damage, stimulus-attraction, loss-on-death,
+  pvp-security-zones, seasonal-world-reset, track-laying, real-world-data-feeds). E017 is expected on
+  all 17 until the tags file is applied. Each mechanic has at least two tagged games; programming-by-demonstration
+  is maturity emerging (Autonauts and Satisfactory route recording only). Edges: execution-budget requires
+  player-programming; seasonal-world-reset requires persistent-world. No specializes edges were set: execution-budget
+  could be read as a lever of player-programming, but it also meters non-code instruction caps, and programming-by-demonstration
+  creates routines without writing code, so neither is strictly a narrower form. Facts from contributor
+  knowledge, without a supporting source, that a verifier should check: FTL shield layers cost two reactor
+  bars; Elite Dangerous distributor pips set capacitor recharge; Factorio beacons and module types; Dyson
+  Sphere Program proliferator extra-products or speed choice; Mindustry water boosting of drills; EU4
+  fire and shock phases and war score pricing; CK3 county control and white peace; Victoria 3 war support
+  and capitulation; HOI4 peace conference points and hourly combat; Stellaris claims bought with influence
+  and forced status quo at maximum war exhaustion; Civilization city capture; DCS missile and subsystem
+  damage modeling; Elite Dangerous module integrity; This War of Mine scavenging noise; EVE wreck drops
+  and ship insurance; Valheim tombstones; Minecraft inventory drop and despawn; Satisfactory recorded
+  truck routes; Transport Tycoon tunnels and bridges; Cities: Skylines (2015) mode choice; Bitburner per-script
+  RAM cost; the Melbourne skyscraper artifact in Microsoft Flight Simulator (2020), which is cited only
+  as a failure-mode example.'

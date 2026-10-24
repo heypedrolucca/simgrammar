@@ -56,8 +56,10 @@
   "rho_legibility_ai_leverage": -0.23,
   "rho_legibility_compute_cost": -0.35,
   "rho_legibility_emergence_potential": -0.42,
+  "top_compute_family": "Physics & materials",
   "top_effect": "Deepens",
   "top_exposed_family": "Narrative & generation",
+  "top_legibility_family": "Time & pacing",
   "top_opportunity": "Why-query over the simulation log",
   "year_max": 2026,
   "year_min": 1968

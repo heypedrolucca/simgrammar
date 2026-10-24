@@ -49,6 +49,7 @@ from rules import RULES  # noqa: E402
 
 DIST = ROOT / "dist"
 GENERATED_DOCS = ["README.md", "CONTRACT.md", "AGENTS.md"]
+REQUIRED_BLOCKS = {"README.md": ["stats"], "CONTRACT.md": ["rules", "edge-types", "vocab-index", "rubric-index"]}
 
 
 def entity_record(e, derived):
@@ -405,6 +406,9 @@ def build() -> tuple[dict[str, str], dict[str, str]]:
             new, unknown = replace_generated_blocks(p.read_text(encoding="utf-8"), blocks)
             if unknown:
                 raise SystemExit(f"{name}: unknown GENERATED block(s): {unknown}")
+            for req in REQUIRED_BLOCKS.get(name, []):
+                if f"<!-- BEGIN GENERATED: {req} -->" not in new or f"<!-- END GENERATED: {req} -->" not in new:
+                    raise SystemExit(f"E023 dist-fresh: {name} is missing the required GENERATED block '{req}'; restore the BEGIN/END markers")
             docs[name] = new
     return outs, docs
 

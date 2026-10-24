@@ -1,5 +1,6 @@
 id: 2026-10-24-taxonomy-m4
 type: run
+kind: taxonomy
 date: '2026-10-24'
 actor: agent
 operator: yoheinakajima
@@ -7,89 +8,88 @@ agent:
   model: claude-opus-5-5
   harness: Claude app subagent
 purpose: Complete the mechanic analyses for the space-construction and physics-materials families.
-method: >-
-  Read AGENTS.md, CONTRACT.md sections 1-3, the mechanic and common schemas, the referenced vocab files, rubrics, and edge
-  types, plus the needs-decay, rimworld, and src-wikipedia-rimworld exemplars. Completed 22 skeleton mechanics (11
-  space-construction, 11 physics-materials) to the full schema by analyzing each as a design primitive. Scored the rubrics
-  against anchor text, taking the lower anchor when in between. Used web search and fetches to get primary or
-  near-primary sources for the mechanics where one most improved accuracy: RimWorld Wiki Room page (room roles, size
-  caps, beauty and impressiveness formulas), OpenRCT2 wiki ride rating calculation (excitement, intensity, nausea terms
-  and caps), Game Developer article on how Townscaper works, Oxygen Not Included Wiki thermal conductivity formulas, BeamNG
-  JBeam documentation, Jos Stam's 2003 Stable Fluids for games paper page, 80.lv interviews on Noita and MudRunner, 80.lv
-  coverage of Gustafsson's voxel physics engine, Wikipedia on X-Plane, patched conics, SimCity, Populous, and Teardown, the
-  Elsevier page for Pacejka's Tire and Vehicle Dynamics, and the GDC 2017 Breath of the Wild session plus Thumbsticks
-  coverage of its chemistry engine. Checked data/sources immediately before writing; cited the existing
-  src-wikipedia-teardown, src-wikipedia-noita, src-fujibayashi-2017-botw-change-and-constant,
+method: 'Read AGENTS.md, CONTRACT.md sections 1-3, the mechanic and common schemas, the referenced vocab
+  files, rubrics, and edge types, plus the needs-decay, rimworld, and src-wikipedia-rimworld exemplars.
+  Completed 22 skeleton mechanics (11 space-construction, 11 physics-materials) to the full schema by
+  analyzing each as a design primitive. Scored the rubrics against anchor text, taking the lower anchor
+  when in between. Used web search and fetches to get primary or near-primary sources for the mechanics
+  where one most improved accuracy: RimWorld Wiki Room page (room roles, size caps, beauty and impressiveness
+  formulas), OpenRCT2 wiki ride rating calculation (excitement, intensity, nausea terms and caps), Game
+  Developer article on how Townscaper works, Oxygen Not Included Wiki thermal conductivity formulas, BeamNG
+  JBeam documentation, Jos Stam''s 2003 Stable Fluids for games paper page, 80.lv interviews on Noita
+  and MudRunner, 80.lv coverage of Gustafsson''s voxel physics engine, Wikipedia on X-Plane, patched conics,
+  SimCity, Populous, and Teardown, the Elsevier page for Pacejka''s Tire and Vehicle Dynamics, and the
+  GDC 2017 Breath of the Wild session plus Thumbsticks coverage of its chemistry engine. Checked data/sources
+  immediately before writing; cited the existing src-wikipedia-teardown, src-wikipedia-noita, src-fujibayashi-2017-botw-change-and-constant,
   src-thumbsticks-2017-botw-chemistry, src-rimworldwiki-2026-raid-points, src-wikipedia-simcity-1989,
   src-wikipedia-populous, src-wikipedia-planet-coaster, src-wikipedia-spacechem, src-wikipedia-opus-magnum,
-  src-wikipedia-zelda-breath-of-the-wild, src-wikipedia-kerbal-space-program, src-wikipedia-besiege,
-  src-wikipedia-space-engineers, src-wikipedia-universe-sandbox, src-wikipedia-garrys-mod, and
-  src-wikipedia-the-powder-toy instead of duplicating them (matching only claims their notes support), and created 12
-  new sources. Numbers in definitions come only from fetched sources; game examples
-  without a fetched source are stated without figures. Added requires edges only where the dependency is hard
-  (adjacency-scoring and room-recognition require free-placement). No synergy or tension edges. The shared web search
-  budget ran out partway through, so 3 mechanics stay asserted.
+  src-wikipedia-zelda-breath-of-the-wild, src-wikipedia-kerbal-space-program, src-wikipedia-besiege, src-wikipedia-space-engineers,
+  src-wikipedia-universe-sandbox, src-wikipedia-garrys-mod, and src-wikipedia-the-powder-toy instead of
+  duplicating them (matching only claims their notes support), and created 12 new sources. Numbers in
+  definitions come only from fetched sources; game examples without a fetched source are stated without
+  figures. Added requires edges only where the dependency is hard (adjacency-scoring and room-recognition
+  require free-placement). No synergy or tension edges. The shared web search budget ran out partway through,
+  so 3 mechanics stay asserted.'
 contract_version: '1.0'
 scope:
-  - mechanic:adjacency-scoring
-  - mechanic:decoration-beauty
-  - mechanic:design-performance-rating
-  - mechanic:free-placement
-  - mechanic:modular-assembly
-  - mechanic:procedural-build-assist
-  - mechanic:room-recognition
-  - mechanic:structural-integrity
-  - mechanic:terraforming
-  - mechanic:vertical-layers
-  - mechanic:zoning
-  - mechanic:falling-sand-materials
-  - mechanic:flight-aerodynamics
-  - mechanic:fluid-gas-simulation
-  - mechanic:heat-transfer
-  - mechanic:material-interactions
-  - mechanic:orbital-mechanics
-  - mechanic:rigid-body-physics
-  - mechanic:soft-body-deformation
-  - mechanic:terrain-deformation
-  - mechanic:vehicle-dynamics
-  - mechanic:voxel-destruction
-  - source:src-*
+- mechanic:adjacency-scoring
+- mechanic:decoration-beauty
+- mechanic:design-performance-rating
+- mechanic:free-placement
+- mechanic:modular-assembly
+- mechanic:procedural-build-assist
+- mechanic:room-recognition
+- mechanic:structural-integrity
+- mechanic:terraforming
+- mechanic:vertical-layers
+- mechanic:zoning
+- mechanic:falling-sand-materials
+- mechanic:flight-aerodynamics
+- mechanic:fluid-gas-simulation
+- mechanic:heat-transfer
+- mechanic:material-interactions
+- mechanic:orbital-mechanics
+- mechanic:rigid-body-physics
+- mechanic:soft-body-deformation
+- mechanic:terrain-deformation
+- mechanic:vehicle-dynamics
+- mechanic:voxel-destruction
+- source:src-*
 proposals:
-  - kind: split
-    target: structural-integrity
-    detail: >-
-      Three update rules ship independently under this one id: connectivity-to-ground checks (Dwarf Fortress cave-ins,
-      Teardown), per-connection support decay (Valheim), and solved member stress (Poly Bridge). Connectivity-only
-      appears without the other two in many games. Consider splitting into a connectivity-support mechanic and a
-      load-stress mechanic if game tagging shows the distinction matters. The entry is completed as one mechanic for now.
-  - kind: other
-    target: falling-sand-materials
-    detail: >-
-      falling-sand-materials overlaps material-interactions (reaction rules) and fluid-gas-simulation (liquid and gas
-      movement). It passes the admission test as the per-cell movement rule (powders fall, liquids spread, gases rise by
-      density swaps), and the entry is written that way. A specializes edge was not added because no parent fits cleanly;
-      the orchestrator may want a specializes or synergy decision in the global pass.
-  - kind: other
-    target: voxel-destruction
-    detail: >-
-      voxel-destruction and structural-integrity share the connectivity-after-removal rule. Suggest a requires or
-      synergy edge from voxel-destruction to structural-integrity in the global pass if connectivity support is kept
-      under structural-integrity.
-  - kind: other
-    target: zoning
-    detail: >-
-      zoning likely has a hard dependency on rci-demand or land-value in most implementations, but some games (Cities:
-      Skylines districts, Songs of Syx) zone without a demand meter, so no requires edge was added. Flagging for the
-      synergy and tension pass.
-notes: >-
-  Families unchanged. Sourced (19): decoration-beauty, design-performance-rating, modular-assembly,
+- kind: split
+  target: structural-integrity
+  detail: 'Three update rules ship independently under this one id: connectivity-to-ground checks (Dwarf
+    Fortress cave-ins, Teardown), per-connection support decay (Valheim), and solved member stress (Poly
+    Bridge). Connectivity-only appears without the other two in many games. Consider splitting into a
+    connectivity-support mechanic and a load-stress mechanic if game tagging shows the distinction matters.
+    The entry is completed as one mechanic for now.'
+- kind: other
+  target: falling-sand-materials
+  detail: falling-sand-materials overlaps material-interactions (reaction rules) and fluid-gas-simulation
+    (liquid and gas movement). It passes the admission test as the per-cell movement rule (powders fall,
+    liquids spread, gases rise by density swaps), and the entry is written that way. A specializes edge
+    was not added because no parent fits cleanly; the orchestrator may want a specializes or synergy decision
+    in the global pass.
+- kind: other
+  target: voxel-destruction
+  detail: voxel-destruction and structural-integrity share the connectivity-after-removal rule. Suggest
+    a requires or synergy edge from voxel-destruction to structural-integrity in the global pass if connectivity
+    support is kept under structural-integrity.
+- kind: other
+  target: zoning
+  detail: 'zoning likely has a hard dependency on rci-demand or land-value in most implementations, but
+    some games (Cities: Skylines districts, Songs of Syx) zone without a demand meter, so no requires
+    edge was added. Flagging for the synergy and tension pass.'
+notes: 'Families unchanged. Sourced (19): decoration-beauty, design-performance-rating, modular-assembly,
   procedural-build-assist, room-recognition, structural-integrity, terraforming, zoning, falling-sand-materials,
-  flight-aerodynamics, fluid-gas-simulation, heat-transfer, material-interactions, orbital-mechanics, rigid-body-physics,
-  soft-body-deformation, terrain-deformation, vehicle-dynamics, voxel-destruction. Asserted (3): adjacency-scoring,
-  free-placement, vertical-layers. Valheim support colors are from a mobalytics guide that was read but not filed as a
-  source, so Valheim appears in structural-integrity without a citation. Facts stated from knowledge without a fetched
-  source, worth checking: Civilization VI district adjacency examples; Islanders placement preview; Dwarf Fortress water
-  depth 1-7; Kerbin 600 km radius; Factorio Space Age elevated rails; Half-Life 2 Havok gravity gun (2004); Armored Core
-  weight and energy limits; Divinity Original Sin surfaces; Minecraft falling sand and gravel; the Magic Formula
-  expression. src-stam-2003-real-time-fluid-dynamics gives GDC 2003 as venue from common citation; the Autodesk page does
-  not name the venue. E017 is expected on all 22 mechanics until catalog runs tag games.
+  flight-aerodynamics, fluid-gas-simulation, heat-transfer, material-interactions, orbital-mechanics,
+  rigid-body-physics, soft-body-deformation, terrain-deformation, vehicle-dynamics, voxel-destruction.
+  Asserted (3): adjacency-scoring, free-placement, vertical-layers. Valheim support colors are from a
+  mobalytics guide that was read but not filed as a source, so Valheim appears in structural-integrity
+  without a citation. Facts stated from knowledge without a fetched source, worth checking: Civilization
+  VI district adjacency examples; Islanders placement preview; Dwarf Fortress water depth 1-7; Kerbin
+  600 km radius; Factorio Space Age elevated rails; Half-Life 2 Havok gravity gun (2004); Armored Core
+  weight and energy limits; Divinity Original Sin surfaces; Minecraft falling sand and gravel; the Magic
+  Formula expression. src-stam-2003-real-time-fluid-dynamics gives GDC 2003 as venue from common citation;
+  the Autodesk page does not name the venue. E017 is expected on all 22 mechanics until catalog runs tag
+  games.'

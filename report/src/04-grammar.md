@@ -50,7 +50,7 @@ Owns layout: zoning, placement, adjacency, rooms, structure, terrain, and the sc
 {{table:family-space-construction}}
 
 #### Physics and materials
-Owns continuous dynamics: rigid bodies, vehicles, flight, orbits, fluids, heat, deformation, destruction, material interactions. These are the most compute-bound mechanics and the most legible when they work, because players have physical intuitions. The failure is the uncanny edge: a physics model accurate enough to invite intuition but wrong in the cases players probe.
+Owns continuous dynamics: rigid bodies, vehicles, flight, orbits, fluids, heat, deformation, destruction, material interactions. These are, on average, the most compute-bound mechanics in the taxonomy,{{assert:top_compute_family == Physics & materials}} and their legibility depends on how closely they match the physical intuitions players bring. The failure is the uncanny edge: a physics model accurate enough to invite intuition but wrong in the cases players probe.
 {{table:family-physics-materials}}
 
 #### Environment and ecology

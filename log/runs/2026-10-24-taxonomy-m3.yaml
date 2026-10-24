@@ -1,73 +1,84 @@
 id: 2026-10-24-taxonomy-m3
 type: run
+kind: taxonomy
 date: '2026-10-24'
 actor: agent
 operator: yoheinakajima
 agent:
   model: claude-opus-5-5
   harness: Claude app subagent
-purpose: Complete the mechanic analyses for the agents-behavior, social-relations, and population-lineage families.
-method: 'Read AGENTS.md, CONTRACT.md sections 1-3, the mechanic and common schemas, every referenced vocab file, rubrics.yaml,
-  edge_types.yaml, and the needs-decay, rimworld, and src-wikipedia-rimworld exemplars. Completed 28 skeleton mechanics in
-  the agents-behavior, social-relations, and population-lineage families to the full schema, analyzing each as a cross-game
-  primitive and scoring against the rubric anchors (lower anchor when between). Read primary or near-primary sources where
-  rule-level numbers matter: Forbus and Wright''s notes on programming objects in The Sims (advertisements, motives, attenuation);
-  Grand, Cliff, and Malhotra''s 1996 Creatures report (neural lobes, reward and punishment chemicals, genome operators); Hart,
-  Nilsson, and Raphael 1968 (A*); Factorio FFF #317 (hierarchical pathfinding); Emerson''s Game AI Pro chapter on flow-field
-  tiles (Supreme Commander 2); the Dill and Mark GDC 2010 and Evans GDC 2010 session pages; McCoy et al. 2014 on Comme il
-  Faut (social exchanges, influence rules, Prom Week counts); Mateas and Stern on Facade natural-language understanding; the
-  Generative Agents paper for memory retrieval, reflection, planning, and diffusion numbers; OpenRCT2 Guest.cpp for guest
-  ride-choice thresholds; RimWorld Wiki pages (mental break, mood, inspiration, thoughts, skills, work, social, goodwill);
-  CK3, EU4, Victoria 3, Cities: Skylines, and Prison Architect wiki pages; and the Anno 1800 population page. Cited existing
-  shared sources where they already existed (Sims series, Football Manager, OOTP, Facade, AI Dungeon, Black & White, RollerCoaster
-  Tycoon, Micropolis, Species, SimLife, Spore, Planet Zoo, Stardew Valley, CK3, Reigns, Dwarf Fortress stress) instead of
-  rewriting them, and created 27 new sources, each cited by a mechanic in this partition. Claims I could not confirm from
-  a source were dropped or generalized. Added requires edges only for clear hard dependencies: romance-family and social-exchanges
-  require relationship-values; natural-selection requires trait-inheritance. No synergy or tension edges, per the task. Web
-  search budget ran out mid-run; the remaining checks used direct fetches of known primary pages.'
+purpose: Complete the mechanic analyses for the agents-behavior, social-relations, and population-lineage
+  families.
+method: 'Read AGENTS.md, CONTRACT.md sections 1-3, the mechanic and common schemas, every referenced vocab
+  file, rubrics.yaml, edge_types.yaml, and the needs-decay, rimworld, and src-wikipedia-rimworld exemplars.
+  Completed 28 skeleton mechanics in the agents-behavior, social-relations, and population-lineage families
+  to the full schema, analyzing each as a cross-game primitive and scoring against the rubric anchors
+  (lower anchor when between). Read primary or near-primary sources where rule-level numbers matter: Forbus
+  and Wright''s notes on programming objects in The Sims (advertisements, motives, attenuation); Grand,
+  Cliff, and Malhotra''s 1996 Creatures report (neural lobes, reward and punishment chemicals, genome
+  operators); Hart, Nilsson, and Raphael 1968 (A*); Factorio FFF #317 (hierarchical pathfinding); Emerson''s
+  Game AI Pro chapter on flow-field tiles (Supreme Commander 2); the Dill and Mark GDC 2010 and Evans
+  GDC 2010 session pages; McCoy et al. 2014 on Comme il Faut (social exchanges, influence rules, Prom
+  Week counts); Mateas and Stern on Facade natural-language understanding; the Generative Agents paper
+  for memory retrieval, reflection, planning, and diffusion numbers; OpenRCT2 Guest.cpp for guest ride-choice
+  thresholds; RimWorld Wiki pages (mental break, mood, inspiration, thoughts, skills, work, social, goodwill);
+  CK3, EU4, Victoria 3, Cities: Skylines, and Prison Architect wiki pages; and the Anno 1800 population
+  page. Cited existing shared sources where they already existed (Sims series, Football Manager, OOTP,
+  Facade, AI Dungeon, Black & White, RollerCoaster Tycoon, Micropolis, Species, SimLife, Spore, Planet
+  Zoo, Stardew Valley, CK3, Reigns, Dwarf Fortress stress) instead of rewriting them, and created 27 new
+  sources, each cited by a mechanic in this partition. Claims I could not confirm from a source were dropped
+  or generalized. Added requires edges only for clear hard dependencies: romance-family and social-exchanges
+  require relationship-values; natural-selection requires trait-inheritance. No synergy or tension edges,
+  per the task. Web search budget ran out mid-run; the remaining checks used direct fetches of known primary
+  pages.'
 contract_version: '1.0'
 proposals:
 - kind: other
   target: opinion-modifiers
-  detail: opinion-modifiers is arguably the itemized-modifier representation of relationship-values (CK3 and RimWorld build
-    pairwise opinion this way), and it also shares representation with memories-thoughts (RimWorld social thoughts are memory
-    entries with opinion effects). It still passes the admission test because the same modifier-stack pattern also drives
-    faction opinion in EU4 and Stellaris without pairwise character relationships. Consider a specializes edge to relationship-values
-    or a note in the global relation pass; not added here because the relation is not strictly narrower.
+  detail: opinion-modifiers is arguably the itemized-modifier representation of relationship-values (CK3
+    and RimWorld build pairwise opinion this way), and it also shares representation with memories-thoughts
+    (RimWorld social thoughts are memory entries with opinion effects). It still passes the admission
+    test because the same modifier-stack pattern also drives faction opinion in EU4 and Stellaris without
+    pairwise character relationships. Consider a specializes edge to relationship-values or a note in
+    the global relation pass; not added here because the relation is not strictly narrower.
 - kind: merge
   target: reputation
-  detail: reputation overlaps faction-diplomacy when the player is a faction (RimWorld goodwill is both the faction relation
-    and the player standing). Kept separate because reputation as a many-to-one standing (fame, infamy, guild rank) appears
-    in games without faction-to-faction diplomacy. If the orchestrator prefers fewer mechanics, reputation could absorb player-facing
-    goodwill and faction-diplomacy keep AI-to-AI relations and treaties.
+  detail: reputation overlaps faction-diplomacy when the player is a faction (RimWorld goodwill is both
+    the faction relation and the player standing). Kept separate because reputation as a many-to-one standing
+    (fame, infamy, guild rank) appears in games without faction-to-faction diplomacy. If the orchestrator
+    prefers fewer mechanics, reputation could absorb player-facing goodwill and faction-diplomacy keep
+    AI-to-AI relations and treaties.
 - kind: other
   target: smart-objects
-  detail: 'smart-objects and utility-action-selection are tightly coupled in The Sims (advertisements are the inputs to utility
-    scoring). Neither requires the other in general: utility AI runs without object advertisements (IAUS, Sims 3 social scoring),
-    and smart objects can feed rule-based selection. No requires edge was added; the orchestrator may want a synergy edge
-    in the global pass.'
+  detail: 'smart-objects and utility-action-selection are tightly coupled in The Sims (advertisements
+    are the inputs to utility scoring). Neither requires the other in general: utility AI runs without
+    object advertisements (IAUS, Sims 3 social scoring), and smart objects can feed rule-based selection.
+    No requires edge was added; the orchestrator may want a synergy edge in the global pass.'
 - kind: new-mechanic
   target: aspirations-wants
-  detail: 'Candidate mechanic: per-agent generated short-term goals (The Sims 2 wants and fears, The Sims 3 wishes, RimWorld
-    has none) that reward fulfillment with a separate meter or currency and steer player attention. It owns a want queue and
-    a reward stock, separate from needs-decay and mood-breakdown. Not created because this run may only complete existing
-    skeletons.'
+  detail: 'Candidate mechanic: per-agent generated short-term goals (The Sims 2 wants and fears, The Sims
+    3 wishes, RimWorld has none) that reward fulfillment with a separate meter or currency and steer player
+    attention. It owns a want queue and a reward stock, separate from needs-decay and mood-breakdown.
+    Not created because this run may only complete existing skeletons.'
 - kind: new-mechanic
   target: stress-accumulation
-  detail: 'Candidate mechanic: a slow hidden stress stock that integrates negative experiences and personality facets, distinct
-    from instantaneous mood (Dwarf Fortress stress from -1,000,000 to +1,000,000 with thresholds; CK3 stress levels that trigger
-    breaks and trait changes). Currently folded into mood-breakdown; may fail atomicity there because CK3 has stress breaks
-    without a mood meter.'
+  detail: 'Candidate mechanic: a slow hidden stress stock that integrates negative experiences and personality
+    facets, distinct from instantaneous mood (Dwarf Fortress stress from -1,000,000 to +1,000,000 with
+    thresholds; CK3 stress levels that trigger breaks and trait changes). Currently folded into mood-breakdown;
+    may fail atomicity there because CK3 has stress breaks without a mood meter.'
 scope:
-- data/mechanics (28 files in the agents-behavior, social-relations, and population-lineage families, excluding needs-decay)
+- data/mechanics (28 files in the agents-behavior, social-relations, and population-lineage families,
+  excluding needs-decay)
 - data/sources (27 new files)
-notes: 'Families kept as assigned. Scores I am least sure of: attribute-match-engine legibility 2 and tuning 4; gossip-propagation
-  maturity experimental (most shipped games treat events as globally known, and the clearest per-agent propagation I could
-  source is in research demos such as Generative Agents; raise to emerging if the catalog shows shipped uses); natural-language-interaction
-  compute 4 (assumes LLM inference) and ai_leverage 5; social-exchanges maturity established (The Sims social interactions
-  plus CiF); creature-learning maturity experimental (Creatures, Black & White, Seaman are few and old; no lineage of conventions).
-  Two facts are lower confidence: the venue and year of the Mateas and Stern Facade NLU paper (TIDSE 2004, inferred from the
-  hosted file name) and the Game AI Pro year (2013) for Emerson''s flow-field chapter; both are noted in the source notes.
-  The Oxygen Not Included errand priority detail in work-priorities and the Out of the Park Baseball and Motorsport Manager
-  descriptions in attribute-match-engine are from contributor knowledge. E017 grounding: most mechanics in this partition
-  have few or no game uses yet; that is expected until game agents tag them.'
+notes: 'Families kept as assigned. Scores I am least sure of: attribute-match-engine legibility 2 and
+  tuning 4; gossip-propagation maturity experimental (most shipped games treat events as globally known,
+  and the clearest per-agent propagation I could source is in research demos such as Generative Agents;
+  raise to emerging if the catalog shows shipped uses); natural-language-interaction compute 4 (assumes
+  LLM inference) and ai_leverage 5; social-exchanges maturity established (The Sims social interactions
+  plus CiF); creature-learning maturity experimental (Creatures, Black & White, Seaman are few and old;
+  no lineage of conventions). Two facts are lower confidence: the venue and year of the Mateas and Stern
+  Facade NLU paper (TIDSE 2004, inferred from the hosted file name) and the Game AI Pro year (2013) for
+  Emerson''s flow-field chapter; both are noted in the source notes. The Oxygen Not Included errand priority
+  detail in work-priorities and the Out of the Park Baseball and Motorsport Manager descriptions in attribute-match-engine
+  are from contributor knowledge. E017 grounding: most mechanics in this partition have few or no game
+  uses yet; that is expected until game agents tag them.'

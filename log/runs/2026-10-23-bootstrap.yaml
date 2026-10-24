@@ -1,24 +1,26 @@
 id: 2026-10-23-bootstrap
 type: run
-date: "2026-10-23"
+kind: bootstrap
+date: '2026-10-23'
 actor: agent
 operator: yoheinakajima
 agent:
   model: claude-opus-5-5
   harness: Claude app (cloud workspace)
-purpose: Create the repository contract, schemas, vocabularies, rubrics, validator, build, and the seed taxonomy of mechanics and catalog of games.
-method: >-
-  Designed the contract from two prior projects: ActiveGraph (canonical log, deterministic projections, contract-first commits)
-  and Epistemedia (provenance-first claims, epistemic status, hashed certificates). Wrote closed JSON Schemas with x-vocab,
-  x-edge, x-ref, and x-rubric annotations so validation and projection are generic. Drafted the mechanic taxonomy by
-  enumerating rule-systems across simulation subgenres and applying the four-part admission test (nameable, atomic,
-  tunable, removable); merged candidates that failed atomicity. Drafted the game catalog to cover every subgenre in
-  vocab/subgenre.yaml, lineage-defining titles from 1968 onward, recent releases, and AI-native works.
+purpose: Create the repository contract, schemas, vocabularies, rubrics, validator, build, and the seed
+  taxonomy of mechanics and catalog of games.
+method: 'Designed the contract from two prior projects: ActiveGraph (canonical log, deterministic projections,
+  contract-first commits) and Epistemedia (provenance-first claims, epistemic status, hashed certificates).
+  Wrote closed JSON Schemas with x-vocab, x-edge, x-ref, and x-rubric annotations so validation and projection
+  are generic. Drafted the mechanic taxonomy by enumerating rule-systems across simulation subgenres and
+  applying the four-part admission test (nameable, atomic, tunable, removable); merged candidates that
+  failed atomicity. Drafted the game catalog to cover every subgenre in vocab/subgenre.yaml, lineage-defining
+  titles from 1968 onward, recent releases, and AI-native works.'
 scope:
-  - schema/*
-  - vocab/*
-  - scripts/*
-  - data/mechanics/*
-  - data/games/* (skeleton)
-contract_version: "1.0"
+- schema/*
+- vocab/*
+- scripts/*
+- data/mechanics/*
+- data/games/* (skeleton)
+contract_version: '1.0'
 proposals: []

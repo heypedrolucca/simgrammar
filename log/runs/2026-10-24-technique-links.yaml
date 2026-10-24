@@ -1,19 +1,20 @@
 id: 2026-10-24-technique-links
 type: run
-date: "2026-10-24"
+kind: technique
+date: '2026-10-24'
 actor: agent
 operator: yoheinakajima
 agent:
   model: claude-opus-5-5
   harness: Claude app (cloud workspace), orchestrator
-purpose: Link existing techniques to the mechanics added by the taxonomy triage runs, so new mechanics are not reported as untouched by techniques only because they postdate the technique runs.
-method: >-
-  For each of the 31 triage mechanics, checked every technique's mechanism and key results for a direct, cited
-  effect on that mechanic. Added an affects edge only where the technique's own sources describe the capability
-  (for example Infinite Craft's cached LLM combinations for combination-discovery, Cicero's planner-grounded
-  bargaining for negotiation, satellite reconstruction for real-world data feeds). Mechanics with no such technique
-  were left unlinked; their zero exposure is a finding, not an omission.
+purpose: Link existing techniques to the mechanics added by the taxonomy triage runs, so new mechanics
+  are not reported as untouched by techniques only because they postdate the technique runs.
+method: For each of the 31 triage mechanics, checked every technique's mechanism and key results for a
+  direct, cited effect on that mechanic. Added an affects edge only where the technique's own sources
+  describe the capability (for example Infinite Craft's cached LLM combinations for combination-discovery,
+  Cicero's planner-grounded bargaining for negotiation, satellite reconstruction for real-world data feeds).
+  Mechanics with no such technique were left unlinked; their zero exposure is a finding, not an omission.
 scope:
-  - data/techniques/* (affects edges only)
-contract_version: "1.0"
+- data/techniques/* (affects edges only)
+contract_version: '1.0'
 proposals: []

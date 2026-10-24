@@ -1,5 +1,6 @@
 id: 2026-10-24-catalog-gi
 type: run
+kind: catalog
 date: '2026-10-24'
 actor: agent
 operator: yoheinakajima
@@ -8,146 +9,133 @@ agent:
   harness: Claude app subagent
 purpose: Verify, characterize, and decompose grand-strategy, political, military, and MMO-world simulations
   into mechanics.
-method: >-
-  Read AGENTS.md, CONTRACT.md sections 1-3, the game, source, run, and common schemas, every vocab file the game
-  schema references, rubrics.yaml, edge_types.yaml, and the rimworld exemplars. Verified release dates, developers,
-  and platforms for 19 games from their Wikipedia articles (fetched 2026-10-24), plus the Steam store pages for
-  Command: Modern Operations and Eco, the Positech blog for Democracy 4 console platforms, and Giant Bomb and a
-  MetaFilter post for Aurora, which has no Wikipedia article (the Aurora redirect goes to the Starfire board game
-  article). Picked mechanics only from scripts/find.py --list mechanic, scored emergence and influence against the
-  rubric anchors (taking the lower anchor when between two), and added influenced_by only where a source documents
-  lineage. Before writing each source, checked that it did not exist; cited the existing sources src-wikipedia-reigns,
-  src-wikipedia-eve-online, src-wikipedia-democracy-4, src-wikipedia-eco-2018, src-wikipedia-command-modern-operations,
-  src-wikipedia-technology-tree, src-wikipedia-sid-meier, and the Paradox dev diary and wiki sources from taxonomy
-  runs. Deleted my own duplicate src-wikipedia-eco-2018-video-game after finding src-wikipedia-eco-2018 for the same
-  URL. The web search budget ran out after the core fetches, so a few details (Aurora's first year, Eco 1.0 status)
-  rest on fewer sources than ideal.
+method: 'Read AGENTS.md, CONTRACT.md sections 1-3, the game, source, run, and common schemas, every vocab
+  file the game schema references, rubrics.yaml, edge_types.yaml, and the rimworld exemplars. Verified
+  release dates, developers, and platforms for 19 games from their Wikipedia articles (fetched 2026-10-24),
+  plus the Steam store pages for Command: Modern Operations and Eco, the Positech blog for Democracy 4
+  console platforms, and Giant Bomb and a MetaFilter post for Aurora, which has no Wikipedia article (the
+  Aurora redirect goes to the Starfire board game article). Picked mechanics only from scripts/find.py
+  --list mechanic, scored emergence and influence against the rubric anchors (taking the lower anchor
+  when between two), and added influenced_by only where a source documents lineage. Before writing each
+  source, checked that it did not exist; cited the existing sources src-wikipedia-reigns, src-wikipedia-eve-online,
+  src-wikipedia-democracy-4, src-wikipedia-eco-2018, src-wikipedia-command-modern-operations, src-wikipedia-technology-tree,
+  src-wikipedia-sid-meier, and the Paradox dev diary and wiki sources from taxonomy runs. Deleted my own
+  duplicate src-wikipedia-eco-2018-video-game after finding src-wikipedia-eco-2018 for the same URL. The
+  web search budget ran out after the core fetches, so a few details (Aurora''s first year, Eco 1.0 status)
+  rest on fewer sources than ideal.'
 scope:
-  - data/games/balance-of-power.yaml
-  - data/games/civilization.yaml
-  - data/games/europa-universalis-4.yaml
-  - data/games/crusader-kings-3.yaml
-  - data/games/victoria-3.yaml
-  - data/games/hearts-of-iron-4.yaml
-  - data/games/stellaris.yaml
-  - data/games/aurora-4x.yaml
-  - data/games/democracy-4.yaml
-  - data/games/suzerain.yaml
-  - data/games/reigns.yaml
-  - data/games/rebel-inc.yaml
-  - data/games/command-modern-operations.yaml
-  - data/games/arma-3.yaml
-  - data/games/eve-online.yaml
-  - data/games/second-life.yaml
-  - data/games/ultima-online.yaml
-  - data/games/a-tale-in-the-desert.yaml
-  - data/games/eco.yaml
-  - data/sources/src-wikipedia-*.yaml (14 new)
-  - data/sources/src-giantbomb-2026-aurora.yaml
-  - data/sources/src-metafilter-2020-aurora-csharp.yaml
-  - data/sources/src-positech-2024-democracy-4-consoles.yaml
-  - data/sources/src-steam-2019-command-modern-operations.yaml
-  - data/sources/src-steam-2018-eco.yaml
+- data/games/balance-of-power.yaml
+- data/games/civilization.yaml
+- data/games/europa-universalis-4.yaml
+- data/games/crusader-kings-3.yaml
+- data/games/victoria-3.yaml
+- data/games/hearts-of-iron-4.yaml
+- data/games/stellaris.yaml
+- data/games/aurora-4x.yaml
+- data/games/democracy-4.yaml
+- data/games/suzerain.yaml
+- data/games/reigns.yaml
+- data/games/rebel-inc.yaml
+- data/games/command-modern-operations.yaml
+- data/games/arma-3.yaml
+- data/games/eve-online.yaml
+- data/games/second-life.yaml
+- data/games/ultima-online.yaml
+- data/games/a-tale-in-the-desert.yaml
+- data/games/eco.yaml
+- data/sources/src-wikipedia-*.yaml (14 new)
+- data/sources/src-giantbomb-2026-aurora.yaml
+- data/sources/src-metafilter-2020-aurora-csharp.yaml
+- data/sources/src-positech-2024-democracy-4-consoles.yaml
+- data/sources/src-steam-2019-command-modern-operations.yaml
+- data/sources/src-steam-2018-eco.yaml
 contract_version: '1.0'
 proposals:
-  - kind: new-mechanic
-    target: territorial-control
-    detail: >-
-      Territorial control / province ownership: map regions have an owner and a controller; occupation flips
-      control, and peace or integration transfers ownership, with integration cost or unrest for newly gained land.
-      Used by europa-universalis-4 (cores, coring cost, overextension), crusader-kings-3 (titles, de jure claims),
-      victoria-3 (state ownership, incorporation), hearts-of-iron-4 (occupied versus core states), stellaris (system
-      claims and starbases), civilization (city capture). Proposed id territorial-claims-integration.
-  - kind: new-mechanic
-    target: war-score-peace
-    detail: >-
-      War score and peace negotiation: wars accumulate a score from battles, occupation, and war goals, and the
-      score caps what a peace deal can demand (provinces, money, vassalage). Used by europa-universalis-4,
-      crusader-kings-3 (war score, white peace), victoria-3 (war support and capitulation), hearts-of-iron-4
-      (peace conference points), stellaris (war exhaustion, status quo).
-  - kind: new-mechanic
-    target: stat-combat-resolution
-    detail: >-
-      Statistical combat resolution: battles between units resolve from attack, defense, morale, terrain, and dice
-      or modifiers rather than physics or operational sensor models. Used by civilization, europa-universalis-4,
-      crusader-kings-3, hearts-of-iron-4, stellaris, aurora-4x (ground combat). military-operations covers
-      operational sensor-weapon fidelity, not abstract strength comparison.
-  - kind: new-mechanic
-    target: political-capital
-    detail: >-
-      Political capital / action currency: a regenerating abstract currency earned from ruler or minister quality
-      that pays for policy changes, research, or actions. Used by democracy-4 (political capital from loyal
-      ministers), europa-universalis-4 (administrative, diplomatic, military monarch points), hearts-of-iron-4
-      (political power), stellaris (unity, influence), victoria-3 (authority, influence).
-  - kind: new-mechanic
-    target: crisis-escalation
-    detail: >-
-      Crisis escalation ladder: a two-sided exchange of demands, threats, and counter-moves with discrete
-      escalation steps, where backing down costs standing and over-escalation triggers war or catastrophe. Used by
-      balance-of-power (crises ending in nuclear war), victoria-3 (diplomatic plays with countdown and
-      counter-demands).
-  - kind: new-mechanic
-    target: culture-religion-conversion
-    detail: >-
-      Culture and religion conversion: provinces or populations carry culture and faith attributes that drift or
-      are converted by missionaries, policies, or rulers, changing unrest and bonuses. Used by
-      europa-universalis-4 (missionaries), crusader-kings-3 (county culture and faith conversion, tenets),
-      victoria-3 (pop assimilation and conversion), stellaris (ethics attraction).
-  - kind: new-mechanic
-    target: pvp-security-zones
-    detail: >-
-      PvP security zones: a persistent world is split into zones whose rules set whether players can attack each
-      other and what the attacker pays (NPC police response, status loss). Used by eve-online (high-, low-,
-      null-sec and CONCORD), ultima-online (Trammel and Felucca facets).
-  - kind: new-mechanic
-    target: loss-on-death
-    detail: >-
-      Full-loot or asset loss on death: when a player's ship or character is destroyed, carried assets are lost
-      or dropped for others, with insurance as a lever. Used by eve-online (ship destruction, insurance),
-      ultima-online (looting, item insurance added 2003). permadeath covers permanent character death, not asset
-      loss.
-  - kind: new-mechanic
-    target: seasonal-world-reset
-    detail: >-
-      Seasonal world reset: a shared world runs for a bounded season and then wipes, with rule changes carried
-      into the next season. Used by a-tale-in-the-desert (Tellings of about 18 months), eco (servers that end on
-      meteor impact or success). Distinct from persistent-world, which assumes continuity.
-  - kind: new-mechanic
-    target: corruption-leakage
-    detail: >-
-      Corruption leakage: spending or administration size raises a corruption stock that removes a share of
-      revenue or output and is reduced by dedicated policies. Used by rebel-inc (initiatives raise corruption and
-      inflation), europa-universalis-4 (corruption), stellaris (empire size penalties).
-  - kind: new-mechanic
-    target: worked-tile-yields
-    detail: >-
-      Worked-tile yields: each settlement works a limited number of nearby map tiles, and each tile yields food,
-      production, and trade by terrain and improvements, so city growth and tile choice set output. Used by
-      civilization and its successors; stellaris districts are a later abstraction.
-  - kind: new-mechanic
-    target: projectile-ballistics
-    detail: >-
-      Projectile ballistics: shots are simulated as projectiles with velocity, drop, drag, and penetration rather
-      than hitscan or dice. Used by arma-3; also relevant to dcs-world and silent-hunter-3.
-  - kind: other
-    target: data/sources/src-wikipedia-democracy-4.yaml
-    detail: >-
-      The URL https://en.wikipedia.org/wiki/Democracy_4 redirects to the Democracy (series) article; the source
-      name says Democracy 4. Consider renaming the source title to Democracy (series) or noting the redirect. Not
-      edited because another run owns it.
-  - kind: merge
-    target: src-wikipedia-capitalism-video-game
-    detail: >-
-      Two sources share the URL https://en.wikipedia.org/wiki/Capitalism_(video_game): src-wikipedia-capitalism
-      (catalog-ge) and src-wikipedia-capitalism-video-game (taxonomy-m2). Not in this run's partition; flagged for
-      the orchestrator.
-notes: >-
-  All 19 games are status sourced. Lower-confidence facts: Aurora 4X year 2004 rests on Giant Bomb and
-  EverybodyWiki rather than a primary source; the C# rewrite date of April 2020 rests on a MetaFilter post. Balance
-  of Power month conflicts within Wikipedia (September vs November 1985); the year is consistent. EU4 day conflicts
-  (13 vs 25 August 2013). Eco was still in Steam Early Access when the store page was read on 2026-10-24, so no
-  year_full_release is set; a March 2024 report expected V1 by end of 2024 or early 2025, but I could not confirm a
-  1.0 release. Command: Modern Operations is credited to Warfare Sims per the Wikipedia predecessor article; Steam
-  lists the developer as Command Development Team. Suzerain's publisher is ambiguous in Wikipedia (Torpor Games vs
-  Fellow Traveller). Rebel Inc. influenced_by plague-inc rests on a reviewer calling it a spiritual sequel and on
-  shared studio, a weaker lineage claim than the others. Boundary cases: suzerain, reigns, second-life.
+- kind: new-mechanic
+  target: territorial-control
+  detail: 'Territorial control / province ownership: map regions have an owner and a controller; occupation
+    flips control, and peace or integration transfers ownership, with integration cost or unrest for newly
+    gained land. Used by europa-universalis-4 (cores, coring cost, overextension), crusader-kings-3 (titles,
+    de jure claims), victoria-3 (state ownership, incorporation), hearts-of-iron-4 (occupied versus core
+    states), stellaris (system claims and starbases), civilization (city capture). Proposed id territorial-claims-integration.'
+- kind: new-mechanic
+  target: war-score-peace
+  detail: 'War score and peace negotiation: wars accumulate a score from battles, occupation, and war
+    goals, and the score caps what a peace deal can demand (provinces, money, vassalage). Used by europa-universalis-4,
+    crusader-kings-3 (war score, white peace), victoria-3 (war support and capitulation), hearts-of-iron-4
+    (peace conference points), stellaris (war exhaustion, status quo).'
+- kind: new-mechanic
+  target: stat-combat-resolution
+  detail: 'Statistical combat resolution: battles between units resolve from attack, defense, morale,
+    terrain, and dice or modifiers rather than physics or operational sensor models. Used by civilization,
+    europa-universalis-4, crusader-kings-3, hearts-of-iron-4, stellaris, aurora-4x (ground combat). military-operations
+    covers operational sensor-weapon fidelity, not abstract strength comparison.'
+- kind: new-mechanic
+  target: political-capital
+  detail: 'Political capital / action currency: a regenerating abstract currency earned from ruler or
+    minister quality that pays for policy changes, research, or actions. Used by democracy-4 (political
+    capital from loyal ministers), europa-universalis-4 (administrative, diplomatic, military monarch
+    points), hearts-of-iron-4 (political power), stellaris (unity, influence), victoria-3 (authority,
+    influence).'
+- kind: new-mechanic
+  target: crisis-escalation
+  detail: 'Crisis escalation ladder: a two-sided exchange of demands, threats, and counter-moves with
+    discrete escalation steps, where backing down costs standing and over-escalation triggers war or catastrophe.
+    Used by balance-of-power (crises ending in nuclear war), victoria-3 (diplomatic plays with countdown
+    and counter-demands).'
+- kind: new-mechanic
+  target: culture-religion-conversion
+  detail: 'Culture and religion conversion: provinces or populations carry culture and faith attributes
+    that drift or are converted by missionaries, policies, or rulers, changing unrest and bonuses. Used
+    by europa-universalis-4 (missionaries), crusader-kings-3 (county culture and faith conversion, tenets),
+    victoria-3 (pop assimilation and conversion), stellaris (ethics attraction).'
+- kind: new-mechanic
+  target: pvp-security-zones
+  detail: 'PvP security zones: a persistent world is split into zones whose rules set whether players
+    can attack each other and what the attacker pays (NPC police response, status loss). Used by eve-online
+    (high-, low-, null-sec and CONCORD), ultima-online (Trammel and Felucca facets).'
+- kind: new-mechanic
+  target: loss-on-death
+  detail: 'Full-loot or asset loss on death: when a player''s ship or character is destroyed, carried
+    assets are lost or dropped for others, with insurance as a lever. Used by eve-online (ship destruction,
+    insurance), ultima-online (looting, item insurance added 2003). permadeath covers permanent character
+    death, not asset loss.'
+- kind: new-mechanic
+  target: seasonal-world-reset
+  detail: 'Seasonal world reset: a shared world runs for a bounded season and then wipes, with rule changes
+    carried into the next season. Used by a-tale-in-the-desert (Tellings of about 18 months), eco (servers
+    that end on meteor impact or success). Distinct from persistent-world, which assumes continuity.'
+- kind: new-mechanic
+  target: corruption-leakage
+  detail: 'Corruption leakage: spending or administration size raises a corruption stock that removes
+    a share of revenue or output and is reduced by dedicated policies. Used by rebel-inc (initiatives
+    raise corruption and inflation), europa-universalis-4 (corruption), stellaris (empire size penalties).'
+- kind: new-mechanic
+  target: worked-tile-yields
+  detail: 'Worked-tile yields: each settlement works a limited number of nearby map tiles, and each tile
+    yields food, production, and trade by terrain and improvements, so city growth and tile choice set
+    output. Used by civilization and its successors; stellaris districts are a later abstraction.'
+- kind: new-mechanic
+  target: projectile-ballistics
+  detail: 'Projectile ballistics: shots are simulated as projectiles with velocity, drop, drag, and penetration
+    rather than hitscan or dice. Used by arma-3; also relevant to dcs-world and silent-hunter-3.'
+- kind: other
+  target: data/sources/src-wikipedia-democracy-4.yaml
+  detail: The URL https://en.wikipedia.org/wiki/Democracy_4 redirects to the Democracy (series) article;
+    the source name says Democracy 4. Consider renaming the source title to Democracy (series) or noting
+    the redirect. Not edited because another run owns it.
+- kind: merge
+  target: src-wikipedia-capitalism-video-game
+  detail: 'Two sources share the URL https://en.wikipedia.org/wiki/Capitalism_(video_game): src-wikipedia-capitalism
+    (catalog-ge) and src-wikipedia-capitalism-video-game (taxonomy-m2). Not in this run''s partition;
+    flagged for the orchestrator.'
+notes: 'All 19 games are status sourced. Lower-confidence facts: Aurora 4X year 2004 rests on Giant Bomb
+  and EverybodyWiki rather than a primary source; the C# rewrite date of April 2020 rests on a MetaFilter
+  post. Balance of Power month conflicts within Wikipedia (September vs November 1985); the year is consistent.
+  EU4 day conflicts (13 vs 25 August 2013). Eco was still in Steam Early Access when the store page was
+  read on 2026-10-24, so no year_full_release is set; a March 2024 report expected V1 by end of 2024 or
+  early 2025, but I could not confirm a 1.0 release. Command: Modern Operations is credited to Warfare
+  Sims per the Wikipedia predecessor article; Steam lists the developer as Command Development Team. Suzerain''s
+  publisher is ambiguous in Wikipedia (Torpor Games vs Fellow Traveller). Rebel Inc. influenced_by plague-inc
+  rests on a reviewer calling it a spiritual sequel and on shared studio, a weaker lineage claim than
+  the others. Boundary cases: suzerain, reigns, second-life.'

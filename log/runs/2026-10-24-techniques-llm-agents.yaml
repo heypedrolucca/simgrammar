@@ -1,5 +1,6 @@
 id: 2026-10-24-techniques-llm-agents
 type: run
+kind: technique
 date: '2026-10-24'
 actor: agent
 operator: yoheinakajima

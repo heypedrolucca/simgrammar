@@ -1119,11 +1119,11 @@
   "generator": "scripts/build.py",
   "schemas": {
     "common.schema.json": "27a09a7d5dcf3ec1aa6f26e5350d9decdc5257249f1c647e6b3b8344492b23f3",
-    "game.schema.json": "5a5acd9ebf284e28c48cb367ae7acdac3fceb0f8b5d57dc80f62f9e23614de18",
+    "game.schema.json": "84f40e776241a8e8a55307a322f23ae0ce61d39d6e745e079f5764ba6b01277a",
     "mechanic.schema.json": "c80ce46589e72e8223f883e907789e012b02d7d0df2a51295aade64893e29c68",
     "opportunity.schema.json": "0adade10cdcb45e6e18b8bdba9e65f044ba2c5ee402387507cf7ca7e26bb5452",
-    "run.schema.json": "72eda7107a98ed594d8bcc5a7acfaa6695f70a28af83565bc83564a3985b6bb0",
-    "source.schema.json": "d6a2cedf6105561733003143bcd70683323756347c883f08e7eac5f31c4adfb2",
+    "run.schema.json": "2314371a9d1892681be4866df694f968486906a82989afa4d750855ed19a834e",
+    "source.schema.json": "f1c38bd638a7a9831344470feba998f90c6056acc5a7cc808e33c378a7e4e09e",
     "technique.schema.json": "42124d7089da7ae783ce6de132bc4d2df6d05935e47524c6a9a7e10555208f32"
   },
   "vocab": {
