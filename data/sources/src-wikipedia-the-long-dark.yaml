@@ -1,0 +1,14 @@
+id: src-wikipedia-the-long-dark
+type: source
+name: The Long Dark
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/The_Long_Dark
+accessed: '2026-10-24'
+notes: Hinterland, full release 1 August 2017; player manages body temperature, calories, hunger, weight, fatigue, illness,
+  and injury; fire for warmth and cooking; day-night cycle with colder nights; story, survival, and challenge modes.
+provenance:
+  created: 2026-10-24-taxonomy-m5

@@ -1,0 +1,73 @@
+id: delivery-time-payment
+type: mechanic
+name: Delivery-time payment
+aliases:
+- cargo payment rates
+- time-decaying cargo value
+- transit-time pricing
+summary: Payment for a delivery depends on cargo type, quantity, distance, and transit time, with each cargo losing
+  value at its own rate the longer it travels.
+family: economy-finance
+substrate:
+- rule-system
+definition: >-
+  Owns a payment table per cargo type (a base rate, a distance weight, and a value curve over time in transit) and
+  computes revenue at delivery from quantity, base rate, and distance, multiplied by a time factor that falls as
+  transit time grows; in common implementations the factor holds flat for a cargo-specific grace period before it
+  declines. Fast-decaying cargo such as mail and passengers
+  rewards short or fast routes, while bulk cargo such as coal keeps its value over long, slow hauls. Cargo moved in
+  stages can be paid in parts at transfer points. Transport Tycoon (1994) pays by cargo type, distance, quantity, and
+  delivery time, and OpenTTD keeps the model and adds transfer orders with partial payment for feeder services. It
+  differs from vehicle-route-scheduling, which owns the order lists that move cargo, and from contracts-orders, which
+  owns discrete jobs with fixed payouts and deadlines; here every delivery is priced continuously by how long it took.
+player_experience: >-
+  Speed has a price per cargo. The player matches cargo to mode, putting mail on fast trains or aircraft and coal
+  on slow freight, and reads every delay at a junction as lost money. Upgrading to faster vehicles becomes an investment
+  with a visible return.
+design_levers:
+- base rate per cargo type
+- shape of each cargo's value curve (grace period, slope, floor)
+- distance measure, straight-line between endpoints or route length
+- partial payment rules for transfers and feeder legs
+- inflation or era scaling of rates
+failure_modes:
+- Paying by route length rather than endpoint distance rewards deliberate detours.
+- Near-identical curves make every cargo the same and remove route specialization.
+- Transfer credits shown at feeder stations can make feeder vehicles look profitable while the final leg shows a
+  loss, confusing players about which vehicles earn money.
+- Decay so steep that slow modes earn nothing collapses mode choice to the fastest vehicle.
+dynamics:
+- Cargo sorts by mode, with mail and passengers on fast services and bulk goods on slow ones.
+- Faster vehicles pay back through higher rates, coupling payment to fleet renewal.
+- Congestion and signal delays cost money directly, so network design is priced.
+math_basis:
+- optimization
+- scheduling
+feedback: none
+player_interface:
+- observation
+legibility: 3
+emergence_potential: 2
+authoring_cost: 2
+compute_cost: 1
+tuning_difficulty: 2
+ai_leverage: 1
+maturity: established
+open_questions:
+- Could time sensitivity come from simulated recipients' needs, such as a town short of food paying more for fast
+  grain, rather than fixed per-cargo curves?
+claims:
+- text: Transport Tycoon pays for deliveries by delivery time as well as distance and cargo.
+  sources:
+  - src-wikipedia-transport-tycoon
+  confidence: medium
+- text: OpenTTD orders include transfer with partial payment for feeder services.
+  sources:
+  - src-openttd-2026-manual-orders
+  confidence: high
+sources:
+- src-wikipedia-transport-tycoon
+- src-openttd-2026-manual-orders
+status: sourced
+provenance:
+  created: 2026-10-24-taxonomy-triage-a

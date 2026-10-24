@@ -1,0 +1,15 @@
+id: src-wikipedia-hamurabi
+type: source
+name: Hamurabi (video game)
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Hamurabi_(video_game)
+accessed: '2026-10-24'
+notes: 'Doug Dyment, 1968, FOCAL on PDP-8; each round is a year: adviser report, then grain for land at 17-26 bushels per
+  acre, seed, and food; random harvest, rats, immigration, plague halving population; game ends if 45% starve in a round;
+  10 rounds.'
+provenance:
+  created: 2026-10-24-taxonomy-m5

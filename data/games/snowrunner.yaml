@@ -1,10 +1,68 @@
 id: snowrunner
 type: game
 name: SnowRunner
-summary: TODO
+summary: An off-road trucking sim in which the player hauls cargo across mud, snow, and water whose surfaces deform
+  under each truck's weight and tires, upgrading a fleet to reach harder terrain.
 year: 2020
 developer: Saber Interactive
+platforms:
+- pc
+- console
+- handheld
 subgenre: vehicle-sim
-status: asserted
+sim_domain:
+- physical-mechanical
+- industrial-logistics
+player_role: operator-pilot
+agency_model:
+- direct-avatar
+time_model: real-time
+sim_scale: individual
+fidelity: systemic
+perspective: third-person
+win_structure: completion
+failure_model: soft-recoverable
+narrative_mode: none
+multiplayer:
+- single
+- coop
+modding: content
+production_tier: aa
+agent_count_order: none
+emergence: 3
+influence: 2
+core_loop: take a delivery or repair task -> pick truck, tires, and attachments -> drive into deforming mud, snow,
+  or water -> recover when stuck -> deliver cargo -> earn money and rank -> unlock upgrades and new trucks
+design_notes: 'Terrain is the antagonist: mud, snow, and water respond to vehicle weight, speed, and momentum, so
+  route choice and tire type matter more than speed, and optional timed contests pay more for faster completion.
+  The physics engine is the one Pavel Zagrebelnyy built for MudRunner, the sequel to Spintires. Mechanical upgrades
+  such as snorkels and chain tires are gated behind progress thresholds, and up to four players can share a map.'
+mechanics:
+- id: terrain-deformation
+  role: core
+  note: Mud, snow, and water react to each truck's weight, speed, and momentum, so ground conditions change as vehicles
+    pass and can bog down underpowered or wrongly fitted trucks.
+- id: vehicle-dynamics
+  role: core
+  note: Tire types, frame attachments, and accessories such as exhaust snorkels for deep water and chain tires for
+    snow change how each of over 60 trucks copes with terrain.
+- id: contracts-orders
+  role: core
+  note: Missions deliver cargo or complete construction and repair jobs; optional timed contests pay more the faster
+    they are finished.
+- id: wear-breakdown
+  role: supporting
+  note: Damage is shown on the vehicle model and in the interface and must be repaired.
+- id: milestone-unlocks
+  role: supporting
+  note: Mechanical upgrades require reaching a progress threshold.
+- id: fog-of-war
+  role: supporting
+- id: embodied-skill-control
+  role: supporting
+sources:
+- src-wikipedia-snowrunner
+- src-steam-2026-snowrunner
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gf

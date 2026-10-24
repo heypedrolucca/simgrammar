@@ -1,8 +1,78 @@
 id: blueprints
 type: mechanic
 name: Blueprints
-summary: Layouts can be saved, stamped, copied, and shared.
+aliases:
+- templates
+- stamps
+- copy-paste building
+- prefabs
+summary: Player-made layouts can be saved, stamped as build orders, copied, and shared as text or files.
 family: control-automation
-status: asserted
+substrate:
+- player-authored-logic
+- rule-system
+definition: 'A blueprint is a saved snapshot of a region''s entities with relative positions, rotations,
+  and configuration (recipes, filters, circuit settings, sometimes tiles). State owned: a library of blueprints
+  plus placed ghosts awaiting construction. Capture copies selected entities into a blueprint; stamping
+  projects its entities at a cursor with rotation or mirroring, checks placement validity, and creates
+  ghost build orders that construction agents or the player fulfill. Export serializes a blueprint to
+  a string or file that other players can import. Canonical form: Factorio blueprints, blueprint books,
+  a personal library that persists across saves and is visible to other players in multiplayer, and exchange
+  strings used by community sites. Others: Dyson Sphere Program and Satisfactory blueprints, Mindustry
+  schematics shared as text, and Space Engineers ship blueprints rebuilt through projectors.'
+player_experience: Solving a layout once is enough. The player designs a module carefully, then scales
+  it by stamping, which moves attention from placing pieces to designing systems. Imported community designs
+  let newcomers skip solved problems; some players feel that copying removes the puzzle.
+design_levers:
+- 'unlock timing: available from the start or gated behind progression such as construction robots'
+- 'what is captured: entities only or also configuration, tiles, and logic'
+- parameterized blueprints that substitute items or values at placement
+- 'sharing scope: within a save, across saves, or exported strings and workshop integration'
+- 'who fulfills placed ghosts: the player by hand or automated builders'
+- validity rules when stamping over obstacles or partial resources
+failure_modes:
+- Imported meta designs replace the core puzzle, and players report feeling they are executing other people's
+  solutions.
+- Late unlock makes the repetitive early game tedious and drives players to mods.
+- Blueprints that break when stamped into slightly different terrain or orientation cost more time than
+  rebuilding by hand.
+dynamics:
+- Modular, tileable designs become dominant because they stamp cleanly, shaping the visual language of
+  player bases.
+- Shared blueprint strings create a design culture of named, versioned community layouts.
+- Stamping lowers the marginal cost of expansion, so growth becomes limited by resources and logistics
+  rather than player time.
+math_basis:
+- combinatorics
+- optimization
+feedback: reinforcing
+player_interface:
+- placement
+legibility: 5
+emergence_potential: 2
+authoring_cost: 1
+compute_cost: 1
+tuning_difficulty: 2
+ai_leverage: 4
+maturity: established
+synergy:
+- id: conveyor-transport
+  note: Stamping solved belt layouts lets players scale proven designs instead of re-solving them.
+- id: content-sharing
+  note: Shareable blueprint strings created whole communities of design exchange.
+open_questions:
+- Can generative models produce valid blueprints from a goal such as a 45 per second green circuit block,
+  and does that remove or relocate the design puzzle?
+- How should parameterized blueprints be represented so designs adapt to terrain and recipes without becoming
+  full programming?
+claims:
+- text: Factorio's blueprint library keeps a player's blueprints across saves, shares them with other
+    players in multiplayer, and separately holds save-specific game blueprints.
+  sources:
+  - src-wube-2016-fff-170-blueprint-library
+  confidence: high
+sources:
+- src-wube-2016-fff-170-blueprint-library
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m6

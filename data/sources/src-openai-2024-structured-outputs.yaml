@@ -1,0 +1,16 @@
+id: src-openai-2024-structured-outputs
+type: source
+name: Introducing Structured Outputs in the API
+kind: tech-report
+authors:
+- OpenAI
+venue: OpenAI blog
+date: '2024-08-06'
+url: https://openai.com/index/introducing-structured-outputs-in-the-api/
+accessed: '2026-10-24'
+notes: 'JSON Schema converted to a CFG; invalid tokens masked each step; gpt-4o-2024-08-06 scored 100%
+  on complex schema following vs under 40% for gpt-4-0613. Limits: JSON Schema subset; first request with
+  a new schema adds latency (under 10 s, up to a minute); max_tokens can still break output; values can
+  be wrong.'
+provenance:
+  created: 2026-10-24-techniques-llm-agents

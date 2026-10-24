@@ -1,10 +1,128 @@
 id: screeps
 type: game
 name: Screeps
-summary: TODO
-year: 2016
-developer: Screeps
+summary: A persistent MMO strategy game in which players control colonies only by writing JavaScript that
+  the server runs every tick, directing creeps assembled from body parts to harvest energy, upgrade room
+  controllers, trade, and fight other players' code under a CPU budget.
+year: 2014
+year_full_release: 2016
+developer: Screeps, LLC
+platforms:
+- pc
+- web
 subgenre: programming-sim
-status: asserted
+subgenre_secondary:
+- mmo-world
+sim_domain:
+- computational-abstract
+- military-conflict
+- economic
+player_role: programmer
+agency_model:
+- programmatic
+time_model: asynchronous-persistent
+sim_scale: region
+fidelity: abstract
+perspective: top-down-2d
+win_structure: open-sandbox
+failure_model: soft-recoverable
+narrative_mode: none
+multiplayer:
+- persistent-mmo
+- competitive
+- single
+modding: scripting
+production_tier: indie
+agent_count_order: '100'
+emergence: 3
+influence: 2
+core_loop: write and commit JavaScript -> each tick the script reads room state and issues orders -> creeps
+  harvest energy for spawns, extensions, and the controller -> controller levels unlock structures ->
+  claim and defend rooms against other players' code -> profile and rewrite code within the CPU limit
+design_notes: 'Screeps removes direct control entirely: the only input to the persistent world is the
+  player''s main module, which the server runs once per tick against a fixed snapshot, queuing commands
+  that resolve together at tick end, so the colony keeps acting while the player is offline. Computation
+  is the scarce resource: each tick has a CPU limit (20 without CPU Unlock, otherwise rising with Global
+  Control Level to 300), with unused CPU banked in a 10,000-unit bucket that allows bursts of up to 500.
+  Creeps are designed in code as bodies of up to 50 parts (WORK, CARRY, MOVE, ATTACK, RANGED_ATTACK, HEAL,
+  CLAIM, TOUGH) that set cost, ability, and fatigue, and they die after 1,500 ticks, so a colony is a
+  replacement pipeline. Room Controller Levels 1 to 8 unlock structures and decay if not fed energy, and
+  every player''s AI meets the others in shared 50x50 rooms, so strategy is emergent competition between
+  programs. The server is open source and runnable privately.'
+mechanics:
+- id: player-programming
+  role: core
+  note: Players write JavaScript (or C, C++, Rust, Go, C#, and others via WebAssembly) whose main loop
+    runs every tick under a per-tick CPU limit with a 10,000-unit bucket; globals reset between ticks
+    and actions resolve together at tick end.
+- id: persistent-world
+  role: core
+  note: Official shards run continuously with ticks every 2 to 5 seconds, so colonies harvest, build,
+    and fight while their owners are offline; rooms link through exits and shards through portals.
+- id: modular-assembly
+  role: core
+  note: Code spawns creeps from up to 50 body parts of eight types; part counts set harvest, carry, attack,
+    and heal rates, MOVE parts offset fatigue of 1, 2, or 10 per part on road, plain, or swamp, and each
+    part has 100 hits.
+- id: resource-extraction
+  role: core
+  note: WORK parts harvest energy from sources that refill every 300 ticks, and extractors at RCL 6 mine
+    minerals for labs and the market.
+- id: tech-tree
+  role: core
+  note: Energy spent on a room controller raises its level from 1 to 8 at cumulative costs up to 10.9
+    million, unlocking spawns, extensions, towers, storage, links, labs, terminal, factory, observer,
+    and nuker; unfed controllers downgrade and become neutral.
+- id: raid-defense
+  role: supporting
+  note: Towers, ramparts, and walls defend rooms against other players and NPC invaders, and a newly placed
+    first spawn grants safe mode.
+- id: player-driven-market
+  role: supporting
+  note: Terminals post public buy and sell orders priced in credits with a 5% order fee; the party executing
+    a deal pays an energy cost that grows with distance, and NPC terminals sit at highway crossroads.
+- id: agent-pathfinding
+  role: supporting
+  note: Movement costs are 1 on roads, 2 on plains, and 10 on swamps, and route searches consume the player's
+    CPU, so caching paths is a core optimization.
+- id: wear-breakdown
+  role: supporting
+  note: Roads and other structures lose hits over time and must be repaired by creeps.
+- id: lifecycle-aging
+  role: supporting
+  note: Every creep dies after 1,500 ticks, so code must schedule replacements before roles go unfilled.
+- id: modding-api
+  role: supporting
+  note: The open-source private server supports mods and community servers that change rules and tick
+    rates.
+- id: execution-budget
+  role: core
+  note: Each tick has a CPU limit (20 without CPU Unlock), unused CPU banks in a bucket of up to 10,000,
+    a tick may burst to 500, and scripts are terminated at the limit, so pathfinding and caching strategies
+    are shaped by CPU cost.
+influenced_by: []
+claims:
+- text: In late 2014 Screeps was publicly playable in its browser Simulation mode during its Indiegogo
+    campaign, and a December 2015 post dates the initial launch a year earlier; the persistent MMO opened
+    to backers in May 2015, and the Steam full release followed on 2016-11-16. `year` records the 2014
+    public launch.
+  sources:
+  - src-screeps-2014-indiegogo-updates
+  - src-screeps-2015-game-situation-review
+  - src-screeps-2016-private-server-released
+  - src-steam-2026-screeps-world
+  confidence: medium
+sources:
+- src-steam-2026-screeps-world
+- src-screeps-2026-docs-introduction
+- src-screeps-2026-docs-creeps
+- src-screeps-2026-docs-control
+- src-screeps-2026-docs-market
+- src-screeps-2026-docs-cpu-limit
+- src-screeps-2026-docs-game-loop
+- src-screeps-2014-indiegogo-updates
+- src-screeps-2015-game-situation-review
+- src-screeps-2016-private-server-released
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gh

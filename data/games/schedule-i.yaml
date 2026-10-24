@@ -1,10 +1,91 @@
 id: schedule-i
 type: game
 name: Schedule I
-summary: TODO
+summary: >-
+  A first-person crime business sim in which the player grows and cooks drugs, mixes ingredients to create products with effects
+  customers want, sells them around a city under police pressure, and automates production with hired staff.
 year: 2025
 developer: TVGS
+platforms:
+- pc
 subgenre: business-economic-sim
-status: asserted
+sim_domain:
+- economic
+- industrial-logistics
+player_role: manager-owner
+agency_model:
+- direct-avatar
+- direct-unit
+time_model: real-time
+sim_scale: city
+fidelity: stylized
+perspective: first-person
+win_structure: campaign
+failure_model: soft-recoverable
+narrative_mode: authored
+multiplayer:
+- single
+- coop
+modding: scripting
+production_tier: indie
+agent_count_order: '100'
+emergence: 2
+influence: 1
+core_loop: >-
+  grow or cook a base product -> mix in ingredients to add effects -> sell to customers who want those effects -> avoid police
+  searches and curfews -> hire dealers and staff -> buy properties -> unlock new regions
+design_notes: >-
+  Schedule I runs a production business through a first-person avatar: the player waters plants, operates mixing and cooking
+  stations, and walks or drives deals across Hyland Point before hiring dealers, botanists, cooks, and janitors to automate
+  the chain. Mixing common ingredients such as soft drinks or paracetamol into a product adds effects that raise its sale
+  value, and customers want particular effects, so recipe discovery is the product-development layer. Police pressure rises
+  with growth through random searches, roadblocks, and curfews, and being seen breaking the law sets a wanted status, a player-heat
+  rule the taxonomy lacks (proposed as heat-wanted-level). The game is in early access, with an exit planned for Q4 2027.
+mechanics:
+- id: product-development
+  role: core
+  note: >-
+    Mixing ingredients such as soft drinks or paracetamol into a base product adds named effects that raise its value and
+    match customer preferences.
+- id: customer-value-choice
+  role: core
+  note: >-
+    Customers have preferred effects and price tolerances; matching them builds repeat orders and relationships that open
+    further customers.
+- id: crop-cultivation
+  role: core
+  note: >-
+    Plants are grown in pots with soil and water over a growth timer, then harvested as the base product.
+- id: direct-avatar
+  role: core
+  note: The player personally grows, cooks, mixes, and delivers in first person until staff take over.
+- id: staff-hiring
+  role: core
+  note: >-
+    Dealers sell to their own customer lists for a cut, and botanists, cooks, and janitors run production at owned properties.
+- id: crime-policing
+  role: supporting
+  note: >-
+    Police pressure grows with operations through patrols, random searches, roadblocks, and night curfews; being seen raises
+    a wanted status that can end in arrest.
+- id: production-chain
+  role: supporting
+  note: Higher products need multi-step chains such as cooking methamphetamine at chemistry stations.
+- id: quality-tiers
+  role: supporting
+  note: Product quality varies with inputs such as soil and additives and affects price.
+- id: day-night-cycle
+  role: supporting
+  note: A daily clock with a night curfew shapes when deals can be made.
+- id: free-placement
+  role: supporting
+  note: Grow tents, stations, and storage are placed inside bought properties.
+- id: milestone-unlocks
+  role: supporting
+  note: Rank and story progress unlock new regions, customers, and equipment.
+sources:
+- src-wikipedia-schedule-i
+- src-steam-2026-schedule-i
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-ge

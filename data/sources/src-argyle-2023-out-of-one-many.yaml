@@ -1,0 +1,21 @@
+id: src-argyle-2023-out-of-one-many
+type: source
+name: 'Out of One, Many: Using Language Models to Simulate Human Samples'
+kind: paper
+authors:
+- Lisa P. Argyle
+- Ethan C. Busby
+- Nancy Fulda
+- Joshua Gubler
+- Christopher Rytting
+- David Wingate
+venue: Political Analysis
+date: '2023'
+url: https://arxiv.org/abs/2209.06899
+doi: 10.1017/pan.2023.2
+arxiv: '2209.06899'
+accessed: '2026-10-24'
+notes: 'Silicon samples: GPT-3 conditioned on thousands of sociodemographic backstories from U.S. survey
+  participants reproduces subgroup response distributions; the property is named algorithmic fidelity.'
+provenance:
+  created: 2026-10-24-techniques-llm-agents

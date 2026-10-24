@@ -1,0 +1,14 @@
+id: src-larabel-2025-newton-linux-foundation
+type: source
+name: NVIDIA, Disney and Google contribute open-source Newton engine to the Linux Foundation
+kind: news
+authors:
+- Michael Larabel
+venue: Phoronix
+date: '2025-09-29'
+url: https://www.phoronix.com/news/Linux-Foundation-Newton
+accessed: '2026-10-24'
+notes: Newton robotics physics engine built on NVIDIA Warp and OpenUSD with MuJoCo compatibility; co-developed
+  with Google DeepMind and Disney Research.
+provenance:
+  created: 2026-10-24-techniques-sim-math

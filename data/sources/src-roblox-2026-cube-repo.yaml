@@ -1,0 +1,15 @@
+id: src-roblox-2026-cube-repo
+type: source
+name: Roblox Cube repository
+kind: repository
+authors:
+- Roblox
+venue: GitHub
+date: '2026'
+url: https://github.com/Roblox/cube
+accessed: '2026-10-24'
+notes: Cube 3D v0.1 2025-03, v0.5 2025-07 (bounding-box conditioning, ~2.8M additional synthetic assets),
+  CubePart 2026-05 (part-controllable, usable with animation, physics, scripts); OBJ output; 16-24 GB
+  VRAM.
+provenance:
+  created: 2026-10-24-techniques-world-models

@@ -1,10 +1,83 @@
 id: universe-sandbox
 type: game
 name: Universe Sandbox
-summary: TODO
+aliases:
+- Universe Sandbox 2
+- Universe Sandbox²
+summary: >-
+  A space physics sandbox where the player builds and alters star systems and watches Newtonian n-body gravity, collisions,
+  and simplified planetary climate play out at adjustable speed.
 year: 2008
-developer: Giant Army
+developer: Dan Dixon; Giant Army
+platforms:
+- pc
+- vr
 subgenre: physics-sandbox
-status: asserted
+subgenre_secondary:
+- space-sim
+sim_domain:
+- cosmic-space
+- planetary-natural
+player_role: observer-gardener
+agency_model:
+- policy-parameter
+- design-then-test
+time_model: real-time-pausable
+sim_scale: interplanetary
+fidelity: systemic
+perspective: free-3d
+win_structure: open-sandbox
+failure_model: none
+narrative_mode: none
+multiplayer:
+- single
+- async-shared
+modding: none
+production_tier: indie
+agent_count_order: none
+emergence: 2
+influence: 1
+core_loop: >-
+  load or build a system -> set masses, positions, and time step -> run gravity forward -> watch orbits, collisions, and climate
+  respond -> tweak parameters or add bodies
+design_notes: >-
+  Every body attracts every other under Newtonian n-body gravity, so the player can test questions such as what happens if
+  a star passes the Solar System and see the answer rather than read it. The current version (a rewrite released as Universe
+  Sandbox 2 in 2014 and renamed in 2018, still in early access) adds composition from a small set of materials, collisions
+  that leave molten craters, and a climate layer where sea ice tracks axial tilt and oceans boil near a star. The simulation
+  is an instrument for parameter sweeps; there are no goals or agents.
+mechanics:
+- id: orbital-mechanics
+  role: core
+  note: >-
+    Newtonian n-body gravity acts between all bodies; the player edits mass, density, radius, and velocity and watches orbits,
+    ejections, spin-apart breakup, and collisions follow.
+- id: variable-speed
+  role: core
+  note: >-
+    Simulation speed runs from real time to years per second and can be paused; larger time steps trade against accuracy,
+    so fast runs can diverge from slow ones.
+- id: planetary-climate
+  role: supporting
+  note: >-
+    Surface temperature, sea ice, and oceans respond to stellar distance and axial tilt; moving a planet can freeze or boil
+    it.
+- id: heat-transfer
+  role: supporting
+  note: Collisions and stellar irradiance heat bodies, shown as molten surfaces and temperature maps.
+- id: terraforming
+  role: supporting
+  note: >-
+    Planets are composed from materials such as water, rock, iron, and gases, and oceans and mountains can be shaped.
+- id: data-overlays
+  role: supporting
+  note: Orbit trails and surface temperature maps expose state that is otherwise invisible.
+- id: content-sharing
+  role: supporting
+  note: Player-made simulations are shared on Steam Workshop.
+sources:
+- src-wikipedia-universe-sandbox
+- src-steam-2026-universe-sandbox
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gg

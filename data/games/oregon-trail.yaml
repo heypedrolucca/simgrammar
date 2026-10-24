@@ -1,10 +1,66 @@
 id: oregon-trail
 type: game
 name: The Oregon Trail
-summary: TODO
+aliases:
+- Oregon
+summary: An educational turn-based travel sim in which the player buys supplies and sets rations for a wagon journey to Oregon
+  while random events, weather, and illness threaten the party.
 year: 1971
-developer: MECC (Rawitsch, Heinemann, Dillenberger)
+developer: Don Rawitsch, Bill Heinemann, and Paul Dillenberger; later MECC
+platforms:
+- mainframe-early
+- pc
 subgenre: survival-sim
-status: asserted
+sim_domain:
+- biological-ecological
+- economic
+player_role: overseer
+agency_model:
+- policy-parameter
+time_model: turn-based
+sim_scale: household
+fidelity: stylized
+perspective: text-ui
+win_structure: scenario-goals
+failure_model: hard-restart
+narrative_mode: hybrid
+multiplayer:
+- single
+modding: none
+production_tier: hobbyist
+agent_count_order: none
+emergence: 2
+influence: 4
+core_loop: buy supplies at the outset and at forts -> choose food consumption and pace each leg -> random events, weather,
+  and illness hit the party -> hunt for food and cross rivers -> reach Oregon or die on the trail
+design_notes: Three student teachers wrote it in two weeks for a Minneapolis classroom, where it debuted on 3 December 1971;
+  MECC distributed it on its time-sharing network from 1975 and on the Apple II from 1980. The 1971 model is a few stocks
+  (food, bullets, clothing, supplies, cash) spent over about twelve two-week rounds, with one or two random events and weather
+  drawn each round and typed hunting that rewards speed. The 1985 graphical version added adjustable pace and rations, river
+  crossings by fording, caulking, or ferry, a party of five, professions that set difficulty and score, and tombstones left
+  by earlier players.
+mechanics:
+- id: survival-meters
+  role: core
+  note: Food, clothing, and medical supplies are stocks drawn down each round at a player-chosen consumption rate; low food,
+    cold without clothing, and untreated illness kill the traveler.
+- id: random-disasters
+  role: core
+  note: Each round closes with one or two random events and weather, such as storms, wagon breakdowns, snakebites, or attacks,
+    that cost supplies or health.
+- id: turn-structure
+  role: core
+  note: 'The trip is a sequence of two-week rounds with fixed phases: stop at a fort or not, hunt or not, set consumption,
+    then travel and resolve events.'
+- id: weather
+  role: supporting
+  note: Weather each round affects travel and illness.
+- id: permadeath
+  role: supporting
+  note: Dead party members are gone; the 1985 version leaves a tombstone with an epitaph.
+sources:
+- src-wikipedia-oregon-trail-1971
+- src-wikipedia-oregon-trail-1985
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gb

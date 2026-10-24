@@ -1,10 +1,69 @@
 id: surgeon-simulator
 type: game
 name: Surgeon Simulator
-summary: TODO
+aliases:
+- Surgeon Simulator 2013
+- 'Surgeon Simulator: Experience Reality'
+summary: A physics comedy surgery game in which the player controls one hand with separate finger keys to perform
+  transplants on the patient Bob before his vital signs fail.
 year: 2013
 developer: Bossa Studios
+platforms:
+- pc
+- mobile
+- console
+- handheld
+- vr
 subgenre: medical-sim
-status: asserted
+sim_domain:
+- medical
+- physical-mechanical
+player_role: worker
+agency_model:
+- direct-avatar
+time_model: real-time
+sim_scale: individual
+fidelity: abstract
+perspective: first-person
+win_structure: scenario-goals
+failure_model: hard-restart
+narrative_mode: none
+multiplayer:
+- single
+- coop
+modding: none
+production_tier: indie
+agent_count_order: none
+emergence: 2
+influence: 2
+boundary_case: true
+core_loop: pick a procedure -> move the hand and press finger keys to grab tools -> cut, break, and remove body
+  parts -> place the new organ -> keep Bob alive -> score and time
+design_notes: 'Made in 48 hours at the 2013 Global Game Jam, the game turns control difficulty into the content:
+  the mouse moves the hand, a mouse button rotates or lowers it, and A, W, E, R, and Space close individual fingers,
+  a scheme modeled on Jurassic Park: Trespasser. Tools and organs are rigid bodies, so most outcomes come from collisions
+  and dropped objects rather than authored surgical steps. Medicine is a comic frame with a thin vital-sign model;
+  a heart rate at zero requires charging the defibrillators. Included as a boundary case for embodied control.'
+mechanics:
+- id: embodied-skill-control
+  role: core
+  note: The mouse moves the hand, holding the right button rotates it, the left button lowers it, and A, W, E, R,
+    and Space each close one finger, so grasping a scalpel is itself the challenge.
+- id: rigid-body-physics
+  role: core
+  note: Instruments, organs, and bones are physics objects that collide, slip, and fall, so most mistakes are physical
+    accidents rather than authored failure states.
+- id: injury-body-model
+  role: supporting
+  note: Damage to the patient drives a small vital-sign model; when heart rate reaches 0 the player must charge
+    the defibrillators.
+- id: scenario-objectives
+  role: supporting
+  note: Procedures such as heart and kidney transplants are replayed in an operating room, a bouncing ambulance,
+    and zero gravity.
+sources:
+- src-wikipedia-surgeon-simulator
+- src-invenglobal-2016-surgeon-simulator-vr
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gf

@@ -1,8 +1,60 @@
 id: vehicle-dynamics
 type: mechanic
 name: Vehicle dynamics
-summary: Tire, suspension, drivetrain, and weight-transfer models govern vehicle handling.
+aliases:
+- handling model
+- car physics
+- tire model
+summary: Tire, suspension, drivetrain, and weight-transfer models compute vehicle handling from forces
+  at each wheel.
 family: physics-materials
-status: asserted
+substrate:
+- continuous-physics
+definition: The vehicle state holds the chassis rigid body, wheel angular speeds, suspension compression,
+  engine speed, gear, and often tire temperature and wear. Each physics step routes engine torque through
+  the drivetrain, computes each tire's longitudinal and lateral force from slip ratio, slip angle, and
+  vertical load, applies suspension forces that transfer weight under braking, acceleration, and cornering,
+  and integrates. A common tire model is Hans Pacejka's semi-empirical Magic Formula, which fits force
+  against slip as y = D sin(C arctan(Bx - E(Bx - arctan Bx))). Simulators such as iRacing and Gran Turismo
+  use detailed tire and suspension models; arcade racers simplify grip into tunable curves. Assists such
+  as ABS and traction control act on the same quantities.
+player_experience: Feel and control. Players sense grip through the screen or wheel, learn to balance
+  the car at the limit, and tinker with setups. Mastery is slow and physical, and small improvements feel
+  large.
+design_levers:
+- 'tire model fidelity: simple grip curve to full Magic Formula'
+- driving assists and their strength
+- physics step rate relative to frame rate
+- setup parameters exposed to the player
+- surface grip by material and weather
+- force feedback and camera cues that communicate grip
+failure_modes:
+- Grip that falls off too sharply produces snap oversteer that feels unfair.
+- Tire models become unstable at very low speeds, causing jitter at standstill.
+- Too little detail feels like ice skating; too much excludes players without wheels.
+- Physics tied to frame rate makes handling change with performance.
+dynamics:
+- Setup choices create a tuning meta per track and car.
+- Tire wear and temperature create race strategy over a stint.
+- Changing weather and surfaces force mid-race adaptation.
+math_basis:
+- classical-mechanics
+- control-theory
+feedback: balancing
+player_interface:
+- embodied-skill
+- parameter
+legibility: 3
+emergence_potential: 2
+authoring_cost: 3
+compute_cost: 2
+tuning_difficulty: 3
+ai_leverage: 2
+maturity: classic
+open_questions:
+- Can tire models learned from real telemetry replace hand-fitted coefficients for each car?
+sources:
+- src-pacejka-2012-tire-and-vehicle-dynamics
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m4

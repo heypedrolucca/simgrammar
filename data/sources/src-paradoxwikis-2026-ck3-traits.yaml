@@ -1,0 +1,14 @@
+id: src-paradoxwikis-2026-ck3-traits
+type: source
+name: Traits
+kind: encyclopedia
+authors:
+- Crusader Kings III Wiki contributors
+venue: Crusader Kings III Wiki (paradoxwikis.com)
+date: '2026'
+url: https://ck3.paradoxwikis.com/Traits
+accessed: '2026-10-24'
+notes: Characters tend to have no more than 3 personality traits; children gain them through events at ages 9, 11, and 13,
+  more likely matching their guardian's; opposing traits are excluded; stress breaks at level 2 or higher can change traits.
+provenance:
+  created: 2026-10-24-taxonomy-m3

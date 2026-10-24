@@ -1,0 +1,15 @@
+id: src-factoriowiki-2026-space-age
+type: source
+name: Space Age
+kind: encyclopedia
+authors:
+- Factorio Wiki contributors
+venue: Factorio Wiki
+date: '2026'
+url: https://wiki.factorio.com/Space_Age
+accessed: '2026-10-24'
+notes: 'Paid expansion released 2024-10-21: planets Vulcanus, Fulgora, Gleba (agriculture whose produce
+  spoils), and Aquilo (machines freeze without heating); space platforms carry cargo between planets and
+  must shoot down asteroids; adds Quality, Elevated Rails, and the Recycler (75% loss).'
+provenance:
+  created: 2026-10-24-catalog-gh

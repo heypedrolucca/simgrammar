@@ -1,10 +1,60 @@
 id: islanders
 type: game
 name: Islanders
-summary: TODO
+summary: A minimalist placement puzzle in which every building scores points from compatible and incompatible neighbors
+  on a procedural island, and score thresholds unlock new building packs and new islands.
 year: 2019
 developer: Grizzly Games
+platforms:
+- pc
+- console
+- handheld
+- vr
 subgenre: city-builder
-status: asserted
+sim_domain:
+- urban
+player_role: planner-mayor
+agency_model:
+- zoning-placement
+time_model: turn-based
+sim_scale: settlement
+fidelity: abstract
+perspective: free-3d
+win_structure: score-ranking
+failure_model: hard-restart
+narrative_mode: none
+multiplayer:
+- single
+modding: none
+production_tier: indie
+agent_count_order: none
+emergence: 2
+influence: 2
+boundary_case: true
+core_loop: choose a building from the inventory -> preview its point value from neighbors and terrain -> place it
+  permanently -> score thresholds restock and offer a choice of two packs -> fill the gauge to move to a new island
+design_notes: 'Islanders reduces the city builder to its placement rule: no resources, traffic, citizens, or research,
+  only point values from proximity to compatible structures and natural features and penalties for incompatible
+  ones. Placements are permanent, so each choice consumes space, and the run ends when buildings or space run out
+  before the next threshold. It is included as a boundary case for adjacency scoring, since nothing in the world
+  evolves without the player.'
+mechanics:
+- id: adjacency-scoring
+  role: core
+  note: Each building scores points from nearby compatible buildings and natural features and loses points for incompatible
+    ones; the preview shows the total before placing.
+- id: free-placement
+  role: core
+  note: Buildings are placed freely on the island and cannot be removed or built over.
+- id: milestone-unlocks
+  role: core
+  note: Reaching a point threshold restocks the inventory and offers a choice of two building packs; filling the
+    gauge unlocks a new island.
+- id: procedural-terrain
+  role: supporting
+  note: Each island is procedurally generated.
+sources:
+- src-wikipedia-islanders
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-ga

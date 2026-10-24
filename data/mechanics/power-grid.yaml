@@ -1,9 +1,72 @@
 id: power-grid
 type: mechanic
 name: Power grid
+aliases:
+- electricity network
+- power network
 summary: Generators produce energy that is distributed over a connected network to consumers; shortfalls
   cause brownouts or shutdowns.
 family: resources-production
-status: asserted
+substrate:
+- network-graph
+- aggregate-stocks
+definition: 'Generators, consumers, and optional storage are joined by poles, wires, or adjacency into
+  connected components. Each tick each component sums generation and demand; if supply covers demand every
+  consumer runs, otherwise a shortfall rule applies: proportional slowdown, priority shedding, or outages
+  in some order. Factorio spreads power evenly so machines slow proportionally (a 300 kW load on 180 kW
+  of solar runs at 60%), dispatches solar first, then steam engines, turbines, and fusion, discharges
+  accumulators only when other sources fall short, and charges every connected machine an idle drain.
+  Micropolis, the released SimCity engine, walks conductive tiles outward from each plant, spends one
+  unit of capacity per tile (700 per coal plant, 2,000 per nuclear plant), and when capacity runs out
+  reports brownouts and leaves the remaining tiles unpowered. Oxygen Not Included gives wires a load capacity
+  and damages overloaded wires. Inputs: generator output (fuel, weather, time of day), consumer demand,
+  topology. Outputs: a satisfaction ratio per component and the operating state of each consumer.'
+player_experience: A clear supply-demand puzzle with a visible penalty. Players watch the satisfaction
+  bar, add generation ahead of growth, and learn that a fuel shortage at the plant can slow the very machines
+  that supply its fuel. Night, weather, and storage add a timing layer to an otherwise static capacity
+  problem.
+design_levers:
+- 'shortfall rule: proportional slowdown, priority tiers, or hard outages'
+- 'connection model: pole radius, wires with capacity, or adjacency'
+- generator variability by fuel, time of day, and weather, plus storage buffers
+- idle drain and standby consumption
+- wire or transformer capacity limits and overload consequences
+failure_modes:
+- A single global power pool without topology reduces the mechanic to a number to keep positive.
+- Proportional slowdown can cause a death spiral when brownouts slow the miners and inserters that fuel
+  the generators, a known trap in early Factorio steam power.
+- Overload damage without clear warnings reads as random breakage.
+dynamics:
+- Growth outpaces generation in steps, so power becomes a recurring stop-and-fix cadence.
+- Variable sources such as solar and wind plus storage create daily cycles of surplus and deficit that
+  decide what runs when.
+- 'Grid topology sets the blast radius of failures: one broken link can isolate a district.'
+- Circuit or priority controls let players build load shedding, coupling power to automation.
+math_basis:
+- network-flow
+- system-dynamics
+feedback: both
+player_interface:
+- placement
+- observation
+legibility: 4
+emergence_potential: 3
+authoring_cost: 1
+compute_cost: 2
+tuning_difficulty: 2
+ai_leverage: 2
+maturity: classic
+synergy:
+- id: production-chain
+  note: Machines draw power, so production throughput becomes coupled to generation capacity.
+open_questions:
+- Would learned grid operators that forecast demand and weather turn power from a capacity check into
+  a dispatch problem players manage?
+- How much electrical realism (voltage, phase, line losses) can players absorb before the grid stops being
+  legible?
+sources:
+- src-factoriowiki-2026-electric-system
+- src-hopkins-2008-micropolis
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m1

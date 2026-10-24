@@ -1,10 +1,88 @@
 id: microsoft-flight-simulator-2024
 type: game
 name: Microsoft Flight Simulator 2024
-summary: TODO
+aliases:
+- MSFS 2024
+summary: The successor to Microsoft Flight Simulator (2020) that adds a career mode of certified aviation
+  jobs, walk-around preflight, revised aircraft systems, and modeled ground surfaces to the streamed whole-Earth
+  flight sim.
 year: 2024
 developer: Asobo Studio
+platforms:
+- pc
+- console
+- vr
 subgenre: flight-sim
-status: asserted
+sim_domain:
+- physical-mechanical
+- planetary-natural
+- occupational
+player_role: operator-pilot
+agency_model:
+- direct-avatar
+time_model: real-time-pausable
+sim_scale: individual
+fidelity: high-fidelity
+perspective: first-person
+win_structure: open-sandbox
+failure_model: hard-restart
+narrative_mode: none
+multiplayer:
+- single
+- coop
+modding: scripting
+production_tier: aaa
+agent_count_order: '100'
+emergence: 2
+influence: 1
+core_loop: choose a career job -> walk around the aircraft for preflight -> start systems -> fly the mission
+  profile (firefighting, rescue, cargo hook, airline) -> earn experience, reputation, and certifications
+  -> unlock specializations
+design_notes: 'Career mode turns the 2020 sandbox into a progression game: aerial firefighting, search
+  and rescue, crop dusting, helicopter cargo hook, outsize cargo in the Airbus Beluga, arctic cargo in
+  the A400M, and airline flights are gated by certifications and specializations earned through experience
+  and reputation. Aircraft physics and systems (electrical, fuel, pneumatic, hydraulic) were revised,
+  and stones, gravel, and grass are modeled in 3D and affect wheels. The launch showed the cost of a streamed
+  world: an overwhelmed database cache caused long loads and missing content.'
+mechanics:
+- id: flight-aerodynamics
+  role: core
+  note: Aircraft physics were revised, and ground contact models 3D stones, gravel, and grass that affect
+    wheels during takeoff, landing, and taxi.
+- id: contracts-orders
+  role: core
+  note: Career jobs include aerial firefighting, search and rescue, crop dusting, helicopter cargo hook,
+    Beluga outsize cargo, A400M arctic cargo, and airline passenger flights.
+- id: career-ladder
+  role: core
+  note: Starting from an airport the player chooses, experience earns certifications and specializations
+    that unlock job types.
+- id: reputation
+  role: supporting
+  note: Career reputation accumulates alongside experience.
+- id: procedural-checklists
+  role: supporting
+  note: A walk-around preflight handles covers, doors, and service items, and revised electrical, fuel,
+    pneumatic, and hydraulic systems gate start-up.
+- id: direct-avatar
+  role: supporting
+  note: The pilot walks around the aircraft on foot during preflight.
+- id: weather
+  role: supporting
+- id: embodied-skill-control
+  role: supporting
+- id: day-night-cycle
+  role: supporting
+- id: modding-api
+  role: supporting
+- id: real-world-data-feeds
+  role: supporting
+  note: The streamed whole-Earth world of the 2020 game continues, and the launch showed the dependence
+    when an overwhelmed database cache caused long loads and missing content.
+influenced_by:
+- microsoft-flight-simulator-2020
+sources:
+- src-wikipedia-microsoft-flight-simulator-2024
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gf

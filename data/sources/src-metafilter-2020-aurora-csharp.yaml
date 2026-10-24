@@ -1,0 +1,13 @@
+id: src-metafilter-2020-aurora-csharp
+type: source
+name: An Aurora, Sharpened in the Key of C
+kind: news
+venue: MetaFilter
+date: '2020-04-13'
+url: https://www.metafilter.com/186551/An-Aurora-Sharpened-in-the-Key-of-C
+accessed: '2026-10-24'
+notes: Community weblog post (not journalism) dated 2020-04-13 announcing that Aurora had just been released in
+  a version ported to a new language; comments identify it as the C# rewrite of the Visual Basic 6 original, which
+  still works but is no longer updated.
+provenance:
+  created: 2026-10-24-catalog-gi

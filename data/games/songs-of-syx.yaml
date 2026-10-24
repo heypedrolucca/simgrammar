@@ -1,10 +1,73 @@
 id: songs-of-syx
 type: game
 name: Songs of Syx
-summary: TODO
+summary: A low-fantasy city builder in which tens of thousands of individually simulated citizens and slaves of
+  several races live in a growing city-state whose armies of up to 50,000 units fight real-time battles.
 year: 2020
-developer: Gamatron
+developer: Gamatron AB
+platforms:
+- pc
 subgenre: city-builder
-status: asserted
+subgenre_secondary:
+- grand-strategy
+sim_domain:
+- urban
+- military-conflict
+- political-governance
+player_role: ruler-statesman
+agency_model:
+- zoning-placement
+- policy-parameter
+- direct-unit
+time_model: real-time-pausable
+sim_scale: city
+fidelity: systemic
+perspective: top-down-2d
+win_structure: open-sandbox
+failure_model: soft-recoverable
+narrative_mode: emergent
+multiplayer:
+- single
+modding: content
+production_tier: indie
+agent_count_order: 10k-plus
+emergence: 3
+influence: 1
+core_loop: lay out houses, streets, and workshops -> tens of thousands of citizens and slaves work, worship, and
+  seek their desires -> appoint nobles to run the realm -> supply and train armies -> fight real-time battles ->
+  trade, ally, or conquer neighboring kingdoms
+design_notes: 'Songs of Syx scales individual simulation to city size: each of tens of thousands of citizens and
+  slaves has a race, religion, fears, and desires, and each soldier in battles of up to 50,000 units needs supplies.
+  Nobles can be appointed or imported to manage the kingdom but may try to usurp the player. The game has been in
+  early access since September 2020 with no fixed 1.0 date.'
+mechanics:
+- id: population-strata
+  role: core
+  note: Citizens and slaves of several races, each with distinct needs, religion, and roles.
+- id: unit-commands
+  role: core
+  note: Real-time battles of up to 50,000 individual units commanded by the player.
+- id: needs-decay
+  role: supporting
+  note: Each citizen's needs and desires drive behavior.
+- id: agent-pathfinding
+  role: supporting
+  note: Tens of thousands of agents path through streets to work and services.
+- id: supply-lines
+  role: supporting
+  note: Every soldier must be supplied.
+- id: faction-diplomacy
+  role: supporting
+  note: Alliances, trade, and war with other kingdoms.
+- id: trade-routes
+  role: supporting
+- id: production-chain
+  role: supporting
+- id: stability-unrest
+  role: supporting
+  note: Appointed nobles may try to usurp the ruler.
+sources:
+- src-steam-2026-songs-of-syx
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-ga

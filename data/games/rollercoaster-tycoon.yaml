@@ -1,10 +1,114 @@
 id: rollercoaster-tycoon
 type: game
 name: RollerCoaster Tycoon
-summary: TODO
+summary: An amusement park management game in which the player builds rides and custom coasters piece
+  by piece, rated for excitement, intensity, and nausea, to satisfy guests with individual preferences
+  and meet scenario goals.
 year: 1999
-developer: Chris Sawyer
+developer: Chris Sawyer Productions
+platforms:
+- pc
+- console
 subgenre: management-tycoon
-status: asserted
+sim_domain:
+- economic
+- physical-mechanical
+player_role: manager-owner
+agency_model:
+- zoning-placement
+- design-then-test
+- policy-parameter
+time_model: real-time-pausable
+sim_scale: facility
+fidelity: stylized
+perspective: isometric
+win_structure: scenario-goals
+failure_model: hard-restart
+narrative_mode: emergent
+multiplayer:
+- single
+modding: content
+production_tier: indie
+agent_count_order: 1k
+emergence: 3
+influence: 4
+core_loop: build paths, rides, and shops -> design coasters and test their ratings -> guests choose rides
+  by intensity preference and budget -> thoughts reveal problems -> adjust prices, staff, and layout ->
+  meet the scenario goal
+design_notes: 'RollerCoaster Tycoon makes ride design measurable: every built ride is test-run and rated
+  on excitement, intensity, and nausea, and each guest has a preferred intensity and a nausea tolerance,
+  so the ratings decide who will ride and who gets sick afterward. Guests are individual agents with money,
+  needs, and a stream of readable thoughts, which makes park problems inspectable one guest at a time.
+  Rides lose reliability with age and break down unless mechanics inspect them on a player-set interval.
+  Scenario goals (guest counts and park rating by a deadline) chain 21 base parks. OpenRCT2, a reimplementation
+  of RCT2, carries the systems forward, and Planet Coaster and Parkitect are described as spiritual successors.'
+mechanics:
+- id: design-performance-rating
+  role: core
+  note: Each ride is test-run and rated on excitement, intensity, and nausea from its track geometry,
+    speeds, and g-forces; ratings set demand and fair price.
+- id: crowd-preferences
+  role: core
+  note: Guests have money, a preferred ride intensity, a nausea tolerance, and needs, and they report
+    thoughts such as a ride being too intense or a price too high.
+- id: modular-assembly
+  role: core
+  note: Coasters are built track piece by piece on a tile grid, choosing direction, height, steepness,
+    and elements such as loops and corkscrews.
+- id: customer-value-choice
+  role: core
+  note: Guests compare ride and shop prices with ride value and their remaining cash; overpriced items
+    show up as complaints in guest thoughts.
+- id: wear-breakdown
+  role: core
+  note: Ride reliability decays with use and age; breakdown chance rises as reliability falls, and mechanics
+    inspect and repair on a set interval.
+- id: staff-hiring
+  role: supporting
+  note: Handymen sweep, empty bins, and mow; mechanics fix rides; security guards prevent vandalism; entertainers
+    cheer guests.
+- id: agent-inspection
+  role: supporting
+  note: Clicking a guest shows cash, needs, thoughts, and ride history.
+- id: needs-decay
+  role: supporting
+  note: Guests get hungry, thirsty, tired, and need toilets during a visit.
+- id: service-queues
+  role: supporting
+  note: Guests wait in ride queues and leave long lines unhappy.
+- id: terraforming
+  role: supporting
+  note: Land can be raised and lowered and water added to fit rides and add appeal.
+- id: scenario-objectives
+  role: supporting
+  note: Each of 21 base scenarios sets a goal such as a guest count with a minimum park rating by a deadline;
+    completing one unlocks the next.
+- id: tech-tree
+  role: supporting
+  note: Paid research unlocks new rides and improvements over time.
+- id: decoration-beauty
+  role: supporting
+  note: Scenery and trees improve guest views and ride appeal.
+- id: loans-debt
+  role: supporting
+  note: Parks start with a loan, such as $50,000 in Mega Park.
+- id: agent-pathfinding
+  role: supporting
+  note: Guests navigate the path network and can get lost in mazes of paths.
+- id: advertising-awareness
+  role: supporting
+  note: The marketing panel runs time-limited paid campaigns, such as park or ride advertising and free-entry
+    or half-price vouchers, that raise guest arrivals or demand for a chosen ride or stall while they
+    last.
+- id: track-laying
+  role: supporting
+  note: Coaster track is built piece by piece on the tile grid by direction, height, steepness, and elements
+    such as loops and corkscrews, and the result is rated by test run.
+influenced_by:
+- transport-tycoon
+sources:
+- src-wikipedia-rollercoaster-tycoon
+- src-wikipedia-rollercoaster-tycoon-series
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-ge

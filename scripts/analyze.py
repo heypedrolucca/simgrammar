@@ -325,11 +325,22 @@ def compute(ents: dict, edges: list, vocabs: dict) -> dict:
     trows.sort(key=lambda r: (-MATURITY_ORDER.index(r["maturity"]), -r["trl"], r["technique"]))
     tables["technique-landscape"] = {"description": "Techniques ordered by game-deployment maturity and TRL, with mechanic families they affect.",
                                      "columns": ["technique", "category", "maturity", "trl", "horizon", "families"], "rows": trows, "link_columns": ["technique"]}
+    zero = [m for m in mechs if derived[m.id]["technique_exposure"] == 0]
+    stats["n_mechanics_zero_exposure"] = len(zero)
+    total_uses = sum(derived[m.id]["prevalence"] for m in mechs) or 1
+    stats["pct_uses_on_zero_exposure"] = _r(100 * sum(derived[m.id]["prevalence"] for m in zero) / total_uses, 0)
+    top10 = sorted(mechs, key=lambda m: (-derived[m.id]["prevalence"], m.id))[:10]
+    stats["n_top10_prevalent_zero_exposure"] = sum(1 for m in top10 if derived[m.id]["technique_exposure"] == 0)
+    early = [derived[m.id]["earliest_year"] for m in mechs if derived[m.id]["earliest_year"]]
+    stats["pct_mechanics_seen_by_2000"] = _r(100 * sum(1 for y in early if y <= 2000) / max(len(early), 1), 0)
     eff = Counter(a["effect"] for t in techs for a in t.data.get("affects", []))
+    for k in vocab_terms(vocabs, "effect"):
+        stats[f"n_effect_{k.replace('-', '_')}"] = eff.get(k, 0)
     tables["effect-distribution"] = {"description": "How techniques change mechanics, by effect type.", "columns": ["effect", "edges"],
                                      "rows": [{"effect": k, "edges": v} for k, v in sorted(eff.items(), key=lambda x: (-x[1], x[0]))]}
     if eff:
         stats["top_effect"] = vocab_terms(vocabs, "effect")[eff.most_common(1)[0][0]]["label"]
+        stats["rarest_effect"] = vocab_terms(vocabs, "effect")[min(eff.items(), key=lambda x: (x[1], x[0]))[0]]["label"]
         stats["n_affects_edges"] = sum(eff.values())
     mat_counts = Counter(t.data["maturity"] for t in techs)
     for k in MATURITY_ORDER:

@@ -1,10 +1,70 @@
 id: subnautica
 type: game
 name: Subnautica
-summary: TODO
+summary: An underwater survival game on an ocean planet where the player manages oxygen, food, and water while crafting tools,
+  submersibles, and bases to explore deeper and escape.
 year: 2014
+year_full_release: 2018
 developer: Unknown Worlds Entertainment
+platforms:
+- pc
+- console
+- handheld
+- mobile
 subgenre: survival-sim
-status: asserted
+sim_domain:
+- biological-ecological
+player_role: inhabitant
+agency_model:
+- direct-avatar
+time_model: real-time
+sim_scale: individual
+fidelity: stylized
+perspective: first-person
+win_structure: completion
+failure_model: soft-recoverable
+narrative_mode: authored
+multiplayer:
+- single
+modding: scripting
+production_tier: indie
+agent_count_order: '100'
+emergence: 2
+influence: 3
+boundary_case: true
+core_loop: dive from the lifepod -> gather resources and recover blueprints -> craft tools, vehicles, and base modules ->
+  manage oxygen, food, and water -> dive deeper into new biomes and story sites -> build the means to escape the planet
+design_notes: 'Included as a boundary case: the map, story, and progression are hand-authored, and the simulated layer is
+  a set of survival meters plus base power and fauna behavior. Oxygen is the distinctive meter because it ties survival to
+  depth and distance from air, making range a resource. Mode settings remove meters to change genre: Freedom drops hunger
+  and thirst, Creative drops all depleting stats, and Hardcore adds permanent death without low-oxygen warnings.'
+mechanics:
+- id: survival-meters
+  role: core
+  note: Health, hunger, thirst, and oxygen deplete in Survival mode; oxygen limits each dive's depth and duration, Freedom
+    mode removes hunger and thirst, and Creative removes all depleting stats.
+- id: hand-crafting
+  role: core
+  note: Gathered resources are crafted into tools, base parts, and submersibles from blueprints the player has recovered.
+- id: free-placement
+  role: supporting
+  note: Bases are assembled from placed modules.
+- id: power-grid
+  role: supporting
+  note: Bases and vehicles need energy sources.
+- id: day-night-cycle
+  role: supporting
+  note: A day-night cycle and frequent eclipses change visibility.
+- id: spoilage
+  role: supporting
+  note: Cooked fish spoils over time; cured fish does not.
+- id: permadeath
+  role: supporting
+  note: Optional in Hardcore mode.
+- id: direct-avatar
+  role: supporting
+sources:
+- src-wikipedia-subnautica
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gb

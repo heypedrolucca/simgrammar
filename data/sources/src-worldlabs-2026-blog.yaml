@@ -1,0 +1,13 @@
+id: src-worldlabs-2026-blog
+type: source
+name: World Labs blog and news index
+kind: tech-report
+authors:
+- World Labs
+date: 2026-09
+url: https://www.worldlabs.ai/blog
+accessed: '2026-10-24'
+notes: 'Dated posts: World API 2026-01-21; Spark 2.0 streaming 3DGS LOD 2026-04-14; SceniX acquisition
+  2026-07-21; Atlas 2026-09-01; World Labs Is Joining AMD 2026-09-28.'
+provenance:
+  created: 2026-10-24-techniques-world-models

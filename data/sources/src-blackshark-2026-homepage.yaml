@@ -1,0 +1,13 @@
+id: src-blackshark-2026-homepage
+type: source
+name: Blackshark.ai
+kind: docs
+authors:
+- Blackshark.ai
+date: '2026'
+url: https://blackshark.ai/
+accessed: '2026-10-24'
+notes: HUNTR and REPLIKA products turn satellite and aerial imagery into structured digital models of
+  terrain, buildings, and infrastructure; Zurich showcase.
+provenance:
+  created: 2026-10-24-techniques-world-models

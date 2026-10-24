@@ -1,10 +1,67 @@
 id: suzerain
 type: game
 name: Suzerain
-summary: TODO
+summary: A text-based political narrative game in which the player, as newly elected President Anton Rayne of Sordland,
+  makes dialogue and policy choices across one term that shift the budget, foreign alignment, and constitutional
+  reform toward one of several endings.
 year: 2020
 developer: Torpor Games
+platforms:
+- pc
+- console
+- handheld
+- mobile
 subgenre: political-sim
-status: asserted
+sim_domain:
+- political-governance
+- social-interpersonal
+player_role: ruler-statesman
+agency_model:
+- policy-parameter
+time_model: turn-based
+sim_scale: nation
+fidelity: stylized
+perspective: text-ui
+win_structure: campaign
+failure_model: soft-recoverable
+narrative_mode: authored
+multiplayer:
+- single
+modding: none
+production_tier: indie
+agent_count_order: none
+emergence: 1
+influence: 1
+boundary_case: true
+core_loop: read briefings and dialogue -> choose responses and policy decisions -> budget, alignment, and story
+  flags update -> later options open or close -> reach an ending and a political-compass result
+design_notes: 'Suzerain is mostly authored text, about 450,000 words, in which choices are recorded as state: the
+  budget and accumulated decisions gate later dialogue options and endings. It is a boundary case included for how
+  a political game can run on dilemma choices and state-gated story branches rather than an equation network. The
+  ending screen places the player on an in-universe political compass computed from choices made across the term.'
+mechanics:
+- id: dilemma-cards
+  role: core
+  note: Ministers, advisers, and family members present situations as dialogue, and multiple-choice responses on
+    constitutional reform, economic model, security, and welfare trade off budget, alignment, and later options.
+- id: triggered-event-chains
+  role: core
+  note: Story chapters branch on recorded choices, opening or closing later scenes and deciding which ending the
+    term reaches.
+- id: budget-treasury
+  role: supporting
+  note: Available budget and resources are shown and drawn down by decisions.
+- id: faction-diplomacy
+  role: supporting
+  note: Sordland can side with the western or eastern bloc or stay neutral, and deals with its neighbor Rumburg.
+- id: policy-toggles
+  role: supporting
+  note: Major choices set constitutional reforms and a market-driven or centrally planned economy.
+- id: advisors
+  role: supporting
+  note: Ministers and advisers brief the president and argue positions.
+sources:
+- src-wikipedia-suzerain
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gi

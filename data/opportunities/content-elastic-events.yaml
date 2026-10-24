@@ -1,0 +1,51 @@
+id: content-elastic-events
+type: opportunity
+name: Content-elastic event systems
+summary: Remove the authoring ceiling on event chains, requests, and dilemmas by generating schema-constrained
+  variants from designer templates and validating them against game state.
+opportunity_type: authoring-tool
+thesis: 'Event chains, villager requests, and dilemma cards are capped by writing budgets: players exhaust
+  the deck and recognize repeats. Language models can generate variants, but unconstrained text breaks
+  game logic. Templates with typed slots, constrained decoding into the event schema, and automated checks
+  against preconditions let a small team ship a deck that keeps producing valid, state-aware events.'
+design_sketch: Designers write 200 event templates with preconditions, effects, and tone notes. At build
+  time or runtime, a generator instantiates variants that reference specific characters, places, and history
+  from the save, emits schema-valid events, and passes them through a validator that rejects anything
+  whose effects violate invariants. Generated events are tagged so players can filter them.
+involves:
+- triggered-event-chains
+- villager-requests
+- dilemma-cards
+- procedural-characters
+- storyteller-director
+applies:
+- llm-game-master
+- constrained-decoding
+- automated-playtesting
+precedent:
+- crusader-kings-3
+- stardew-valley
+- animal-crossing-new-horizons
+- reigns
+- frostpunk
+novelty: 3
+feasibility: 4
+impact: 3
+horizon: now
+key_risks:
+- Generated text quality below authored text lowers perceived quality.
+- Disclosure and player backlash against AI-generated writing.
+- Validation catches logic errors but not tone errors.
+validation_experiment: 'Take 50 authored events from an existing design, generate 500 variants, have blind
+  raters compare authored and generated events on quality, and run a validator on every variant. Success:
+  generated events rated within 0.5 points of authored ones with 99 percent passing validation.'
+falsifiable_signal:
+  prediction: A grand strategy, life sim, or narrative management game will ship runtime-generated events
+    constrained by an event schema, disclosed on its Steam page.
+  resolve_by: '2027-12-31'
+  criteria: Steam AI disclosure or developer documentation describing runtime-generated events in a released
+    title.
+sources: []
+status: asserted
+provenance:
+  created: 2026-10-24-synthesis

@@ -1,0 +1,13 @@
+id: src-openttd-2021-path-signals
+type: source
+name: "Why we recommend Path Signals"
+kind: tech-report
+authors:
+  - "nielsmh"
+venue: "OpenTTD news"
+date: "2021-11-06"
+url: https://www.openttd.org/news/2021/11/06/explaining-signals-ui-change
+accessed: "2026-10-24"
+notes: "Block signals reserve whole blocks, path signals reserve only track pieces on the route; block signals were the only type in the original game; OpenTTD 12 shows only path signal types by default."
+provenance:
+  created: 2026-10-24-taxonomy-m1

@@ -1,0 +1,15 @@
+id: src-chan-2019-lenia
+type: source
+name: 'Lenia: Biology of Artificial Life'
+kind: paper
+authors:
+- Bert Wang-Chak Chan
+venue: Complex Systems 28(3)
+date: '2018-12-13'
+url: https://arxiv.org/abs/1812.05433
+arxiv: '1812.05433'
+accessed: '2026-10-24'
+notes: Continuous space-time-state cellular automaton with a ring kernel and growth function; over 400
+  species in 18 families, many found by interactive evolutionary search.
+provenance:
+  created: 2026-10-24-techniques-sim-math

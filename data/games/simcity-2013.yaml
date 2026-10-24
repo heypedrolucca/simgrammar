@@ -1,10 +1,87 @@
 id: simcity-2013
 type: game
 name: SimCity (2013)
-summary: TODO
+summary: A SimCity reboot built on the agent-based GlassBox engine, in which agents carry workers, power, water,
+  and goods between buildings and small cities share a region over an always-online connection.
 year: 2013
-developer: Maxis
+developer: Maxis Emeryville
+platforms:
+- pc
 subgenre: city-builder
-status: asserted
+sim_domain:
+- urban
+- economic
+player_role: planner-mayor
+agency_model:
+- zoning-placement
+- policy-parameter
+time_model: real-time-pausable
+sim_scale: city
+fidelity: systemic
+perspective: free-3d
+win_structure: open-sandbox
+failure_model: soft-recoverable
+narrative_mode: emergent
+multiplayer:
+- single
+- async-shared
+modding: none
+production_tier: aaa
+agent_count_order: 1k
+emergence: 3
+influence: 2
+core_loop: zone along roads -> GlassBox agents carry workers, goods, power, water, and sewage between buildings
+  -> specialize the city in industries such as manufacturing, education, or tourism -> trade surpluses and share
+  services with region neighbors -> pool resources into Great Works
+design_notes: GlassBox replaces statistical maps with units that hold resource bins and agents that move resources
+  between them, so a house holds a count of people and food, water travels as units, and traffic jams are the visible
+  sum of commuting agents. Agents take the first available job and the first empty home rather than keeping persistent
+  lives, and vehicles take the shortest route instead of the least loaded one, which players read as pathfinding
+  errors. Cities were smaller than earlier games by design, and region play links them asynchronously through shared
+  services, trade, and Great Works.
+mechanics:
+- id: zoning
+  role: core
+  note: Residential, commercial, and industrial zones are painted along roads; buildings develop inside them.
+- id: agent-pathfinding
+  role: core
+  note: Sims go to the first job and first empty home they find; vehicles take the shortest route rather than the
+    one with spare capacity.
+- id: traffic-congestion
+  role: core
+  note: Jams emerge from masses of commuting Sim agents on the road network.
+- id: async-shared-region
+  role: core
+  note: Cities in a region connect by highway, rail, and water, trade resources, share services, and pool wealth
+    into Great Works such as an arcology.
+- id: power-grid
+  role: supporting
+  note: Power is carried as resource units from plants to buildings.
+- id: fluid-pipe-network
+  role: supporting
+  note: Water and sewage move as units through pipes between pumps, treatment, and buildings.
+- id: deposit-depletion
+  role: supporting
+  note: Map resources are mostly finite, though groundwater recharges.
+- id: supply-demand-pricing
+  role: supporting
+  note: A simulated global market raises and lowers prices of key resources with supply and demand.
+- id: service-coverage
+  role: supporting
+  note: Service buildings dispatch vehicle agents to calls.
+- id: pollution-spread
+  role: supporting
+  note: Pollution and traffic cross city borders within a region.
+- id: population-strata
+  role: supporting
+  note: Residents and businesses come in wealth levels with different demands.
+- id: budget-treasury
+  role: supporting
+influenced_by:
+- simcity-4
+sources:
+- src-wikipedia-simcity-2013
+- src-cifaldi-2012-glassbox-engine
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-ga

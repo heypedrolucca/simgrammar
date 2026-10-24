@@ -1,9 +1,61 @@
 id: vehicle-route-scheduling
 type: mechanic
 name: Vehicle routes and schedules
-summary: Vehicles are assigned ordered stops with load and unload rules to move goods or passengers between
-  nodes.
+aliases:
+- vehicle orders
+- routes
+- timetables
+- train schedules
+summary: Vehicles are assigned ordered stops with load and unload rules to move goods or passengers between nodes.
 family: logistics-networks
-status: asserted
+substrate:
+- agent-based
+- rule-system
+- network-graph
+definition: >-
+  Each vehicle holds an order list: an ordered sequence of stops, each with load and unload rules and optional wait conditions.
+  The vehicle travels to each stop in turn, applies its rules, and continues. OpenTTD offers full load of any or all cargo,
+  unload, transfer with partial payment for feeder services, no loading, go-via waypoints, timetables, conditional jumps,
+  and shared orders across vehicles. Transport Tycoon pays by delivery time, distance, and quantity, so mail must be fast
+  while coal tolerates long routes. Factorio train schedules use wait conditions such as full cargo, inactivity, or circuit
+  signals. Inputs: orders, vehicles, cargo at stops. Outputs: cargo movement, revenue, and station service frequency.
+player_experience: >-
+  Programming a fleet. Players design routes, tune load rules, and watch vehicles run. Well-tuned routes make money unattended;
+  badly tuned ones leave vehicles waiting at empty stations.
+design_levers:
+- available order types and wait conditions
+- payment model by distance, time, and cargo type
+- shared orders and fleet management tools
+- vehicle capacity, speed, and reliability
+- station ratings that respond to service frequency
+failure_modes:
+- Full-load orders at low-supply stations park vehicles forever.
+- Complex order systems without templates make fleet changes tedious.
+- Revenue models that ignore time make every route identical.
+dynamics:
+- Feeder and trunk networks emerge from transfer orders.
+- Station competition between companies or players shifts cargo flows.
+- Fleet growth eventually saturates track or roads, coupling routing to signaling and congestion.
+math_basis:
+- scheduling
+- optimization
+feedback: none
+player_interface:
+- orders
+- parameter
+legibility: 4
+emergence_potential: 3
+authoring_cost: 1
+compute_cost: 2
+tuning_difficulty: 3
+ai_leverage: 2
+maturity: classic
+open_questions:
+- Could natural-language order entry ("keep this mine's output moving to the steel mill") replace order lists without losing
+  player control?
+sources:
+- src-openttd-2026-manual-orders
+- src-wikipedia-transport-tycoon
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m1

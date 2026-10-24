@@ -1,10 +1,107 @@
 id: the-sims-2
 type: game
 name: The Sims 2
-summary: TODO
+summary: The 3D sequel to The Sims that adds aging through seven life stages, genetic inheritance, aspirations
+  with wants and fears, and memories, so households play across generations.
 year: 2004
 developer: Maxis
+platforms:
+- pc
+- console
+- handheld
+- mobile
 subgenre: life-sim
-status: asserted
+sim_domain:
+- domestic-personal
+- social-interpersonal
+- biological-ecological
+player_role: caretaker
+agency_model:
+- direct-unit
+- indirect-incentive
+- zoning-placement
+time_model: real-time-pausable
+sim_scale: household
+fidelity: stylized
+perspective: free-3d
+win_structure: open-sandbox
+failure_model: permadeath
+narrative_mode: emergent
+multiplayer:
+- single
+- coop
+modding: scripting
+production_tier: aaa
+agent_count_order: '10'
+emergence: 3
+influence: 3
+core_loop: create a household with aspirations -> wants and fears roll -> direct Sims to meet motives
+  and wants -> aspiration meter and memories shift -> Sims age, marry, and have children who inherit genes
+  -> continue with the next generation
+design_notes: 'The Sims 2 turns the household sandbox into a generational one: babies become toddlers
+  after 3 days, toddlers children after 4, children teens after 8, teens adults after 15, and adults elders
+  after 29, and an elder''s remaining life depends on the aspiration meter at the time of aging. Children
+  inherit appearance and personality from both parents through dominant and recessive genes, and each
+  Sim''s aspiration (one of eight, such as Romance, Family, Knowledge, or Popularity) biases which wants
+  and fears appear. The wants-and-fears panel is a short-horizon goal generator with no mechanic id yet
+  (proposed as aspiration-wants). SimPE and Body Shop made behavior hacks and custom genetics routine
+  in its mod community.'
+mechanics:
+- id: needs-decay
+  role: core
+  note: Eight motives (Hunger, Comfort, Bladder, Energy, Fun, Social, Hygiene, Environment) decay and
+    push Sims toward objects; failing motives cause refusals and, at the extreme, death.
+- id: smart-objects
+  role: core
+  note: Objects advertise motive and skill gains that autonomous Sims weigh against their current motive
+    levels.
+- id: lifecycle-aging
+  role: core
+  note: Seven life stages (baby, toddler, child, teen, young adult with University, adult, elder) advance
+    on fixed day counts; a birthday cake or Grow Up interaction ages a Sim early.
+- id: trait-inheritance
+  role: core
+  note: Children inherit eye color, hair color, facial structure, and personality from both parents through
+    dominant and recessive genes; pregnancy lasts 3 Sim days.
+- id: memories-thoughts
+  role: supporting
+  note: Events such as a first kiss, a promotion, or a death are stored as memories that later shape wants
+    and fears.
+- id: personality-traits
+  role: supporting
+  note: Twenty-five points are spread over five opposed pairs (Neat/Sloppy, Outgoing/Shy, Active/Lazy,
+    Playful/Serious, Nice/Grouchy); twelve zodiac presets give starting allocations.
+- id: career-ladder
+  role: supporting
+  note: Careers have ten levels (25 tracks counting expansions); promotions need skills and a number of
+    family friends, and chance cards can reward or cost the job.
+- id: agent-skills
+  role: supporting
+- id: relationship-values
+  role: supporting
+  note: Each pair holds a daily and a lifetime relationship score that move with interactions.
+- id: romance-family
+  role: supporting
+  note: Sims court, marry, and try for babies; Nightlife adds turn-ons and turn-offs shown as up to three
+    chemistry bolts.
+- id: social-exchanges
+  role: supporting
+- id: free-placement
+  role: supporting
+  note: Build and Buy modes in a free 3D camera; neighborhood terrain can be imported from SimCity 4.
+- id: permadeath
+  role: supporting
+  note: Elders die of old age and other Sims of accidents or neglect; deaths become memories for survivors.
+- id: aspiration-wants
+  role: core
+  note: Each Sim's aspiration (one of eight, such as Romance, Family, Knowledge, or Popularity) biases
+    which wants and fears roll; fulfilled wants fill the aspiration meter, realized fears drain it, and
+    an elder's remaining life depends on the meter.
+influenced_by:
+- the-sims
+sources:
+- src-wikipedia-the-sims-2
+- src-strategywiki-2026-sims-2-careers
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gc

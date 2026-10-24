@@ -1,10 +1,77 @@
 id: little-computer-people
 type: game
 name: Little Computer People
-summary: TODO
+aliases:
+- Apple Town Story
+summary: A 1985 home-computer life sim in which one procedurally seeded little person lives in a cross-section
+  of a three-story house, follows a daily routine, and depends on the player for food, water, and attention.
 year: 1985
 developer: Activision
+platforms:
+- mainframe-early
+- pc
+- console
 subgenre: life-sim
-status: asserted
+subgenre_secondary:
+- virtual-pet
+sim_domain:
+- domestic-personal
+- social-interpersonal
+player_role: caretaker
+agency_model:
+- caretaking-interaction
+- conversational
+time_model: real-time
+sim_scale: individual
+fidelity: stylized
+perspective: top-down-2d
+win_structure: open-sandbox
+failure_model: soft-recoverable
+narrative_mode: emergent
+multiplayer:
+- single
+modding: none
+production_tier: aa
+agent_count_order: '1'
+emergence: 2
+influence: 2
+core_loop: watch the resident's routine -> hunger, thirst, and mood drift -> deliver food, water, gifts,
+  or pats -> type polite requests -> mood decides whether he complies -> repeat across sessions
+design_notes: 'Rich Gold conceived the game and David Crane built it at Activision; the documentation
+  presents the little people as real beings living inside the computer, with the player as their caretaker.
+  Each disk''s serial number seeded the resident''s name (from 256), shirt color, personality, and behavior,
+  so every copy hosted a different person. There is no win condition: the resident cooks, reads, plays
+  piano, phones, and types letters about his feelings on a day of about six real-time hours, and his mood
+  gates whether typed requests are obeyed. The cassette C64 version dropped memory, letters, and card
+  games, which shows which systems carried the sense of a persistent person.'
+mechanics:
+- id: creature-care
+  role: core
+  note: Keyboard commands deliver food (CTRL+F), add water to his tank (CTRL+W), deliver dog food, pat
+    him, or give records and books; a resident left unfed turns green and sick until he eats.
+- id: needs-decay
+  role: core
+  note: Hunger and thirst build between deliveries; unmet needs lower his mood and eventually make him
+    visibly sick.
+- id: procedural-characters
+  role: core
+  note: The disk serial number seeds his name from a pool of 256, his shirt color, personality, and behavior
+    parameters.
+- id: daily-schedules
+  role: supporting
+  note: He runs a routine of cooking, watching television, reading the newspaper, playing records, and
+    dancing on a compressed day of about six real-time hours.
+- id: natural-language-interaction
+  role: supporting
+  note: Typed requests such as 'Please play piano' are matched against a keyword vocabulary; politeness
+    helps, and a sad or sick resident may refuse.
+- id: personality-traits
+  role: supporting
+  note: Seeded personality and mood parameters change which activities he prefers, how often he invites
+    the player to cards or writes letters, and how readily he obeys.
+sources:
+- src-wikipedia-little-computer-people
+- src-c64wiki-2026-little-computer-people
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gc

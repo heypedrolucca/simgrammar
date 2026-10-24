@@ -1,10 +1,83 @@
 id: kingdoms-and-castles
 type: game
 name: Kingdoms and Castles
-summary: TODO
+summary: A medieval town builder in which peasants farm and stockpile for an annual winter while the player stacks
+  castle blocks into walls and towers to defend against vikings, dragons, and ogres.
 year: 2017
 developer: Lion Shield
+platforms:
+- pc
+- console
 subgenre: city-builder
-status: asserted
+sim_domain:
+- urban
+- military-conflict
+player_role: ruler-statesman
+agency_model:
+- zoning-placement
+- policy-parameter
+time_model: real-time-pausable
+sim_scale: settlement
+fidelity: stylized
+perspective: free-3d
+win_structure: open-sandbox
+failure_model: soft-recoverable
+narrative_mode: emergent
+multiplayer:
+- single
+modding: content
+production_tier: indie
+agent_count_order: '100'
+emergence: 2
+influence: 1
+core_loop: place a keep and houses on an island -> peasants farm, cut wood, and quarry -> store food for the annual
+  winter -> tax peasants to pay workers and unlock buildings -> stack castle blocks into walls and towers -> repel
+  vikings, dragons, and ogres
+design_notes: 'Kingdoms and Castles pairs a light town economy with a block-built castle: walls and towers form
+  from how blocks are stacked, and taller archer towers reach farther, so defense is shaped geometry rather than
+  a building menu. Each villager and resource is individually simulated, and an annual winter that destroys crops
+  sets a regular survival check. Raiders kidnap peasants and burn buildings, and a dragon targets granaries, linking
+  defense to food security.'
+mechanics:
+- id: raid-defense
+  role: core
+  note: Vikings kidnap peasants, steal resources, and burn the town; dragons torch granaries; ogres attack; soldiers
+    and archer towers defend.
+- id: seasons
+  role: core
+  note: An annual winter destroys crops, so food must be stored in granaries to prevent starvation.
+- id: modular-assembly
+  role: supporting
+  note: Castle blocks stack into walls and towers whose shape forms automatically; taller archer towers have longer
+    range.
+- id: taxation
+  role: supporting
+  note: Peasant taxes pay workers and unlock buildings.
+- id: citizen-satisfaction
+  role: supporting
+  note: Happiness from layout, churches, taverns, and festivals.
+- id: immigration-attractiveness
+  role: supporting
+  note: Happiness and housing attract new residents.
+- id: random-disasters
+  role: supporting
+  note: Lightning starts fires.
+- id: contagion
+  role: supporting
+  note: Plagues spread and must be healed.
+- id: crop-cultivation
+  role: supporting
+- id: renewable-regrowth
+  role: supporting
+  note: Foresters cut and replant trees.
+- id: faction-diplomacy
+  role: supporting
+  note: Diplomats make trade agreements, alliances, and wars with AI kingdoms.
+- id: procedural-terrain
+  role: supporting
+sources:
+- src-wikipedia-kingdoms-and-castles
+- src-steam-2026-kingdoms-and-castles
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-ga

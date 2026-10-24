@@ -1,0 +1,16 @@
+id: src-wikipedia-microsoft-flight-simulator-2020
+type: source
+name: Microsoft Flight Simulator (2020 video game)
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Microsoft_Flight_Simulator_(2020_video_game)
+accessed: '2026-10-24'
+notes: Asobo Studio, Xbox Game Studios; Windows 2020-08-18, VR 2020-12-22, Xbox Series 2021-07-27; Bing Maps terrain
+  updated every 28 days; Azure AI 3D generation streamed from cloud, over two petabytes; Meteoblue live weather;
+  live air traffic; physics simulates over 1,000 control surfaces and wind over terrain; legacy flight model option;
+  marketplace.
+provenance:
+  created: 2026-10-24-catalog-gf

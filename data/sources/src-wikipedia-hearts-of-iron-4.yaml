@@ -1,0 +1,16 @@
+id: src-wikipedia-hearts-of-iron-4
+type: source
+name: Hearts of Iron IV
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Hearts_of_Iron_IV
+accessed: '2026-10-24'
+notes: Paradox Development Studio, Paradox Interactive, 2016-06-06; Windows, macOS, Linux. Start dates 1936-01-01
+  and 1939-08-14. National focus trees (initially unique for Germany, UK, USSR, US); civilian and military factories
+  and dockyards; political power for laws and ministers; four ideologies; supply affects combat; weather in sea
+  and air regions; world tension 0 to 100; tank, ship, and plane designers added by DLC.
+provenance:
+  created: 2026-10-24-catalog-gi

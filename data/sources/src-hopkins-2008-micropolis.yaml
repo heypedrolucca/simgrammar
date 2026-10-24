@@ -1,0 +1,17 @@
+id: src-hopkins-2008-micropolis
+type: source
+name: 'Micropolis: open-source SimCity source code'
+kind: repository
+authors:
+- Will Wright
+- Don Hopkins
+venue: GitHub (SimHacker/micropolis)
+date: '2008'
+url: https://github.com/SimHacker/micropolis
+accessed: '2026-10-24'
+notes: 'GPL release of the original SimCity engine (year from contributor knowledge). micropolis-java engine: crimeScan
+  sets cell crime = 128 - land value + population density (cap 300) minus a smoothed police map, clamped 0-250,
+  high-crime message above an average of 100; doDisasters fires with chance 1/481, 1/241, or 1/61 per cycle by level,
+  then picks fire, flood, tornado, earthquake, nothing, or a monster if average pollution exceeds 60.'
+provenance:
+  created: 2026-10-24-taxonomy-m7

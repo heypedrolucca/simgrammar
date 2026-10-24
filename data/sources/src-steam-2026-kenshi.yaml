@@ -1,0 +1,14 @@
+id: src-steam-2026-kenshi
+type: source
+name: Kenshi on Steam
+kind: store-page
+authors:
+- Lo-Fi Games
+venue: Steam
+date: '2026'
+url: https://store.steampowered.com/app/233860/Kenshi/
+accessed: '2026-10-24'
+notes: Release 2018-12-06; squad-based sandbox RPG with no hero units; starvation, blood loss, encumbrance, and
+  injuries affect stats; amputation and robotic limbs; slavery; outposts; research; no level scaling; dynamic world.
+provenance:
+  created: 2026-10-24-catalog-gb

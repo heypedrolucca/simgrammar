@@ -1,0 +1,15 @@
+id: src-paradoxwikis-2026-ck3-event-modding
+type: source
+name: Event modding (Crusader Kings III)
+kind: encyclopedia
+authors:
+- CK3 Wiki contributors
+venue: Crusader Kings III Wiki (paradoxwikis.com)
+date: '2026'
+url: https://ck3.paradoxwikis.com/Event_modding
+accessed: '2026-10-24'
+notes: 'Events do not fire automatically; they are called from on_actions, decisions, or interactions. Structure:
+  trigger, immediate, options with ai_chance, after. on_actions fire events, weighted random_events, or first_valid;
+  trigger_event schedules follow-ups with random day delays; warns against every_living_character in pulse on_actions.'
+provenance:
+  created: 2026-10-24-taxonomy-m7

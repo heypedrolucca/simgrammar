@@ -1,10 +1,79 @@
 id: spore
 type: game
 name: Spore
-summary: TODO
+summary: A five-stage game in which the player guides a species from cell to galactic empire, building its body,
+  vehicles, and buildings in part-based editors whose creations are shared automatically through the Sporepedia.
 year: 2008
 developer: Maxis
+platforms:
+- pc
 subgenre: ecosystem-evolution
-status: asserted
+subgenre_secondary:
+- god-game
+- 4x-strategy
+sim_domain:
+- biological-ecological
+- cosmic-space
+player_role: god
+agency_model:
+- direct-avatar
+- direct-unit
+- design-then-test
+time_model: real-time-pausable
+sim_scale: interplanetary
+fidelity: stylized
+perspective: free-3d
+win_structure: campaign
+failure_model: soft-recoverable
+narrative_mode: hybrid
+multiplayer:
+- single
+- async-shared
+modding: content
+production_tier: aaa
+agent_count_order: '100'
+emergence: 2
+influence: 2
+core_loop: eat to earn DNA points -> edit body parts to change abilities -> befriend or fight other species -> stage
+  completes and grants consequence traits -> next stage changes the rules -> colonize and terraform planets -> creations
+  upload to the Sporepedia and populate other players' galaxies
+design_notes: 'Spore''s evolution is player design rather than selection: body parts bought with DNA points set
+  speed, attack, and social abilities directly, and nothing is inherited by differential survival. Its distinctive
+  system is the part-based editors (18 share one interface) whose creations are stored as compact descriptions of
+  a few kilobytes and reconstructed procedurally, which let Maxis upload every creation and redistribute them as
+  the inhabitants of other players'' galaxies (over 100 million by May 2009). Each of the five stages swaps in a
+  different genre''s rules, and play style in each stage assigns consequence traits that carry forward.'
+mechanics:
+- id: modular-assembly
+  role: core
+  note: Creature, building, and vehicle editors assemble parts such as mouths, legs, and arms whose choice sets
+    abilities, diet options, and stats; textures and animation are applied procedurally to the assembled topology.
+- id: content-sharing
+  role: core
+  note: Every creation uploads automatically to the Sporepedia and is redistributed to populate other players' worlds,
+    so other players' designs fill the galaxy without manual import.
+- id: milestone-unlocks
+  role: core
+  note: Each stage ends at a progress threshold and hands the species to a new rule set (cell, creature, tribal,
+    civilization, space), with three consequence traits awarded from how aggressive or social the player was.
+- id: direct-avatar
+  role: supporting
+  note: The player directly steers the cell, the creature, and later a spaceship.
+- id: unit-commands
+  role: supporting
+  note: Tribal and civilization stages switch to commanding up to 12 tribe members, then vehicles and cities.
+- id: faction-diplomacy
+  role: supporting
+  note: Creature-stage species, tribes, nations, and space empires such as the Grox can be befriended through social
+    actions or conquered.
+- id: terraforming
+  role: supporting
+  note: In the space stage rocky planets can be terraformed, their ecosystems changed, and features such as mountains
+    and lakes added.
+- id: procedural-terrain
+  role: supporting
+sources:
+- src-wikipedia-spore
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gd

@@ -1,10 +1,75 @@
 id: from-dust
 type: game
 name: From Dust
-summary: TODO
+summary: A god game in which the player carries sand, water, and lava across islands whose material simulation erodes, floods,
+  and hardens terrain, protecting a tribe as it founds villages at totems.
 year: 2011
 developer: Ubisoft Montpellier
+platforms:
+- console
+- pc
+- web
 subgenre: god-game
-status: asserted
+subgenre_secondary:
+- physics-sandbox
+sim_domain:
+- planetary-natural
+- physical-mechanical
+player_role: god
+agency_model:
+- supernatural-intervention
+- direct-unit
+time_model: real-time
+sim_scale: region
+fidelity: stylized
+perspective: free-3d
+win_structure: campaign
+failure_model: soft-recoverable
+narrative_mode: authored
+multiplayer:
+- single
+modding: none
+production_tier: aa
+agent_count_order: '100'
+emergence: 3
+influence: 2
+core_loop: carry sand, water, and lava with the Breath -> reshape terrain to open paths -> send villagers to totems to found
+  villages -> vegetation spreads across soil -> divert tsunamis, floods, fires, and eruptions -> unlock powers and reach the
+  portal
+design_notes: 'Designed by Eric Chahi and presented as a spiritual successor to Populous, it replaces discrete land raising
+  with a continuous material simulation: water flows and erodes, lava cools into solid rock, and soil lets vegetation spread
+  once a village is founded, fast enough that islands can be reshaped within minutes. The cursor, called the Breath, carries
+  matter and changes appearance to match it, replacing a conventional HUD. Disasters are announced shortly before they hit,
+  so each map alternates between building and short preparation windows.'
+mechanics:
+- id: terraforming
+  role: core
+  note: The Breath picks up and deposits sand, water, and lava in real time to build land bridges, dams, and barriers.
+- id: hydrology
+  role: core
+  note: Water flows over the terrain, erodes it, and floods low ground and villages; tsunamis sweep across islands.
+- id: material-interactions
+  role: core
+  note: Lava cools into solid rock, water erodes soil, fire burns vegetation, and powers can jellify or remove water.
+- id: god-powers
+  role: supporting
+  note: Powers such as jellifying water are granted by completing objectives; magical stones protect against water and fire.
+- id: random-disasters
+  role: supporting
+  note: Tsunamis and eruptions, announced shortly before by shamans.
+- id: fire-spread
+  role: supporting
+  note: Wildfires spread through vegetation and can be extinguished.
+- id: unit-commands
+  role: supporting
+  note: Villagers are sent to totems to found villages.
+- id: scenario-objectives
+  role: supporting
+  note: Each map is cleared by settling every totem to open a portal.
+influenced_by:
+- populous
+sources:
+- src-wikipedia-from-dust
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gb

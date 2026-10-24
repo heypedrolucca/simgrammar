@@ -1,9 +1,72 @@
 id: generative-content
 type: mechanic
 name: Generative content on demand
-summary: A model generates new content such as text, items, or rules at runtime in response to player
-  input.
+aliases:
+- runtime generation
+- AI-generated content
+- model-generated content
+summary: A generative model creates new content such as text, items, recipes, or rules at runtime in response
+  to player input.
 family: narrative-generation
-status: asserted
+substrate:
+- learned-model
+definition: 'Player input (free text, a combination of objects, or a request) plus selected game context
+  is sent to a generative model, usually a large language model, and the output is either shown as content
+  or parsed into game state such as a new item, a combination result, or a rule change. AI Dungeon continues
+  a story from Do, Say, Story, and See inputs, first on GPT-2 (1.5 billion parameters in AI Dungeon 2,
+  2019) and later GPT-3, with a player-editable memory field. Infinite Craft asks a model to name the
+  result of combining two elements and records first discoveries. Suck Up! and Whispers from the Star
+  use models to drive character responses. Key parts: a context builder, an output schema or parser, a
+  cache that may make results deterministic, and moderation. Inputs: player request and context window.
+  Outputs: text or structured content.'
+player_experience: Open-ended curiosity. Players try things no designer anticipated to see what the model
+  will produce, and part of the fun is probing its boundaries. When the output changes game state, finds
+  feel personal; when it is only text, players notice that nothing is remembered or consequential.
+design_levers:
+- 'what the model may change: presentation only, or typed game state through a constrained schema'
+- 'caching and determinism: fresh generation per request versus a shared global cache'
+- context and memory construction, such as summaries, retrieved facts, and player-pinned memory
+- moderation filters and their false-positive rate
+- model size, latency budget, and per-request cost
+- authored seeds, examples, and rules that anchor tone and balance
+failure_modes:
+- Models forget earlier content beyond their context, so stories contradict themselves (a criticism of
+  AI Dungeon).
+- Unprompted inappropriate output, and broad filters that flag harmless text, both damaged AI Dungeon's
+  community in 2021.
+- Output that does not alter simulation state feels weightless, because nothing it says has consequences.
+- Per-request inference cost and latency limit how often generation can run and push it to servers.
+dynamics:
+- Players treat the model as a system to probe, sharing prompts that produce surprising or broken outputs.
+- A shared global cache turns generation into a discovery race, with first discoveries as social status.
+- When outputs are typed into game state, they combine with other systems and can unbalance economies
+  or progression.
+math_basis:
+- machine-learning
+- probability-statistics
+feedback: none
+player_interface:
+- language
+- direct-manipulation
+legibility: 2
+emergence_potential: 3
+authoring_cost: 2
+compute_cost: 5
+tuning_difficulty: 4
+ai_leverage: 4
+maturity: emerging
+synergy:
+- id: natural-language-interaction
+  note: Language input invites generated responses; generated content invites further language input.
+tension:
+- id: triggered-event-chains
+  note: Generated content resists the authored preconditions event chains rely on.
+open_questions:
+- What output schemas let a model add items or rules to a running simulation without breaking its balance?
+- Can on-device models make generation cheap enough to run per tick rather than per player request?
+- How should generated content be persisted and versioned so that worlds stay consistent across sessions?
+sources:
+- src-wikipedia-ai-dungeon
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m7

@@ -1,0 +1,16 @@
+id: src-wikipedia-europa-universalis-4
+type: source
+name: Europa Universalis IV
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Europa_Universalis_IV
+accessed: '2026-10-24'
+notes: Paradox Development Studio, Paradox Interactive, August 2013 (infobox 13, body 25); Windows, OS X, Linux.
+  Over 500 playable nations, 1444 to 1821, no strict win condition. Administrative, diplomatic, and military monarch
+  power buys technology; institutions spread by province; trade nodes and merchants; alliances, vassals, coalitions;
+  estates; random and historical events; Ironman mode.
+provenance:
+  created: 2026-10-24-catalog-gi

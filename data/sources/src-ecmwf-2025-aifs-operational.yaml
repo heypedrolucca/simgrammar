@@ -1,0 +1,14 @@
+id: src-ecmwf-2025-aifs-operational
+type: source
+name: ECMWF's AI forecasts become operational
+kind: tech-report
+authors:
+- ECMWF
+venue: ECMWF news
+date: '2025-02-25'
+url: https://www.ecmwf.int/en/about/media-centre/news/2025/ecmwfs-ai-forecasts-become-operational
+accessed: '2026-10-24'
+notes: AIFS Single made operational alongside IFS; about 1,000x less energy per forecast; 28 km grid versus
+  9 km for IFS; ensemble version planned.
+provenance:
+  created: 2026-10-24-techniques-sim-math

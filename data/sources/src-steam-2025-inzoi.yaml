@@ -1,0 +1,15 @@
+id: src-steam-2025-inzoi
+type: source
+name: inZOI on Steam
+kind: store-page
+authors:
+- inZOI Studio
+venue: Steam
+date: 2025-03
+url: https://store.steampowered.com/app/2456740/inZOI/
+accessed: '2026-10-24'
+notes: Early access release 2025-03-27 (store date; Wikipedia gives 2025-03-28). Free-will Zois producing
+  rumors, trends, and disease; on-device SLM text prompts influence actions and thoughts; text-to-pattern,
+  2D-to-3D objects, video-to-motion; Canvas sharing.
+provenance:
+  created: 2026-10-24-catalog-gc

@@ -1,0 +1,20 @@
+id: src-sudhakaran-2023-mariogpt
+type: source
+name: 'MarioGPT: Open-Ended Text2Level Generation through Large Language Models'
+kind: preprint
+authors:
+- Shyam Sudhakaran
+- Miguel González-Duque
+- Claire Glanois
+- Matthias Freiberger
+- Elias Najarro
+- Sebastian Risi
+venue: arXiv
+date: '2023-02-12'
+arxiv: '2302.05981'
+accessed: '2026-10-24'
+notes: DistilGPT2 (96M parameters with cross-attention) trained on 37 path-annotated levels; 88.4% of
+  250 generated levels completed by an A* agent versus about 31% for an LSTM baseline; text prompts for
+  pipes, enemies, blocks, elevation; novelty search variant.
+provenance:
+  created: 2026-10-24-techniques-rl-design

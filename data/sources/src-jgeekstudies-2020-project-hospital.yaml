@@ -1,0 +1,13 @@
+id: src-jgeekstudies-2020-project-hospital
+type: source
+name: 'Project Hospital: a realistic take on hospital simulation'
+kind: postmortem
+venue: Journal of Geek Studies
+date: '2020-03-08'
+url: https://jgeekstudies.org/2020/03/08/project-hospital-a-realistic-take-on-hospital-simulation
+accessed: '2026-10-24'
+notes: 'Interview with Jan Benes, lead programmer at Oxymoron Games: examinations uncover symptoms and enough symptoms give
+  a diagnosis; symptom frequency tuned so one exam rarely suffices; dangerous hidden symptoms must be found and treated in
+  time; based on real medicine with input from professionals.'
+provenance:
+  created: 2026-10-24-taxonomy-m5

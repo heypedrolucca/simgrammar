@@ -1,0 +1,21 @@
+id: src-tam-2024-let-me-speak-freely
+type: source
+name: Let Me Speak Freely? A Study on the Impact of Format Restrictions on Performance of Large Language
+  Models
+kind: preprint
+authors:
+- Zhi Rui Tam
+- Cheng-Kuang Wu
+- Yi-Lin Tsai
+- Chieh-Yen Lin
+- Hung-yi Lee
+- Yun-Nung Chen
+venue: arXiv
+date: '2024-08-05'
+url: https://arxiv.org/abs/2408.02442
+arxiv: '2408.02442'
+accessed: '2026-10-24'
+notes: Requiring structured output such as JSON or XML significantly weakens reasoning compared with free-form
+  responses; stricter formats cause larger drops.
+provenance:
+  created: 2026-10-24-techniques-llm-agents

@@ -1,0 +1,16 @@
+id: src-krafton-2026-pubg-ally-beta
+type: source
+name: KRAFTON Introduces PUBG Ally Beta Test
+kind: tech-report
+authors:
+- KRAFTON
+venue: KRAFTON press release
+date: '2026-06-16'
+url: https://www.krafton.com/en/news/press/krafton-introduces-pubg-ally-beta-test/
+accessed: '2026-10-24'
+notes: Ally Duo arcade mode on Sanhok, 17 June to 1 July 2026; AI companion Ella powered by an on-device
+  small language model built on NVIDIA ACE with speech-to-text and text-to-speech; fast actions (movement,
+  item collection) with minimal latency, strategy from game context and conversation; Korean, Chinese,
+  English.
+provenance:
+  created: 2026-10-24-techniques-llm-agents

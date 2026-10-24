@@ -1,0 +1,49 @@
+id: illustrated-chronicles
+type: opportunity
+name: Illustrated chronicles
+summary: Turn a run's event log into a readable, illustrated saga that players can share, making emergent
+  stories legible and portable.
+opportunity_type: mechanic-upgrade
+thesis: Players of systemic games already write their runs up as stories (Boatmurdered, colony diaries).
+  Dwarf Fortress's legends mode stores the raw material but presents it as a database. Summarization over
+  event logs, with grounding to cited events and generated illustrations, can produce shareable chapters
+  automatically, which also markets the game.
+design_sketch: 'At the end of each in-game year, the chronicle drafts a chapter: key events, characters,
+  turning points, written in a selectable voice and illustrated with generated images grounded in the
+  logged entities. Every sentence links to its source events. Players edit and publish chronicles to a
+  shared library.'
+involves:
+- history-chronicle
+- content-sharing
+- history-generation
+- procedural-characters
+applies:
+- llm-game-master
+- llm-explanation-of-state
+- text-to-3d-assets
+precedent:
+- dwarf-fortress
+- rimworld
+- crusader-kings-3
+- kenshi
+novelty: 2
+feasibility: 5
+impact: 2
+horizon: now
+key_risks:
+- Summaries invent drama the log does not support.
+- Generated art quality and disclosure.
+- Players who enjoy writing their own stories may feel replaced.
+validation_experiment: 'Generate chronicles for 30 logged colony runs and have their players rate accuracy
+  and whether they would share them. Success: average accuracy above 4 of 5 and more than half willing
+  to share.'
+falsifiable_signal:
+  prediction: A systemic simulation game will ship an automatic, player-shareable narrative summary of
+    a run's history.
+  resolve_by: '2027-12-31'
+  criteria: Shipped feature in a released title or official expansion, described in patch notes or store
+    text.
+sources: []
+status: asserted
+provenance:
+  created: 2026-10-24-synthesis

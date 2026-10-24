@@ -1,0 +1,15 @@
+id: src-paradoxwikis-2026-eu4-diplomacy
+type: source
+name: Diplomacy
+kind: encyclopedia
+authors:
+- Europa Universalis IV Wiki contributors
+venue: Europa Universalis IV Wiki (paradoxwikis.com)
+date: '2026'
+url: https://eu4.paradoxwikis.com/Diplomacy
+accessed: '2026-10-24'
+notes: Opinion capped at +200 and -200 with reasons shown in tooltips; each point of diplomatic reputation adds +5 to alliance
+  acceptance and +3 to vassalization; base cap of 4 diplomatic relations, 1 diplomatic power per month per relation over cap;
+  2 diplomats.
+provenance:
+  created: 2026-10-24-taxonomy-m3

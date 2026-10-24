@@ -1,0 +1,15 @@
+id: src-tfwrwiki-2026-leaderboard
+type: source
+name: Leaderboard
+kind: encyclopedia
+authors:
+- The Farmer Was Replaced Wiki contributors
+venue: The Farmer Was Replaced Wiki
+date: '2026'
+url: https://thefarmerwasreplaced.wiki.gg/wiki/Leaderboard
+accessed: '2026-10-24'
+notes: Leaderboards (fastest reset, maze, dinosaur, per-crop targets, single drone on an 8x8 farm) run
+  the player's program as fixed-start simulations totaling at least 2 hours; the score is the average
+  time of successful runs.
+provenance:
+  created: 2026-10-24-catalog-gh

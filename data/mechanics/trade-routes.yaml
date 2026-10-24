@@ -1,9 +1,62 @@
 id: trade-routes
 type: mechanic
 name: Trade routes
-summary: Goods are exchanged between settlements, regions, or foreign markets along routes with price
-  differences, tariffs, and transit time.
+aliases:
+- trade lanes
+- caravans
+- import and export
+summary: Goods are exchanged between settlements, regions, or foreign markets along routes with price differences, tariffs,
+  and transit time.
 family: economy-finance
-status: asserted
+substrate:
+- network-graph
+- aggregate-stocks
+definition: Owns a set of routes, each linking a source market to a destination market for a good, with a volume level or
+  capacity, a transport cost or transit time, and tariffs. Each period profit per unit = destination price - source price
+  - transport cost - tariffs; volume grows when profitable and shrinks when not, which narrows the price gap. In Victoria
+  3 (2022) routes start at level 1 and change level weekly mainly by profitability, purchase and sale prices are the midpoints
+  of each market's pre- and post-trade prices, tariffs are charged per unit on the base price, sea routes depend on convoys,
+  and each route has a fixed bureaucracy cost that replaced an earlier cap on route count. Civilization's caravans set up
+  routes whose income depends on distance and the cities involved, and Railroad Tycoon pays for delivering goods to stations
+  that demand them.
+player_experience: Connecting surplus to scarcity. The player finds where a good is cheap and where it is dear, opens routes,
+  and watches the gap close as the trade succeeds. Tariffs, embargoes, and blockades make trade a lever in diplomacy and a
+  target in war.
+design_levers:
+- how volume responds to profit (player-set, automatic growth, or capped by vehicles)
+- transport cost model (distance, time, convoys, ships)
+- tariffs, trade agreements, embargoes, and their calculation basis
+- fixed costs per route versus per-unit costs, which decide whether many small or few large routes win
+- how much information about remote prices the player gets
+failure_modes:
+- Static price gaps that trade does not close create permanent money loops.
+- With no fixed cost per route, many tiny routes become optimal and flood the interface.
+- Automated routes that never fail or need attention become set-and-forget income.
+dynamics:
+- Arbitrage narrows price gaps, so the most profitable routes erode over time.
+- Trade makes markets interdependent, so a war or blockade in one region causes shortages elsewhere.
+- Per-unit tariffs on base price hurt high-volume, low-margin routes most, shaping which goods are traded.
+math_basis:
+- network-flow
+- optimization
+feedback: balancing
+player_interface:
+- orders
+- parameter
+legibility: 3
+emergence_potential: 3
+authoring_cost: 1
+compute_cost: 2
+tuning_difficulty: 3
+ai_leverage: 2
+maturity: classic
+open_questions:
+- Can AI merchant agents discover and contest routes on their own, giving players competition for arbitrage instead of a static
+  spreadsheet?
+- What route cost structure keeps trade decisions meaningful without micromanagement?
+sources:
+- src-paradox-2022-vic3-trade-revisions
+- src-wikipedia-railroad-tycoon
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m2

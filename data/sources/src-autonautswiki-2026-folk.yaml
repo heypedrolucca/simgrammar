@@ -1,0 +1,15 @@
+id: src-autonautswiki-2026-folk
+type: source
+name: Folk
+kind: encyclopedia
+authors:
+- Autonauts Wiki contributors
+venue: Autonauts Wiki
+date: '2026'
+url: https://autonauts.fandom.com/wiki/Folk
+accessed: '2026-10-24'
+notes: Folk need housing, food (satiation from 10 s for water to 120 s for apple pie or cooked fish),
+  and cleaning such as baths after messy meals; each folk is fully happy or unhappy; no clothing need
+  as of version 21.2.
+provenance:
+  created: 2026-10-24-catalog-gh

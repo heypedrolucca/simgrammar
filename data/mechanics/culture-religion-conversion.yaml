@@ -1,0 +1,83 @@
+id: culture-religion-conversion
+type: mechanic
+name: Culture and religion conversion
+aliases:
+- conversion
+- assimilation
+- missionaries
+- faith spread
+- ethics attraction
+summary: Provinces or population groups carry culture and faith identities that drift or are converted by missionaries,
+  policies, and rulers, changing unrest, opinion, and bonuses.
+family: population-lineage
+substrate:
+- aggregate-stocks
+- rule-system
+definition: >-
+  Owns categorical identity attributes (culture, faith, and in some games ideology or ethics) per province, county,
+  or population group, plus conversion progress or a per-period conversion share. Each period progress accrues from
+  sources such as assigned missionaries or court officials, state religion and laws, assimilation into the majority
+  culture, buildings, and the ruler's or government's alignment, against resistance from population size,
+  development, or fervor; when progress completes the attribute flips, or in population-group models a fraction of
+  each group switches. Other systems read the identities: a mismatch with the ruler or state adds unrest and opinion
+  penalties, a match or accepted status grants bonuses, and shared or hostile identities shape alliances and wars.
+  Victoria 3 stores its population as pops that share profession, culture, religion, and state. Crusader Kings III
+  applies opinion penalties between faiths by hostility and lets rulers convert counties' faith and culture. Europa
+  Universalis IV converts province religion with missionaries. It differs from population-strata, which owns class
+  tiers and promotion; identity is orthogonal to class.
+player_experience: >-
+  The map has a second layer of identity beneath its borders. The player conquers land that will not accept them,
+  then spends missionaries, officials, or decades of policy converting it, choosing between tolerating diversity
+  and its unrest or homogenizing at a cost. Faiths and cultures spreading, splitting, and reforming become the long
+  arcs of a campaign.
+design_levers:
+- conversion speed and the resistance factors (population size, development, fervor)
+- which agents or policies can convert (missionaries, court officials, laws, buildings)
+- binary flip per province versus a share of each population group per period
+- penalties and bonuses attached to matching or mismatched identities
+- tolerance and acceptance rules that let mixed identities coexist
+- whether players can found, reform, or hybridize faiths and cultures
+failure_modes:
+- Cheap, certain conversion homogenizes every realm and erases the identity layer by mid-game.
+- Severe unrest from mismatched identity turns conquering other cultures into a trap and narrows play to one strategy.
+- Faiths and cultures that differ only in numeric modifiers feel interchangeable.
+- Treating the conversion of real faiths and peoples as a pure optimization can read as endorsing forced conversion.
+dynamics:
+- Majority identities grow by assimilation, a reinforcing loop toward homogeneous heartlands with contested borderlands.
+- Identity mismatch feeds unrest and revolt, coupling conversion to stability and military occupation.
+- Shared faiths and cultures become alliance lines, so identity maps shape diplomacy.
+math_basis:
+- social-network
+- system-dynamics
+feedback: reinforcing
+player_interface:
+- orders
+- choice-cards
+- parameter
+legibility: 3
+emergence_potential: 4
+authoring_cost: 3
+compute_cost: 2
+tuning_difficulty: 3
+ai_leverage: 3
+maturity: established
+open_questions:
+- Can language models generate new faiths and cultures whose doctrines produce consistent mechanical effects and
+  believable schisms?
+- Can conversion run as diffusion through social networks of individual agents rather than as a per-province progress
+  bar?
+claims:
+- text: Victoria 3 pops share profession, culture, religion, state, and workplace.
+  sources:
+  - src-paradoxwikis-2026-vic3-pops
+  confidence: medium
+- text: Crusader Kings III applies faith hostility opinion modifiers from 0 to -30 between characters.
+  sources:
+  - src-paradoxwikis-2026-ck3-opinion
+  confidence: medium
+sources:
+- src-paradoxwikis-2026-vic3-pops
+- src-paradoxwikis-2026-ck3-opinion
+status: asserted
+provenance:
+  created: 2026-10-24-taxonomy-triage-a

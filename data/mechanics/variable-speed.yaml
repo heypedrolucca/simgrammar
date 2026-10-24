@@ -1,8 +1,55 @@
 id: variable-speed
 type: mechanic
 name: Pause and speed control
-summary: The player pauses and changes simulation speed.
+aliases:
+- real-time with pause
+- time compression
+- fast-forward
+summary: The player pauses the simulation and switches between speed multipliers, trading attention against elapsed game time.
 family: time-pacing
-status: asserted
+substrate:
+- rule-system
+definition: Owns a time scale, paused or one of several multipliers, and the rule that converts real time into simulation
+  ticks. At higher speeds the loop runs more ticks per real second up to hardware limits; while paused no ticks run but the
+  player can still give orders. Some games pause or slow automatically on events. RimWorld runs 60 ticks per second at normal
+  speed and multiplies that by 3, 6, or 15, the last only in development mode, and runs as close to the target as the machine
+  allows; SimCity and Paradox grand strategy games offer pause and several speeds; flight simulators call it time compression.
+  Inputs are the player's speed choice and event triggers; outputs are the tick rate of every other system.
+player_experience: Control over attention. The player slows down or pauses for crises and detailed orders, then fast-forwards
+  through quiet stretches such as waiting for crops or construction. Pause makes real-time games playable at a thoughtful
+  pace, and fast-forward removes dead time.
+design_levers:
+- number of speeds and their multipliers
+- whether orders can be given while paused
+- auto-pause and auto-slowdown triggers, such as raids or letters
+- speed restrictions in multiplayer or during events
+- whether higher speeds change simulation fidelity, such as larger time steps
+failure_modes:
+- High speeds the hardware cannot sustain silently run slower than shown, so late-game fast-forward feels broken.
+- Larger time steps at high speed can destabilize physics or give different outcomes than normal speed.
+- Multiplayer games must reconcile players' speed preferences, often by host control or voting.
+dynamics:
+- Players alternate between paused planning and fast-forward waiting, creating a two-tempo play pattern.
+- Fast-forward exposes the compute cost of every other system, making simulation performance a gameplay issue.
+- Auto-pause rules decide which events players notice.
+math_basis:
+- system-dynamics
+- scheduling
+feedback: none
+player_interface:
+- parameter
+legibility: 5
+emergence_potential: 1
+authoring_cost: 1
+compute_cost: 1
+tuning_difficulty: 1
+ai_leverage: 2
+maturity: classic
+open_questions:
+- Can learned surrogate simulators let players skip long quiet stretches without running full-fidelity ticks?
+sources:
+- src-rimworldwiki-2026-time
+- src-wikipedia-turns-rounds-and-time-keeping
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m5

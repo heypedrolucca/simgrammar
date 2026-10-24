@@ -1,0 +1,15 @@
+id: src-wikipedia-simant
+type: source
+name: SimAnt
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/SimAnt
+accessed: '2026-10-24'
+notes: Maxis 1991, Will Wright and Justin McCormick; based on Holldobler and Wilson's The Ants; yellow player ant,
+  swap by double-click; trails to food and enemies; recruiting followers; worker, soldier, queen, and drone castes;
+  hazards including rain, lawnmowers, spiders, antlions; Quick, Full, and Experimental games; SNES 1993.
+provenance:
+  created: 2026-10-24-catalog-gd

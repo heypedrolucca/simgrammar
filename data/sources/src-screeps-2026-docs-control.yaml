@@ -1,0 +1,13 @@
+id: src-screeps-2026-docs-control
+type: source
+name: Control
+kind: docs
+venue: Screeps documentation
+date: '2026'
+url: https://docs.screeps.com/control.html
+accessed: '2026-10-24'
+notes: Room Controller Levels 1-8 unlock spawns, extensions, towers, storage, links, labs, terminal, factory,
+  observer, and nuker at cumulative upgrade energy; unupgraded controllers downgrade; Global Control Level
+  sets claimable rooms and CPU (10 per level up to 300) and is never lost.
+provenance:
+  created: 2026-10-24-catalog-gh

@@ -1,0 +1,15 @@
+id: src-wikipedia-x-plane
+type: source
+name: X-Plane (simulator)
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/X-Plane_(simulator)
+accessed: '2026-10-24'
+notes: 'Flight model based on blade element theory: wings, control surfaces, and propellers divided into
+  elements, forces computed per element from aircraft geometry rather than relying solely on performance
+  tables.'
+provenance:
+  created: 2026-10-24-taxonomy-m4

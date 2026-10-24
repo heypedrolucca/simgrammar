@@ -1,10 +1,112 @@
 id: minecraft
 type: game
 name: Minecraft
-summary: TODO
+summary: A procedurally generated voxel sandbox where players mine blocks, craft tools, survive hostile
+  night mobs and hunger, farm and trade, and build circuits from redstone.
 year: 2009
+year_full_release: 2011
 developer: Mojang Studios
+platforms:
+- pc
+- console
+- handheld
+- mobile
 subgenre: sandbox-world
-status: asserted
+subgenre_secondary:
+- survival-sim
+sim_domain:
+- planetary-natural
+- biological-ecological
+- computational-abstract
+player_role: inhabitant
+agency_model:
+- direct-avatar
+time_model: real-time
+sim_scale: region
+fidelity: stylized
+perspective: first-person
+win_structure: open-sandbox
+failure_model: soft-recoverable
+narrative_mode: emergent
+multiplayer:
+- single
+- coop
+- competitive
+- persistent-mmo
+modding: total-conversion
+production_tier: indie
+agent_count_order: '100'
+emergence: 4
+influence: 5
+core_loop: explore a generated world -> mine blocks and gather resources -> craft tools, armor, and workstations
+  -> build shelter before night mobs spawn -> farm, breed, and trade -> dig deeper or travel to the Nether
+  and End for rarer materials
+design_notes: The world is an effectively infinite grid of one-meter blocks generated from a seed with
+  biomes, caves, and ore distributions, and every block can be removed or placed, so terrain is both resource
+  and building material. Survival pressure is light (hunger, health, light-level mob spawning on a 20-minute
+  day cycle) and leaves room for self-set goals. Redstone gives the block world wires, power sources,
+  repeaters, and pistons, which players use to build farms, logic gates, and working computers. The game
+  began as a public alpha in May 2009 and reached 1.0 in November 2011.
+mechanics:
+- id: procedural-terrain
+  role: core
+  note: Worlds generate from a seed into biomes, caves, ravines, villages, and ore layers that vary by
+    depth; terrain extends effectively without limit in horizontal directions.
+- id: hand-crafting
+  role: core
+  note: A 2x2 inventory grid and a 3x3 crafting table turn blocks and items into tools, armor, and blocks
+    from shaped recipes; furnaces, anvils, and enchanting tables extend the recipe set.
+- id: resource-extraction
+  role: core
+  note: Blocks are mined by hand or with tools whose tier (wood, stone, iron, diamond, netherite) sets
+    mining speed and which ores drop items.
+- id: survival-meters
+  role: core
+  note: Survival mode has health and hunger bars; food restores hunger, high hunger regenerates health,
+    and starvation, falls, drowning, and mobs deal damage.
+- id: day-night-cycle
+  role: core
+  note: A 20-minute real-time day; hostile mobs spawn in low light, so night and caves are dangerous,
+    and beds skip the night.
+- id: free-placement
+  role: supporting
+  note: Any block can be placed on the voxel grid, so building has no fixed footprint.
+- id: signal-circuits
+  role: supporting
+  note: Redstone dust carries power from levers, buttons, and sensors through repeaters and comparators
+    to pistons, doors, and dispensers.
+- id: crop-cultivation
+  role: supporting
+  note: Crops grow in stages on farmland, faster with water nearby and light.
+- id: animal-husbandry
+  role: supporting
+  note: Passive mobs breed when fed their preferred food and yield food, wool, and leather.
+- id: fluid-gas-simulation
+  role: supporting
+  note: Water and lava flow a limited number of blocks out from source blocks; where they meet they form
+    cobblestone, stone, or obsidian.
+- id: fire-spread
+  role: supporting
+  note: Fire spreads to nearby flammable blocks such as wood and wool and burns them away.
+- id: tech-tree
+  role: supporting
+  note: 'Material tiers gate progression: iron tools mine diamonds, diamond tools mine obsidian, and Nether
+    materials gate brewing and the End.'
+- id: modding-api
+  role: supporting
+  note: Java Edition mods (Forge, Fabric) and Bedrock add-ons, datapacks, and server plugins are widely
+    used.
+- id: persistent-world
+  role: supporting
+  note: Public multiplayer servers and Realms host worlds that persist for many players.
+- id: loss-on-death
+  role: supporting
+  note: On death in survival the player's inventory and some experience drop at the death site and despawn
+    after a few minutes if not recovered.
+influenced_by:
+- dwarf-fortress
+sources:
+- src-wikipedia-minecraft
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gg

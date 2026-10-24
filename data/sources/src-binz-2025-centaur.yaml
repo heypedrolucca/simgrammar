@@ -1,0 +1,21 @@
+id: src-binz-2025-centaur
+type: source
+name: A foundation model to predict and capture human cognition
+kind: paper
+authors:
+- Marcel Binz
+- Elif Akata
+- Matthias Bethge
+- et al.
+- Eric Schulz
+venue: Nature 644, 1002-1009
+date: '2025-07-02'
+url: https://www.nature.com/articles/s41586-025-09215-4
+doi: 10.1038/s41586-025-09215-4
+accessed: '2026-10-24'
+notes: 'Centaur: Llama 3.1 70B, frozen 4-bit base, rank-8 QLoRA adapters (about 0.15% of parameters),
+  one epoch, about five days on one A100 80GB. Psych-101: 160 experiments, 60,092 participants, 10,681,650
+  choices. Beats 14 cognitive models on held-out participants; generalizes to new cover stories, structures,
+  domains. Limits: WEIRD bias, mostly learning and decision tasks, 8B Minitaur weaker out of distribution.'
+provenance:
+  created: 2026-10-24-techniques-llm-agents

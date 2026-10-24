@@ -1,8 +1,74 @@
 id: fog-of-war
 type: mechanic
 name: Fog of war
-summary: Parts of the world state stay hidden until observed.
+aliases:
+- shroud
+- line of sight
+- map reveal
+summary: Parts of the world stay hidden or stale until observed by the player's units, structures, or
+  sensors.
 family: information-legibility
-status: asserted
+substrate:
+- cellular-grid
+- rule-system
+definition: 'For each player the world holds a visibility state per cell or entity, usually three-valued:
+  unexplored, explored but not currently visible, and visible. Each tick visibility is recomputed from
+  the sight radius of the player''s units, buildings, and sensors, optionally modified by line of sight,
+  elevation, weather, and target stealth. Visible cells show live state; explored cells show the last
+  observed snapshot, so changes there go unseen. Inputs are observer positions and sensor ranges; outputs
+  are a per-player view and a hidden-information gap between true and known state. Walter Bright''s Empire
+  (1977) is credited as the earliest use; Warcraft and StarCraft used the explored-but-stale shroud. In
+  simulation games: Factorio''s radar charts distant chunks slowly and keeps nearby ones live, unexcavated
+  tiles in Dwarf Fortress stay unknown, and Against the Storm keeps forest glades hidden until opened.'
+player_experience: The edge of the known map pulls the player outward. Scouting becomes a decision with
+  costs, darkness reads as threat, and finding a resource deposit or an enemy base feels like discovery
+  rather than lookup.
+design_levers:
+- two-state (unexplored or visible) versus three-state with stale memory
+- sight radius per unit or building and terrain, elevation, and weather modifiers
+- radius check versus true line-of-sight raycasts
+- whether remembered cells show last-seen enemies or only terrain
+- 'reveal tools: scouts, radar, satellites, traded maps'
+- whether the AI obeys the same fog or has full knowledge
+failure_modes:
+- An AI given full map knowledge to compensate for weak reasoning feels like cheating once players notice.
+- Fog that hides only static terrain becomes a one-time clearing chore with no lasting tension.
+- Cheap, fast scouts make fog trivial and reward spamming them.
+- In simulations whose threats are systemic rather than adversarial, fog adds travel tedium without decisions.
+dynamics:
+- Hidden information enables ambushes, bluffs, and a scouting economy where information has a price.
+- Stale memory produces errors such as attacking a base that has since been reinforced.
+- Coupled with procedural terrain, fog turns every map into an exploration problem rather than a known
+  layout.
+math_basis:
+- information-theory
+- game-theory
+feedback: none
+player_interface:
+- observation
+legibility: 4
+emergence_potential: 3
+authoring_cost: 1
+compute_cost: 2
+tuning_difficulty: 3
+ai_leverage: 3
+maturity: classic
+synergy:
+- id: military-operations
+  note: Sensor coverage and concealment are central to operational play.
+open_questions:
+- Can learned opponents that keep beliefs about unseen state replace AI map-hacking without losing challenge?
+- If a generative world model creates unobserved regions only when observed, does fog become a generation
+  trigger rather than concealment?
+claims:
+- text: Walter Bright's 1977 game Empire is credited as the earliest video game use of fog of war, and
+    Warcraft and StarCraft keep previously seen areas visible as terrain while hiding changes to enemy
+    units.
+  sources:
+  - src-wikipedia-fog-of-war
+  confidence: medium
+sources:
+- src-wikipedia-fog-of-war
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m6

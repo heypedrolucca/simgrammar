@@ -1,0 +1,13 @@
+id: src-bvschaik-2026-julius
+type: source
+name: "Julius: an open source re-implementation of Caesar III"
+kind: repository
+authors:
+  - "bvschaik"
+venue: "GitHub"
+date: "2026"
+url: https://github.com/bvschaik/julius
+accessed: "2026-10-24"
+notes: "Aims for exactly the same game logic as Caesar III. Read src/figure/movement.c (roaming), src/figure/service.c (MAX_COVERAGE 96; prefect zeroes fire risk; engineer zeroes damage risk), src/building/house_service.c (coverage decays by 1)."
+provenance:
+  created: 2026-10-24-taxonomy-m1

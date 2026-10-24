@@ -1,10 +1,71 @@
 id: house-flipper
 type: game
 name: House Flipper
-summary: TODO
+summary: A first-person renovation sim in which the player cleans, paints, demolishes, and furnishes rundown houses,
+  then sells them to buyers whose bids depend on how well the house fits their needs.
 year: 2018
 developer: Empyrean
+platforms:
+- pc
+- console
+- handheld
 subgenre: job-sim
-status: asserted
+sim_domain:
+- occupational
+- domestic-personal
+- economic
+player_role: worker
+agency_model:
+- direct-avatar
+- zoning-placement
+time_model: real-time
+sim_scale: facility
+fidelity: stylized
+perspective: first-person
+win_structure: open-sandbox
+failure_model: none
+narrative_mode: none
+multiplayer:
+- single
+modding: content
+production_tier: indie
+agent_count_order: none
+emergence: 1
+influence: 2
+core_loop: take email jobs for cash -> buy a rundown house -> clean, demolish, paint, tile, furnish -> buyers evaluate
+  fit and bid -> sell at a profit -> buy bigger properties
+design_notes: Each property is judged by a small set of buyer profiles with requirements such as cleanliness or
+  a family room, and their auction bids reward matching a profile rather than maximizing generic quality. Labor
+  is performed with coverage tools (paint roller, mop, window cleaner, plaster tool) that show visible progress,
+  and tool use earns experience spent on faster tools. Email jobs paid by size and quality supply the capital for
+  the first purchase.
+mechanics:
+- id: surface-work-tools
+  role: core
+  note: Paint roller, mop, window cleaner, and plaster tool apply coverage to walls, floors, and windows with visible
+    progress; tiling and demolition use the same direct tool loop.
+- id: contracts-orders
+  role: core
+  note: Neighbors send email jobs (cleaning, painting, installing heaters, showers, or air conditioners, furnishing)
+    whose pay depends on job size and quality.
+- id: customer-value-choice
+  role: core
+  note: Each property has potential buyers with different needs, such as cleanliness or a family room, who bid according
+    to how well the renovated house suits them.
+- id: auctions
+  role: supporting
+  note: Sales are resolved by buyers bidding at auction.
+- id: free-placement
+  role: supporting
+  note: Furniture, doors, windows, and wallpaper from a catalog are placed freely.
+- id: agent-skills
+  role: supporting
+  note: Using tools earns experience that is spent on tool upgrades that speed up work.
+- id: direct-avatar
+  role: supporting
+sources:
+- src-wikipedia-house-flipper
+- src-steam-2026-house-flipper
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gf

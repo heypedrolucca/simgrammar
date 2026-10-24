@@ -1,10 +1,87 @@
 id: big-ambitions
 type: game
 name: Big Ambitions
-summary: TODO
+summary: A business life sim set in a simulated New York City in which the player's avatar rents storefronts,
+  stocks and staffs shops, builds warehouse logistics, and grows from one store into a business empire.
 year: 2023
+year_full_release: 2026
 developer: Hovgaard Games
+platforms:
+- pc
 subgenre: business-economic-sim
-status: asserted
+subgenre_secondary:
+- life-sim
+sim_domain:
+- economic
+- urban
+- domestic-personal
+player_role: manager-owner
+agency_model:
+- direct-avatar
+- zoning-placement
+- policy-parameter
+time_model: real-time-pausable
+sim_scale: city
+fidelity: stylized
+perspective: third-person
+win_structure: open-sandbox
+failure_model: soft-recoverable
+narrative_mode: none
+multiplayer:
+- single
+modding: none
+production_tier: indie
+agent_count_order: '100'
+emergence: 2
+influence: 1
+core_loop: rent a building and renovate it -> buy stock and set prices -> customers visit and buy -> hire
+  staff and managers -> import from the harbour into warehouses -> trucks deliver to stores -> invest
+  profits in more businesses and real estate
+design_notes: 'Big Ambitions starts the business at street level: the avatar personally rents, furnishes,
+  stocks, and runs the first store and must also eat, sleep, and stay healthy and happy. Growth comes
+  from replacing the player''s own labor with staff and then with managers (HR managers, logistics managers,
+  purchasing agents) who automate hiring, purchasing, and delivery from an HQ. Supply moves through a
+  physical chain from harbour importers to warehouses to stores on delivery trucks. Business types range
+  from gift shops and supermarkets to law firms and web development.'
+mechanics:
+- id: direct-avatar
+  role: core
+  note: The player walks and drives through New York City to rent buildings, buy stock, restock shelves,
+    and run errands until staff take over.
+- id: customer-value-choice
+  role: core
+  note: Customers decide whether to buy based on the store's prices and the products and service it offers.
+- id: staff-hiring
+  role: core
+  note: Employees are hired with skills and wages for each business, then HR managers, logistics managers,
+    and purchasing agents automate operations from an HQ.
+- id: free-placement
+  role: core
+  note: Rented buildings are renovated and furnished with shelves, registers, and fixtures that set what
+    a store can sell and how many customers it serves.
+- id: storage-capacity
+  role: supporting
+  note: Stock fills store shelves and warehouses; empty shelves lose sales.
+- id: vehicle-route-scheduling
+  role: supporting
+  note: Delivery trucks carry goods from harbour importers to warehouses and stores.
+- id: delegation-to-ai
+  role: supporting
+  note: Managers at the HQ take over hiring, purchasing, and logistics.
+- id: survival-meters
+  role: supporting
+  note: The avatar must eat food stored at home, sleep, and stay healthy and happy.
+- id: loans-debt
+  role: supporting
+  note: Bank loans fund early expansion.
+- id: daily-schedules
+  role: supporting
+  note: Businesses keep opening hours and staff work scheduled shifts.
+- id: advertising-awareness
+  role: supporting
+  note: Paid marketing campaigns raise customer traffic to the player's businesses.
+sources:
+- src-steam-2026-big-ambitions
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-ge

@@ -1,10 +1,84 @@
 id: pharaoh
 type: game
 name: Pharaoh
-summary: TODO
+summary: An Egyptian city builder on the Caesar III engine in which a yearly Nile flood waters floodplain
+  farms, walkers carry services to housing, five gods must be appeased, and monuments take years of labor
+  and materials.
 year: 1999
 developer: Impressions Games
+platforms:
+- pc
 subgenre: city-builder
-status: asserted
+sim_domain:
+- urban
+- economic
+player_role: planner-mayor
+agency_model:
+- zoning-placement
+- policy-parameter
+time_model: real-time-pausable
+sim_scale: city
+fidelity: stylized
+perspective: isometric
+win_structure: campaign
+failure_model: soft-recoverable
+narrative_mode: hybrid
+multiplayer:
+- single
+modding: none
+production_tier: aa
+agent_count_order: '100'
+emergence: 3
+influence: 2
+core_loop: lay out housing, roads, and floodplain farms -> the yearly Nile flood waters the farms -> walkers
+  deliver services, food, and goods to houses -> houses evolve and pay taxes -> appease five gods and
+  build monuments to meet mission goals
+design_notes: 'Pharaoh reuses Caesar III''s walker model and adds a calendar driven by the Nile: floodplain
+  farms can only be worked between floods, irrigation ditches raise fertility, and the god Osiris can
+  improve or worsen the flood. Monuments need worker facilities and delivered materials and take in-game
+  years, a construction-logistics system with no exact taxonomy match (see run proposal). Five gods (Ra,
+  Bast, Osiris, Ptah, Seth) grant gifts when appeased with shrines and temples and send disasters when
+  angered.'
+mechanics:
+- id: walker-service-delivery
+  role: core
+  note: Fire marshals, constables, and other service walkers roam roads from their buildings and cover
+    the houses they pass.
+- id: population-strata
+  role: core
+  note: Housing improves in level when demands for goods, services, and surroundings are met.
+- id: hydrology
+  role: core
+  note: A yearly Nile flood waters floodplain farms; irrigation ditches extend fertile land, and Osiris
+    can raise or lower the flood quality.
+- id: crop-cultivation
+  role: supporting
+  note: Floodplain and meadow farms yield by fertility and season.
+- id: seasons
+  role: supporting
+  note: The flood season fixes when floodplain land can be farmed.
+- id: production-chain
+  role: supporting
+- id: goods-consumption
+  role: supporting
+  note: Houses need food and goods to advance.
+- id: trade-routes
+  role: supporting
+  note: Raw materials and goods trade with other cities for money.
+- id: scenario-objectives
+  role: supporting
+  note: Missions set population, rating, and monument goals.
+- id: labor-market
+  role: supporting
+  note: Buildings and monument crews draw workers from housing.
+- id: megaproject-sink
+  role: supporting
+  note: Monuments such as pyramids need delivered materials and worker crews over in-game years, and many
+    missions require completing them.
+influenced_by:
+- caesar-3
+sources:
+- src-wikipedia-pharaoh
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-ga

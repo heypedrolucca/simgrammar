@@ -1,0 +1,21 @@
+id: src-sudhakaran-2021-3d-nca-minecraft
+type: source
+name: Growing 3D Artefacts and Functional Machines with Neural Cellular Automata
+kind: paper
+authors:
+- Shyam Sudhakaran
+- Djordje Grbic
+- Siyan Li
+- Adam Katona
+- Elias Najarro
+- Claire Glanois
+- Sebastian Risi
+venue: ALIFE 2021
+date: '2021-03-15'
+url: https://arxiv.org/abs/2103.08737
+arxiv: '2103.08737'
+accessed: '2026-10-24'
+notes: 3D-convolution NCA grows Minecraft castles, apartment blocks and trees (some over 3,000 blocks)
+  and regrows parts of simple functional machines.
+provenance:
+  created: 2026-10-24-techniques-sim-math

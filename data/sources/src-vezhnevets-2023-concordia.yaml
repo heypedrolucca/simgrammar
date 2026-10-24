@@ -1,0 +1,26 @@
+id: src-vezhnevets-2023-concordia
+type: source
+name: Generative agent-based modeling with actions grounded in physical, social, or digital space using
+  Concordia
+kind: preprint
+authors:
+- Alexander Sasha Vezhnevets
+- John P. Agapiou
+- Avia Aharon
+- Ron Ziv
+- Jayd Matyas
+- Edgar A. Duéñez-Guzmán
+- William A. Cunningham
+- Simon Osindero
+- Danny Karmon
+- Joel Z. Leibo
+venue: arXiv
+date: '2023-12-06'
+url: https://arxiv.org/abs/2312.03664
+arxiv: '2312.03664'
+accessed: '2026-10-24'
+notes: Agents state intended actions in natural language; a Game Master agent, inspired by tabletop RPGs,
+  decides outcomes, checks physical plausibility, and can call digital tools. Behavior comes from components
+  mediating LLM calls and associative memory retrieval.
+provenance:
+  created: 2026-10-24-techniques-llm-agents

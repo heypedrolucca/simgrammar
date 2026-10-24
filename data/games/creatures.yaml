@@ -1,10 +1,94 @@
 id: creatures
 type: game
 name: Creatures
-summary: TODO
+aliases:
+- Creatures 1
+summary: An artificial-life game in which the player hatches and raises Norns whose neural-network brains, simulated
+  biochemistry, and haploid digital genomes produce learned behavior and heritable mutation.
 year: 1996
 developer: Millennium Interactive / Cyberlife Technology
+platforms:
+- pc
+- console
+- handheld
 subgenre: artificial-life
-status: asserted
+subgenre_secondary:
+- virtual-pet
+sim_domain:
+- biological-ecological
+player_role: caretaker
+agency_model:
+- caretaking-interaction
+- indirect-incentive
+- conversational
+time_model: real-time-pausable
+sim_scale: individual
+fidelity: systemic
+perspective: top-down-2d
+win_structure: open-sandbox
+failure_model: permadeath
+narrative_mode: emergent
+multiplayer:
+- single
+modding: scripting
+production_tier: aa
+agent_count_order: '10'
+emergence: 4
+influence: 3
+core_loop: hatch eggs -> Norns act on biochemical drives -> player rewards, punishes, and teaches words -> neural
+  weights shift toward drive-reducing actions -> Norns breed and pass mutated genomes -> next generation behaves
+  differently
+design_notes: 'Steve Grand built each Norn as a stack of coupled models rather than a scripted pet: a neural network
+  whose sight neurons are grouped one per object type, a biochemistry of chemicals and organs that sets drive levels,
+  and a haploid genome with no dominance that codes for both. Learning is behaviorist: high drive levels act as
+  punishment and reductions as reward, so the player''s tickles and slaps only matter through the same chemistry.
+  Because the genome builds the brain and body, mutations produce Norns that cannot see, lack organs, or never die,
+  which the online breeding community catalogued and traded. Norns live about 40 hours, short enough for many generations.'
+mechanics:
+- id: creature-learning
+  role: core
+  note: A neural-network brain maps sensed objects and drives to actions; drive reduction reinforces the action
+    that preceded it, and the hand's tickle and slap act as reward and punishment through the same pathway.
+- id: trait-inheritance
+  role: core
+  note: Haploid digital genomes with no dominant or recessive genes encode brain wiring, biochemistry, and organs;
+    offspring genomes mutate, and every boxed copy shipped a unique starting set of egg genomes.
+- id: needs-decay
+  role: core
+  note: Drives such as hunger and tiredness are concentrations in a simulated biochemistry that rise over time and
+    fall when actions such as eating or resting succeed.
+- id: creature-care
+  role: core
+  note: The player's hand pointer feeds Norns, shows them objects, and tickles or slaps them; neglect leads to hunger,
+    disease, and death, but care shapes behavior only indirectly through learning.
+- id: natural-language-interaction
+  role: supporting
+  note: Players teach nouns by naming objects a Norn is looking at and verbs with a learning computer, then type
+    instructions that the Norn may choose to obey.
+- id: lifecycle-aging
+  role: supporting
+  note: Norns hatch, grow, breed, and die within roughly 40 hours of play.
+- id: contagion
+  role: supporting
+  note: Grendels steal food, injure Norns, and carry diseases that sicken the population.
+- id: agent-inspection
+  role: supporting
+- id: content-sharing
+  role: supporting
+  note: Exported Norns and genomes were swapped and bred across players by a large online community.
+- id: modding-api
+  role: supporting
+- id: permadeath
+  role: supporting
+claims:
+- text: Norn genetics are haploid, with no dominant or recessive genes and no recombination between loci, and mutation
+    can disable organs or produce Norns that cannot see or hear.
+  sources:
+  - src-wikipedia-creatures-series
+  confidence: medium
+sources:
+- src-wikipedia-creatures-1996
+- src-wikipedia-creatures-series
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gd

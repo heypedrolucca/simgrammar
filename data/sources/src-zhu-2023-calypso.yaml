@@ -1,0 +1,19 @@
+id: src-zhu-2023-calypso
+type: source
+name: 'CALYPSO: LLMs as Dungeon Masters'' Assistants'
+kind: paper
+authors:
+- Andrew Zhu
+- Lara J. Martin
+- Andrew Head
+- Chris Callison-Burch
+venue: AIIDE 2023
+date: '2023'
+url: https://arxiv.org/abs/2308.07540
+doi: 10.1609/aiide.v19i1.27534
+arxiv: '2308.07540'
+accessed: '2026-10-24'
+notes: LLM interfaces giving D&D Dungeon Masters game-specific information and inspiration; DMs used some
+  text almost directly and developed rougher ideas while keeping creative control.
+provenance:
+  created: 2026-10-24-techniques-llm-agents

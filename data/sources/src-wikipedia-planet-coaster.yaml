@@ -1,0 +1,15 @@
+id: src-wikipedia-planet-coaster
+type: source
+name: Planet Coaster
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Planet_Coaster
+accessed: '2026-10-24'
+notes: Frontier Developments; alpha 2016-03-22; Windows release 2016-11-17; Console Edition 2020. Hybrid spline
+  and piece coaster builder, modular structures, voxel terrain, Career/Challenge/Sandbox, Steam Workshop and Frontier
+  Workshop; spiritual successor to RollerCoaster Tycoon 3.
+provenance:
+  created: 2026-10-24-catalog-ge

@@ -1,0 +1,75 @@
+id: board-confidence
+type: mechanic
+name: Board confidence
+aliases:
+- job security
+- owner expectations
+- board expectations
+- sacking
+summary: An evaluator such as a board, owner, or chairman sets expectations, updates a confidence stock from results
+  against them, and fires the player below a threshold.
+family: risk-failure
+substrate:
+- aggregate-stocks
+- rule-system
+definition: >-
+  Owns a set of expectations (league finish, cup progress, budget balance, profit, playing style, youth development)
+  imposed or agreed at the start of a season or term, and a confidence stock held by an evaluator such as a board,
+  owner, chairman, or fan base. After each match, report, or period the stock moves by the gap between results and
+  expectations, weighted by importance and recency; crossing warning levels triggers meetings, ultimatums, or budget
+  cuts, and falling below the floor ends the job. Expectations are re-set from the organization's reputation and
+  resources, so success raises the bar. Football Manager has the board judge the manager's performance and, with fan
+  confidence, decide whether the manager is sacked; other sports management games set owner or chairman goals for
+  each season. It differs from elections, where an electorate decides tenure at fixed dates, and from
+  scenario-objectives, which test a fixed goal at a deadline; here a continuously updated stock can end the job at
+  any time.
+player_experience: >-
+  A clock on the player's job. Every result moves a meter the player does not fully control, so a run of bad form
+  becomes existential and a promised top-four finish hangs over every match. Success raises expectations, so security
+  never fully arrives.
+design_levers:
+- 'how expectations are set: imposed from reputation or negotiated with the player'
+- weight per result and how fast older results fade
+- warning thresholds and the events they trigger (meetings, ultimatums, budget cuts)
+- firing threshold and whether the player continues in a new job
+- separate evaluators (board, owner, fans) and how they combine
+- grace period after hiring
+failure_modes:
+- Expectations re-set too aggressively after success make long tenures impossible, punishing good play.
+- Sackings driven by short streaks feel arbitrary when simulated results have high variance.
+- Confidence that forgives too easily makes the threat vanish after one good season.
+- Hidden weights leave players unsure which goal actually matters.
+dynamics:
+- Players manage expectations as well as results, for example by accepting modest targets to buy safety.
+- High-variance match engines produce sudden sackings that become career stories.
+- Being fired and hired by another club turns failure into a career path instead of a game over.
+math_basis:
+- system-dynamics
+- probability-statistics
+feedback: balancing
+player_interface:
+- observation
+- choice-cards
+legibility: 3
+emergence_potential: 3
+authoring_cost: 2
+compute_cost: 1
+tuning_difficulty: 3
+ai_leverage: 3
+maturity: classic
+open_questions:
+- Can language-model board members with distinct priorities negotiate expectations with the player in conversation
+  and remember broken promises?
+- What weighting of recent results makes sackings feel deserved under a high-variance match simulation?
+claims:
+- text: In Football Manager the board judges the manager's performance.
+  sources:
+  - src-wikipedia-football-manager
+  - src-wikipedia-football-manager-2005
+  confidence: medium
+sources:
+- src-wikipedia-football-manager
+- src-wikipedia-football-manager-2005
+status: sourced
+provenance:
+  created: 2026-10-24-taxonomy-triage-a

@@ -5,6 +5,16 @@ An open, machine-readable atlas of simulation game mechanics: which games use wh
 The repository is the research. The report, wiki, tables, graph, and site are projections of the same YAML files, rebuilt and checked on every commit, so they cannot disagree with each other.
 
 <!-- BEGIN GENERATED: stats -->
+| Entity type | Count | Sourced or verified |
+|---|---:|---:|
+| games | 174 | 172 |
+| mechanics | 199 | 171 |
+| techniques | 45 | 45 |
+| opportunities | 43 | 0 |
+| sources | 643 | 643 |
+| runs (provenance log) | 26 | n/a |
+
+Typed edges: **4114** · game→mechanic uses: **1823** · games span **1968–2026**.
 <!-- END GENERATED: stats -->
 
 ## Read it

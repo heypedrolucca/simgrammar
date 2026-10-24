@@ -1,10 +1,90 @@
 id: banished
 type: game
 name: Banished
-summary: TODO
+summary: A survival city builder without money or a tech tree in which exiled families gather, farm, and stockpile
+  for winter while aging, births, disease, and disasters decide whether the town grows or starves.
 year: 2014
 developer: Shining Rock Software
+platforms:
+- pc
 subgenre: city-builder
-status: asserted
+sim_domain:
+- urban
+- biological-ecological
+- economic
+player_role: planner-mayor
+agency_model:
+- zoning-placement
+- policy-parameter
+time_model: real-time-pausable
+sim_scale: settlement
+fidelity: systemic
+perspective: free-3d
+win_structure: open-sandbox
+failure_model: cascading-collapse
+narrative_mode: emergent
+multiplayer:
+- single
+modding: content
+production_tier: indie
+agent_count_order: '100'
+emergence: 3
+influence: 4
+core_loop: assign citizens to gathering, farming, and building jobs -> stockpile food, firewood, and tools for winter
+  -> families form when housing exists and children grow into workers -> aging, disease, and disasters remove citizens
+  -> expand or collapse
+design_notes: 'Citizens are the main resource: every worker is a person who was born, ages, needs a house to start
+  a family, and dies, so the town''s age structure produces labor booms and busts years after a decision. There
+  is no money and no tech tree; any building is available once its resources exist, and trade is barter with visiting
+  ships that can also bring disease. Designer Luke Hodorowicz cited the Anno series as a big inspiration and left
+  combat out, and the genre literature credits Banished with starting the survival city-builder trend.'
+mechanics:
+- id: lifecycle-aging
+  role: core
+  note: Residents are born, age, work, start families, and die; age cohorts create delayed labor shortages.
+- id: seasons
+  role: core
+  note: Crops are planted and harvested on an annual cycle, and winter demands stored food and firewood.
+- id: goods-consumption
+  role: core
+  note: Each household consumes food, firewood, clothing, and tools; shortages lead to cold, illness, and starvation.
+- id: crop-cultivation
+  role: supporting
+- id: work-priorities
+  role: supporting
+  note: The player sets worker counts per workplace and profession; unassigned citizens become laborers.
+- id: hauling-jobs
+  role: supporting
+  note: Laborers carry resources to stockpiles and construction sites, so their number sets delivery speed.
+- id: renewable-regrowth
+  role: supporting
+  note: Foresters cut and replant forests; land used for forests or quarries cannot hold housing.
+- id: storage-capacity
+  role: supporting
+- id: contagion
+  role: supporting
+  note: Trade ships can bring illness from abroad.
+- id: trade-routes
+  role: supporting
+  note: Resources are bartered with trade vessels at a trading post; there is no currency.
+- id: random-disasters
+  role: supporting
+  note: Fires and tornadoes destroy buildings.
+- id: romance-family
+  role: supporting
+  note: Couples need an empty house to start a family and have children.
+- id: immigration-attractiveness
+  role: supporting
+  note: Nomad groups can arrive and ask to join the town.
+claims:
+- text: Banished is credited with starting the survival city-builder trend.
+  sources:
+  - src-wikipedia-city-building-game
+  confidence: medium
+sources:
+- src-wikipedia-banished
+- src-steam-2026-banished
+- src-wikipedia-city-building-game
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-ga

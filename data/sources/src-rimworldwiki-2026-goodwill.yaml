@@ -1,0 +1,15 @@
+id: src-rimworldwiki-2026-goodwill
+type: source
+name: Goodwill
+kind: encyclopedia
+authors:
+- RimWorld Wiki contributors
+venue: RimWorld Wiki
+date: '2026'
+url: https://rimworldwiki.com/wiki/Goodwill
+accessed: '2026-10-24'
+notes: Faction goodwill -100 to 100; hostile at -75 or below, ally at 75 or above until it drops to 0; civil outlanders drift
+  into -50..50 (0.4 per day down, 0.2 up); returning a prisoner +12; trade +1 per 500 silver; gifts +1 per 40-160 silver;
+  arresting a visitor sets -75; pirates fixed at -100; calling a caravan costs 15.
+provenance:
+  created: 2026-10-24-taxonomy-m3

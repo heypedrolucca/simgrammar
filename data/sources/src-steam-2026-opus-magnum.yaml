@@ -1,0 +1,12 @@
+id: src-steam-2026-opus-magnum
+type: source
+name: Opus Magnum
+kind: store-page
+venue: Steam
+date: '2026'
+url: https://store.steampowered.com/app/558990
+accessed: '2026-10-24'
+notes: Released 2017-12-07 by Zachtronics; programmable arms and tracks; animated GIF export of solutions;
+  puzzle editor with Steam Workshop; curated Journal of Alchemical Engineering; Sigmar's Garden solitaire.
+provenance:
+  created: 2026-10-24-catalog-gh

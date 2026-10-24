@@ -1,8 +1,78 @@
 id: agent-pathfinding
 type: mechanic
 name: Agent pathfinding
-summary: Agents compute routes through space with movement costs; route choices shape congestion and access.
+aliases:
+- pathing
+- navigation
+- route finding
+summary: >-
+  Agents compute routes through space using movement costs, and the routes they choose shape congestion, travel time, and
+  access.
 family: agents-behavior
-status: asserted
+substrate:
+- network-graph
+- cellular-grid
+- agent-based
+definition: >-
+  Owns a traversal representation (tile grid, navmesh, or waypoint graph) with per-cell or per-edge movement costs and permissions,
+  plus each agent's current path or a shared direction field. On request a search returns a least-cost route from position
+  to goal; A* (Hart, Nilsson, and Raphael, 1968) expands nodes by cost so far plus an admissible heuristic. Paths are invalidated
+  and recomputed when the map changes or agents block each other. Scale variants trade exactness for speed: Factorio (2019)
+  abstracts each 32x32 chunk into terrain components and runs a reverse resumable A* over them to supply the heuristic for
+  tile-level A*; Supreme Commander 2 searches a portal graph between 10x10 m sectors and shares flow fields so many units
+  read one direction field instead of each searching. Inputs: terrain and floor costs, doors and allowed areas, other agents.
+  Outputs: routes, travel times, and occupancy along routes that feed hauling, traffic, and defense.
+player_experience: >-
+  The player notices pathfinding mostly through layout: where doors, stockpiles, and roads go decides how far agents walk.
+  In defense play the player builds mazes that lengthen enemy routes; in colony sims the player winces as a colonist crosses
+  the map for one item. Failures are visible and comic, so players learn the cost model by watching.
+design_levers:
+- movement cost per terrain, floor, road, or door type
+- >-
+  search method and hierarchy (grid A*, navmesh, hierarchical abstraction, flow fields) and per-tick search budget
+- repath triggers and frequency when the map or obstacles change
+- local avoidance between agents (none, steering, reservation) versus passing through each other
+- agent map knowledge and permissions (full map, explored only, allowed areas, locked doors)
+failure_modes:
+- >-
+  Agents take absurd detours or get stuck because the cost model or permissions disagree with what the player sees on screen.
+- Repathing storms after map edits become a late-game slowdown on large colony and factory maps.
+- >-
+  Per-unit paths ignore other units and stall at chokepoints; Emerson describes Supreme Commander 2's earlier single-path
+  system compounding collisions into stops.
+- >-
+  Deterministic pathing invites exploits such as mazes and wall-hugging layouts that trivialize threats.
+dynamics:
+- >-
+  Shortest-path choices concentrate trips on a few links, producing congestion that lowers throughput without any explicit
+  traffic rule.
+- Defenders shape attacker routes with walls and gaps, so layout itself becomes the defense mechanic.
+- >-
+  Travel time silently becomes the largest work cost, so compact bases and well-placed stockpiles dominate efficiency.
+math_basis:
+- graph-search
+- network-flow
+feedback: none
+player_interface:
+- placement
+- observation
+legibility: 4
+emergence_potential: 3
+authoring_cost: 2
+compute_cost: 3
+tuning_difficulty: 2
+ai_leverage: 2
+maturity: classic
+open_questions:
+- >-
+  Can learned crowd models or mean-field approximations replace per-agent search at city scale while preserving individual
+  route choices?
+- >-
+  How much should paths reflect imperfect knowledge and preferences such as scenery or safety rather than shortest cost?
+sources:
+- src-hart-1968-astar
+- src-wube-2019-fff-317-pathfinding
+- src-emerson-2013-flow-field-tiles
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m3

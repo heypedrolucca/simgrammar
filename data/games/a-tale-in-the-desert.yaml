@@ -1,10 +1,73 @@
 id: a-tale-in-the-desert
 type: game
 name: A Tale in the Desert
-summary: TODO
+aliases:
+- ATITD
+summary: A combat-free MMO set in ancient Egypt in which players gather, craft, and build, pass tests
+  in several disciplines, and govern the world through player-written petitions and votes, with the world
+  wiped and restarted at the end of each Telling.
 year: 2003
 developer: eGenesis
+platforms:
+- pc
 subgenre: mmo-world
-status: asserted
+sim_domain:
+- social-interpersonal
+- political-governance
+- economic
+player_role: inhabitant
+agency_model:
+- direct-avatar
+time_model: asynchronous-persistent
+sim_scale: region
+fidelity: stylized
+perspective: third-person
+win_structure: completion
+failure_model: none
+narrative_mode: emergent
+multiplayer:
+- persistent-mmo
+modding: none
+production_tier: indie
+agent_count_order: '100'
+emergence: 3
+influence: 2
+core_loop: gather wood, stone, flax, and other materials -> craft tools and build production structures
+  -> pass discipline tests, many involving other players -> propose petitions and vote on laws -> build
+  monuments -> the Telling ends and the world resets
+design_notes: ATITD has no combat; competition runs through seven tests in each discipline, some of which
+  require cooperation, voting, or mass participation, and through player-written law. Seven Monuments
+  built by players who reach Oracle rank end the Telling, after which the world is wiped and the next
+  Telling can change the rules. Discipline tests and periodic world resets are not yet mechanics in the
+  taxonomy (proposal seasonal-world-reset).
+mechanics:
+- id: player-legislation
+  role: core
+  note: 'Laws use a controlled variant of Nomic: players write petitions that need a set number of signatures
+    before a vote, and passed laws can restrict options, change ownership, or ban players; an elected
+    Demi-Pharaoh can ban up to seven characters.'
+- id: persistent-world
+  role: core
+  note: The world runs in Tellings that average about a year and a half and end in a full wipe; disciplines
+    with 127 participants can propose a new test for the next Telling.
+- id: elections
+  role: supporting
+  note: A Demi-Pharaoh is elected roughly monthly through the Test of the Demi-Pharaoh.
+- id: resource-extraction
+  role: supporting
+  note: Players gather wood, mine, and harvest flax.
+- id: hand-crafting
+  role: supporting
+- id: production-chain
+  role: supporting
+- id: player-organizations
+  role: supporting
+- id: seasonal-world-reset
+  role: core
+  note: The world runs in Tellings that average about 18 months and end in a full wipe, and what players
+    achieved shapes the rules of the next Telling.
+sources:
+- src-wikipedia-a-tale-in-the-desert
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gi

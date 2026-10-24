@@ -1,0 +1,22 @@
+id: src-dong-2024-xgrammar
+type: source
+name: 'XGrammar: Flexible and Efficient Structured Generation Engine for Large Language Models'
+kind: preprint
+authors:
+- Yixin Dong
+- Charlie F. Ruan
+- Yaxing Cai
+- Ruihang Lai
+- Ziyi Xu
+- Yilong Zhao
+- Tianqi Chen
+venue: arXiv
+date: '2024-11-22'
+url: https://arxiv.org/abs/2411.15100
+arxiv: '2411.15100'
+accessed: '2026-10-24'
+notes: CFG-constrained decoding; vocabulary split into context-independent tokens prechecked and context-dependent
+  tokens checked at runtime with a persistent stack; grammar work overlapped with GPU execution; up to
+  100x faster than prior solutions, near-zero end-to-end overhead.
+provenance:
+  created: 2026-10-24-techniques-llm-agents

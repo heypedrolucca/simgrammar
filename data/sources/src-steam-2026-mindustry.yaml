@@ -1,0 +1,13 @@
+id: src-steam-2026-mindustry
+type: source
+name: Mindustry
+kind: store-page
+venue: Steam
+date: '2026'
+url: https://store.steampowered.com/app/1127400
+accessed: '2026-10-24'
+notes: Steam release 2019-09-26 by AnukenDev; waves attack the core; Serpulo and Erekir campaigns with
+  35 hand-made maps and 250+ procedural sectors; 250+ technology blocks; launch pads move resources between
+  sectors; coolant and lubricant boost production; Workshop maps, schematics, and mods.
+provenance:
+  created: 2026-10-24-catalog-gh

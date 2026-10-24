@@ -1,0 +1,13 @@
+id: src-wikipedia-simcity-2000
+type: source
+name: SimCity 2000
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/SimCity_2000
+accessed: '2026-10-24'
+notes: 1993, Maxis, Will Wright and Fred Haslam; city ordinances; bonds; separate residential, commercial, industrial tax rates; extreme deficit spending ends the game.
+provenance:
+  created: 2026-10-24-taxonomy-m2

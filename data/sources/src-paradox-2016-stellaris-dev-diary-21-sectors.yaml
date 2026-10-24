@@ -1,0 +1,13 @@
+id: src-paradox-2016-stellaris-dev-diary-21-sectors
+type: source
+name: 'Stellaris Dev Diary #21: Administrative Sectors'
+kind: tech-report
+venue: Paradox Interactive forums
+date: 2016-02
+url: https://admin-forum.paradoxplaza.com/forum/developer-diary/stellaris-dev-diary-21-administrative-sectors.908587/
+accessed: '2026-10-24'
+notes: Core-world limit with penalties beyond it; sectors with AI governors that develop planets and build mining stations;
+  player sets sector capital, membership, focus, resource transfers, and taxation. Month inferred from image filenames dated
+  2016-02-15.
+provenance:
+  created: 2026-10-24-taxonomy-m6

@@ -1,0 +1,14 @@
+id: src-longdarkwiki-2026-condition
+type: source
+name: Condition
+kind: encyclopedia
+authors:
+- The Long Dark Wiki contributors
+venue: The Long Dark Wiki (Fandom)
+date: '2026'
+url: https://thelongdark.fandom.com/wiki/Condition
+accessed: '2026-10-24'
+notes: 'Condition drains per hour while a need is empty: warmth 20%, fatigue 1%, hunger 1%, thirst 2%; passive regeneration
+  about 1% per hour when all needs are above zero; afflictions drain or cap condition.'
+provenance:
+  created: 2026-10-24-catalog-gb

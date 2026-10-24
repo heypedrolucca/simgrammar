@@ -1,8 +1,68 @@
 id: career-ladder
 type: mechanic
 name: Career ladder
-summary: Characters advance through job levels by meeting performance requirements.
+aliases:
+- jobs and promotions
+- career tracks
+summary: Characters advance through ranked job levels by meeting skill, relationship, and performance requirements.
 family: progression-goals
-status: asserted
+substrate:
+- rule-system
+- agent-based
+definition: >-
+  A career is an ordered list of levels, each with a title, pay, schedule, and promotion requirements. State owned:
+  per character, current career and level, and a job performance meter. Update rule: each work period, performance
+  changes based on attendance and inputs such as mood, skills, or task completion; when performance and the next
+  level's requirements are met, the character is promoted; very low performance or missed shifts cause demotion
+  or firing. Inputs come from other mechanics (skills, relationships, needs); outputs are income, schedule, and
+  status. Canonical form: The Sims 2, where adult careers have ten levels, teen careers three, promotion requires
+  advances in three skills, a number of household friends, and high mood, and missing work two days in a row gets
+  a Sim fired; The Sims 4 adds daily career tasks and branching tracks.
+player_experience: >-
+  A long-term arc for one character. The player schedules skill-building and socializing around work, watches the
+  performance bar before a promotion, and feels the status jump of a new title and pay. It gives sandbox life a
+  direction.
+design_levers:
+- number of levels and spacing of requirements
+- 'requirement types: skills, relationships, mood, or task completion'
+- performance meter rate and decay
+- branching tracks at upper levels
+- random work events with choices, such as The Sims chance cards
+- pay and schedule curve across levels
+failure_modes:
+- Requirements become a checklist that drains spontaneity from life simulation.
+- Rabbit-hole careers where the Sim leaves the lot make the career invisible to play.
+- Pay grows faster than costs, so money stops mattering by mid-career.
+dynamics:
+- Career requirements route characters' free time into skill and friend grinding, coupling work to social and needs
+  systems.
+- Schedule conflicts between household members' careers create household logistics problems.
+- Promotions raise income and enable home upgrades, a reinforcing loop toward comfort.
+math_basis:
+- scheduling
+feedback: reinforcing
+player_interface:
+- observation
+- choice-cards
+legibility: 4
+emergence_potential: 2
+authoring_cost: 3
+compute_cost: 1
+tuning_difficulty: 2
+ai_leverage: 3
+maturity: classic
+open_questions:
+- Can generated workplaces with colleagues, tasks, and politics replace authored rabbit-hole careers without large
+  writing costs?
+- Does requirement opacity, like a real workplace, make careers more engaging than explicit checklists?
+claims:
+- text: In The Sims 2 adult careers have ten levels and teen careers three; promotion requires advancing three skills,
+    enough household friends, and high mood, and missing work two days in a row causes firing.
+  sources:
+  - src-strategywiki-2026-sims-2-careers
+  confidence: medium
+sources:
+- src-strategywiki-2026-sims-2-careers
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m6

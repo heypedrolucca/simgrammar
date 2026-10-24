@@ -1,0 +1,15 @@
+id: src-paradox-2015-stellaris-dev-diary-11
+type: source
+name: 'Stellaris Dev Diary #11: Research & Technology'
+kind: tech-report
+authors:
+- Doomdark
+venue: Paradox Interactive forums
+date: '2015-11-30'
+url: https://forum.paradoxplaza.com/forum/developer-diary/stellaris-dev-diary-11-research-technology.893377/
+accessed: '2026-10-24'
+notes: Three research areas (physics, society, engineering) each led by a scientist; each project choice draws three semi-random
+  options weighted by ethics, scientist traits, and known techs; rare techs; special tech cards from anomalies and debris;
+  procedurally generated improvement techs for long games.
+provenance:
+  created: 2026-10-24-taxonomy-m6

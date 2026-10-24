@@ -1,10 +1,66 @@
 id: car-mechanic-simulator-2021
 type: game
 name: Car Mechanic Simulator 2021
-summary: TODO
+aliases:
+- CMS 2021
+summary: A first-person garage sim in which the player diagnoses and repairs customer cars part by part, restores
+  auction and barn-find cars, and expands the workshop.
 year: 2021
 developer: Red Dot Games
+platforms:
+- pc
+- console
 subgenre: job-sim
-status: asserted
+sim_domain:
+- occupational
+- physical-mechanical
+player_role: worker
+agency_model:
+- direct-avatar
+time_model: real-time
+sim_scale: individual
+fidelity: stylized
+perspective: first-person
+win_structure: open-sandbox
+failure_model: none
+narrative_mode: none
+multiplayer:
+- single
+modding: content
+production_tier: indie
+agent_count_order: none
+emergence: 1
+influence: 1
+core_loop: accept a generated customer order -> inspect and test the car -> remove parts in order to reach faulty
+  ones -> buy or repair replacements -> reassemble and test drive -> get paid -> upgrade the garage and restore
+  cars for sale
+design_notes: The car is a tree of modeled parts (over 4000 across 72 cars) with a removal order, so labor is spent
+  reaching a faulty component before replacing it, the series loop carried over from Car Mechanic Simulator 2018.
+  Customer orders are generated without end, while story missions, car and salvage auctions, barn finds, and a project-car
+  restoration supply variety. A skills and garage-upgrade system gates faster or more capable work.
+mechanics:
+- id: diagnose-repair
+  role: core
+  note: Orders list symptoms; the player examines engine, suspension, and chassis, removes covering parts in a realistic
+    order to reach damaged ones, replaces or repairs them, and verifies the fix, across over 4000 parts on 72 cars.
+- id: contracts-orders
+  role: core
+  note: An endless supply of generated customer orders plus story missions with their own requirements provide income.
+- id: auctions
+  role: supporting
+  note: Car auctions and salvage auctions supply restoration projects for resale.
+- id: agent-skills
+  role: supporting
+  note: Experience feeds a skills and garage-upgrade system.
+- id: vehicle-dynamics
+  role: supporting
+  note: Repaired and tuned cars can be driven, including time trials on a race track.
+- id: direct-avatar
+  role: supporting
+sources:
+- src-steam-2026-car-mechanic-simulator-2021
+- src-xbox-2026-car-mechanic-simulator-2021
+- src-wikipedia-car-mechanic-simulator-2018
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gf

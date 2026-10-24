@@ -1,0 +1,15 @@
+id: src-gordillo-2021-curiosity-playtesting
+type: source
+name: Improving Playtesting Coverage via Curiosity Driven Reinforcement Learning Agents
+kind: paper
+authors:
+- Camilo Gordillo
+- Joakim Bergdahl
+- Konrad Tollmar
+- Linus Gisslén
+venue: IEEE Conference on Games 2021
+date: 2021-08
+arxiv: '2103.13798'
+accessed: '2026-10-24'
+provenance:
+  created: 2026-10-24-techniques-rl-design

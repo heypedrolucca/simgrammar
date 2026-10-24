@@ -1,0 +1,52 @@
+id: trainable-creatures-revival
+type: opportunity
+name: Trainable creatures revival
+summary: Revive the Creatures and Black & White lineage with creatures whose behavior is genuinely learned
+  from player feedback and can explain itself.
+opportunity_type: mechanic-upgrade
+thesis: Creatures (1996) used neural networks and genetics; Black & White (2001) let a creature learn
+  from slaps and strokes. Both were limited by tiny learning systems that generalized poorly and were
+  opaque. Modern reinforcement learning, preference learning, and small language models allow a creature
+  that learns real policies from feedback, generalizes to new situations, and can say in simple words
+  what it thinks it was rewarded for.
+design_sketch: The player raises a creature in a small world. Rewards, punishments, demonstrations, and
+  spoken commands shape its policy. A 'what I learned' panel lists the creature's inferred rules in plain
+  language with examples; the player can correct misunderstandings. Creatures can be traded and bred,
+  inheriting learned dispositions partially.
+involves:
+- creature-learning
+- creature-care
+- natural-language-interaction
+- trait-inheritance
+- god-powers
+applies:
+- model-based-planning-muzero
+- on-device-language-models
+- generalist-game-agents
+precedent:
+- creatures
+- black-and-white
+- seaman
+- nintendogs
+- tamagotchi
+novelty: 3
+feasibility: 3
+impact: 3
+horizon: 1-2y
+key_risks:
+- Learning that is too slow or too fast reads as fake.
+- Reward hacking produces creatures that game the player.
+- On-device training cost.
+validation_experiment: 'Build a creature with a learned policy trained online from player feedback in
+  a 2D world; measure how many feedback events it takes to learn three behaviors and whether its self-explanations
+  match its actual policy. Success: under 30 feedback events per behavior and 80 percent explanation accuracy.'
+falsifiable_signal:
+  prediction: A commercial virtual-pet or god game will ship a creature whose behavior is trained online
+    by player feedback with a learned model.
+  resolve_by: '2029-06-30'
+  criteria: Developer documentation describing on-device or server learning of a creature policy from
+    player feedback.
+sources: []
+status: asserted
+provenance:
+  created: 2026-10-24-synthesis

@@ -1,0 +1,14 @@
+id: src-wikipedia-rollercoaster-tycoon
+type: source
+name: RollerCoaster Tycoon (video game)
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/RollerCoaster_Tycoon_(video_game)
+accessed: '2026-10-24'
+notes: Designed and programmed by Chris Sawyer; released 1999-03-22 in North America; 21 base scenarios, each completion unlocks
+  the next; expansions add 30 each.
+provenance:
+  created: 2026-10-24-taxonomy-m6

@@ -1,0 +1,13 @@
+id: src-mouret-2015-map-elites
+type: source
+name: Illuminating search spaces by mapping elites
+kind: preprint
+authors:
+- Jean-Baptiste Mouret
+- Jeff Clune
+venue: arXiv
+date: '2015-04-20'
+arxiv: '1504.04909'
+accessed: '2026-10-24'
+provenance:
+  created: 2026-10-24-techniques-rl-design

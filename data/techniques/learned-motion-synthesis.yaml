@@ -1,0 +1,77 @@
+id: learned-motion-synthesis
+type: technique
+name: Learned kinematic motion synthesis
+aliases:
+- learned motion matching
+- HyperMotion
+- video-to-motion
+summary: Neural networks generate or compress kinematic character animation, as in Ubisoft's learned motion
+  matching, EA's HyperMotion, and inZOI's motion extraction from uploaded video.
+category: animation-motion
+year: 2020
+mechanism: 'Motion matching picks the next pose by searching a database of mocap frames for the best match
+  to a query of current pose and desired trajectory. Learned motion matching replaces the database with
+  three small networks: a Decompressor that maps a feature vector to a full pose, a Stepper that advances
+  features one frame, and a Projector that maps a query to the nearest valid features, giving nearly identical
+  output at constant CPU cost. HyperMotion trains a model on frames of full-team match capture to generate
+  transitions in real time. Video-to-motion tools estimate 3D poses from ordinary video and retarget them
+  onto a game rig. No physics is simulated.'
+key_results:
+- text: Learned motion matching shrank a 590 MB motion matching locomotion system to about 17 MB of weights
+    (8.5 MB with 16-bit quantization), about 70 times smaller, with nearly identical output and constant
+    CPU cost.
+  sources:
+  - src-ubisoft-2020-learned-motion-matching
+  confidence: high
+- text: FIFA 22's HyperMotion used a machine learning algorithm over more than 8.7 million frames of 22-player
+    match capture to generate player animation in real time, on PS5, Xbox Series X/S, and Stadia only.
+  sources:
+  - src-wikipedia-fifa-22
+  confidence: medium
+- text: inZOI lets players create character motions by uploading video files, disclosed as an AI-assisted
+    feature.
+  sources:
+  - src-steam-2025-inzoi
+  confidence: high
+- text: Unreal Engine ships database motion matching through its Pose Search plugin, the non-learned baseline
+    that learned motion matching compresses.
+  sources:
+  - src-epic-2026-motion-matching-docs
+  confidence: high
+maturity: shipped-niche
+trl: 7
+runtime:
+- client-realtime
+- offline-authoring
+- design-assist
+determinism_impact: preserves
+horizon: now
+risks:
+- controllability
+- evaluation
+- labor
+affects:
+- id: direct-avatar
+  effect: deepens
+  note: Motion-matching-quality responsive locomotion fits in a few MB of weights, making it affordable
+    on memory-constrained platforms and for more character types.
+- id: generative-content
+  effect: deepens
+  note: Players author new character motions from their own video (inZOI), so the animation set available
+    to life-sim characters is no longer fixed by the studio's mocap library.
+deployed_in:
+- inzoi
+limitations:
+- Kinematic output ignores physics, so characters still clip or float when the environment differs from
+  the training motion.
+- Learned motion matching saves memory but not per-character CPU time, which still limits crowd counts.
+- Video-to-motion quality depends on the uploaded footage; occlusion and camera motion produce artifacts
+  that the game must filter or let players discard.
+sources:
+- src-ubisoft-2020-learned-motion-matching
+- src-wikipedia-fifa-22
+- src-steam-2025-inzoi
+- src-epic-2026-motion-matching-docs
+status: sourced
+provenance:
+  created: 2026-10-24-techniques-world-models

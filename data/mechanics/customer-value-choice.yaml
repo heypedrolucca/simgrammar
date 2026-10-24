@@ -1,8 +1,59 @@
 id: customer-value-choice
 type: mechanic
 name: Customer value choice
+aliases:
+- willingness to pay
+- price sensitivity
+- consumer choice
 summary: Customers choose among offerings by comparing price to perceived value and personal preference.
 family: economy-finance
-status: asserted
+substrate:
+- agent-based
+- aggregate-stocks
+definition: Owns each customer's (or segment's) preference weights and budget, and each offering's price and value attributes.
+  When a customer wants a good or service, the rule scores every reachable offering, typically utility = perceived value x
+  preference match - price - distance or wait, then buys the best one, samples in proportion to scores, or buys nothing when
+  every price exceeds willingness to pay. Lemonade Stand (1973) reduces it to three daily inputs (glasses made, advertising
+  signs, price per glass) whose sales vary with the weather report. RollerCoaster Tycoon guests refuse rides and stalls they
+  judge too expensive for what they offer and say so in their thoughts. Capitalism weighs price, quality, and brand by product
+  category to split demand among competing stores.
+player_experience: Finding the price people will bear. The player probes prices, watches thoughts or sales drop when they
+  overreach, and invests in quality or marketing to justify charging more. Small numbers become visible crowds walking past
+  or lining up.
+design_levers:
+- shape of the utility function and which attributes (quality, brand, novelty, distance, wait) enter it
+- price sensitivity per customer segment, income class, or trait
+- 'heterogeneity: one representative customer versus sampled individual preferences'
+- deterministic best choice versus probabilistic (logit) choice
+- whether customers explain rejections through thoughts, reviews, or complaints
+failure_modes:
+- A single representative customer yields one optimal price that players find once and never revisit.
+- Hidden value thresholds read as random rejection unless thoughts or reviews explain them.
+- Weak price sensitivity lets players charge extreme prices with little loss, so gouging dominates.
+dynamics:
+- Competing sellers undercut each other until quality or brand differentiation ends the price war.
+- 'Choices propagate congestion: the best-value stall attracts queues that lower its effective value.'
+- Segmented preferences reward a portfolio of offerings over one best product.
+math_basis:
+- utility-decision
+- probability-statistics
+feedback: balancing
+player_interface:
+- parameter
+- observation
+legibility: 3
+emergence_potential: 3
+authoring_cost: 2
+compute_cost: 2
+tuning_difficulty: 3
+ai_leverage: 3
+maturity: classic
+open_questions:
+- Can LLM-driven customers with stated tastes and budgets haggle or complain in language while staying consistent with a calibrated
+  demand curve?
+- How much preference heterogeneity is needed before players stop finding a single dominant price?
+sources:
+- src-wikipedia-lemonade-stand
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m2

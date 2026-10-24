@@ -1,0 +1,65 @@
+id: real-time-video-restyling
+type: technique
+name: Real-time generative restyling of game video
+aliases:
+- MirageLSD
+- Oasis 2.0
+- live-stream diffusion
+- video-to-video game skin
+summary: A live video-to-video diffusion model repaints each frame of a running game from a text prompt
+  in under 40 ms, leaving the game's own simulation and state untouched.
+category: neural-rendering-3d
+year: 2025
+mechanism: The host game renders normally and streams its frames to a video-to-video diffusion model.
+  Each output frame is conditioned on the current input frame, a window of recently generated frames,
+  and a text prompt; Diffusion Forcing and history augmentation keep the stream from drifting, and distillation,
+  pruning, and custom GPU kernels bring response under 40 ms at 24 fps. Because the model only replaces
+  pixels, collision, inventory, and world state stay in the host engine. Decart's Oasis 2.0 packages this
+  as a Minecraft mod with chat commands and command-block hooks that switch the prompt.
+key_results:
+- text: MirageLSD responds in under 40 ms per frame at 24 fps, conditioning each frame on recent output,
+    the current input frame, and a prompt; Decart lists limited memory, weak control of specific objects
+    or regions, and structure distortion under extreme style shifts.
+  sources:
+  - src-decart-2025-miragelsd
+  confidence: high
+- text: Oasis 2.0 is a Minecraft 1.21.8 mod that restyles the player's world in real time from prompts
+    set by chat command or by in-world command blocks.
+  sources:
+  - src-decart-2025-oasis-2
+  confidence: high
+maturity: prototype
+trl: 6
+runtime:
+- server-realtime
+determinism_impact: mitigable
+horizon: 1-2y
+risks:
+- consistency
+- legibility
+- latency
+- compute-cost
+- controllability
+affects:
+- id: procedural-build-assist
+  effect: enables-new
+  note: 'Blocky player builds are rendered as detailed structures in a prompted style (for example Roman),
+    a visual-only form of build assist: collision and block state stay coarse while the view is detailed.'
+- id: generative-content
+  effect: enables-new
+  note: Players or in-world logic change the whole world's look at runtime by text, without new textures
+    or models; the game's systems cannot read the new look, so it carries no gameplay meaning.
+builds_on:
+- diffusion-game-engines
+deployed_in:
+- minecraft
+limitations:
+- Short frame window and no long-term memory, so restyled objects can change appearance between views.
+- Rendered detail can contradict game state (a block that looks like a door but is solid), hurting legibility.
+- Cloud-served stream adds network latency and per-player GPU cost; no price per hour is published.
+sources:
+- src-decart-2025-miragelsd
+- src-decart-2025-oasis-2
+status: sourced
+provenance:
+  created: 2026-10-24-techniques-world-models

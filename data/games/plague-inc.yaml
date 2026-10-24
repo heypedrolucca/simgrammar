@@ -1,10 +1,86 @@
 id: plague-inc
 type: game
 name: Plague Inc.
-summary: TODO
+aliases:
+- 'Plague Inc: Evolved'
+summary: A strategy game in which the player evolves a pathogen's transmission, symptoms, and abilities to infect
+  and kill the world's population before humanity's cure research finishes.
 year: 2012
 developer: Ndemic Creations
+platforms:
+- mobile
+- pc
+- console
 subgenre: ecosystem-evolution
-status: asserted
+sim_domain:
+- medical
+- biological-ecological
+player_role: god
+agency_model:
+- policy-parameter
+time_model: real-time-pausable
+sim_scale: planet
+fidelity: stylized
+perspective: top-down-2d
+win_structure: scenario-goals
+failure_model: hard-restart
+narrative_mode: hybrid
+multiplayer:
+- single
+- competitive
+- coop
+modding: content
+production_tier: indie
+agent_count_order: aggregate
+emergence: 2
+influence: 2
+core_loop: infect patient zero -> infections spread within and between countries -> earn DNA points -> buy transmission,
+  symptom, and ability evolutions -> severity raises awareness and cure funding -> race to kill everyone before
+  the cure completes
+design_notes: 'James Vaughan''s game inverts the epidemic model: the player owns the pathogen''s parameters, and
+  humanity''s response (awareness, closures, cure research) is the opponent. The tension is between infectivity
+  and severity, because visible symptoms and deaths accelerate the cure, so successful plans spread quietly and
+  then turn lethal. Countries differ by climate and conditions the pathogen must adapt to, and the CDC invited Vaughan
+  to discuss its infection model in 2013, though Ndemic has said it is not on par with scientific models. Evolved
+  adds 10 disease types, 23 scenarios, versus and co-op modes, and a scenario creator with Workshop sharing.'
+mechanics:
+- id: contagion
+  role: core
+  note: Infection spreads within countries and between them along travel links, at rates set by the pathogen's transmission
+    traits and each country's conditions, until countries are fully infected and then depopulated.
+- id: tech-tree
+  role: core
+  note: DNA points buy nodes in three trees (transmission, symptoms, abilities); symptoms raise severity and lethality,
+    and abilities resist climate and drugs.
+- id: crisis-countdown
+  role: core
+  note: Once the disease is noticed, countries fund cure research shown as a global progress bar; finishing it ends
+    the run, so the player races to kill before it fills.
+- id: habitat-suitability
+  role: supporting
+  note: Hot, cold, and other national conditions slow a pathogen that lacks the matching resistance evolutions.
+- id: alerts-feed
+  role: supporting
+- id: stats-dashboards
+  role: supporting
+- id: scenario-objectives
+  role: supporting
+  note: Evolved ships 23 scenarios and 10 disease types, each with altered rules.
+- id: modding-api
+  role: supporting
+  note: The Evolved scenario creator builds custom plagues, worlds, and events, with over 10,000 shared on Steam
+    Workshop.
+- id: variable-speed
+  role: supporting
+claims:
+- text: The CDC invited creator James Vaughan to speak in March 2013 about the game's infection model.
+  sources:
+  - src-wikipedia-plague-inc
+  - src-steam-2026-plague-inc-evolved
+  confidence: high
+sources:
+- src-wikipedia-plague-inc
+- src-steam-2026-plague-inc-evolved
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gd

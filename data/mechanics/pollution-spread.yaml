@@ -1,9 +1,58 @@
 id: pollution-spread
 type: mechanic
 name: Pollution spread
-summary: Pollution emitted by sources diffuses across land, water, or air and harms health, value, or
-  growth.
+aliases:
+- pollution diffusion
+- contamination
+summary: Pollution emitted by sources accumulates and diffuses across land, water, or air cells and harms health, land value,
+  or growth, or provokes threats.
 family: environment-ecology
-status: asserted
+substrate:
+- cellular-grid
+- aggregate-stocks
+definition: 'Owns a pollution value per cell or chunk. Each update, emitters add pollution, a fraction diffuses to neighboring
+  cells, and terrain, vegetation, or water absorb some; other systems read the local value as a penalty to health, land value,
+  crop growth, or happiness. Factorio stores pollution per 32x32-tile chunk, updates every 64 ticks, diffuses 2% to each cardinal
+  neighbor once a chunk holds 15 or more, absorbs it by tile type and trees (trees are damaged above 60), and lets enemy spawners
+  absorb it to fund attack waves. SimCity computes a pollution map from industry and traffic that depresses land value; Cities:
+  Skylines separates ground, noise, and water pollution, and sewage released upstream contaminates water intakes downstream.
+  Inputs are emitter locations and rates; outputs are a spatial field read by other systems.'
+player_experience: Growth leaves a visible stain. The player separates factories from homes, plants green buffers, and watches
+  the overlay creep outward; in Factorio a bigger factory directly invites bigger attacks. Cleanup competes with expansion
+  for the same resources.
+design_levers:
+- emission rate per source and modifiers such as efficiency upgrades or filters
+- diffusion fraction, minimum amount before diffusing, and grid resolution
+- absorption by terrain, water, and vegetation, and whether absorbers are damaged
+- 'what pollution affects: health, land value, crops, happiness, enemy aggression'
+- cleanup tools and their cost
+failure_modes:
+- Pollution that only lowers land value is solved once by zoning distance and then ignored.
+- Fine-grained diffusion with no threshold or chunking costs compute and produces smeared, unreadable fields.
+- Effects carried by hidden channels, such as water contamination far downstream, read as unexplained sickness.
+dynamics:
+- Zoning separates polluting and sensitive uses, which lengthens commutes and adds traffic.
+- In Factorio pollution couples production scale to attack size, so efficiency becomes a defense strategy.
+- Absorbers degrade under load, so a polluted region can tip into faster spread as forests die.
+math_basis:
+- cellular-automata
+- continuum-mechanics
+feedback: both
+player_interface:
+- placement
+- observation
+legibility: 3
+emergence_potential: 3
+authoring_cost: 1
+compute_cost: 2
+tuning_difficulty: 3
+ai_leverage: 2
+maturity: classic
+open_questions:
+- Can learned dispersion surrogates make air and water pollution fields physically plausible while staying cheap and legible?
+sources:
+- src-factoriowiki-2026-pollution
+- src-hopkins-2008-micropolis
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m5

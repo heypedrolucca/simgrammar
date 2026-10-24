@@ -1,10 +1,101 @@
 id: eco
 type: game
 name: Eco
-summary: TODO
+summary: A multiplayer civilization survival game in which players on one server share a simulated ecosystem,
+  specialize in skills, craft and trade with player-made currencies, and pass enforceable laws while researching
+  how to stop a meteor due in thirty days without wrecking the environment.
 year: 2018
 developer: Strange Loop Games
+platforms:
+- pc
 subgenre: mmo-world
-status: asserted
+subgenre_secondary:
+- ecosystem-evolution
+- sandbox-world
+sim_domain:
+- biological-ecological
+- economic
+- political-governance
+player_role: inhabitant
+agency_model:
+- direct-avatar
+- policy-parameter
+time_model: asynchronous-persistent
+sim_scale: planet
+fidelity: systemic
+perspective: first-person
+win_structure: scenario-goals
+failure_model: cascading-collapse
+narrative_mode: emergent
+multiplayer:
+- single
+- coop
+- persistent-mmo
+modding: scripting
+production_tier: indie
+agent_count_order: 1k
+emergence: 3
+influence: 2
+core_loop: gather from the shared ecosystem -> specialize in skills and craft at tables -> trade through
+  player stores and currencies -> propose and vote on laws and taxes -> research technology to stop the
+  meteor -> manage pollution and species populations before impact
+design_notes: 'Eco makes the ecosystem a shared commons: each player''s harvesting and pollution changes
+  species populations and the climate for everyone on the server. Its answer to overexploitation is player-made
+  institutions rather than designer rules, with enforceable laws, taxes, and currencies, and simulation
+  data that players can cite as evidence in debates. It began as an educational project funded in part
+  by the U.S. Department of Education.'
+mechanics:
+- id: food-web
+  role: core
+  note: Thousands of plants and animals from dozens of species grow across the world; overhunting or overharvesting
+    can drive a species extinct, and a disruption in one species cascades across the planet.
+- id: pollution-spread
+  role: core
+  note: Mining waste and industrial pollution poison rivers and kill farms, and excessive air pollution
+    raises sea levels.
+- id: player-legislation
+  role: core
+  note: Players propose laws in a programmable rule system and vote on them, the game enforces ratified
+    laws, and elections set tax rates and community funds; governments range from dictatorships to lawless,
+    trust-based communities.
+- id: crisis-countdown
+  role: core
+  note: A meteor is set to strike in thirty days, and players must gather resources and research technology
+    to stop it without harming the world.
+- id: renewable-regrowth
+  role: supporting
+  note: Plant and animal populations recover over time unless harvested faster than they regrow; cutting
+    too many trees reduces how much air pollution is absorbed.
+- id: planetary-climate
+  role: supporting
+  note: Accumulated pollution changes the climate and sea level.
+- id: elections
+  role: supporting
+- id: taxation
+  role: supporting
+- id: player-driven-market
+  role: supporting
+  note: Players run stores and currency exchanges with fiat or resource-backed currencies and set exchange
+    rates.
+- id: contracts-orders
+  role: supporting
+  note: Players post labor contracts for others to fulfill.
+- id: agent-skills
+  role: supporting
+  note: Varied food and larger homes earn skill points spent on specialties such as farming, hunting,
+    trade, and engineering.
+- id: production-chain
+  role: supporting
+  note: More than 30 craft tables turn materials into goods across hundreds of recipes.
+- id: tech-tree
+  role: supporting
+- id: seasonal-world-reset
+  role: supporting
+  note: Each world is bounded by a meteor due in thirty days, so a server's run ends with stopping it
+    or with impact, and servers are commonly wiped and restarted as fresh worlds.
+sources:
+- src-wikipedia-eco-2018
+- src-steam-2018-eco
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gi

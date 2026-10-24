@@ -1,10 +1,77 @@
 id: harvest-moon
 type: game
 name: Harvest Moon
-summary: TODO
+aliases:
+- Bokujō Monogatari
+summary: An early farming sim for the Super Famicom in which the player has two and a half years to restore
+  an inherited farm through daily crop watering, livestock care, and courting one of five eligible women.
 year: 1996
 developer: Amccus
+platforms:
+- console
+- handheld
 subgenre: farming-sim
-status: asserted
+subgenre_secondary:
+- life-sim
+sim_domain:
+- biological-ecological
+- social-interpersonal
+player_role: inhabitant
+agency_model:
+- direct-avatar
+time_model: real-time
+sim_scale: facility
+fidelity: stylized
+perspective: top-down-2d
+win_structure: scenario-goals
+failure_model: soft-recoverable
+narrative_mode: hybrid
+multiplayer:
+- single
+modding: none
+production_tier: aa
+agent_count_order: '10'
+emergence: 2
+influence: 4
+core_loop: clear land and plant seasonal crops -> water daily and tend livestock -> ship produce for money
+  -> buy animals, seeds, and upgrades -> build relationships and attend festivals -> marry and raise a
+  child before the father's evaluation
+design_notes: 'Director Yasuhiro Wada started the project with three principles (no fighting, uniqueness,
+  and tactile real-time action), and a team of 8 to 10 people at Pack-In-Soft scaled it back to fit SNES
+  limits. The farm rules are forgiving but daily: unwatered crops stop growing instead of dying, chickens
+  need only feed but can die if left outside, and cows must be fed, talked to, brushed, and milked or
+  they sicken. Play is bounded by a two-and-a-half-year term that ends with the father''s evaluation of
+  the farm and family, which makes marriage and a child goals alongside crops and livestock.'
+mechanics:
+- id: crop-cultivation
+  role: core
+  note: Crops need water every day; a missed day halts growth rather than killing the plant, and each
+    crop belongs to a season.
+- id: animal-husbandry
+  role: core
+  note: Chickens must be fed and kept indoors or they can die; cows need daily feed, talking, brushing,
+    and milking, and fall sick or die if neglected.
+- id: seasons
+  role: core
+  note: A four-season calendar sets which crops can grow and when festivals occur.
+- id: daily-action-budget
+  role: supporting
+  note: A stamina pool limits work each day; power berries found around the map raise it.
+- id: romance-family
+  role: supporting
+  note: Five eligible women can be courted; marriage and a child count toward the final evaluation.
+- id: relationship-values
+  role: supporting
+  note: Villagers' and candidates' affection rises with talking and gifts.
+- id: scenario-objectives
+  role: supporting
+  note: After two and a half years the father evaluates the farm, family, and relationships.
+- id: day-night-cycle
+  role: supporting
+  note: After dark only the bar stays open, so shopping and visits must fit daylight.
+sources:
+- src-wikipedia-harvest-moon
+- src-fogu-2026-harvest-moon-snes
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gc

@@ -1,0 +1,23 @@
+id: src-juliani-2018-unity-ml-agents
+type: source
+name: 'Unity: A General Platform for Intelligent Agents'
+kind: preprint
+authors:
+- Arthur Juliani
+- Vincent-Pierre Berges
+- Ervin Teng
+- Andrew Cohen
+- Jonathan Harper
+- Chris Elion
+- Chris Goy
+- Yuan Gao
+- Hunter Henry
+- Marwan Mattar
+- Danny Lange
+venue: arXiv
+date: '2018-09-07'
+arxiv: '1809.02627'
+accessed: '2026-10-24'
+notes: Introduces the open-source Unity ML-Agents Toolkit for training agents inside Unity environments.
+provenance:
+  created: 2026-10-24-techniques-rl-design

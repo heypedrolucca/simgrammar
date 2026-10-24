@@ -1,9 +1,70 @@
 id: embodied-skill-control
 type: mechanic
 name: Embodied skill control
+aliases:
+- hands-on control
+- manual piloting
+- sim control
 summary: Real-time motor skill operating a simulated mechanism, such as hand-flying, driving, or surgery,
   is the main challenge.
 family: control-automation
+substrate:
+- continuous-physics
+definition: 'The player''s continuous inputs (stick, wheel, pedals, mouse, motion controllers) drive the
+  control surfaces or actuators of a physically simulated mechanism, and the challenge is the skill of
+  producing good inputs, not choosing goals. State owned: mapping from input devices to actuator commands,
+  including curves, deadzones, and assists. Update rule: each physics step, read inputs, apply response
+  curves and optional assists (stability control, auto-trim, autopilot), and send commands to the mechanism
+  model, such as flight aerodynamics or vehicle dynamics. Skill emerges because the mechanism has inertia,
+  delays, and nonlinearities the player must learn to anticipate. Canonical forms: hand-flying in Microsoft
+  Flight Simulator, X-Plane, and DCS World; driving in iRacing, Gran Turismo, and BeamNG.drive; and deliberately
+  clumsy hand control in Surgeon Simulator.'
+player_experience: Competence lives in the hands. The player practices, crashes, and gradually internalizes
+  how the mechanism responds until difficult maneuvers feel fluid. Mastery is personal and hard-won, and
+  assists let novices participate before they have the skill.
+design_levers:
+- fidelity of the underlying mechanism model
+- assist layers that can be turned on or off (traction control, stability assist, auto-rudder, autopilot)
+- input device support and response curves
+- 'feedback channels: force feedback, motion, sound, and visual cues'
+- deliberate awkwardness of control mapping for comedy, as in Surgeon Simulator
+- 'consequences of error: reset, damage, or permanent loss'
+failure_modes:
+- Keyboard or gamepad play of a mechanism tuned for wheels or sticks is nearly impossible, splitting the
+  audience by hardware.
+- Missing tactile and vestibular cues make real-world techniques fail on screen.
+- Assists that are all or nothing leave no learning ramp between novice and full simulation.
+dynamics:
+- Skill becomes a personal progression system independent of unlocks, sustaining long-term play in racing
+  and flight communities.
+- Hardware investment (wheels, HOTAS, VR) forms around the mechanic and reinforces community identity.
+- Combined with damage models, small control errors cascade into dramatic, unscripted failures.
+math_basis:
+- control-theory
+- classical-mechanics
+feedback: none
+player_interface:
+- embodied-skill
+legibility: 3
+emergence_potential: 3
+authoring_cost: 3
+compute_cost: 2
+tuning_difficulty: 3
+ai_leverage: 3
+maturity: classic
+synergy:
+- id: vehicle-dynamics
+  note: Detailed handling models reward motor skill and hardware like wheels and pedals.
+tension:
+- id: variable-speed
+  note: Real-time motor skill and time compression are hard to offer together.
+- id: turn-structure
+  note: Turns remove the real-time pressure motor skill depends on.
+open_questions:
+- Can learned coaching models watch input traces and teach technique the way an instructor does?
+- Can adaptive assists, trained to keep the player near the edge of competence, replace fixed difficulty
+  toggles?
+sources: []
 status: asserted
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m6

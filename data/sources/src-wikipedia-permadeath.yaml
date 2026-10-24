@@ -1,0 +1,14 @@
+id: src-wikipedia-permadeath
+type: source
+name: Permadeath
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Permadeath
+accessed: '2026-10-24'
+notes: Definition; Rogue deleted the save file on load; save scumming; optional hardcore modes; Richard Bartle's
+  arguments for and against permadeath in virtual worlds; most MMORPGs avoid it.
+provenance:
+  created: 2026-10-24-taxonomy-m7

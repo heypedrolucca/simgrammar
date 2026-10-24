@@ -1,10 +1,150 @@
 id: dwarf-fortress
 type: game
 name: Dwarf Fortress
-summary: TODO
+aliases:
+- 'Slaves to Armok: God of Blood Chapter II: Dwarf Fortress'
+summary: A colony sim in which the player directs a fortress of autonomous dwarves inside a procedurally
+  generated world whose history, geology, fluids, bodies, and minds are all simulated.
 year: 2006
 developer: Bay 12 Games
+platforms:
+- pc
 subgenre: colony-sim
-status: asserted
+subgenre_secondary:
+- rpg-sim
+sim_domain:
+- social-interpersonal
+- physical-mechanical
+- biological-ecological
+player_role: overseer
+agency_model:
+- order-queue
+- zoning-placement
+- indirect-incentive
+- direct-unit
+time_model: real-time-pausable
+sim_scale: settlement
+fidelity: systemic
+perspective: top-down-2d
+win_structure: open-sandbox
+failure_model: cascading-collapse
+narrative_mode: emergent
+multiplayer:
+- single
+modding: scripting
+production_tier: hobbyist
+agent_count_order: '100'
+emergence: 5
+influence: 5
+core_loop: embark and dig -> designate jobs, stockpiles, and workshops -> dwarves self-assign labors and
+  craft -> needs, emotions, and stress accumulate -> migrants, caravans, sieges, and beasts arrive ->
+  fortress thrives or collapses into the world's legends
+design_notes: Tarn Adams's stated principles are to break a system into parts, avoid overplanning, and
+  base each model on a real-world analog; he describes the game as a story generator. The fortress is
+  embarked inside a world whose geology and history were already simulated, and the fortress's own events
+  flow back into that history through Legends, so a collapse becomes a record that a later adventurer
+  can visit. Strange moods let an inspired dwarf seize a workshop to make a named artifact and go insane
+  if materials are missing, which turns the production system into a story source. The game was free and
+  donation-funded from 2006; a paid Steam edition with sprite graphics followed in December 2022, still
+  short of a 1.0 version.
+mechanics:
+- id: history-generation
+  role: core
+  note: World generation builds elevation, rainfall, drainage, temperature, and vegetation layers, then
+    simulates civilizations, sites, and historical figures for a player-chosen number of years before
+    the fortress is embarked.
+- id: designation-orders
+  role: core
+  note: The player designates digging, chopping, construction, and workshop jobs; dwarves with the matching
+    labor enabled pick them up, and a manager can queue work orders automatically.
+- id: mood-breakdown
+  role: core
+  note: Emotions add to or subtract from a hidden stress value (-1,000,000 to +1,000,000) with effects
+    from +10,000, +25,000, and +50,000; stressed dwarves throw tantrums, fall into depression, or wander
+    obliviously, prolonged stress leads to insanity, and one breakdown can spread unhappiness.
+- id: injury-body-model
+  role: core
+  note: Body parts are layered tissues (skin, fat, muscle, bone, nerves) damaged individually in combat;
+    injuries can be permanent and are treated in a hospital with traction benches, casts, sutures, and
+    splints.
+- id: fluid-gas-simulation
+  role: core
+  note: Water and magma flow tile by tile with up to seven depth levels per tile, so breaching a river,
+    cavern lake, or magma source floods connected tunnels.
+- id: vertical-layers
+  role: core
+  note: Z-levels, added in 2007, let the fortress descend level by level through soil and stone to caverns,
+    the magma sea, and the underworld, connected by stairs and ramps.
+- id: history-chronicle
+  role: core
+  note: Legends mode lists historical figures, sites, artifacts, and civilizations with a historical map;
+    fortress deeds and retired adventurers are added, and the archive exports to XML.
+- id: agent-skills
+  role: supporting
+  note: Work quality and speed rise with skill gained through practice in each labor.
+- id: needs-decay
+  role: supporting
+  note: Food, drink, and sleep, plus personal needs such as socializing or praying met at taverns, temples,
+    and libraries.
+- id: memories-thoughts
+  role: supporting
+  note: Emotions become short-term memories; strong or revisited ones are promoted to long-term memories
+    that keep adding stress.
+- id: personality-traits
+  role: supporting
+  note: Facets such as bravery, stress vulnerability, and anxiety scale how stress builds and dissipates.
+- id: relationship-values
+  role: supporting
+  note: Friends, family, and pets; their deaths are major stressors.
+- id: production-chain
+  role: supporting
+  note: Ore is smelted to bars and alloyed; steel needs flux to make pig iron plus coke or charcoal, and
+    magma can replace fuel.
+- id: heat-transfer
+  role: supporting
+  note: Tiles, materials, and creatures carry temperatures.
+- id: fire-spread
+  role: supporting
+  note: Fires spread and burn dwarves and furniture.
+- id: raid-defense
+  role: supporting
+  note: Ambushes, sieges, megabeasts, and forgotten beasts are met with squads, fortifications, and traps
+    triggered by levers or pressure plates.
+- id: adaptive-threat-scaling
+  role: supporting
+  note: Wealthier and more populous fortresses attract sieges and megabeasts.
+- id: immigration-attractiveness
+  role: supporting
+  note: Migrant waves from the mountainhome grow as the fortress develops.
+- id: trade-routes
+  role: supporting
+  note: Yearly caravans from neighboring civilizations are handled by a broker; caravans can be absent
+    or hostile depending on history.
+- id: room-recognition
+  role: supporting
+  note: Furniture defines bedrooms, dining halls, and offices; nobles demand rooms of rising value.
+- id: crime-policing
+  role: supporting
+  note: A justice system punishes assault, murder, and vandalism.
+- id: crop-cultivation
+  role: supporting
+  note: Underground farming on soil layers; plump helmet mushrooms are brewed into wine.
+- id: hauling-jobs
+  role: supporting
+  note: Dwarves carry goods to player-defined stockpiles.
+- id: unit-commands
+  role: supporting
+  note: Military squads in uniforms train at barracks and can be ordered to attack.
+- id: stress-accumulation
+  role: core
+  note: Emotions from events add to or subtract from a hidden stress value (-1,000,000 to +1,000,000)
+    scaled by facets such as stress vulnerability and bravery; above +10,000, +25,000, and +50,000 dwarves
+    risk tantrums, depression, obliviousness, and insanity, and long-term memories keep adding stress.
+sources:
+- src-wikipedia-dwarf-fortress
+- src-adams-2015-df-simulation-principles
+- src-dfwiki-2026-legends
+- src-dfwiki-2026-stress
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gb

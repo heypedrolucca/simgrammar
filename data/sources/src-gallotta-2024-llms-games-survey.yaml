@@ -1,0 +1,23 @@
+id: src-gallotta-2024-llms-games-survey
+type: source
+name: 'Large Language Models and Games: A Survey and Roadmap'
+kind: paper
+authors:
+- Roberto Gallotta
+- Graham Todd
+- Marvin Zammit
+- Sam Earle
+- Antonios Liapis
+- Julian Togelius
+- Georgios N. Yannakakis
+venue: IEEE Transactions on Games
+date: '2024'
+url: https://arxiv.org/abs/2402.18659
+doi: 10.1109/TG.2024.3461510
+arxiv: '2402.18659'
+accessed: '2026-10-24'
+notes: 'Nine roles: player, NPC, player assistant, commentator/reteller, analyst, game master, game mechanic,
+  automated designer, design assistant. LLM GMs accommodate bizarre requests; NPCs may hallucinate quests;
+  design-tool latency 30 s to over a minute; commentary and retelling research limited.'
+provenance:
+  created: 2026-10-24-techniques-llm-agents

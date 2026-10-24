@@ -1,10 +1,84 @@
 id: timberborn
 type: game
 name: Timberborn
-summary: TODO
+summary: A city builder for beaver colonies in which simulated water flows over terrain, recurring droughts and
+  toxic badtides cut or poison it, and players dam, channel, and store water while building upward.
 year: 2021
+year_full_release: 2026
 developer: Mechanistry
+platforms:
+- pc
 subgenre: city-builder
-status: asserted
+sim_domain:
+- urban
+- planetary-natural
+- biological-ecological
+player_role: planner-mayor
+agency_model:
+- zoning-placement
+- policy-parameter
+- programmatic
+time_model: real-time-pausable
+sim_scale: settlement
+fidelity: systemic
+perspective: free-3d
+win_structure: open-sandbox
+failure_model: cascading-collapse
+narrative_mode: emergent
+multiplayer:
+- single
+modding: content
+production_tier: indie
+agent_count_order: '100'
+emergence: 3
+influence: 1
+core_loop: dam and channel rivers -> irrigate farms and forests from stored water -> beavers work, eat, and seek
+  wellbeing -> a drought or badtide cuts or poisons the flow -> stockpiles and reservoirs carry the colony through
+  -> build upward and expand
+design_notes: 'Water is a simulated field rather than a resource count: a 2D model adapted from erosion simulation
+  linked each tile to four neighbors by virtual pipes and was replaced by 3D water in Update 6 (October 2024), so
+  dams, floodgates, and canals change where moisture reaches crops. Recurring droughts grow harsher and badtides
+  turn sources into contaminating badwater, so play alternates between building reservoirs and surviving a known
+  dry period. Limited space pushes housing and workshops into vertical stacks, and sensors and relays let players
+  automate floodgates.'
+mechanics:
+- id: hydrology
+  role: core
+  note: Tiles exchange water through virtual pipes with evaporation; moisture spreads to nearby land and falls off
+    sharply uphill; dams, levees, floodgates, and canals redirect flow.
+- id: crisis-countdown
+  role: core
+  note: Recurring droughts switch sources off and badtides release contaminating badwater; both grow harsher over
+    time and are signalled in advance.
+- id: terraforming
+  role: supporting
+  note: Explosives dig tunnels and reshape terrain.
+- id: vertical-layers
+  role: supporting
+  note: Lodges and workshops stack on platforms; ziplines and tubeways move beavers between levels.
+- id: crop-cultivation
+  role: supporting
+  note: Crops grow only on irrigated soil and fail when it dries.
+- id: needs-decay
+  role: supporting
+  note: Beavers need food, water, rest, and wellbeing from diet variety, entertainment, and decorations.
+- id: storage-capacity
+  role: supporting
+  note: Water tanks and warehouses buffer droughts.
+- id: power-grid
+  role: supporting
+  note: Water wheels and other generators power workshops and bots through a connected network.
+- id: signal-circuits
+  role: supporting
+  note: Sensors, relays, and counters control dams and factories.
+- id: hauling-jobs
+  role: supporting
+- id: lifecycle-aging
+  role: supporting
+sources:
+- src-wikipedia-timberborn
+- src-steam-2026-timberborn
+- src-amielanczyk-2023-timberborn-water
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-ga

@@ -1,8 +1,61 @@
 id: animal-husbandry
 type: mechanic
 name: Animal husbandry
-summary: Domestic animals are raised, fed, bred, and yield products.
+aliases:
+- livestock
+- ranching
+- animal breeding
+summary: Domestic animals are housed, fed, tended, and bred, and they yield products whose quantity and quality depend on
+  their care.
 family: biology-health
-status: asserted
+substrate:
+- agent-based
+- aggregate-stocks
+definition: 'Owns a herd of individual animals or a count per species, each with growth stage, food state, often affection
+  or mood, and sometimes pregnancy and genes. Each day animals eat from grazing or stored fodder, grow toward maturity, and
+  roll for products such as milk, eggs, or wool and for births; care actions raise affection or mood, which scales yield and
+  quality. Stardew Valley tracks friendship from 0 to 1000 and mood from 0 to 255: unfed animals stop producing but do not
+  die, mood under 70 can skip production, quality products need mood 150, and a nightly birth check governs pregnancies. RimWorld
+  and Dwarf Fortress breed animals that must be fed, sheltered, trained, or slaughtered; Farming Simulator ties livestock
+  productivity to feed. Inputs are feed, housing, and care; outputs are products, meat, and offspring.'
+player_experience: 'Routine care with compounding returns. The player builds pens and barns, keeps feed stocked through winter,
+  and turns daily tending into reliable income. Animals can become personal: named, petted, and missed when lost to a predator
+  or a hard winter.'
+design_levers:
+- feed requirement per animal and the balance between grazing and stored fodder
+- time to maturity and product cycle per species
+- how care, mood, and affection scale yield and quality
+- breeding rate and population caps from housing size
+- 'losses: disease, predators, exposure, slaughter decisions'
+failure_modes:
+- Unchecked breeding produces runaway herds that eat all fodder and then starve, a recurring colony-sim problem.
+- Daily care actions with no decisions become chores players automate away or abandon.
+- Animals that can never die or fall ill turn husbandry into passive income.
+dynamics:
+- Feed demand links husbandry to crop fields and storage, especially before winter.
+- Herds become targets for predators and raids, requiring fences and defense.
+- Breeding for traits ties husbandry to inheritance and long-term planning.
+math_basis:
+- population-dynamics
+- genetics-evolution
+- system-dynamics
+feedback: both
+player_interface:
+- direct-manipulation
+- placement
+- orders
+legibility: 4
+emergence_potential: 3
+authoring_cost: 3
+compute_cost: 2
+tuning_difficulty: 3
+ai_leverage: 2
+maturity: classic
+open_questions:
+- Can learned animal behavior and animation make individually simulated livestock expressive enough to deepen attachment without
+  bespoke animation per species?
+sources:
+- src-stardewvalleywiki-2026-animals
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m5

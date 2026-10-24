@@ -1,9 +1,69 @@
 id: budget-treasury
 type: mechanic
 name: Treasury and budget
+aliases:
+- treasury
+- cash flow
+- budget panel
 summary: A money stock with income and expense flows such as taxes, upkeep, wages, and service funding;
   a negative balance leads to debt or failure.
 family: economy-finance
-status: asserted
+substrate:
+- aggregate-stocks
+definition: Owns one money stock and a ledger of flow categories. Each accounting period income (taxes,
+  fees, sales, trade) is added and expenses (upkeep, wages, service funding, interest) are subtracted.
+  Players often set a funding fraction per department, and service effectiveness scales with it. In Micropolis,
+  the open-source SimCity engine, the collection every 48 city-time steps computes revenue = population
+  x average land value / 120 x tax rate x a difficulty factor, sets required police and fire funds at
+  100 per station and road funds per road and rail tile, and converts the fraction actually paid into
+  RoadEffect (0-32) and PoliceEffect and FireEffect (0-1000), so underfunded roads decay and coverage
+  shrinks. A negative balance leads to loans, bonds, bankruptcy, or game over; SimCity 2000 ends the game
+  after extreme deficit spending.
+player_experience: 'Periodic reckoning. The player watches a running balance and a monthly or yearly ledger,
+  trims service budgets to stay solvent, and decides when a surplus should become new construction. Shortfalls
+  show up as visible decay: crumbling roads, slower fire response, unpaid staff.'
+design_levers:
+- accounting period length and whether flows post continuously or at fixed ticks
+- which expense categories are player-adjustable and how effectiveness scales with the funding fraction
+- upkeep per building relative to the revenue it enables
+- consequence of a negative balance (borrowing, forced cuts, bankruptcy, or game over)
+- how much ledger detail and forecasting the interface shows
+failure_modes:
+- 'Upkeep that scales slower than revenue makes money irrelevant by mid-game, a common complaint about
+  Cities: Skylines.'
+- Funding sliders whose effects are delayed or hidden teach players to cut services without visible cost
+  until a collapse.
+- Fixed upkeep with no link to growth produces an early cash trap with no recovery path.
+dynamics:
+- Surpluses fund expansion that raises both revenue and upkeep, so cash pressure returns at each growth
+  stage.
+- Underfunding one service degrades a dependent system (roads, crime, fires), which later lowers the revenue
+  base.
+- Periodic settlement creates sawtooth cash curves and end-of-period scrambles.
+math_basis:
+- system-dynamics
+- optimization
+feedback: both
+player_interface:
+- parameter
+- observation
+legibility: 4
+emergence_potential: 3
+authoring_cost: 1
+compute_cost: 1
+tuning_difficulty: 3
+ai_leverage: 2
+maturity: classic
+synergy:
+- id: loans-debt
+  note: Debt extends the treasury in time, trading future flexibility for present growth.
+open_questions:
+- Can an LLM advisor explain a deficit as a causal chain through the ledger well enough to replace spreadsheet-style
+  budget panels?
+- What upkeep-to-revenue curve keeps money a meaningful constraint into the late game?
+sources:
+- src-hopkins-2008-micropolis
+- src-wikipedia-simcity-2000
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m2

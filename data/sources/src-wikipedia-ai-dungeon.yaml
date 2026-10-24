@@ -1,0 +1,14 @@
+id: src-wikipedia-ai-dungeon
+type: source
+name: AI Dungeon
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/AI_Dungeon
+accessed: '2026-10-24'
+notes: Latitude; 2019 release, AI Dungeon 2 in December 2019 on GPT-2 (1.5B), GPT-3 from July 2020; Do, Say, Story,
+  See inputs; player-set memory; criticism of forgetting earlier content; 2021 moderation filter with false positives.
+provenance:
+  created: 2026-10-24-taxonomy-m7

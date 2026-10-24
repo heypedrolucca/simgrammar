@@ -1,9 +1,68 @@
 id: hauling-jobs
 type: mechanic
 name: Hauling jobs
+aliases:
+- hauling
+- carrying jobs
+- item transport by agents
 summary: Agents pick up and carry items between locations via a job queue, making hauling capacity a hidden
   throughput constraint.
 family: logistics-networks
-status: asserted
+substrate:
+- agent-based
+- rule-system
+definition: 'Items on the ground or in the wrong storage generate hauling jobs that name a source item
+  and a destination with space. Idle agents with hauling enabled pick jobs by priority and distance, path
+  to the item, carry up to their capacity, and deliver. Throughput is bounded by the number of haulers,
+  walking distance, carry capacity, and competing work. RimWorld haulers move items to the highest-priority
+  stockpile with space, even out of lower-priority stockpiles; Dwarf Fortress splits hauling into labors
+  for stone, wood, food, refuse, and furniture; The Settlers passes every good from flag to flag along
+  roads, with one carrier per road segment; Banished and Timberborn rely on laborers or haulers whose
+  numbers set delivery speed. Inputs: item locations, destinations, agent availability. Outputs: item
+  movement and a job backlog.'
+player_experience: Watching the colony carry its own weight. Players notice that new production does not
+  help when no one is free to carry it, then shorten distances, build local stockpiles, or assign more
+  haulers. The constraint is visible on screen as piles of goods and idle workbenches.
+design_levers:
+- carry capacity per agent and the effect of tools such as wheelbarrows or carts
+- 'job selection rules: priority, distance, or reservation'
+- how many agents haul and whether hauling is a separate role
+- stockpile priorities and filters that generate jobs
+- whether production buildings have local storage or need pickup
+failure_modes:
+- Hauling backlogs are hard to diagnose because the bottleneck is spread across many agents.
+- Item ping-pong between stockpiles with similar priorities wastes agent time.
+- Agents abandoning urgent work to haul low-value items reads as AI stupidity.
+dynamics:
+- Distance between production and storage becomes a hidden cost, rewarding compact layouts.
+- Hauling competes with every other job, so labor shortages appear as slowdowns everywhere at once.
+- Coupled with needs, haulers take breaks, creating rhythmic dips in throughput.
+math_basis:
+- scheduling
+- queueing
+- graph-search
+feedback: balancing
+player_interface:
+- parameter
+- orders
+- observation
+legibility: 3
+emergence_potential: 3
+authoring_cost: 1
+compute_cost: 3
+tuning_difficulty: 3
+ai_leverage: 2
+maturity: classic
+requires:
+- agent-pathfinding
+synergy:
+- id: storage-capacity
+  note: Where stockpiles sit determines how much hauling labor the colony spends.
+open_questions:
+- Could learned job dispatch reduce visible AI stupidity while keeping hauling a resource the player manages?
+- How should backlogs be visualized so players can find the true constraint?
+sources:
+- src-rimworldwiki-2026-stockpile
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m1

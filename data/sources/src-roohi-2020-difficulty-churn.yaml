@@ -1,0 +1,19 @@
+id: src-roohi-2020-difficulty-churn
+type: source
+name: Predicting Game Difficulty and Churn Without Players
+kind: paper
+authors:
+- Shaghayegh Roohi
+- Asko Relas
+- Jari Takatalo
+- Henri Heiskanen
+- Perttu Hämäläinen
+venue: ACM CHI PLAY 2020
+date: '2020-08-29'
+doi: 10.1145/3410404.3414235
+arxiv: '2008.12937'
+accessed: '2026-10-24'
+notes: Deep RL agents estimate level difficulty in Angry Birds Dream Blast; a population model with skill,
+  persistence, and boredom predicts per-level pass and churn rates.
+provenance:
+  created: 2026-10-24-techniques-rl-design

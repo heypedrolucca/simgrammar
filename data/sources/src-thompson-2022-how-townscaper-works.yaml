@@ -1,0 +1,16 @@
+id: src-thompson-2022-how-townscaper-works
+type: source
+name: 'How Townscaper Works: A Story Four Games in the Making'
+kind: news
+authors:
+- Tommy Thompson
+venue: Game Developer
+date: '2022-04-06'
+url: https://www.gamedeveloper.com/game-platforms/how-townscaper-works-a-story-four-games-in-the-making
+accessed: '2026-10-24'
+notes: Irregular quad grid from a subdivided, jittered hex grid; marching-cubes-style corner modules;
+  real-time wave function collapse narrows modules per cell; decoration applied after; gardens only in
+  enclosed areas; may fail silently; delay grows with structure size; described as a mixed-initiative
+  system.
+provenance:
+  created: 2026-10-24-taxonomy-m4

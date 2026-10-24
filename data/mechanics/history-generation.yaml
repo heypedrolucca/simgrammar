@@ -1,8 +1,73 @@
 id: history-generation
 type: mechanic
 name: Simulated history generation
-summary: World generation simulates centuries of civilizations, figures, and events before play begins.
+aliases:
+- world history simulation
+- worldgen history
+- legends generation
+summary: World generation simulates years to centuries of civilizations, figures, and events before play
+  begins, producing the starting world.
 family: world-generation
-status: asserted
+substrate:
+- agent-based
+- rule-system
+- stochastic-events
+definition: 'After terrain and biomes exist, a coarse simulation runs the world forward for a chosen number
+  of years: civilizations found sites, grow, migrate, trade, make war, and found religions, and a subset
+  of individuals is tracked as historical figures with families, titles, kills, and relationships. The
+  final state is the starting map for play, and the event log feeds a chronicle. In Dwarf Fortress the
+  player sets history length (worlds of 1,000 or 10,000 years are possible), populations and deaths counters
+  rise during generation, only part of each site''s population becomes historical figures (nobles, megabeasts,
+  villains, their families), and a cap with optional culling limits their total. Caves of Qud generates
+  sultan histories and Crusader Kings seeds dynasties from authored history instead. Inputs: map, races,
+  parameters. Outputs: sites, factions, figures, artifacts, and an event archive.'
+player_experience: The world feels older than the player. Ruins, feuds, and legendary artifacts have causes
+  the player can look up, and players discover that the world they inherited contains specific grudges,
+  heroes, and lost wars. Long generation times build anticipation.
+design_levers:
+- history length in years
+- number and type of civilizations and their behavior rules
+- which individuals are tracked as historical figures and the cap on their count
+- abstraction level of populations, battles, and trade during generation
+- event types simulated (wars, migrations, religions, artifacts, monsters)
+- how much of the generated history is revealed versus discoverable in play
+failure_modes:
+- Long histories take a long time to generate and produce very large saves.
+- Coarse rules can produce degenerate worlds, such as one civilization conquering everything or all civilizations
+  dying out.
+- History that never surfaces in play is invisible effort.
+dynamics:
+- Generated grudges and alliances set the political situation the player starts in, so two seeds play
+  differently.
+- Historical figures and artifacts become quest targets, visitors, and threats during play.
+- Players share notable generated histories as stories in their own right.
+math_basis:
+- population-dynamics
+- markov-stochastic
+- social-network
+feedback: both
+player_interface:
+- parameter
+- observation
+legibility: 2
+emergence_potential: 5
+authoring_cost: 3
+compute_cost: 4
+tuning_difficulty: 4
+ai_leverage: 4
+maturity: emerging
+synergy:
+- id: procedural-terrain
+  note: Generated terrain constrains where simulated civilizations settle, fight, and leave ruins.
+open_questions:
+- Can language models turn coarse simulated histories into readable myths and chronicles without contradicting
+  the record?
+- What is the cheapest history abstraction that still yields grudges and relationships players recognize
+  in play?
+sources:
+- src-wikipedia-dwarf-fortress
+- src-dfwiki-2026-historical-figure
+- src-dfwiki-2026-legends
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m7

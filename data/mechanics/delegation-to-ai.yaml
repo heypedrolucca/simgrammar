@@ -1,8 +1,79 @@
 id: delegation-to-ai
 type: mechanic
 name: Delegation to AI managers
-summary: Subsystems are handed to AI managers or governors that pursue player-set goals.
+aliases:
+- governors
+- sector AI
+- automation
+- AI managers
+summary: Subsystems are handed to AI managers or governors that pursue player-set goals within bounds.
 family: control-automation
-status: asserted
+substrate:
+- rule-system
+- agent-based
+definition: 'The player assigns a subsystem (a city, sector, colony, fleet, department, or set of planets)
+  to an AI controller and sets objectives and constraints: a focus, a budget, permissions, and policies.
+  Each decision interval the controller runs the same decision logic the game''s opponent AI uses, restricted
+  to that subsystem, and issues actions on the player''s behalf. State owned: assignment, goal settings,
+  and permissions per delegated unit; the rest is read from the subsystem. Inputs: subsystem state and
+  player settings. Outputs: build, research, production, or movement actions. Canonical forms: Stellaris
+  sectors, which a 2016 dev diary justified with a core-world limit and in which sector governors develop
+  planets and build mining stations under a player-set focus, Hearts of Iron IV battle plans executed
+  by AI-controlled generals, automated workers in the Civilization series, Football Manager staff responsibilities,
+  and automated traders and miners in X4: Foundations.'
+player_experience: The player moves up a level of abstraction and manages managers. Delegation trades
+  control for attention and enables play at empire scale. When the AI does something dumb it feels like
+  losing control; when it works it feels like governing.
+design_levers:
+- 'granularity of goals: single focus, weighted priorities, or explicit rules'
+- permissions such as may build, may demolish, may spend reserves
+- 'transparency: whether the manager explains its choices'
+- manager competence relative to a good player
+- 'incentives to delegate: hard limits on direct control versus voluntary convenience'
+- ease of reclaiming control and per-item overrides
+failure_modes:
+- Managers that underperform a competent player turn delegation into a penalty that players avoid at all
+  costs.
+- Opaque managers make unexplained choices that players cannot correct without micromanaging.
+- 'Managers that are too strong remove the game: the optimal play is to delegate everything.'
+- Forced delegation through control caps is widely resented; Stellaris sectors were reworked in later
+  updates.
+dynamics:
+- Delegation allows simulations far larger than one player could micromanage, shifting play to allocation
+  among managers.
+- 'Partial delegation creates principal-agent tension: players watch managers and intervene at thresholds.'
+- Delegated units pursuing local goals can conflict with each other, such as two governors competing for
+  one resource.
+math_basis:
+- utility-decision
+- control-theory
+feedback: balancing
+player_interface:
+- parameter
+- orders
+legibility: 3
+emergence_potential: 3
+authoring_cost: 2
+compute_cost: 2
+tuning_difficulty: 4
+ai_leverage: 4
+maturity: established
+tension:
+- id: embodied-skill-control
+  note: Automating a subsystem removes the skill expression that made it the point.
+open_questions:
+- Can language-model managers take natural-language mandates (keep morale high but never let the treasury
+  go negative), explain their tradeoffs, and remain competent?
+- Does delegation to a learned policy trained against the game's simulation make managers better than
+  humans, and what is left for the player if so?
+claims:
+- text: Stellaris launched with a limit on directly controlled core worlds, beyond which penalties applied,
+    and sectors run by governors who develop planets under a player-set focus and taxation.
+  sources:
+  - src-paradox-2016-stellaris-dev-diary-21-sectors
+  confidence: high
+sources:
+- src-paradox-2016-stellaris-dev-diary-21-sectors
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m6

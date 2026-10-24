@@ -1,0 +1,15 @@
+id: src-wikipedia-arc-raiders
+type: source
+name: ARC Raiders
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/ARC_Raiders
+accessed: '2026-10-24'
+notes: Released 2025-10-30 by Embark Studios; AI text-to-speech voice lines criticized and debated; 4M
+  copies by 2025-11-11, 14M by 2026-02; Embark CEO said in 2026-03 some AI voice lines were re-recorded
+  by human actors.
+provenance:
+  created: 2026-10-24-techniques-world-models

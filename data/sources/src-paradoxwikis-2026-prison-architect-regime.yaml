@@ -1,0 +1,15 @@
+id: src-paradoxwikis-2026-prison-architect-regime
+type: source
+name: Regime
+kind: encyclopedia
+authors:
+- Prison Architect Wiki contributors
+venue: Prison Architect Wiki (paradoxwikis.com)
+date: '2026'
+url: https://prisonarchitect.paradoxwikis.com/Regime
+accessed: '2026-10-24'
+notes: Hourly schedule per risk category, unlocked by hiring a Warden; Lockup, Sleep, Eat, Yard, Shower, Free Time, and Work
+  variants; regimes confine prisoners to areas rather than forcing actions; cooks start four hours before Eat; prisoners never
+  sleep from 8 AM to 8 PM.
+provenance:
+  created: 2026-10-24-taxonomy-m3

@@ -1,0 +1,17 @@
+id: src-georgiev-2025-math-discovery-at-scale
+type: source
+name: Mathematical exploration and discovery at scale
+kind: preprint
+authors:
+- Bogdan Georgiev
+- Javier Gomez-Serrano
+- Terence Tao
+- Adam Zsolt Wagner
+date: '2025-11-03'
+url: https://arxiv.org/abs/2511.02864
+arxiv: '2511.02864'
+accessed: '2026-10-24'
+notes: AlphaEvolve applied to 67 problems in analysis, combinatorics, geometry and number theory; mostly
+  rediscovers best known constructions, improves several, sometimes generalizes finite results to formulas.
+provenance:
+  created: 2026-10-24-techniques-sim-math

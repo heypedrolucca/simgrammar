@@ -1,0 +1,14 @@
+id: src-rimworldwiki-2026-time
+type: source
+name: Time
+kind: encyclopedia
+authors:
+- RimWorld Wiki contributors
+venue: RimWorld Wiki
+date: '2026'
+url: https://rimworldwiki.com/wiki/Time
+accessed: '2026-10-24'
+notes: 60 ticks per second at normal speed; speeds x3, x6, and x15 (ultrafast only in development mode); runs as close to
+  target as hardware allows; 2,500 ticks per hour, 60,000 per day; 15-day quadrums, 4 per 60-day year; Space pauses.
+provenance:
+  created: 2026-10-24-taxonomy-m5

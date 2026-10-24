@@ -1,0 +1,48 @@
+id: agent-ambassadors-async
+type: opportunity
+name: Agent ambassadors between player worlds
+summary: Let each player's simulation send language-agent representatives that trade and negotiate with
+  other players' worlds while they are offline.
+opportunity_type: new-mechanic
+thesis: Asynchronous shared regions (SimCity 2013) and visits (Animal Crossing) connect players thinly
+  because the other player is absent. Agents that represent a player's interests, constrained by the player's
+  standing instructions, can conduct trade and diplomacy between worlds asynchronously, turning a set
+  of single-player games into a living network.
+design_sketch: The player appoints an envoy with a mandate (export grain, import steel, never sell land).
+  Envoys meet other envoys in a shared hub, negotiate deals constrained by mandates, and report back with
+  transcripts and outcomes the player can ratify.
+involves:
+- async-shared-region
+- trade-routes
+- faction-diplomacy
+- contracts-orders
+- natural-language-interaction
+applies:
+- llm-agent-societies
+- cicero-strategic-dialogue
+- constrained-decoding
+precedent:
+- simcity-2013
+- animal-crossing-new-horizons
+- eve-online
+- offworld-trading-company
+novelty: 4
+feasibility: 3
+impact: 3
+horizon: 1-2y
+key_risks:
+- Agents exploited by adversarial players.
+- Mandate violations create disputes.
+- Server cost of agent negotiation.
+validation_experiment: 'Run 100 simulated player worlds with envoy agents under mandates for 30 days;
+  measure mandate violations, trade volume, and player-rated fairness in a pilot. Success: zero hard mandate
+  violations and positive fairness ratings.'
+falsifiable_signal:
+  prediction: A released game will let players' AI representatives trade or negotiate with other players'
+    worlds asynchronously.
+  resolve_by: '2029-06-30'
+  criteria: Store page or documentation describing autonomous AI envoys acting between players.
+sources: []
+status: asserted
+provenance:
+  created: 2026-10-24-synthesis

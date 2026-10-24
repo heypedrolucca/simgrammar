@@ -1,0 +1,15 @@
+id: src-hiddendoor-2026-blog-index
+type: source
+name: Hidden Door blog
+kind: tech-report
+authors:
+- Hidden Door
+venue: hiddendoor.co
+date: '2026'
+url: https://www.hiddendoor.co/blog
+accessed: '2026-10-24'
+notes: 'Post list: Introducing Early Access (2025-08-13), Now Playing: Dracula (2025-10-15), Inside our
+  agentic story harness (2026-10-02), A time-traveling narrative harness (2026-10-16). Post bodies not
+  read.'
+provenance:
+  created: 2026-10-24-techniques-llm-agents

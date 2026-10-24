@@ -1,0 +1,103 @@
+id: text-to-3d-assets
+type: technique
+name: Text- and image-to-3D asset generation
+aliases:
+- TRELLIS
+- Hunyuan3D
+- Roblox Cube
+- image-to-3D
+summary: Open 3D generative models (TRELLIS, Hunyuan3D 2.x, Roblox Cube) produce textured meshes from
+  a text prompt or image in seconds to a minute, and inZOI exposes image-to-3D object creation to players.
+category: neural-rendering-3d
+year: 2025
+mechanism: 'Generation is split into shape and appearance. A flow-matching or diffusion transformer generates
+  a 3D latent conditioned on an image or text: TRELLIS uses a Structured LATent (sparse voxels carrying
+  features from a vision foundation model), Hunyuan3D-DiT a shape latent, and Roblox Cube discrete shape
+  tokens predicted autoregressively. Decoders turn the latent into meshes, 3D Gaussians, or radiance fields.
+  Texture is painted by a multi-view diffusion model (Hunyuan3D-Paint) or decoded directly, with 2025
+  versions emitting PBR maps (base color, roughness, metallic). Output is a GLB or OBJ file that drops
+  into an engine like any other asset.'
+key_results:
+- text: TRELLIS (Microsoft, CVPR 2025) trains models up to 2B parameters on about 500K 3D objects and
+    decodes one latent to radiance fields, 3D Gaussians, or meshes; it is MIT-licensed and needs a GPU
+    with at least 16 GB.
+  sources:
+  - src-xiang-2024-trellis
+  confidence: high
+- text: TRELLIS.2 (4B parameters) outputs PBR-textured GLB assets in about 3 seconds at 512^3, 17 seconds
+    at 1024^3, and 60 seconds at 1536^3 on an H100.
+  sources:
+  - src-microsoft-2025-trellis-2-repo
+  confidence: high
+- text: Hunyuan3D 2.0 (January 2025) released open shape and texture models; Hunyuan3D 2.1 (June 2025)
+    added PBR texturing and training code and needs about 29 GB of VRAM for shape plus texture.
+  sources:
+  - src-tencent-2025-hunyuan3d-2
+  - src-tencent-2025-hunyuan3d-2-1-repo
+  confidence: high
+- text: Roblox released Cube 3D text-to-shape (v0.1 March 2025, v0.5 July 2025) and CubePart part-controllable
+    generation (May 2026) aimed at assets usable with animation, physics, and scripts.
+  sources:
+  - src-roblox-2025-cube
+  - src-roblox-2026-cube-repo
+  confidence: high
+- text: inZOI's store page states that players can turn 2D images into in-game 3D objects, with AI tools
+    described as auxiliary and generated content reviewed by the team.
+  sources:
+  - src-steam-2025-inzoi
+  confidence: high
+- text: inZOI received negative user reviews in May 2025 after Krafton announced its use of generative
+    AI.
+  sources:
+  - src-wikipedia-inzoi
+  confidence: medium
+maturity: shipped-niche
+trl: 7
+runtime:
+- offline-authoring
+- design-assist
+determinism_impact: mitigable
+horizon: now
+risks:
+- ip-provenance
+- player-trust
+- labor
+- content-safety
+- evaluation
+affects:
+- id: decoration-beauty
+  effect: cuts-authoring-cost
+  note: Decor and furniture catalogs that beauty and environment scores consume can be produced from prompts
+    or reference images in seconds per asset, so catalog size stops being bounded by modeling time.
+- id: generative-content
+  effect: deepens
+  note: 'Runtime generation extends from text and textures to placeable 3D props: inZOI players convert
+    their own images into in-game objects.'
+- id: modular-assembly
+  effect: enables-new
+  note: Part-controllable generation (Roblox CubePart) produces assets split into parts intended for physics
+    and scripts, which could supply new components for build-from-parts mechanics on request; not yet
+    shown in a shipped assembly game.
+deployed_in:
+- inzoi
+limitations:
+- 'Hardware: 16 GB (TRELLIS) to about 29 GB (Hunyuan3D 2.1 shape plus texture) of GPU memory, so player-side
+  generation usually runs in the cloud or on high-end PCs.'
+- Output topology and UVs are not authored for animation or LOD; production use still needs cleanup and
+  review, which inZOI states it applies.
+- Generated assets are single objects without gameplay semantics; the game must assign function, footprint,
+  and value.
+- Training data provenance and licenses vary by model, and player reception of generative AI can be negative
+  (inZOI reviews in 2025).
+sources:
+- src-xiang-2024-trellis
+- src-microsoft-2025-trellis-2-repo
+- src-tencent-2025-hunyuan3d-2
+- src-tencent-2025-hunyuan3d-2-1-repo
+- src-roblox-2025-cube
+- src-roblox-2026-cube-repo
+- src-steam-2025-inzoi
+- src-wikipedia-inzoi
+status: sourced
+provenance:
+  created: 2026-10-24-techniques-world-models

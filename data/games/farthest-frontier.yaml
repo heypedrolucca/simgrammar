@@ -1,10 +1,83 @@
 id: farthest-frontier
 type: game
 name: Farthest Frontier
-summary: TODO
+summary: A frontier-town city builder in which crop rotation, soil fertility, diet variety, clean water, and healers
+  decide whether named diseases spread, while prosperity draws stronger raiders against walled defenses.
 year: 2022
+year_full_release: 2025
 developer: Crate Entertainment
+platforms:
+- pc
 subgenre: city-builder
-status: asserted
+sim_domain:
+- urban
+- biological-ecological
+- military-conflict
+player_role: planner-mayor
+agency_model:
+- zoning-placement
+- policy-parameter
+- direct-unit
+time_model: real-time-pausable
+sim_scale: settlement
+fidelity: systemic
+perspective: free-3d
+win_structure: open-sandbox
+failure_model: cascading-collapse
+narrative_mode: emergent
+multiplayer:
+- single
+modding: none
+production_tier: indie
+agent_count_order: '100'
+emergence: 3
+influence: 1
+core_loop: gather, hunt, forage, and farm -> rotate crops to hold soil fertility -> feed a varied diet and supply
+  clean water, clothing, and healers against disease -> upgrade housing and the town center as desirability rises
+  -> fortify against raiders drawn by prosperity
+design_notes: 'Farthest Frontier makes public health the main failure path: dysentery, cholera, tetanus, rabies,
+  frostbite, and bubonic plague each have causes the player can address with clean water, clothing and shoes, healers,
+  and rat catchers. Farming adds soil state, with 12 crops that must be rotated and fields improved by clearing
+  weeds and rocks, and 19 food types with berries and greens preventing scurvy. Prosperity raises raider strength,
+  so growth itself increases military pressure.'
+mechanics:
+- id: crop-cultivation
+  role: core
+  note: Twelve crops with rotation to preserve soil fertility; fields improve by clearing weeds and rocks and adjusting
+    the soil mix.
+- id: contagion
+  role: core
+  note: Dysentery, cholera, tetanus, rabies, frostbite, and plague spread or strike based on water, clothing, rats,
+    and healer coverage.
+- id: goods-consumption
+  role: core
+  note: Nineteen food types; diet variety, including berries and greens against scurvy, is needed for health.
+- id: adaptive-threat-scaling
+  role: supporting
+  note: Rising prosperity draws stronger raiders and foreign armies; difficulty is adjustable and pacifist mode
+    removes them.
+- id: raid-defense
+  role: supporting
+  note: Palisades, stone walls, towers, barracks, and equipped soldiers.
+- id: population-strata
+  role: supporting
+  note: Housing and the town center advance through tiers as prosperity and desirability grow.
+- id: decoration-beauty
+  role: supporting
+  note: Desirability from surroundings gates housing upgrades.
+- id: tech-tree
+  role: supporting
+  note: A tree of over 140 points of upgrades.
+- id: seasons
+  role: supporting
+- id: production-chain
+  role: supporting
+- id: trade-routes
+  role: supporting
+  note: Crafted goods are traded for resources the town lacks.
+sources:
+- src-wikipedia-farthest-frontier
+- src-steam-2026-farthest-frontier
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-ga

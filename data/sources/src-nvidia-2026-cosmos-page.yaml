@@ -1,0 +1,14 @@
+id: src-nvidia-2026-cosmos-page
+type: source
+name: NVIDIA Cosmos
+kind: docs
+authors:
+- NVIDIA
+date: 2026-10
+url: https://www.nvidia.com/en-us/ai/cosmos/
+accessed: '2026-10-24'
+notes: 'Cosmos 3 omni family: Super 64B, Nano 16B, Edge 4B; OpenMDW1.1 license; uses: synthetic data for
+  AV and robots, world simulator for closed-loop evaluation, robot policy post-training; no mention of
+  games.'
+provenance:
+  created: 2026-10-24-techniques-world-models

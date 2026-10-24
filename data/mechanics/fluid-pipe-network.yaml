@@ -1,9 +1,64 @@
 id: fluid-pipe-network
 type: mechanic
 name: Fluid pipe networks
-summary: Fluids such as water, oil, sewage, or gas flow through pipes with pressure or throughput limits
-  between producers and consumers.
+aliases:
+- pipes
+- plumbing
+- liquid networks
+summary: Fluids such as water, oil, sewage, or gas flow through pipes with pressure or throughput limits between producers
+  and consumers.
 family: logistics-networks
-status: asserted
+substrate:
+- network-graph
+- continuous-physics
+- aggregate-stocks
+definition: >-
+  Pipes connect producers, consumers, tanks, and pumps into networks that carry one fluid type per segment. The update rule
+  ranges from discrete packets to pooled segments to pressure solvers. Oxygen Not Included moves one packet of up to 10 kg
+  per pipe segment per second, giving 10 kg/s per line, and exchanges heat between the liquid, the pipe, and its tile. Factorio
+  1.x simulated flow between adjacent pipes, so throughput fell with distance and depended on build order; Factorio 2.0 merges
+  connected pipes into segments where producers push freely, consumers pull at a rate proportional to the fill ratio, and
+  fluid does not propagate. SimCity games treat water and sewage as coverage networks; GlassBox modeled units of water as
+  agents moving through pipes. Inputs: producer output, consumer demand, topology, pumps. Outputs: fluid delivered per consumer
+  and stored per segment or tank.
+player_experience: >-
+  Plumbing problems. Players learn that fluids behave differently from items: they mix, back up, and run out at the far end.
+  When the model is predictable, routing is satisfying; when it is not, pipes become a source of mysterious shortages.
+design_levers:
+- 'flow model: packets, pooled segments, or pressure simulation'
+- throughput limits per pipe and whether distance matters
+- fluid mixing rules and penalties
+- pumps, valves, and priority controls
+- thermal and phase-change behavior in pipes
+failure_modes:
+- Distance-dependent throughput with no in-game feedback, as in Factorio 1.x, made long pipelines fail mysteriously; the developers
+  rewrote the system for predictability.
+- Accidental fluid mixing can contaminate a network permanently if cleanup is costly.
+- Pressure models that are realistic but invisible make players guess.
+dynamics:
+- Fluid networks couple to thermal systems, as when hot pipes in Oxygen Not Included cook a base or freeze lines.
+- Shared networks create priority conflicts between consumers.
+- Tanks act as buffers, changing timing behavior across networks.
+math_basis:
+- network-flow
+- continuum-mechanics
+feedback: none
+player_interface:
+- placement
+- parameter
+legibility: 3
+emergence_potential: 3
+authoring_cost: 1
+compute_cost: 3
+tuning_difficulty: 3
+ai_leverage: 3
+maturity: established
+open_questions:
+- Could learned fluid surrogates give pipe networks pressure realism at low compute while keeping behavior predictable?
+- Which fluid behaviors (pressure, mixing, heat) add decisions rather than confusion?
+sources:
+- src-wube-2024-fff-416-fluids
+- src-oniwiki-2026-liquid-pipe
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m1

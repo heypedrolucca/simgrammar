@@ -1,0 +1,17 @@
+id: src-yang-2024-oasis
+type: source
+name: 'OASIS: Open Agent Social Interaction Simulations with One Million Agents'
+kind: preprint
+authors:
+- Ziyi Yang
+- et al.
+venue: arXiv
+date: '2024-11-18'
+url: https://arxiv.org/abs/2411.11581
+arxiv: '2411.11581'
+accessed: '2026-10-24'
+notes: Up to one million LLM agents on X- and Reddit-like platforms; replicates information spreading,
+  group polarization, and herd effects; larger agent groups gave stronger group dynamics and more diverse
+  opinions.
+provenance:
+  created: 2026-10-24-techniques-llm-agents

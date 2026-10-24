@@ -1,0 +1,51 @@
+id: intent-level-orders
+type: opportunity
+name: Intent-level orders
+summary: Players state goals in plain language and the game compiles them into priorities, designations,
+  and schedules, cutting micromanagement in colony and management sims.
+opportunity_type: new-mechanic
+thesis: 'Colony and management sims hit a micromanagement wall: the work-priority grid, stockpile filters,
+  and schedules grow until play becomes clerical. Players think in intents (''keep the clinic staffed
+  through winter'', ''stop hauling during raids''). Constrained decoding can translate intents into the
+  game''s existing control primitives, and the result stays inspectable because it compiles into the same
+  grids the player already understands.'
+design_sketch: An orders panel accepts sentences; each becomes a standing rule shown as a card with the
+  exact priority changes, conditions, and expiry it compiled into. Rules can be edited in the classic
+  UI. Conflicts between rules are flagged with an explanation.
+involves:
+- work-priorities
+- designation-orders
+- daily-schedules
+- unit-commands
+- natural-language-interaction
+- delegation-to-ai
+applies:
+- constrained-decoding
+- on-device-language-models
+- llm-explanation-of-state
+precedent:
+- rimworld
+- dwarf-fortress
+- oxygen-not-included
+- prison-architect
+novelty: 3
+feasibility: 4
+impact: 3
+horizon: now
+key_risks:
+- Ambiguous intents compile to surprising rules.
+- Hides the very systems some players enjoy mastering.
+- Conflicting standing rules produce opaque behavior.
+validation_experiment: 'Collect 200 player-stated intents from colony sim forums, compile them into a
+  prototype''s control primitives, and have players judge fidelity; measure clicks per in-game day with
+  and without intents. Success: 80 percent judged faithful and a 30 percent drop in management clicks.'
+falsifiable_signal:
+  prediction: A released colony or management sim will let players issue standing natural-language orders
+    that compile into its job and priority systems.
+  resolve_by: '2028-06-30'
+  criteria: Patch notes, store page, or developer statement describing the feature in a shipped title
+    or official expansion.
+sources: []
+status: asserted
+provenance:
+  created: 2026-10-24-synthesis

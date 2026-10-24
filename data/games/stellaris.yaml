@@ -1,10 +1,124 @@
 id: stellaris
 type: game
 name: Stellaris
-summary: TODO
+summary: A real-time-with-pause space 4X and grand strategy game in which the player designs a species
+  and empire, expands across a procedurally generated hyperlane galaxy from 2200, manages pops, jobs,
+  ethics-based factions, and research card draws, and faces late-game crises.
 year: 2016
 developer: Paradox Development Studio
+platforms:
+- pc
+- console
 subgenre: 4x-strategy
-status: asserted
+subgenre_secondary:
+- grand-strategy
+sim_domain:
+- cosmic-space
+- political-governance
+- military-conflict
+player_role: ruler-statesman
+agency_model:
+- direct-unit
+- policy-parameter
+- zoning-placement
+time_model: real-time-pausable
+sim_scale: interplanetary
+fidelity: stylized
+perspective: free-3d
+win_structure: competitive-victory
+failure_model: soft-recoverable
+narrative_mode: hybrid
+multiplayer:
+- single
+- competitive
+modding: total-conversion
+production_tier: aa
+agent_count_order: '100'
+emergence: 3
+influence: 2
+core_loop: survey systems with science ships -> claim systems and colonize planets -> build districts
+  that create jobs for pops -> draw research cards and build fleets -> negotiate or fight neighboring
+  empires -> survive the late-game crisis
+design_notes: 'Stellaris combines a space 4X opening (survey, claim, colonize) with Paradox grand strategy
+  systems: real time with pause, internal factions, and event chains. Its research model replaces a visible
+  tree with weighted random card draws, so two runs of the same empire research in different orders. Hyperlane-only
+  travel turns the galaxy into a graph with chokepoints. Henrik Fahraeus named Star Control II, Master
+  of Orion II, and Europa Universalis IV as roughly equal influences.'
+mechanics:
+- id: tech-tree
+  role: core
+  note: Physics, society, and engineering research each offer three semi-random project cards weighted
+    by ethics, the scientist's traits, and known technologies; rare technologies and anomaly-granted cards
+    vary each run, and costs rise as the game goes on.
+- id: population-strata
+  role: core
+  note: Pops fill jobs created by planetary districts and buildings in worker, specialist, and ruler strata;
+    each job consumes and produces resources such as energy, minerals, food, consumer goods, and alloys.
+- id: triggered-event-chains
+  role: core
+  note: Anomalies found by science ships open authored event chains, and galactic crises such as marauder
+    invasions, awakened machine empires, and extradimensional invaders begin after set periods.
+- id: faction-diplomacy
+  role: supporting
+  note: Empires negotiate, form federations, and go to war; ethics such as xenophobe or xenophile shape
+    AI attitudes.
+- id: interest-groups
+  role: supporting
+  note: Pops join political factions according to ethics, and faction support produces unity.
+- id: stability-unrest
+  role: supporting
+- id: delegation-to-ai
+  role: supporting
+  note: Planets beyond the core limit can be grouped into sectors run by AI governors with a player-set
+    focus.
+- id: modular-assembly
+  role: supporting
+  note: Ships are designed from hull sections and components.
+- id: procedural-terrain
+  role: supporting
+  note: Each galaxy is generated with star systems linked only by hyperlanes.
+- id: personality-traits
+  role: supporting
+  note: Species traits and leader traits modify output and behavior.
+- id: policy-toggles
+  role: supporting
+  note: Ethics, civics, policies, and edicts change empire rules.
+- id: goods-consumption
+  role: supporting
+- id: fog-of-war
+  role: supporting
+- id: variable-speed
+  role: supporting
+- id: political-capital
+  role: supporting
+  note: Unity, produced partly by faction support, buys traditions, and influence pays for new outposts
+    and territorial claims.
+- id: corruption-leakage
+  role: supporting
+  note: Empire size grows with systems, colonies, and pops, and size beyond administrative capacity raises
+    technology and tradition costs; bureaucrat jobs add capacity to offset it.
+- id: culture-religion-conversion
+  role: supporting
+  note: Each pop holds an ethic that drifts toward ethics with higher attraction, modified by government
+    ethics, policies, and living conditions, and pop ethics decide faction membership.
+- id: territorial-control
+  role: supporting
+  note: Empires take systems by building outposts, borders follow owned systems, and claims bought with
+    influence set what wars can take.
+- id: war-score-peace
+  role: supporting
+  note: War exhaustion rises from losses and occupation, and a side at maximum exhaustion can be forced
+    into a status quo peace.
+- id: stat-combat-resolution
+  role: supporting
+  note: Fleet battles resolve from ship weapons, shields, armor, and hull values against each other, and
+    ground combat compares army attack and health.
+influenced_by:
+- europa-universalis-4
+sources:
+- src-wikipedia-stellaris
+- src-paradox-2015-stellaris-dev-diary-11
+- src-paradox-2016-stellaris-dev-diary-21-sectors
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gi

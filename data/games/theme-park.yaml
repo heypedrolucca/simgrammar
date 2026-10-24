@@ -1,10 +1,93 @@
 id: theme-park
 type: game
 name: Theme Park
-summary: TODO
+summary: A theme park management game in which the player builds rides and shops, tunes prices and recipes
+  for individually simulated visitors, and sells parks to expand worldwide.
 year: 1994
 developer: Bullfrog Productions
+platforms:
+- pc
+- console
+- handheld
+- mobile
 subgenre: management-tycoon
-status: asserted
+subgenre_secondary:
+- business-economic-sim
+sim_domain:
+- economic
+player_role: manager-owner
+agency_model:
+- zoning-placement
+- policy-parameter
+- direct-unit
+time_model: real-time-pausable
+sim_scale: facility
+fidelity: stylized
+perspective: isometric
+win_structure: score-ranking
+failure_model: soft-recoverable
+narrative_mode: none
+multiplayer:
+- single
+modding: none
+production_tier: aa
+agent_count_order: '100'
+emergence: 3
+influence: 4
+core_loop: place rides, shops, and paths -> visitors arrive by bus and choose attractions -> tune prices
+  and shop ingredients -> fund research and hire staff -> yearly judging against rivals -> sell the park
+  and buy a plot abroad
+design_notes: 'Theme Park gives every visitor its own record (about 200 bytes each) and lets the player
+  change the product as well as its price: ingredient settings such as sugar in ice cream trade cost against
+  whether customers return. The full-simulation level adds wage and supply negotiations, where failure
+  means staff strikes or lost shipments, plus research funding and shares; the sandbox level removes them,
+  so one engine serves three depths. Unhappy visitors attract thugs, which ties satisfaction to crime.
+  Negotiation has no mechanic in the taxonomy (proposed as negotiation).'
+mechanics:
+- id: crowd-preferences
+  role: core
+  note: Each visitor is an individual with its own personality and arrives and leaves by bus; unhappy
+    crowds draw thugs who vandalize and attack entertainers.
+- id: customer-value-choice
+  role: core
+  note: Entry, ride, and shop prices plus ingredient levels such as sugar in ice cream decide what visitors
+    buy and whether they come back.
+- id: free-placement
+  role: core
+  note: Over thirty attractions, shops, toilets, and scenery are placed on a plot, with coasters needing
+    laid-out track.
+- id: wear-breakdown
+  role: core
+  note: Rides wear down and explode if mechanics do not maintain them; research can make rides more durable.
+- id: staff-hiring
+  role: core
+  note: Entertainers, security guards, mechanics, and handymen are hired and their wages negotiated; understaffing
+    brings litter, breakdowns, and crime.
+- id: needs-decay
+  role: supporting
+  note: Visitors need food, drink, and toilets as their visit goes on.
+- id: service-queues
+  role: supporting
+  note: Visitors queue for rides and shops.
+- id: tech-tree
+  role: supporting
+  note: A funding level drives research into new items, ride durability, staff efficiency, and bus capacity.
+- id: crime-policing
+  role: supporting
+  note: Thugs appear when visitors are unhappy; security guards counter them.
+- id: rival-firms
+  role: supporting
+  note: The park is judged against rival parks each year.
+- id: loans-debt
+  role: supporting
+- id: variable-speed
+  role: supporting
+- id: negotiation
+  role: supporting
+  note: On the full-simulation level, staff wage talks and supply negotiations are haggles; failed wage
+    talks end in strikes and failed supply talks in lost shipments.
+sources:
+- src-wikipedia-theme-park
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-ge

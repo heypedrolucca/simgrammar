@@ -1,8 +1,67 @@
 id: player-legislation
 type: mechanic
 name: Player legislation
-summary: Players author and vote on enforceable rules inside a shared world.
+aliases:
+- player government
+- player-made laws
+summary: Players author, propose, and vote on rules that the game then enforces inside a shared world,
+  such as taxes, bans, and permits.
 family: governance-policy
-status: asserted
+substrate:
+- player-authored-logic
+- rule-system
+definition: 'Owns a set of player-authored laws, each a condition and an effect expressed in a structured
+  rule language (for example: when a player fells a tree in district X, charge a tax or block the action),
+  a proposal and voting procedure, and an enforcement hook that checks every relevant action against the
+  active laws. A law passes when its vote meets the threshold set by the world''s constitution or government
+  type, after which the simulation enforces it automatically. Eco (early access 2018) lets players form
+  governments and propose and vote on laws that restrict what other players can do or apply taxes and
+  grants to specific actions, to manage an ecosystem that overharvest and pollution can damage. A Tale
+  in the Desert (2003) let players petition and vote on laws that the developers then implemented.'
+player_experience: Politics with real teeth. Players argue about what should be allowed, draft rules,
+  lobby for votes, and then live under the result. A logging ban or a carbon tax becomes a social contract
+  that some players obey, some evade, and some campaign to repeal.
+design_levers:
+- expressiveness of the rule language (which triggers, conditions, and effects are available)
+- voting thresholds, quorum, and who can propose
+- constitutional limits on what laws may do
+- 'enforcement mode: hard blocks, automatic fines, or reports for players to act on'
+- how government offices are filled and how long laws persist
+failure_modes:
+- A small active group can pass laws that grief or exclude other players.
+- A rule language too limited to express what players want pushes politics into informal agreements the
+  game cannot enforce.
+- Low participation makes votes meaningless, and governance becomes the hobby of a few players.
+dynamics:
+- Ecological or economic crises create pressure for regulation, and regulation shifts which professions
+  are profitable.
+- Laws generate evasion strategies and loophole-seeking, which prompts amendments.
+- Factions form around legislative interests, producing persistent political rivalries.
+math_basis:
+- mechanism-design
+- computation-theory
+- game-theory
+feedback: both
+player_interface:
+- programming
+- choice-cards
+- language
+legibility: 3
+emergence_potential: 4
+authoring_cost: 1
+compute_cost: 1
+tuning_difficulty: 4
+ai_leverage: 4
+maturity: emerging
+synergy:
+- id: player-organizations
+  note: Organized player groups are the constituencies that write and enforce laws.
+open_questions:
+- Can LLMs compile natural-language laws into enforceable rules faithfully enough that players trust the
+  translation?
+- What constitutional constraints prevent minority capture without making legislation toothless?
+sources:
+- src-wikipedia-eco-2018
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m2

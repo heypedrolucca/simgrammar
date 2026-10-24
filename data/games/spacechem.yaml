@@ -1,10 +1,75 @@
 id: spacechem
 type: game
 name: SpaceChem
-summary: TODO
+summary: A programming puzzle game in which the player lays out instruction paths for two waldos in grid reactors that grab, bond, rotate, and split atoms into target molecules, with each solution scored on cycles, reactors, and instructions against global histograms.
 year: 2011
 developer: Zachtronics
+platforms:
+  - pc
+  - mobile
 subgenre: programming-sim
-status: asserted
+subgenre_secondary:
+  - factory-automation
+sim_domain:
+  - computational-abstract
+  - industrial-logistics
+player_role: programmer
+agency_model:
+  - programmatic
+  - design-then-test
+time_model: run-on-demand
+sim_scale: micro
+fidelity: abstract
+perspective: top-down-2d
+win_structure: campaign
+failure_model: none
+narrative_mode: authored
+multiplayer:
+  - single
+  - async-shared
+modding: content
+production_tier: indie
+agent_count_order: none
+boundary_case: true
+emergence: 2
+influence: 3
+core_loop: read the input and output molecules -> place waldo paths and instruction icons in a 10x8 reactor -> run and debug collisions -> meet the output quota -> compare cycles, reactors, and instructions on histograms -> optimize or move on
+design_notes: >-
+  SpaceChem made the program itself the factory: each 10x8 reactor holds two waldos, red and blue, programmed
+  independently or synchronized by instruction icons laid on the grid, and multiple reactors connect on a
+  planet-surface pipeline so one reactor's output feeds another. Execution is deterministic, so a solution either
+  produces the quota or deadlocks or collides, and success is followed by global histograms of cycles, reactors, and
+  instructions that Zach Barth designed to show where a solution sits without the intimidation of a ranked leaderboard.
+  Each planet ends in a defense level where production must keep pace with an attacker. Barth expanded the
+  manipulator puzzles of his 2008 Flash game The Codex of Alchemical Engineering, and the instruction-grid plus
+  histogram template recurs across Zachtronics' later games. ResearchNet let players share puzzles.
+mechanics:
+  - id: player-programming
+    role: core
+    note: Two waldos per reactor, red and blue, follow player-placed paths and instruction icons that pick up, rotate, drop, bond, and route atoms, programmed independently or synchronized, with deterministic and visible execution.
+  - id: design-performance-rating
+    role: core
+    note: A solution passes when it outputs the required molecule quota and is then scored on cycles, number of reactors, and number of instructions used.
+  - id: comparative-histograms
+    role: core
+    note: After completion the player's cycles, reactors, and instructions are plotted on global histograms of other players' solutions, chosen over a ranked leaderboard to avoid discouraging players.
+  - id: production-chain
+    role: supporting
+    note: Reactors placed on a larger planet map pass molecules through pipelines, so later puzzles split a synthesis across several reactors, some limited to tasks such as breaking bonds, with fission and fusion nodes.
+  - id: scenario-objectives
+    role: supporting
+    note: Each puzzle fixes inputs, target outputs, available reactor types, and quotas; defense levels add a time pressure from an attacking enemy.
+  - id: content-sharing
+    role: supporting
+    note: ResearchNet distributes user-made puzzles that other players download and solve.
+influenced_by: []
+claims:
+  - text: Barth's earlier Flash game The Codex of Alchemical Engineering (2008), which is not in this dataset, is the documented precursor of SpaceChem's manipulator puzzles.
+    sources:
+      - src-wikipedia-spacechem
+    confidence: high
+sources:
+  - src-wikipedia-spacechem
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gh

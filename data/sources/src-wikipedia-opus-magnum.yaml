@@ -1,0 +1,14 @@
+id: src-wikipedia-opus-magnum
+type: source
+name: Opus Magnum
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Opus_Magnum
+accessed: '2026-10-24'
+notes: Zachtronics, early access 2017-10-19, full release 2017-12-08; players ranked on cycles, cost, and area; the community
+  uses an unofficial combined 'sum' metric.
+provenance:
+  created: 2026-10-24-taxonomy-m6

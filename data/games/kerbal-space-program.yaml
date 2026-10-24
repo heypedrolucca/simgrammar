@@ -1,10 +1,107 @@
 id: kerbal-space-program
 type: game
 name: Kerbal Space Program
-summary: TODO
+aliases:
+- KSP
+summary: A space flight sim where the player assembles rockets from parts and flies them under patched-conic
+  orbital physics and atmospheric aerodynamics through a scaled-down planetary system.
 year: 2011
+year_full_release: 2015
 developer: Squad
+platforms:
+- pc
+- console
 subgenre: space-sim
-status: asserted
+subgenre_secondary:
+- construction-engineering
+sim_domain:
+- cosmic-space
+- physical-mechanical
+player_role: engineer-designer
+agency_model:
+- design-then-test
+- direct-avatar
+time_model: real-time-pausable
+sim_scale: interplanetary
+fidelity: systemic
+perspective: free-3d
+win_structure: open-sandbox
+failure_model: soft-recoverable
+narrative_mode: emergent
+multiplayer:
+- single
+modding: total-conversion
+production_tier: indie
+agent_count_order: none
+emergence: 3
+influence: 4
+core_loop: assemble a craft from parts -> launch and stage through the atmosphere -> plan maneuver nodes
+  and burn for orbit or transfer -> land, dock, or crash -> return science, funds, and reputation -> unlock
+  parts and design a more ambitious craft
+design_notes: 'Stock orbits use a patched-conic approximation: a vessel is attracted by one body at a
+  time and switches at sphere-of-influence boundaries, so there are no Lagrange points, but coasting vessels
+  can be propagated on rails during time warp. Vessels are trees of parts joined by joints of limited
+  strength, so mass distribution, thrust placement, and staging order decide whether a design flies, wobbles,
+  or tears apart. Failure (stranded or dead Kerbals, debris) is a source of player stories rather than
+  a hard stop, and Career mode layers funds, reputation, and contracts on top of the physics sandbox.'
+mechanics:
+- id: orbital-mechanics
+  role: core
+  note: 'Patched conics: a vessel orbits one body at a time and switches at sphere-of-influence boundaries;
+    maneuver nodes preview delta-v and the resulting trajectory; planets ride fixed rails rather than
+    n-body motion.'
+- id: modular-assembly
+  role: core
+  note: Craft are built in the Vehicle Assembly Building or Spaceplane Hangar from pods, tanks, engines,
+    decouplers, wings, and science parts; part order sets the staging sequence, and each stage's mass,
+    thrust, and fuel set its delta-v.
+- id: rigid-body-physics
+  role: core
+  note: Each part is a rigid body joined to its parent with a joint of limited strength; excess force
+    breaks joints, so tall stacks wobble and hard impacts shed parts or kill Kerbals.
+- id: flight-aerodynamics
+  role: supporting
+  note: Drag, lift, and control surfaces govern ascent profiles, spaceplanes, and aerobraking.
+- id: heat-transfer
+  role: supporting
+  note: Atmospheric entry heats parts; heat shields absorb it and overheated parts are destroyed.
+- id: tech-tree
+  role: supporting
+  note: Science from experiments unlocks part nodes in Science and Career modes.
+- id: contracts-orders
+  role: supporting
+  note: Career contracts pay for objectives such as reaching an orbit or testing a part, with deadlines
+    and penalties.
+- id: budget-treasury
+  role: supporting
+  note: Career funds pay for parts, fuel, crew, and facility upgrades; contract payouts are the income.
+- id: reputation
+  role: supporting
+  note: Career reputation rises with completed contracts and falls with failures and Kerbal deaths.
+- id: embodied-skill-control
+  role: supporting
+  note: Manual ascents, landings, and docking reward piloting skill; SAS assists attitude hold.
+- id: permadeath
+  role: supporting
+  note: Kerbals die in crashes and EVA accidents; Career mode costs reputation for deaths, and a difficulty
+    option sets whether lost crews respawn.
+- id: resource-extraction
+  role: supporting
+  note: Drills mine ore on planets and asteroids that converters turn into fuel, a system adopted from
+    mods.
+- id: variable-speed
+  role: supporting
+  note: On-rails time warp skips long coasts; physics warp speeds powered flight at reduced stability.
+- id: modding-api
+  role: supporting
+  note: C# plugins and part configs extend the game; mods such as Real Solar System and Principia replace
+    the planetary system and the orbital model.
+- id: subsystem-damage
+  role: supporting
+  note: Parts are destroyed individually by impact or overheating, removing their engines, tanks, or controls
+    from the craft.
+sources:
+- src-wikipedia-kerbal-space-program
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gg

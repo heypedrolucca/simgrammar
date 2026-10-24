@@ -1,0 +1,11 @@
+id: src-powdertoy-2026-official-site
+type: source
+name: The Powder Toy official site
+kind: docs
+date: '2026'
+url: https://powdertoy.co.uk/
+accessed: '2026-10-24'
+notes: Simulates air pressure and velocity, heat, and gravity; electronics and wiring; community save browser; Lua
+  API; Windows, macOS, Linux, Android, browser; GPL source on GitHub.
+provenance:
+  created: 2026-10-24-catalog-gg

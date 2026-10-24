@@ -1,8 +1,62 @@
 id: raid-defense
 type: mechanic
 name: Raid defense
-summary: Settlements defend against periodic attacks with walls, turrets, and fighters.
+aliases:
+- base defense
+- sieges
+- attack waves
+summary: Settlements defend against periodic attacks with walls, turrets, traps, and fighters placed and commanded by the
+  player.
 family: conflict-defense
-status: asserted
+substrate:
+- agent-based
+- rule-system
+definition: >-
+  An attack generator spawns hostile groups at map edges, by drop, or by tunneling, sized by a threat budget; attackers path
+  toward targets such as colonists, valuables, or polluting buildings, and resolve combat against walls with hit points, turrets
+  with range and ammunition, traps, and defenders. RimWorld raids arrive by walking, drop pods, sappers who dig through walls,
+  or sieges, sized by raid points; Factorio biters attack polluting structures and evolve stronger forms; Dwarf Fortress has
+  goblin sieges; Mindustry and They Are Billions use scheduled waves. Inputs: threat budget, attacker types, map. Outputs:
+  damage, casualties, loot, and the defensive layout's measured strength.
+player_experience: >-
+  Long build phases punctuated by short, tense fights. The player designs killboxes and chokepoints, stocks ammunition and
+  medicine, and learns each attacker type's counter. A breached wall is a crisis that tests the whole colony.
+design_levers:
+- attack frequency and size, often from adaptive threat scaling
+- attacker types that bypass static defense, such as sappers, flyers, or drop pods
+- pathing rules and how attackers choose targets
+- defense costs, maintenance, and ammunition supply
+- warning time before arrival
+- player control of fighters during the fight
+failure_modes:
+- A single killbox design defeats every raid, so defense stops being a decision; RimWorld's sapper and breach raids counter
+  this by digging or blasting through walls.
+- Pathfinding exploits let attackers be lured into infinite loops.
+- Raids that interrupt every build session feel like chores rather than tests.
+dynamics:
+- Defense layout constrains the whole settlement plan, pulling walls, chokepoints, and storage together.
+- Wounded defenders strain medical and food systems after each fight, so raids cascade into other systems.
+- Arms races appear as attacker variety forces layered defenses.
+math_basis:
+- graph-search
+- optimization
+- probability-statistics
+feedback: both
+player_interface:
+- placement
+- orders
+legibility: 4
+emergence_potential: 4
+authoring_cost: 3
+compute_cost: 3
+tuning_difficulty: 4
+ai_leverage: 3
+maturity: established
+open_questions:
+- Can attacker AI that learns the player's defenses across raids prevent dominant killbox designs without feeling unfair?
+- What raid frequency keeps defense meaningful in games whose main loop is building?
+sources:
+- src-rimworldwiki-2026-raid-points
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m7

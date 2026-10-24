@@ -1,0 +1,15 @@
+id: src-quasar-2012-species-alpha-release
+type: source
+name: ALPHA RELEASE! WHOO!
+kind: tech-report
+authors:
+- Quasar
+venue: Species development blog
+date: '2012-05-27'
+url: https://speciesdevblog.wordpress.com/2012/05/27/alpha-release-whoo/
+accessed: '2026-10-24'
+notes: Public release of the free Proof of Concept Demo Alpha 0.4.0 (XNA); adjustable simulation speed, creature
+  and DNA inspection, species statistics over time, Tree of Life view, move, feed, and remove tools, bundled Mod
+  Maker.
+provenance:
+  created: 2026-10-24-catalog-gd

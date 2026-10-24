@@ -1,0 +1,13 @@
+id: src-satisfactorywiki-2026-conveyor-belts
+type: source
+name: Conveyor Belts
+kind: encyclopedia
+authors:
+- Satisfactory Wiki contributors
+venue: Satisfactory Wiki
+date: '2026'
+url: https://satisfactory.wiki.gg/wiki/Conveyor_Belts
+accessed: '2026-10-24'
+notes: 'Belt throughput Mk.1 to Mk.6: 60, 120, 270, 480, 780, and 1,200 items per minute.'
+provenance:
+  created: 2026-10-24-catalog-gh

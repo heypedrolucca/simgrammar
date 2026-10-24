@@ -1,8 +1,65 @@
 id: deposit-depletion
 type: mechanic
 name: Deposit depletion
+aliases:
+- finite resources
+- resource exhaustion
+- ore depletion
 summary: Extractable deposits hold finite quantities and run out, forcing expansion, relocation, or substitution.
 family: resources-production
-status: asserted
+substrate:
+- aggregate-stocks
+- cellular-grid
+definition: >-
+  Each deposit holds a remaining quantity that every extraction cycle decrements. At zero the node disappears or the extractor
+  stops; some games instead decay the extraction rate toward a floor. Factorio ore patches store an amount per tile that mining
+  drills consume, while crude oil fields report a yield percentage in which 1% equals 300 pumpjack cycles and depletion stops
+  at a 20% floor. Warcraft and Age of Empires gold mines and The Settlers II mountain mines run dry. Satisfactory is the counterexample:
+  its nodes are infinite and differ only in purity. Inputs: extraction cycles. Outputs: remaining amount, current rate, and
+  an exhaustion event that idles the extractors and any chain they feed.
+player_experience: >-
+  A visible timer the player cannot stop. Every mine is temporary, so the player keeps scouting, claiming, and rebuilding
+  at new sites, and judges how much infrastructure a deposit deserves given how long it will last. Losing a key deposit mid-chain
+  creates a scramble to relocate before stocks run out.
+design_levers:
+- starting quantity per deposit and its distribution across the map
+- whether depletion ends output or decays the rate toward a floor
+- efficiency upgrades that change output per unit removed, such as Factorio mining productivity research
+- visibility of remaining amounts and warnings before exhaustion
+- whether deposits regenerate, can be rediscovered, or have substitutes
+failure_modes:
+- Depletion that is too fast makes relocation the whole game and punishes building anything permanent.
+- Depletion that is too slow is never felt within a session.
+- Hidden remaining amounts cause sudden collapses that read as bugs.
+- Infinite nodes or high rate floors remove expansion pressure, so the map stops mattering after the first claims.
+dynamics:
+- Pushes expansion outward, which raises defense, logistics, and threat costs at new outposts.
+- Creates contested chokepoints in competitive maps as the last deposits run out.
+- Drives substitution toward recycling, alternate recipes, or trade once local supply ends.
+- Staggers rebuild cycles, giving long games a rhythm of boom at new sites and decline at old ones.
+math_basis:
+- system-dynamics
+- optimization
+feedback: balancing
+player_interface:
+- observation
+- placement
+legibility: 4
+emergence_potential: 3
+authoring_cost: 1
+compute_cost: 1
+tuning_difficulty: 3
+ai_leverage: 1
+maturity: classic
+requires:
+- resource-extraction
+open_questions:
+- Can procedural geology models generate deposits whose size players can estimate from surface signals, turning prospecting
+  into inference?
+- What depletion time relative to session length keeps relocation interesting rather than tedious?
+sources:
+- src-factoriowiki-2026-crude-oil
+- src-satisfactorywiki-2026-resource-node
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m1

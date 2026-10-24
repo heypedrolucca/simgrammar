@@ -1,0 +1,15 @@
+id: src-shapez2wiki-2026-shapes
+type: source
+name: Shapes
+kind: encyclopedia
+authors:
+- shapez 2 Wiki contributors
+venue: shapez 2 Wiki
+date: '2026'
+url: https://shapez2.wiki.gg/wiki/Shapes
+accessed: '2026-10-24'
+notes: Layers hold 4 parts (6 in the Hexagonal scenario); shapes have 1 to 4 layers (5 in Insane); part
+  types include circle, square, star, diamond, pin, and crystal; nine colors; shape codes list layers
+  bottom to top; floating parts are not allowed; separating crystals shatters them.
+provenance:
+  created: 2026-10-24-catalog-gh

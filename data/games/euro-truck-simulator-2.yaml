@@ -1,10 +1,83 @@
 id: euro-truck-simulator-2
 type: game
 name: Euro Truck Simulator 2
-summary: TODO
+aliases:
+- ETS2
+summary: A truck driving sim in which the player hauls timed cargo deliveries across a scaled European road network
+  and grows a transport company of trucks, garages, and hired drivers.
 year: 2012
 developer: SCS Software
+platforms:
+- pc
 subgenre: vehicle-sim
-status: asserted
+subgenre_secondary:
+- job-sim
+sim_domain:
+- physical-mechanical
+- industrial-logistics
+- occupational
+player_role: operator-pilot
+agency_model:
+- direct-avatar
+time_model: real-time
+sim_scale: individual
+fidelity: stylized
+perspective: first-person
+win_structure: open-sandbox
+failure_model: soft-recoverable
+narrative_mode: none
+multiplayer:
+- single
+- coop
+modding: content
+production_tier: aa
+agent_count_order: '100'
+emergence: 2
+influence: 3
+core_loop: take a cargo job -> couple the trailer -> drive the route paying fuel and tolls -> deliver on time with
+  little damage -> earn money and experience -> spend skill points and buy trucks, garages, and drivers -> longer
+  and riskier jobs
+design_notes: The pleasure is long-haul driving through a compressed map (71 cities in 12 countries in the base
+  game), with economic pressure from delivery deadlines, fuel, tolls, and repair costs and with damage deducted
+  from pay. Progression is a skill-point tree that unlocks cargo classes (ADR hazardous, long distance, valuable,
+  fragile, urgent, eco driving), plus a company layer in which owned garages host hired AI drivers who earn money
+  off-screen. Multiplayer began as the fan mod TruckersMP in 2013 before official support in 2021.
+mechanics:
+- id: vehicle-dynamics
+  role: core
+  note: Licensed trucks with modeled engines and gearboxes pull trailers whose cargo changes acceleration and braking;
+    collisions damage truck, trailer, and cargo.
+- id: contracts-orders
+  role: core
+  note: Jobs specify cargo, destination, and a time limit; less damage earns more money and experience, while fuel,
+    tolls, and repairs are paid from earnings.
+- id: road-network
+  role: supporting
+  note: A continuous road map linking European cities sets route distance, tolls, and travel time.
+- id: agent-skills
+  role: supporting
+  note: Skill points from experience unlock ADR, long-distance, valuable, fragile, urgent, and eco-driving jobs.
+- id: staff-hiring
+  role: supporting
+  note: Recruitment agencies supply AI drivers who work from owned garages and return income.
+- id: loans-debt
+  role: supporting
+  note: A bank loan is the alternative to saving 100,000 euros for the first truck.
+- id: budget-treasury
+  role: supporting
+- id: wear-breakdown
+  role: supporting
+  note: Damage requires paid maintenance at service shops.
+- id: day-night-cycle
+  role: supporting
+- id: weather
+  role: supporting
+- id: modding-api
+  role: supporting
+sources:
+- src-wikipedia-euro-truck-simulator-2
+- src-steam-2026-euro-truck-simulator-2
+- src-trucksimulatorwiki-2026-ets2
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gf

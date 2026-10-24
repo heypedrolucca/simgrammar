@@ -1,0 +1,26 @@
+id: src-schrittwieser-2020-muzero
+type: source
+name: Mastering Atari, Go, chess and shogi by planning with a learned model
+kind: paper
+authors:
+- Julian Schrittwieser
+- Ioannis Antonoglou
+- Thomas Hubert
+- Karen Simonyan
+- Laurent Sifre
+- Simon Schmitt
+- Arthur Guez
+- Edward Lockhart
+- Demis Hassabis
+- Thore Graepel
+- Timothy Lillicrap
+- David Silver
+venue: Nature 588:604-609
+date: '2020-12-23'
+doi: 10.1038/s41586-020-03051-4
+arxiv: '1911.08265'
+accessed: '2026-10-24'
+notes: 'MuZero: learned representation, dynamics, and prediction networks planned over with MCTS, without
+  being given the rules; preprint November 2019.'
+provenance:
+  created: 2026-10-24-techniques-rl-design

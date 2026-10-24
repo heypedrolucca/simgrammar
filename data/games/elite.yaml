@@ -1,10 +1,74 @@
 id: elite
 type: game
 name: Elite
-summary: TODO
+summary: >-
+  A 3D space trading and combat game in which the player flies a single ship through eight seed-generated galaxies, buying
+  and selling cargo and fighting pirates and police to raise a combat rating.
 year: 1984
 developer: David Braben and Ian Bell
+platforms:
+- mainframe-early
+- pc
+- console
 subgenre: space-sim
-status: asserted
+sim_domain:
+- cosmic-space
+- economic
+player_role: operator-pilot
+agency_model:
+- direct-avatar
+time_model: real-time
+sim_scale: interplanetary
+fidelity: stylized
+perspective: first-person
+win_structure: open-sandbox
+failure_model: hard-restart
+narrative_mode: emergent
+multiplayer:
+- single
+modding: none
+production_tier: indie
+agent_count_order: '10'
+emergence: 2
+influence: 5
+core_loop: >-
+  buy cargo at a station -> hyperspace to a system within fuel range -> fight or evade pirates and police -> dock by matching
+  the station's rotation -> sell for profit -> buy weapons and equipment -> raise combat rating
+design_notes: >-
+  Each of the eight galaxies and its 256 systems is regenerated from a seed rather than stored, which let a large universe
+  fit in an 8-bit micro and made procedural generation the core of the design. Commodity prices differ by system, and fuel
+  limits each hyperjump to 7 light years, so route choice is the main economic decision. The goal of reaching the Elite combat
+  rank is open-ended; the player chooses between trading, piracy, bounty hunting, and mining.
+mechanics:
+- id: procedural-terrain
+  role: core
+  note: >-
+    Eight galaxies of 256 planets each are generated from seed numbers at runtime; each system's name, economy, government,
+    and description derive from the seed.
+- id: trade-routes
+  role: core
+  note: >-
+    Commodity prices vary by system economy; the player buys cheap and sells dear between systems, constrained by cargo bay
+    size and the 7 light-year fuel limit per jump.
+- id: embodied-skill-control
+  role: core
+  note: >-
+    Real-time wireframe dogfights and manual docking that requires matching a rotating station's spin unless a docking computer
+    is bought.
+- id: reputation
+  role: supporting
+  note: >-
+    Legal status (clean, offender, fugitive) worsens with piracy and illegal cargo and draws police ships.
+- id: milestone-unlocks
+  role: supporting
+  note: >-
+    Combat rating rises with kills from Harmless toward Elite; most versions also offer Galactic Navy missions with special
+    rewards.
+- id: resource-extraction
+  role: supporting
+  note: Mining lasers break asteroids into fragments that can be scooped and sold.
+sources:
+- src-wikipedia-elite
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gg

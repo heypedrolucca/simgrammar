@@ -1,0 +1,17 @@
+id: src-bergdahl-2020-augmenting-automated-testing-drl
+type: source
+name: Augmenting Automated Game Testing with Deep Reinforcement Learning
+kind: paper
+authors:
+- Joakim Bergdahl
+- Camilo Gordillo
+- Konrad Tollmar
+- Linus Gisslén
+venue: IEEE Conference on Games 2020
+date: 2020-08
+arxiv: '2103.15819'
+accessed: '2026-10-24'
+notes: EA SEED; four sandbox environments; an RL agent found a wall missing its collision mesh that scripted
+  navmesh agents missed, and timeouts located all five stuck areas.
+provenance:
+  created: 2026-10-24-techniques-rl-design

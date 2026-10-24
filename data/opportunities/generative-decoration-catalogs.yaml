@@ -1,0 +1,47 @@
+id: generative-decoration-catalogs
+type: opportunity
+name: Generative decoration catalogs
+summary: Let players generate furniture, scenery, and building pieces from text or sketches within a game's
+  style and technical budgets, removing the cap on creative-mode catalogs.
+opportunity_type: mechanic-upgrade
+thesis: Creative-mode sims (The Sims build mode, Planet Coaster scenery, Townscaper-likes) live on catalog
+  breadth, which is bounded by art budgets and DLC schedules. Text-to-3D asset generation reached production
+  use in 2025, and style-constrained pipelines can enforce polygon budgets, collision, and art direction.
+  Generated pieces then feed decoration scores and sharing.
+design_sketch: A generate button in build mode takes a prompt or sketch, produces three candidates in
+  the game's style, auto-fits collision and placement metadata, and assigns gameplay tags (seating, light,
+  beauty value) from a classifier. Players share pieces with provenance labels.
+involves:
+- decoration-beauty
+- free-placement
+- content-sharing
+- room-recognition
+applies:
+- text-to-3d-assets
+- gaussian-splatting
+- constrained-decoding
+precedent:
+- the-sims-4
+- planet-coaster
+- inzoi
+- minecraft
+- tiny-glade
+novelty: 2
+feasibility: 4
+impact: 3
+horizon: now
+key_risks:
+- Copyright and trademark in generated pieces.
+- Player and press backlash against generated assets.
+- Gameplay tags misassigned to generated objects.
+validation_experiment: 'Generate 200 decor items from player prompts within a game''s style guide; have
+  artists rate style match and check technical budgets. Success: 80 percent pass technical budgets and
+  a majority rated on-style.'
+falsifiable_signal:
+  prediction: A major life or management sim will ship player-facing generation of placeable 3D objects.
+  resolve_by: '2027-12-31'
+  criteria: Shipped feature in a title from EA/Maxis, Frontier, Krafton, Paradox, or a peer studio.
+sources: []
+status: asserted
+provenance:
+  created: 2026-10-24-synthesis

@@ -1,0 +1,48 @@
+id: learned-build-assist
+type: opportunity
+name: Learned build assist for cities
+summary: Extend Townscaper-style procedural assist to full city builders with learned style priors, so
+  rough strokes become plausible districts the simulation then evaluates.
+opportunity_type: mechanic-upgrade
+thesis: Townscaper, Tiny Glade, and Manor Lords showed that assisted building (the game completes detail
+  around the player's gesture) is joyful. Constraint solving such as wave function collapse covers local
+  consistency; learned layout generators add district-level plausibility. Feeding the result back into
+  the simulation makes assist a gameplay tool rather than only an aesthetic one.
+design_sketch: The player paints a rough block outline and selects intent (dense market street, quiet
+  residential). The assist proposes building footprints and lanes using a learned prior constrained by
+  WFC rules; the simulation scores walkability, land value, and traffic, and the player accepts or tweaks.
+involves:
+- procedural-build-assist
+- zoning
+- free-placement
+- adjacency-scoring
+- land-value
+applies:
+- wave-function-collapse
+- learned-level-generation
+- quality-diversity-search
+precedent:
+- townscaper
+- tiny-glade
+- manor-lords
+- cities-skylines-2
+novelty: 3
+feasibility: 4
+impact: 3
+horizon: now
+key_risks:
+- Assist removes the planning players enjoy.
+- Learned priors import real-world layout biases.
+- Unclear ownership of generated layouts.
+validation_experiment: 'Train a layout generator on open street-network data and compare player-built
+  districts with and without assist on build time and simulated performance. Success: 50 percent less
+  build time at equal or better simulated metrics, with players preferring assist.'
+falsifiable_signal:
+  prediction: A commercial city builder will ship a learned layout generator that converts player gestures
+    into detailed districts.
+  resolve_by: '2028-06-30'
+  criteria: Developer documentation naming a learned or data-driven layout model in a shipped feature.
+sources: []
+status: asserted
+provenance:
+  created: 2026-10-24-synthesis

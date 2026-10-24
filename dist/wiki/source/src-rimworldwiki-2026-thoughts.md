@@ -1,0 +1,27 @@
+# Thoughts
+
+*Source* · `src-rimworldwiki-2026-thoughts` · status: **n/a**
+
+| field | value |
+|---|---|
+| kind | Encyclopedia / wiki |
+| authors | RimWorld Wiki contributors |
+| venue | RimWorld Wiki |
+| date | 2026 |
+| url | https://rimworldwiki.com/wiki/Thoughts |
+| accessed | 2026-10-24 |
+
+## Notes
+
+Memory thoughts list mood effect, expiry in days, stack limit, and stack multiplier (mostly 0.75). Examples: Colonist lost 6 days, 5 stacks; My son died -20 for 30 days; My friend died -10 for 20 days, scaled by relation; expectations +18 (low) to -12 (royal); lavish meal +12, raw food -7; some traits nullify thoughts.
+
+## Backlinks (computed)
+
+**cited by:** [Memories and thoughts](../mechanic/memories-thoughts.md), [Personality traits](../mechanic/personality-traits.md)
+
+## Citation
+
+RimWorld Wiki contributors (2026). *Thoughts*. RimWorld Wiki https://rimworldwiki.com/wiki/Thoughts
+
+---
+Provenance: created in run `2026-10-24-taxonomy-m3`.

@@ -1,0 +1,16 @@
+id: src-wikipedia-command-modern-operations
+type: source
+name: 'Command: Modern Operations'
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Command:_Modern_Operations
+accessed: '2026-10-24'
+notes: 'Warfare Sims, Matrix Games; operational control of units on a map of Earth; missions or direct orders; scenarios
+  hours to days with time acceleration; DB3000 and Cold War platform databases; Professional Edition with database
+  editing and Monte Carlo analysis (article release date 2013 refers to the predecessor Command: Modern Air/Naval
+  Operations).'
+provenance:
+  created: 2026-10-24-taxonomy-m7

@@ -1,0 +1,14 @@
+id: src-deepmind-2025-alphaevolve-blog
+type: source
+name: 'AlphaEvolve: A Gemini-powered coding agent for designing advanced algorithms'
+kind: tech-report
+authors:
+- Google DeepMind
+venue: Google DeepMind blog
+date: '2025-05-14'
+url: https://deepmind.google/discover/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/
+accessed: '2026-10-24'
+notes: 'Borg scheduling heuristic recovers about 0.7% of Google fleet compute; 4x4 complex matrix multiply
+  in 48 multiplications; over 50 open problems: ~75% matched, ~20% improved; Gemini kernel 23% faster.'
+provenance:
+  created: 2026-10-24-techniques-sim-math

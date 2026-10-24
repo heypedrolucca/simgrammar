@@ -1,0 +1,13 @@
+id: src-wikipedia-lemonade-stand
+type: source
+name: Lemonade Stand
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Lemonade_Stand
+accessed: '2026-10-24'
+notes: 1973 MECC (Bob Jamison, attribution flagged), Apple II port 1979; daily inputs are glasses made, signs, and price per glass; weather report; storms void profits; 12 days.
+provenance:
+  created: 2026-10-24-taxonomy-m2

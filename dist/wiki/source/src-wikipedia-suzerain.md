@@ -1,0 +1,27 @@
+# Suzerain (video game)
+
+*Source* · `src-wikipedia-suzerain` · status: **n/a**
+
+| field | value |
+|---|---|
+| kind | Encyclopedia / wiki |
+| authors | Wikipedia contributors |
+| venue | Wikipedia |
+| date | 2026 |
+| url | https://en.wikipedia.org/wiki/Suzerain_(video_game) |
+| accessed | 2026-10-24 |
+
+## Notes
+
+Torpor Games (Berlin). Windows and macOS 2020-12-04; Switch 2021-09-23; Android and iOS 2022-12-08; PlayStation and Xbox 2025-11-11. Player is President Anton Rayne of Sordland for one term; multiple-choice dialogue with ministers and advisers; constitutional, economic, security, and welfare decisions; budget statistics; western, eastern, or neutral alignment; several endings with a political-compass result; about 450,000 words.
+
+## Backlinks (computed)
+
+**cited by:** [Suzerain](../game/suzerain.md)
+
+## Citation
+
+Wikipedia contributors (2026). *Suzerain (video game)*. Wikipedia https://en.wikipedia.org/wiki/Suzerain_(video_game)
+
+---
+Provenance: created in run `2026-10-24-catalog-gi`.

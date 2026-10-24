@@ -1,0 +1,13 @@
+id: src-wikipedia-sid-meier
+type: source
+name: Sid Meier
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Sid_Meier
+accessed: '2026-10-24'
+notes: States that Meier created Railroad Tycoon inspired by SimCity and Empire, and that it led to Civilization.
+provenance:
+  created: 2026-10-24-catalog-ge

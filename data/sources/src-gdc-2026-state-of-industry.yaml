@@ -1,0 +1,15 @@
+id: src-gdc-2026-state-of-industry
+type: source
+name: GDC 2026 State of the Game Industry reveals impact of layoffs, generative AI, and more
+kind: tech-report
+authors:
+- Game Developers Conference
+venue: gdconf.com
+date: '2026'
+url: https://gdconf.com/article/gdc-2026-state-of-the-game-industry-reveals-impact-of-layoffs-generative-ai-and-more/
+accessed: '2026-10-24'
+notes: 'Over 2,300 respondents. 36% use generative AI at work (30% at studios vs 58% at publishing, support,
+  marketing). 52% see negative impact (30% in 2025, 18% the year before), 7% positive. Uses: research
+  or brainstorming 81%, daily tasks 47%, code assistance 47%, prototyping 35%. ChatGPT 74%.'
+provenance:
+  created: 2026-10-24-techniques-llm-agents

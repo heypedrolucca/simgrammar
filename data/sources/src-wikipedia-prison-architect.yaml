@@ -1,0 +1,14 @@
+id: src-wikipedia-prison-architect
+type: source
+name: Prison Architect
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Prison_Architect
+accessed: '2026-10-24'
+notes: Introversion Software; prisoner needs; reform and labour programs reduce recidivism; grading on recidivism,
+  happiness, and violence; full release 2015-10-06.
+provenance:
+  created: 2026-10-24-taxonomy-m7

@@ -1,9 +1,72 @@
 id: interest-groups
 type: mechanic
 name: Interest groups
+aliases:
+- factions (domestic)
+- political factions
+- estates
 summary: Factions within a polity have clout and preferences over policies, and their approval gates what
   the player can do.
 family: governance-policy
-status: asserted
+substrate:
+- aggregate-stocks
+- agent-based
+definition: 'Owns a set of groups within the polity, each with members, clout (political power), ideology
+  or preferences over laws and policies, and approval. Clout is recomputed from members'' wealth, numbers,
+  and enfranchisement; approval from how well current laws match the group''s preferences, whether it
+  is in government, and events. Approval and clout gate what the player can do and trigger effects: favorable
+  traits, petitions, obstruction, radicalization, or revolt. Victoria 3 (2022) is the canonical form:
+  each pop gives political strength to the group it supports based mainly on wealth and the voting law,
+  clout is the group''s share of the national total and classifies groups as powerful, influential, or
+  marginalized, marginalized groups cannot activate traits, and law enactment chances depend on the endorsement
+  or opposition of groups in government. Tropico 6, Stellaris factions, and Frostpunk 2''s factions are
+  other forms.'
+player_experience: Governing through coalitions. The player reads which groups are strong and what they
+  want, brings friendly groups into government, placates or marginalizes opponents, and accepts that every
+  reform makes someone angry. Power is never absolute.
+design_levers:
+- number of groups and how distinct their preferences are
+- clout formula (wealth, population, votes, offices held)
+- approval inputs (laws, government membership, events, promises)
+- effects at each approval and clout band (traits, petitions, obstruction, revolt)
+- how members move between groups as their economic conditions change
+failure_modes:
+- When one group's clout dominates and nothing shifts it, politics freezes into one optimal coalition.
+- Approval effects that are too weak make groups ignorable, and too strong make reforms impossible.
+- Opaque clout and approval math makes political outcomes feel random without detailed tooltips.
+dynamics:
+- Laws that empower a group raise its clout, which helps it block reforms that would weaken it, so institutions
+  entrench.
+- Economic change moves people between groups, so industrialization shifts political power over decades.
+- Angry groups with high clout radicalize into movements that can force concessions or civil war.
+math_basis:
+- game-theory
+- social-network
+- utility-decision
+feedback: both
+player_interface:
+- choice-cards
+- observation
+legibility: 3
+emergence_potential: 4
+authoring_cost: 3
+compute_cost: 2
+tuning_difficulty: 4
+ai_leverage: 4
+maturity: established
+synergy:
+- id: policy-toggles
+  note: Policies gain or lose group approval, so lawmaking becomes coalition management.
+- id: stability-unrest
+  note: Alienated groups radicalize into unrest.
+open_questions:
+- Can LLM-driven group leaders negotiate, make demands, and remember broken deals in ways that stay consistent
+  with the clout and approval model?
+- Can interest groups form and dissolve from the population's actual interests rather than from a fixed
+  authored list?
+sources:
+- src-paradox-2021-vic3-interest-groups
+- src-paradox-2023-vic3-law-enactment
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m2

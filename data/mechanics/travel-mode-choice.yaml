@@ -1,0 +1,63 @@
+id: travel-mode-choice
+type: mechanic
+name: Travel mode choice
+aliases:
+- mode choice
+- modal split
+- mode share
+summary: Agents choose among walking, cycling, driving, and transit for each trip by comparing time, money, and comfort costs,
+  which sets how demand splits across networks.
+family: logistics-networks
+substrate:
+- agent-based
+- network-graph
+definition: >-
+  Owns, per trip or agent, the set of available modes (walk, bicycle, car, taxi, transit), the cost weights used to compare
+  them, and car ownership and parking state. For each trip it computes a generalized cost per mode, such as weighted travel
+  time plus money (fares, fuel, parking fees) plus discomfort (transfers, waiting, crowding, walking distance), and picks
+  the cheapest mode or samples one with logit-style probabilities. Cities: Skylines II combines time, comfort, money, and
+  behavior into its route cost, adds parking fees to driving, and has citizens compare driving, transit, and walking. Outputs
+  are mode shares that load trips onto roads, transit lines, and paths. Unlike public-transit, which owns lines and vehicles,
+  traffic-congestion, which owns per-segment volume, and agent-pathfinding, which searches routes within one network, this
+  mechanic owns the choice between networks.
+player_experience: >-
+  The player shapes behavior indirectly. Instead of ordering citizens onto buses, they raise parking fees, add frequency,
+  or shorten walks to stops, then watch mode share shift in the info views. Success shows up as emptier roads; failure as
+  a new metro line nobody rides.
+design_levers:
+- weights on time, money, comfort, and transfers, and whether they vary by age, wealth, or household
+- car ownership rates and parking supply and pricing
+- deterministic cheapest-mode choice versus probabilistic choice that spreads demand
+- transfer and waiting penalties for transit
+- whether choice is recomputed per trip or fixed per agent
+failure_modes:
+- Sticky or opaque choice models keep transit from relieving traffic, so players stop investing in it.
+- Deterministic choice flips whole populations between modes after a small change, producing oscillating congestion.
+- Cost terms the player cannot see make empty transit lines look like a bug.
+dynamics:
+- Congestion raises driving cost and pushes riders to transit, a balancing loop between roads and lines.
+- Parking pricing becomes a policy lever that moves demand without building anything.
+- Dense mixed-use districts shorten trips enough that walking takes a large share, coupling zoning to traffic.
+math_basis:
+- utility-decision
+- network-flow
+feedback: balancing
+player_interface:
+- parameter
+- placement
+- observation
+legibility: 2
+emergence_potential: 3
+authoring_cost: 1
+compute_cost: 3
+tuning_difficulty: 3
+ai_leverage: 3
+maturity: established
+open_questions:
+- Can discrete-choice models estimated from real travel surveys be simplified enough for players to design against?
+- Would letting players inspect a citizen's per-mode cost breakdown make transit planning feel fair rather than random?
+sources:
+- src-paradox-2023-cs2-traffic-ai
+status: sourced
+provenance:
+  created: 2026-10-24-taxonomy-triage-b

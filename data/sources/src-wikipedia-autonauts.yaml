@@ -1,0 +1,15 @@
+id: src-wikipedia-autonauts
+type: source
+name: Autonauts (Denki article)
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Autonauts
+accessed: '2026-10-24'
+notes: 'Covered in the article on Denki (Dundee, founded 2000 by former DMA Design staff): Autonauts public
+  demo on itch.io 2017-07-05; Steam PC release October 2019 published by Curve Digital; Autonauts vs.
+  Piratebots released 2022-07-28.'
+provenance:
+  created: 2026-10-24-catalog-gh

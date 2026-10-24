@@ -1,0 +1,14 @@
+id: src-decart-2025-miragelsd
+type: source
+name: 'MirageLSD: live-stream diffusion video model'
+kind: tech-report
+authors:
+- Decart
+date: '2025'
+url: https://decart.ai/publications/mirage
+accessed: '2026-10-24'
+notes: 'Live video-to-video diffusion with text prompts; under 40 ms response, 24 fps; Diffusion Forcing,
+  history augmentation, Hopper kernels, pruning, shortcut distillation; limitations: limited past-frame
+  window, weak object and region control, distortion under extreme style shifts.'
+provenance:
+  created: 2026-10-24-techniques-world-models

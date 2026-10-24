@@ -1,0 +1,110 @@
+id: deep-rl-npc-policies
+type: technique
+name: Deep reinforcement learning policies for NPC opponents and navigation
+aliases:
+- Gran Turismo Sophy
+- GT Sophy
+- learned NPC controllers
+- Unity ML-Agents
+summary: Neural control policies trained with deep reinforcement learning inside the game's own simulation
+  drive opponents and NPCs, as with Sony AI's Gran Turismo Sophy, a selectable rival in Gran Turismo 7
+  since 2023.
+category: reinforcement-learning
+year: 2022
+mechanism: The game exposes observations (car state, track geometry, nearby opponents; or local terrain
+  and goal direction for navigation) and actions (steering, throttle, brake; or movement and ability inputs)
+  to a learning agent. Many instances run in parallel, and model-free deep RL learns a policy network
+  that maps observations to actions to maximize a shaped reward. For GT Sophy the reward values course
+  progress and was designed to encode racing's under-specified sportsmanship rules, and training mixed
+  racing scenarios so one policy handles both speed and tactics. For NPCs with jetpacks, grappling hooks,
+  or double jumps, where navigation meshes break down, the reward is reaching a goal. The trained network
+  is small enough to run every frame. Difficulty is set by giving the agent cars of different performance
+  or alternate checkpoints, and later GT Sophy versions expose settings such as tire and fuel consumption.
+  Toolkits such as Unity ML-Agents connect engine scenes to training code.
+key_results:
+- text: GT Sophy, trained with model-free deep RL across mixed racing scenarios and a reward designed
+    around sportsmanship rules, beat four of the world's best Gran Turismo drivers head to head (Nature,
+    February 2022).
+  sources:
+  - src-wurman-2022-gt-sophy
+  confidence: high
+- text: GT Sophy entered Gran Turismo 7 as the time-limited Race Together event in update 1.29 (February
+    2023), with four races against GT Sophy cars of different performance at Beginner, Intermediate, and
+    Expert levels and a 1vs1 mode.
+  sources:
+  - src-polyphony-2023-gt-sophy-race-together
+  confidence: high
+- text: GT Sophy 2.0 became a permanent Quick Race rival in GT7's Spec II update (November 2023) on nine
+    tracks and 340 cars, 95% of the car models, up from four cars and four tracks, on PS5 only.
+  sources:
+  - src-polyphony-2023-gt-sophy-2
+  confidence: high
+- text: GT Sophy 2.1 (update 1.57, March 2025) moved into Custom Race with 19 car and track options, lap
+    count, parts and tuning changes, and adjustable tire and fuel consumption.
+  sources:
+  - src-sony-2025-gt-sophy-2-1
+  confidence: high
+- text: Ubisoft La Forge's deep RL navigation handled grappling hooks, jetpacks, teleporters, and double
+    jumps on maps about ten times larger than typical RL research maps, one modeled on a Ubisoft AAA game,
+    with at least 90% success.
+  sources:
+  - src-alonso-2020-drl-navigation-aaa
+  confidence: medium
+- text: Unity's open-source ML-Agents Toolkit lets developers train agents inside Unity scenes.
+  sources:
+  - src-juliani-2018-unity-ml-agents
+  confidence: high
+maturity: shipped-niche
+trl: 7
+runtime:
+- offline-authoring
+- client-realtime
+determinism_impact: mitigable
+horizon: now
+risks:
+- compute-cost
+- controllability
+- evaluation
+affects:
+- id: vehicle-dynamics
+  effect: deepens
+  note: AI drivers operate the same tire, suspension, and weight-transfer model as the player at champion
+    level, so handling fidelity matters in races against the AI instead of being sidestepped by scripted
+    racing lines.
+- id: embodied-skill-control
+  effect: deepens
+  note: Players practice against an opponent whose skill comes from the same controls and physics, at
+    selectable levels (Beginner to Expert, then custom tire and fuel settings), raising the ceiling of
+    a skill-centered mechanic.
+- id: agent-pathfinding
+  effect: replaces-substrate
+  note: For movement abilities such as grappling hooks, jetpacks, and double jumps, a learned policy replaces
+    hand-placed navigation-mesh links, so NPCs can traverse spaces designers would otherwise annotate
+    by hand.
+builds_on:
+- massively-parallel-simulation
+deployed_in:
+- gran-turismo-7
+limitations:
+- 'Coverage arrives per content item: GT Sophy grew from four cars and four tracks to nine tracks and
+  340 cars across updates, because each track and car needs training and validation.'
+- A policy trained to win needs reward shaping and later refinement for sportsmanship and enjoyment; Sony
+  AI describes refining GT Sophy's behavior for etiquette and players of all skill levels after the research
+  version.
+- 'Availability was narrow at first: GT Sophy 2.0 ran only in Quick Race on PS5, not in other events on
+  the same tracks.'
+- Learned policies are hard to direct for scripted moments, and physics or content patches can require
+  retraining and re-validation.
+- Deep RL transfers poorly between games without heavy tuning, as EA reported, so each title builds its
+  own training setup.
+sources:
+- src-wurman-2022-gt-sophy
+- src-polyphony-2023-gt-sophy-race-together
+- src-polyphony-2023-gt-sophy-2
+- src-sony-2025-gt-sophy-2-1
+- src-alonso-2020-drl-navigation-aaa
+- src-juliani-2018-unity-ml-agents
+- src-zhao-2019-winning-isnt-everything
+status: sourced
+provenance:
+  created: 2026-10-24-techniques-rl-design

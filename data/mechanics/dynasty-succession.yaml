@@ -1,8 +1,67 @@
 id: dynasty-succession
 type: mechanic
 name: Dynasty succession
-summary: When the player character dies, play continues as an heir under inheritance rules.
+aliases:
+- play as heir
+- succession laws
+- generational play
+summary: When the player character dies, play continues as an heir chosen by inheritance rules.
 family: population-lineage
-status: asserted
+substrate:
+- rule-system
+- network-graph
+definition: 'Owns a lineage graph over characters, a succession law, and the mapping from the player''s
+  identity to a living character. When the player character dies, the law ranks eligible heirs by kinship,
+  age, gender rules, or election; titles and assets are assigned, possibly split among several heirs;
+  and control passes to the designated player heir. If no valid heir exists, the run ends. Crusader Kings
+  III offers primogeniture, ultimogeniture, house seniority, three partition variants, and elective laws
+  for feudal titles; the player continues as the player heir, normally the primary heir, and partition
+  splits realms among siblings; with no valid heir titles pass to the liege, and the run ends without
+  a playable heir. Reigns (2016) continues with a successor monarch who keeps unlocked cards. Inputs:
+  lineage, laws, deaths. Outputs: the new player character, title distribution, opinion resets, claimants.'
+player_experience: Death becomes a chapter break. The player plans for succession by raising, educating,
+  and marrying heirs, fears the untested successor, and feels continuity through the dynasty rather than
+  one person. Partition laws make every death a crisis of fragmentation.
+design_levers:
+- succession law catalog and how players can change laws
+- 'what carries over to the heir: wealth, titles, opinions, skills, unlocks'
+- partition versus single-heir distribution
+- opinion penalties and claimant uprisings at succession
+- game-over condition when no heir exists
+failure_modes:
+- Partition fragments a large realm into small pieces, which players experience as punishment and work
+  around with exploits.
+- Successors who inherit everything make death meaningless.
+- Heir-killing exploits (arranging deaths to reach a better heir) become optimal play.
+- Sudden game over from a missing heir feels arbitrary if eligibility rules are opaque.
+dynamics:
+- Rulers invest in heirs' education and marriages, coupling succession to lifecycle and romance.
+- Succession crises spawn claimant wars, connecting lineage to diplomacy and conflict.
+- Long runs become multi-generation stories that players chronicle as family histories.
+math_basis:
+- graph-search
+- game-theory
+feedback: balancing
+player_interface:
+- observation
+- parameter
+legibility: 3
+emergence_potential: 4
+authoring_cost: 2
+compute_cost: 1
+tuning_difficulty: 3
+ai_leverage: 2
+maturity: established
+synergy:
+- id: trait-inheritance
+  note: Inherited traits make succession a long-term breeding and planning problem (Crusader Kings).
+open_questions:
+- Can generated character arcs give each heir a distinct reign narrative while succession rules stay mechanical?
+- How much should the heir inherit to keep death meaningful without punishing long-term investment?
+sources:
+- src-paradoxwikis-2026-ck3-succession
+- src-wikipedia-crusader-kings-3
+- src-wikipedia-reigns
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m3

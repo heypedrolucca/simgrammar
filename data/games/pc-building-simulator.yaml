@@ -1,10 +1,70 @@
 id: pc-building-simulator
 type: game
 name: PC Building Simulator
-summary: TODO
+aliases:
+- PCBS
+summary: A workshop sim in which the player takes email jobs to build, upgrade, repair, and overclock PCs from licensed
+  parts and verifies the results with benchmark software.
 year: 2018
-developer: The Irregular Corporation
+year_full_release: 2019
+developer: Claudiu Kiss and The Irregular Corporation
+platforms:
+- pc
+- console
+- handheld
 subgenre: job-sim
-status: asserted
+sim_domain:
+- occupational
+- physical-mechanical
+player_role: worker
+agency_model:
+- design-then-test
+time_model: real-time
+sim_scale: individual
+fidelity: stylized
+perspective: first-person
+win_structure: open-sandbox
+failure_model: soft-recoverable
+narrative_mode: none
+multiplayer:
+- single
+modding: none
+production_tier: indie
+agent_count_order: none
+emergence: 1
+influence: 1
+core_loop: accept an email job -> order parts with a shipping tier -> open the case and diagnose or assemble ->
+  install software, remove viruses, or overclock -> benchmark -> get paid -> pay rent and electricity -> unlock
+  better parts
+design_notes: 'Parts are licensed real components with compatibility rules, and a machine''s performance is measured
+  with the real 3DMark benchmark, so a build''s quality is an output of its parts rather than a designer-set score.
+  Assembly has physical consequences: a CPU cooler mounted without thermal paste lets the processor overheat and
+  fail. The career wraps this in a small business with monthly rent and electricity, accept-or-reject email jobs,
+  and timed jobs that become more common later.'
+mechanics:
+- id: diagnose-repair
+  role: core
+  note: Email jobs ask for virus removal, upgrades, fixes, or overclocking on customer PCs; the player opens the
+    case, identifies the faulty or missing part, and swaps it.
+- id: modular-assembly
+  role: core
+  note: PCs are assembled from licensed cases, motherboards, CPUs, coolers, GPUs, memory, and storage; part choice
+    and installation details such as thermal paste decide whether and how well the machine runs.
+- id: contracts-orders
+  role: core
+  note: Customer requests, discount alerts, spam, and scams arrive in an inbox; accepted orders left unfulfilled
+    are rejected, and timed jobs grow more common as the career advances.
+- id: design-performance-rating
+  role: supporting
+  note: 3DMark benchmarking scores built or repaired machines.
+- id: milestone-unlocks
+  role: supporting
+  note: Leveling up from job experience unlocks more advanced parts.
+- id: budget-treasury
+  role: supporting
+  note: Monthly rent and electricity bills must be paid or the player incurs debt.
+sources:
+- src-wikipedia-pc-building-simulator
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gf

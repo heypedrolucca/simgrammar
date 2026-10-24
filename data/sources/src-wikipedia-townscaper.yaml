@@ -1,0 +1,15 @@
+id: src-wikipedia-townscaper
+type: source
+name: Townscaper
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Townscaper
+accessed: '2026-10-24'
+notes: Oskar Stalberg; full release Windows, macOS, Switch 2021-08-26; iOS and Android 2021-10-20; Xbox 2021-12-01;
+  place and remove colored blocks on a large distorted grid in an infinite sea; rule-based decoration by location
+  and surroundings; no objective, described by its author as more of a toy.
+provenance:
+  created: 2026-10-24-catalog-ga

@@ -1,10 +1,125 @@
 id: crusader-kings-3
 type: game
 name: Crusader Kings III
-summary: TODO
+aliases:
+- CK3
+summary: A character-driven grand strategy game in which the player rules as successive heads of a medieval
+  dynasty from 867 or later to 1453, managing traits, stress, vassal opinion, marriages, and succession
+  across a map of feudal titles.
 year: 2020
 developer: Paradox Development Studio
+platforms:
+- pc
+- console
 subgenre: grand-strategy
-status: asserted
+subgenre_secondary:
+- rpg-sim
+sim_domain:
+- political-governance
+- social-interpersonal
+- military-conflict
+player_role: ruler-statesman
+agency_model:
+- direct-unit
+- policy-parameter
+time_model: real-time-pausable
+sim_scale: nation
+fidelity: systemic
+perspective: top-down-2d
+win_structure: open-sandbox
+failure_model: permadeath
+narrative_mode: hybrid
+multiplayer:
+- single
+- competitive
+modding: total-conversion
+production_tier: aa
+agent_count_order: 10k-plus
+emergence: 4
+influence: 2
+core_loop: play the current ruler -> manage vassal opinion, council, and stress -> arrange marriages,
+  schemes, and wars over claims -> ruler dies -> heir inherits titles under succession law -> realm fragments
+  or consolidates
+design_notes: 'CK3 makes the player a character rather than a state: realm strength depends on vassals
+  whose itemized opinions, traits, and family ties decide whether they serve or rebel. Succession laws
+  make death the main source of disruption, and stress penalizes playing a character against type, which
+  pushes players to roleplay their traits. Event content is authored but fired from on_actions and character
+  state, so the same templates produce different stories in different courts; culture and religion conversion
+  is not yet a mechanic in the taxonomy (proposal culture-religion-conversion).'
+mechanics:
+- id: dynasty-succession
+  role: core
+  note: On death, play passes to the player heir and titles pass under the realm's succession law, so
+    partition can split a realm among children; the game ends if no viable heir remains, and dynasty heads
+    spend Renown on bonuses for every dynasty member.
+- id: personality-traits
+  role: core
+  note: Personality, education, and genetic traits modify the six skills (Diplomacy, Martial, Stewardship,
+    Intrigue, Learning, Prowess), opinions, and which event options a character can take.
+- id: opinion-modifiers
+  role: core
+  note: Each character's opinion of another is an itemized list of modifiers from traits, relations, actions,
+    and events, many expiring over time; discontented vassals join factions pressing for independence,
+    a rival claimant, or less crown authority.
+- id: agent-skills
+  role: supporting
+  note: Skills grow from education and from perks in six lifestyles, each with three skill trees.
+- id: relationship-values
+  role: supporting
+  note: Friends, rivals, and lovers form between characters and shift opinions and event outcomes.
+- id: romance-family
+  role: supporting
+  note: Marriages create alliances and heirs, making match choice a political decision.
+- id: trait-inheritance
+  role: supporting
+  note: Genetic traits such as strong or poor health pass to children.
+- id: lifecycle-aging
+  role: supporting
+- id: stability-unrest
+  role: supporting
+  note: Vassal factions accumulate strength and can revolt when their demands are refused.
+- id: faction-diplomacy
+  role: supporting
+  note: Wars are fought over claims, and marriages and alliances link realms.
+- id: triggered-event-chains
+  role: supporting
+  note: Events are called from on_actions, decisions, and interactions, with weighted options and scheduled
+    follow-ups.
+- id: tech-tree
+  role: supporting
+  note: Lifestyle perk trees and cultural innovations unlock abilities and buildings.
+- id: causal-tooltips
+  role: supporting
+  note: Nested tooltips let players open explanations of terms inside other tooltips.
+- id: stress-accumulation
+  role: core
+  note: Acting against personality traits and suffering events add stress; crossing stress levels fires
+    mental-break events whose coping options can add traits (from level 2 up), and extreme stress can
+    kill the character.
+- id: political-capital
+  role: supporting
+  note: Prestige and piety accrue from rank, traits, and deeds and are spent on actions such as creating
+    titles (prestige) and faith decisions (piety).
+- id: culture-religion-conversion
+  role: supporting
+  note: Counties carry a faith and a culture; the court chaplain can convert a county's faith and the
+    steward can promote the ruler's culture, while faith hostility sets opinion penalties from 0 to -30.
+- id: territorial-control
+  role: supporting
+  note: Counties belong to titles with de jure hierarchies, and wars are fought to press claims on them;
+    conquered counties start with low county control.
+- id: war-score-peace
+  role: supporting
+  note: War score from battles and occupation lets the attacker enforce the war goal at full score, while
+    either side can offer white peace.
+- id: stat-combat-resolution
+  role: supporting
+  note: Battles resolve from army size, men-at-arms, knights, commander skill, and terrain, in phases
+    that run until one side is routed.
+sources:
+- src-wikipedia-crusader-kings-3
+- src-paradoxwikis-2026-ck3-event-modding
+- src-pcgamesn-2022-victoria-3-nested-tooltips
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gi

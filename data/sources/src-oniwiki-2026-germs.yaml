@@ -1,0 +1,15 @@
+id: src-oniwiki-2026-germs
+type: source
+name: Germs
+kind: encyclopedia
+authors:
+- Oxygen Not Included Wiki contributors
+venue: Oxygen Not Included Wiki (wiki.gg)
+date: '2026'
+url: https://oxygennotincluded.wiki.gg/wiki/Germs
+accessed: '2026-10-24'
+notes: Five germ types; germs live on tiles, items, buildings, gases, and liquids; per-germ exposure thresholds;
+  inhalation and ingestion exposure tiers; contraction chance 0.5 - 0.5 x tanh(resistance / 4); heat, chlorine,
+  and radiation kill germs.
+provenance:
+  created: 2026-10-24-catalog-gb

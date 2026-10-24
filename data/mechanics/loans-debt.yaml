@@ -1,9 +1,59 @@
 id: loans-debt
 type: mechanic
 name: Loans and debt
-summary: Capital can be borrowed at interest with repayment schedules, so leverage accelerates both growth
-  and failure.
+aliases:
+- bonds
+- credit
+- leverage
+summary: Capital can be borrowed at interest with repayment schedules, so leverage accelerates both growth and failure.
 family: economy-finance
-status: asserted
+substrate:
+- aggregate-stocks
+definition: Owns outstanding principal, an interest rate, a repayment schedule, and a borrowing limit. Each period interest
+  is charged to the treasury, and principal is repaid on schedule, at will, or at bond maturity. The limit and rate often
+  depend on a credit rating, net worth, or the number of outstanding loans. Missed payments trigger penalties, forced liquidation,
+  bankruptcy, or game over. Railroad Tycoon (1990) starts each railroad with $1 million split evenly between equity and a
+  loan and lets players sell bonds for more capital. SimCity 2000 adds bonds to the city budget, Theme Hospital offers loans
+  through a policy setting, and Transport Tycoon lets companies raise and repay a loan in increments up to a cap.
+player_experience: Betting on the future. The player borrows to build faster than income allows, watches interest eat margins,
+  and times repayment. A downturn while leveraged turns a confident plan into a scramble to stay solvent.
+design_levers:
+- interest rate and whether it rises with debt load, credit rating, or economic conditions
+- borrowing cap tied to net worth, rating, or a fixed limit
+- repayment structure (amortized, interest-only, bond maturity, repay at will)
+- default consequence (penalty, asset seizure, bankruptcy, game over)
+- priority of debt service relative to wages and services when cash runs short
+failure_modes:
+- Cheap debt with high early returns makes borrowing the maximum at the start a dominant opening in many tycoon games.
+- Default with no warning or recovery path ends runs abruptly and teaches players never to borrow.
+- Fixed rates in a growing economy make debt irrelevant once revenue scales.
+dynamics:
+- 'Leverage amplifies booms and busts: borrowed capital grows revenue faster but turns a demand dip into bankruptcy.'
+- Rates that rise with debt load create spirals in which new loans pay old interest.
+- Interest acts as a money sink that drains surplus in the late game.
+math_basis:
+- system-dynamics
+- optimization
+feedback: reinforcing
+player_interface:
+- parameter
+legibility: 4
+emergence_potential: 2
+authoring_cost: 1
+compute_cost: 1
+tuning_difficulty: 3
+ai_leverage: 2
+maturity: classic
+requires:
+- budget-treasury
+open_questions:
+- Could AI lenders that assess a player's plans and history negotiate terms in language, making credit a relationship rather
+  than a slider?
+- What rate curves keep leverage a real choice across a whole game rather than an opening move?
+sources:
+- src-wikipedia-railroad-tycoon
+- src-wikipedia-simcity-2000
+- src-wikipedia-theme-hospital
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m2

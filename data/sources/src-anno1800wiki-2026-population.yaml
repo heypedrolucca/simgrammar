@@ -1,0 +1,15 @@
+id: src-anno1800wiki-2026-population
+type: source
+name: Population
+kind: encyclopedia
+authors:
+- Anno 1800 Wiki contributors
+venue: Anno 1800 Wiki (Fandom)
+date: '2026'
+url: https://anno1800.fandom.com/wiki/Population
+accessed: '2026-10-24'
+notes: Old World tiers Farmers, Workers, Artisans, Engineers, Investors; New World Jornaleros and Obreros; a house advances
+  when full, basic needs are met, and construction materials are available; luxury needs are optional and raise taxes and
+  happiness; island level set by the highest tier, such as 500 Engineers (capital) and 1,750 Investors (metropolis).
+provenance:
+  created: 2026-10-24-taxonomy-m3

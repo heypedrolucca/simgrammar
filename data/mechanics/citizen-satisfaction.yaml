@@ -1,9 +1,72 @@
 id: citizen-satisfaction
 type: mechanic
 name: Citizen satisfaction
+aliases:
+- happiness
+- approval rating
+- city score
 summary: An aggregate satisfaction score computed from services, conditions, and events modulates growth,
   productivity, and unrest.
 family: governance-policy
-status: asserted
+substrate:
+- aggregate-stocks
+definition: 'Owns one aggregate score (or one per district or class) computed each evaluation period from
+  service levels, problems, and events, usually smoothed toward its previous value. Downstream systems
+  read it: growth and migration, productivity, tax tolerance, election odds, and unrest. In Micropolis,
+  the SimCity engine, a yearly evaluation sums seven problem values (crime, pollution, housing cost as
+  0.7 x average land value, taxes as rate x 10, traffic, unemployment, fires), maps the sum to a 0-1000
+  score, multiplies it by penalties for missing stadium, airport, or seaport (0.85 each), underfunded
+  roads, police, and fire, and the share of unpowered zones, adjusts for population growth, and averages
+  it with last year''s score; an approval poll then gives 100 citizens a yes with probability score /
+  1000. Frostpunk (2018) splits the score into Hope and Discontent, and the game ends in revolt if hope
+  stays too low or discontent too high for too long.'
+player_experience: A report card on the whole system. The player watches one number rise and fall, digs
+  into the complaint list or overlays to find the cause, and fixes the top problem. In crisis games like
+  Frostpunk it becomes the meter the player is always defending.
+design_levers:
+- which inputs enter the score and their weights
+- smoothing or averaging period, which sets how quickly fixes show up
+- thresholds where satisfaction triggers growth, emigration, strikes, or game over
+- single score versus separate scores per class, district, or faction
+- how causes are explained (complaint lists, thoughts, polls, advisors)
+failure_modes:
+- A single number hides which problem matters, so players chase the wrong fix without a breakdown view.
+- Easy maximization by stacking one cheap amenity makes satisfaction irrelevant.
+- Long smoothing makes improvements feel unrewarded and pushes players to over-correct.
+dynamics:
+- Low satisfaction drives emigration, which lowers demand for services and can partly restore satisfaction
+  for those who stay.
+- Satisfaction tied to productivity creates spirals where unhappy workers produce less and services decline
+  further.
+- Scores averaged over time let a short crisis pass without punishment but punish sustained neglect.
+math_basis:
+- system-dynamics
+- utility-decision
+feedback: both
+player_interface:
+- observation
+legibility: 3
+emergence_potential: 3
+authoring_cost: 2
+compute_cost: 1
+tuning_difficulty: 3
+ai_leverage: 3
+maturity: classic
+synergy:
+- id: stability-unrest
+  note: Low satisfaction accumulates into unrest; unrest further lowers satisfaction.
+- id: elections
+  note: Satisfaction becomes votes, tying tenure to welfare (Tropico).
+- id: immigration-attractiveness
+  note: Satisfied populations attract migrants; dissatisfied ones leave.
+open_questions:
+- Can LLM-voiced citizens explain their dissatisfaction in specific, accurate terms that point to real
+  causes in the simulation?
+- Is one aggregate score better or worse for play than many per-group scores when citizens can explain
+  themselves?
+sources:
+- src-hopkins-2008-micropolis
+- src-wikipedia-frostpunk
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m2

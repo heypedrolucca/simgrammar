@@ -1,8 +1,65 @@
 id: material-interactions
 type: mechanic
 name: Material interactions
-summary: Elements and materials interact by rule, such as fire burning wood or water conducting electricity.
+aliases:
+- chemistry engine
+- elemental interactions
+- systemic elements
+summary: A rule table defines how elements such as fire, water, and electricity change materials and each
+  other on contact.
 family: physics-materials
-status: asserted
+substrate:
+- rule-system
+- cellular-grid
+- agent-based
+definition: 'Entities carry material tags (wood, metal, grass) and element states (burning, wet, frozen,
+  electrified). A rule table maps element-material and element-element pairs to state changes applied
+  on contact or within an area each tick. In The Legend of Zelda: Breath of the Wild, Takuhiro Dohta described
+  a chemistry engine beside the physics engine: physics is a rule-based movement calculator and chemistry
+  a rule-based state calculator. Elements (fire, water, ice, electricity, wind) change the states of materials
+  and of each other, and materials do not change each other. Divinity: Original Sin uses surfaces where
+  oil burns and water conducts lightning. Outputs are state changes that trigger damage, movement, and
+  new elements.'
+player_experience: Asking "what if" and having the world answer consistently. Players combine elements
+  for creative solutions in puzzles and fights, and the satisfaction is in solutions that feel discovered
+  rather than designed.
+design_levers:
+- number of elements and material tags
+- 'density of the interaction table: which pairs react'
+- 'propagation: contact, area, or spread rate over time'
+- duration and decay of states
+- how closely rules follow real-world intuition
+- how strongly reactions are telegraphed visually
+failure_modes:
+- An interaction that works in one place but not another breaks trust in the whole system.
+- Combinatorial growth of pairs produces untested reactions and bugs.
+- One reaction combo dominates combat and flattens choice.
+- Authored puzzles with single intended solutions conflict with systemic shortcuts.
+dynamics:
+- Chained reactions, such as fire on grass creating an updraft for gliding in Breath of the Wild.
+- Environmental kills and accidents emerge from mixing combat with terrain and weather.
+- Players find puzzle solutions designers did not plan.
+math_basis:
+- combinatorics
+- cellular-automata
+feedback: both
+player_interface:
+- direct-manipulation
+legibility: 4
+emergence_potential: 4
+authoring_cost: 2
+compute_cost: 2
+tuning_difficulty: 3
+ai_leverage: 4
+maturity: established
+open_questions:
+- Can a language model judge interactions for arbitrary pairs of materials at runtime while staying consistent
+  across a session?
+- What is the smallest rule table that still produces chains players experience as emergent?
+sources:
+- src-fujibayashi-2017-botw-change-and-constant
+- src-thumbsticks-2017-botw-chemistry
+- src-wikipedia-zelda-breath-of-the-wild
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m4

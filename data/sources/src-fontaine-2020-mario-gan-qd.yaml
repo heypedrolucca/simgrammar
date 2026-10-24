@@ -1,0 +1,18 @@
+id: src-fontaine-2020-mario-gan-qd
+type: source
+name: Illuminating Mario Scenes in the Latent Space of a Generative Adversarial Network
+kind: preprint
+authors:
+- Matthew C. Fontaine
+- Ruilin Liu
+- Ahmed Khalifa
+- Jignesh Modi
+- Julian Togelius
+- Amy K. Hoover
+- Stefanos Nikolaidis
+venue: arXiv
+date: '2020-07-11'
+arxiv: '2007.05674'
+accessed: '2026-10-24'
+provenance:
+  created: 2026-10-24-techniques-rl-design

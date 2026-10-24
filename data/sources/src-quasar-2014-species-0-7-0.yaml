@@ -1,0 +1,15 @@
+id: src-quasar-2014-species-0-7-0
+type: source
+name: Species 0.7.0 Released!
+kind: tech-report
+authors:
+- Quasar
+venue: Species development blog
+date: '2014-10-03'
+url: https://speciesdevblog.wordpress.com/2014/10/03/species-0-7-0-released/
+accessed: '2026-10-24'
+notes: Free alpha; skeleton analyzed for internal forces and torques to charge energy costs; creatures eat only
+  within head reach; rovers feed or kill by genetic distance to a target genome and can be programmed to deforest
+  or fertilize; climate control devices make cold, hot, fertile, or dead ground; fences.
+provenance:
+  created: 2026-10-24-catalog-gd

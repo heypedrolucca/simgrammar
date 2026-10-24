@@ -1,0 +1,14 @@
+id: src-steam-2024-caves-of-qud
+type: source
+name: Caves of Qud
+kind: store-page
+authors:
+- Freehold Games
+venue: Steam
+date: '2024-12-05'
+url: https://store.steampowered.com/app/333640/Caves_of_Qud/
+accessed: '2026-10-24'
+notes: Early access 2015-07-15, 1.0 2024-12-05; published by Kitfox Games; hybrid handcrafted and procedurally
+  generated world.
+provenance:
+  created: 2026-10-24-techniques-rl-design

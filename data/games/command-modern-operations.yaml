@@ -1,10 +1,89 @@
 id: command-modern-operations
 type: game
 name: 'Command: Modern Operations'
-summary: TODO
+aliases:
+- CMO
+summary: A real-time operational military simulation in which the player commands air, naval, and land
+  units drawn from a database of tens of thousands of real platforms, sensors, and weapons on a map of
+  Earth, managing doctrine, emissions control, and missions.
 year: 2019
-developer: WarfareSims
+developer: Warfare Sims
+platforms:
+- pc
 subgenre: wargame
-status: asserted
+sim_domain:
+- military-conflict
+player_role: commander
+agency_model:
+- direct-unit
+- order-queue
+time_model: real-time-pausable
+sim_scale: region
+fidelity: professional
+perspective: top-down-2d
+win_structure: scenario-goals
+failure_model: soft-recoverable
+narrative_mode: emergent
+multiplayer:
+- single
+- competitive
+- coop
+modding: scripting
+production_tier: indie
+agent_count_order: 1k
+emergence: 3
+influence: 2
+core_loop: read the scenario briefing -> set doctrine, emissions control, and weapon release authority
+  -> assign units to patrol, strike, and support missions -> sensors detect and classify contacts -> weapons
+  engage under doctrine -> adjust missions as detections and losses accrue
+design_notes: 'CMO simulates the sensor and weapon chain rather than abstract unit strengths: detection
+  depends on radar propagation, terrain, thermal layers, and weather, and engagement depends on database
+  specifications and doctrine. The player works mostly at mission and doctrine level and lets tactical
+  AI fly and fight, so one player can run scenarios from patrol-boat skirmishes to global war. The Command
+  engine also has a Professional Edition with full database editing, umpire-controlled multiplayer, and
+  Monte Carlo analysis, sold to defense organizations.'
+mechanics:
+- id: military-operations
+  role: core
+  note: Every platform's sensors and weapons come from a database of tens of thousands of real systems;
+    radar propagation, sensor degradation, terrain masking, sonar thermal layers, weather, jamming, and
+    anti-radiation strikes are modeled for thousands of active platforms in real time.
+- id: fog-of-war
+  role: core
+  note: Each side sees only what its sensors detect; emission control (EMCON) policies trade a unit's
+    own detection range against revealing it to enemy passive sensors.
+- id: delegation-to-ai
+  role: core
+  note: Units are assigned to patrol, strike, and support missions and executed by tactical AI under doctrine
+    settings such as weapon release authority and EMCON.
+- id: scouting-knowledge
+  role: supporting
+  note: Contacts begin unidentified and are classified as sensor data accumulates.
+- id: unit-commands
+  role: supporting
+  note: Direct orders override a unit's mission behavior.
+- id: variable-speed
+  role: supporting
+  note: Scenarios lasting hours to days of game time run with time acceleration and pause.
+- id: scenario-objectives
+  role: supporting
+  note: Over 600 official and community scenarios plus a quick battle generator.
+- id: modding-api
+  role: supporting
+  note: A Lua scripting engine and scenario editor let players build custom operations.
+- id: content-sharing
+  role: supporting
+  note: Scenarios are shared through the Steam Workshop.
+- id: weather
+  role: supporting
+  note: Weather degrades sensors and affects engagements.
+- id: projectile-ballistics
+  role: supporting
+  note: Ballistics are among the modeled effects alongside sensor propagation, so weapon flight and impact
+    follow database specifications.
+sources:
+- src-wikipedia-command-modern-operations
+- src-steam-2019-command-modern-operations
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gi

@@ -1,0 +1,16 @@
+id: src-deepmind-2026-concordia-repo
+type: source
+name: 'Concordia: a library for generative social simulation'
+kind: repository
+authors:
+- Google DeepMind
+venue: GitHub
+date: '2026'
+url: https://github.com/google-deepmind/concordia
+accessed: '2026-10-24'
+notes: Apache-2.0. Entities (player agents and Game Masters), components, and an engine loop. LanguageModel
+  interface defines sample_text and sample_choice; sample_choice scores a list of candidate responses
+  and returns the chosen index, raising InvalidResponseError after several failed attempts. Requires a
+  text embedder for associative memory.
+provenance:
+  created: 2026-10-24-techniques-llm-agents

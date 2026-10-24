@@ -1,0 +1,14 @@
+id: src-ubisoft-2019-data-driven-physics
+type: source
+name: Ubisoft La Forge produces a data-driven physics simulation based on machine learning
+kind: tech-report
+authors:
+- Ubisoft La Forge
+venue: Ubisoft news
+date: '2019-09-19'
+url: https://www.ubisoft.com/en-us/studio/laforge/news/1Dp7nj7RdnpgPAbftcRu7V/a-datadriven-physics-simulation-based-on-machine-learning
+accessed: '2026-10-24'
+notes: 'Studio summary of Holden et al. 2019: runs 300 to 5000 times faster than conventional physics
+  simulation at small additional memory cost.'
+provenance:
+  created: 2026-10-24-techniques-sim-math

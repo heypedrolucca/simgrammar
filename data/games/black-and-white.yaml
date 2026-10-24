@@ -1,10 +1,86 @@
 id: black-and-white
 type: game
 name: Black & White
-summary: TODO
+aliases:
+- Black and White
+summary: A god game in which the player wins villagers' belief through miracles, help, or fear while training a giant creature
+  whose behavior is learned from the player's rewards and punishments.
 year: 2001
 developer: Lionhead Studios
+platforms:
+- pc
 subgenre: god-game
-status: asserted
+subgenre_secondary:
+- artificial-life
+sim_domain:
+- social-interpersonal
+- biological-ecological
+player_role: god
+agency_model:
+- supernatural-intervention
+- caretaking-interaction
+- indirect-incentive
+time_model: real-time
+sim_scale: region
+fidelity: stylized
+perspective: free-3d
+win_structure: campaign
+failure_model: soft-recoverable
+narrative_mode: authored
+multiplayer:
+- single
+- competitive
+modding: none
+production_tier: aaa
+agent_count_order: '100'
+emergence: 3
+influence: 3
+core_loop: impress villagers with miracles, help, or fear -> belief grows and worship generates prayer power -> cast miracles
+  with the Hand and gestures -> train the creature with strokes and slaps -> the creature acts on learned desires -> convert
+  rival villages and move to the next island
+design_notes: 'Richard Evans built the creature on a belief-desire-intention model after Bratman: beliefs are lists of data
+  about world objects, desires are simplified perceptrons, and opinions are decision trees about how to satisfy a desire;
+  the creature picks the belief with the best opinion for each desire as its intention, and strokes and slaps adjust those
+  opinions by reinforcement. A leash directs the creature''s attention so it can learn by observation. The player''s actions
+  also move a good-evil alignment that changes the land, interface, music, and followers'' view of the god, with a good and
+  an evil advisor arguing each case; alignment has no mechanic id yet (proposal filed). The interface is an animated hand
+  that throws objects and casts gestures instead of icons and panels.'
+mechanics:
+- id: creature-learning
+  role: core
+  note: The creature forms intentions from a belief-desire-intention model with perceptron desires and decision-tree opinions;
+    stroking rewards and slapping discourages the last action, the creature remembers and generalizes these responses, and
+    a leash focuses it on actions the player demonstrates.
+- id: god-powers
+  role: core
+  note: Miracles such as food, wood, healing, shields, fireballs, and lightning are cast from the Temple or Village Centre
+    or by drawing gestures with the Hand, powered by villagers' worship, sacrifices, or one-shot Miracle Dispensers.
+- id: reputation
+  role: core
+  note: Each villager holds a belief level in the player's god, raised by help or intimidation; villagers tire of repeated
+    tactics, and a village converts when enough believe.
+- id: creature-care
+  role: supporting
+  note: The creature must be fed and taught what and when to eat, and it grows over the game.
+- id: needs-decay
+  role: supporting
+  note: Villagers need food, healing, and rest before they will worship.
+- id: advisors
+  role: supporting
+  note: A good and an evil advisor push the player toward each alignment.
+- id: free-placement
+  role: supporting
+  note: Buildings are placed from Workshop blueprints and built by villagers.
+- id: resource-extraction
+  role: supporting
+  note: Villagers gather wood and food, for example by fishing.
+- id: weather
+  role: supporting
+  note: Real local weather can be imported.
+influenced_by:
+- populous
+sources:
+- src-wikipedia-black-and-white
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gb

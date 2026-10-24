@@ -1,0 +1,45 @@
+id: qd-scenario-libraries
+type: opportunity
+name: Quality-diversity scenario libraries
+summary: Generate large libraries of scenarios that cover a grid of difficulty and play style, so scenario-driven
+  sims never run out of distinct challenges.
+opportunity_type: authoring-tool
+thesis: Scenario modes are expensive to author and players exhaust them. Quality-diversity search can
+  fill a map of scenario descriptors (resource scarcity, threat timing, terrain constraint) with playable,
+  validated scenarios, and learned generators can add theming. Agent playtests confirm each is solvable
+  and estimate difficulty.
+design_sketch: A scenario browser shows a grid of challenge types by difficulty; each cell holds generated
+  scenarios that agents have solved, with par times. Players rate them; ratings retrain the generator.
+involves:
+- scenario-objectives
+- procedural-terrain
+- milestone-unlocks
+- comparative-histograms
+applies:
+- quality-diversity-search
+- learned-level-generation
+- automated-playtesting
+precedent:
+- rollercoaster-tycoon
+- poly-bridge
+- islanders
+- opus-magnum
+novelty: 2
+feasibility: 5
+impact: 2
+horizon: now
+key_risks:
+- Generated scenarios feel generic.
+- Agent-solvable is not the same as fun.
+validation_experiment: 'Generate 500 scenarios for a bridge or park builder with MAP-Elites over three
+  descriptors; have players compare random generated scenarios with authored ones. Success: generated
+  scenarios rated at least 80 percent as enjoyable as authored ones.'
+falsifiable_signal:
+  prediction: A released simulation or puzzle-sim game will ship a quality-diversity-generated scenario
+    library.
+  resolve_by: '2028-06-30'
+  criteria: Developer documentation naming quality-diversity or MAP-Elites generation for shipped content.
+sources: []
+status: asserted
+provenance:
+  created: 2026-10-24-synthesis

@@ -1,0 +1,72 @@
+id: 2026-10-24-taxonomy-m1
+type: run
+date: '2026-10-24'
+actor: agent
+operator: yoheinakajima
+agent:
+  model: claude-opus-5-5
+  harness: Claude app subagent
+purpose: Complete the mechanic analyses for the resources-production and logistics-networks families.
+method: >-
+  Read AGENTS.md, CONTRACT.md, the mechanic and common schemas, the vocab files they reference, rubrics.yaml, edge_types.yaml,
+  and the needs-decay, rimworld, and src-wikipedia-rimworld exemplars. Completed 24 skeleton mechanics to the full schema,
+  each analyzed as a primitive that appears across games. Read primary or near-primary sources for the mechanics where
+  numbers matter: Factorio Friday Facts #176 (belt transport lines), #375 (quality), #414 (spoilage), #416 (fluids 2.0);
+  official Factorio wiki pages on belt physics, the electric system, and crude oil yield; OpenTTD news on path signals and
+  the OpenTTD manual pages on signals and orders; Game Developer's report on the GDC 2012 GlassBox talk; the Cities: Skylines
+  II traffic AI feature diary; the Hearts of Iron IV supply wiki; community wikis for Satisfactory nodes, Oxygen Not Included
+  pipes and generators, RimWorld stockpiles, and Anno 1800 needs. Read engine code directly where it exists: Micropolis
+  (TrafficGen.java, MapScanner.java, Micropolis.java) for traffic trip generation, density decay, police and fire coverage,
+  and power scan capacity; Julius, the logic-faithful Caesar III reimplementation (figure/movement.c, figure/service.c,
+  building/house_service.c), for walker roaming, coverage value 96, and decay. Cited existing shared sources (Micropolis,
+  Mini Metro, Transport Tycoon, Harvest Moon, Stardew Valley, Eco, Minecraft, Infinite Craft) where they supported claims.
+  Created 20 new sources after checking that each id was absent, then renamed my uncited new ids to match conventions already
+  in the repo (src-wube- for Friday Facts, src-<game>wiki- for community wikis). Scored rubrics by anchor text, taking the
+  lower anchor when between two. Added requires or specializes only for hard dependencies or narrower forms: deposit-depletion
+  requires resource-extraction; hauling-jobs requires agent-pathfinding; traffic-congestion requires road-network;
+  walker-service-delivery requires road-network and specializes service-coverage; public-transit specializes
+  vehicle-route-scheduling. No synergy or tension edges. The web search budget ran out partway; the remaining facts came
+  from fetches of pages already found or from contributor knowledge, and service-queues stayed asserted.
+scope:
+- mechanic (12 resources-production mechanics, from byproducts-waste through storage-capacity)
+- mechanic (12 logistics-networks mechanics, from conveyor-transport through walker-service-delivery)
+- source (20 new sources listed in notes)
+contract_version: '1.0'
+proposals:
+- kind: new-mechanic
+  target: request-provider-logistics
+  detail: >-
+    Requester and provider containers are matched by a dispatcher that sends drones or robots to carry items, with no fixed
+    route or belt (Factorio logistic robots, Dyson Sphere Program logistics stations and drones, Satisfactory drone ports).
+    It owns a request table plus a fleet with range and charge, and its update rule is assigning a free carrier to the nearest
+    provider for each open request. Neither conveyor-transport (fixed lanes) nor hauling-jobs (general agents with other
+    work) covers it. Levers: carrier speed, capacity, range, charging, request priorities.
+- kind: new-mechanic
+  target: delivery-time-payment
+  detail: >-
+    Cargo revenue depends on distance and on transit time, with a per-cargo decay curve (Transport Tycoon and OpenTTD: mail
+    loses value quickly, coal slowly). This is an economy-finance mechanic that vehicle-route-scheduling currently has to
+    describe in passing. It passes all four admission tests. Levers: decay curve per cargo, distance weight, transfer
+    partial payments.
+- kind: new-mechanic
+  target: travel-mode-choice
+  detail: >-
+    Agents choose among walking, driving, and transit by comparing time, comfort, and money costs, including parking fees
+    (Cities: Skylines II feature diary). It is currently split between public-transit and traffic-congestion, but games can
+    have either without mode choice. Levers: cost weights per demographic, parking cost, transfer penalties.
+notes: >-
+  Family: power-grid is tagged resources-production, but the state it owns (network components, satisfaction ratio) fits
+  the logistics-networks definition ('movement of ... energy ... across space or graphs'), as fluid-pipe-network already
+  does. I kept the skeleton family because it is arguable rather than clearly wrong; the orchestrator may want to move it
+  for consistency. E017 is expected on all 24 files: only crop-cultivation and spoilage are tagged by any game yet (RimWorld),
+  and catalog runs will add usage. Facts from contributor knowledge, without a fetched source, that a reviewer should
+  spot-check: RimWorld food stops rotting at or below 0 C; Don't Starve freshness stages; vanilla Cities: Skylines despawns
+  long-stuck vehicles; Pharaoh introduced roadblocks; Anno uses island-wide per-good storage limits raised by warehouses;
+  Company of Heroes sectors must connect to the base to yield resources; Theme Hospital patients lose health while queuing.
+  New sources created and cited: src-wube-2017-fff-176-belts-optimization, src-wube-2023-fff-375-quality,
+  src-wube-2024-fff-414-spoils-of-agriculture, src-wube-2024-fff-416-fluids, src-factoriowiki-2026-transport-belt-physics,
+  src-factoriowiki-2026-electric-system, src-factoriowiki-2026-crude-oil, src-satisfactorywiki-2026-resource-node,
+  src-oniwiki-2026-liquid-pipe, src-oniwiki-2026-natural-gas-generator, src-rimworldwiki-2026-stockpile,
+  src-anno1800wiki-2026-needs, src-paradox-2023-cs2-traffic-ai, src-paradoxwikis-2026-hoi4-supply,
+  src-openttd-2021-path-signals, src-openttd-2026-manual-signals, src-openttd-2026-manual-orders,
+  src-cifaldi-2012-glassbox-engine, src-bvschaik-2026-julius, src-wikipedia-caesar-iii.

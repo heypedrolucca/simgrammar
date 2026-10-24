@@ -1,10 +1,89 @@
 id: anno-117
 type: game
 name: 'Anno 117: Pax Romana'
-summary: TODO
+aliases:
+- Anno 117
+summary: A Roman-era Anno city builder in which residents advance from Liberti to Patricians through categorized
+  needs, buildings affect their neighbors, schools generate research, and modular ships guard multi-island trade.
 year: 2025
 developer: Ubisoft Mainz
+platforms:
+- pc
+- console
 subgenre: city-builder
-status: asserted
+subgenre_secondary:
+- transport-logistics
+sim_domain:
+- urban
+- economic
+- industrial-logistics
+player_role: planner-mayor
+agency_model:
+- zoning-placement
+- direct-unit
+- policy-parameter
+time_model: real-time-pausable
+sim_scale: region
+fidelity: stylized
+perspective: free-3d
+win_structure: open-sandbox
+failure_model: soft-recoverable
+narrative_mode: hybrid
+multiplayer:
+- single
+- coop
+modding: content
+production_tier: aaa
+agent_count_order: aggregate
+emergence: 3
+influence: 1
+core_loop: settle Latium or Albion and house Liberti -> meet categorized needs with multi-island production chains
+  -> residences advance toward Patricians -> schools produce research and temples belief -> ships carry goods on
+  tracked routes -> defend routes and provinces
+design_notes: 'Anno 117 loosens the strict tier-need ladder: needs fall into categories that can be partly filled,
+  and each good carries attributes with benefits and drawbacks for population, income, health, and satisfaction.
+  Placement matters more than in Anno 1800 because production buildings help or harm nearby structures, paved roads
+  extend building range, and diagonal placement is allowed. Belief tied to chosen gods grants scaling bonuses, a
+  system with no exact taxonomy match (see run proposal).'
+mechanics:
+- id: population-strata
+  role: core
+  note: Residences advance from Liberti up to Patricians based on access to goods and on nearby prestige or polluting
+    buildings.
+- id: goods-consumption
+  role: core
+  note: Needs are grouped into categories that can be partly fulfilled; each good's attributes add benefits and
+    drawbacks to population, income, health, and satisfaction.
+- id: production-chain
+  role: core
+  note: Chains span multiple islands and provinces, linked by warehouses, waystations, and hubs.
+- id: adjacency-scoring
+  role: supporting
+  note: Production buildings have positive or negative effects on nearby structures.
+- id: trade-routes
+  role: supporting
+  note: Assigned ships carry goods between islands along routes that can be tracked and rerouted.
+- id: vehicle-route-scheduling
+  role: supporting
+- id: tech-tree
+  role: supporting
+  note: Schools generate research points for a tree of over 100 unlocks, including repeatable technologies.
+- id: road-network
+  role: supporting
+  note: Paved roads extend the range and efficiency of structures.
+- id: unit-commands
+  role: supporting
+  note: Melee, ranged, and siege units in a rock-paper-scissors system; warships protect routes from pirates.
+- id: modular-assembly
+  role: supporting
+  note: Ships are modular; adding oars or sails changes how they move.
+- id: reputation
+  role: supporting
+  note: Standing with the emperor's successor Calidus can earn Consul status or Proconsular authority.
+influenced_by:
+- anno-1800
+sources:
+- src-wikipedia-anno-117
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-ga

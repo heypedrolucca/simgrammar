@@ -1,0 +1,14 @@
+id: src-wikipedia-the-sims
+type: source
+name: The Sims (video game)
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/The_Sims_(video_game)
+accessed: '2026-10-24'
+notes: Maxis, Windows release 2000-02-04, later Mac, Linux, PS2, GameCube, Xbox; free will, 20,000 simoleon
+  start, 150+ objects, death by neglect; A Pattern Language influence; sales and MoMA acquisition.
+provenance:
+  created: 2026-10-24-catalog-gc

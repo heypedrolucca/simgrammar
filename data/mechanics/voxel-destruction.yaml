@@ -1,8 +1,63 @@
 id: voxel-destruction
 type: mechanic
 name: Voxel destruction
-summary: The world is made of destructible units that break, fall, and burn.
+aliases:
+- destructible voxels
+- block breaking
+- destructible environments
+summary: The world is built from small destructible units that can be removed, broken loose, and burned
+  anywhere.
 family: physics-materials
-status: asserted
+substrate:
+- cellular-grid
+- continuous-physics
+definition: The world is stored as voxels with a material per cell, sometimes in several separate volumes.
+  Tools, explosions, and fire remove or convert voxels; the engine then recomputes connectivity, and pieces
+  cut loose either become rigid bodies or stay in place. In Teardown every level is built from destructible
+  voxels; each voxel's material comes from an 8-bit palette setting color, roughness, emissiveness, reflectivity,
+  and physical type; the world is split into several voxel volumes; and the engine does not model compressive
+  stress. Minecraft breaks blocks after a mining time set by tool and material, and only some blocks,
+  such as sand and gravel, fall when unsupported. Outputs are the edited world, debris bodies, and new
+  paths.
+player_experience: Total freedom of route. Any wall can become a door, so players plan paths through buildings
+  and enjoy demolition for its own sake. The world remembers what they broke.
+design_levers:
+- voxel size relative to the player
+- material hardness and which tools break which materials
+- connectivity and support rules for loose pieces
+- debris lifetime and cleanup
+- fire and explosion coupling
+- unbreakable materials that preserve level structure
+failure_modes:
+- Level design is hard because walls and doors cannot block players; Teardown relied on elevation, distance,
+  water, and unbreakable objects.
+- Synchronizing voxel physics over a network is hard; Teardown's team originally judged multiplayer infeasible,
+  and co-op arrived only in a 2026 update.
+- Structures stand on implausibly little support when only connectivity is checked.
+- Destruction at scale caps performance and map size.
+dynamics:
+- Players cut their own routes, turning levels into planning puzzles, as in Teardown's heist missions.
+- Fire and collapses chain through flammable and weakened structures.
+- Persistent edits accumulate, so the world reflects a session's history.
+math_basis:
+- classical-mechanics
+- graph-search
+feedback: none
+player_interface:
+- direct-manipulation
+- embodied-skill
+legibility: 4
+emergence_potential: 4
+authoring_cost: 2
+compute_cost: 4
+tuning_difficulty: 3
+ai_leverage: 3
+maturity: established
+open_questions:
+- Can generative models author voxel levels whose structure holds up to arbitrary destruction?
+- Can learned fracture models give voxel destruction plausible stress without full physical simulation?
+sources:
+- src-wikipedia-teardown
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m4

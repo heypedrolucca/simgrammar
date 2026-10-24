@@ -1,10 +1,87 @@
 id: utopia
 type: game
 name: Utopia
-summary: TODO
-year: 1981
+summary: A two-player Intellivision strategy game in which rival island rulers spend gold on buildings and boats
+  in timed rounds, scoring points for how well their populations are housed, fed, and kept content.
+year: 1982
 developer: Don Daglow (Mattel Electronics)
+platforms:
+- console
+- mainframe-early
 subgenre: city-builder
-status: asserted
+sim_domain:
+- urban
+- economic
+- political-governance
+player_role: ruler-statesman
+agency_model:
+- zoning-placement
+- direct-unit
+time_model: real-time
+sim_scale: settlement
+fidelity: abstract
+perspective: top-down-2d
+win_structure: competitive-victory
+failure_model: soft-recoverable
+narrative_mode: none
+multiplayer:
+- single
+- competitive
+modding: none
+production_tier: aa
+agent_count_order: aggregate
+emergence: 2
+influence: 2
+core_loop: spend gold on houses, farms, factories, forts, and boats -> round timer runs while boats fish and clouds
+  rain on farms -> end-of-round income and score from population welfare -> rebels, storms, and pirates strike ->
+  next round
+design_notes: Utopia runs as up to 50 real-time rounds of 30 to 120 seconds, so the turn boundary is a clock rather
+  than a player action; income from factories arrives at round end while fishing and rain income depend on what
+  happens during the round. Two players share one screen with no AI opponent, and each can fund rebels on the other's
+  island or sink the other's fishing boat with a PT boat, so the welfare score is contested directly. It is commonly
+  cited as the first city-building game, though its release year is disputed between 1981 and 1982.
+mechanics:
+- id: free-placement
+  role: core
+  note: Each player places houses, schools, factories, hospitals, and forts on tiles of their own island, paid for
+    with gold bars.
+- id: periodic-ticks
+  role: core
+  note: Rounds last 30 to 120 seconds for up to 50 rounds; factory output pays out and the score updates at each
+    round's end.
+- id: citizen-satisfaction
+  role: core
+  note: Points depend on population and how well it is housed, fed, and kept happy; neglect lowers the score and
+    invites rebellion.
+- id: stability-unrest
+  role: supporting
+  note: Rebels reduce the score and can destroy buildings; a rival can pay gold to fund rebels on the other island.
+- id: weather
+  role: supporting
+  note: Randomly generated rain clouds earn income when they pass over a player's farms; tropical storms and hurricanes
+    also occur.
+- id: resource-extraction
+  role: supporting
+  note: Fishing boats earn income only while positioned over a moving school of fish.
+- id: unit-commands
+  role: supporting
+  note: Players steer fishing boats and PT boats directly; PT boats sink the opponent's fishing boat.
+- id: budget-treasury
+  role: supporting
+  note: Gold bars are the single currency for all construction.
+claims:
+- text: Wikipedia's infobox and lead date the Intellivision release to 1982-06-03 (Aquarius port 1983), while Guinness
+    World Records names Utopia, released on the Intellivision in 1981, as the first city-building videogame.
+  sources:
+  - src-wikipedia-utopia
+  - src-guinness-2026-first-city-building-game
+  confidence: medium
+  disputes: 'Release year: 1982 per Wikipedia versus 1981 per Guinness World Records and the original skeleton.
+    This entry uses 1982, the dated release.'
+sources:
+- src-wikipedia-utopia
+- src-guinness-2026-first-city-building-game
+- src-wikipedia-city-building-game
+status: contested
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-ga

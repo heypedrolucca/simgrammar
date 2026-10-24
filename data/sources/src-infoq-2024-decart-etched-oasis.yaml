@@ -1,0 +1,13 @@
+id: src-infoq-2024-decart-etched-oasis
+type: source
+name: Decart and Etched release Oasis, a real-time AI-generated Minecraft-like world model
+kind: news
+venue: InfoQ
+date: '2024-11-10'
+url: https://www.infoq.com/news/2024/11/decart-etched-oasis
+accessed: '2026-10-24'
+notes: Oasis at 20 fps and 460p on H100s; 500M open weights described as scaled down; autoencoder with
+  DiT layers, next-frame prediction; only a few minutes of play at a time; placing a dirt block can bring
+  up an entirely new environment.
+provenance:
+  created: 2026-10-24-techniques-world-models

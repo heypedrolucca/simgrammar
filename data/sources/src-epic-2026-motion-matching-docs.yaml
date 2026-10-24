@@ -1,0 +1,15 @@
+id: src-epic-2026-motion-matching-docs
+type: source
+name: Motion Matching in Unreal Engine
+kind: docs
+authors:
+- Epic Games
+venue: Unreal Engine documentation
+date: '2026'
+url: https://dev.epicgames.com/documentation/en-us/unreal-engine/motion-matching-in-unreal-engine
+accessed: '2026-10-24'
+notes: Pose Search plugin; Motion Matching node selects poses from a database to match a runtime query
+  without transition logic; brute force, PCAKDTree, VPTree search; Game Animation Sample; no learned networks
+  described.
+provenance:
+  created: 2026-10-24-techniques-world-models

@@ -1,0 +1,16 @@
+id: src-deepmind-2024-sima-blog
+type: source
+name: A generalist AI agent for 3D virtual environments
+kind: tech-report
+authors:
+- Google DeepMind SIMA Team
+venue: Google DeepMind blog
+date: '2024-03-13'
+url: https://deepmind.google/blog/sima-generalist-ai-agent-for-3d-virtual-environments/
+accessed: '2026-10-24'
+notes: 600 basic skills; nine commercial games (Valheim, Teardown, No Man's Sky, Wobbly Life, Satisfactory,
+  Goat Simulator 3, Hydroneer, Space Engineers, Eco) plus four research environments. Generalist outperformed
+  per-game specialists; held-out-game agent nearly matched specialist. Tasks about 10 seconds; no multi-step
+  strategic planning.
+provenance:
+  created: 2026-10-24-techniques-llm-agents

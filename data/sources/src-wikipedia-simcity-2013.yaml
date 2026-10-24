@@ -1,0 +1,15 @@
+id: src-wikipedia-simcity-2013
+type: source
+name: SimCity (2013 video game)
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/SimCity_(2013_video_game)
+accessed: '2026-10-24'
+notes: 'Region play: cities share highways, rail, and waterways, trade resources, share services, see traffic and
+  pollution cross borders, and pool wealth into Great Works; asynchronous always-online connection; launch outages
+  and save problems; offline mode in a later update.'
+provenance:
+  created: 2026-10-24-taxonomy-m7

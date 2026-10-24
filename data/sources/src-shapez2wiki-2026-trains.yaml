@@ -1,0 +1,15 @@
+id: src-shapez2wiki-2026-trains
+type: source
+name: Trains
+kind: encyclopedia
+authors:
+- shapez 2 Wiki contributors
+venue: shapez 2 Wiki
+date: '2026'
+url: https://shapez2.wiki.gg/wiki/Trains
+accessed: '2026-10-24'
+notes: Rails carry trains of several colors, each taking its own color's branch at splitters; loaders
+  fill fixed-size packages; shape and fluid wagons hold up to three packages, one per machine level; immediate
+  stops pause about 4 s; unlocked at Milestone 2.
+provenance:
+  created: 2026-10-24-catalog-gh

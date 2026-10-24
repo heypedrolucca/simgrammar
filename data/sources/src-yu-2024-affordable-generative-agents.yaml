@@ -1,0 +1,21 @@
+id: src-yu-2024-affordable-generative-agents
+type: source
+name: Affordable Generative Agents
+kind: preprint
+authors:
+- Yangbin Yu
+- Qin Zhang
+- Junyou Li
+- Qiang Fu
+- Deheng Ye
+venue: arXiv
+date: 2024-02
+url: https://arxiv.org/abs/2402.02053
+arxiv: '2402.02053'
+accessed: '2026-10-24'
+notes: 'Lifestyle Policy replays stored plan-action sequences when a new plan matches by embedding cosine
+  >= 0.97 and conditions hold; Social Memory compresses about 2,000 prompt tokens (30-45 events) to about
+  100. Tokens: 31.1% of baseline (3 agents, two game days), 42.7% (25 agents), 3.4% (VirtualHome, one
+  agent-day); task success differences not significant.'
+provenance:
+  created: 2026-10-24-techniques-llm-agents

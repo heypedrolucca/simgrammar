@@ -1,0 +1,14 @@
+id: src-wikipedia-spacechem
+type: source
+name: SpaceChem
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/SpaceChem
+accessed: '2026-10-24'
+notes: Released 2011-01-01 by Zachtronics; solutions ranked on instructions, cycles, and reactors; Zach Barth designed global
+  histograms so players could check solutions without being overwhelmed by top players on a leaderboard.
+provenance:
+  created: 2026-10-24-taxonomy-m6

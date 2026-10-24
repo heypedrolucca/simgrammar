@@ -1,0 +1,13 @@
+id: src-wikipedia-caesar-iii
+type: source
+name: "Caesar III"
+kind: encyclopedia
+authors:
+  - "Wikipedia contributors"
+venue: "Wikipedia"
+date: "2026"
+url: https://en.wikipedia.org/wiki/Caesar_III
+accessed: "2026-10-24"
+notes: "Released 1998-09-30 by Impressions Games; inhabitants provide services to buildings by walking past them, adding strategy to road pathing."
+provenance:
+  created: 2026-10-24-taxonomy-m1

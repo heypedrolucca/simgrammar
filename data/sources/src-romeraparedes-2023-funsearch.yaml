@@ -1,0 +1,19 @@
+id: src-romeraparedes-2023-funsearch
+type: source
+name: Mathematical discoveries from program search with large language models
+kind: paper
+authors:
+- Bernardino Romera-Paredes
+- Mohammadamin Barekatain
+- Alexander Novikov
+- et al.
+- Alhussein Fawzi
+venue: Nature 625, 468-475
+date: '2023-12-14'
+url: https://www.nature.com/articles/s41586-023-06924-6
+doi: 10.1038/s41586-023-06924-6
+accessed: '2026-10-24'
+notes: 'FunSearch: frozen LLM proposes programs, evaluator scores them, island-based program database;
+  cap set of size 512 in dimension 8; online bin-packing heuristics beat first fit and best fit.'
+provenance:
+  created: 2026-10-24-techniques-sim-math

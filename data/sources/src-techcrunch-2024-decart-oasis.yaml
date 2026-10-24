@@ -1,0 +1,14 @@
+id: src-techcrunch-2024-decart-oasis
+type: source
+name: Decart's AI simulates a real-time, playable version of Minecraft
+kind: news
+authors:
+- Kyle Wiggers
+venue: TechCrunch
+date: '2024-10-31'
+url: https://techcrunch.com/2024/10/31/decarts-ai-simulates-a-real-time-playable-version-of-minecraft/
+accessed: '2026-10-24'
+notes: Oasis trained on Minecraft gameplay video, runs on H100s; layout forgotten after turning around;
+  Decart did not say it had Microsoft's permission for the footage; $21M seed.
+provenance:
+  created: 2026-10-24-techniques-world-models

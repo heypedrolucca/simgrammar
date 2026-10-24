@@ -1,10 +1,71 @@
 id: mini-metro
 type: game
 name: Mini Metro
-summary: TODO
-year: 2014
+summary: >-
+  A minimalist subway-design game where the player draws and redraws lines between shape-coded stations under a weekly ration
+  of trains and tunnels until a station overcrowds.
+year: 2013
+year_full_release: 2015
 developer: Dinosaur Polo Club
+platforms:
+- pc
+- mobile
+- handheld
+- console
+- web
 subgenre: transport-logistics
-status: asserted
+sim_domain:
+- urban
+- industrial-logistics
+player_role: planner-mayor
+agency_model:
+- zoning-placement
+time_model: real-time-pausable
+sim_scale: city
+fidelity: abstract
+perspective: top-down-2d
+win_structure: score-ranking
+failure_model: hard-restart
+narrative_mode: none
+multiplayer:
+- single
+modding: none
+production_tier: indie
+agent_count_order: '100'
+emergence: 2
+influence: 2
+core_loop: >-
+  new stations appear -> draw or reroute lines -> trains carry shape-matched passengers -> weekly grant of new assets -> demand
+  outgrows capacity -> a station overcrowds and the run ends
+design_notes: >-
+  Mini Metro abstracts a metro network into station shapes, passengers drawn as the shape of the station type they want to
+  reach, and a scarce inventory of lines, locomotives, tunnels, and bridges. New stations keep appearing while supply arrives
+  only as a weekly grant, so the player keeps redrawing a network that is always under capacity. Failure is local and visible:
+  a station over its limit (typically six passengers) for long enough ends the run. Modes vary the rules: Extreme fixes lines
+  once placed, Endless removes overcrowding, and Creative is a sandbox.
+mechanics:
+- id: public-transit
+  role: core
+  note: >-
+    The player draws colored lines between stations and assigns trains that load and unload automatically; ridership is the
+    score.
+- id: service-queues
+  role: core
+  note: >-
+    Passengers wait at stations with limited capacity, typically six; interchanges raise capacity and loading speed, and a
+    station overcrowded too long ends the game.
+- id: agent-pathfinding
+  role: supporting
+  note: Passengers ride to any station of their target shape, transferring between lines when needed.
+- id: periodic-ticks
+  role: supporting
+  note: >-
+    Each in-game week grants extra rolling stock and a choice of assets such as tunnels, bridges, new lines, or interchanges.
+- id: variable-speed
+  role: supporting
+  note: Time can be paused to reroute lines or move trains.
+sources:
+- src-wikipedia-mini-metro
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-ge

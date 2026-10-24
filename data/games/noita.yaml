@@ -1,10 +1,87 @@
 id: noita
 type: game
 name: Noita
-summary: TODO
+summary: A roguelite action game in which every pixel of the world is simulated as a falling-sand material
+  that burns, melts, flows, and reacts, and the player builds wands from spells to dig through procedurally
+  generated levels.
 year: 2019
+year_full_release: 2020
 developer: Nolla Games
+platforms:
+- pc
 subgenre: physics-sandbox
-status: asserted
+sim_domain:
+- physical-mechanical
+player_role: inhabitant
+agency_model:
+- direct-avatar
+time_model: real-time
+sim_scale: individual
+fidelity: stylized
+perspective: top-down-2d
+win_structure: campaign
+failure_model: hard-restart
+narrative_mode: emergent
+multiplayer:
+- single
+modding: scripting
+production_tier: indie
+agent_count_order: '100'
+emergence: 4
+influence: 2
+core_loop: descend into a procedurally generated biome -> fight enemies with wands that also reshape the
+  pixel world -> survive fire, liquids, and gases set off by fighting -> buy or find spells and rebuild
+  wands at the Holy Mountain -> descend again or die and restart
+design_notes: Noita's Falling Everything engine simulates each pixel as a material with state (solid,
+  powder, liquid, gas) and reaction rules, and solid bodies are Box2D rigid bodies that break into pixels
+  when damaged. Because spells, enemies, and the player all act on that layer, combat routinely sets off
+  chain events such as burning oil, steam explosions, flooding, and collapsing ceilings, and these kill
+  the player as often as enemies do. Wand building composes spells with modifiers into programs with cast
+  order and mana limits, and runs are permadeath.
+mechanics:
+- id: falling-sand-materials
+  role: core
+  note: Every pixel of terrain is a material that falls, flows, or rises by local rules, so digging, explosions,
+    and spills reshape the level in real time.
+- id: material-interactions
+  role: core
+  note: 'Materials react by rule: lava and water form rock and steam, wood burns into smoke, acid eats
+    terrain, and alchemical liquids such as polymorphine or teleportatium apply their effects on contact.'
+- id: permadeath
+  role: core
+  note: A death ends the run and the world is regenerated; only some unlocks, such as new spells in the
+    pool, persist.
+- id: modular-assembly
+  role: core
+  note: Wands have stats such as capacity, mana, recharge, and cast delay; spells and modifiers placed
+    in a wand's slots execute in order, so arrangement changes what the wand does.
+- id: rigid-body-physics
+  role: supporting
+  note: Box2D rigid bodies such as crates, bricks, and detached terrain chunks can be kicked, thrown,
+    and shattered.
+- id: fire-spread
+  role: supporting
+  note: Fire spreads through wood, grass, oil, and gunpowder and burns the player and enemies alike.
+- id: fluid-gas-simulation
+  role: supporting
+  note: Liquids pool and flow and gases rise and spread through caves at pixel level.
+- id: procedural-terrain
+  role: supporting
+  note: Each seed generates biome layouts from hand-made tile pieces within a fixed order of biomes.
+- id: direct-avatar
+  role: supporting
+  note: The player controls one witch with levitation, kicking, and wand casting.
+- id: modding-api
+  role: supporting
+  note: Lua-based mods are supported and distributed through Steam Workshop.
+- id: combination-discovery
+  role: supporting
+  note: Each world seed defines two secret alchemy recipes (Lively Concoction and Alchemic Precursor),
+    each made from three materials that players must find by experiment.
+influenced_by:
+- the-powder-toy
+sources:
+- src-wikipedia-noita
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gg

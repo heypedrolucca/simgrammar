@@ -1,10 +1,95 @@
 id: cities-skylines-2
 type: game
 name: 'Cities: Skylines II'
-summary: TODO
+summary: 'The sequel to Cities: Skylines, with citizens choosing routes by time, comfort, and money, a
+  tech tree of development points, preset climates with seasons, and maps of up to 441 tiles.'
 year: 2023
-developer: Colossal Order
+developer: Colossal Order (Iceflake Studios from 2026)
+platforms:
+- pc
 subgenre: city-builder
-status: asserted
+subgenre_secondary:
+- transport-logistics
+sim_domain:
+- urban
+- economic
+player_role: planner-mayor
+agency_model:
+- zoning-placement
+- policy-parameter
+time_model: real-time-pausable
+sim_scale: city
+fidelity: systemic
+perspective: free-3d
+win_structure: open-sandbox
+failure_model: soft-recoverable
+narrative_mode: emergent
+multiplayer:
+- single
+modding: scripting
+production_tier: aa
+agent_count_order: 10k-plus
+emergence: 3
+influence: 1
+core_loop: zone and draw roads -> citizens choose homes, jobs, and routes by cost, time, and comfort ->
+  taxes and fees fund services -> milestones grant development points and map tiles -> unlock transport
+  and services -> expand
+design_notes: Route choice is a weighted cost over time, comfort, money, and behavior, so parking fees,
+  transit fares, and lane choice shift where agents go, and the first game's cap of about 65,000 rendered
+  citizens is replaced by a hardware limit. One in-game day and night stands for a month, so daily traffic
+  rhythms and seasonal climate run on different scales. The launch drew criticism for performance and
+  its economy simulation, console versions were delayed indefinitely in 2024, and development moved from
+  Colossal Order to Iceflake Studios after a November 2025 announcement.
+mechanics:
+- id: zoning
+  role: core
+  note: Residential, commercial, industrial, and office zones along roads, with signature buildings unlocked
+    at milestones.
+- id: traffic-congestion
+  role: core
+  note: Vehicles spread across lanes, parking fees enter route cost, and accident checks run per road
+    segment.
+- id: agent-pathfinding
+  role: core
+  note: Citizens compare driving, transit, and walking with a cost combining time, comfort, money, and
+    personal preference.
+- id: public-transit
+  role: supporting
+- id: tech-tree
+  role: supporting
+  note: Development points are spent in a tree to unlock transport options and services.
+- id: milestone-unlocks
+  role: supporting
+  note: Milestones grant development points and map tiles, from 9 starting tiles up to 441.
+- id: seasons
+  role: supporting
+  note: Each map has a preset climate; winters bring snow.
+- id: random-disasters
+  role: supporting
+  note: Floods, forest fires, and tornadoes, mitigated by disaster response services.
+- id: day-night-cycle
+  role: supporting
+  note: Each day and night cycle equals one simulated month.
+- id: land-value
+  role: supporting
+  note: Signature buildings and services change land value in their zone.
+- id: taxation
+  role: supporting
+  note: Tax rates, fees, and ordinances fund the city.
+- id: service-coverage
+  role: supporting
+- id: modding-api
+  role: supporting
+  note: Paradox Mods since 2024-03-25; mods can override game code.
+- id: travel-mode-choice
+  role: supporting
+  note: Citizens compare driving, transit, and walking using a cost of time, comfort, money, and personal
+    behavior, and parking fees enter the driving cost.
+influenced_by:
+- cities-skylines
+sources:
+- src-wikipedia-cities-skylines-2
+- src-paradox-2023-cs2-traffic-ai
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-ga

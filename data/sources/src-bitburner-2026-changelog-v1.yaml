@@ -1,0 +1,13 @@
+id: src-bitburner-2026-changelog-v1
+type: source
+name: Bitburner changelog (v1)
+kind: repository
+authors:
+- Bitburner contributors
+venue: GitHub (bitburner-official/bitburner-src)
+date: '2026'
+url: https://raw.githubusercontent.com/bitburner-official/bitburner-src/dev/src/Documentation/doc/en/changelog-v1.md
+accessed: '2026-10-24'
+notes: Version 1.0.0 is dated 2021-11-10.
+provenance:
+  created: 2026-10-24-catalog-gh

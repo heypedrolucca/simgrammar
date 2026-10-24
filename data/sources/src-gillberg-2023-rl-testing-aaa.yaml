@@ -1,0 +1,18 @@
+id: src-gillberg-2023-rl-testing-aaa
+type: source
+name: Technical Challenges of Deploying Reinforcement Learning Agents for Game Testing in AAA Games
+kind: paper
+authors:
+- Jonas Gillberg
+- Joakim Bergdahl
+- Alessandro Sestini
+- Andrew Eakins
+- Linus Gisslén
+venue: IEEE Conference on Games 2023
+date: 2023-08
+arxiv: '2307.11105'
+accessed: '2026-10-24'
+notes: EA SEED added an experimental RL system to scripted-bot automated testing for titles including
+  Battlefield 2042 and Dead Space (2023); reports the largest integration time sinks.
+provenance:
+  created: 2026-10-24-techniques-rl-design

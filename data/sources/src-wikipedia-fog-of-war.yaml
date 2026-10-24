@@ -1,0 +1,15 @@
+id: src-wikipedia-fog-of-war
+type: source
+name: Fog of war
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Fog_of_war
+accessed: '2026-10-24'
+notes: 'Video game section: Walter Bright''s Empire (1977) credited as earliest use; Tanktics (1978); Warcraft and StarCraft
+  reveal through reconnaissance with previously seen areas keeping terrain but not unit changes; AI given full map knowledge
+  seen as cheating.'
+provenance:
+  created: 2026-10-24-taxonomy-m6

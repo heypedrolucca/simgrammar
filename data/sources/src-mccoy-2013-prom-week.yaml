@@ -1,0 +1,20 @@
+id: src-mccoy-2013-prom-week
+type: source
+name: Prom Week
+kind: paper
+authors:
+- Josh McCoy
+- Mike Treanor
+- Ben Samuel
+- Aaron Reed
+- Michael Mateas
+- Noah Wardrip-Fruin
+venue: Proceedings of the AAAI Conference on Artificial Intelligence and Interactive Digital Entertainment
+  (AIIDE) 9(1)
+date: 2013-10
+url: https://ojs.aaai.org/index.php/AIIDE/article/view/12662
+accessed: '2026-10-24'
+notes: 'Demo paper: Prom Week uses the social AI system Comme il Faut (CiF) to make social relationships
+  playable.'
+provenance:
+  created: 2026-10-24-catalog-gc

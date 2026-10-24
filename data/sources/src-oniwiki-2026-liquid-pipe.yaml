@@ -1,0 +1,13 @@
+id: src-oniwiki-2026-liquid-pipe
+type: source
+name: "Liquid Pipe"
+kind: encyclopedia
+authors:
+  - "Oxygen Not Included Wiki contributors"
+venue: "Oxygen Not Included Wiki (wiki.gg)"
+date: "2026"
+url: https://oxygennotincluded.wiki.gg/wiki/Liquid_Pipe
+accessed: "2026-10-24"
+notes: "Each segment holds 10 kg; packets move once per second; max 10 kg/s per line; liquid exchanges heat with the pipe segment and its tile."
+provenance:
+  created: 2026-10-24-taxonomy-m1

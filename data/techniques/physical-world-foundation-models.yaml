@@ -1,0 +1,84 @@
+id: physical-world-foundation-models
+type: technique
+name: Physical-world foundation models
+aliases:
+- NVIDIA Cosmos
+- V-JEPA 2
+- world foundation models
+summary: Video-pretrained models of physical dynamics, NVIDIA Cosmos for generating action-conditioned
+  training video and Meta's V-JEPA 2 for latent prediction and planning, target robotics and driving rather
+  than games.
+category: generative-world-model
+year: 2025
+mechanism: Cosmos curates about 20M hours of raw video into about 100M clips, compresses them with causal
+  video tokenizers, and pretrains diffusion (Text2World, Video2World) and autoregressive world models
+  that developers post-train into action- or camera-conditioned simulators; Cosmos 3 (2026) is an omni
+  family at 4B, 16B, and 64B parameters. V-JEPA 2 instead predicts masked video in a learned embedding
+  space, not pixels, from over 1M hours of video; its action-conditioned variant V-JEPA 2-AC is post-trained
+  on under 62 hours of robot video and plans by searching for action sequences whose predicted embedding
+  approaches a goal image.
+key_results:
+- text: Cosmos (January 2025) pretrained diffusion and autoregressive world foundation models on about
+    100M clips curated from about 20M hours of video and released them as open weights with permissive
+    licenses.
+  sources:
+  - src-nvidia-2025-cosmos-wfm
+  confidence: high
+- text: Cosmos 3 ships Super 64B, Nano 16B, and Edge 4B models under the OpenMDW1.1 license, positioned
+    for autonomous vehicle and robot synthetic data, closed-loop evaluation, and robot policy training,
+    with no mention of games.
+  sources:
+  - src-nvidia-2026-cosmos-page
+  confidence: high
+- text: V-JEPA 2-AC, post-trained on under 62 hours of DROID robot video, performed zero-shot pick-and-place
+    with image goals on Franka arms in two labs without task-specific data or reward.
+  sources:
+  - src-assran-2025-v-jepa-2
+  confidence: high
+- text: On Meta's IntPhys 2 benchmark of physical plausibility, current video models including V-JEPA
+    2 score at or near chance while humans score 85 to 95 percent across the released benchmarks.
+  sources:
+  - src-meta-2025-v-jepa-2-blog
+  confidence: high
+maturity: research
+trl: 3
+runtime:
+- offline-authoring
+- server-realtime
+determinism_impact: breaks
+horizon: 5y-plus
+risks:
+- consistency
+- compute-cost
+- evaluation
+- controllability
+affects:
+- id: vehicle-dynamics
+  effect: replaces-substrate
+  note: Cosmos is positioned for autonomous-vehicle training and closed-loop evaluation; a driving model
+    post-trained from it predicts scene video under driving inputs with no tire or suspension model, which
+    suits traffic scenarios more than the handling fidelity a racing sim needs.
+- id: rigid-body-physics
+  effect: replaces-substrate
+  note: Learned video dynamics could stand in for a physics engine in open-ended scenes, but near-chance
+    IntPhys 2 scores show current models do not reliably reject impossible motion.
+- id: utility-action-selection
+  effect: replaces-substrate
+  note: V-JEPA 2-AC scores candidate action sequences by predicted distance to a goal image in latent
+    space, a learned alternative to hand-written utility curves for agents whose goals can be pictured.
+builds_on:
+- massively-parallel-simulation
+limitations:
+- Designed for robots and vehicles; no game integration or game-specific evaluation exists in the cited
+  sources.
+- 'Physical plausibility is unreliable: video models are at or near chance on IntPhys 2.'
+- Large models (up to 64B in Cosmos 3) are far from per-player real-time budgets.
+- V-JEPA 2 predicts at a single time scale, limiting long-horizon planning (Meta's stated limitation).
+sources:
+- src-nvidia-2025-cosmos-wfm
+- src-nvidia-2026-cosmos-page
+- src-assran-2025-v-jepa-2
+- src-meta-2025-v-jepa-2-blog
+status: sourced
+provenance:
+  created: 2026-10-24-techniques-world-models

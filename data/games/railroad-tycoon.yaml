@@ -1,10 +1,106 @@
 id: railroad-tycoon
 type: game
 name: Railroad Tycoon
-summary: TODO
+aliases:
+- Sid Meier's Railroad Tycoon
+summary: A railroad business sim in which the player lays track, builds stations, schedules trains to
+  meet regional supply and demand, and battles rival barons through the stock market.
 year: 1990
-developer: MicroProse
+developer: MPS Labs (MicroProse)
+platforms:
+- pc
 subgenre: transport-logistics
-status: asserted
+subgenre_secondary:
+- business-economic-sim
+sim_domain:
+- industrial-logistics
+- economic
+player_role: manager-owner
+agency_model:
+- zoning-placement
+- direct-unit
+- policy-parameter
+time_model: real-time-pausable
+sim_scale: region
+fidelity: stylized
+perspective: top-down-2d
+win_structure: score-ranking
+failure_model: hard-restart
+narrative_mode: none
+multiplayer:
+- single
+modding: none
+production_tier: aa
+agent_count_order: '10'
+emergence: 3
+influence: 4
+core_loop: lay track and place stations -> buy trains and set consists and stops -> carry cargo to stations
+  where it is demanded -> revenue and industry growth -> raise capital through bonds and stock -> defend
+  against rival barons
+design_notes: Railroad Tycoon joins a train-operations model to a corporate-finance model. Stations come
+  in four sizes (signal tower, depot, station, terminal) with growing service areas, and an economy setting
+  chooses between a simple economy where big cities buy almost anything and a complex one where they buy
+  only certain goods. The company starts with $1 million split between equity and a loan, raises more
+  through bonds, and trades in a small stock market where rival barons attempt buyouts and rate wars.
+  Meier took the idea from the board game 1830 and also cited SimCity. Track construction has no matching
+  mechanic in the taxonomy (proposed as track-laying), and dated vehicle availability is proposed as dated-tech-timeline.
+mechanics:
+- id: vehicle-route-scheduling
+  role: core
+  note: Each train gets ordered stops and a consist of mail, passenger, and freight cars for nine commodity
+    types; consists can be changed at any stop.
+- id: supply-demand-pricing
+  role: core
+  note: Stations supply and demand goods and passengers; under the complex economy cities accept only
+    certain products, so routing follows demand.
+- id: equity-buyouts
+  role: core
+  note: A small stock market lets the player trade its own and rival stock; rivals use stock dealings
+    to try to take over the player's railroad.
+- id: rival-firms
+  role: core
+  note: AI railroad barons build competing lines and start rate wars over shared stations.
+- id: free-placement
+  role: core
+  note: Track is laid on a square tile grid and up to 32 stations are placed; the first station gets the
+    engine shop where trains are built.
+- id: service-coverage
+  role: supporting
+  note: Depots, stations, and terminals draw cargo from progressively larger surrounding areas.
+- id: rail-signaling
+  role: supporting
+  note: Signal towers act as passing loops and control train movements on shared track.
+- id: production-chain
+  role: supporting
+  note: Industries consume delivered freight and produce new cargo; players can build additional industries.
+- id: loans-debt
+  role: supporting
+  note: Starting capital is half a loan; bonds raise more at interest rates tied to the economy.
+- id: periodic-ticks
+  role: supporting
+  note: Accounts settle in two-year periods across a century of play.
+- id: unit-commands
+  role: supporting
+  note: Players can take direct control of individual train movements.
+- id: variable-speed
+  role: supporting
+- id: delivery-time-payment
+  role: supporting
+  note: Delivery revenue depends on cargo type, distance, and travel time, so fast trains earn more for
+    passengers and mail.
+- id: dated-tech-timeline
+  role: supporting
+  note: New locomotive types become available as the calendar advances through the eras, from early steam
+    engines toward diesels.
+- id: track-laying
+  role: core
+  note: Track is laid tile by tile across terrain whose slope and features add cost, linking up to 32
+    stations.
+influenced_by:
+- simcity-1989
+sources:
+- src-wikipedia-railroad-tycoon
+- src-wikipedia-sid-meier
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-ge

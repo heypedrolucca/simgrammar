@@ -1,8 +1,61 @@
 id: unit-commands
 type: mechanic
 name: Unit commands
-summary: The player issues direct orders to units or agents, overriding their autonomy.
+aliases:
+- direct orders
+- drafting
+- move and attack orders
+summary: The player issues direct orders to specific units or agents, overriding their autonomous behavior.
 family: control-automation
+substrate:
+- agent-based
+- rule-system
+definition: >-
+  The player selects one or more units and gives explicit orders (move here, attack this, use that, stay, guard)
+  that take precedence over the units' autonomous decision making. State owned: per-unit order queue and override
+  flag. Update rule: when an order is present, the unit's action selection is bypassed or constrained to executing
+  it; on completion or cancellation, autonomy resumes. Orders can be queued and may be refused if impossible. In
+  simulation games it often sits beside autonomy: RimWorld's drafting switches a colonist from autonomous work to
+  direct control for combat; The Sims lets the player queue actions for a Sim who otherwise acts on free will; Dwarf
+  Fortress squads take orders while civilians do not. Strategy games make it the default control mode.
+player_experience: >-
+  When autonomy fails or stakes are high, the player takes the wheel. Drafting colonists into a defensive line or
+  forcing a Sim to bed is precise and reassuring, but heavy use turns agents into puppets and the player into a
+  micromanager.
+design_levers:
+- 'scope: any unit, only military units, or only drafted units'
+- how long overrides last and how autonomy resumes
+- order queue length and shift-queue support
+- whether units can refuse or delay orders based on morale or needs
+- group orders and formations
+- what autonomous behavior continues under orders, such as eating or fleeing
+failure_modes:
+- Orders are needed constantly because autonomy is weak, turning play into micromanagement.
+- Drafted or ordered agents ignore needs and starve or collapse, producing deaths players blame on the interface.
+- Unclear return-to-autonomy rules leave units idle after an order completes.
+dynamics:
+- 'A dual mode emerges: autonomy in peace and direct command in crisis, giving play a rhythm of calm and intensity.'
+- The cost of micromanagement pushes players to improve autonomy-affecting systems such as priorities and schedules.
+- Override on one agent shifts load to others, revealing hidden dependencies in job systems.
+math_basis:
+- graph-search
+- scheduling
+feedback: none
+player_interface:
+- orders
+legibility: 4
+emergence_potential: 2
+authoring_cost: 2
+compute_cost: 2
+tuning_difficulty: 2
+ai_leverage: 3
+maturity: classic
+open_questions:
+- Can units interpret high-level natural-language orders (hold the bridge until the medic arrives) and decompose
+  them, and how should they report failure?
+- When agents have language-model reasoning, how should they negotiate or refuse orders without frustrating the
+  player?
+sources: []
 status: asserted
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m6

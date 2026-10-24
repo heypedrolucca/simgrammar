@@ -1,0 +1,16 @@
+id: src-faldor-2024-omni-epic
+type: source
+name: 'OMNI-EPIC: Open-endedness via Models of human Notions of Interestingness with Environments Programmed
+  in Code'
+kind: preprint
+authors:
+- Maxence Faldor
+- Jenny Zhang
+- Antoine Cully
+- Jeff Clune
+venue: arXiv
+date: '2024-05-24'
+arxiv: '2405.15568'
+accessed: '2026-10-24'
+provenance:
+  created: 2026-10-24-techniques-rl-design

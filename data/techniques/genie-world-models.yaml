@@ -1,0 +1,118 @@
+id: genie-world-models
+type: technique
+name: Genie foundation world models
+aliases:
+- Genie
+- Genie 2
+- Genie 3
+- Project Genie
+summary: Google DeepMind's Genie models generate playable worlds from a text or image prompt and render
+  them in real time from player input, with Genie 3 reaching 720p at 24 fps and about a minute of visual
+  memory.
+category: generative-world-model
+year: 2025
+mechanism: 'Genie (2024) learned from 30k hours of unlabeled 2D platformer video: a video tokenizer, a
+  latent action model that infers 8 discrete actions between frames without labels, and a 10.1B-parameter
+  dynamics model that predicts the next frame tokens given an action. Genie 2 (December 2024) is an autoregressive
+  latent diffusion model with a transformer dynamics model that turns a single image into a 3D world controlled
+  by keyboard and mouse. Genie 3 (August 2025) generates frames auto-regressively in real time from a
+  text prompt, keeps visual memory of earlier frames for about a minute so revisited places look the same,
+  and accepts text ''promptable world events'' during play that add objects, characters, or weather changes.
+  No explicit 3D scene or game state is stored; consistency comes from the frame history.'
+key_results:
+- text: Genie has 11B parameters trained on 30k hours of 2D platformer clips with 8 latent actions; it
+    generates about 1 frame per second and has 16 frames of memory, which the paper lists as limitations.
+  sources:
+  - src-bruce-2024-genie
+  confidence: high
+- text: Genie 2 turns one image into a playable 3D world with water, smoke, gravity, lighting, door opening,
+    and NPCs; worlds stay coherent for up to a minute, but most examples last 10 to 20 seconds.
+  sources:
+  - src-deepmind-2024-genie-2
+  confidence: high
+- text: Genie 3 renders 720p at 24 fps in real time, stays consistent for a few minutes with visual memory
+    reaching back about one minute, and supports text prompts that change weather or add objects and characters
+    mid-session; DeepMind lists limited action space and multi-agent interaction as open problems.
+  sources:
+  - src-deepmind-2025-genie-3
+  confidence: high
+- text: Project Genie opened Genie 3 to US Google AI Ultra subscribers on 2026-01-29 with a 60-second
+    limit per world set by compute cost; a reviewer saw characters walk through walls and sometimes unresponsive
+    controls, and copyrighted settings were refused.
+  sources:
+  - src-techcrunch-2026-project-genie
+  - src-wikipedia-project-genie
+  confidence: high
+- text: Shares of video game companies, including Unity, fell after the Project Genie launch.
+  sources:
+  - src-wikipedia-project-genie
+  confidence: medium
+- text: Waymo built a world model on Genie 3 (February 2026) to simulate driving edge cases, controllable
+    by driving action, scene layout, and language.
+  sources:
+  - src-wikipedia-genie-ai-model
+  confidence: medium
+maturity: prototype
+trl: 6
+runtime:
+- server-realtime
+determinism_impact: breaks
+horizon: 3-5y
+risks:
+- consistency
+- compute-cost
+- controllability
+- ip-provenance
+- content-safety
+affects:
+- id: weather
+  effect: enables-new
+  note: Genie 3's promptable world events change weather by text during a session with no weather simulation
+    or authored weather assets; the change is visual only and has no stored state for crops, agents, or
+    travel to read.
+- id: storyteller-director
+  effect: cuts-authoring-cost
+  note: A director could inject an event (a new character, object, or condition) as a text prompt that
+    Genie 3 renders into the running world, removing per-event art and animation; event selection and
+    pacing still need a separate system with real state.
+- id: procedural-terrain
+  effect: enables-new
+  note: Worlds come from a text or image prompt instead of a seed and noise pipeline, in any visual style;
+    persistence is minutes long (about one minute of visual memory in Genie 3, 60-second sessions in Project
+    Genie).
+- id: direct-avatar
+  effect: replaces-substrate
+  note: First- or third-person character movement is rendered by the model from WASD, camera, and jump
+    input; the action space is small and collisions are not guaranteed (characters passing through walls).
+- id: rigid-body-physics
+  effect: replaces-substrate
+  note: Object responses such as doors opening, balloons bursting, water, and smoke are produced by learned
+    video dynamics (Genie 2) rather than a physics engine, with no conservation or collision guarantees.
+- id: generative-content
+  effect: enables-new
+  note: Whole explorable scenes, characters, and events are generated at runtime from player text, sketches,
+    or photos, which extends generative content from text and items to playable space.
+- id: god-powers
+  effect: enables-new
+  note: 'Promptable world events work as a free-form god power: typed text adds characters, objects, or
+    weather to the running world; Genie 3 attaches no cost or rule to them and their effects exist only
+    in rendered frames.'
+limitations:
+- 'Session length: Genie 2 coherence is usually 10 to 20 seconds; Genie 3 manages a few minutes; Project
+  Genie caps exploration at 60 seconds because of compute.'
+- 'No inspectable state: there are no variables for inventory, health, or object identity, so mechanics
+  that need stocks or rules must live in a separate system.'
+- Limited action space and no reliable multi-agent interaction (DeepMind's stated Genie 3 limitations).
+- Access is a hosted research prototype for paying subscribers; no public API, price per hour, or on-device
+  version is published.
+- Guardrails refuse copyrighted settings and nudity, which constrains user-generated worlds.
+sources:
+- src-bruce-2024-genie
+- src-deepmind-2024-genie-2
+- src-deepmind-2025-genie-3
+- src-techcrunch-2026-project-genie
+- src-wikipedia-project-genie
+- src-wikipedia-genie-ai-model
+status: sourced
+provenance:
+  created: 2026-10-24-techniques-world-models

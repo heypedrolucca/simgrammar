@@ -1,0 +1,15 @@
+id: src-deepmind-2025-sima-2-blog
+type: source
+name: 'SIMA 2: An Agent that Plays, Reasons, and Learns With You in Virtual 3D Worlds'
+kind: tech-report
+authors:
+- Google DeepMind SIMA Team
+venue: Google DeepMind blog
+date: '2025-11-13'
+url: https://deepmind.google/blog/sima-2-an-agent-that-plays-reasons-and-learns-with-you-in-virtual-3d-worlds/
+accessed: '2026-10-24'
+notes: Gemini core; reasons about goals, explains actions, converses, answers questions about environment;
+  follows sketches, emoji, multiple languages; unseen games ASKA and MineDojo and Genie 3 worlds; self-improvement
+  from Gemini-proposed tasks and rewards. Limited research preview for academics and developers.
+provenance:
+  created: 2026-10-24-techniques-llm-agents

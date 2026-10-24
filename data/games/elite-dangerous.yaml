@@ -1,10 +1,121 @@
 id: elite-dangerous
 type: game
 name: Elite Dangerous
-summary: TODO
+aliases:
+- 'Elite: Dangerous'
+summary: An online space sim set in a 1:1 procedurally generated Milky Way where players trade, fight,
+  mine, and explore while a server-side background simulation shifts faction control from aggregate player
+  actions.
 year: 2014
 developer: Frontier Developments
+platforms:
+- pc
+- console
+- vr
 subgenre: space-sim
-status: asserted
+subgenre_secondary:
+- mmo-world
+sim_domain:
+- cosmic-space
+- economic
+- political-governance
+player_role: operator-pilot
+agency_model:
+- direct-avatar
+time_model: asynchronous-persistent
+sim_scale: interplanetary
+fidelity: systemic
+perspective: first-person
+win_structure: open-sandbox
+failure_model: soft-recoverable
+narrative_mode: hybrid
+multiplayer:
+- single
+- coop
+- competitive
+- persistent-mmo
+modding: none
+production_tier: aa
+agent_count_order: '100'
+emergence: 3
+influence: 2
+core_loop: take missions or cargo at a station -> jump between star systems -> trade, fight, mine, or
+  explore -> earn credits, rank, and faction influence -> outfit or buy ships -> background simulation
+  shifts faction control and system states
+design_notes: Stellar Forge generates around 400 billion star systems from rules of star and planet formation
+  and blends in about 150,000 systems from real astronomical data, so the galaxy is mostly unvisited.
+  The server-side Background Simulation tracks minor-faction influence, economy, and states per system
+  and updates them from what all players do, so Solo, Private Group, and Open players share one political
+  map. Ship capability comes from outfitting modules within power and mass limits, and flight is Newtonian
+  with a default flight-assist layer.
+mechanics:
+- id: persistent-world
+  role: core
+  note: One galaxy state is shared by Open, Private Group, and Solo players; Frontier's Background Simulation
+    changes faction influence, system states, and markets over time from aggregate player activity.
+- id: procedural-terrain
+  role: core
+  note: Stellar Forge generates a 1:1 Milky Way of about 400 billion systems, bodies, and landable planetary
+    surfaces, blended with about 150,000 catalog systems.
+- id: embodied-skill-control
+  role: core
+  note: Six-axis Newtonian flight with optional flight assist; manual docking, supercruise approaches,
+    and combat that balances power distributor pips and heat.
+- id: trade-routes
+  role: supporting
+  note: Station markets differ by economy type; traders haul commodities between stations for price differences,
+    limited by cargo capacity and jump range.
+- id: supply-demand-pricing
+  role: supporting
+  note: Market supply and demand at each station shift prices as players buy and sell.
+- id: faction-diplomacy
+  role: supporting
+  note: Minor factions hold influence shares per system and enter wars or elections when two factions'
+    influence is close; Powerplay pledges players to one of 12 powers contesting territory.
+- id: reputation
+  role: supporting
+  note: Standing with minor factions and superpower navy ranks gate missions and system permits.
+- id: contracts-orders
+  role: supporting
+  note: Mission boards offer delivery, combat, and data missions with deadlines and payouts that also
+    move faction influence.
+- id: modular-assembly
+  role: supporting
+  note: Ships take modules in fixed slots (power plant, thrusters, frame shift drive, hardpoints); module
+    mass and class set jump range, speed, and loadout.
+- id: power-grid
+  role: supporting
+  note: A power plant's output must cover module draw; over budget, modules shut down by player-set priority.
+- id: heat-transfer
+  role: supporting
+  note: Ship heat rises from weapons, fuel scooping near stars, and damage; overheating damages modules,
+    and heat sinks dump it.
+- id: resource-extraction
+  role: supporting
+  note: Mining lasers, collector limpets, and sub-surface charges extract ore from planetary rings.
+- id: player-organizations
+  role: supporting
+  note: Squadrons and player-supported minor factions coordinate background simulation work.
+- id: fog-of-war
+  role: supporting
+  note: System bodies are unknown until scanned; first discoverers are credited.
+- id: power-allocation
+  role: supporting
+  note: The power distributor's pips are split among systems, engines, and weapons capacitors in flight,
+    setting each capacitor's recharge; module priorities decide what shuts down when the power plant is
+    over budget.
+- id: subsystem-damage
+  role: supporting
+  note: Each ship module has its own integrity, and damage to the power plant, thrusters, or drive degrades
+    or disables it until repaired.
+- id: real-world-data-feeds
+  role: supporting
+  note: About 150,000 star systems from real astronomical catalogs are blended into the procedurally generated
+    galaxy.
+influenced_by:
+- elite
+sources:
+- src-wikipedia-elite-dangerous
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gg

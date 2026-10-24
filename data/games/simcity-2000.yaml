@@ -1,10 +1,99 @@
 id: simcity-2000
 type: game
 name: SimCity 2000
-summary: TODO
+summary: The isometric sequel to SimCity that adds terrain elevation, an underground layer of water pipes
+  and subways, separate zone tax rates, bonds, ordinances, and power plants that age out.
 year: 1993
 developer: Maxis
+platforms:
+- pc
+- console
+- handheld
+- mobile
 subgenre: city-builder
-status: asserted
+sim_domain:
+- urban
+- economic
+player_role: planner-mayor
+agency_model:
+- zoning-placement
+- policy-parameter
+time_model: real-time-pausable
+sim_scale: city
+fidelity: systemic
+perspective: isometric
+win_structure: open-sandbox
+failure_model: soft-recoverable
+narrative_mode: emergent
+multiplayer:
+- single
+modding: content
+production_tier: aa
+agent_count_order: aggregate
+emergence: 3
+influence: 3
+core_loop: shape terrain and zone light or dense residential, commercial, industrial land -> lay power
+  lines, water pipes, roads, and rail -> demand and land value grow zones -> set per-zone tax rates, ordinances,
+  and bonds -> fund schools, hospitals, police, and fire -> rebuild aging plants
+design_notes: 'SimCity 2000 keeps the original''s grid-map model but adds a second plane: an underground
+  view for water pipes, subways, and road tunnels, so infrastructure is laid on a separate layer from
+  zoning. Finance gains levers (three tax rates, ordinances, bonds), and most of the nine power plant
+  types have limited lifespans, so replacement becomes a recurring capital cost. Yearly newspapers built
+  from city state replace the score screen, and extreme deficit spending ends the game.'
+mechanics:
+- id: zoning
+  role: core
+  note: Residential, commercial, and industrial zones in light and dense variants, plus seaport and airport
+    zones.
+- id: rci-demand
+  role: core
+  note: Demand bars for residential, commercial, and industrial land, raised by connections to neighbor
+    cities.
+- id: power-grid
+  role: core
+  note: Nine plant types including wind, hydro, solar, fusion, and microwave; most have limited lifespans
+    and must be rebuilt.
+- id: budget-treasury
+  role: core
+  note: Yearly budget with department funding; extreme deficit spending ends the game.
+- id: taxation
+  role: supporting
+  note: Separate tax rates for residential, commercial, and industrial zones.
+- id: loans-debt
+  role: supporting
+  note: The player issues bonds to raise capital and pays interest on them.
+- id: policy-toggles
+  role: supporting
+  note: City ordinances enacted for ongoing cost and effect.
+- id: vertical-layers
+  role: supporting
+  note: An underground layer holds water pipes, subways, and road tunnels separate from the surface.
+- id: fluid-pipe-network
+  role: supporting
+  note: Water from pumps travels through underground pipes to zones.
+- id: terraforming
+  role: supporting
+  note: Land has elevation that the player can raise or lower before and during play.
+- id: service-coverage
+  role: supporting
+  note: Schools, libraries, museums, hospitals, police, and fire stations cover surrounding zones.
+- id: land-value
+  role: supporting
+  note: Query tool shows land value per tile, which shapes development.
+- id: traffic-congestion
+  role: supporting
+  note: Query tool reports traffic on roads; highways and transit relieve it.
+- id: random-disasters
+  role: supporting
+  note: Disasters strike in play, and scenarios based on real cities stage specific ones.
+- id: dated-tech-timeline
+  role: supporting
+  note: Power plant types such as solar, fusion, and microwave and buildings such as arcologies become
+    available in set invention years as the city's calendar advances.
+influenced_by:
+- simcity-1989
+sources:
+- src-wikipedia-simcity-2000
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-ga

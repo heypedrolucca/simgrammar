@@ -1,0 +1,21 @@
+id: src-peng-2024-player-driven-emergence
+type: source
+name: Player-Driven Emergence in LLM-Driven Game Narrative
+kind: preprint
+authors:
+- Xiangyu Peng
+- Jessica Quaye
+- Sudha Rao
+- Weijia Xu
+- et al.
+- Bill Dolan
+venue: arXiv
+date: '2024-04-25'
+url: https://arxiv.org/abs/2404.17027
+arxiv: '2404.17027'
+accessed: '2026-10-24'
+notes: Dejaboom! TextWorld mystery with five GPT-4 NPCs holding backstories, clues, and ordered goals;
+  28 players; GPT-4 turned logs into narrative graphs; 53 emergent nodes (43 unique) vs designer graph.
+  About 15 s lag frustrated 40%; NPC forgetting 10%; repetition 10%.
+provenance:
+  created: 2026-10-24-techniques-llm-agents

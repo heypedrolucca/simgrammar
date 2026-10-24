@@ -1,0 +1,23 @@
+id: src-defossez-2024-moshi
+type: source
+name: 'Moshi: a speech-text foundation model for real-time dialogue'
+kind: preprint
+authors:
+- Alexandre Défossez
+- Laurent Mazaré
+- Manu Orsini
+- Amélie Royer
+- Patrick Pérez
+- Hervé Jégou
+- Edouard Grave
+- Neil Zeghidour
+venue: arXiv
+date: '2024-09-17'
+url: https://arxiv.org/abs/2410.00037
+arxiv: '2410.00037'
+accessed: '2026-10-24'
+notes: Full-duplex spoken dialogue as speech-to-speech generation from a text LM backbone; models user
+  and system speech as parallel codec token streams; Inner Monologue predicts time-aligned text before
+  audio. Latency 160 ms theoretical, 200 ms practical.
+provenance:
+  created: 2026-10-24-techniques-llm-agents

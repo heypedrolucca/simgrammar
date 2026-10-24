@@ -1,0 +1,13 @@
+id: src-steam-2026-space-engineers
+type: source
+name: Space Engineers on Steam
+kind: store-page
+venue: Steam
+date: '2026'
+url: https://store.steampowered.com/app/244850/Space_Engineers/
+accessed: '2026-10-24'
+notes: Volumetric physics where every block has mass, inertia, and damage; 200+ functional blocks; programmable
+  block; power grids; oxygen and hydrogen for life support and thrusters; voxel planets with gravity; C# modding
+  API; Steam Workshop; co-op and competitive multiplayer.
+provenance:
+  created: 2026-10-24-catalog-gg

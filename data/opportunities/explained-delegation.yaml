@@ -1,0 +1,48 @@
+id: explained-delegation
+type: opportunity
+name: Explained delegation to AI managers
+summary: Subsystem managers that learn the player's preferences from their past decisions and explain
+  each action, so delegation scales play without hiding it.
+opportunity_type: mechanic-upgrade
+thesis: 'Delegation exists (Stellaris sectors, Football Manager staff, automated trade routes) but managers
+  are weak and opaque, so players either micromanage or tolerate bad decisions. Imitation of the player''s
+  own past choices plus explanation grounded in game state makes delegation trustworthy: the manager does
+  what you would do and tells you why.'
+design_sketch: Hand a region, department, or supply chain to a manager. It proposes actions with reasons
+  referencing indicators and the player's past choices; the player can approve, veto, or adjust standing
+  preferences. A weekly report summarizes what changed.
+involves:
+- delegation-to-ai
+- advisors
+- policy-toggles
+- stats-dashboards
+- staff-hiring
+applies:
+- generalist-game-agents
+- llm-explanation-of-state
+- model-based-planning-muzero
+precedent:
+- stellaris
+- football-manager
+- anno-1800
+- victoria-3
+novelty: 3
+feasibility: 4
+impact: 3
+horizon: 1-2y
+key_risks:
+- Imitating a novice player perpetuates mistakes.
+- Explanations that rationalize rather than explain.
+- Late-game play becomes approval clicking.
+validation_experiment: 'Train a manager by imitation on a player''s first 10 hours of decisions in a strategy
+  prototype, then measure agreement with the player''s choices in held-out situations and player trust
+  ratings. Success: 75 percent agreement and higher trust than the baseline AI manager.'
+falsifiable_signal:
+  prediction: A grand strategy or management game will ship AI managers that learn from the individual
+    player's past decisions.
+  resolve_by: '2028-12-31'
+  criteria: Developer documentation describing per-player preference learning for delegated subsystems.
+sources: []
+status: asserted
+provenance:
+  created: 2026-10-24-synthesis

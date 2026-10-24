@@ -1,10 +1,89 @@
 id: big-pharma
 type: game
 name: Big Pharma
-summary: TODO
+summary: >-
+  A pharmaceutical factory and business sim in which the player routes ingredients through machines on conveyor belts to push
+  their concentration into the range that activates cures while suppressing side effects, then sells into contested markets.
 year: 2015
 developer: Twice Circled
-subgenre: business-economic-sim
-status: asserted
+platforms:
+- pc
+- console
+- handheld
+subgenre: factory-automation
+subgenre_secondary:
+- business-economic-sim
+sim_domain:
+- industrial-logistics
+- economic
+- medical
+player_role: engineer-designer
+agency_model:
+- zoning-placement
+- design-then-test
+time_model: real-time-pausable
+sim_scale: facility
+fidelity: abstract
+perspective: isometric
+win_structure: scenario-goals
+failure_model: soft-recoverable
+narrative_mode: none
+multiplayer:
+- single
+modding: none
+production_tier: indie
+agent_count_order: none
+emergence: 2
+influence: 1
+core_loop: >-
+  import an ingredient -> route it through machines that change its concentration -> activate cures and remove side effects
+  -> form pills and ship them -> grade and price against market demand and rivals -> research better machines
+design_notes: >-
+  Big Pharma's production puzzle is numeric: each ingredient carries cures and side effects that are active only inside concentration
+  windows on a 0 to 20 scale, and machines raise, lower, combine, or transform effects at set concentrations. A line is a
+  sequence of machines on conveyor belts in a fixed floor plan, so the order of operations and the space they take are both
+  constraints. Products are graded from effectiveness, side effects, and market demand, and rival companies release competing
+  drugs that saturate a disease's market. The primary challenge is line layout rather than corporate strategy, which places
+  it in the factory-automation lineage with a business layer.
+mechanics:
+- id: production-chain
+  role: core
+  note: >-
+    Machines raise or lower an ingredient's concentration, combine materials, or transform effects; each effect is active
+    only inside its concentration window on a 0 to 20 scale.
+- id: conveyor-transport
+  role: core
+  note: >-
+    Conveyor belts move materials between machines from intake ports to output ports, and machine order along the belt sets
+    the recipe.
+- id: product-development
+  role: core
+  note: >-
+    Each finished drug gets a letter grade from its cure strength, side effects, and market demand, and the player names and
+    prices it.
+- id: rival-firms
+  role: core
+  note: >-
+    Rival companies release competing drugs that saturate a disease's market and cut demand for the player's product.
+- id: supply-demand-pricing
+  role: supporting
+  note: Price and sales for each cure depend on demand and how crowded its market is.
+- id: free-placement
+  role: supporting
+  note: Machines are placed on a fixed factory floor where space limits line length.
+- id: tech-tree
+  role: supporting
+  note: A research tree unlocks better machines and other benefits.
+- id: scouting-knowledge
+  role: supporting
+  note: >-
+    Explorers search for new ingredients, and analysis machines reveal an ingredient's effects and maximum potency.
+- id: scenario-objectives
+  role: supporting
+  note: >-
+    Scenarios set targets such as a financial milestone within a set number of years, at several difficulties.
+sources:
+- src-wikipedia-big-pharma
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-ge

@@ -34,6 +34,7 @@ RULES: dict[str, dict[str, str]] = {
     "E026": {"name": "contested", "check": "`contested` entities carry at least one claim with `disputes` filled.", "fix": "Record the dispute and its source."},
     "E027": {"name": "placeholder", "check": "No string anywhere in data/ or log/ contains the scaffold placeholder `TODO`.", "fix": "Fill every field `scripts/new.py` scaffolded."},
     "E028": {"name": "contract-version", "check": "The version in CONTRACT.md's header equals `contract_version` in schema/registry.yaml, and every schema `$id` carries that version.", "fix": "Bump all three together."},
+    "E029": {"name": "report-assertion", "check": "Every `{{assert:<stat> <op> <value>}}` in report/src holds. Assertions pin interpretive prose (rankings, signs, orderings) to the data it describes.", "fix": "The data changed under the prose: rewrite the sentence next to the assertion, then update the assertion."},
     "W101": {"name": "unused-vocab", "check": "Vocab terms not used by any entity (warning).", "fix": "Fine early on; prune or document before 2.0."},
     "W102": {"name": "verification-queue", "check": "Count of `asserted` entities awaiting sources (info).", "fix": "Pick one from dist/analysis/verification_queue.csv and source it."},
 }

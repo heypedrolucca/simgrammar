@@ -1,0 +1,15 @@
+id: src-satisfactorywiki-2026-blueprint-designer
+type: source
+name: Blueprint Designer
+kind: encyclopedia
+authors:
+- Satisfactory Wiki contributors
+venue: Satisfactory Wiki
+date: '2026'
+url: https://satisfactory.wiki.gg/wiki/Blueprint_Designer
+accessed: '2026-10-24'
+notes: Introduced in patch 0.7.0.0; Mk.1 (40 x 40 m) unlocks at Tier 4, Mk.2 and Mk.3 added in 1.0; saved
+  blueprints appear in a build-menu tab and draw materials from the designer's storage then the player's
+  inventory.
+provenance:
+  created: 2026-10-24-catalog-gh

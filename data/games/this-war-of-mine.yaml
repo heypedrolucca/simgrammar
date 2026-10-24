@@ -1,10 +1,91 @@
 id: this-war-of-mine
 type: game
 name: This War of Mine
-summary: TODO
+summary: A survival sim about civilians in a besieged city who maintain a shelter by day, scavenge by
+  night, and face moral choices that change their mood until a randomized ceasefire.
 year: 2014
 developer: 11 bit studios
+platforms:
+- pc
+- mobile
+- console
+- handheld
 subgenre: survival-sim
-status: asserted
+sim_domain:
+- military-conflict
+- social-interpersonal
+- domestic-personal
+player_role: overseer
+agency_model:
+- direct-unit
+time_model: real-time
+sim_scale: household
+fidelity: stylized
+perspective: top-down-2d
+win_structure: survival-duration
+failure_model: permadeath
+narrative_mode: hybrid
+multiplayer:
+- single
+modding: content
+production_tier: indie
+agent_count_order: '10'
+emergence: 3
+influence: 2
+core_loop: spend the day in the shelter crafting, cooking, trading, and treating -> assign night roles
+  -> one survivor scavenges a location -> encounters force moral choices -> hunger, wounds, illness, and
+  mood shift -> survive until the ceasefire
+design_notes: 'The game turns war into a resource-and-conscience problem: survival needs push the player
+  toward theft or violence, and those acts lower survivors'' mood, so material and moral states are coupled.
+  A day-night split separates base management (snipers keep survivors inside by day) from risky scavenging
+  by one chosen survivor, and the length of the war is randomized so the player cannot plan to a known
+  end. The radio reports weather, prices, and war news that let the player anticipate shortages. It draws
+  on the 1992-96 Siege of Sarajevo.'
+mechanics:
+- id: day-night-cycle
+  role: core
+  note: Snipers confine survivors to the shelter by day for crafting, cooking, and care; at night survivors
+    are assigned to sleep, guard, or scavenge.
+- id: needs-decay
+  role: core
+  note: Each survivor tracks hunger, fatigue, health, and mood, and the player must keep them up until
+    the ceasefire.
+- id: mood-breakdown
+  role: core
+  note: Mood falls with hunger, illness, loss of companions, and morally weighted acts such as stealing
+    or killing; depressed or broken survivors refuse tasks and may leave the shelter or take their own
+    lives.
+- id: dilemma-cards
+  role: core
+  note: Scavenging encounters and visitors at the door pose choices, such as robbing vulnerable NPCs or
+    giving away supplies, that trade material gain against mood and each survivor's ending.
+- id: personality-traits
+  role: supporting
+  note: Each survivor has one or two traits, such as Good Cook, plus hidden stats.
+- id: hand-crafting
+  role: supporting
+  note: Workshops craft weapons, alcohol, beds, stoves, and shelter upgrades from scavenged materials.
+- id: forecasting
+  role: supporting
+  note: Radio broadcasts give weather warnings, economic updates, and war news.
+- id: supply-demand-pricing
+  role: supporting
+  note: Barter values change with conditions announced on the radio.
+- id: seasons
+  role: supporting
+  note: Winter raises demand for heating fuel.
+- id: triggered-event-chains
+  role: supporting
+  note: Neighbors and strangers arrive with requests tied to the shelter's state.
+- id: permadeath
+  role: supporting
+- id: stimulus-attraction
+  role: supporting
+  note: Noisy actions while scavenging at night, such as breaking through obstacles, can alert people
+    at the location.
+sources:
+- src-wikipedia-this-war-of-mine
+- src-steam-2026-this-war-of-mine
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gb

@@ -1,0 +1,16 @@
+id: src-mordvintsev-2021-nca-textures
+type: source
+name: Texture Generation with Neural Cellular Automata
+kind: preprint
+authors:
+- Alexander Mordvintsev
+- Eyvind Niklasson
+- Ettore Randazzo
+date: '2021-05-15'
+url: https://arxiv.org/abs/2105.07299
+arxiv: '2105.07299'
+accessed: '2026-10-24'
+notes: NCA textures with fewer than 10K parameters (5,868 in the reported model); interactive real-time
+  WebGL demo.
+provenance:
+  created: 2026-10-24-techniques-sim-math

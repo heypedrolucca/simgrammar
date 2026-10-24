@@ -1,9 +1,70 @@
 id: faction-diplomacy
 type: mechanic
 name: Faction diplomacy
+aliases:
+- diplomatic relations
+- AI diplomacy
+- foreign relations
 summary: Factions hold relations with each other, and treaties, alliances, and wars follow from interests
   and opinion.
 family: social-relations
-status: asserted
+substrate:
+- network-graph
+- rule-system
+- aggregate-stocks
+definition: 'Owns a relation value for each pair of factions, the modifiers feeding it, and agreement
+  states such as war, peace, truce, alliance, and vassalage. Events (trade, gifts, border friction, attacks,
+  broken treaties) change the value, and many games drift it toward a baseline. A proposal is accepted
+  when an AI evaluation combining relation, interests, relative power, and reputation passes a threshold.
+  RimWorld faction goodwill runs -100 to 100: hostile at -75 or below, allied at 75 or above until it
+  falls to 0; civil outlanders drift back into -50..50; trade gives +1 per 500 silver and returning a
+  prisoner +12, while pirates stay at -100. Europa Universalis IV caps opinion at +200 and -200 with itemized
+  reasons, adds 5 to alliance acceptance per point of diplomatic reputation, and allows a base of 4 diplomatic
+  relations. Inputs: events, interests, power. Outputs: war declarations, trade access, military aid,
+  coalitions.'
+player_experience: 'The player manages a web of relations as a resource: buying goodwill with gifts, timing
+  betrayals, and reading acceptance breakdowns to see what a deal needs. Wars feel like consequences of
+  accumulated grievances rather than random events.'
+design_levers:
+- relation scale, thresholds for state changes, and baseline drift
+- modifier catalog and decay per event type
+- AI acceptance formula (relation, power, interests, reputation) and how much of it is shown
+- agreement types and their obligations, such as alliance calls to arms and truce lengths
+- limits such as relation slots or diplomat counts
+failure_modes:
+- 'Gift exploits: money converts linearly into friendship, so diplomacy becomes a purchase.'
+- AI that ignores its own interests or the balance of power feels suicidal, while AI that refuses for
+  unshown reasons feels arbitrary.
+- Factions locked at permanent hostility remove diplomacy from most of the threat model.
+- Coalitions that form against the leader regardless of context read as rubber-banding.
+dynamics:
+- Coalitions against an expanding player form from shared grievances, a balancing loop on growth.
+- Alliance chains pull factions into wars they did not choose, producing cascading conflicts.
+- Trade raises goodwill, which opens more trade, a reinforcing loop between economy and diplomacy.
+math_basis:
+- game-theory
+- social-network
+feedback: both
+player_interface:
+- choice-cards
+- observation
+legibility: 3
+emergence_potential: 4
+authoring_cost: 2
+compute_cost: 2
+tuning_difficulty: 4
+ai_leverage: 4
+maturity: classic
+synergy:
+- id: reputation
+  note: Standing with a faction gates treaties and trade.
+open_questions:
+- Can language-model negotiators bargain, bluff, and keep commitments with players in ways players accept
+  as fair and legible?
+- How should opinion and interest be separated so AI factions betray for reasons players can foresee?
+sources:
+- src-rimworldwiki-2026-goodwill
+- src-paradoxwikis-2026-eu4-diplomacy
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m3

@@ -1,0 +1,144 @@
+id: massively-parallel-simulation
+type: technique
+name: Massively parallel GPU simulation
+aliases:
+- batch simulation
+- many-world simulation
+- GPU-accelerated simulators
+- Isaac Gym
+- Brax
+- MJX
+- Madrona
+summary: Simulators that keep thousands of world instances as tensors on a GPU or TPU and step them all
+  in one kernel, raising throughput to millions of steps per second for agent training and Monte Carlo
+  sweeps.
+category: differentiable-simulation
+year: 2021
+mechanism: 'World state for N independent instances is stored as structure-of-arrays tensors in accelerator
+  memory. Each tick launches one set of kernels that integrates physics, evaluates game logic, and computes
+  observations and rewards for every instance at once, so policy inference and training read the state
+  without CPU-GPU copies. Implementations compile the step function: JAX/XLA (Brax, MJX, Craftax), CUDA
+  kernels written in Python (NVIDIA Warp, MuJoCo Warp), or a GPU entity-component-system with a task graph
+  (Madrona, where game logic is C++ compiled to CUDA). Throughput comes from parallelism across worlds,
+  not from making one world faster, so the main uses are reinforcement learning (billions of steps), parameter
+  sweeps, and evaluating many randomized variants of one design.'
+key_results:
+- text: Isaac Gym ran physics and policy training on a single GPU and reported 2-3 orders of magnitude
+    faster RL training than pipelines using a CPU simulator.
+  sources:
+  - src-makoviychuk-2021-isaac-gym
+  confidence: high
+- text: Brax reported millions of simulation steps per second on one accelerator and hundreds of millions
+    across accelerators, training Ant locomotion in about ten seconds versus close to half an hour for
+    standard PPO.
+  sources:
+  - src-freeman-2021-brax
+  confidence: high
+- text: Madrona's GPU batch ECS ran OpenAI Hide and Seek at over 1.9 million steps per second, Overcooked-AI
+    at 40 million and Hanabi at 20 million on an RTX 4090, 5-33x faster than strong 32-thread CPU baselines.
+  sources:
+  - src-shacklett-2023-madrona
+  confidence: high
+- text: Craftax reimplemented the survival-crafting game Crafter in JAX, ran up to 250x faster than the
+    Python original, and trained PPO for 1 billion interactions in under an hour on one GPU.
+  sources:
+  - src-matthews-2024-craftax
+  confidence: high
+- text: GPUDrive, built on Madrona, simulated multi-agent driving from real road scenarios at over one
+    million steps per second.
+  sources:
+  - src-kazemkhani-2024-gpudrive
+  confidence: high
+- text: MuJoCo Playground (2025) trained locomotion and manipulation policies in minutes on a single GPU
+    and transferred them zero-shot to real robots.
+  sources:
+  - src-zakka-2025-mujoco-playground
+  confidence: high
+- text: Genesis (December 2024) was publicized as reaching 43 million FPS (430,000x real time) on simple
+    scenes; press noted skepticism and that contact-rich dexterous scenes remain hard.
+  sources:
+  - src-kemper-2024-genesis-430000x
+  - src-genesis-2024-genesis-world
+  confidence: low
+- text: 'GPU physics became more open in 2025: NVIDIA released PhysX 5.6 GPU source under BSD-3 in April,
+    and the Warp-based Newton engine (NVIDIA, Google DeepMind, Disney Research) moved to the Linux Foundation
+    in September.'
+  sources:
+  - src-thacker-2025-physx-gpu-open-source
+  - src-larabel-2025-newton-linux-foundation
+  confidence: high
+maturity: research
+trl: 4
+runtime:
+- offline-authoring
+- design-assist
+determinism_impact: preserves
+horizon: 1-2y
+risks:
+- controllability
+- evaluation
+- determinism
+affects:
+- id: rigid-body-physics
+  effect: accelerates
+  note: Batched GPU rigid-body solvers step thousands of worlds or bodies per kernel launch, so physics-heavy
+    evaluation that was CPU-bound becomes cheap enough for large sweeps.
+- id: creature-learning
+  effect: enables-new
+  note: Locomotion policies train in seconds to minutes on one GPU (Brax, MuJoCo Playground), so a creature
+    could learn to move or act through RL during a play session instead of from canned animation.
+- id: modular-assembly
+  effect: enables-new
+  note: A player-built creature or machine can be dropped into thousands of parallel worlds and have a
+    controller trained for its specific body, so assembled designs move competently without the player
+    programming them.
+- id: natural-selection
+  effect: deepens
+  note: Fitness can be measured by simulating every individual of a large population in its own physics
+    world each generation, so selection acts on actual behavior rather than on summed stat values.
+- id: design-performance-rating
+  effect: deepens
+  note: A player design can be scored over hundreds of randomized loads, terrains or seeds in parallel,
+    giving a robustness distribution instead of one deterministic test run.
+- id: attribute-match-engine
+  effect: tunes
+  note: Millions of simulated matches per hour let designers check how attribute weights and tactic modifiers
+    shift outcome distributions before shipping a match-engine change.
+- id: traffic-congestion
+  effect: accelerates
+  note: GPUDrive shows multi-agent vehicle simulation above one million steps per second, which points
+    to agent-level traffic at counts where city builders now fall back to aggregate flow.
+- id: utility-action-selection
+  effect: tunes
+  note: Cheap batched rollouts make it practical to search utility-curve weights, or train a policy to
+    replace them, against metrics such as survival or need satisfaction over many simulated colonies.
+deployed_in: []
+limitations:
+- Speedups come from running many independent worlds in parallel; a single large coupled world, such as
+  one city, gains much less and per-world latency does not improve.
+- Game logic must be rewritten in a GPU-friendly form (JAX in Craftax, C++ compiled to CUDA in GPUDrive
+  and Madrona), which is a port rather than a recompile.
+- Madrona requires all component archetypes to be declared up front and does not support adding or removing
+  components at runtime; it is labeled research code with breaking API changes.
+- Headline frame rates are for simple scenes; contact-rich and dexterous scenes remain hard and much slower
+  (reported caveat on Genesis).
+- 'Much of the stack is NVIDIA-specific: MuJoCo Warp needs an NVIDIA GPU for speed, and porting PhysX''s
+  500+ CUDA kernels to other vendors is described as a lot of work.'
+- Policies trained in a batched simulator exploit its physics quirks, so behavior must be re-validated
+  in the shipping engine if that engine differs.
+sources:
+- src-makoviychuk-2021-isaac-gym
+- src-freeman-2021-brax
+- src-shacklett-2023-madrona
+- src-madrona-2026-repository
+- src-matthews-2024-craftax
+- src-kazemkhani-2024-gpudrive
+- src-zakka-2025-mujoco-playground
+- src-deepmind-2026-mujoco-warp
+- src-genesis-2024-genesis-world
+- src-kemper-2024-genesis-430000x
+- src-thacker-2025-physx-gpu-open-source
+- src-larabel-2025-newton-linux-foundation
+status: sourced
+provenance:
+  created: 2026-10-24-techniques-sim-math

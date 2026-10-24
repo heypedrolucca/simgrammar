@@ -1,10 +1,118 @@
 id: shapez-2
 type: game
 name: shapez 2
-summary: TODO
+summary: A combat-free factory automation game in which the player builds multi-level factories on space
+  platforms that cut, rotate, stack, and paint layered geometric shapes and deliver them to a central
+  Vortex to meet escalating milestone and operator goals.
 year: 2024
+year_full_release: 2026
 developer: tobspr Games
+platforms:
+- pc
 subgenre: factory-automation
-status: asserted
+sim_domain:
+- computational-abstract
+- industrial-logistics
+player_role: engineer-designer
+agency_model:
+- zoning-placement
+- programmatic
+time_model: real-time
+sim_scale: facility
+fidelity: abstract
+perspective: free-3d
+win_structure: open-sandbox
+failure_model: none
+narrative_mode: none
+multiplayer:
+- single
+modding: scripting
+production_tier: indie
+agent_count_order: none
+emergence: 2
+influence: 2
+core_loop: read the requested shape code -> extract raw shapes from asteroids -> cut, rotate, stack, and
+  paint on belts across levels -> deliver to the Vortex -> earn platform units and research -> build bigger
+  platforms and train networks
+design_notes: 'shapez 2 removes enemies, money, and building costs (all buildings are free) and keeps
+  only the throughput puzzle: the product is an abstract shape of up to four layers of four quadrants,
+  each part with a type and one of nine colors, written as a shape code. Parts obey a support rule (no
+  floating pieces) and crystals shatter when cut from or stacked onto other crystals, so processing order
+  is part of the puzzle. Space is the scarce resource: machines sit on space platforms whose count is
+  limited by Platform Units earned from goals, and platforms connect through edge notches, space belts,
+  and colored train lines whose routing is set per color at splitters. After the fixed milestones, operator
+  goal lines grow exponentially in cost per level (for example 15,000 shapes at 18% growth), turning the
+  endgame into scaling a design rather than designing a new one.'
+mechanics:
+- id: production-chain
+  role: core
+  note: Cutters, rotators, stackers, swappers, painters, pin pushers, and crystal generators each transform
+    shapes by fixed rules; a target shape code implies a processing sequence the player must lay out.
+- id: conveyor-transport
+  role: core
+  note: Belts, splitters, mergers, and lifts move shapes across three building levels per platform, and
+    space belts carry them between platforms.
+- id: tech-tree
+  role: core
+  note: Delivering each milestone's required shapes to the Vortex unlocks the next buildings and mechanics,
+    such as fluids, painting, crystals, and trains; afterwards, operator goal lines with exponentially
+    rising shape costs reward platform units, blueprint points, and research points.
+- id: free-placement
+  role: core
+  note: Space platforms in 20x20 chunks are the limited building surface, capped by Platform Units, with
+    notches at chunk edges as the only connection points between platforms.
+- id: blueprints
+  role: core
+  note: Copying and pasting factory sections costs Blueprint Points earned from goals, making repeated
+    modules the intended way to scale.
+- id: vertical-layers
+  role: supporting
+  note: Each platform has three stacked building levels, and shapes carry up to four or five vertical
+    layers that must be supported from below.
+- id: vehicle-route-scheduling
+  role: supporting
+  note: Space trains load fixed-size packages at loader stations and unload at stops; each rail carries
+    trains of several colors that take their own color's branch at splitters, and wagons hold one package
+    per machine level.
+- id: fluid-pipe-network
+  role: supporting
+  note: Pipes and space pipes carry fluids such as paint from asteroid pumps to painters, and fluid launchers
+    move them across notches.
+- id: signal-circuits
+  role: supporting
+  note: Wire machines carry signals that read and control machines, and wireless senders and receivers
+    pass signals across platform notches.
+- id: resource-extraction
+  role: supporting
+  note: Asteroid miners and pumps on platforms extract raw shape fields and fluid deposits from a procedurally
+    generated world.
+- id: modding-api
+  role: supporting
+  note: Mods load natively through the ShapezShifter API and are distributed on Steam Workshop.
+- id: megaproject-sink
+  role: supporting
+  note: After the fixed milestones, operator goal lines at the Vortex demand shapes in quantities that
+    grow exponentially per level (for example 15,000 shapes at 18% growth), absorbing late-game output.
+influenced_by: []
+claims:
+- text: shapez 2 is the sequel to Shapez (2020, also known as shapez.io), which has no entry in this dataset,
+    so the lineage is recorded here rather than as an influenced_by edge.
+  sources:
+  - src-wikipedia-shapez-2
+  confidence: high
+- text: Early access began on 2024-08-15 and version 1.0 released on 2026-04-23.
+  sources:
+  - src-wikipedia-shapez-2
+  - src-steam-2026-shapez-2
+  confidence: high
+sources:
+- src-wikipedia-shapez-2
+- src-steam-2026-shapez-2
+- src-shapez2wiki-2026-shapes
+- src-shapez2wiki-2026-trains
+- src-shapez2wiki-2026-operator-level
+- src-shapez2wiki-2026-space-platforms
+- src-shapez2wiki-2026-modding
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gh

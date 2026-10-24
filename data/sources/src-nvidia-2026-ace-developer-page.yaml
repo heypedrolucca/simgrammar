@@ -1,0 +1,16 @@
+id: src-nvidia-2026-ace-developer-page
+type: source
+name: NVIDIA ACE for Games
+kind: docs
+authors:
+- NVIDIA
+venue: NVIDIA Developer
+date: '2026'
+url: https://developer.nvidia.com/ace
+accessed: '2026-10-24'
+notes: 'Total War: PHARAOH AI advisor on a small on-device model connected to game data; Smart Zois plan,
+  act, reflect; PUBG co-player characters; MIR5 bosses adapt to tactics. On-device models listed: Nemotron
+  3 Nano 4B and 9B, Nemotron ASR 140M and 600M, Chatterbox and Qwen 3 TTS, Audio2Face-3D. NVIGI runs in-process
+  with CUDA in Graphics scheduling.'
+provenance:
+  created: 2026-10-24-techniques-llm-agents

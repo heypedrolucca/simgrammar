@@ -1,0 +1,46 @@
+id: ai-liquidity-in-player-markets
+type: opportunity
+name: AI liquidity in player markets
+summary: Keep player-driven markets liquid on small servers with model-driven traders whose behavior is
+  calibrated to human trading and constrained by market rules.
+opportunity_type: mechanic-upgrade
+thesis: Player-driven economies need large populations; EVE Online works because it has them, and smaller
+  persistent worlds stagnate. Agents calibrated to human trading behavior, and analyzed with mean-field
+  methods for stability, can supply liquidity and price discovery without dominating. Mechanism design
+  keeps them from front-running humans.
+design_sketch: Each market has a population of agent traders with budgets, risk profiles, and information
+  limits matching human traders, operating under the same order-book rules. Their share of volume is capped
+  and published. Designers tune agent populations to target liquidity and volatility bands.
+involves:
+- player-driven-market
+- persistent-world
+- auctions
+- supply-demand-pricing
+applies:
+- human-behavior-simulation-models
+- mean-field-games
+- llm-agent-societies
+precedent:
+- eve-online
+- second-life
+- ultima-online
+- mule
+novelty: 3
+feasibility: 3
+impact: 2
+horizon: 1-2y
+key_risks:
+- Players perceive bots as unfair competition.
+- Agents can be exploited for arbitrage.
+- Calibration drift as the human population changes.
+validation_experiment: 'Simulate a 200-player market with and without calibrated agents using logged order
+  data from a public game economy; measure spread, depth, volatility, and human profit share. Success:
+  tighter spreads and lower volatility with human profit share unchanged within 5 percent.'
+falsifiable_signal:
+  prediction: A persistent online game will announce AI market participants calibrated to player behavior.
+  resolve_by: '2029-06-30'
+  criteria: Developer announcement or documentation of AI traders in a player-driven market.
+sources: []
+status: asserted
+provenance:
+  created: 2026-10-24-synthesis

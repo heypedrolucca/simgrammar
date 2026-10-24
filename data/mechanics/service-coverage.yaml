@@ -1,9 +1,62 @@
 id: service-coverage
 type: mechanic
 name: Service coverage
-summary: Service buildings such as police, fire, clinics, and schools satisfy demand within a radius or
-  network distance, up to a capacity.
+aliases:
+- service radius
+- coverage areas
+- service catchment
+summary: Service buildings such as police, fire, clinics, and schools satisfy demand within a radius or network distance,
+  up to a capacity.
 family: logistics-networks
-status: asserted
+substrate:
+- cellular-grid
+- network-graph
+definition: >-
+  Each service building writes an effect value onto a coverage map, within a radius, a network distance, or by dispatching
+  vehicles. Covered cells or buildings read that value to reduce a risk or raise a satisfaction term. In Micropolis each fire
+  or police station adds an effect equal to 1000 times funded over requested budget, halved if unpowered and halved again
+  without road access, to an 8x8-tile block map; the map is smoothed three times, and the smoothed police map is subtracted
+  from each cell's crime score and the smoothed fire map sets fire protection. SimCity 2000 shows coverage as a radius; Cities:
+  Skylines uses network distance and dispatches service vehicles. Capacity limits how many buildings or residents one facility
+  can serve. Inputs: service building locations, funding, power, access. Outputs: per-cell coverage values and the downstream
+  risk or happiness change.
+player_experience: >-
+  Filling the map with circles. Players place services to cover populated areas, check overlays for gaps, and balance coverage
+  against budget. Uncovered districts show up as fires, crime, or unhappy residents, so the overlay becomes a to-do list.
+design_levers:
+- 'coverage shape: Euclidean radius, network distance, or vehicle dispatch'
+- capacity per building and falloff with distance
+- funding and power effects on strength
+- how coverage maps to outcomes such as crime, fire risk, health, or education
+- 'overlap rules: additive, maximum, or diminishing'
+failure_modes:
+- Radius coverage that ignores the road network lets buildings across a river count as covered.
+- Overlapping coverage with no capacity limit makes one building per district enough.
+- Hidden funding multipliers make coverage seem to drop at random.
+dynamics:
+- Coverage shapes city form, rewarding compact grids around service hubs.
+- Budget cuts weaken coverage everywhere at once, causing simultaneous crises.
+- Coupled with land value, coverage raises desirability, which raises density, which raises demand for more services.
+math_basis:
+- graph-search
+- optimization
+feedback: balancing
+player_interface:
+- placement
+- parameter
+- observation
+legibility: 3
+emergence_potential: 3
+authoring_cost: 2
+compute_cost: 2
+tuning_difficulty: 3
+ai_leverage: 2
+maturity: classic
+open_questions:
+- Can facility-location solvers act as advisors that suggest placements without removing the planning decision?
+- Does vehicle dispatch produce more interesting failures than radius coverage at equal legibility?
+sources:
+- src-hopkins-2008-micropolis
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m1

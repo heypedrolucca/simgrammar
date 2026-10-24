@@ -1,8 +1,67 @@
 id: history-chronicle
 type: mechanic
 name: History chronicle
-summary: The game records simulation events into a browsable history or legends archive.
+aliases:
+- legends
+- event log
+- tales
+summary: The game records significant simulation events into a structured history that players can browse
+  and other systems can reference.
 family: narrative-generation
-status: asserted
+substrate:
+- rule-system
+- ui-layer
+definition: 'A recorder subscribes to simulation events, filters them by significance, and stores structured
+  records (actor, action, target, place, time, cause) indexed by entity. Browsers present the records
+  as biographies, site histories, and timelines; some games feed records back into play. Dwarf Fortress
+  Legends mode lists historical figures, sites, artifacts, written works, regions, and civilizations,
+  with Chronicles by Age, records the player''s own fortress and adventurer achievements, and exports
+  XML that can reach about a gigabyte for long histories. RimWorld records tales that its art system uses
+  to describe what a sculpture depicts. Inputs: the event stream. Outputs: a queryable archive, generated
+  descriptions, and knowledge that agents or items can carry.'
+player_experience: Looking back over a run turns scattered events into a story. Players browse to find
+  out who caused what, discover that a minor figure had a long history, and retell their runs to others.
+  When chronicles feed art or rumors, players see their own history reflected inside the world.
+design_levers:
+- 'significance filter: which event types and thresholds get recorded'
+- record granularity and causal links between records
+- retention policy and summarization as the archive grows
+- 'presentation: raw log, templated prose, timeline, or map'
+- 'feedback paths: art, books, rumors, or agent knowledge drawn from the archive'
+- export formats for external tools
+failure_modes:
+- Recording everything floods the archive with trivial entries and very large files.
+- Templated, tabular text is dry, so most players never open the browser.
+- Records without causal links list events but do not explain why they happened.
+dynamics:
+- Players reconstruct and embellish stories from sparse records, and communities share them as written
+  retellings.
+- Fed back into the world, records let artworks, books, and rumors reference real past events.
+- Third-party legends viewers and map tools grow around exported data.
+math_basis:
+- information-theory
+feedback: none
+player_interface:
+- observation
+legibility: 4
+emergence_potential: 3
+authoring_cost: 2
+compute_cost: 2
+tuning_difficulty: 1
+ai_leverage: 4
+maturity: established
+synergy:
+- id: storyteller-director
+  note: Directed incidents become chronicle entries, so pacing produces a retellable history.
+- id: history-generation
+  note: Pre-play generated history populates the same archive that records play (Dwarf Fortress legends).
+open_questions:
+- Can language models turn structured event logs into faithful narrative summaries that do not invent
+  causes?
+- Which significance measures best predict the events players later retell?
+sources:
+- src-dfwiki-2026-legends
+- src-wikipedia-dwarf-fortress
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m7

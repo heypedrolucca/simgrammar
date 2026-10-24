@@ -1,0 +1,12 @@
+id: src-steam-2026-snowrunner
+type: source
+name: SnowRunner on Steam
+kind: store-page
+venue: Steam
+date: '2026'
+url: https://store.steampowered.com/app/1465360/SnowRunner/
+accessed: '2026-10-24'
+notes: Terrain reacts to truck weight, speed, and momentum; mud, water, snow, frozen lakes; snorkels and chain tires;
+  co-op with up to 3 friends.
+provenance:
+  created: 2026-10-24-catalog-gf

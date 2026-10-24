@@ -1,10 +1,63 @@
 id: game-of-life
 type: game
 name: Conway's Game of Life
-summary: TODO
+aliases:
+- Life
+- Game of Life
+summary: A zero-player cellular automaton on an infinite square grid in which each cell lives or dies by the B3/S23
+  neighbor-count rule, producing gliders, oscillators, and universal computation from a seeded pattern.
 year: 1970
 developer: John Horton Conway
+platforms:
+- mainframe-early
+- pc
+- web
+- mobile
 subgenre: artificial-life
-status: asserted
+sim_domain:
+- computational-abstract
+player_role: observer-gardener
+agency_model:
+- design-then-test
+time_model: run-on-demand
+sim_scale: micro
+fidelity: abstract
+perspective: top-down-2d
+win_structure: open-sandbox
+failure_model: none
+narrative_mode: none
+multiplayer:
+- single
+modding: scripting
+production_tier: academic
+agent_count_order: none
+emergence: 5
+influence: 5
+core_loop: place live cells on the grid -> apply birth on 3 and survival on 2 or 3 neighbors to every cell at once
+  -> pattern stabilizes, oscillates, dies, or emits gliders -> observe -> edit the seed and rerun
+design_notes: 'Conway''s rule is the minimal case of emergence from local update: each cell''s next state depends
+  only on how many of its eight neighbors are alive, all cells update simultaneously, and the only input is the
+  initial pattern. The rule is Turing complete, so whether an arbitrary pattern stops changing is undecidable, and
+  decades of discovery (Gosper''s period-30 glider gun of November 1970, the R-pentomino''s 1,103-generation run)
+  came from players searching seeds. Simulators such as Golly add Hashlife for large time jumps and scripting for
+  rule variants. A general cellular-automaton rule is not yet a mechanic in the taxonomy (proposal cellular-automaton-rule);
+  adjacency-scoring is the nearest existing id.'
+mechanics:
+- id: adjacency-scoring
+  role: core
+  note: A dead cell with exactly 3 live neighbors is born, a live cell with 2 or 3 survives, and all others die;
+    the neighbor count is the whole update rule.
+- id: free-placement
+  role: core
+  note: The player's only act is toggling cells on the grid to set the seed before running generations.
+- id: blueprints
+  role: supporting
+  note: Implementations store patterns as files and libraries that can be stamped into a grid and shared.
+- id: variable-speed
+  role: supporting
+  note: Simulators step one generation at a time or run fast, and Hashlife in Golly jumps far ahead in time.
+sources:
+- src-wikipedia-conways-game-of-life
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gd

@@ -1,10 +1,53 @@
 id: tiny-glade
 type: game
 name: Tiny Glade
-summary: TODO
+summary: A medieval building sandbox in which drawn walls, paths, and building outlines are assembled by procedural
+  rules into detailed castles and cottages, with no goals, management, or failure states.
 year: 2024
 developer: Pounce Light
+platforms:
+- pc
 subgenre: city-builder
-status: asserted
+sim_domain:
+- urban
+player_role: engineer-designer
+agency_model:
+- zoning-placement
+time_model: real-time
+sim_scale: settlement
+fidelity: abstract
+perspective: free-3d
+win_structure: open-sandbox
+failure_model: none
+narrative_mode: none
+multiplayer:
+- single
+modding: none
+production_tier: indie
+agent_count_order: '10'
+emergence: 2
+influence: 1
+boundary_case: true
+core_loop: draw walls, paths, and building outlines -> procedural rules assemble bricks, roofs, doors, and supports
+  to fit -> reshape terrain and add water -> ivy grows and sheep wander the paths -> keep editing
+design_notes: 'Tiny Glade takes the Townscaper approach to freehand strokes: a path drawn through a building produces
+  a door, and raising a building adds columns and beams to support it, so local rules respond to how elements meet.
+  The two-person studio built it on a custom fork of the Rust engine Bevy. It is a boundary case: the only autonomous
+  elements are ambient life such as growing ivy and wandering sheep.'
+mechanics:
+- id: procedural-build-assist
+  role: core
+  note: Walls, paths, and building outlines are turned into detailed geometry; a path through a building creates
+    a door and raising a building adds supporting columns and beams.
+- id: free-placement
+  role: supporting
+  note: Strokes are drawn freely without a grid.
+- id: terraforming
+  role: supporting
+  note: Terrain height can be changed and rivers and ponds added.
+sources:
+- src-wikipedia-tiny-glade
+- src-steam-2026-tiny-glade
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-ga

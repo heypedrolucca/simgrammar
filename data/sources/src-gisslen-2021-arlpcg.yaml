@@ -1,0 +1,16 @@
+id: src-gisslen-2021-arlpcg
+type: source
+name: Adversarial Reinforcement Learning for Procedural Content Generation
+kind: preprint
+authors:
+- Linus Gisslén
+- Andy Eakins
+- Camilo Gordillo
+- Joakim Bergdahl
+- Konrad Tollmar
+venue: arXiv
+date: '2021-03-08'
+arxiv: '2103.04847'
+accessed: '2026-10-24'
+provenance:
+  created: 2026-10-24-techniques-rl-design

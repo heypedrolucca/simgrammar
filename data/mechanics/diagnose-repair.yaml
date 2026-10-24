@@ -1,8 +1,64 @@
 id: diagnose-repair
 type: mechanic
 name: Diagnose and repair
-summary: The player disassembles machines, diagnoses faulty parts, and repairs or replaces them.
+aliases:
+- mechanic job
+- troubleshooting
+- fault finding
+summary: The player inspects a machine, finds faulty parts with tools and tests, disassembles in order
+  to reach them, and repairs or replaces them.
 family: operation-procedure
-status: asserted
+substrate:
+- rule-system
+definition: 'A machine is a tree of parts with a removal-order dependency graph, each part carrying a
+  condition or fault state. A job arrives with symptoms; the player uses tests and tools to reveal hidden
+  part states, removes covering parts in valid order, replaces or repairs faulty ones, reassembles, and
+  verifies with a final test. In Car Mechanic Simulator 2018 and its 2021 sequel the player examines engine,
+  suspension, and chassis, removes parts in a realistic order to reach a damaged component, buys a replacement
+  or repairs it at higher levels, and uses a test track to find brake and suspension problems. PC Building
+  Simulator applies the same loop to computers. Unlike diagnosis-treatment, the target is a machine whose
+  state is fully deterministic once revealed. Inputs: fault state, symptoms, tools. Outputs: repaired
+  machine, payment, and experience.'
+player_experience: Methodical, calm problem-solving with a clear finish. Players narrow down causes from
+  symptoms, enjoy the order of unbolting and rebolting parts, and see a fixed machine run again. Learning
+  the real structure of an engine or PC is part of the appeal.
+design_levers:
+- how symptoms map to faults, and how many faults hide behind one symptom
+- tool set and what each test reveals
+- disassembly depth and how many parts block access
+- repair versus replace economics
+- job time limits and payment for partial fixes
+failure_modes:
+- When the game highlights faulty parts directly, diagnosis disappears and only the removal chore remains.
+- Deep disassembly for a single part becomes tedious once the novelty fades.
+- Faults that do not follow from symptoms make diagnosis guesswork.
+dynamics:
+- Players build mental models of real machine structure and speed up dramatically with experience.
+- Tool unlocks reshape the diagnosis strategy, since better tests skip disassembly.
+- Coupled with economy and workshop progression, choosing which jobs to accept becomes a planning layer.
+math_basis:
+- information-theory
+- graph-search
+feedback: none
+player_interface:
+- direct-manipulation
+legibility: 4
+emergence_potential: 2
+authoring_cost: 4
+compute_cost: 1
+tuning_difficulty: 2
+ai_leverage: 3
+maturity: established
+synergy:
+- id: wear-breakdown
+  note: Breakdowns create the repair work; repair makes wear a skill problem rather than a tax.
+open_questions:
+- Can fault states generated from a causal model of the machine, rather than authored per job, produce
+  varied but solvable diagnoses?
+- Could a language-model customer describing symptoms in their own words make diagnosis a real inference
+  task?
+sources:
+- src-wikipedia-car-mechanic-simulator-2018
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m7

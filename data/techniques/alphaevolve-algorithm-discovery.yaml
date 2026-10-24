@@ -1,0 +1,101 @@
+id: alphaevolve-algorithm-discovery
+type: technique
+name: LLM-guided evolutionary program search
+aliases:
+- AlphaEvolve
+- FunSearch
+- OpenEvolve
+- ShinkaEvolve
+- evolutionary coding agents
+summary: An LLM proposes edits to code, an automated evaluator scores each candidate, and an evolutionary
+  database keeps the best and most diverse programs, finding heuristics and constructions that beat human-designed
+  ones.
+category: math-discovery
+year: 2025
+mechanism: A human supplies a program skeleton, the part to evolve (one priority function in FunSearch;
+  arbitrary blocks across a file in AlphaEvolve), and an evaluator that runs a candidate and returns scores.
+  A programs database holds evaluated programs; samplers build prompts from high-scoring and diverse parents
+  and ask an LLM for a modified program; evaluators execute and score it; results flow back into the database.
+  Diversity is kept with island populations (FunSearch) or MAP-Elites grids (OpenEvolve). Samplers and
+  evaluators run asynchronously in parallel. The output is readable source code, so a discovered heuristic
+  can be inspected, tested and shipped like hand-written code.
+key_results:
+- text: FunSearch found a cap set of size 512 in dimension 8 and online bin-packing heuristics that beat
+    first fit and best fit on benchmark distributions.
+  sources:
+  - src-romeraparedes-2023-funsearch
+  confidence: high
+- text: AlphaEvolve found a 4x4 complex matrix multiplication with 48 scalar multiplications, matched
+    about 75% and improved about 20% of over 50 open math problems, and produced a Borg scheduling heuristic
+    that has recovered about 0.7% of Google's fleet compute in production for over a year.
+  sources:
+  - src-deepmind-2025-alphaevolve-blog
+  - src-novikov-2025-alphaevolve
+  confidence: high
+- text: Applied by Georgiev, Gomez-Serrano, Tao and Wagner to 67 problems, AlphaEvolve mostly rediscovered
+    the best known constructions, improved several, and sometimes generalized finite results into formulas.
+  sources:
+  - src-georgiev-2025-math-discovery-at-scale
+  confidence: high
+- text: 'Open-source successors lowered the barrier: ShinkaEvolve reported a new state-of-the-art circle
+    packing with about 150 samples, and OpenEvolve runs the loop with any OpenAI-compatible or local model
+    under Apache-2.0.'
+  sources:
+  - src-lange-2025-shinkaevolve
+  - src-sharma-2025-openevolve
+  confidence: medium
+maturity: research
+trl: 3
+runtime:
+- offline-authoring
+- design-assist
+determinism_impact: preserves
+horizon: 1-2y
+risks:
+- evaluation
+- compute-cost
+affects:
+- id: agent-pathfinding
+  effect: accelerates
+  note: Path cost heuristics or search-ordering functions can be evolved against a benchmark of the game's
+    own maps for fewer node expansions at equal route quality, as FunSearch evolved priority functions.
+- id: hauling-jobs
+  effect: tunes
+  note: Job-to-hauler assignment is a scheduling problem like the Borg case; the dispatch heuristic can
+    be evolved against simulated throughput and idle time on recorded colony states.
+- id: vehicle-route-scheduling
+  effect: tunes
+  note: Automatic load and stop-ordering heuristics resemble the bin-packing heuristics FunSearch improved,
+    and can be evolved against delivery-rate benchmarks.
+- id: utility-action-selection
+  effect: tunes
+  note: Utility scoring functions can be evolved as code against designer metrics (survival, need satisfaction,
+    behavior variety), keeping the result readable unlike a neural policy.
+- id: comparative-histograms
+  effect: tunes
+  note: Evolving solutions to each puzzle before launch estimates near-optimal cost, cycle or area scores,
+    anchoring histogram axes and flagging degenerate puzzles.
+- id: player-programming
+  effect: enables-new
+  note: Rivals or coaches could evolve programs in the game's own language against its evaluator, so player-written
+    code competes with machine-evolved code under the same rules.
+deployed_in: []
+limitations:
+- Requires a fast, automatic, trustworthy evaluator; anything judged by taste or fun has no such evaluator,
+  and evolved code overfits whatever the evaluator measures.
+- Each run consumes thousands of LLM samples and program executions in earlier systems; ShinkaEvolve's
+  roughly 150-sample result shows efficiency varies widely by problem.
+- Evolved heuristics are tuned to the benchmark instances and must be re-validated on new maps, content
+  or patches.
+- No game studio use was found in this run's sources; all cited results are in mathematics, scheduling
+  and systems code.
+sources:
+- src-romeraparedes-2023-funsearch
+- src-deepmind-2025-alphaevolve-blog
+- src-novikov-2025-alphaevolve
+- src-georgiev-2025-math-discovery-at-scale
+- src-lange-2025-shinkaevolve
+- src-sharma-2025-openevolve
+status: sourced
+provenance:
+  created: 2026-10-24-techniques-sim-math

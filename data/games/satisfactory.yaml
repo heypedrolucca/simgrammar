@@ -1,10 +1,146 @@
 id: satisfactory
 type: game
 name: Satisfactory
-summary: TODO
+summary: A first-person 3D factory automation game in which a pioneer taps infinite resource nodes on
+  an alien planet and connects machines with belts, pipes, trains, and drones to deliver project parts
+  to FICSIT's Space Elevator.
 year: 2019
+year_full_release: 2024
 developer: Coffee Stain Studios
+platforms:
+- pc
+- console
 subgenre: factory-automation
-status: asserted
+sim_domain:
+- industrial-logistics
+- physical-mechanical
+player_role: engineer-designer
+agency_model:
+- direct-avatar
+- zoning-placement
+time_model: real-time
+sim_scale: facility
+fidelity: stylized
+perspective: first-person
+win_structure: open-sandbox
+failure_model: soft-recoverable
+narrative_mode: authored
+multiplayer:
+- single
+- coop
+modding: scripting
+production_tier: aa
+agent_count_order: '100'
+emergence: 2
+influence: 3
+core_loop: scout resource nodes -> place miners -> belt ore through smelters, constructors, and assemblers
+  -> deliver parts to the HUB and Space Elevator -> unlock the next tier -> expand power and logistics
+  to distant nodes
+design_notes: 'Satisfactory moves the Factorio-style ratio puzzle into a hand-built 3D world explored
+  on foot, so verticality, foundations, and architecture become part of layout and many players build
+  for appearance as well as throughput. Resource nodes never deplete and are graded impure, normal, or
+  pure (0.5x, 1x, 2x), so expansion is driven by needing more node types and output rather than by exhaustion.
+  The power grid fails as a whole: when demand exceeds supply and storage is empty the fuse trips and
+  every connected building stops until the player resets it, unlike grids that slow machines proportionally.
+  Clock speed (1% to 250%, with Power Shards and a power exponent of about 1.32) and 106 alternate recipes
+  from crash-site hard drives give each factory a recipe-selection layer that the taxonomy folds into
+  production-chain; this run proposed a machine-boosting mechanic for clock speed and similar systems,
+  and a megaproject-sink mechanic for the Space Elevator. There are no base-raiding enemies; fauna threaten
+  only the pioneer.'
+mechanics:
+- id: production-chain
+  role: core
+  note: Smelters, constructors, assemblers, manufacturers, refineries, and blenders run per-minute recipes;
+    106 alternate recipes chosen from hard-drive scans swap inputs, and clock speed from 1% to 250% rescales
+    any machine.
+- id: conveyor-transport
+  role: core
+  note: Six belt tiers carry 60, 120, 270, 480, 780, and 1,200 items per minute, with splitters, mergers,
+    lifts, and smart splitters routing flows in 3D.
+- id: resource-extraction
+  role: core
+  note: Miners Mk.1 to Mk.3 sit on infinite ore nodes whose purity multiplies output by 0.5, 1, or 2;
+    water extractors, oil extractors, and resource well pressurizers tap fluids.
+- id: power-grid
+  role: core
+  note: Generators from 30 MW biomass burners to 2,500 MW nuclear plants feed one grid; if consumption
+    exceeds production with storage empty, the fuse trips and all connected buildings stop until reset.
+- id: tech-tree
+  role: core
+  note: HUB milestones are unlocked by delivering crafted parts tier by tier, Space Elevator phases gate
+    tiers 3 to 9, and the MAM researches alien items, power slugs, and hard drives.
+- id: direct-avatar
+  role: core
+  note: The pioneer walks, jetpacks, ziplines, and drives across a hand-built map, building only within
+    reach and gathering power slugs, hard drives, and samples on foot.
+- id: free-placement
+  role: supporting
+  note: Foundations, walls, and ramps snap to a grid at any height, so factories are stacked floors connected
+    by belt lifts and pipes.
+- id: fluid-pipe-network
+  role: supporting
+  note: Pipelines carry 300 or 600 m3 per minute; liquids need head lift supplied by pumps, while gases
+    do not.
+- id: vehicle-route-scheduling
+  role: supporting
+  note: Trains follow station timetables, trucks and tractors replay recorded routes, and drones shuttle
+    between a home port and one linked port on battery or packaged fuel.
+- id: rail-signaling
+  role: supporting
+  note: Block and path signals divide track so several trains can share a network.
+- id: blueprints
+  role: supporting
+  note: A Blueprint Designer (40 x 40 m at Mk.1, larger tiers in 1.0) saves layouts that appear as build-menu
+    entries and draw materials from storage or inventory.
+- id: storage-capacity
+  role: supporting
+  note: Storage containers, fluid buffers, and industrial tanks buffer production; the Dimensional Depot
+    uploads items for remote building.
+- id: byproducts-waste
+  role: supporting
+  note: Refinery recipes emit heavy oil residue or polymer resin that must be routed or the line backs
+    up, and nuclear plants emit waste that has to be stored or reprocessed.
+- id: hand-crafting
+  role: supporting
+  note: Early parts are crafted at a craft bench by holding a button, and equipment is made at the equipment
+    workshop.
+- id: modding-api
+  role: supporting
+  note: The community-run Satisfactory Mod Loader adds new buildings, recipes, and logic on top of the
+    Unreal Engine game.
+- id: megaproject-sink
+  role: supporting
+  note: The Space Elevator takes five Project Assembly phases of crafted parts, from 50 Smart Plating
+    in phase 1 to Nuclear Pasta and Ballistic Warp Drives in phase 5, and its phases unlock tiers 3 to
+    9 and the ending.
+- id: machine-boosting
+  role: supporting
+  note: Clock speed from 1% to 250% rescales any machine; each of up to three Power Shards raises the
+    cap by 50 points, and power scales with exponent about 1.32, so 250% draws about 336% of base power.
+- id: programming-by-demonstration
+  role: supporting
+  note: Trucks and tractors replay a route the player records by driving it once, stopping at truck stations
+    along the recorded path.
+influenced_by:
+- factorio
+claims:
+- text: Press coverage compares Satisfactory's building to Factorio, and the game is widely treated as
+    a 3D first-person take on Factorio's factory loop; the cited source records the comparison rather
+    than a developer statement of influence.
+  sources:
+  - src-wikipedia-satisfactory
+  confidence: medium
+sources:
+- src-wikipedia-satisfactory
+- src-satisfactorywiki-2026-resource-node
+- src-satisfactorywiki-2026-conveyor-belts
+- src-satisfactorywiki-2026-power
+- src-satisfactorywiki-2026-alternate-recipes
+- src-satisfactorywiki-2026-space-elevator
+- src-satisfactorywiki-2026-pipeline
+- src-satisfactorywiki-2026-blueprint-designer
+- src-satisfactorywiki-2026-clock-speed
+- src-satisfactorywiki-2026-drone
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gh

@@ -1,9 +1,68 @@
 id: public-transit
 type: mechanic
 name: Public transit lines
+aliases:
+- transit lines
+- metro lines
+- bus lines
 summary: Player-drawn lines with stops and vehicles carry passengers whose ridership depends on coverage,
   frequency, and transfers.
 family: logistics-networks
-status: asserted
+substrate:
+- network-graph
+- agent-based
+definition: 'The player defines lines as ordered stop sequences and assigns vehicles with a capacity.
+  Passengers spawn with origins and destinations and choose a route that may include transfers; vehicles
+  load at stops up to capacity and unload at destinations. Ridership depends on stop catchment, frequency
+  (vehicles per line), transfer penalties, and travel time compared with other modes. Mini Metro spawns
+  passengers as shapes that travel to any station of a matching shape, lets about six wait before a station
+  overcrowds, ends the game when a station stays overcrowded too long, and hands out new rolling stock
+  weekly. Cities: Skylines II citizens weigh transit against driving and walking using travel time, comfort,
+  and money costs. Inputs: lines, vehicles, passenger demand. Outputs: ridership, waiting times, overcrowding,
+  and changes in mode share.'
+player_experience: Network design with immediate feedback. Players draw a line, watch riders pile up or
+  flow, and redraw. Good transfer points and frequency matter more than raw coverage, and in Mini Metro
+  the game is about deciding which stations can wait.
+design_levers:
+- vehicle capacity and count per line
+- 'passenger route choice model: matching shapes, shortest time, or utility with transfer penalties'
+- stop capacity and overcrowding consequences
+- line constraints such as river crossings, line count, or budget
+- fares, subsidies, and operating costs
+failure_modes:
+- Passengers taking implausible routes because the route-choice model ignores transfer cost.
+- Lines that run full or empty without explanation because demand is hidden.
+- In city builders, transit that cannot reduce traffic because citizens' mode choice is too sticky.
+dynamics:
+- Hub-and-spoke versus grid patterns emerge from transfer penalties.
+- New lines shift demand rather than add it, moving overcrowding elsewhere.
+- Coupled with land value and zoning, stations attract density, which raises ridership further.
+math_basis:
+- network-flow
+- queueing
+- graph-search
+feedback: both
+player_interface:
+- placement
+- parameter
+legibility: 3
+emergence_potential: 3
+authoring_cost: 1
+compute_cost: 3
+tuning_difficulty: 3
+ai_leverage: 3
+maturity: established
+specializes: vehicle-route-scheduling
+synergy:
+- id: traffic-congestion
+  note: Transit is the relief valve for congestion; congestion is what makes transit worth building.
+open_questions:
+- Can agent route choice that is learned from real transit data be made legible enough for players to
+  design against?
+- What is the minimal passenger model that still punishes bad transfer design?
+sources:
+- src-wikipedia-mini-metro
+- src-paradox-2023-cs2-traffic-ai
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m1

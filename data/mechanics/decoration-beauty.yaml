@@ -1,8 +1,72 @@
 id: decoration-beauty
 type: mechanic
 name: Decoration and beauty
-summary: Aesthetic objects and scenery raise a beauty or environment score that affects agents or ratings.
+aliases:
+- beauty score
+- scenery rating
+- environment score
+summary: Decorative objects and scenery carry beauty values that are aggregated over tiles, rooms, or
+  radii and feed agent mood or ratings.
 family: space-construction
-status: asserted
+substrate:
+- cellular-grid
+- aggregate-stocks
+definition: Each decorative object, floor, or surface has a beauty value, and dirt, corpses, and filth
+  are negative. The game aggregates values over a radius or a room and samples the result for agents or
+  attractions. In RimWorld a room's beauty is total beauty divided by a weighted size (the size if above
+  40 tiles, otherwise 20 plus half the size), graded from hideous (below -3.5) to unbelievably beautiful
+  (100 or more), and combined with wealth, space, and cleanliness into impressiveness that sets mood thoughts;
+  colonists also get mood from the beauty around them. In RollerCoaster Tycoon 2, as documented by OpenRCT2,
+  scenery within 5 tiles of a ride's station adds 0.05 excitement per item up to 47 items. The Sims 4
+  rates rooms by an environment score from decor. Inputs are placed objects; outputs are mood, ratings,
+  or prices.
+player_experience: 'Cosmetic choices get a mechanical payoff, so players dress up rooms and paths and
+  watch moods or ride ratings rise. The tension is between beautiful and efficient: every statue costs
+  resources and floor space that production could use.'
+design_levers:
+- beauty value and cost of each object, and negative values for filth and industry
+- 'aggregation rule: per tile, per radius, per room, with or without size normalization'
+- caps or diminishing returns on how much decoration counts
+- 'which systems consume beauty: mood, ratings, prices, or visitor choice'
+- per-agent taste variation by trait or culture
+failure_modes:
+- One object with the best beauty per cost dominates, so players spam it regardless of how the space looks.
+- Proximity rules that count only a hot spot, such as scenery near a ride station in RollerCoaster Tycoon
+  2, reward decorating one spot and ignoring the rest of the ride.
+- Beauty values that disagree with the art (an ugly-looking object rated beautiful) break trust in the
+  system.
+- If the score is hidden, decoration reads as optional and the mechanic goes unused.
+dynamics:
+- Traffic creates filth that lowers beauty, which creates cleaning jobs that compete for labor.
+- In RimWorld, decoration raises colony wealth, and wealth raises raid points, so beauty carries a security
+  cost.
+- Prosperity funds decoration, and decoration raises mood or ratings and so prosperity, a slow upgrade
+  treadmill.
+math_basis:
+- optimization
+- utility-decision
+feedback: reinforcing
+player_interface:
+- placement
+- observation
+legibility: 3
+emergence_potential: 2
+authoring_cost: 3
+compute_cost: 2
+tuning_difficulty: 3
+ai_leverage: 3
+maturity: classic
+synergy:
+- id: room-recognition
+  note: Room quality depends on furnishings and beauty, rewarding interior design.
+open_questions:
+- Can a vision model score the composition of a space instead of summing per-object beauty values, and
+  would players accept its judgment?
+- Does generated decor reduce the asset cost enough to make beauty a deep system rather than a spam target?
+sources:
+- src-rimworldwiki-2026-room
+- src-openrct2-2026-ride-rating-calculation
+- src-rimworldwiki-2026-raid-points
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m4

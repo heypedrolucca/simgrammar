@@ -1,10 +1,72 @@
 id: simlife
 type: game
 name: SimLife
-summary: TODO
+aliases:
+- 'SimLife: The Genetic Playground'
+summary: A Maxis artificial-life toy in which the player edits plant and animal genes, landscape, and the world's
+  physical parameters, then watches food chains and evolution play out.
 year: 1992
 developer: Maxis
+platforms:
+- pc
 subgenre: artificial-life
-status: asserted
+subgenre_secondary:
+- ecosystem-evolution
+sim_domain:
+- biological-ecological
+player_role: observer-gardener
+agency_model:
+- design-then-test
+- policy-parameter
+- supernatural-intervention
+time_model: real-time-pausable
+sim_scale: region
+fidelity: stylized
+perspective: top-down-2d
+win_structure: open-sandbox
+failure_model: soft-recoverable
+narrative_mode: emergent
+multiplayer:
+- single
+modding: none
+production_tier: aa
+agent_count_order: '100'
+emergence: 3
+influence: 2
+core_loop: design species genes and world physics -> plants grow and animals eat, breed, and mutate -> populations
+  boom, crash, or go extinct -> read graphs -> edit genes or environment and run again
+design_notes: 'Designed by Ken Karakotsios, SimLife moves the player''s control point down to the genome: plant
+  and animal species are edited gene by gene, and the world''s physical parameters can be changed, so the toy is
+  about running ecological and evolutionary experiments rather than pursuing goals. Where SimEarth aggregates taxa
+  into planetary stocks, SimLife works at the scale of a landscape and its individual species, mixing exclusive
+  designed animals such as the Killer Penguin and Monkeyphant with player-made ones. Direct gene editing matches
+  the genome-modification proposal from run catalog-ge.'
+mechanics:
+- id: trait-inheritance
+  role: core
+  note: The player edits the genetics of plant and animal species directly, and offspring inherit those genes with
+    variation.
+- id: natural-selection
+  role: core
+  note: Evolution is simulated and can be steered; species whose genes fit the designed environment persist while
+    others decline.
+- id: food-web
+  role: core
+  note: Designed ecosystems pair plant species with the animals that eat them, so gene edits ripple through who
+    can feed on whom.
+- id: habitat-suitability
+  role: supporting
+- id: terraforming
+  role: supporting
+  note: Players create and modify worlds and environments as well as species.
+- id: lifecycle-aging
+  role: supporting
+- id: stats-dashboards
+  role: supporting
+- id: variable-speed
+  role: supporting
+sources:
+- src-wikipedia-simlife
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gd

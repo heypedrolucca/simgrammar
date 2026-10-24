@@ -1,10 +1,88 @@
 id: dont-starve
 type: game
 name: Don't Starve
-summary: TODO
-year: 2013
+summary: A survival sim in a procedurally generated wilderness where the player balances hunger, health, and sanity, crafts
+  tools and light, and prepares for darkness, hounds, and seasons.
+year: 2012
+year_full_release: 2013
 developer: Klei Entertainment
+platforms:
+- pc
+- console
+- handheld
+- mobile
 subgenre: survival-sim
-status: asserted
+sim_domain:
+- biological-ecological
+- planetary-natural
+player_role: inhabitant
+agency_model:
+- direct-avatar
+time_model: real-time
+sim_scale: individual
+fidelity: stylized
+perspective: isometric
+win_structure: survival-duration
+failure_model: hard-restart
+narrative_mode: emergent
+multiplayer:
+- single
+modding: scripting
+production_tier: indie
+agent_count_order: '100'
+emergence: 3
+influence: 3
+core_loop: explore a generated world by day -> gather and craft tools, food, and light -> manage hunger, health, and sanity
+  -> survive nights, hounds, and seasons -> build a base and stockpile for winter -> die and start a new world
+design_notes: 'Three meters interact: empty hunger drains health, and sanity falls at dusk and night and from unpleasant actions
+  until, below 15% of maximum, shadow creatures attack, so the mind is a survival stock alongside the body. The 8-minute day
+  is divided into day, dusk, and night segments whose split shifts with the season, and total darkness is lethal because Charlie
+  attacks anyone without a light. Hound attacks escalate on a schedule tied to days survived, and death deletes the world
+  except through rare resurrection items. Klei released it in beta in 2012 and fully on 23 April 2013.'
+mechanics:
+- id: survival-meters
+  role: core
+  note: Hunger, health, and sanity meters; default maximum hunger is 150 and drains 75 per game day, and at empty hunger health
+    drains 1.25 per second until the player eats or dies.
+- id: hand-crafting
+  role: core
+  note: Recipes combine gathered items into tools, light, shelter, and weapons; most must first be prototyped at a crafting
+    station such as the science machine, though some characters bypass this.
+- id: day-night-cycle
+  role: core
+  note: A day lasts 8 real minutes in sixteen 30-second segments of day, dusk, and night; sanity drains 5 per minute at dusk
+    and 50 per minute in total darkness, where Charlie attacks unless the player has light.
+- id: seasons
+  role: supporting
+  note: Winter shortens days and lengthens nights; seasons change hazards.
+- id: adaptive-threat-scaling
+  role: supporting
+  note: Hound attacks scale with days survived, from 2 hounds every 5-8 days early to 7-10 hounds every 11-16 days after day
+    100, with shorter warnings.
+- id: spoilage
+  role: supporting
+  note: Food spoils over time; spoiled food restores less hunger and costs health and sanity.
+- id: renewable-regrowth
+  role: supporting
+  note: Picked grass, saplings, and berry bushes regrow.
+- id: crop-cultivation
+  role: supporting
+- id: fire-spread
+  role: supporting
+  note: Fire spreads across flammable plants and structures.
+- id: procedural-terrain
+  role: supporting
+  note: Each world is randomly generated.
+- id: permadeath
+  role: supporting
+  note: Death deletes the world unless a rare resurrection item is available.
+- id: direct-avatar
+  role: supporting
+sources:
+- src-wikipedia-dont-starve
+- src-dontstarvewiki-2026-hunger
+- src-dontstarvewiki-2026-day-night-cycle
+- src-dontstarvewiki-2026-hounds
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gb

@@ -1,0 +1,122 @@
+id: imperfect-information-solvers
+type: technique
+name: Regret minimization and search for imperfect-information games
+aliases:
+- CFR
+- MCCFR
+- Libratus
+- DeepStack
+- Pluribus
+- ReBeL
+- DeepNash
+- Student of Games
+summary: Self-play algorithms that minimize counterfactual regret over information sets, refined by real-time
+  subgame search, compute hard-to-exploit strategies that bluff and hide information and beat top humans
+  at poker, Stratego, and Scotland Yard.
+category: game-theoretic-solvers
+year: 2019
+mechanism: 'A decision point is an information set: all histories the player cannot tell apart. CFR traverses
+  the game tree repeatedly; at each information set it computes each action''s counterfactual regret (how
+  much better it would have done, weighted by the probability that others reach that set) and sets the
+  next strategy by regret matching, proportional to positive cumulative regret. The average strategy converges
+  to a Nash equilibrium in two-player zero-sum games, and Monte Carlo CFR samples the tree to scale. Large
+  games are abstracted (bucketed hands and bet sizes) into an offline blueprint that is refined during
+  play by subgame search: Libratus used nested subgame solving, DeepStack re-solved to a depth limit with
+  a learned value function, and Pluribus searched a few moves ahead while letting each opponent pick among
+  four continuation strategies at the leaves. ReBeL and Student of Games learn values over public belief
+  states and search with them, reducing to AlphaZero-style search in perfect-information games. DeepNash
+  instead learns a policy model-free with Regularised Nash Dynamics and no search. Outputs are mixed strategies,
+  so the agent bluffs at calibrated rates.'
+key_results:
+- text: Libratus beat top professionals at heads-up no-limit Texas hold'em (Science, January 2018).
+  sources:
+  - src-brown-2018-libratus
+  confidence: high
+- text: DeepStack beat professional players with statistical significance over 44,000 hands of heads-up
+    no-limit hold'em using recursive re-solving with a learned value function.
+  sources:
+  - src-moravcik-2017-deepstack
+  confidence: high
+- text: Pluribus beat elite professionals at six-player no-limit hold'em, winning about 5 big blinds per
+    100 hands over 10,000 hands; its blueprint took 8 days of Monte Carlo CFR on a 64-core server (under
+    $150 of cloud compute) and it played on two CPUs at about 20 seconds per hand.
+  sources:
+  - src-brown-2019-pluribus
+  - src-facebook-2019-pluribus-blog
+  confidence: high
+- text: ReBeL combined self-play RL with search, provably converging to a Nash equilibrium in two-player
+    zero-sum games, and reached superhuman heads-up no-limit hold'em with less domain knowledge.
+  sources:
+  - src-brown-2020-rebel
+  confidence: high
+- text: DeepNash reached a top-3 all-time ranking among expert humans on the Gravon Stratego platform
+    using model-free Regularised Nash Dynamics and no search (Science, December 2022).
+  sources:
+  - src-perolat-2022-deepnash
+  confidence: high
+- text: Student of Games (Science Advances, November 2023) used one sound algorithm across chess, Go,
+    heads-up no-limit poker, and Scotland Yard, beating the strongest openly available poker agent and
+    the prior best Scotland Yard agent.
+  sources:
+  - src-schmid-2023-student-of-games
+  confidence: high
+maturity: research
+trl: 5
+runtime:
+- offline-authoring
+- client-realtime
+determinism_impact: mitigable
+horizon: 3-5y
+risks:
+- compute-cost
+- legibility
+- controllability
+affects:
+- id: fog-of-war
+  effect: deepens
+  note: AI players reason over unseen state as a belief distribution and play strategies that are hard
+    to exploit, instead of cheating with full map knowledge or ignoring hidden units, so concealment and
+    feints work against the AI as they would against a person.
+- id: scouting-knowledge
+  effect: deepens
+  note: Equilibrium strategies put a value on information, so AI opponents scout, hide their own attributes,
+    and avoid revealing them through their actions, giving the player's scouting system a real counterpart.
+- id: auctions
+  effect: replaces-substrate
+  note: AI bidders play mixed strategies over private valuations instead of bidding a fixed fraction of
+    value, which removes simple exploits such as always outbidding the AI by one unit.
+- id: military-operations
+  effect: deepens
+  note: Deception becomes a stable part of AI play, as DeepNash bluffed with hidden unit identities in
+    Stratego, so operational wargames could field opponents that feint and conceal force composition at
+    calibrated rates.
+- id: rival-firms
+  effect: deepens
+  note: Competitors with private costs or plans can bluff in price wars and market entry, and designers
+    can measure how exploitable a fixed AI pricing script is by computing a best response against it.
+- id: negotiation
+  effect: deepens
+  note: Bargaining with hidden reservation values is an imperfect-information game; equilibrium strategies
+    bluff and concede in ways scripted thresholds cannot.
+limitations:
+- Convergence guarantees hold for two-player zero-sum games; Pluribus's six-player play works empirically
+  without them, and cooperative or general-sum simulation games fall outside the theory.
+- Large games need designed abstractions of actions and states; a simulation with continuous economies
+  and many units has no obvious abstraction to solve.
+- Runtime search costs seconds per decision (Pluribus averaged about 20 seconds per hand on two CPUs),
+  far above per-frame budgets for many agents.
+- Equilibrium play avoids being exploited rather than exploiting weak players, which can feel passive,
+  and randomized bluffs read as arbitrary unless the game explains them.
+sources:
+- src-brown-2018-libratus
+- src-moravcik-2017-deepstack
+- src-brown-2019-pluribus
+- src-facebook-2019-pluribus-blog
+- src-brown-2020-rebel
+- src-perolat-2022-deepnash
+- src-schmid-2023-student-of-games
+status: sourced
+provenance:
+  created: 2026-10-24-techniques-rl-design
+  reviewed:
+  - 2026-10-24-technique-links

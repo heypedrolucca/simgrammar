@@ -1,0 +1,17 @@
+id: src-aher-2022-turing-experiments
+type: source
+name: Using Large Language Models to Simulate Multiple Humans and Replicate Human Subject Studies
+kind: preprint
+authors:
+- Gati Aher
+- Rosa I. Arriaga
+- Adam Tauman Kalai
+venue: arXiv
+date: '2022-08-18'
+url: https://arxiv.org/abs/2208.10264
+arxiv: '2208.10264'
+accessed: '2026-10-24'
+notes: 'Turing Experiments: models replicated Ultimatum Game, garden path sentence, and Milgram shock
+  findings; a wisdom-of-crowds experiment revealed a hyper-accuracy distortion in ChatGPT and GPT-4.'
+provenance:
+  created: 2026-10-24-techniques-llm-agents

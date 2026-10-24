@@ -1,8 +1,84 @@
 id: contagion
 type: mechanic
 name: Contagion
-summary: Disease spreads between agents or regions via contact rates and follows compartment dynamics.
+aliases:
+- disease spread
+- epidemics
+- plague
+summary: Disease spreads between agents or regions via contact rates and moves hosts through compartments
+  such as susceptible, infected, and recovered.
 family: environment-ecology
-status: asserted
+substrate:
+- agent-based
+- network-graph
+- aggregate-stocks
+definition: Each host (agent, building, settlement, or country) carries a disease state from a small compartment
+  set, usually susceptible, infected, recovered or immune, and dead. Each tick infected hosts transmit
+  to susceptible contacts with a probability per contact (agent-based) or at a rate proportional to infected
+  times susceptible (aggregate), and leave infection at a recovery or death rate. Inputs are contact structure
+  (adjacency, shared rooms, trade and travel links), host resistance, and interventions such as quarantine,
+  vaccination, or medicine; outputs are cases, deaths, and lost labor. Kermack and McKendrick showed that
+  an epidemic occurs only above a threshold set by infectivity and recovery rates. Plague Inc. spreads
+  a player-evolved pathogen between countries until a cure completes; Theme Hospital has contagious patients
+  who infect others inside the hospital; World of Warcraft's 2005 Corrupted Blood debuff spread by proximity
+  and escaped its raid through suspended pets and fast travel to cities.
+player_experience: 'Watching an invisible quantity become visible too late. Early cases look harmless,
+  then counts climb faster than responses can be built, so the player learns to act on leading indicators:
+  isolating carriers, closing links, stockpiling medicine, or, in Plague Inc., keeping symptoms mild so
+  the disease spreads widely before lethality alerts the world. Most responses trade economic activity
+  against spread.'
+design_levers:
+- transmission probability per contact or aggregate rate, and which contacts count (adjacency, shared
+  rooms, trade routes, flights)
+- infectious period, incubation length, and whether carriers can be asymptomatic
+- recovery, death, and immunity rules, including whether recovery confers lasting immunity
+- 'intervention set and costs: quarantine, closing borders or ports, vaccination, treatment'
+- 'spatial resolution: per agent, per building, per settlement, or per country'
+- 'how much disease state is shown: case counts, overlays, or only visible symptoms'
+failure_modes:
+- A reproduction number far above any real pathogen makes spread unstoppable and interventions pointless;
+  Lofgren and Fefferman noted Corrupted Blood's exceeded any observed real disease.
+- Contact channels the designer did not model, such as Corrupted Blood's suspended pets and fast travel,
+  carry infection past intended boundaries.
+- Hidden infection with no leading indicator reads as a random wipeout rather than a failed response.
+- Aggregate compartments with no spatial structure give every outbreak the same curve, so the player learns
+  one fixed response.
+dynamics:
+- Hubs such as cities, hospitals, and transport nodes become superspreaders, so network topology matters
+  more than total population.
+- Sick workers leave jobs, cutting production of the food, medicine, or care that would end the outbreak.
+- Agents or players bypass quarantine for convenience, so enforcement becomes its own problem, as in the
+  Corrupted Blood outbreak.
+- Depletion of susceptible hosts ends waves on its own, producing boom-and-bust waves that can look like
+  successful policy.
+math_basis:
+- epidemiology
+- markov-stochastic
+- social-network
+feedback: both
+player_interface:
+- observation
+- parameter
+- choice-cards
+legibility: 3
+emergence_potential: 4
+authoring_cost: 2
+compute_cost: 2
+tuning_difficulty: 4
+ai_leverage: 3
+maturity: established
+synergy:
+- id: service-coverage
+  note: Health coverage determines whether outbreaks are contained.
+open_questions:
+- Can LLM-driven agents produce plausible behavioral responses to outbreaks (compliance, panic, rumor)
+  that change the effective contact rate in play?
+- What is the minimum contact structure that still makes intervention placement a meaningful spatial decision?
+sources:
+- src-kermack-1927-epidemic-theory
+- src-lofgren-2007-corrupted-blood
+- src-wikipedia-corrupted-blood-incident
+- src-wikipedia-plague-inc
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m5

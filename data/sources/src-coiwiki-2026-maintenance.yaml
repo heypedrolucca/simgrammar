@@ -1,0 +1,15 @@
+id: src-coiwiki-2026-maintenance
+type: source
+name: Maintenance
+kind: encyclopedia
+authors:
+- Captain of Industry Wiki contributors
+venue: Captain of Industry Wiki
+date: '2026'
+url: https://wiki.coigame.com/Maintenance
+accessed: '2026-10-24'
+notes: Maintenance I-III is crafted at depots and consumed by working vehicles and buildings (idle at
+  about a third); below 75% a breakdown becomes possible, rising to 50% at 0, checked monthly; Unity can
+  repair a single unit.
+provenance:
+  created: 2026-10-24-catalog-gh

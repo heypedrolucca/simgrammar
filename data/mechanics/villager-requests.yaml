@@ -1,8 +1,60 @@
 id: villager-requests
 type: mechanic
 name: Villager requests
-summary: Characters generate small requests or quests from templates tied to simulation state.
+aliases:
+- radiant quests
+- favors
+- help wanted
+summary: Characters generate small requests or quests from templates whose parameters are filled from simulation state, with
+  rewards and deadlines.
 family: narrative-generation
+substrate:
+- rule-system
+- stochastic-events
+- agent-based
+definition: >-
+  A generator periodically picks a requester, a template (fetch an item, deliver a gift, clear pests, make a visit), and parameters
+  drawn from current state, such as an item in season or a nearby location. It posts the request with a reward, often relationship
+  points or money, and a deadline. Completing it applies the reward; expiry may cost relationship. Stardew Valley's Help Wanted
+  board posts item delivery and gathering requests from villagers; Skyrim's radiant quests fill templates with locations and
+  targets; Animal Crossing villagers ask small favors; Mount and Blade lords issue procedural tasks. Inputs: requester state,
+  inventory and season, relationship. Outputs: posted tasks and reward deltas.
+player_experience: >-
+  A light stream of small goals that gives daily play direction and makes characters feel like they have needs. Requests nudge
+  players toward activities they might skip and reward them with friendship. Players learn which requests are worth it and
+  ignore the rest.
+design_levers:
+- template set and how parameters bind to live state
+- posting frequency and number of concurrent requests
+- reward type and size relative to effort
+- deadlines and penalties for expiry
+- requester selection by need, relationship, or location
+failure_modes:
+- Template repetition makes requests read as generic chores; radiant quests in Skyrim drew this criticism.
+- Requests that ignore state ask for impossible items or locations already cleared.
+- Low rewards teach players to ignore the system entirely.
+dynamics:
+- Requests pull players across map areas and seasonal resources they would otherwise skip.
+- Rewards in relationship points couple requests to romance and social progression.
+- When requests read live scarcity, they double as a signal of what the economy lacks.
+math_basis:
+- probability-statistics
+- utility-decision
+feedback: none
+player_interface:
+- observation
+- choice-cards
+legibility: 5
+emergence_potential: 2
+authoring_cost: 3
+compute_cost: 1
+tuning_difficulty: 2
+ai_leverage: 4
+maturity: established
+open_questions:
+- Can requests generated from a character's actual needs and memories, with language-model dialogue, avoid template fatigue?
+- What request rate keeps them meaningful without crowding out self-directed play?
+sources: []
 status: asserted
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m7

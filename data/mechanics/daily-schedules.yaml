@@ -1,9 +1,73 @@
 id: daily-schedules
 type: mechanic
 name: Daily schedules
+aliases:
+- routines
+- regimes
+- timetables
 summary: Agents follow time-blocked routines for work, sleep, and leisure that create rhythms of demand
   across the day.
 family: agents-behavior
-status: asserted
+substrate:
+- rule-system
+- agent-based
+definition: 'Owns a timetable per agent or group mapping time-of-day blocks to activity categories (sleep,
+  work, eat, leisure), set by the player, authored, or generated. Each tick the current block filters
+  or biases which actions an agent may choose and which areas it may enter; block boundaries trigger mass
+  movement. Prison Architect regimes are hourly schedules per risk category (Lockup, Sleep, Eat, Yard,
+  Shower, Free Time, Work variants) that confine prisoners to areas rather than forcing actions, and cooks
+  start four hours before an Eat block. RimWorld''s schedule assigns each colonist''s hours to sleep,
+  recreation, work, or anything. Generative Agents (2023) has a language model draft a day plan of five
+  to eight broad chunks, then decompose it into hour-long and 5-15 minute actions and replan on events.
+  Inputs: clock, block assignments, disruptions. Outputs: synchronized demand peaks and occupancy by room
+  and hour.'
+player_experience: 'The player thinks in time: staggering shifts so the canteen is not mobbed, protecting
+  sleep, and noticing when one block is starved. Schedules make agents look like they have lives and give
+  the world a daily rhythm the player learns and exploits.'
+design_levers:
+- block granularity (hourly, shift-based, or free-form plans)
+- 'who sets the schedule: player, authored routine, or agent-generated plan'
+- 'strictness: hard confinement, soft bias, or ignorable when needs are urgent'
+- per-group or per-agent schedules and shift staggering
+- 'response to disruption: skip the block, delay, or replan'
+failure_modes:
+- Synchronized blocks create rush hours that overwhelm shared facilities such as canteens, showers, and
+  transit.
+- Agents follow the schedule into danger because blocks override situational awareness.
+- Authored routines repeat visibly, so the world reads as clockwork after a few days.
+- Schedules that conflict with needs create deadlocks in which agents go hungry or sleepless between blocks.
+dynamics:
+- Shared blocks produce peaks on food, transit, and services, generating queues and congestion at predictable
+  hours.
+- Staggered shifts emerge as a player strategy that trades coordination effort for throughput.
+- Coupled with day-night cycles and crime, schedules create time-dependent risk such as unattended night
+  hours.
+math_basis:
+- scheduling
+- queueing
+feedback: none
+player_interface:
+- parameter
+- observation
+legibility: 4
+emergence_potential: 3
+authoring_cost: 2
+compute_cost: 1
+tuning_difficulty: 2
+ai_leverage: 4
+maturity: classic
+synergy:
+- id: traffic-congestion
+  note: Synchronized commutes produce rush-hour peaks that stress the network.
+- id: needs-decay
+  note: Schedules decide when needs can be met, creating crowding at meals and bedtime.
+open_questions:
+- Can language-model day plans stay coherent across weeks of game time while remaining cheap enough for
+  hundreds of agents?
+- How much schedule variation is needed before a town stops reading as clockwork?
+sources:
+- src-paradoxwikis-2026-prison-architect-regime
+- src-park-2023-generative-agents
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m3

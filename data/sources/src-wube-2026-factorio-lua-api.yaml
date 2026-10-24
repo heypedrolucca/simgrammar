@@ -1,0 +1,14 @@
+id: src-wube-2026-factorio-lua-api
+type: source
+name: Factorio Lua API documentation
+kind: docs
+authors:
+- Wube Software
+venue: lua-api.factorio.com
+date: '2026'
+url: https://lua-api.factorio.com/latest/
+accessed: '2026-10-24'
+notes: Mods use a modified Lua 5.2 and pass through settings, prototype (data), and runtime (control) stages in
+  a fixed data lifecycle; the runtime stage is event-driven.
+provenance:
+  created: 2026-10-24-taxonomy-m7

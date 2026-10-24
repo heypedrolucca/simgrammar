@@ -1,0 +1,49 @@
+id: sims-as-agent-benchmarks
+type: opportunity
+name: Simulation games as agent benchmarks
+summary: Use factory, colony, and economy sims as long-horizon evaluation and training environments for
+  AI agents, with game studios as environment providers.
+opportunity_type: non-game-transfer
+thesis: AI agents now need environments that test planning over thousands of steps, resource management,
+  and recovery from compounding errors. Simulation games are exactly that, with measurable outcomes (throughput,
+  survival, profit). Minecraft became a research environment through MineDojo and Voyager, and factory
+  games have been proposed as agent benchmarks. Games with headless modes and clean observation APIs can
+  become a licensed research category.
+design_sketch: A studio ships a headless build with a typed observation and action API, standard scenarios,
+  and leaderboards for agents. Researchers measure long-horizon performance; players watch agent runs
+  as content.
+involves:
+- production-chain
+- power-grid
+- conveyor-transport
+- scenario-objectives
+- comparative-histograms
+applies:
+- generalist-game-agents
+- open-ended-environment-generation
+- voyager-skill-libraries
+precedent:
+- factorio
+- minecraft
+- screeps
+- dwarf-fortress
+novelty: 2
+feasibility: 5
+impact: 3
+horizon: now
+key_risks:
+- Benchmarks saturate quickly.
+- Studios may not want agent play to define their game publicly.
+- Engine licensing for research use.
+validation_experiment: 'Wrap an open-source colony or factory sim with a typed API, define five scenarios
+  with throughput and survival metrics, and evaluate three frontier agents. Success: scores that separate
+  agents and do not saturate within one model generation.'
+falsifiable_signal:
+  prediction: A commercial simulation game developer will officially release a headless research API or
+    benchmark for AI agents.
+  resolve_by: '2027-12-31'
+  criteria: Official announcement or repository from the developer, not only a community wrapper.
+sources: []
+status: asserted
+provenance:
+  created: 2026-10-24-synthesis

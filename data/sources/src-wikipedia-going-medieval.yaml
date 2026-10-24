@@ -1,0 +1,15 @@
+id: src-wikipedia-going-medieval
+type: source
+name: Going Medieval
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Going_Medieval
+accessed: '2026-10-24'
+notes: Foxy Voxel, published by Mythwright; early access 2021-06-01, 1.0 2026-03-17; Windows; voxel terrain with
+  cellars and multi-level fortifications; settler traits, skills, perks, needs, and moods; seasons; bandit raids;
+  compared to RimWorld and Dwarf Fortress.
+provenance:
+  created: 2026-10-24-catalog-gb

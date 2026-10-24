@@ -1,10 +1,97 @@
 id: animal-crossing-new-horizons
 type: game
 name: 'Animal Crossing: New Horizons'
-summary: TODO
+aliases:
+- New Horizons
+summary: A Nintendo life sim on a deserted island whose clock, seasons, and wildlife follow the real calendar,
+  built around gathering, D.I.Y. crafting, museum collections, villager relationships, and island design.
 year: 2020
 developer: Nintendo EPD
+platforms:
+- console
+- handheld
 subgenre: life-sim
-status: asserted
+subgenre_secondary:
+- social-sim
+sim_domain:
+- domestic-personal
+- social-interpersonal
+- biological-ecological
+player_role: inhabitant
+agency_model:
+- direct-avatar
+- zoning-placement
+time_model: real-world-clock
+sim_scale: settlement
+fidelity: stylized
+perspective: third-person
+win_structure: open-sandbox
+failure_model: none
+narrative_mode: hybrid
+multiplayer:
+- single
+- coop
+modding: none
+production_tier: aaa
+agent_count_order: '10'
+emergence: 2
+influence: 3
+core_loop: visit the island each real day -> gather wood, fruit, fish, bugs, and fossils -> craft D.I.Y.
+  items and spend Bells and Nook Miles -> donate to the museum and decorate -> island rating rises and
+  unlocks services -> new seasons bring new species
+design_notes: Time runs on the console clock, and weather, seasons, and species availability follow the
+  hemisphere chosen at start, so a missed month means missing that month's fish and bugs. The developers
+  lowered bank interest and removed waits from landscaping and crafting to reduce the payoff of changing
+  the console clock. The island's one-to-five-star rating gates milestones such as K.K. Slider's concert
+  at three stars, after which the Island Designer lets players add and remove cliffs, water, and paths.
+  The turnip stalk market sells turnips on Sunday mornings, changes buy prices twice daily under one of
+  four weekly patterns, and spoils unsold turnips the next Sunday.
+mechanics:
+- id: real-time-clock
+  role: core
+  note: Game time follows the console clock; days, hemisphere-based seasons, shop hours, and species spawn
+    windows advance while the game is off.
+- id: collection-goals
+  role: core
+  note: Blathers' museum collects fish, bugs, sea creatures, fossils, and art donated by the player.
+- id: hand-crafting
+  role: core
+  note: D.I.Y. recipes turn gathered wood, stone, iron, fruit, and other materials into tools, furniture,
+    and decorations at a workbench.
+- id: free-placement
+  role: core
+  note: Furniture and items can be placed indoors and outdoors anywhere on the island, and the player
+    chooses sites for residents' houses and shops.
+- id: terraforming
+  role: supporting
+  note: The Island Designer edits cliffs, rivers and ponds, and paths.
+- id: decoration-beauty
+  role: supporting
+  note: The island rating (one to five stars) reflects development and scenery; three stars triggers K.K.
+    Slider's concert.
+- id: milestone-unlocks
+  role: supporting
+  note: Island growth brings shopkeepers and services such as Nook's Cranny, the museum, and the Able
+    Sisters.
+- id: seasons
+  role: supporting
+- id: weather
+  role: supporting
+- id: renewable-regrowth
+  role: supporting
+  note: Rocks, fruit, fish, and bugs replenish on daily or multi-day cycles, so gathering is a daily routine.
+- id: spoilage
+  role: supporting
+  note: Turnips bought on Sunday rot the following Sunday while sell prices follow one of four weekly
+    patterns.
+- id: relationship-values
+  role: supporting
+  note: Villagers' friendship with the player grows through conversation and gifts.
+- id: direct-avatar
+  role: supporting
+sources:
+- src-wikipedia-animal-crossing-new-horizons
+- src-nookipedia-2026-stalk-market
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gc

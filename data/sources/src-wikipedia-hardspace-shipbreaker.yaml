@@ -1,0 +1,14 @@
+id: src-wikipedia-hardspace-shipbreaker
+type: source
+name: 'Hardspace: Shipbreaker'
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Hardspace:_Shipbreaker
+accessed: '2026-10-24'
+notes: Blackbird Interactive; laser cutter, tether, scanner; cutting electrical wires or coolant pipes can explode;
+  decompression; reactor meltdown timer; debt of $1.2 billion; early access 2020-06-16, full release 2022-05-24.
+provenance:
+  created: 2026-10-24-taxonomy-m7

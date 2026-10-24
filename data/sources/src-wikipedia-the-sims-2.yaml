@@ -1,0 +1,15 @@
+id: src-wikipedia-the-sims-2
+type: source
+name: The Sims 2
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/The_Sims_2
+accessed: '2026-10-24'
+notes: Maxis Redwood Shores, Windows release 2004-09-14 plus console, handheld, and Java ME versions;
+  seven life stages with day counts, genetics, 25 personality points, eight aspirations, wants and fears,
+  memories, careers with ten levels.
+provenance:
+  created: 2026-10-24-catalog-gc

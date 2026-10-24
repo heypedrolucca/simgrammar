@@ -1,0 +1,73 @@
+id: subspace-neural-physics
+type: technique
+name: Subspace neural physics and learned deformers
+aliases:
+- Ubisoft subspace neural physics
+- Unreal ML Deformer
+- learned cloth deformation
+- neural morph model
+summary: Small networks trained on offline cloth, flesh, or muscle simulation predict deformation in a
+  compressed subspace or as corrective morph targets, running hundreds to thousands of times faster than
+  the source simulation inside a game engine.
+category: neural-physics
+year: 2019
+mechanism: Developers run an expensive offline simulation (cloth, soft tissue, muscle, volume-preserving
+  flesh) over many randomized poses or interactions. Vertex positions are compressed, for example with
+  principal component analysis, into a low-dimensional subspace. A small network is trained to predict
+  the next subspace coordinates from the current coordinates plus external inputs such as bone transforms
+  or collider positions (Holden et al. 2019), or to predict per-pose corrective morph-target weights applied
+  on top of linear skinning (Unreal Engine ML Deformer, Neural Morph Model and Nearest Neighbor Model).
+  At runtime only the network and the decode from subspace to full mesh run, on the GPU.
+key_results:
+- text: Ubisoft La Forge's subspace neural physics ran interactive cloth and deformable simulation 300
+    to 5000 times faster than conventional simulation at a small additional memory cost (the project page
+    states 300 to 4000).
+  sources:
+  - src-holden-2019-subspace-neural-physics
+  - src-ubisoft-2019-data-driven-physics
+  - src-holden-2020-gdc-squishy-bunnies
+  confidence: medium
+- text: Unreal Engine's ML Deformer trains models on externally generated deformation caches from Maya
+    or Houdini and applies them at runtime as GPU morph targets; the Neural Morph Model is the recommended
+    default and the cloth-oriented Nearest Neighbor Model is marked experimental.
+  sources:
+  - src-epic-2026-ml-deformer
+  confidence: high
+maturity: prototype
+trl: 6
+runtime:
+- client-realtime
+- offline-authoring
+determinism_impact: preserves
+horizon: now
+risks:
+- consistency
+- controllability
+affects:
+- id: soft-body-deformation
+  effect: accelerates
+  note: Deformation learned from an offline solver runs 300-5000x faster than that solver, putting near-offline-quality
+    cloth and flesh response within a real-time budget.
+- id: embodied-skill-control
+  effect: deepens
+  note: Hands-on tasks such as surgery or handling soft objects could show tissue and cloth reacting plausibly
+    to tools in real time, adding feedback the player reads to perform the skill.
+deployed_in: []
+limitations:
+- Quality holds only near the training distribution of poses and interactions; unusual poses or collisions
+  produce artifacts, so coverage of the offline dataset sets the limit.
+- 'Training is heavy: Unreal''s documentation notes long training times and Alembic training caches of
+  50-100 GB.'
+- GPU memory for morph targets is the main runtime cost, and compression settings trade memory and speed
+  for quality.
+- Output is usually cosmetic; it does not feed back into gameplay physics unless the game reads the deformed
+  state, which brings determinism and consistency issues.
+- No commercial title using these models at runtime was confirmed in this run's sources.
+sources:
+- src-holden-2019-subspace-neural-physics
+- src-ubisoft-2019-data-driven-physics
+- src-holden-2020-gdc-squishy-bunnies
+- src-epic-2026-ml-deformer
+status: sourced
+provenance:
+  created: 2026-10-24-techniques-sim-math

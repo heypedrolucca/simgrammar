@@ -1,10 +1,95 @@
 id: farming-simulator-25
 type: game
 name: Farming Simulator 25
-summary: TODO
+summary: The 2024 entry in Giants Software's series in which the player runs a farm business by operating
+  over 400 licensed vehicles and implements across seasonal field work, livestock, forestry, and production
+  chains.
 year: 2024
 developer: Giants Software
+platforms:
+- pc
+- console
 subgenre: farming-sim
-status: asserted
+subgenre_secondary:
+- vehicle-sim
+sim_domain:
+- occupational
+- biological-ecological
+- economic
+player_role: operator-pilot
+agency_model:
+- direct-avatar
+- direct-unit
+time_model: real-time-pausable
+sim_scale: facility
+fidelity: stylized
+perspective: third-person
+win_structure: open-sandbox
+failure_model: soft-recoverable
+narrative_mode: none
+multiplayer:
+- single
+- coop
+modding: scripting
+production_tier: aa
+agent_count_order: '10'
+emergence: 2
+influence: 2
+core_loop: buy fields and machinery -> plow, seed, fertilize, and harvest with implements -> store or
+  sell crops or feed productions and animals -> take contracts for extra income -> reinvest in land, buildings,
+  and equipment
+design_notes: Farming Simulator models agriculture as ordered field operations performed with specific
+  implements, so the challenge is machine operation and fleet logistics rather than market strategy. FS25
+  lists 25 crop types including two rice varieties grown in paddies, spinach, peas, and green beans, adds
+  water buffalo and goats, adds twisters and hail that damage crops, and deforms soft ground under tires.
+  Dynamically generated contracts pay for work on other farms, and the in-game ModHub distributes developer-tested
+  community vehicles, maps, and scripts.
+mechanics:
+- id: crop-cultivation
+  role: core
+  note: Fields move through cultivating or plowing, seeding, fertilizing, weeding, and harvesting with
+    matching implements; 25 crop types follow seasonal calendars, with rice grown in paddies.
+- id: vehicle-dynamics
+  role: core
+  note: The player drives over 400 licensed vehicles and implements from more than 150 brands, each with
+    its own power, speed, and weight; GPS-assisted steering automates straight passes.
+- id: wear-breakdown
+  role: supporting
+  note: Vehicles accumulate wear and damage that reduce performance until repaired at a workshop.
+- id: terrain-deformation
+  role: supporting
+  note: Tires leave tracks that deform soft ground.
+- id: animal-husbandry
+  role: supporting
+  note: Cows, sheep, pigs, chickens, horses, water buffalo, and goats with offspring need feed and care
+    and yield products.
+- id: production-chain
+  role: supporting
+  note: Productions and farm shops convert crops into processed goods as business ventures.
+- id: contracts-orders
+  role: supporting
+  note: Dynamically generated contracts such as mowing, fertilizing, or hauling pay for work on other
+    farmers' fields.
+- id: delegation-to-ai
+  role: supporting
+  note: Hired AI helpers drive vehicles to work fields while the player does other tasks.
+- id: seasons
+  role: supporting
+  note: A seasonal cycle, introduced in FS22, sets planting and harvest windows.
+- id: weather
+  role: supporting
+- id: random-disasters
+  role: supporting
+  note: Twisters and hail can damage crops.
+- id: loans-debt
+  role: supporting
+  note: Bank loans fund early expansion.
+- id: modding-api
+  role: supporting
+  note: ModHub distributes developer-tested community mods that add vehicles, maps, and scripts.
+sources:
+- src-steam-2024-farming-simulator-25
+- src-wikipedia-farming-simulator
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gc

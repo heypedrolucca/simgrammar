@@ -1,0 +1,17 @@
+id: src-cranmer-2020-sbi-frontier
+type: source
+name: The frontier of simulation-based inference
+kind: paper
+authors:
+- Kyle Cranmer
+- Johann Brehmer
+- Gilles Louppe
+venue: PNAS 117(48)
+date: '2019-11-04'
+url: https://arxiv.org/abs/1911.01429
+arxiv: '1911.01429'
+accessed: '2026-10-24'
+notes: Review of likelihood-free inference for simulators with intractable likelihoods, including neural
+  posterior, likelihood and ratio estimation.
+provenance:
+  created: 2026-10-24-techniques-sim-math

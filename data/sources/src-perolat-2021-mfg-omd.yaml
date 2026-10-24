@@ -1,0 +1,21 @@
+id: src-perolat-2021-mfg-omd
+type: source
+name: Scaling up Mean Field Games with Online Mirror Descent
+kind: preprint
+authors:
+- Julien Perolat
+- Sarah Perrin
+- Romuald Elie
+- Mathieu Lauriere
+- Georgios Piliouras
+- Matthieu Geist
+- Karl Tuyls
+- Olivier Pietquin
+date: '2021-02-28'
+url: https://arxiv.org/abs/2103.00623
+arxiv: '2103.00623'
+accessed: '2026-10-24'
+notes: Online mirror descent converges to MFG Nash equilibrium under monotonicity; faster than fictitious
+  play; solves MFGs with hundreds of billions of states.
+provenance:
+  created: 2026-10-24-techniques-sim-math

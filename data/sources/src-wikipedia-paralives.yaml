@@ -1,0 +1,15 @@
+id: src-wikipedia-paralives
+type: source
+name: Paralives
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Paralives
+accessed: '2026-10-24'
+notes: 'Paralives Studio, designer Alex Massé; Steam early access 2026-05-25 for Windows and macOS; Patreon
+  funding; road-style building tool inspired by Cities: Skylines; together bar and together cards; procedural
+  animation.'
+provenance:
+  created: 2026-10-24-catalog-gc

@@ -1,10 +1,79 @@
 id: tomodachi-life
 type: game
 name: Tomodachi Life
-summary: TODO
+aliases:
+- 'Tomodachi Collection: New Life'
+summary: A Nintendo 3DS life sim in which player-made Mii characters live in an island apartment building,
+  form friendships, quarrels, and romances on their own, and ask the player to solve their problems.
 year: 2013
 developer: Nintendo SPD
+platforms:
+- handheld
 subgenre: life-sim
-status: asserted
+subgenre_secondary:
+- social-sim
+sim_domain:
+- social-interpersonal
+- domestic-personal
+player_role: caretaker
+agency_model:
+- caretaking-interaction
+- indirect-incentive
+time_model: real-world-clock
+sim_scale: settlement
+fidelity: stylized
+perspective: isometric
+win_structure: open-sandbox
+failure_model: none
+narrative_mode: hybrid
+multiplayer:
+- single
+- async-shared
+modding: none
+production_tier: aa
+agent_count_order: '100'
+emergence: 3
+influence: 2
+core_loop: add Miis to the apartment -> Miis develop friendships, crushes, and quarrels -> they raise
+  problems such as food, clothes, or advice -> solve problems to fill happiness and earn money -> level-up
+  gifts and new island venues unlock -> couples marry and have children
+design_notes: 'The player is an omnipotent observer who cannot control Miis directly and instead answers
+  their requests, so most of the comedy comes from autonomous pairings and quarrels among Miis whose looks,
+  names, voices, and personalities the player designed. Key relationship changes pass through player consent:
+  the player approves a confession before it happens and resolves fights indirectly. The apartment holds
+  up to 100 Miis, and a filled happiness meter levels a Mii up and earns it a present, so care is paced
+  by a stream of small templated problems rather than decaying meters.'
+mechanics:
+- id: relationship-values
+  role: core
+  note: Miis form friendships and conflicts on their own; pairs can grow closer, fall into fights, or
+    break up, and the player intervenes only indirectly.
+- id: romance-family
+  role: core
+  note: Opposite-gender friends of similar age may develop crushes; the player approves the confession,
+    couples can marry and have a child who later moves in or leaves via StreetPass.
+- id: villager-requests
+  role: core
+  note: Miis raise problems such as wanting a food or outfit, needing relationship advice, or asking for
+    a minigame; solving them raises happiness and pays money.
+- id: personality-traits
+  role: supporting
+  note: Each Mii receives a personality at creation that shapes its behavior.
+- id: milestone-unlocks
+  role: supporting
+  note: Adding Miis and completing objectives unlocks shops, an amusement park, a concert hall, a café,
+    and other venues.
+- id: content-sharing
+  role: supporting
+  note: Miis can be imported from Mii Maker or by scanning QR codes.
+- id: async-shared-region
+  role: supporting
+  note: StreetPass sends grown children to other players' islands.
+- id: real-time-clock
+  role: supporting
+  note: Island time follows the 3DS clock; at night the player can listen to sleeping Miis' dreams.
+sources:
+- src-wikipedia-tomodachi-life
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gc

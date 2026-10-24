@@ -180,6 +180,36 @@ def render(text: str, ctx: Context, mode: str = "paper") -> tuple[str, list[tupl
                 errors.append(("E019", f"unknown figure {m.group(0)}"))
                 return m.group(0)
             return f"\n![{f['caption']}](figures/{arg}.svg)\n\n*Figure: {f['caption']}*\n"
+        if kind == "assert":
+            m2 = re.match(r"^([a-z0-9_.-]+)\s*(==|!=|<=|>=|<|>)\s*(.+)$", arg)
+
+            def lookup(ref):
+                if ref in a["stats"]:
+                    return True, a["stats"][ref]
+                if ref.startswith("derived."):
+                    _, eid, fld = ref.split(".", 2)
+                    dv = a["derived"].get(eid, {})
+                    if fld in dv:
+                        return True, dv[fld]
+                return False, None
+
+            found, val = lookup(m2.group(1)) if m2 else (False, None)
+            if not found:
+                errors.append(("E019", f"malformed assertion or unknown stat {m.group(0)}"))
+                return ""
+            name, op, raw = m2.group(1), m2.group(2), m2.group(3).strip().strip('"')
+            rfound, rval = lookup(raw)
+            if rfound:
+                raw = str(rval)
+            try:
+                rhs = float(raw)
+                lhs = float(str(val).lstrip("<"))
+            except ValueError:
+                rhs, lhs = raw, str(val)
+            ok = {"==": lhs == rhs, "!=": lhs != rhs, "<": lhs < rhs, ">": lhs > rhs, "<=": lhs <= rhs, ">=": lhs >= rhs}[op]
+            if not ok:
+                errors.append(("E029", f"report assertion failed: {name} {op} {raw} (actual: {val}); the prose next to this assertion no longer matches the data"))
+            return ""
         if kind == "vocab":
             vname, _, term = arg.partition(":")
             t = vocab_terms(ctx.vocabs, vname).get(term)

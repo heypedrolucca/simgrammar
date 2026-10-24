@@ -1,0 +1,49 @@
+id: mean-field-crowds
+type: opportunity
+name: Mean-field crowds and traffic
+summary: Simulate hundreds of thousands of agents with equilibrium-consistent route and choice behavior
+  by combining mean-field approximations with sampled individuals.
+opportunity_type: infrastructure
+thesis: City builders face a ceiling where individually simulated agents cap population and aggregate
+  models feel lifeless. Mean-field game theory describes how large populations of optimizing agents reach
+  equilibrium, and GPU-parallel simulation makes iterating those fields cheap. A hybrid where the mean
+  field sets congestion and choice probabilities and a sample of visible individuals follows them gives
+  large populations that behave coherently.
+design_sketch: Traffic and pedestrian flows are fields updated each tick from a mean-field equilibrium
+  solver on the GPU; visible cars and citizens are samples drawn from those fields, so congestion is consistent
+  at scale while inspection still shows individuals with plausible trips.
+involves:
+- traffic-congestion
+- agent-pathfinding
+- crowd-preferences
+- public-transit
+- service-queues
+applies:
+- mean-field-games
+- massively-parallel-simulation
+precedent:
+- cities-skylines-2
+- simcity-2013
+- cities-skylines
+- planet-coaster
+novelty: 4
+feasibility: 3
+impact: 3
+horizon: 3-5y
+key_risks:
+- Players notice when sampled individuals behave inconsistently with fields.
+- Equilibrium solvers can be slow to converge under rapid change.
+- Engineering cost to retrofit existing engines.
+validation_experiment: 'Implement a mean-field traffic solver on a 100,000-trip city network and compare
+  travel-time distributions with a full agent-based baseline. Success: within 10 percent on mean and 90th
+  percentile travel times at a tenth of the compute.'
+falsifiable_signal:
+  prediction: A commercial city builder will document a mean-field or continuum crowd model as its primary
+    traffic or population simulation.
+  resolve_by: '2029-12-31'
+  criteria: Developer documentation naming a mean-field, continuum, or equilibrium-field method used at
+    runtime.
+sources: []
+status: asserted
+provenance:
+  created: 2026-10-24-synthesis

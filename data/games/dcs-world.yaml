@@ -1,10 +1,87 @@
 id: dcs-world
 type: game
 name: DCS World
-summary: TODO
+aliases:
+- Digital Combat Simulator
+- DCS
+summary: A combat flight sim platform of study-level aircraft modules with clickable cockpits and modeled
+  subsystems, flown in missions and on multiplayer servers built with a Lua-scriptable mission editor.
 year: 2008
 developer: Eagle Dynamics
+platforms:
+- pc
 subgenre: flight-sim
-status: asserted
+subgenre_secondary:
+- wargame
+sim_domain:
+- military-conflict
+- physical-mechanical
+player_role: operator-pilot
+agency_model:
+- direct-avatar
+time_model: real-time-pausable
+sim_scale: individual
+fidelity: professional
+perspective: first-person
+win_structure: scenario-goals
+failure_model: hard-restart
+narrative_mode: none
+multiplayer:
+- single
+- coop
+- competitive
+modding: scripting
+production_tier: aa
+agent_count_order: '100'
+emergence: 3
+influence: 3
+core_loop: pick a module and mission -> cold start through cockpit switches -> fly and navigate -> find
+  targets with sensors -> employ weapons and survive defenses -> recover and land -> debrief
+design_notes: 'DCS treats each aircraft as a set of subsystems (engines, fuel, electrical, hydraulics,
+  radios, sensors) operated through individually clickable cockpit controls, so procedures and failures
+  follow from system state rather than scripts. Its fidelity reaches professional use: the U.S. Air Force''s
+  355th Training Squadron has used the A-10C module, and French and Ukrainian pilots have trained on modules.
+  The business model is a free base with two aircraft and two maps, with paid aircraft and map modules
+  from Eagle Dynamics and third parties sharing one client.'
+mechanics:
+- id: flight-aerodynamics
+  role: core
+  note: Aircraft modules are built from real-world data; the F-16C uses a professional flight model with
+    a fly-by-wire flight control system.
+- id: procedural-checklists
+  role: core
+  note: Clickable cockpits operate modeled engines, fuel, electrical, hydraulic, and radio systems, so
+    start-up and weapon employment follow real procedures.
+- id: military-operations
+  role: core
+  note: Missions pit aircraft against air and ground units with sensors and weapons; users host PvE and
+    PvP servers running their own missions.
+- id: embodied-skill-control
+  role: supporting
+- id: scenario-objectives
+  role: supporting
+  note: The mission editor builds single-player and multiplayer missions with Lua scripting.
+- id: modding-api
+  role: supporting
+  note: Lua mission scripting and third-party module development extend the platform.
+- id: weather
+  role: supporting
+- id: projectile-ballistics
+  role: supporting
+  note: Missiles, bombs, and gun rounds fly as simulated projectiles, so release parameters such as speed,
+    altitude, and range decide hits.
+- id: subsystem-damage
+  role: supporting
+  note: Damage affects individual modeled subsystems such as engines, hydraulics, and electrical systems,
+    changing how the aircraft flies and what still works.
+claims:
+- text: 'The `year` value records the 2008 release of DCS: Black Shark, the first DCS title (Russia 17
+    October, English 10 December 2008); the free DCS World platform entered open beta in May 2012.'
+  sources:
+  - src-wikipedia-dcs-world
+  confidence: medium
+sources:
+- src-wikipedia-dcs-world
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gf

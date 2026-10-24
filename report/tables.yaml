@@ -551,3 +551,17 @@ tables:
   sort:
   - -_derived.prevalence
   - name
+- name: predictions
+  kind: rows
+  entity: opportunity
+  columns:
+  - path: falsifiable_signal.resolve_by
+    label: resolve by
+  - name
+  - path: falsifiable_signal.prediction
+    label: prediction
+  sort:
+  - falsifiable_signal.resolve_by
+  - name
+  caption: Each prediction has resolution criteria on its wiki page. A prediction that fails is evidence against the opportunity
+    thesis, not only against its timing.

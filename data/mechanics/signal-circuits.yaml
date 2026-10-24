@@ -1,8 +1,84 @@
 id: signal-circuits
 type: mechanic
 name: Signal circuits
-summary: In-world wires, sensors, and logic combinators control machines.
+aliases:
+- circuit network
+- logic wiring
+- combinators
+- redstone
+summary: In-world wires, sensors, and logic elements carry signals that read machine state and control machines.
 family: control-automation
-status: asserted
+substrate:
+- player-authored-logic
+- network-graph
+definition: >-
+  The player places wires between entities and logic elements to build control systems inside the world. State owned:
+  the wire graph, signal values on each network, and logic element configuration. Update rule: each tick, sensors
+  and connected entities write signals (item counts, fluid levels, power, conditions) onto their networks; logic
+  elements read input networks and write outputs, often with a one-tick delay; actuators enable or disable themselves
+  or change settings by condition. Canonical form: the Factorio circuit network, where red and green wires carry
+  item-count signals, signals from both wires entering one entity are summed, and arithmetic, decider, and constant
+  combinators operate on them; Factorio 2.0 added a selector combinator and multi-condition deciders. Others: Minecraft
+  redstone, Oxygen Not Included automation wires with sensors and logic gates, Stationeers logic and IC chips, and
+  Mindustry logic processors.
+player_experience: >-
+  The player turns a passive factory into one that senses and responds: lamps that show stock, trains that go where
+  they are needed, power that switches on demand. Building memory, timers, or displays from parts feels like engineering,
+  and the most ambitious players build computers inside the game.
+design_levers:
+- 'signal type: binary, integer, or multi-channel item vectors'
+- logic primitives provided and whether higher-level elements are deliberately withheld
+- 'timing: propagation delay per element and tick order'
+- which entities can read and write signals
+- 'debugging aids: signal readouts, wire visualization, element descriptions'
+- physical cost of wires and logic elements
+failure_modes:
+- Invisible signal values and per-tick delays make circuits hard to debug without readouts.
+- Circuit control is optional in many games, so most players never engage and designers cannot build challenges
+  around it.
+- Missing primitives force contraptions for simple tasks, while too many make the logic trivial.
+dynamics:
+- Turing-complete primitives lead players to build CPUs, displays, and games inside the game.
+- Demand-driven control (produce only when stock falls) dampens the oscillations and gluts of always-on production.
+- Shared circuit designs spread as blueprints, coupling this mechanic to community design culture.
+math_basis:
+- computation-theory
+- control-theory
+feedback: balancing
+player_interface:
+- programming
+- placement
+legibility: 3
+emergence_potential: 3
+authoring_cost: 1
+compute_cost: 2
+tuning_difficulty: 2
+ai_leverage: 3
+maturity: established
+open_questions:
+- Can a model synthesize circuit layouts from a behavior spec (keep 2,000 plates buffered) and explain existing
+  circuits to newcomers?
+- What minimal primitive set gives the widest range of player designs without making simple tasks contraptions?
+claims:
+- text: Factorio introduced arithmetic, decider, and constant combinators on a circuit network where red and green
+    wire signals entering one entity are summed.
+  sources:
+  - src-wube-2015-fff-88-combinators
+  confidence: high
+- text: Factorio developers stated a design principle of not adding dedicated logic, bit, or timer combinator types
+    during the 0.13 circuit network work.
+  sources:
+  - src-wube-2016-fff-122-better-circuit-network
+  confidence: high
+- text: Factorio 2.0 added a selector combinator and decider combinators with multiple AND/OR conditions, multiple
+    outputs, and per-wire input selection.
+  sources:
+  - src-wube-2023-fff-384-combinators-2
+  confidence: high
+sources:
+- src-wube-2015-fff-88-combinators
+- src-wube-2016-fff-122-better-circuit-network
+- src-wube-2023-fff-384-combinators-2
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m6

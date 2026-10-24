@@ -1,8 +1,64 @@
 id: flight-aerodynamics
 type: mechanic
 name: Flight aerodynamics
-summary: Lift, drag, thrust, and control-surface models govern aircraft motion.
+aliases:
+- flight model
+- flight dynamics
+summary: Lift, drag, thrust, and control-surface forces computed from airspeed and attitude govern aircraft
+  motion.
 family: physics-materials
-status: asserted
+substrate:
+- continuous-physics
+definition: The aircraft state holds position, attitude, linear and angular velocity, control-surface
+  deflections, and engine state. Each physics step computes aerodynamic forces from airspeed, angle of
+  attack, sideslip, and air density, adds thrust and gravity, and integrates six-degree-of-freedom rigid-body
+  motion. Two families exist. Coefficient-table models look up lift, drag, and moment coefficients per
+  flight condition. Blade element models, as in X-Plane, divide wings, control surfaces, and propellers
+  into small elements, compute forces on each from aircraft geometry rather than relying only on performance
+  tables, and sum them, so stalls, spins, and ground effect arise from the geometry. Arcade games use
+  simplified models that keep the aircraft stable. Outputs are aircraft motion and instrument readings.
+player_experience: Hands-on control with real consequences. Players learn energy management, trim, stall
+  warnings, and landings, and skill grows visibly over hours. Arcade variants keep the feeling of speed
+  without the workload.
+design_levers:
+- 'model fidelity: arcade, coefficient tables, or blade elements'
+- assists such as auto-trim, stability augmentation, and stall protection
+- stall and spin behavior near the edge of the envelope
+- weather and turbulence coupling
+- control response curves and input filtering
+failure_modes:
+- Over-stable models feel on rails and remove the skill.
+- Without assists, high fidelity makes flight unflyable for new players.
+- Table-driven models misbehave in regimes outside their data, such as spins or ground handling.
+- Each new aircraft needs costly per-model tuning before it feels right.
+dynamics:
+- Weather and terrain create emergent challenges such as crosswind landings and mountain wave turbulence.
+- System failures interact with aerodynamics to produce scenarios no one scripted.
+- Energy management becomes the core tactical resource in air combat.
+math_basis:
+- classical-mechanics
+- continuum-mechanics
+- control-theory
+feedback: balancing
+player_interface:
+- embodied-skill
+- parameter
+legibility: 3
+emergence_potential: 2
+authoring_cost: 3
+compute_cost: 2
+tuning_difficulty: 3
+ai_leverage: 3
+maturity: classic
+synergy:
+- id: procedural-checklists
+  note: A faithful flight model makes real procedures necessary rather than ceremonial.
+open_questions:
+- Can learned surrogates trained on computational fluid dynamics give accurate flight models for aircraft
+  without hand tuning?
+- Can an AI instructor read the flight model state and coach novices through stalls and landings?
+sources:
+- src-wikipedia-x-plane
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m4

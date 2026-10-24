@@ -1,0 +1,15 @@
+id: src-rimworldwiki-2026-health
+type: source
+name: Health
+kind: encyclopedia
+authors:
+- RimWorld Wiki contributors
+venue: RimWorld Wiki
+date: '2026'
+url: https://rimworldwiki.com/wiki/Health
+accessed: '2026-10-24'
+notes: 'Capacities from body parts: consciousness below 30% keeps a pawn from waking; moving below 15% incapacitates; each
+  arm gives half of manipulation; blood pumping or digestion at 0% is fatal; poor tending raises scarring and infection risk;
+  bionic leg +12.5% moving; base healing 8 damage per day.'
+provenance:
+  created: 2026-10-24-taxonomy-m5

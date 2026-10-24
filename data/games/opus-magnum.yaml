@@ -1,10 +1,82 @@
 id: opus-magnum
 type: game
 name: Opus Magnum
-summary: TODO
+summary: A programming puzzle game in which the player builds alchemical machines from arms, tracks, and glyphs on a hex grid, programs them on an instruction timeline, and compares each looping solution's cost, cycles, and area against other players' histograms.
 year: 2017
 developer: Zachtronics
+platforms:
+  - pc
+  - console
+  - handheld
 subgenre: programming-sim
-status: asserted
+subgenre_secondary:
+  - construction-engineering
+sim_domain:
+  - computational-abstract
+player_role: programmer
+agency_model:
+  - programmatic
+  - design-then-test
+time_model: run-on-demand
+sim_scale: micro
+fidelity: abstract
+perspective: top-down-2d
+win_structure: campaign
+failure_model: none
+narrative_mode: authored
+multiplayer:
+  - single
+  - async-shared
+modding: content
+production_tier: indie
+agent_count_order: none
+boundary_case: true
+emergence: 2
+influence: 2
+core_loop: read the reagents and product -> place arms, tracks, and glyphs on the hex grid -> write instructions on the timeline -> run until the required products are made -> compare cost, cycles, and area histograms -> export a looping GIF or optimize
+design_notes: >-
+  Opus Magnum refines Zach Barth's 2008 Flash game The Codex of Alchemical Engineering into Zachtronics' most
+  permissive puzzle design: there is no part limit, any machine that delivers the products counts, and the
+  difficulty is choosing among three competing metrics. Arms grab, rotate, pivot, extend, and move on tracks under a
+  per-arm instruction tape, and glyphs bond, unbond, calcify, and project metals one step toward gold. Solutions are
+  ranked on cost in gold, cycles, and area, with no in-game reward for optimizing, so motivation comes from friends'
+  scores and the histograms. Barth's experience with solution recording in Infinifactory led to built-in export of
+  seamlessly looping GIFs, which made solutions shareable outside the game; a puzzle editor feeds Steam Workshop.
+mechanics:
+  - id: player-programming
+    role: core
+    note: Each arm has a row on a shared instruction timeline of grab, drop, rotate, pivot, extend, retract, and track moves; the machine loops the program until the required number of products is output.
+  - id: design-performance-rating
+    role: core
+    note: Solutions are scored on cost in gold, cycles to complete, and area in hex tiles, with the community adding an unofficial sum metric.
+  - id: comparative-histograms
+    role: core
+    note: Cost, cycles, and area are shown on histograms of all players' scores and against friends' scores; Zachtronics deliberately attaches no rewards to optimization.
+  - id: modular-assembly
+    role: core
+    note: A machine is assembled from arms, extendable arms, tracks, and glyphs of bonding, unbonding, calcification, and projection, plus devices such as Van Berlo's wheel, with no limit on parts beyond their cost.
+  - id: scenario-objectives
+    role: supporting
+    note: Each puzzle fixes the input reagents and the required product molecule; chapters must be completed to advance.
+  - id: content-sharing
+    role: supporting
+    note: A puzzle editor publishes solvable user puzzles to Steam Workshop, curated puzzles appear in the Journal of Alchemical Engineering, and solutions export as looping GIFs.
+influenced_by:
+  - spacechem
+claims:
+  - text: Opus Magnum is a refined version of Zach Barth's 2008 Flash game The Codex of Alchemical Engineering, which is not in this dataset; the influenced_by edge to SpaceChem records Barth's shared instruction-grid and histogram design rather than a stated influence in the cited encyclopedia.
+    sources:
+      - src-wikipedia-opus-magnum
+      - src-wikipedia-spacechem
+    confidence: medium
+  - text: A Nintendo Switch version, Opus Magnum The Complete Edition, released on 2026-03-17.
+    sources:
+      - src-wikipedia-opus-magnum
+    confidence: medium
+sources:
+  - src-wikipedia-opus-magnum
+  - src-steam-2026-opus-magnum
+  - src-couture-2019-road-to-igf-opus-magnum
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gh

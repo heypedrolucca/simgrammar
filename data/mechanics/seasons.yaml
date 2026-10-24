@@ -1,8 +1,56 @@
 id: seasons
 type: mechanic
 name: Seasons
-summary: A seasonal calendar cycles conditions that govern growth, demand, and risk.
+aliases:
+- seasonal cycle
+- calendar seasons
+summary: A seasonal calendar cycles conditions such as temperature, daylight, and growing windows that govern growth, demand,
+  and risk.
 family: environment-ecology
-status: asserted
+substrate:
+- rule-system
+definition: 'Owns a calendar position that advances by day and maps to a season index, usually four. Each season sets parameters
+  other systems read: which crops can grow, temperature, day length, weather odds, animal behavior, demand for heat or food,
+  and scheduled events. Stardew Valley has four 28-day seasons, and seasonal crops must generally be harvested before the
+  next season arrives; Don''t Starve''s base cycle alternates 20 summer days and 16 winter days and changes the day, dusk,
+  and night split with them; Banished and Farthest Frontier force food stockpiling for winters without harvests. Inputs are
+  elapsed days; outputs are season flags and parameter sets. Some games make season length a setting.'
+player_experience: Planning in cycles. The player plants for this season while saving for the next, treats the end of a season
+  as a deadline, and gets a fresh start each spring. Winter tests the year's preparation, and the cycle gives long games a
+  felt rhythm.
+design_levers:
+- number and length of seasons, and whether lengths vary or can be set
+- 'which systems each season modifies: growth, temperature, weather, events, prices'
+- severity of the harshest season and how much stockpiling it demands
+- transition rules, such as crops dying at the change or gradual change
+- 'season-unique content: crops, festivals, creatures'
+failure_modes:
+- Seasons that only swap textures add art cost without changing decisions.
+- A harsh season survivable only with one known stockpile size becomes a checklist.
+- Season-gated content locks players out for long stretches when they miss a window.
+dynamics:
+- Seasonal production with year-round consumption creates demand for storage, preservation, and trade.
+- Combined with a crisis countdown, the approach of winter structures the year as preparation.
+- Labor shifts between seasonal tasks, creating idle periods and peaks.
+math_basis:
+- system-dynamics
+- scheduling
+feedback: none
+player_interface:
+- observation
+legibility: 4
+emergence_potential: 2
+authoring_cost: 3
+compute_cost: 1
+tuning_difficulty: 2
+ai_leverage: 2
+maturity: classic
+open_questions:
+- Can generative asset models make seasonal variants of every asset cheap enough that seasons become a default rather than
+  a budget decision?
+sources:
+- src-wikipedia-stardew-valley
+- src-dontstarvewiki-2026-day-night-cycle
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m5

@@ -1,0 +1,15 @@
+id: src-tfwrwiki-2026-operation-costs
+type: source
+name: Operation Costs
+kind: encyclopedia
+authors:
+- The Farmer Was Replaced Wiki contributors
+venue: The Farmer Was Replaced Wiki
+date: '2026'
+url: https://thefarmerwasreplaced.wiki.gg/wiki/Operation_Costs
+accessed: '2026-10-24'
+notes: 'Each operation costs ticks: literals and assignment free, arithmetic and getters 1, a successful
+  move() 200, a failed fallible action 1; tick costs scale with the speed factor while print() and do_a_flip()
+  take fixed real time.'
+provenance:
+  created: 2026-10-24-catalog-gh

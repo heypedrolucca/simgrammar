@@ -1,0 +1,14 @@
+id: src-totallyhuman-2025-steam-ai-revenue
+type: source
+name: Games With AI Disclosures Have Grossed an Estimated $660M on Steam
+kind: tech-report
+authors:
+- Totally Human Media
+venue: Totally Human blog
+date: '2025-11-06'
+url: https://www.totallyhuman.io/blog/games-with-ai-disclosures-have-grossed-an-estimated-660m-on-steam
+accessed: '2026-10-24'
+notes: 10,258 games with AI disclosures (about 8% of Steam); about $660M estimated combined gross by review
+  count x price x 35; 12 eight-figure, 33 seven-figure, 170 six-figure, 487 five-figure, 9,556 below.
+provenance:
+  created: 2026-10-24-techniques-llm-agents

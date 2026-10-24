@@ -1,0 +1,15 @@
+id: src-dspwiki-2026-interstellar-logistics-station
+type: source
+name: Interstellar Logistics Station
+kind: encyclopedia
+authors:
+- Dyson Sphere Program Wiki contributors
+venue: Dyson Sphere Program Wiki
+date: '2026'
+url: https://dsp-wiki.com/Interstellar_Logistics_Station
+accessed: '2026-10-24'
+notes: Per-item local and remote storage, supply, and demand settings; up to 100 logistics drones and
+  10 logistics vessels per station; vessels warp between stars after Logistics Carrier Engine level 4
+  using Space Warpers; pairing priority is point-to-point, then interstellar routes, then groups.
+provenance:
+  created: 2026-10-24-catalog-gh

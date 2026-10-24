@@ -1,10 +1,77 @@
 id: the-long-dark
 type: game
 name: The Long Dark
-summary: TODO
+summary: A first-person wilderness survival sim set in frozen northern Canada where the player manages warmth, calories, thirst,
+  fatigue, and afflictions against cold, weather, and wildlife.
 year: 2014
+year_full_release: 2017
 developer: Hinterland Studio
+platforms:
+- pc
+- console
+- handheld
 subgenre: survival-sim
-status: asserted
+sim_domain:
+- biological-ecological
+- planetary-natural
+player_role: inhabitant
+agency_model:
+- direct-avatar
+time_model: real-time
+sim_scale: individual
+fidelity: systemic
+perspective: first-person
+win_structure: survival-duration
+failure_model: hard-restart
+narrative_mode: emergent
+multiplayer:
+- single
+modding: scripting
+production_tier: indie
+agent_count_order: '10'
+emergence: 3
+influence: 2
+core_loop: explore a frozen region -> scavenge, hunt, and harvest -> manage calories, thirst, fatigue, and warmth -> weather,
+  night, and wildlife threaten condition -> craft, repair, and shelter -> survive another day until death
+design_notes: 'Survival mode has no zombies or authored goal; the cold, wildlife, and dwindling supplies are the opposition,
+  and death deletes the save. All needs feed a single condition stock: an empty warmth bar drains condition about 20% per
+  hour while empty hunger or fatigue drain about 1% and thirst 2%, so cold is the fast killer and food is the slow one. Time
+  is treated as the scarce resource because every action costs calories and in-game hours. The episodic Wintermute story mode
+  has no permadeath.'
+mechanics:
+- id: survival-meters
+  role: core
+  note: Warmth, fatigue, hunger, and thirst feed one condition stock; when a need is empty, condition drains per hour (warmth
+    20%, fatigue 1%, hunger 1%, thirst 2%), and afflictions such as hypothermia, frostbite, and dysentery drain or cap it.
+- id: weather
+  role: core
+  note: Wind, falling temperatures, and blizzards change how fast warmth drops and how far the player can travel; nights are
+    significantly colder.
+- id: permadeath
+  role: core
+  note: In Survival mode the save is deleted on death; a later DLC option allows up to three resurrections per save at a difficulty
+    cost, and Misery mode always uses permadeath.
+- id: day-night-cycle
+  role: supporting
+  note: Nights are darker and colder, shaping travel and shelter.
+- id: hand-crafting
+  role: supporting
+  note: Hides, guts, and wood are crafted into clothing, tools, and arrows.
+- id: wear-breakdown
+  role: supporting
+  note: Clothing and tools lose condition with use and must be repaired.
+- id: spoilage
+  role: supporting
+  note: Food loses condition over time.
+- id: deposit-depletion
+  role: supporting
+  note: Manufactured supplies are finite, so long runs shift from looting to hunting and crafting.
+- id: direct-avatar
+  role: supporting
+sources:
+- src-wikipedia-the-long-dark
+- src-steam-2026-the-long-dark
+- src-longdarkwiki-2026-condition
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gb

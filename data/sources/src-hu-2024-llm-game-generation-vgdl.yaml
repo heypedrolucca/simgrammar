@@ -1,0 +1,14 @@
+id: src-hu-2024-llm-game-generation-vgdl
+type: source
+name: Game Generation via Large Language Models
+kind: preprint
+authors:
+- Chengpeng Hu
+- Yunlong Zhao
+- Jialin Liu
+venue: arXiv
+date: '2024-04-11'
+arxiv: '2404.08706'
+accessed: '2026-10-24'
+provenance:
+  created: 2026-10-24-techniques-rl-design

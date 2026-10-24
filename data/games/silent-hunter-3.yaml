@@ -1,10 +1,80 @@
 id: silent-hunter-3
 type: game
 name: Silent Hunter III
-summary: TODO
+aliases:
+- SH3
+summary: A World War II U-boat sim with a dynamic campaign that generates convoys and escorts, manual
+  torpedo targeting, and a persistent crew that gains rank, experience, and morale across patrols.
 year: 2005
-developer: Ubisoft Romania
+developer: Ubisoft Bucharest
+platforms:
+- pc
 subgenre: vehicle-sim
-status: asserted
+subgenre_secondary:
+- wargame
+sim_domain:
+- military-conflict
+- physical-mechanical
+player_role: commander
+agency_model:
+- direct-avatar
+- direct-unit
+time_model: real-time-pausable
+sim_scale: individual
+fidelity: systemic
+perspective: first-person
+win_structure: campaign
+failure_model: hard-restart
+narrative_mode: emergent
+multiplayer:
+- single
+modding: content
+production_tier: aa
+agent_count_order: '100'
+emergence: 3
+influence: 2
+core_loop: receive a patrol grid -> transit under time compression -> detect contacts -> identify the
+  target and solve speed, angle on the bow, and gyro angle -> fire torpedoes -> evade escorts -> return
+  to base and promote crew
+design_notes: 'The campaign engine generates convoys, destroyer escorts, and task forces in each patrol
+  area rather than scripting engagements, so a career starting between 1939 and 1943 is a sequence of
+  unplanned encounters. Realism settings scale the procedure: at the hardest, the player identifies class
+  and nationality and computes speed, angle on the bow, and gyro angle; with manual targeting off a Weapons
+  Officer solves the problem while approach geometry still matters. Crew members persist between patrols
+  with rank, experience, morale, and decorations.'
+mechanics:
+- id: military-operations
+  role: core
+  note: The campaign engine generates convoys, destroyer escorts, and task forces in assigned patrol grids,
+    and the player chooses targets and approaches.
+- id: procedural-checklists
+  role: core
+  note: Manual targeting requires identifying a vessel's class and nationality and computing its speed,
+    angle on the bow, and gyro angle before setting torpedo depth and spread.
+- id: agent-skills
+  role: supporting
+  note: Crew members carry rank, experience, morale, and decorations between patrols.
+- id: career-ladder
+  role: supporting
+  note: A career begins at the rank of Lieutenant, Jr., with a U-boat base assignment between 1939 and
+    1943.
+- id: delegation-to-ai
+  role: supporting
+  note: With manual targeting off, a Weapons Officer computes the firing solution.
+- id: fog-of-war
+  role: supporting
+- id: variable-speed
+  role: supporting
+- id: weather
+  role: supporting
+- id: day-night-cycle
+  role: supporting
+- id: projectile-ballistics
+  role: supporting
+  note: Torpedoes run at a set speed, depth, and gyro angle toward an intercept computed from target speed
+    and angle on the bow, so a bad solution misses.
+sources:
+- src-wikipedia-silent-hunter-3
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gf

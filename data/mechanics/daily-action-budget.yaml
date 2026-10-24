@@ -1,8 +1,58 @@
 id: daily-action-budget
 type: mechanic
 name: Daily action budget
-summary: Energy or time per in-game day limits actions, and the day's end forces prioritization.
+aliases:
+- stamina budget
+- energy bar
+- time slots
+summary: A per-day pool of energy, stamina, or time slots limits how many actions the player can take, and the day's end resets
+  it and forces prioritization.
 family: time-pacing
-status: asserted
+substrate:
+- aggregate-stocks
+- rule-system
+definition: Owns a budget that refills at the start of each in-game day (energy points, stamina, clock hours, or a fixed number
+  of time slots) and a cost per action. Actions spend from the budget; at zero the player is penalized or the day ends, and
+  sleep restores the budget, sometimes less after staying up late. Stardew Valley gives 270 base energy, raised by Stardrops,
+  charges energy for tool use, exhausts the farmer at 0, and makes them pass out at -15 energy or at 2 a.m.; passing out away
+  from home costs 10% of gold up to 1,000g, and going to bed after midnight restores less. Harvest Moon set the stamina-and-clock
+  farm day that Stardew Valley follows; Persona allocates a fixed number of time slots per day to activities. Inputs are action
+  costs and restoration items; outputs are the actions completed per day.
+player_experience: Every morning is a planning puzzle. The player picks which crops to water, whom to visit, or which job
+  to take, knowing the rest must wait. The end of each day gives a natural stopping point and a sense of steady progress,
+  and upgrades that stretch the budget feel substantial.
+design_levers:
+- budget size and whether it grows with progression
+- cost per action and which actions are free
+- penalties at or past zero and for staying up late
+- restoration sources within the day, such as food
+- time slots versus a continuous pool
+failure_modes:
+- A budget that is too tight early makes the opening a grind; one that grows too fast stops mattering by midgame.
+- When one activity has the best return per point, every day becomes the same routine.
+- Harsh pass-out penalties push players to reload rather than accept a bad day.
+dynamics:
+- Players batch tasks spatially to save time, which shapes farm and base layout.
+- Budget-expanding items become top priorities, forming an upgrade path.
+- Automation such as sprinklers frees the budget from chores for new activities, marking progression.
+math_basis:
+- optimization
+- scheduling
+feedback: none
+player_interface:
+- direct-manipulation
+- choice-cards
+legibility: 4
+emergence_potential: 2
+authoring_cost: 1
+compute_cost: 1
+tuning_difficulty: 3
+ai_leverage: 1
+maturity: classic
+open_questions:
+- Can generated daily events or requests keep each day's allocation decision fresh without hand-authored content?
+sources:
+- src-stardewvalleywiki-2026-energy
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m5

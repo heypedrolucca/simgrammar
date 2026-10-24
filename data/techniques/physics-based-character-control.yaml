@@ -1,0 +1,79 @@
+id: physics-based-character-control
+type: technique
+name: Learned physics-based character control
+aliases:
+- MaskedMimic
+- InterMimic
+- learned physics controllers
+- RL motion imitation
+summary: Neural policies trained with reinforcement learning drive simulated humanoids by joint torques
+  to imitate motion capture, and MaskedMimic-style controllers accept partial goals such as keyframes,
+  text, or an object to sit on.
+category: animation-motion
+year: 2024
+mechanism: 'A ragdoll with joint actuators is simulated in a physics engine; a policy network outputs
+  PD targets each step and is trained with RL in massively parallel GPU simulation to track motion capture
+  clips. MaskedMimic first trains a full-body tracker, then distills it into a conditional generative
+  student that receives a masked goal: any subset of future joint positions, a text description, a head
+  and hand signal from VR, a path, or a target object. The same controller therefore handles locomotion,
+  steering, and sitting on varied furniture and transfers flat-ground motions to rough terrain. InterMimic
+  distills per-subject teachers into one student refined by RL for whole-body human-object interaction
+  from imperfect mocap.'
+key_results:
+- text: 'MaskedMimic (SIGGRAPH Asia 2024) formulates physics-based control as motion inpainting: one controller
+    generates motion from keyframes, text, VR head or hand tracking, paths, or objects, and interacts
+    with chairs, stools, tables, and sofas while transferring to irregular terrain; code is released as
+    ProtoMotions.'
+  sources:
+  - src-tessler-2024-maskedmimic
+  confidence: high
+- text: InterMimic (2025) trains a single policy for physics-based human-object interaction from hours
+    of imperfect motion capture by distilling subject-specific teacher policies and refining with RL;
+    the authors report zero-shot generalization and compatibility with kinematic motion generators.
+  sources:
+  - src-xu-2025-intermimic
+  confidence: medium
+maturity: research
+trl: 4
+runtime:
+- offline-authoring
+- client-realtime
+determinism_impact: mitigable
+horizon: 3-5y
+risks:
+- compute-cost
+- controllability
+- evaluation
+affects:
+- id: smart-objects
+  effect: cuts-authoring-cost
+  note: When an object advertises an interaction (sit, lie, lean), a goal-conditioned controller can perform
+    it on new furniture geometry without a bespoke animation per object, as MaskedMimic shows for chairs,
+    stools, and sofas.
+- id: direct-avatar
+  effect: deepens
+  note: The controlled character becomes a physical body that adapts footing to terrain and reacts to
+    pushes, instead of playing canned clips that slide over geometry.
+- id: rigid-body-physics
+  effect: deepens
+  note: Characters join the rigid-body simulation as actuated bodies, so carried, pushed, and collided
+    objects affect them and vice versa (InterMimic human-object interaction).
+- id: injury-body-model
+  effect: enables-new
+  note: With a simulated body, a wound could change gait by limiting joint torque instead of swapping
+    in an authored limp; the cited work does not demonstrate injury-conditioned motion, so this remains
+    a projection.
+builds_on:
+- massively-parallel-simulation
+limitations:
+- Every character needs a physics simulation step plus policy inference, which is costly at the hundreds-of-agents
+  scale colony and management sims use; no crowd-scale runtime figures are published in the cited work.
+- Training requires large mocap datasets and GPU-parallel RL; retargeting to non-human or stylized rigs
+  requires retraining.
+- Physical controllers can fall or jitter in edge cases, which is hard to QA across open-ended situations.
+sources:
+- src-tessler-2024-maskedmimic
+- src-xu-2025-intermimic
+status: sourced
+provenance:
+  created: 2026-10-24-techniques-world-models

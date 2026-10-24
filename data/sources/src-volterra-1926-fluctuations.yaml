@@ -1,0 +1,15 @@
+id: src-volterra-1926-fluctuations
+type: source
+name: Fluctuations in the Abundance of a Species considered Mathematically
+kind: paper
+authors:
+- Vito Volterra
+venue: Nature 118:558-560
+date: '1926-10-16'
+url: https://www.nature.com/articles/118558a0
+doi: 10.1038/118558a0
+accessed: '2026-10-24'
+notes: Volterra's predator-prey equations, independently of Lotka; prey grow and are consumed in proportion to encounters
+  with predators, predators grow from consumption and die at a constant rate, producing persistent oscillations.
+provenance:
+  created: 2026-10-24-taxonomy-m5

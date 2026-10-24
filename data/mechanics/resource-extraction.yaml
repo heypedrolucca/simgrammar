@@ -1,9 +1,62 @@
 id: resource-extraction
 type: mechanic
 name: Resource extraction
-summary: Workers or machines harvest raw materials from map nodes (ore, trees, fish, oil) at rates set
-  by tools, labor, and node richness.
+aliases:
+- harvesting
+- gathering
+- mining
+summary: Workers or machines harvest raw materials from map nodes (ore, trees, fish, oil) at rates set by tools, labor, and
+  node richness.
 family: resources-production
-status: asserted
+substrate:
+- rule-system
+- agent-based
+- aggregate-stocks
+definition: >-
+  Map nodes (ore patches, trees, fishing spots, oil wells) hold a resource type and a richness or purity value. An extractor,
+  which is a placed machine, an assigned worker, or the avatar with a tool, produces units at a base rate multiplied by tool
+  tier, worker skill, richness, and modifiers. Output goes to an adjacent buffer or is carried away by hauling. Satisfactory
+  multiplies extraction by node purity (impure 0.5x, normal 1.0x, pure 2.0x); Factorio drills mine a fixed rate per tile with
+  productivity research; RTS games such as Age of Empires assign villagers who gather by walking to nodes and back; Minecraft
+  and Valheim gate which blocks can be mined by tool tier. Inputs: node, extractor, labor or power. Outputs: a stream of raw
+  materials and, where depletion exists, a decrement to the node.
+player_experience: >-
+  The first link in every chain. Players scout for rich nodes, claim them, and judge how many extractors a site justifies.
+  In avatar games, swinging a tool at a rock is a tactile, repeatable earning loop; in factory games, placing drills on the
+  best patch is an early, high-leverage decision.
+design_levers:
+- base rate per extractor and tool or tier multipliers
+- richness or purity variation across nodes
+- 'labor model: machine, assigned worker, or avatar action'
+- node placement and distance from base
+- whether extraction depletes the node (see deposit depletion) or is infinite
+failure_modes:
+- Uniform nodes make location choice irrelevant.
+- Extraction rates far above processing capacity create endless stockpiles and remove pressure.
+- Avatar gathering that never automates becomes grind late in a run.
+dynamics:
+- Rich nodes far from base create a tradeoff between yield and logistics cost.
+- Contested nodes become flashpoints in multiplayer and RTS maps.
+- Extraction is the root of every production chain, so its rate caps the whole economy.
+math_basis:
+- system-dynamics
+- optimization
+feedback: reinforcing
+player_interface:
+- placement
+- orders
+- direct-manipulation
+legibility: 5
+emergence_potential: 2
+authoring_cost: 2
+compute_cost: 2
+tuning_difficulty: 2
+ai_leverage: 1
+maturity: classic
+open_questions:
+- Could procedural geology tied to visible terrain features make extraction sites a matter of inference rather than icons?
+sources:
+- src-satisfactorywiki-2026-resource-node
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m1

@@ -1,8 +1,81 @@
 id: causal-tooltips
 type: mechanic
 name: Causal breakdown tooltips
-summary: Nested tooltips decompose a value into its contributing modifiers.
+aliases:
+- nested tooltips
+- modifier breakdowns
+- tooltip breakdowns
+summary: Hovering a derived value shows the named modifiers that produce it, and terms inside the tooltip
+  can be hovered in turn.
 family: information-legibility
-status: asserted
+substrate:
+- ui-layer
+- rule-system
+definition: 'Any displayed derived value (mood, stability, price, income, work speed, battle strength)
+  can be hovered to list its contributing terms, each with a label, source, sign, and magnitude, usually
+  as base plus additive modifiers times multiplicative modifiers. Terms that are themselves derived or
+  that name a game concept can be hovered again, opening a nested tooltip. The mechanic owns no simulation
+  state but requires the simulation to compute values as explicit lists of labeled modifiers rather than
+  opaque formulas. Update rule: on hover, read the modifier list for the value, sort and render it, and
+  attach hover targets to sub-terms. Canonical forms: Paradox grand strategy (Europa Universalis IV, Stellaris),
+  Crusader Kings III, which introduced nested tooltips on highlighted terms that Victoria 3 adopted, Victoria
+  3 tooltips breaking down battle calculations, RimWorld info-card stat breakdowns (skill and capacity
+  factors behind work speed), and Civilization yield breakdowns.'
+player_experience: 'The player can interrogate any number until the lever appears. Opaque systems become
+  debuggable: why is stability falling, which modifier expires next, what would fix it. Players who enjoy
+  optimization dig through several levels; others glance at the top line.'
+design_levers:
+- 'recursion depth: one level of breakdown versus nested tooltips on every term'
+- whether tooltips can be pinned or locked so the player can move into them
+- which modifiers are hidden from the breakdown, if any
+- presentation of additive versus multiplicative terms, ordering, and rounding
+- whether each modifier shows its remaining duration
+- glossary links from terms to concept explanations
+failure_modes:
+- Late-game modifier stacks grow into walls of numbers that no longer explain anything.
+- Rounded or partial terms that do not sum to the displayed value erode trust in the whole interface.
+- Values with clamps, caps, or nonlinear interactions are presented as simple sums and mislead.
+- Hover-dependent design moves essential information off the main screen and works poorly with controllers
+  and touch.
+dynamics:
+- Full transparency speeds up optimization and exploit discovery, pushing play toward spreadsheet min-maxing.
+- Because each new effect appears in breakdowns automatically, modifier architectures are easy for modders
+  to extend legibly.
+- Players learn the simulation's causal graph by walking tooltips, which lowers the need for external
+  wikis.
+math_basis:
+- probability-statistics
+feedback: none
+player_interface:
+- observation
+legibility: 4
+emergence_potential: 1
+authoring_cost: 2
+compute_cost: 1
+tuning_difficulty: 1
+ai_leverage: 3
+maturity: established
+synergy:
+- id: opinion-modifiers
+  note: Itemized modifiers are only legible when tooltips decompose them (Paradox titles).
+open_questions:
+- When values come from a learned simulator instead of modifier lists, can attribution methods produce
+  breakdowns players trust?
+- Do counterfactual tooltips (what single change would flip this outcome) teach faster than additive breakdowns?
+claims:
+- text: Victoria 3 uses a nested tooltip system in which highlighted terms inside a tooltip open further
+    tooltips, a system introduced by Crusader Kings III.
+  sources:
+  - src-pcgamesn-2022-victoria-3-nested-tooltips
+  confidence: medium
+- text: Victoria 3 UX work repositioned tooltips so players can move into a nested tooltip without opening
+    another, and added military tooltips that break down battle calculations.
+  sources:
+  - src-paradox-2023-victoria-3-dev-diary-74
+  confidence: high
+sources:
+- src-pcgamesn-2022-victoria-3-nested-tooltips
+- src-paradox-2023-victoria-3-dev-diary-74
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m6

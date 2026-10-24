@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SimGrammar Atlas</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Martian+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a planning-map workspace. Sticky control bar, then one view at a time (report, tables, graph, entity).
+   Entity types wear zoning colors: mechanics = residential green, games = commercial blue,
+   techniques = industrial amber, opportunities = special-zone magenta, sources = unzoned grey. */
+:root {
+  --ground: #f2f3ef;
+  --panel: #fbfbf8;
+  --ink: #1a1f1c;
+  --muted: #5b665f;
+  --line: #d6dbd3;
+  --accent: #1e6b5c;
+  --z-mech: #3f8f4a;
+  --z-game: #2f6fae;
+  --z-tech: #b7791f;
+  --z-opp: #a3398a;
+  --z-src: #7a807c;
+  --good: #3f8f4a;
+  --warn: #b7791f;
+  --meter-off: #e3e7e0;
+  --code-bg: #e9ece6;
+  --f-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --f-body: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --f-mono: "Martian Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+  --s-1: 0.75rem; --s-2: 0.875rem; --s-3: 1rem; --s-4: 1.25rem; --s-5: 1.75rem; --s-6: 2.4rem;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground: #121614; --panel: #181d1a; --ink: #e2e7e3; --muted: #9aa59e; --line: #2c342f;
+    --accent: #5fbfa8; --z-mech: #6cc177; --z-game: #6ea6e0; --z-tech: #e0a84a; --z-opp: #d673bd; --z-src: #a3aaa5;
+    --good: #6cc177; --warn: #e0a84a; --meter-off: #2a312d; --code-bg: #1f2622; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --ground: #121614; --panel: #181d1a; --ink: #e2e7e3; --muted: #9aa59e; --line: #2c342f;
+  --accent: #5fbfa8; --z-mech: #6cc177; --z-game: #6ea6e0; --z-tech: #e0a84a; --z-opp: #d673bd; --z-src: #a3aaa5;
+  --good: #6cc177; --warn: #e0a84a; --meter-off: #2a312d; --code-bg: #1f2622; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--ground); color: var(--ink); font-family: var(--f-body); font-size: 15px; line-height: 1.55;
+  font-variation-settings: "wdth" 100; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--panel); }
+a { color: var(--accent); }
+button, select, input { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.mono { font-family: var(--f-mono); font-size: 0.78em; letter-spacing: -0.01em; }
+
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--panel); border-bottom: 1px solid var(--line);
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 10px; }
+.bar-inner { max-width: 1280px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; }
+.brand { display: flex; align-items: baseline; gap: 10px; margin-right: auto; }
+.brand b { font-family: var(--f-display); font-variation-settings: "wdth" 72; font-weight: 800; font-size: 1.35rem; letter-spacing: 0.01em; text-transform: uppercase; }
+.brand span { color: var(--muted); font-size: var(--s-1); }
+.tabs { display: flex; gap: 2px; background: var(--line); border-radius: 6px; padding: 2px; }
+.tabs button { border: 0; background: transparent; padding: 5px 12px; border-radius: 5px; cursor: pointer; font-weight: 600; font-size: var(--s-2); }
+.tabs button[aria-selected="true"] { background: var(--panel); box-shadow: 0 1px 0 var(--line); }
+.hash { color: var(--muted); font-size: 0.68rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 260px; }
+
+main { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 22px 60px; }
+.wrap { max-width: 1280px; margin: 0 auto; }
+
+/* report */
+.report { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 36px; }
+.toc { position: sticky; top: 70px; align-self: start; max-height: calc(100vh - 90px); overflow: auto; font-size: var(--s-2); }
+.toc a { display: block; color: var(--muted); text-decoration: none; padding: 3px 0 3px 10px; border-left: 2px solid var(--line); }
+.toc a:hover { color: var(--ink); border-left-color: var(--accent); }
+.toc .lbl { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+.prose { min-width: 0; max-width: 74ch; }
+.prose h1 { font-family: var(--f-display); font-variation-settings: "wdth" 70; font-weight: 800; text-transform: uppercase; font-size: var(--s-6); line-height: 1.02; margin: 0 0 8px; text-wrap: balance; }
+.prose .sub { color: var(--muted); font-size: var(--s-4); margin: 0 0 18px; text-wrap: balance; }
+.prose h2 { font-family: var(--f-display); font-variation-settings: "wdth" 80; font-weight: 750; font-size: var(--s-5); margin: 44px 0 10px; line-height: 1.15; text-wrap: balance; scroll-margin-top: 80px; }
+.prose h3 { font-weight: 700; font-size: var(--s-4); margin: 28px 0 6px; text-wrap: balance; scroll-margin-top: 80px; }
+.prose p, .prose li { font-size: 1.02rem; }
+.prose code { font-family: var(--f-mono); font-size: 0.8em; background: var(--code-bg); padding: 1px 4px; border-radius: 3px; }
+.prose pre { background: var(--code-bg); padding: 12px; overflow-x: auto; border-radius: 4px; }
+.prose blockquote { margin: 16px 0; padding: 4px 16px; border-left: 3px solid var(--accent); color: var(--muted); }
+.prose img { display: block; max-width: 100%; height: auto; margin: 18px 0 4px; border: 1px solid var(--line); background: #fff; }
+.prose .tbl { overflow-x: auto; margin: 14px 0; }
+.prose table { border-collapse: collapse; font-size: var(--s-2); font-variant-numeric: tabular-nums; width: max-content; min-width: 60%; }
+.prose th, .prose td { border-bottom: 1px solid var(--line); padding: 5px 10px 5px 0; text-align: left; vertical-align: top; }
+.prose th { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.meta-line { color: var(--muted); font-size: var(--s-1); display: flex; flex-wrap: wrap; gap: 6px 14px; margin-bottom: 26px; }
+
+/* tables */
+.controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 14px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { border: 1px solid var(--line); background: var(--panel); padding: 5px 11px; border-radius: 999px; cursor: pointer; font-size: var(--s-2); font-weight: 600; display: inline-flex; gap: 7px; align-items: center; }
+.chip i { width: 9px; height: 9px; border-radius: 2px; display: inline-block; }
+.chip[aria-pressed="true"] { border-color: var(--ink); }
+.controls input[type=search], .controls select { border: 1px solid var(--line); background: var(--panel); border-radius: 5px; padding: 6px 9px; font-size: var(--s-2); max-width: 100%; }
+.controls input[type=search] { min-width: 0; width: 240px; }
+.count { color: var(--muted); font-size: var(--s-2); margin-left: auto; font-variant-numeric: tabular-nums; }
+.grid { overflow-x: auto; border: 1px solid var(--line); background: var(--panel); border-radius: 6px; }
+.grid table { border-collapse: collapse; width: 100%; font-size: var(--s-2); font-variant-numeric: tabular-nums; }
+.grid th { position: sticky; top: 0; background: var(--panel); text-align: left; font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+  font-weight: 600; padding: 8px 10px; border-bottom: 1px solid var(--line); cursor: pointer; white-space: nowrap; user-select: none; }
+.grid th[data-sort]::after { content: attr(data-sort); margin-left: 4px; color: var(--accent); }
+.grid td { padding: 7px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.grid tr:hover td { background: var(--ground); }
+.grid td.num { text-align: right; }
+.grid td.name { font-weight: 650; min-width: 180px; }
+.grid td.name button { all: unset; cursor: pointer; }
+.grid td.name button:hover { text-decoration: underline; }
+.meter { display: inline-flex; gap: 2px; vertical-align: middle; }
+.meter span { width: 7px; height: 11px; background: var(--meter-off); border-radius: 1px; }
+.meter span.on { background: var(--accent); }
+.st { font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 700; padding: 1px 6px; border-radius: 3px; border: 1px solid currentColor; }
+.st.sourced, .st.verified { color: var(--good); }
+.st.asserted { color: var(--muted); }
+.st.contested { color: var(--warn); }
+
+/* entity */
+.entity { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 32px; }
+.zone { display: inline-flex; gap: 8px; align-items: center; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; }
+.zone i { width: 12px; height: 12px; border-radius: 2px; }
+.entity h1 { font-family: var(--f-display); font-variation-settings: "wdth" 75; font-weight: 800; font-size: var(--s-6); line-height: 1.05; margin: 8px 0 8px; text-wrap: balance; }
+.entity .lead { font-size: var(--s-4); color: var(--ink); max-width: 62ch; margin: 0 0 18px; }
+.entity h2 { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin: 26px 0 8px; }
+.entity p, .entity li { max-width: 70ch; }
+.facts { border: 1px solid var(--line); background: var(--panel); border-radius: 6px; padding: 4px 14px; align-self: start; position: sticky; top: 70px; }
+.facts dl { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 6px 12px; margin: 10px 0; font-size: var(--s-2); }
+.facts dt { color: var(--muted); }
+.facts dd { margin: 0; overflow-wrap: anywhere; }
+.rel { display: flex; flex-wrap: wrap; gap: 6px; }
+.rel button { border: 1px solid var(--line); background: var(--panel); border-radius: 4px; padding: 3px 8px; cursor: pointer; font-size: var(--s-2); display: inline-flex; gap: 6px; align-items: center; }
+.rel button i { width: 8px; height: 8px; border-radius: 2px; }
+.rel-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.rel-list li { border-left: 3px solid var(--line); padding-left: 10px; }
+.rel-list li b { cursor: pointer; }
+.rel-list li .note { color: var(--muted); font-size: var(--s-2); display: block; }
+.back { border: 0; background: none; color: var(--accent); cursor: pointer; padding: 0; font-weight: 600; }
+
+/* graph */
+.graph-wrap { position: relative; border: 1px solid var(--line); background: var(--panel); border-radius: 6px; height: 72vh; min-height: 420px; overflow: hidden; }
+.graph-wrap canvas { width: 100%; height: 100%; display: block; cursor: grab; }
+.tip { position: absolute; pointer-events: none; background: var(--ink); color: var(--panel); padding: 4px 8px; font-size: var(--s-1); border-radius: 4px; max-width: 280px; }
+.legend { color: var(--muted); font-size: var(--s-1); margin-top: 8px; }
+
+@media (max-width: 860px) {
+  .report { grid-template-columns: minmax(0, 1fr); }
+  .toc { position: static; max-height: none; border-bottom: 1px solid var(--line); padding-bottom: 12px; }
+  .entity { grid-template-columns: minmax(0, 1fr); }
+  .facts { position: static; }
+  .hash { display: none; }
+  .prose h1 { font-size: 1.9rem; }
+}
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+<div class="bar"><div class="bar-inner">
+  <div class="brand"><b>SimGrammar</b><span>atlas of simulation mechanics</span></div>
+  <div class="tabs" role="tablist" id="tabs">
+    <button role="tab" id="tab-report" data-view="report" aria-selected="true">Report</button>
+    <button role="tab" id="tab-tables" data-view="tables" aria-selected="false">Tables</button>
+    <button role="tab" id="tab-graph" data-view="graph" aria-selected="false">Graph</button>
+  </div>
+  <div class="hash mono" id="hash" title="dataset sha256"></div>
+</div></div>
+<main><div class="wrap">
+  <section id="view-report"></section>
+  <section id="view-tables" hidden></section>
+  <section id="view-graph" hidden></section>
+  <section id="view-entity" hidden></section>
+</div></main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+(function () {
+  const TYPES = {
+    mechanic: { plural: "mechanics", label: "Mechanic", z: "--z-mech", group: "family", gv: "mechanic_family" },
+    game: { plural: "games", label: "Game", z: "--z-game", group: "subgenre", gv: "subgenre" },
+    technique: { plural: "techniques", label: "Technique", z: "--z-tech", group: "category", gv: "technique_category" },
+    opportunity: { plural: "opportunities", label: "Opportunity", z: "--z-opp", group: "opportunity_type", gv: "opportunity_type" },
+    source: { plural: "sources", label: "Source", z: "--z-src", group: "kind", gv: "source_kind" }
+  };
+  const VOCAB_OF = { subgenre: "subgenre", subgenre_secondary: "subgenre", sim_domain: "sim_domain", platforms: "platform", player_role: "player_role",
+    agency_model: "agency_model", time_model: "time_model", sim_scale: "sim_scale", fidelity: "fidelity", perspective: "perspective",
+    win_structure: "win_structure", failure_model: "failure_model", narrative_mode: "narrative_mode", multiplayer: "multiplayer", modding: "modding",
+    production_tier: "production_tier", agent_count_order: "agent_count_order", family: "mechanic_family", substrate: "substrate",
+    math_basis: "math_basis", feedback: "feedback", player_interface: "player_interface", category: "technique_category", runtime: "runtime",
+    determinism_impact: "determinism_impact", horizon: "horizon", risks: "risk", opportunity_type: "opportunity_type", kind: "source_kind", status: "status" };
+  const SCORES = new Set(["emergence", "influence", "legibility", "emergence_potential", "authoring_cost", "compute_cost", "tuning_difficulty", "ai_leverage", "novelty", "feasibility", "impact"]);
+  const COLS = {
+    game: [["name", "Game"], ["year", "Year"], ["subgenre", "Subgenre"], ["sim_scale", "Scale"], ["time_model", "Time"], ["fidelity", "Fidelity"],
+      ["emergence", "Emergence"], ["influence", "Influence"], ["_derived.mechanic_count", "Mechanics"], ["_derived.cluster", "Cluster"], ["status", "Status"]],
+    mechanic: [["name", "Mechanic"], ["family", "Family"], ["_derived.prevalence", "Games"], ["_derived.earliest_year", "Earliest"], ["legibility", "Legibility"],
+      ["emergence_potential", "Emergence"], ["authoring_cost", "Authoring"], ["compute_cost", "Compute"], ["ai_leverage", "AI leverage"],
+      ["_derived.technique_exposure", "Exposure"], ["maturity", "Maturity"], ["status", "Status"]],
+    technique: [["name", "Technique"], ["category", "Category"], ["year", "Year"], ["maturity", "In games"], ["trl", "TRL"], ["horizon", "Horizon"],
+      ["determinism_impact", "Determinism"], ["_derived.affects_count", "Mechanics"], ["status", "Status"]],
+    opportunity: [["name", "Opportunity"], ["opportunity_type", "Type"], ["_derived.priority", "Priority"], ["impact", "Impact"], ["feasibility", "Feasibility"],
+      ["novelty", "Novelty"], ["horizon", "Horizon"], ["falsifiable_signal.resolve_by", "Resolves"]],
+    source: [["name", "Title"], ["kind", "Kind"], ["date", "Date"], ["venue", "Venue"]]
+  };
+  let D = null, BY = new Map(), OUT = new Map(), IN = new Map();
+  const state = { view: "report", ttype: "mechanic", q: "", facet: "", sort: { key: "_derived.prevalence", dir: -1 }, history: [], graphTypes: new Set(["mechanic", "technique", "opportunity"]) };
+  const $ = (s, r = document) => r.querySelector(s);
+  const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+  const get = (o, p) => p.split(".").reduce((a, k) => (a == null ? a : a[k]), o);
+  const label = (field, v) => { const vn = VOCAB_OF[field]; return vn && D.vocab[vn] && D.vocab[vn][v] ? D.vocab[vn][v] : v; };
+  const maturityLabel = (t, v) => t === "technique" ? (D.vocab.technique_maturity[v] || v) : (D.vocab.maturity[v] || v);
+  function fmt(t, field, v) {
+    if (v == null || v === "") return "";
+    if (field === "maturity") return esc(maturityLabel(t, v));
+    if (Array.isArray(v)) return v.map(x => esc(label(field, x))).join(", ");
+    if (field === "status") return `<span class="st ${esc(v)}">${esc(v)}</span>`;
+    if (SCORES.has(field) && typeof v === "number") return meter(v);
+    return esc(label(field, v));
+  }
+  const meter = v => `<span class="meter" title="${v} of 5">${[1, 2, 3, 4, 5].map(i => `<span class="${i <= v ? "on" : ""}"></span>`).join("")}</span>`;
+  const swatch = t => `<i style="background:var(${TYPES[t].z})"></i>`;
+
+  function index() {
+    for (const [t, spec] of Object.entries(TYPES)) for (const e of D.entities[spec.plural] || []) BY.set(e.id, Object.assign(e, { _t: t }));
+    for (const ed of D.edges) {
+      if (!OUT.has(ed.source)) OUT.set(ed.source, []);
+      OUT.get(ed.source).push(ed);
+      if (!IN.has(ed.target)) IN.set(ed.target, []);
+      IN.get(ed.target).push(ed);
+    }
+    $("#hash").textContent = "dataset " + D.manifest.dataset_sha256.slice(0, 16) + " · contract " + D.manifest.contract_version;
+  }
+
+  function show(view, push = true) {
+    if (push && state.view !== view) state.history.push(state.view === "entity" ? { view: "entity", id: state.entity } : { view: state.view });
+    state.view = view;
+    for (const v of ["report", "tables", "graph", "entity"]) $("#view-" + v).hidden = v !== view;
+    for (const b of document.querySelectorAll("#tabs button")) b.setAttribute("aria-selected", String(b.dataset.view === view));
+    if (view === "graph") drawGraph();
+    window.scrollTo(0, 0);
+  }
+
+  /* ---------------- report */
+  function renderReport() {
+    let md = D.paper.replace(/^---[\s\S]*?\n---\n/, "");
+    const fm = (D.paper.match(/^---([\s\S]*?)\n---/) || [, ""])[1];
+    const title = (fm.match(/title: "([^"]*)"/) || [, "Report"])[1];
+    const sub = (fm.match(/subtitle: "([^"]*)"/) || [, ""])[1];
+    const date = (fm.match(/date: "([^"]*)"/) || [, ""])[1];
+    const ver = (fm.match(/version: "([^"]*)"/) || [, ""])[1];
+    md = md.replace(/!\[([^\]]*)\]\(figures\/([a-z0-9-]+)\.svg\)/g, (m, alt, name) => {
+      const svg = D.figure_svgs && D.figure_svgs[name];
+      return svg ? `![${alt}](data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)})` : m;
+    });
+    let html = marked.parse(md);
+    const host = document.createElement("div");
+    host.innerHTML = html;
+    host.querySelectorAll("table").forEach(t => { const w = document.createElement("div"); w.className = "tbl"; t.replaceWith(w); w.appendChild(t); });
+    host.querySelectorAll("a[href]").forEach(a => {
+      const m = a.getAttribute("href").match(/wiki\/([a-z]+)\/([a-z0-9-]+)\.md$/);
+      if (m && BY.has(m[2])) { a.setAttribute("href", "#"); a.dataset.ent = m[2]; }
+      else if (/^https?:/.test(a.getAttribute("href"))) { a.target = "_blank"; a.rel = "noopener"; }
+    });
+    const toc = [];
+    host.querySelectorAll("h2").forEach((h, i) => { h.id = "s" + (i + 1); toc.push(`<a href="#" data-jump="${h.id}">${esc(h.textContent)}</a>`); });
+    $("#view-report").innerHTML = `<div class="report"><nav class="toc"><div class="lbl">Contents</div>${toc.join("")}</nav>
+      <article class="prose"><h1>${esc(title)}</h1><p class="sub">${esc(sub)}</p>
+      <div class="meta-line"><span>${esc(date)}</span><span>v${esc(ver)}</span><span class="mono">dataset ${esc(D.manifest.dataset_sha256.slice(0, 16))}</span></div>
+      ${host.innerHTML}</article></div>`;
+  }
+
+  /* ---------------- tables */
+  function renderTables() {
+    const t = state.ttype, spec = TYPES[t];
+    const rows = (D.entities[spec.plural] || []).filter(e => !e.deprecated);
+    const facets = [...new Set(rows.map(e => e[spec.group]).filter(Boolean))].sort((a, b) => label(spec.group, a).localeCompare(label(spec.group, b)));
+    const q = state.q.toLowerCase();
+    let list = rows.filter(e => (!state.facet || e[spec.group] === state.facet) &&
+      (!q || (e.name + " " + e.id + " " + (e.summary || "") + " " + (e.aliases || []).join(" ")).toLowerCase().includes(q)));
+    const { key, dir } = state.sort;
+    list.sort((a, b) => {
+      let x = get(a, key), y = get(b, key);
+      if (x == null && y == null) return a.name.localeCompare(b.name);
+      if (x == null) return 1; if (y == null) return -1;
+      if (typeof x === "string") { x = label(key, x); y = label(key, y); return dir * x.localeCompare(y); }
+      return dir * (x - y) || a.name.localeCompare(b.name);
+    });
+    const cols = COLS[t];
+    const head = cols.map(([k, l]) => `<th data-key="${k}"${k === key ? ` data-sort="${dir > 0 ? "▲" : "▼"}"` : ""}>${esc(l)}</th>`).join("");
+    const body = list.map(e => "<tr>" + cols.map(([k]) => {
+      const v = get(e, k);
+      if (k === "name") return `<td class="name"><button data-ent="${esc(e.id)}">${esc(e.name)}</button></td>`;
+      const num = typeof v === "number" && !SCORES.has(k);
+      return `<td class="${num ? "num" : ""}">${fmt(t, k.split(".").pop(), v)}</td>`;
+    }).join("") + "</tr>").join("");
+    $("#view-tables").innerHTML = `
+      <div class="controls">
+        <div class="chips">${Object.entries(TYPES).map(([k, s]) => `<button class="chip" data-ttype="${k}" aria-pressed="${k === t}">${swatch(k)}${esc(s.plural[0].toUpperCase() + s.plural.slice(1))} <span class="mono">${(D.entities[s.plural] || []).length}</span></button>`).join("")}</div>
+      </div>
+      <div class="controls">
+        <input type="search" id="tq" placeholder="Filter ${esc(spec.plural)}" value="${esc(state.q)}" aria-label="Filter rows">
+        <select id="tf" aria-label="Facet"><option value="">All ${esc(spec.group.replace("_", " "))}s</option>${facets.map(f => `<option value="${esc(f)}"${f === state.facet ? " selected" : ""}>${esc(label(spec.group, f))}</option>`).join("")}</select>
+        <span class="count">${list.length} of ${rows.length}</span>
+      </div>
+      <div class="grid"><table><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table></div>
+      <p class="legend">Sort by any column. Bars are rubric anchors 1-5 (definitions in vocab/rubrics.yaml). Games, Earliest, Exposure, Priority, Cluster are computed by the build; nothing derived is stored.</p>`;
+    const tq = $("#tq");
+    tq.addEventListener("input", () => { state.q = tq.value; const pos = tq.selectionStart; renderTables(); const n = $("#tq"); n.focus(); n.setSelectionRange(pos, pos); });
+    $("#tf").addEventListener("change", e => { state.facet = e.target.value; renderTables(); });
+  }
+
+  /* ---------------- entity */
+  function openEntity(id, push = true) {
+    const e = BY.get(id);
+    if (!e) return;
+    if (push) state.history.push(state.view === "entity" ? { view: "entity", id: state.entity } : { view: state.view });
+    state.entity = id;
+    const t = e._t, spec = TYPES[t];
+    const facts = [];
+    const skip = new Set(["id", "type", "name", "summary", "_derived", "_t", "provenance", "sources", "claims", "key_results", "mechanics", "affects", "synergy", "tension", "requires", "specializes",
+      "influenced_by", "builds_on", "deployed_in", "involves", "applies", "precedent", "aliases", "deprecated", "falsifiable_signal"]);
+    const long = [];
+    for (const [k, v] of Object.entries(e)) {
+      if (skip.has(k) || v == null) continue;
+      const isLong = (typeof v === "string" && v.length > 120) || (Array.isArray(v) && v.length && typeof v[0] === "string" && !VOCAB_OF[k]);
+      if (isLong) long.push([k, v]); else facts.push([k, fmt(t, k, v)]);
+    }
+    for (const [k, v] of Object.entries(e._derived || {})) if (typeof v !== "object" && v != null) facts.push([k + " (computed)", BY.has(v) ? relBtn(v) : esc(v)]);
+    if (e.provenance) facts.push(["created in run", `<span class="mono">${esc(e.provenance.created)}</span>`]);
+    if (e.url) facts.push(["link", `<a href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.url.replace(/^https?:\/\//, "").slice(0, 48))}</a>`]);
+    const sections = long.map(([k, v]) => `<h2>${esc(k.replace(/_/g, " "))}</h2>` + (Array.isArray(v) ? `<ul>${v.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : `<p>${esc(v)}</p>`));
+    if (e.falsifiable_signal) sections.push(`<h2>Falsifiable signal</h2><p><b>Prediction.</b> ${esc(e.falsifiable_signal.prediction)}</p><p><b>Resolve by ${esc(e.falsifiable_signal.resolve_by)}.</b> ${esc(e.falsifiable_signal.criteria)}</p>`);
+    const outs = (OUT.get(id) || []).filter(x => x.type !== "cites");
+    const ins = (IN.get(id) || []).filter(x => x.type !== "cites");
+    const group = (arr, keyf) => arr.reduce((m, x) => ((m[keyf(x)] = m[keyf(x)] || []).push(x), m), {});
+    const relSections = [];
+    for (const [ty, arr] of Object.entries(group(outs, x => x.type))) {
+      const withNotes = arr.some(x => x.attrs && (x.attrs.note || x.attrs.role || x.attrs.effect));
+      if (withNotes) {
+        arr.sort((a, b) => (a.attrs?.role === "core" ? -1 : 0) - (b.attrs?.role === "core" ? -1 : 0));
+        relSections.push(`<h2>${esc(ty.replace(/_/g, " "))}</h2><ul class="rel-list">${arr.map(x => { const o = BY.get(x.target); const a = x.attrs || {};
+          const tag = [a.role, a.effect ? (D.vocab.effect[a.effect] || a.effect) : null].filter(Boolean).join(" · ");
+          return `<li style="border-left-color:var(${TYPES[o?._t || "source"].z})"><b data-ent="${esc(x.target)}">${esc(o ? o.name : x.target)}</b>${tag ? ` <span class="mono">${esc(tag)}</span>` : ""}${a.note ? `<span class="note">${esc(a.note)}</span>` : ""}</li>`; }).join("")}</ul>`);
+      } else relSections.push(`<h2>${esc(ty.replace(/_/g, " "))}</h2><div class="rel">${arr.map(x => relBtn(x.type === "synergy" || x.type === "tension" ? x.target : x.target)).join("")}</div>`);
+    }
+    const inv = { uses: "used by", affects: "affected by", involves: "in opportunities", applies: "applied in", precedent: "precedent for", influenced_by: "influenced", requires: "required by",
+      specializes: "generalizes", builds_on: "built upon by", deployed_in: "deploys", synergy: "synergy", tension: "tension" };
+    for (const [ty, arr] of Object.entries(group(ins, x => x.type))) {
+      const ids = arr.map(x => x.source).sort((a, b) => (BY.get(a)?.year || 0) - (BY.get(b)?.year || 0));
+      relSections.push(`<h2>${esc(inv[ty] || ty)} (${ids.length})</h2><div class="rel">${ids.map(relBtn).join("")}</div>`);
+    }
+    const claims = [...(e.key_results || []), ...(e.claims || [])];
+    if (claims.length) relSections.push(`<h2>Claims</h2><ul class="rel-list">${claims.map(c => `<li>${esc(c.text)}<span class="note">confidence: ${esc(c.confidence)} · ${c.sources.map(s => `<a href="#" data-ent="${esc(s)}">${esc(BY.get(s)?.name || s)}</a>`).join("; ")}</span></li>`).join("")}</ul>`);
+    if ((e.sources || []).length) relSections.push(`<h2>Sources</h2><div class="rel">${e.sources.map(relBtn).join("")}</div>`);
+    $("#view-entity").innerHTML = `<button class="back" id="back">← Back</button>
+      <div class="entity"><div style="min-width:0">
+        <div class="zone" style="color:var(${spec.z})">${swatch(t)}${esc(spec.label)} · <span class="mono">${esc(id)}</span></div>
+        <h1>${esc(e.name)}</h1>${e.summary ? `<p class="lead">${esc(e.summary)}</p>` : ""}
+        ${sections.join("")}${relSections.join("")}
+      </div><aside class="facts"><dl>${facts.map(([k, v]) => `<dt>${esc(k.replace(/_/g, " "))}</dt><dd>${v}</dd>`).join("")}</dl></aside></div>`;
+    $("#back").addEventListener("click", goBack);
+    show("entity", false);
+  }
+  const relBtn = id => { const o = BY.get(id); return o ? `<button data-ent="${esc(id)}">${swatch(o._t)}${esc(o.name)}</button>` : `<span class="mono">${esc(id)}</span>`; };
+  function goBack() {
+    const prev = state.history.pop();
+    if (!prev) return show("report", false);
+    if (prev.view === "entity") openEntity(prev.id, false); else show(prev.view, false);
+  }
+
+  /* ---------------- graph */
+  let sim = null, gNodes = [], gLinks = [], transform = d3.zoomIdentity, hover = null;
+  function renderGraphShell() {
+    $("#view-graph").innerHTML = `<div class="controls"><div class="chips">${Object.entries(TYPES).filter(([k]) => k !== "source").map(([k, s]) =>
+      `<button class="chip" data-gtype="${k}" aria-pressed="${state.graphTypes.has(k)}">${swatch(k)}${esc(s.plural[0].toUpperCase() + s.plural.slice(1))}</button>`).join("")}</div>
+      <input type="search" id="gq" placeholder="Find a node" aria-label="Find a node"><span class="count" id="gcount"></span></div>
+      <div class="graph-wrap" id="gwrap"><canvas id="gc"></canvas><div class="tip" id="gtip" hidden></div></div>
+      <p class="legend">Node size follows how many games use a mechanic (or edge degree otherwise). Drag to pan, scroll or pinch to zoom, click a node to open it. Dashed red lines are design tensions.</p>`;
+    $("#gq").addEventListener("input", e => { const q = e.target.value.toLowerCase(); hover = q ? gNodes.find(n => n.name.toLowerCase().includes(q)) : null; paint(); });
+  }
+  function drawGraph() {
+    const types = state.graphTypes;
+    const nodes = [...BY.values()].filter(e => types.has(e._t) && !e.deprecated).map(e => ({ id: e.id, name: e.name, t: e._t, w: e._derived?.prevalence ?? 0 }));
+    const ids = new Set(nodes.map(n => n.id));
+    const links = D.edges.filter(x => x.type !== "cites" && ids.has(x.source) && ids.has(x.target)).map(x => ({ source: x.source, target: x.target, type: x.type }));
+    const deg = new Map();
+    links.forEach(l => { deg.set(l.source, (deg.get(l.source) || 0) + 1); deg.set(l.target, (deg.get(l.target) || 0) + 1); });
+    nodes.forEach(n => { n.r = n.t === "mechanic" && n.w ? 3 + Math.sqrt(n.w) * 1.6 : 3 + Math.sqrt(deg.get(n.id) || 1); });
+    gNodes = nodes; gLinks = links;
+    $("#gcount").textContent = `${nodes.length} nodes · ${links.length} edges`;
+    const cv = $("#gc"), wrap = $("#gwrap");
+    const W = wrap.clientWidth, H = wrap.clientHeight, dpr = window.devicePixelRatio || 1;
+    cv.width = W * dpr; cv.height = H * dpr;
+    if (sim) sim.stop();
+    sim = d3.forceSimulation(nodes)
+      .force("link", d3.forceLink(links).id(d => d.id).distance(l => l.type === "uses" ? 60 : 45).strength(0.25))
+      .force("charge", d3.forceManyBody().strength(-38))
+      .force("x", d3.forceX(W / 2).strength(0.04)).force("y", d3.forceY(H / 2).strength(0.05))
+      .force("collide", d3.forceCollide(d => d.r + 1.5))
+      .on("tick", paint);
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) { sim.stop(); for (let i = 0; i < 300; i++) sim.tick(); paint(); }
+    const zoom = d3.zoom().scaleExtent([0.2, 6]).on("zoom", ev => { transform = ev.transform; paint(); });
+    d3.select(cv).call(zoom);
+    cv.onmousemove = ev => { const n = pick(ev); hover = n; const tip = $("#gtip");
+      if (n) { tip.hidden = false; tip.textContent = `${TYPES[n.t].label}: ${n.name}`; tip.style.left = (ev.offsetX + 12) + "px"; tip.style.top = (ev.offsetY + 12) + "px"; } else tip.hidden = true; paint(); };
+    cv.onclick = ev => { const n = pick(ev); if (n) openEntity(n.id); };
+  }
+  function pick(ev) {
+    const [x, y] = transform.invert([ev.offsetX, ev.offsetY]);
+    let best = null, bd = 1e9;
+    for (const n of gNodes) { const d = (n.x - x) ** 2 + (n.y - y) ** 2; if (d < bd && d < (n.r + 4) ** 2) { bd = d; best = n; } }
+    return best;
+  }
+  function paint() {
+    const cv = $("#gc"); if (!cv) return;
+    const ctx = cv.getContext("2d"), dpr = window.devicePixelRatio || 1;
+    ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, cv.width, cv.height);
+    ctx.setTransform(dpr * transform.k, 0, 0, dpr * transform.k, dpr * transform.x, dpr * transform.y);
+    const line = css("--line"), tension = "#c2413a";
+    const nb = hover ? new Set(gLinks.filter(l => l.source.id === hover.id || l.target.id === hover.id).flatMap(l => [l.source.id, l.target.id])) : null;
+    for (const l of gLinks) {
+      const lit = nb && (l.source.id === hover.id || l.target.id === hover.id);
+      ctx.strokeStyle = l.type === "tension" ? tension : (lit ? css("--ink") : line);
+      ctx.globalAlpha = nb && !lit ? 0.25 : (lit ? 0.9 : 0.6);
+      ctx.lineWidth = (lit ? 1.2 : 0.6) / transform.k;
+      ctx.setLineDash(l.type === "tension" ? [4 / transform.k, 3 / transform.k] : []);
+      ctx.beginPath(); ctx.moveTo(l.source.x, l.source.y); ctx.lineTo(l.target.x, l.target.y); ctx.stroke();
+    }
+    ctx.setLineDash([]);
+    const col = {}; for (const [k, s] of Object.entries(TYPES)) col[k] = css(s.z);
+    for (const n of gNodes) {
+      ctx.globalAlpha = nb && !nb.has(n.id) ? 0.25 : 1;
+      ctx.fillStyle = col[n.t]; ctx.beginPath(); ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2); ctx.fill();
+      if (n === hover || (transform.k > 1.6 && n.r > 6)) { ctx.fillStyle = css("--ink"); ctx.font = `${11 / transform.k}px Archivo, sans-serif`; ctx.fillText(n.name, n.x + n.r + 2, n.y + 3); }
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  /* ---------------- events */
+  document.addEventListener("click", ev => {
+    const ent = ev.target.closest("[data-ent]");
+    if (ent) { ev.preventDefault(); openEntity(ent.dataset.ent); return; }
+    const jump = ev.target.closest("[data-jump]");
+    if (jump) { ev.preventDefault(); document.getElementById(jump.dataset.jump)?.scrollIntoView({ behavior: "smooth" }); return; }
+    const tab = ev.target.closest("#tabs button");
+    if (tab) { show(tab.dataset.view); return; }
+    const tt = ev.target.closest("[data-ttype]");
+    if (tt) { state.ttype = tt.dataset.ttype; state.facet = ""; state.q = ""; const first = COLS[state.ttype][2]; state.sort = { key: first[0], dir: -1 }; renderTables(); return; }
+    const th = ev.target.closest("th[data-key]");
+    if (th) { const k = th.dataset.key; state.sort = { key: k, dir: state.sort.key === k ? -state.sort.dir : (k === "name" ? 1 : -1) }; renderTables(); return; }
+    const gt = ev.target.closest("[data-gtype]");
+    if (gt) { const k = gt.dataset.gtype; if (state.graphTypes.has(k)) state.graphTypes.delete(k); else state.graphTypes.add(k); renderGraphShell(); drawGraph(); return; }
+  });
+
+  function boot(data) {
+    D = data; index(); renderReport(); renderTables(); renderGraphShell();
+    const h = (location.hash || "").slice(1);
+    if (h === "tables" || h === "graph") show(h, false); else if (BY.has(h)) openEntity(h, false);
+  }
+  if (window.SIMGRAMMAR_DATA) boot(window.SIMGRAMMAR_DATA);
+  else fetch("../dist/site/data.json").then(r => r.json()).then(boot).catch(err => {
+    $("#view-report").innerHTML = `<p>Could not load ../dist/site/data.json (${esc(err.message)}). Serve the repository root over HTTP, for example <code>python3 -m http.server</code>, then open /site/.</p>`;
+  });
+})();
+</script>
+</body>
+</html>

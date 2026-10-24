@@ -1,10 +1,130 @@
 id: mindustry
 type: game
 name: Mindustry
-summary: TODO
+summary: An open-source automation tower defense game in which the player belts ore into factories that
+  supply turrets, units, and the core against enemy waves while capturing campaign sectors on two planets,
+  with an assembly-like logic language for controlling blocks and units.
 year: 2017
 developer: Anuke
+platforms:
+- pc
+- mobile
 subgenre: factory-automation
-status: asserted
+sim_domain:
+- industrial-logistics
+- military-conflict
+player_role: engineer-designer
+agency_model:
+- zoning-placement
+- direct-unit
+- programmatic
+time_model: real-time-pausable
+sim_scale: settlement
+fidelity: abstract
+perspective: top-down-2d
+win_structure: campaign
+failure_model: hard-restart
+narrative_mode: none
+multiplayer:
+- single
+- coop
+- competitive
+modding: scripting
+production_tier: hobbyist
+agent_count_order: '100'
+emergence: 3
+influence: 2
+core_loop: drill ore -> belt items to the core and factories -> build and supply turrets -> survive scheduled
+  enemy waves -> research new blocks with core resources -> capture sectors and launch resources between
+  them
+design_notes: 'Mindustry began as a 2017 itch.io jam game and fuses Factorio-style belt logistics with
+  tower defense: turrets consume belted ammunition, power, and coolant, so the factory''s layout is the
+  defense, and survival maps send progressively stronger waves at the core on a timer. Version 6 (2020)
+  added RTS units built in factories and upgraded through reconstructors, and Mindustry Logic, an assembly-like
+  language that runs on processor blocks, reads sensors and memory cells, and can bind and command units.
+  The campaign spans Serpulo and Erekir with 35 hand-made maps and 250+ procedural sectors whose production
+  continues while the player is elsewhere and is moved between sectors by launch pads. The game is GPL-3.0
+  and free from the author while also sold on Steam, so community servers, plugins, and mods are unrestricted.'
+mechanics:
+- id: conveyor-transport
+  role: core
+  note: Conveyors, junctions, routers, sorters, overflow gates, and bridges move items from drills to
+    the core, factories, and turret ammo inputs.
+- id: production-chain
+  role: core
+  note: Smelters, presses, kilns, separators, and mixers turn copper, lead, sand, coal, titanium, and
+    thorium into graphite, silicon, plastanium, and surge alloy.
+- id: raid-defense
+  role: core
+  note: Enemy waves spawn on a schedule and path toward the core; about 18 Serpulo and 10 Erekir turret
+    types consume ammo items, liquids, or power, backed by walls, menders, and shield projectors.
+- id: adaptive-threat-scaling
+  role: supporting
+  note: Survival maps send progressively stronger waves with tougher unit types and bosses as wave numbers
+    rise; the cited sources do not tie wave strength to the player's own wealth.
+- id: resource-extraction
+  role: core
+  note: Mechanical, pneumatic, laser, and airblast drills mine ore tiles at speeds set by drill tier and
+    ore hardness, with optional water boosting.
+- id: player-programming
+  role: supporting
+  note: Micro, logic, and hyper processors run Mindustry Logic, an assembly-like language with one operation
+    per instruction that reads sensors and memory cells, controls linked buildings and turrets, and binds
+    units with ubind to command them.
+- id: crisis-countdown
+  role: supporting
+  note: A visible timer counts down to the next wave, and wave timing can be changed in custom game rules.
+- id: tech-tree
+  role: supporting
+  note: Over 250 technology blocks are researched by spending core resources along a tree that also gates
+    campaign sectors.
+- id: power-grid
+  role: supporting
+  note: Combustion, steam, solar, thorium, and impact generators feed node-linked grids with batteries;
+    turrets, shields, and factories draw power.
+- id: fluid-pipe-network
+  role: supporting
+  note: Conduits carry water, slag, oil, and cryofluid; optional coolant and lubricant raise turret and
+    factory rates.
+- id: unit-commands
+  role: supporting
+  note: Since version 7 units can be selected and commanded RTS-style, while others follow default AI
+    or logic control.
+- id: blueprints
+  role: supporting
+  note: Schematics save layouts as shareable text and are traded on Steam Workshop.
+- id: scenario-objectives
+  role: supporting
+  note: Campaign sectors set win conditions such as surviving a number of waves or destroying enemy cores
+    on attack maps.
+- id: modding-api
+  role: supporting
+  note: The GPL-3.0 source allows unrestricted mods, and community servers run plugins for custom maps
+    and game modes.
+- id: machine-boosting
+  role: supporting
+  note: Optional coolant and lubricant fed to turrets and factories raise their rates, and water boosts
+    drill speed.
+influenced_by:
+- factorio
+claims:
+- text: Mindustry was created for the April 2017 itch.io Metal Monstrosity game jam and came to Steam
+    in 2019 (version 3, store date 2019-09-26).
+  sources:
+  - src-wikipedia-mindustry
+  - src-steam-2026-mindustry
+  confidence: high
+- text: Coverage compares Mindustry to Factorio, and its README describes it as an automation tower defense
+    RTS; the influenced_by edge reflects that widely noted lineage rather than a developer statement.
+  sources:
+  - src-wikipedia-mindustry
+  - src-anuke-2026-mindustry-repository
+  confidence: medium
+sources:
+- src-wikipedia-mindustry
+- src-steam-2026-mindustry
+- src-anuke-2026-mindustry-repository
+- src-mindustry-2026-logic-introduction
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gh

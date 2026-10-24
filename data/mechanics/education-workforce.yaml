@@ -1,8 +1,71 @@
 id: education-workforce
 type: mechanic
 name: Education and workforce
-summary: Education levels gate job types, and schooling transforms the labor pool over time.
+aliases:
+- education levels
+- schooling
+- skilled labor pool
+summary: Education levels gate job types, and schooling converts the labor pool into higher levels over
+  time.
 family: population-lineage
-status: asserted
+substrate:
+- aggregate-stocks
+- agent-based
+definition: 'Owns an education level per citizen or the population''s distribution over levels, and school
+  capacity and coverage. Each period, school-age or eligible citizens with access and seats advance a
+  level after a study period; capacity and budget limit throughput, and aging and migration change the
+  mix. Jobs and buildings require minimum levels, so the distribution decides which industries can be
+  staffed. Cities: Skylines uses uneducated, educated, well educated, and highly educated, with elementary
+  schools of 300, high schools of 1,000, and universities of 4,500 seats; jobs carry education requirements,
+  higher building levels need more educated workers, and citizens take lower jobs when nothing else is
+  open. Victoria 3 moves literacy toward education access and grants pops qualifications for professions
+  each month. Inputs: seats, budget, age structure. Outputs: the qualified worker distribution that labor
+  matching reads.'
+player_experience: 'The player invests now for a different city later: schools cost upkeep for years before
+  industry can upgrade. Players watch over- and under-education and adjust capacity, policies, and job
+  mix to avoid unemployable graduates or empty offices.'
+design_levers:
+- number of levels and job requirements per level
+- school capacity, upkeep, and study duration
+- 'who studies: age gates, coverage radius, cost to citizens'
+- whether over-educated citizens accept lower jobs
+- side effects of education on crime, garbage, or consumption
+failure_modes:
+- 'Over-education: when educated citizens fill matching jobs first, basic industry reports worker shortages
+  while graduates compete for offices.'
+- Long study times hide the lag between investment and effect, so players misread cause and effect.
+- Single-step jumps with large schools make education a one-time checkbox.
+dynamics:
+- Education shifts the industry mix toward offices and high tech, changing pollution and land value.
+- 'Generational lag: the education mix follows age structure, so baby booms create later waves of graduates.'
+- Mismatches between education and jobs produce unemployment and shortages simultaneously.
+math_basis:
+- system-dynamics
+- population-dynamics
+feedback: balancing
+player_interface:
+- placement
+- parameter
+- observation
+legibility: 3
+emergence_potential: 3
+authoring_cost: 1
+compute_cost: 1
+tuning_difficulty: 3
+ai_leverage: 2
+maturity: established
+synergy:
+- id: labor-market
+  note: Education reshapes which jobs can be filled.
+- id: lifecycle-aging
+  note: Children age into a workforce whose skills depend on schooling.
+open_questions:
+- Can agent-level career choice and schooling decisions by learned agents replace fixed education ladders
+  without losing planning legibility?
+- Which matching rule between education and jobs avoids both over-education collapse and meaningless education?
+sources:
+- src-paradoxwikis-2026-skylines-education
+- src-paradoxwikis-2026-vic3-pops
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m3

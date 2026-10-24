@@ -1,8 +1,65 @@
 id: elections
 type: mechanic
 name: Elections
+aliases:
+- voting
+- polls
 summary: Periodic votes by simulated or real voters determine tenure or policy.
 family: governance-policy
-status: asserted
+substrate:
+- agent-based
+- stochastic-events
+- rule-system
+definition: Owns an election calendar, an electorate (simulated voters, voting blocs, or real players), candidates or parties,
+  and a counting rule. At each election every voter's choice is computed from satisfaction, group membership, and campaign
+  effects, or cast by a real player; the counting rule (plurality, threshold, single transferable vote) picks the winner,
+  which sets tenure, a ruler, or party strength. Losing can end the game or remove the player's powers. Democracy 4 (2020)
+  gives each simulated citizen membership in several overlapping voter groups, so elections depend on keeping enough groups
+  content; before each election the player makes two promises, and broken promises raise cynicism. Frostpunk 2 (2024) has
+  a council of 100 faction delegates vote on each proposed law, needing 51 votes, or two thirds for laws that expand the Steward's
+  power. Tropico lets El Presidente hold or rig elections. EVE Online has real players elect the Council of Stellar Management,
+  using single transferable vote since the eighth council.
+player_experience: A deadline for popularity. The player tracks polls, times unpopular reforms for just after an election,
+  courts swing groups, and feels the stakes rise as election day nears. In player-run elections the experience shifts to campaigning
+  and alliance-building.
+design_levers:
+- election frequency and whether the player can call, delay, or cancel elections
+- 'voter model: aggregate approval, blocs, or individually simulated voters with overlapping groups'
+- franchise rules that decide who votes and with what weight
+- counting rule and thresholds
+- consequence of losing (game over, loss of office, reduced powers)
+- manipulation options such as rigging, promises, or campaign spending, and their costs
+failure_modes:
+- Elections that only test approval above 50% add a pass or fail check without strategy.
+- Cheap rigging or postponement removes the threat, so elections become a formality.
+- Real-player elections with low turnout let organized blocs capture outcomes, which can be accepted as play or felt as unfair.
+dynamics:
+- 'Election cycles create policy rhythms: unpopular measures early in a term, giveaways before the vote.'
+- Overlapping voter groups make every policy please someone and anger someone, which pushes players toward coalition math.
+- Promise systems couple short-term electoral gain to long-term credibility.
+math_basis:
+- mechanism-design
+- probability-statistics
+- social-network
+feedback: balancing
+player_interface:
+- observation
+- choice-cards
+legibility: 3
+emergence_potential: 3
+authoring_cost: 2
+compute_cost: 2
+tuning_difficulty: 3
+ai_leverage: 4
+maturity: established
+open_questions:
+- Can LLM-driven voters and rival candidates respond to the player's actual speeches and platform, so campaigning is persuasion
+  rather than slider tuning?
+- How should simulated electorates balance realism (stable partisanship) against responsiveness to player choices?
+sources:
+- src-wikipedia-democracy-4
+- src-wikipedia-frostpunk-2
+- src-wikipedia-eve-online
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m2

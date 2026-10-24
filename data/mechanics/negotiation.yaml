@@ -1,0 +1,74 @@
+id: negotiation
+type: mechanic
+name: Negotiation
+aliases:
+- haggling
+- contract talks
+- bargaining
+- wage negotiation
+summary: The player and an AI party exchange offers and counteroffers over wages, prices, or contract terms against
+  the AI's hidden reservation value until a deal is struck or talks fail.
+family: economy-finance
+substrate:
+- rule-system
+- agent-based
+definition: >-
+  Owns a negotiation session: the terms on the table (wage, fee, price, length, bonuses, clauses), the counterpart's
+  reservation value and preferred terms, a patience or round budget, and the outcome. Each round the player proposes
+  terms; the counterpart accepts if the offer clears its reservation value and otherwise counters toward its
+  preference, and patience falls with each round or with offers far from acceptable. When patience runs out talks
+  end, sometimes with a consequence such as a strike, a lost transfer, or damaged goodwill. Reservation values come
+  from simulation state such as the counterpart's ability, reputation, market rates, alternatives, and relationship
+  with the player. Theme Park (1994) has wage negotiations with staff and supply negotiations, where failure brings
+  strikes or lost shipments; sports management games run contract and transfer talks with players, agents, and clubs.
+  It differs from staff-hiring, which owns the roster and wages once agreed, and from faction-diplomacy, which owns
+  standing relations and treaty acceptance rather than a bounded bargaining session over terms.
+player_experience: >-
+  A small poker game inside the management sim. The player probes how low a star will go, risks a walkout or a strike
+  by pushing too hard, and weighs a deal now against losing the target. Talks put a face on the economy's prices.
+design_levers:
+- spread between the counterpart's reservation value and its opening demand
+- number of rounds or patience, and what drains it
+- how much of the counterpart's position is revealed (hints, agent comments, mood)
+- which terms can be traded against each other (wage, length, bonuses, clauses)
+- consequence of failure (walkout, strike, lost deal, damaged relationship)
+- whether rival bidders negotiate at the same time
+failure_modes:
+- Fixed, discoverable acceptance rules let players always find the minimum, turning talks into a ritual.
+- Refusals with no visible reason feel random and push players to accept the first offer.
+- Long multi-clause talks repeated for every signing become busywork.
+- AI counterparts that accept deals clearly bad for themselves break the economy.
+dynamics:
+- Reservation values tied to reputation and form make success raise future wage demands, a balancing loop on dominant
+  teams.
+- Competing bidders turn talks into auctions that push prices up for scarce talent.
+- Failed wage talks cascade into service failures when staff strike, as in Theme Park.
+math_basis:
+- game-theory
+- utility-decision
+feedback: balancing
+player_interface:
+- choice-cards
+- parameter
+legibility: 3
+emergence_potential: 2
+authoring_cost: 2
+compute_cost: 1
+tuning_difficulty: 3
+ai_leverage: 4
+maturity: classic
+open_questions:
+- Can language-model counterparts bargain in natural language while their concessions stay consistent with a calibrated
+  reservation value?
+- How much of the counterpart's position should be revealed so talks reward reading people rather than brute-force
+  probing?
+claims:
+- text: Theme Park includes wage and supply negotiations.
+  sources:
+  - src-wikipedia-theme-park
+  confidence: medium
+sources:
+- src-wikipedia-theme-park
+status: sourced
+provenance:
+  created: 2026-10-24-taxonomy-triage-a

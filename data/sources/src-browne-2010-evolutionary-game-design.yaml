@@ -1,0 +1,13 @@
+id: src-browne-2010-evolutionary-game-design
+type: source
+name: Evolutionary Game Design
+kind: paper
+authors:
+- Cameron Browne
+- Frederic Maire
+venue: IEEE Transactions on Computational Intelligence and AI in Games 2(1):1-16
+date: 2010-03
+doi: 10.1109/TCIAIG.2010.2041928
+accessed: '2026-10-24'
+provenance:
+  created: 2026-10-24-techniques-rl-design

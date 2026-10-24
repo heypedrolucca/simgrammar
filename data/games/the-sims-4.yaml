@@ -1,10 +1,111 @@
 id: the-sims-4
 type: game
 name: The Sims 4
-summary: TODO
+summary: The fourth mainline Sims game, built around a dominant emotion computed from moodlets, three-trait
+  personalities with aspiration rewards, multitasking, room-based building, and an in-game Gallery for
+  sharing creations.
 year: 2014
 developer: Maxis
+platforms:
+- pc
+- console
 subgenre: life-sim
-status: asserted
+sim_domain:
+- domestic-personal
+- social-interpersonal
+player_role: caretaker
+agency_model:
+- direct-unit
+- indirect-incentive
+- zoning-placement
+time_model: real-time-pausable
+sim_scale: household
+fidelity: stylized
+perspective: free-3d
+win_structure: open-sandbox
+failure_model: permadeath
+narrative_mode: emergent
+multiplayer:
+- single
+modding: scripting
+production_tier: aaa
+agent_count_order: '10'
+emergence: 3
+influence: 2
+core_loop: build a home or download one from the Gallery -> moodlets from events and surroundings set
+  the dominant emotion -> emotion unlocks interactions and speeds skills -> pursue aspiration milestones
+  and a career -> earn rewards -> share households and builds
+design_notes: 'The Sims 4 makes emotion the central state: moodlets from actions, events, objects, and
+  social interactions carry an emotion type and weight, and the strongest set the Sim''s single dominant
+  emotion, which gates emotional interactions and speeds matching skills. Adult personality is three traits
+  plus a bonus trait from the chosen aspiration, and completing aspiration milestones grants reward traits.
+  Build mode treats rooms as units that can be moved, duplicated, saved to a library, and shared through
+  the Gallery; the base game became free to play on 2022-10-18. Neighborhood Stories, a free update that
+  advances unplayed households, is the offscreen-life-progression mechanic.'
+mechanics:
+- id: memories-thoughts
+  role: core
+  note: Moodlets carry an emotion type (such as Happy, Focused, Flirty, Angry, Tense, or Sad), an intensity,
+    and a timer; the highest-weighted emotion becomes the Sim's dominant emotion.
+- id: personality-traits
+  role: core
+  note: Adults hold three traits and children and teens two, plus one bonus trait from the aspiration;
+    traits add moodlets, autonomous behaviors, and exclusive interactions.
+- id: needs-decay
+  role: core
+  note: Six needs (Hunger, Bladder, Energy, Social, Hygiene, Fun) decay and spawn negative moodlets such
+    as Hungry or Bored when low.
+- id: mood-breakdown
+  role: supporting
+  note: Dominant emotions unlock emotion-specific interactions and raise gain for matching skills (Inspired
+    for creative, Focused for mental, Energized for physical); extreme states such as Hysterical can kill.
+- id: smart-objects
+  role: supporting
+  note: Objects advertise need, skill, and emotion gains, and Sims multitask, such as talking while cooking.
+- id: free-placement
+  role: supporting
+  note: Build mode draws walls and rooms, places premade rooms, and moves or duplicates whole rooms.
+- id: blueprints
+  role: supporting
+  note: Sims, households, rooms, and lots can be saved to a personal library and placed again.
+- id: content-sharing
+  role: supporting
+  note: The Gallery uploads and downloads Sims, households, rooms, and buildings from other players inside
+    the game.
+- id: lifecycle-aging
+  role: supporting
+  note: Newborn, infant, toddler, child, teen, young adult, adult, and elder; toddlers were added in 2017
+    and newborn and infant in 2023.
+- id: career-ladder
+  role: supporting
+  note: Careers require related skills, for example Cooking and Mixology for Culinary.
+- id: agent-skills
+  role: supporting
+- id: relationship-values
+  role: supporting
+  note: Separate friendship and romance bars per pair.
+- id: romance-family
+  role: supporting
+- id: social-exchanges
+  role: supporting
+  note: Social menus are filtered by emotion and traits, with emotion-specific variants of interactions.
+- id: autonomy-levels
+  role: supporting
+  note: Free will can be toggled; with it off Sims act only on player orders except for urgent needs.
+- id: aspiration-wants
+  role: supporting
+  note: The chosen aspiration grants a bonus trait and a track of milestones whose completion earns reward
+    traits; short-term whims, later reworked as wants and fears, appear from emotions and traits.
+- id: offscreen-life-progression
+  role: supporting
+  note: Neighborhood Stories, added in a free update, advances unplayed households with events such as
+    moves, relationships, and births, with settings that limit which households and event types it may
+    touch.
+influenced_by:
+- the-sims-3
+sources:
+- src-wikipedia-the-sims-4
+- src-simswiki-2026-motive
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gc

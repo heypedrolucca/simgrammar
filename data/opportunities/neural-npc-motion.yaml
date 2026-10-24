@@ -1,0 +1,46 @@
+id: neural-npc-motion
+type: opportunity
+name: Learned motion for simulated crowds
+summary: Physics-based learned character controllers let simulated agents move and react physically, so
+  crowds, injuries, and labor look like what the simulation says is happening.
+opportunity_type: mechanic-upgrade
+thesis: Simulation games describe rich internal states (injured, exhausted, carrying heavy loads) but
+  show them with a handful of canned animations, which undermines legibility and attachment. Learned physics-based
+  controllers can produce motion conditioned on state at scale, so an agent with a leg wound limps believably
+  and a tired hauler slows and stumbles.
+design_sketch: Agent animation is driven by a learned controller conditioned on body-model state, load,
+  and mood. The inspector shows the same state the motion expresses. Crowds use cheaper approximations
+  at distance.
+involves:
+- injury-body-model
+- crowd-preferences
+- hauling-jobs
+- agent-inspection
+- rigid-body-physics
+applies:
+- physics-based-character-control
+- massively-parallel-simulation
+precedent:
+- rimworld
+- dwarf-fortress
+- planet-zoo
+- the-sims-4
+novelty: 3
+feasibility: 3
+impact: 2
+horizon: 1-2y
+key_risks:
+- Runtime cost at crowd scale.
+- Uncanny motion worse than stylized animation.
+- Physics instability in edge cases.
+validation_experiment: 'Drive 200 agents with a learned controller conditioned on three state variables;
+  measure frame cost and whether observers can identify agent state from motion alone. Success: 80 percent
+  identification at under 2 ms per frame.'
+falsifiable_signal:
+  prediction: A management or colony sim will ship learned physics-based motion for its simulated population.
+  resolve_by: '2029-06-30'
+  criteria: Developer documentation naming learned motion control in a shipped simulation game.
+sources: []
+status: asserted
+provenance:
+  created: 2026-10-24-synthesis

@@ -1,0 +1,47 @@
+id: scientists-not-tech-trees
+type: opportunity
+name: Research by named scientists
+summary: Replace the abstract research meter with named researchers whose skills, relationships, and rivalries
+  determine what gets discovered and when.
+opportunity_type: mechanic-upgrade
+thesis: 'Tech trees are the most common mechanic in the catalog and among the least simulated: research
+  is a currency spent on a graph. Relationship systems are common too, but the white-space analysis shows
+  the two rarely meet. Research performed by a small population of named scientists with skills, collaborations,
+  and grudges turns progression into a social system and makes breakthroughs into stories, using the same
+  agent stack as colony sims.'
+design_sketch: 'Each project needs a lead and collaborators; compatibility and rivalry change speed and
+  the chance of side discoveries; scientists publish, poach, and defect. The tech graph becomes partially
+  stochastic: what is discovered depends on who works together.'
+involves:
+- tech-tree
+- relationship-values
+- agent-skills
+- personality-traits
+- staff-hiring
+applies:
+- generative-agents
+- on-device-language-models
+precedent:
+- stellaris
+- civilization
+- game-dev-tycoon
+- dwarf-fortress
+novelty: 3
+feasibility: 4
+impact: 2
+horizon: now
+key_risks:
+- Stochastic research frustrates players planning builds.
+- Micromanaging researchers adds busywork.
+validation_experiment: 'Swap the research meter in a strategy prototype for a ten-scientist system and
+  compare player-recalled research events and build-plan satisfaction. Success: more recalled research
+  stories without lower plan satisfaction.'
+falsifiable_signal:
+  prediction: A strategy or management game will ship research performed by a simulated population of
+    named researchers whose relationships affect outcomes.
+  resolve_by: '2029-06-30'
+  criteria: Shipped title documentation describing relationship-dependent research by named characters.
+sources: []
+status: asserted
+provenance:
+  created: 2026-10-24-synthesis

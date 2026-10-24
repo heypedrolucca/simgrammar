@@ -1,10 +1,61 @@
 id: job-simulator
 type: game
 name: Job Simulator
-summary: TODO
+aliases:
+- 'Job Simulator: The 2050 Archives'
+summary: A room-scale VR comedy set in a museum run by robots, where the player performs parodied office, kitchen,
+  store, and garage tasks by grabbing and manipulating physics objects.
 year: 2016
 developer: Owlchemy Labs
+platforms:
+- pc
+- console
+- vr
 subgenre: job-sim
-status: asserted
+subgenre_secondary:
+- physics-sandbox
+sim_domain:
+- occupational
+- physical-mechanical
+player_role: worker
+agency_model:
+- direct-avatar
+time_model: real-time
+sim_scale: individual
+fidelity: abstract
+perspective: first-person
+win_structure: completion
+failure_model: none
+narrative_mode: authored
+multiplayer:
+- single
+modding: none
+production_tier: indie
+agent_count_order: none
+emergence: 2
+influence: 2
+boundary_case: true
+core_loop: job bot gives a task -> grab and manipulate objects with tracked hands -> appliances and props react
+  physically -> task completes -> next task until the job ends
+design_notes: 'Included as a boundary case for its interaction model: nearly every object within reach is a physics
+  object that can be picked up, thrown, or combined, and fixed appliances expose buttons, levers, and dials. Tasks
+  are authored and loose, so variety comes from physical improvisation such as choosing pizza toppings or tire styles
+  rather than from a modeled occupation. After all four jobs, modifiers alter the physics.'
+mechanics:
+- id: rigid-body-physics
+  role: core
+  note: Most objects within reach can be picked up and manipulated with tracked controllers, fixed appliances expose
+    buttons, levers, and dials, and post-game modifiers change the physics.
+- id: direct-avatar
+  role: core
+  note: The player's tracked head and hands are the avatar at a room-scale workstation; a smaller human mode adjusts
+    reach.
+- id: scenario-objectives
+  role: supporting
+  note: Four jobs (Office Worker, Gourmet Chef, Store Clerk, Auto Mechanic) each run a sequence of task requests
+    from job bots.
+sources:
+- src-wikipedia-job-simulator
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gf

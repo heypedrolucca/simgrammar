@@ -1,10 +1,70 @@
 id: versu
 type: game
 name: Versu
-summary: TODO
+summary: A 2013 iPad interactive story platform from Linden Lab in which the player controls one character
+  among autonomous agents who choose actions by simulating their outcomes against hundreds of desires
+  within authored social practices.
 year: 2013
 developer: Linden Lab
+platforms:
+- mobile
 subgenre: social-sim
-status: asserted
+sim_domain:
+- social-interpersonal
+player_role: inhabitant
+agency_model:
+- direct-avatar
+time_model: turn-based
+sim_scale: household
+fidelity: systemic
+perspective: text-ui
+win_structure: scenario-goals
+failure_model: none
+narrative_mode: hybrid
+multiplayer:
+- single
+modding: none
+production_tier: aa
+agent_count_order: '10'
+emergence: 3
+influence: 2
+core_loop: choose a character and episode -> practices offer actions for the situation -> player acts
+  or waits -> other agents simulate each option and take the best for their desires -> emotions, evaluations,
+  and relationships update -> the episode reaches an outcome
+design_notes: 'Richard Evans and Emily Short built Versu around social practices: recurring situations
+  such as a meal or a conversation written as reactive joint plans that offer actions to participants
+  without controlling them. Each agent tests a candidate action by applying it to the world state, scoring
+  the result against its desires (over 300 in total), and undoing it, which the authors contrast with
+  the estimated consequences used in The Sims. World state is a set of exclusion-logic sentences, and
+  the Praxis language with a stress tester that runs hundreds of simulated instances supported over 1,000
+  parameterized actions. Linden Lab cancelled the project in early 2014; social practices have no mechanic
+  id and are proposed as social-practices.'
+mechanics:
+- id: utility-action-selection
+  role: core
+  note: Agents score each available action by executing it on the world state, evaluating the result against
+    their desires, and undoing it; the best-scoring action is taken.
+- id: social-exchanges
+  role: core
+  note: Social practices such as a dinner party or a conversation offer role-specific actions with preconditions,
+    and most actions change how characters regard each other.
+- id: relationship-values
+  role: supporting
+  note: Agents hold evaluations of each other on roles such as attractiveness or breeding, which actions
+    raise or lower.
+- id: memories-thoughts
+  role: supporting
+  note: Fine-grained emotions on Ekman's typology record their target and cause.
+- id: personality-traits
+  role: supporting
+  note: Character files assign each agent desires that weight its action scoring.
+- id: storyteller-director
+  role: supporting
+  note: A drama manager agent can act to push an episode's authored plot.
+sources:
+- src-evans-2014-versu
+- src-short-2013-introducing-versu
+- src-ifwiki-2026-versu
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gc

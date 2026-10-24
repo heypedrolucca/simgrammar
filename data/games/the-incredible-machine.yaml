@@ -1,10 +1,70 @@
 id: the-incredible-machine
 type: game
 name: The Incredible Machine
-summary: TODO
+aliases:
+- TIM
+summary: >-
+  A Rube Goldberg puzzle game in which the player places supplied parts such as balls, ropes, pulleys, belts, and animals
+  into a level so that a deterministic physics run completes a simple goal.
 year: 1993
 developer: Jeff Tunnell Productions
+platforms:
+- pc
+- console
 subgenre: construction-engineering
-status: asserted
+sim_domain:
+- physical-mechanical
+player_role: engineer-designer
+agency_model:
+- design-then-test
+time_model: run-on-demand
+sim_scale: individual
+fidelity: stylized
+perspective: top-down-2d
+win_structure: scenario-goals
+failure_model: soft-recoverable
+narrative_mode: none
+multiplayer:
+- single
+modding: content
+production_tier: aa
+agent_count_order: none
+emergence: 2
+influence: 3
+core_loop: >-
+  read the puzzle goal -> place the supplied parts among fixed objects -> start the machine -> watch the chain reaction ->
+  adjust positions until the goal triggers
+design_notes: >-
+  Each puzzle fixes some objects in a side-view scene and hands the player a small inventory of parts; the solution is a chain
+  reaction where each part triggers the next, such as a ball dropping on a seesaw that frees a mouse that runs toward cheese.
+  The physics engine models gravity and air pressure as global settings and has no random number generator, so a design behaves
+  the same on every run and solutions are verifiable. A freeform mode exposes all parts so players can make puzzles for others.
+mechanics:
+- id: modular-assembly
+  role: core
+  note: >-
+    Levels supply a limited inventory of parts such as balls, ropes, pulleys, belts, electrical generators, cats, and mice
+    that the player places among fixed objects; parts act on each other by contact, rope, or belt.
+- id: rigid-body-physics
+  role: core
+  note: >-
+    A deterministic 2D physics engine with no random number generator moves balls, seesaws, and falling objects under level-set
+    gravity and air pressure, so the same design always gives the same run.
+- id: scenario-objectives
+  role: core
+  note: >-
+    Each puzzle states one simple goal, such as moving an object to a target, that must be met with only the parts provided.
+- id: material-interactions
+  role: supporting
+  note: Some parts react to others by fixed rules, such as a mouse running toward cheese.
+- id: signal-circuits
+  role: supporting
+  note: Electrical generators driven by other parts power electrical devices in the contraption.
+- id: content-sharing
+  role: supporting
+  note: Freeform mode saves player-built puzzles, using any part, for others to solve.
+sources:
+- src-wikipedia-the-incredible-machine
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gg

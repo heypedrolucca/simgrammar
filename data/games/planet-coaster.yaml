@@ -1,10 +1,100 @@
 id: planet-coaster
 type: game
 name: Planet Coaster
-summary: TODO
+summary: A 3D theme park builder with a spline and piece coaster editor, modular scenery, and individually
+  simulated guests and staff, built around sharing creations through the Steam Workshop.
 year: 2016
 developer: Frontier Developments
+platforms:
+- pc
+- console
 subgenre: management-tycoon
-status: asserted
+sim_domain:
+- economic
+- physical-mechanical
+player_role: manager-owner
+agency_model:
+- zoning-placement
+- design-then-test
+- policy-parameter
+time_model: real-time-pausable
+sim_scale: facility
+fidelity: stylized
+perspective: free-3d
+win_structure: open-sandbox
+failure_model: soft-recoverable
+narrative_mode: none
+multiplayer:
+- single
+- async-shared
+modding: content
+production_tier: aa
+agent_count_order: 1k
+emergence: 3
+influence: 2
+core_loop: sculpt terrain and build modular scenery -> design coasters and test their ratings -> guests
+  choose rides, shops, and paths -> manage staff, prices, and finances -> share parks and blueprints on
+  the Workshop
+design_notes: 'Planet Coaster keeps the RollerCoaster Tycoon structure of rated rides and guests with
+  preferences and moves the emphasis to construction: a hybrid spline and piece coaster editor, a voxel
+  terrain editor, and modular pieces that snap into custom buildings. The Workshop is part of play, since
+  players import coasters, scenery blueprints, and whole parks made by others. Frontier calls it a spiritual
+  successor to its own RollerCoaster Tycoon 3, and both run on Frontier''s Cobra engine. Career, Challenge
+  (limited funds and research), and Sandbox (unlimited funds) modes share one simulation.'
+mechanics:
+- id: modular-assembly
+  role: core
+  note: Coasters are built in a hybrid spline and piece-by-piece editor, and structures are assembled
+    from modular wall, roof, and prop pieces.
+- id: design-performance-rating
+  role: core
+  note: Coasters are test-run and rated on excitement, fear, and nausea, which set guest demand and ride
+    value.
+- id: crowd-preferences
+  role: core
+  note: Thousands of guests with individual needs, preferences, and budgets choose rides and shops and
+    show thoughts about prices and park conditions.
+- id: content-sharing
+  role: core
+  note: Coasters, scenery blueprints, and parks are uploaded to and downloaded from the Steam Workshop
+    or Frontier Workshop.
+- id: blueprints
+  role: supporting
+  note: Any selection of pieces can be saved as a blueprint and placed again.
+- id: staff-hiring
+  role: supporting
+  note: Janitors, mechanics, entertainers, vendors, and security guards are hired and assigned.
+- id: customer-value-choice
+  role: supporting
+  note: Ticket, ride, and shop prices are weighed against ride ratings and guest budgets.
+- id: wear-breakdown
+  role: supporting
+  note: Rides age and break down without mechanic inspections.
+- id: terraforming
+  role: supporting
+  note: A voxel terrain editor sculpts and tunnels the ground.
+- id: tech-tree
+  role: supporting
+  note: Challenge and Career modes gate rides and items behind research.
+- id: needs-decay
+  role: supporting
+  note: Guests need food, drink, toilets, and rest during their visit.
+- id: scenario-objectives
+  role: supporting
+  note: Career scenarios set goals such as building coasters, reaching park ratings, and hiring staff;
+    a scenario editor was added in 2017.
+- id: decoration-beauty
+  role: supporting
+  note: Scenery around rides and paths raises guest happiness and ride appeal.
+- id: track-laying
+  role: supporting
+  note: Coasters are built in a hybrid spline and piece-by-piece editor, joining track elements end to
+    end.
+influenced_by:
+- rollercoaster-tycoon
+sources:
+- src-wikipedia-planet-coaster
+- src-wikipedia-rollercoaster-tycoon-series
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-ge

@@ -1,0 +1,14 @@
+id: src-wikipedia-farming-simulator
+type: source
+name: Farming Simulator
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Farming_Simulator
+accessed: '2026-10-24'
+notes: 'Series article: FS25 released 2024-11-12; dynamically generated missions, seasonal cycle and production
+  chains since FS22, multiplayer since FS2013, modding since FS2009, PC and console platforms.'
+provenance:
+  created: 2026-10-24-catalog-gc

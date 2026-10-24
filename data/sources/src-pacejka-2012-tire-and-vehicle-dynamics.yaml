@@ -1,0 +1,16 @@
+id: src-pacejka-2012-tire-and-vehicle-dynamics
+type: source
+name: Tire and Vehicle Dynamics (3rd edition)
+kind: book
+authors:
+- Hans B. Pacejka
+venue: Butterworth-Heinemann (Elsevier)
+date: '2012-04-12'
+url: https://shop.elsevier.com/books/tire-and-vehicle-dynamics/pacejka/978-0-08-097016-5
+isbn: '9780080970165'
+accessed: '2026-10-24'
+notes: Standard reference on tire mechanics and the semi-empirical Magic Formula tire model. Publisher
+  page confirms title, edition, date, and ISBN; formula content is from the book's common use, not the
+  store page.
+provenance:
+  created: 2026-10-24-taxonomy-m4

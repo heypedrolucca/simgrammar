@@ -1,0 +1,20 @@
+id: src-kanervisto-2025-wham
+type: source
+name: World and Human Action Models towards gameplay ideation
+kind: paper
+authors:
+- Anssi Kanervisto
+- Dave Bignell
+- Linda Yilin Wen
+- Martin Grayson
+- Raluca Georgescu
+- Sergio Valcarcel Macua
+venue: 'Nature 638(8051): 656-663'
+date: 2025-02
+url: https://www.nature.com/articles/s41586-025-08600-3
+doi: 10.1038/s41586-025-08600-3
+accessed: '2026-10-24'
+notes: 23 authors (Microsoft Research, Ninja Theory, universities). Introduces WHAM; consistency, diversity,
+  and persistency as capabilities for creative ideation.
+provenance:
+  created: 2026-10-24-techniques-world-models

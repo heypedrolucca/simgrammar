@@ -1,8 +1,67 @@
 id: alerts-feed
 type: mechanic
 name: Alerts feed
-summary: Notifications surface events and threshold crossings.
+aliases:
+- notifications
+- letters
+- announcements
+- event log
+summary: A notification layer surfaces discrete events and threshold crossings with severity and a link to their
+  location.
 family: information-legibility
+substrate:
+- ui-layer
+- rule-system
+definition: >-
+  The feed subscribes to simulation events (raid arrived, agent died, contract completed) and to condition predicates
+  over state (food below a threshold, building unpowered, storage full, entity damaged). It owns a list of active
+  alerts, each with type, severity, timestamp, a deduplication key, a location or entity link, and a lifetime. Each
+  tick it adds an alert on the rising edge of a predicate or on an event, merges alerts with the same key, removes
+  condition alerts when the condition clears, and expires event alerts after a timeout or dismissal. Optional rules
+  pause the game or drop speed on chosen types. Canonical forms: RimWorld's severity-colored event letters plus
+  a persistent condition list (low food, colonist needs rescue), Factorio alerts for entities under attack or destroyed,
+  trains out of fuel, and ghosts lacking construction materials, problem icons over buildings and the Chirper feed
+  in Cities: Skylines, Dwarf Fortress announcements, and the Football Manager inbox.
+player_experience: >-
+  In a system too large to watch, the feed decides where the player looks. The player triages, jumps the camera
+  to the alert, and learns to dread specific alert types. Auto-pause on alerts turns real-time play into a series
+  of decision points.
+design_levers:
+- event alerts versus persistent condition alerts that clear themselves
+- severity tiers, color, and sound per alert type
+- auto-pause or speed-drop rules per alert type
+- 'aggregation: one alert for many identical problems versus one per entity'
+- persistence until dismissed versus until the condition clears
+- click-through to location and player-side filtering
+- in-fiction framing (social posts, letters) versus neutral system text
+failure_modes:
+- 'Alert fatigue: frequent low-value alerts bury the one that matters, and players miss a fatal problem.'
+- 'In-fiction feeds read as noise; many Cities: Skylines players hid the Chirper feed with mods.'
+- Predicates near a threshold, such as power just at capacity, flicker and spam add and remove cycles.
+- Alerts that report symptoms (no goods) rather than causes send players to fix the wrong thing.
+dynamics:
+- The alert set encodes what the designer considers a problem, so players optimize to keep icons off rather than
+  toward their own goals.
+- With auto-pause, alert density sets the effective pacing of a real-time game.
+- Paired with an event director, alerts announcing incident arrival create a recognizable beat structure of calm,
+  alarm, and response.
+math_basis:
+- information-theory
+feedback: none
+player_interface:
+- observation
+legibility: 4
+emergence_potential: 1
+authoring_cost: 2
+compute_cost: 2
+tuning_difficulty: 2
+ai_leverage: 3
+maturity: classic
+open_questions:
+- Can a learned salience model rank and merge alerts by predicted consequence so the feed stays useful at megabase
+  or metropolis scale?
+- Do natural-language digests of many alerts help players more than icons, or do they slow reaction time?
+sources: []
 status: asserted
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m6

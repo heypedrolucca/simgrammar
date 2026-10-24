@@ -1,0 +1,50 @@
+id: language-modding
+type: opportunity
+name: Mechanic modding by description
+summary: Players describe a rule change in plain language; a model writes the mod against the modding
+  API and automated agents test it before it is shared.
+opportunity_type: authoring-tool
+thesis: Modding is how simulation games stay alive for decades, but scripting mods requires programming
+  skill and engine knowledge. Code-generating models write working code against documented APIs, and automated
+  playtesting agents can smoke-test results. Making 'wolves avoid fire' or 'trains prefer cheaper routes'
+  a sentence rather than a project would enlarge the modding population by orders of magnitude.
+design_sketch: 'An in-game mod workshop: the player describes the change, the system proposes a diff to
+  data and scripts, runs a headless test scenario with agents to check for crashes and the intended effect,
+  and shows before and after metrics. The player names and shares the mod; the description, code, and
+  test results travel together.'
+involves:
+- modding-api
+- content-sharing
+- player-programming
+applies:
+- automated-rule-generation
+- automated-playtesting
+- constrained-decoding
+- voyager-skill-libraries
+precedent:
+- rimworld
+- minecraft
+- garrys-mod
+- factorio
+- cities-skylines
+novelty: 3
+feasibility: 4
+impact: 4
+horizon: 1-2y
+key_risks:
+- Generated mods with subtle bugs corrupt saves.
+- Security of executing generated code.
+- Flood of low-quality mods drowns curation.
+validation_experiment: 'Collect 100 mod requests from a modding community, generate mods against a documented
+  API, and measure the share that compile, pass a headless scenario, and are judged by the requester to
+  do what they asked. Success: at least 60 percent fully accepted.'
+falsifiable_signal:
+  prediction: A popular moddable simulation game will ship or officially endorse a natural-language mod
+    creation tool.
+  resolve_by: '2028-06-30'
+  criteria: Official tool or partnership announced by the developer of a simulation game with an active
+    modding scene.
+sources: []
+status: asserted
+provenance:
+  created: 2026-10-24-synthesis

@@ -1,0 +1,15 @@
+id: src-satisfactorywiki-2026-drone
+type: source
+name: Drone
+kind: encyclopedia
+authors:
+- Satisfactory Wiki contributors
+venue: Satisfactory Wiki
+date: '2026'
+url: https://satisfactory.wiki.gg/wiki/Drone
+accessed: '2026-10-24'
+notes: Drones provide long-range low-throughput transport between a home Drone Port and one linked port;
+  9 inventory slots; fuelled by batteries or packaged fuels, with faster speeds for higher-value fuel;
+  one drone unloads at a time.
+provenance:
+  created: 2026-10-24-catalog-gh

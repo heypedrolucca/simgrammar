@@ -1,10 +1,85 @@
 id: princess-maker-2
 type: game
 name: Princess Maker 2
-summary: TODO
+summary: A raising sim in which the player, as a father figure, schedules a daughter's training, part-time
+  jobs, rest, and adventures from age 10 to 18, and her accumulated attributes decide one of 74 endings.
 year: 1993
 developer: Gainax
+platforms:
+- pc
+- console
+- handheld
+- mobile
 subgenre: life-sim
-status: asserted
+sim_domain:
+- domestic-personal
+- social-interpersonal
+player_role: caretaker
+agency_model:
+- direct-unit
+- caretaking-interaction
+- direct-avatar
+time_model: turn-based
+sim_scale: individual
+fidelity: abstract
+perspective: text-ui
+win_structure: scenario-goals
+failure_model: soft-recoverable
+narrative_mode: hybrid
+multiplayer:
+- single
+modding: none
+production_tier: aa
+agent_count_order: '1'
+emergence: 2
+influence: 3
+core_loop: set three activity periods for the month -> training and jobs change attributes, money, and
+  fatigue -> events and festivals test her attributes -> rest or vacation to prevent illness -> she ages
+  a year -> at 18 her attributes select a career ending
+design_notes: Takami Akai designed the sequel to answer complaints that the original was repetitive, adding
+  more reactions and events around a schedule-and-attributes core. Each month splits into early, middle,
+  and late periods, each assigned to training (academic, artistic, religious, military, or magical), a
+  part-time job, adventure, or free time, under a small annual income. Jobs unlock with age and pay promotion
+  and streak bonuses, rival girls age alongside the daughter as benchmarks, and October festivals hold
+  contests in martial arts, dance, art, and cooking. At 18 her attributes and history select one of 74
+  career endings, a branching-outcome model captured by the care-dependent-development mechanic.
+mechanics:
+- id: agent-skills
+  role: core
+  note: Training courses and part-time jobs raise and lower her attributes; attributes gate jobs, decide
+    October festival contests in martial arts, dance, art, and cooking against rival girls, and select
+    the final career.
+- id: daily-action-budget
+  role: core
+  note: Each month has three activity slots (early, middle, late), so every period spent training, working,
+    adventuring, or resting is a period not spent on the others.
+- id: lifecycle-aging
+  role: core
+  note: The daughter ages from 10 to 18; jobs and events unlock with age, and the game ends at 18.
+- id: career-ladder
+  role: supporting
+  note: Repeating a part-time job leads to promotions, higher pay, and bonuses for unbroken success streaks.
+- id: needs-decay
+  role: supporting
+  note: Stress from work and training is relieved by free time, vacations, spa stays, or bed rest; poor
+    rest management leads to illness and weaker performance.
+- id: budget-treasury
+  role: supporting
+  note: A small annual income pays for lessons, clothing, food, treatment, and shopping; jobs supplement
+    it.
+- id: turn-structure
+  role: supporting
+  note: The month is the turn, split into three phases that resolve after the player sets the schedule.
+- id: triggered-event-chains
+  role: supporting
+  note: Events and reactions fire on age, attributes, and season, leading into 74 career endings with
+    retrospective sequences.
+- id: care-dependent-development
+  role: core
+  note: Eight years of scheduled training, jobs, and rest shape the daughter's attributes, and at 18 her
+    attributes and history select one of 74 career endings.
+sources:
+- src-wikipedia-princess-maker-2
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gc

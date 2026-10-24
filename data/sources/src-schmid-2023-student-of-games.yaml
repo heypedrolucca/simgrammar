@@ -1,0 +1,28 @@
+id: src-schmid-2023-student-of-games
+type: source
+name: 'Student of Games: A unified learning algorithm for both perfect and imperfect information games'
+kind: paper
+authors:
+- Martin Schmid
+- Matej Moravčík
+- Neil Burch
+- Rudolf Kadlec
+- Josh Davidson
+- Kevin Waugh
+- Nolan Bard
+- Finbarr Timbers
+- Marc Lanctot
+- G. Zacharias Holland
+- Elnaz Davoodi
+- Alden Christianson
+- Michael Bowling
+venue: Science Advances 9(46)
+date: '2023-11-17'
+doi: 10.1126/sciadv.adg3256
+arxiv: '2112.03178'
+accessed: '2026-10-24'
+notes: Guided search, self-play learning, and game-theoretic reasoning in one sound algorithm; strong
+  in chess and Go, beat the strongest open heads-up no-limit agent, and beat the prior best Scotland Yard
+  agent.
+provenance:
+  created: 2026-10-24-techniques-rl-design

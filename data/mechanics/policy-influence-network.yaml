@@ -1,8 +1,68 @@
 id: policy-influence-network
 type: mechanic
 name: Policy influence network
+aliases:
+- Democracy-style simulation
+- policy web
+- effects graph
 summary: Policies, indicators, and voter groups connect through a weighted causal graph with delays.
 family: governance-policy
-status: asserted
+substrate:
+- network-graph
+- aggregate-stocks
+definition: 'Owns a directed graph whose nodes are policies (with slider levels), simulation values (crime,
+  GDP, pollution), situations, and voter groups, and whose edges are weighted effect equations. Each turn
+  every node''s value is recomputed as a function of its weighted inputs, bounded to a fixed range, and
+  effects can be lagged or averaged over several turns; situations switch on and off when their input
+  values cross thresholds. Voter-group happiness at the end of the chain sets approval and election results.
+  Positech''s Democracy series (2005-2022) is the canonical form: its designer describes it as a homebrew
+  neural network in which voters, voter groups, policies, ministers, and events are neurons capped to
+  0..1 or -1..+1, with most logic in editable CSV files. Democracy 4 added fixed-income neurons that can
+  exceed 1 because percentage effects on a 0-1 income scale gave wealthy voters more than poor ones.'
+player_experience: Pulling one thread and watching the web move. The player hovers a policy to see lines
+  to everything it touches, raises a tax and sees the deficit shrink while a voter group sours, and plans
+  reforms in sequence because effects arrive with delays.
+design_levers:
+- 'graph density: how many effects each policy and value has'
+- effect equation forms (linear, power, threshold) and weights
+- delays and averaging per edge
+- value bounds and normalization
+- situation trigger and clear thresholds with hysteresis
+- how much of the graph is shown to the player
+failure_modes:
+- Percentage effects on bounded values distort distribution, the problem that led Democracy 4 to add fixed-income
+  values.
+- Dense graphs with small weights make most policies feel inert while a few dominate.
+- Long delays without visible pending effects make players misattribute causes.
+dynamics:
+- Feedback loops between values (unemployment, crime, GDP) produce virtuous or vicious cycles across several
+  turns.
+- Situations appear and vanish as values cross thresholds, creating emergent crises from slow drifts.
+- Overlapping voter-group memberships turn every policy into a tradeoff among coalitions.
+math_basis:
+- system-dynamics
+- machine-learning
+- social-network
+feedback: both
+player_interface:
+- parameter
+- observation
+legibility: 3
+emergence_potential: 3
+authoring_cost: 3
+compute_cost: 1
+tuning_difficulty: 4
+ai_leverage: 4
+maturity: emerging
+requires:
+- policy-toggles
+open_questions:
+- Could learned causal models fit to real policy data replace hand-authored effect equations, and would
+  players accept the loss of authored intent?
+- Can an LLM generate new policies and situations with consistent graph effects from a text description?
+sources:
+- src-harris-2020-democracy4-fixed-income
+- src-wikipedia-democracy-4
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m2

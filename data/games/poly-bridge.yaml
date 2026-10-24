@@ -1,10 +1,76 @@
 id: poly-bridge
 type: game
 name: Poly Bridge
-summary: TODO
-year: 2016
+summary: >-
+  A bridge-building puzzle game where the player places beams and roads from materials with different costs and strengths
+  under a budget, then runs a physics test as vehicles cross.
+year: 2015
+year_full_release: 2016
 developer: Dry Cactus
+platforms:
+- pc
+- mobile
 subgenre: construction-engineering
-status: asserted
+sim_domain:
+- physical-mechanical
+player_role: engineer-designer
+agency_model:
+- design-then-test
+time_model: run-on-demand
+sim_scale: facility
+fidelity: stylized
+perspective: top-down-2d
+win_structure: scenario-goals
+failure_model: soft-recoverable
+narrative_mode: none
+multiplayer:
+- single
+- async-shared
+modding: content
+production_tier: indie
+agent_count_order: none
+emergence: 2
+influence: 2
+core_loop: >-
+  read anchors, vehicles, and budget -> place beams and roads from materials -> run the simulation -> watch stress and failures
+  -> trim cost or reinforce -> submit to leaderboard
+design_notes: >-
+  Bridges are trusses of joints and members in a side-view plane; each material (road, wood, steel, rope, cable, hydraulics)
+  has its own cost, strength, and mass, and crossing vehicles load the structure until members exceed their limit and snap.
+  The puzzle is minimizing cost under a level budget while keeping stress below breaking, and hydraulic phases tied to vehicle
+  checkpoints let bridges move in sync with traffic. Failed runs are free to repeat, so the loop is fast iteration against
+  a stress readout.
+mechanics:
+- id: structural-integrity
+  role: core
+  note: >-
+    Every member carries tension or compression shown as a stress color; a member past its material limit breaks and the load
+    redistributes, often cascading into collapse.
+- id: modular-assembly
+  role: core
+  note: >-
+    Bridges are built from road, wood, steel, rope, cable, and hydraulic members connected at joints; materials trade cost
+    against strength and weight.
+- id: design-performance-rating
+  role: core
+  note: >-
+    A level passes when its vehicles reach their flags; total material cost against the level budget is the measure of a good
+    solution, and Steam leaderboards compare results.
+- id: rigid-body-physics
+  role: supporting
+  note: Cars, trucks, and other vehicles are physics bodies whose mass and speed load the bridge.
+- id: scenario-objectives
+  role: supporting
+  note: Levels fix anchor points, allowed materials, budget, and vehicle routes.
+- id: signal-circuits
+  role: supporting
+  note: A multi-phase hydraulics controller fires pistons when vehicles reach checkpoints.
+- id: content-sharing
+  role: supporting
+  note: Sandbox designs are published as Workshop levels, and test runs export as GIF replays.
+sources:
+- src-wikipedia-poly-bridge
+- src-steam-2026-poly-bridge
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gg

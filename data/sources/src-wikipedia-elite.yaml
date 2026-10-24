@@ -1,0 +1,15 @@
+id: src-wikipedia-elite
+type: source
+name: Elite (video game)
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Elite_(video_game)
+accessed: '2026-10-24'
+notes: David Braben and Ian Bell; Acornsoft, BBC Micro, September 1984; eight procedurally generated galaxies from
+  seeds; 7 light-year hyperspace limit by fuel; trading, piracy, bounty hunting, combat rating to Elite; credited
+  with defining space trading genre; lists influenced titles including EVE Online.
+provenance:
+  created: 2026-10-24-catalog-gg

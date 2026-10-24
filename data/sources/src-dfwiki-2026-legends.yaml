@@ -1,0 +1,15 @@
+id: src-dfwiki-2026-legends
+type: source
+name: Legends
+kind: encyclopedia
+authors:
+- Dwarf Fortress Wiki contributors
+venue: Dwarf Fortress Wiki
+date: '2026'
+url: https://dwarffortresswiki.org/index.php/Legend
+accessed: '2026-10-24'
+notes: Legends mode lists historical figures, sites, artifacts, written works, regions, civilizations, and Chronicles
+  by Age; player achievements are recorded; Reveal All Historical Events option; XML export can reach about a gigabyte
+  for long histories.
+provenance:
+  created: 2026-10-24-taxonomy-m7

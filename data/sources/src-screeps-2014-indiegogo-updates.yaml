@@ -1,0 +1,15 @@
+id: src-screeps-2014-indiegogo-updates
+type: source
+name: 'Screeps blog: Indiegogo updates, November 2014 to February 2015'
+kind: tech-report
+authors:
+- Screeps team
+venue: Screeps blog
+date: 2014-12
+url: https://blog.screeps.com/page/16/
+accessed: '2026-10-24'
+notes: Paginated blog listing (position may shift). In late 2014 the browser Simulation mode was the playable
+  version, called 'only a demo' on 2014-11-25; the Indiegogo campaign ended 2014-12-31; a ranked Survival
+  mode open to all was announced live on 2015-01-21.
+provenance:
+  created: 2026-10-24-catalog-gh

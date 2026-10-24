@@ -1,0 +1,14 @@
+id: src-gdc-2025-state-of-industry
+type: source
+name: 'GDC 2025 State of the Game Industry: Devs weigh in on layoffs, AI, and more'
+kind: tech-report
+authors:
+- Game Developers Conference
+venue: gdconf.com
+date: 2025-01
+url: https://gdconf.com/article/gdc-2025-state-of-the-game-industry-devs-weigh-in-on-layoffs-ai-and-more/
+accessed: '2026-10-24'
+notes: Over 3,000 respondents (+/-2%). 52% work at companies that implemented generative AI; 36% personally
+  use it; 30% think it is having a negative impact on the industry, up 12 points.
+provenance:
+  created: 2026-10-24-techniques-llm-agents

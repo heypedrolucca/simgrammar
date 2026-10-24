@@ -1,0 +1,13 @@
+id: src-paradox-2022-vic3-trade-revisions
+type: source
+name: 'Victoria 3 Dev Diary #54: Trade Revisions'
+kind: tech-report
+authors:
+- Paradox Development Studio
+venue: Paradox Interactive
+date: '2022-08-10'
+url: https://www.paradoxinteractive.com/games/victoria-3/news/dev-diary-54-trade-revisions
+accessed: '2026-10-24'
+notes: Routes start at level 1 and grow or shrink weekly by profitability; midpoint purchase and sale prices; per-unit tariffs on base price; convoys; per-route bureaucracy cost replaces route cap; trade agreements and embargoes.
+provenance:
+  created: 2026-10-24-taxonomy-m2

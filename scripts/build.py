@@ -392,6 +392,7 @@ def build() -> tuple[dict[str, str], dict[str, str]]:
         "stats": analysis["stats"],
         "tables": analysis["tables"],
         "figures": {k: v["caption"] for k, v in analysis["figures"].items()},
+        "figure_svgs": {k: v["svg"] for k, v in analysis["figures"].items()},
         "paper": paper,
     }
     outs["site/data.json"] = canonical_json(site) + "\n"

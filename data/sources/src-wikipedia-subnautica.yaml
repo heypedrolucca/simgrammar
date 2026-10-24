@@ -1,0 +1,15 @@
+id: src-wikipedia-subnautica
+type: source
+name: Subnautica
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Subnautica
+accessed: '2026-10-24'
+notes: Unknown Worlds Entertainment; Steam early access 2014-12-16, full release 2018-01-23; consoles 2018, Switch
+  2021, mobile 2025; health, hunger, thirst, and oxygen in Survival; Freedom, Hardcore, and Creative modes; blueprints,
+  crafting, bases, submersibles; day-night cycle with eclipses; story on planet 4546B.
+provenance:
+  created: 2026-10-24-catalog-gb

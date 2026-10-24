@@ -1,0 +1,24 @@
+id: src-stanford-hai-2025-simulating-human-behavior
+type: source
+name: Simulating Human Behavior with AI Agents
+kind: tech-report
+authors:
+- Joon Sung Park
+- Carolyn Q. Zou
+- Aaron Shaw
+- Benjamin Mako Hill
+- Carrie J. Cai
+- Meredith Ringel Morris
+- Robb Willer
+- Percy Liang
+- Michael S. Bernstein
+venue: Stanford HAI policy brief
+date: '2025-05-20'
+url: https://hai.stanford.edu/policy/simulating-human-behavior-with-ai-agents
+accessed: '2026-10-24'
+notes: 1,052 participants; agents replicated GSS responses 85% as accurately as participants replicated
+  their own answers two weeks later; comparable on Big Five, five economic games (dictator, two trust
+  games, public goods, prisoner's dilemma), and five experiments; less biased than earlier simulation
+  methods.
+provenance:
+  created: 2026-10-24-techniques-llm-agents

@@ -1,0 +1,15 @@
+id: src-steam-2026-going-medieval
+type: source
+name: Going Medieval on Steam
+kind: store-page
+authors:
+- Foxy Voxel
+venue: Steam
+date: '2026'
+url: https://store.steampowered.com/app/1029780/Going_Medieval/
+accessed: '2026-10-24'
+notes: Release 2026-03-17, early access 2021-06-01; settler needs including hunger, clothing preferences, and religion;
+  skills improved by hunting and combat; rooms such as workshops, chapels, and libraries; 3D terrain toolset to
+  dig down and build up; raider defense with traps; research; modding tools.
+provenance:
+  created: 2026-10-24-catalog-gb

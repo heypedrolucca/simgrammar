@@ -1,8 +1,57 @@
 id: weather
 type: mechanic
 name: Weather
-summary: Simulated weather conditions such as rain, storms, and temperature affect activities and systems.
+aliases:
+- weather system
+- storms
+summary: Weather states such as rain, storms, snow, wind, and temperature change over time and modify activities and other
+  systems.
 family: environment-ecology
-status: asserted
+substrate:
+- stochastic-events
+- rule-system
+definition: 'Owns a current weather state, and sometimes a forecast, drawn each day or interval from season-dependent probabilities
+  or evolved as a Markov chain or noise field across the map. The state sets modifiers other systems read: rain waters crops
+  or puts out fire, storms bring lightning that damages things, cold lowers body temperature, wind changes travel or spread,
+  and fog cuts visibility. Stardew Valley picks daily weather, shows tomorrow''s forecast on the TV, never rains in winter
+  without a Rain Totem, and lets lightning destroy crops unless lightning rods intercept it; The Long Dark''s blizzards and
+  cold nights drive its survival loop; Microsoft Flight Simulator 2020 can stream real-world weather. Inputs are season, location,
+  and random draws; outputs are condition flags and values such as temperature and wind.'
+player_experience: Adapting plans to conditions outside the player's control. The player checks the forecast, moves tasks
+  indoors on stormy days, waits out a blizzard, or takes advantage of rain. Weather makes days feel different and gives the
+  world a mood.
+design_levers:
+- set of weather states and their transition probabilities by season and region
+- duration and spatial extent of weather events
+- which systems each state modifies and by how much
+- forecast availability and accuracy
+- 'protection tools: shelter, lightning rods, clothing, irrigation'
+failure_modes:
+- Purely cosmetic weather costs effects budget without changing decisions.
+- Severe weather with no forecast or counterplay feels like an unfair random penalty.
+- Weather rolled independently each day can flip implausibly between extremes.
+dynamics:
+- 'Weather couples many systems at once: crops, fire, travel, mood, and body temperature.'
+- Forecasts turn weather from noise into a planning input, rewarding flexible schedules.
+- Rare extreme weather becomes a memorable event that players prepare for.
+math_basis:
+- markov-stochastic
+- procedural-noise
+feedback: none
+player_interface:
+- observation
+legibility: 4
+emergence_potential: 3
+authoring_cost: 3
+compute_cost: 1
+tuning_difficulty: 2
+ai_leverage: 2
+maturity: classic
+open_questions:
+- Can learned global weather models supply spatially coherent, plausible weather for procedural worlds at low runtime cost?
+sources:
+- src-stardewvalleywiki-2026-weather
+- src-wikipedia-the-long-dark
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m5

@@ -1,0 +1,20 @@
+id: src-yang-2018-mean-field-marl
+type: source
+name: Mean Field Multi-Agent Reinforcement Learning
+kind: paper
+authors:
+- Yaodong Yang
+- Rui Luo
+- Minne Li
+- Ming Zhou
+- Weinan Zhang
+- Jun Wang
+venue: ICML 2018
+date: '2018-02-15'
+url: https://arxiv.org/abs/1802.05438
+arxiv: '1802.05438'
+accessed: '2026-10-24'
+notes: Each agent learns against the mean action of neighbors instead of all pairwise interactions; mixed
+  cooperative-competitive battle games and Ising model.
+provenance:
+  created: 2026-10-24-techniques-sim-math

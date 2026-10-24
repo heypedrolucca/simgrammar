@@ -1,0 +1,15 @@
+id: src-deepmind-2022-muzero-youtube
+type: source
+name: MuZero's first step from research into the real world
+kind: tech-report
+authors:
+- DeepMind
+venue: Google DeepMind blog
+date: '2022-02-11'
+url: https://deepmind.google/blog/muzeros-first-step-from-research-into-the-real-world/
+accessed: '2026-10-24'
+notes: MuZero-RC chose VP9 quantisation parameters per frame on part of YouTube live traffic; average
+  4% bitrate reduction without quality loss; objective framed as win/loss against the agent's own past
+  performance.
+provenance:
+  created: 2026-10-24-techniques-rl-design

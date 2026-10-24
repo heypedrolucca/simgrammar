@@ -1,0 +1,15 @@
+id: src-wikipedia-tomodachi-life
+type: source
+name: Tomodachi Life
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Tomodachi_Life
+accessed: '2026-10-24'
+notes: Nintendo SPD, 3DS; Japan 2013-04-18, NA and EU 2014-06-06; apartment of up to 100 Miis, autonomous
+  friendships and conflicts, player-approved confessions, marriage and children, StreetPass, problems
+  and happiness levels; sequel 2026-04-16.
+provenance:
+  created: 2026-10-24-catalog-gc

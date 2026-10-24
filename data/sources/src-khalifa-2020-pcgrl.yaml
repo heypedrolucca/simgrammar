@@ -1,0 +1,15 @@
+id: src-khalifa-2020-pcgrl
+type: source
+name: 'PCGRL: Procedural Content Generation via Reinforcement Learning'
+kind: preprint
+authors:
+- Ahmed Khalifa
+- Philip Bontrager
+- Sam Earle
+- Julian Togelius
+venue: arXiv
+date: '2020-01-24'
+arxiv: '2001.09212'
+accessed: '2026-10-24'
+provenance:
+  created: 2026-10-24-techniques-rl-design

@@ -1,0 +1,15 @@
+id: src-factoriowiki-2026-pollution
+type: source
+name: Pollution
+kind: encyclopedia
+authors:
+- Factorio Wiki contributors
+venue: Official Factorio Wiki
+date: '2026'
+url: https://wiki.factorio.com/Pollution
+accessed: '2026-10-24'
+notes: Pollution stored per 32x32-tile chunk and updated every 64 ticks; chunks at 15 or more diffuse 2% to each cardinal
+  neighbor; tiles absorb per chunk per minute (water 1.536, grass 1.10592); trees damaged above 60; spawners absorb pollution
+  to send attack units (small biter 4); evolution driven by pollution produced.
+provenance:
+  created: 2026-10-24-taxonomy-m5

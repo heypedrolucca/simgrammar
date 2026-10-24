@@ -1,0 +1,21 @@
+id: src-matthews-2024-craftax
+type: source
+name: 'Craftax: A Lightning-Fast Benchmark for Open-Ended Reinforcement Learning'
+kind: paper
+authors:
+- Michael Matthews
+- Michael Beukman
+- Benjamin Ellis
+- Mikayel Samvelyan
+- Matthew Jackson
+- Samuel Coward
+- Jakob Foerster
+venue: ICML 2024
+date: '2024-02-26'
+url: https://arxiv.org/abs/2402.16801
+arxiv: '2402.16801'
+accessed: '2026-10-24'
+notes: JAX rewrite of the Crafter survival-crafting game; up to 250x faster than the Python original;
+  PPO for 1 billion interactions in under an hour on one GPU.
+provenance:
+  created: 2026-10-24-techniques-sim-math

@@ -1,0 +1,15 @@
+id: src-madrona-2026-repository
+type: source
+name: 'Madrona: a prototype engine for high-throughput batch simulation'
+kind: repository
+authors:
+- Brennan Shacklett
+- et al.
+venue: GitHub
+date: '2026'
+url: https://github.com/shacklettbp/madrona
+accessed: '2026-10-24'
+notes: MIT license; GPU batch ECS, XPBD rigid bodies, batch renderer; archetypes fixed up front; example
+  ports include Escape Room, Overcooked-AI, Hide and Seek, Hanabi; research code with breaking APIs.
+provenance:
+  created: 2026-10-24-techniques-sim-math

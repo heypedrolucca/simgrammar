@@ -1,0 +1,15 @@
+id: src-wikipedia-powerwash-simulator
+type: source
+name: PowerWash Simulator
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/PowerWash_Simulator
+accessed: '2026-10-24'
+notes: FuturLab; early access 2021-05-19, full release 2022-07-14; four nozzles with different power and width;
+  dirt, grime, lichen, moss, rust; surface-specific soaps; progress bars per object and level; highlight for remaining
+  dirt; upgrades.
+provenance:
+  created: 2026-10-24-taxonomy-m7

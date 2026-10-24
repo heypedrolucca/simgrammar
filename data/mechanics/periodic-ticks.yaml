@@ -1,8 +1,57 @@
 id: periodic-ticks
 type: mechanic
 name: Periodic ticks
-summary: Accounting or growth resolves at fixed intervals such as a monthly budget or a yearly harvest.
+aliases:
+- monthly tick
+- accounting period
+- yearly resolution
+summary: Some state changes, such as budgets, harvests, or growth, resolve in batches at fixed intervals like a month or a
+  year rather than continuously.
 family: time-pacing
-status: asserted
+substrate:
+- aggregate-stocks
+- rule-system
+definition: 'Owns a period length and a set of update functions that run only when the period elapses. Between ticks the simulation
+  runs continuously or not at all; at the tick, accumulated quantities settle: tax income and upkeep are booked, population
+  grows, crops are harvested, research advances, or reports are produced. Hamurabi resolves a whole year per round: harvest,
+  rats, immigration, plague, and starvation; SimCity books taxes and service funding at each year''s budget; Paradox grand
+  strategy games apply income and many modifiers on a monthly tick inside a daily simulation. Different systems can run on
+  different periods in the same game. Inputs are activity accumulated during the period; outputs are discrete jumps in stocks
+  and a report.'
+player_experience: Bookkeeping beats. The player watches the date approach the next settlement, makes changes just before
+  it, and reads the report afterward to judge the period. Ticks create small moments of anticipation and give a long continuous
+  game recurring checkpoints.
+design_levers:
+- period length, and whether different systems use different periods
+- which quantities settle at the tick and which change continuously
+- 'what the player sees at the tick: reports, prompts, or a forced pause'
+- whether actions just before the tick can game the settlement
+failure_modes:
+- Players time actions around a tick to exploit settlement rules, such as building just after upkeep is charged.
+- Large batched computations at the tick cause visible stutter in late game.
+- Long periods delay feedback until players cannot connect a decision to its result.
+dynamics:
+- Batched income creates sawtooth cash curves, so players keep buffers to survive between ticks.
+- Synchronized ticks across many agents produce simultaneous demand spikes.
+- Reports at each tick become the main legibility tool for slow variables.
+math_basis:
+- system-dynamics
+- scheduling
+feedback: none
+player_interface:
+- observation
+- parameter
+legibility: 4
+emergence_potential: 1
+authoring_cost: 1
+compute_cost: 2
+tuning_difficulty: 2
+ai_leverage: 1
+maturity: classic
+open_questions:
+- Can learned surrogates settle long periods in one step so players can skip ahead without simulating every day?
+sources:
+- src-wikipedia-hamurabi
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m5

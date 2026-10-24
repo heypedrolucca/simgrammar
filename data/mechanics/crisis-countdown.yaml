@@ -1,8 +1,67 @@
 id: crisis-countdown
 type: mechanic
 name: Crisis countdown
-summary: A known future crisis such as a storm, winter, or deadline structures preparation.
+aliases:
+- doom clock
+- known deadline
+- preparation timer
+summary: A known future crisis such as a storm, winter, cure, or deadline is announced in advance, and
+  the remaining time structures preparation.
 family: time-pacing
-status: asserted
+substrate:
+- rule-system
+definition: 'Owns a countdown to a scheduled crisis (in days, turns, or progress percent), the crisis''s
+  nature, and sometimes its expected severity. Each tick the counter falls; at zero the crisis applies
+  a large state change such as extreme cold, an attack, a flood, or a scenario loss, which the player''s
+  preparation mitigates. The timer may be fixed, randomized within a known window, or driven by a rival
+  process the player can slow. Frostpunk''s main scenario builds toward the Great Storm, and its Last
+  Autumn scenario races to finish an outpost before a storm; Plague Inc. runs a cure-research percentage
+  that ends the game when it completes; Don''t Starve''s winter arrives on a fixed schedule; The Legend
+  of Zelda: Majora''s Mask frames play around a three-day falling moon. Inputs are elapsed time and actions
+  that shift the clock; outputs are the crisis and its severity.'
+player_experience: 'Dread and focus. Knowing what is coming and when, the player turns the remaining days
+  into a plan: stockpile coal, insulate homes, finish the walls. The final days narrow choices to triage,
+  and surviving feels earned because the preparation was the player''s own.'
+design_levers:
+- warning lead time and whether the exact date is known
+- crisis severity and whether it is shown in advance
+- whether player actions can delay, accelerate, or weaken the crisis
+- single climactic crisis versus recurring crises of rising strength
+- 'failure handling: scenario loss, heavy damage, or partial survival'
+failure_modes:
+- A crisis with a fixed required preparation becomes a build order that players replay rather than a plan.
+- Too much lead time removes tension; too little makes the crisis an unavoidable random event.
+- A single climactic crisis gives a scenario a hard end and little reason to replay.
+dynamics:
+- Players shift from expansion to stockpiling as the counter runs down, creating distinct phases within
+  a run.
+- Countdowns reward forecasting tools that project resource runways to the deadline.
+- Recurring crises such as winters or droughts escalate into a cycle of preparation and recovery.
+math_basis:
+- scheduling
+- optimization
+feedback: none
+player_interface:
+- observation
+legibility: 4
+emergence_potential: 2
+authoring_cost: 3
+compute_cost: 1
+tuning_difficulty: 3
+ai_leverage: 3
+maturity: established
+synergy:
+- id: seasons
+  note: A known winter or storm turns the season calendar into a preparation deadline.
+- id: forecasting
+  note: Forecasts let the player plan against the countdown rather than be ambushed by it (Frostpunk).
+open_questions:
+- Can a director model choose crises that target the player's actual weak points while keeping the warning
+  fair?
+sources:
+- src-wikipedia-frostpunk
+- src-wikipedia-plague-inc
+- src-dontstarvewiki-2026-day-night-cycle
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m5

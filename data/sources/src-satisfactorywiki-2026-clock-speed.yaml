@@ -1,0 +1,15 @@
+id: src-satisfactorywiki-2026-clock-speed
+type: source
+name: Clock speed
+kind: encyclopedia
+authors:
+- Satisfactory Wiki contributors
+venue: Satisfactory Wiki
+date: '2026'
+url: https://satisfactory.wiki.gg/wiki/Clock_speed
+accessed: '2026-10-24'
+notes: Clock speed settable from 1% to 250%; each Power Shard raises the cap by 50% up to three shards;
+  power scales nonlinearly with exponent 1.321928 (changed from 1.6 in 0.7.0.0), so 250% draws 335.77%
+  of base power.
+provenance:
+  created: 2026-10-24-catalog-gh

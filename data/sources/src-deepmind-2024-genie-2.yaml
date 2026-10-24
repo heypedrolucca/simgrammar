@@ -1,0 +1,14 @@
+id: src-deepmind-2024-genie-2
+type: source
+name: 'Genie 2: A large-scale foundation world model'
+kind: tech-report
+authors:
+- Google DeepMind
+date: '2024-12-04'
+url: https://deepmind.google/discover/blog/genie-2-a-large-scale-foundation-world-model/
+accessed: '2026-10-24'
+notes: Image prompt to playable 3D world; consistent up to a minute, most examples 10-20 s; re-renders
+  off-screen parts; water, smoke, gravity, lighting; NPCs; autoregressive latent diffusion; SIMA agent
+  tests; prototyping from concept art.
+provenance:
+  created: 2026-10-24-techniques-world-models

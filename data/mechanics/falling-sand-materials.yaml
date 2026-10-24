@@ -1,8 +1,67 @@
 id: falling-sand-materials
 type: mechanic
 name: Falling-sand materials
-summary: Every pixel or cell of material follows local rules to fall, flow, burn, and react.
+aliases:
+- falling sand
+- pixel physics
+- powder simulation
+summary: Every pixel or cell holds a material whose class rule makes it fall, flow, or rise by swapping
+  with neighbors, with reactions layered on top.
 family: physics-materials
-status: asserted
+substrate:
+- cellular-grid
+- rule-system
+definition: 'The world is a 2D grid where each cell stores a material id and sometimes temperature, velocity,
+  or lifetime. Each update a cell applies its class rule: powders fall straight or diagonally, liquids
+  fall then spread sideways and swap with lower-density neighbors, gases rise then spread, and solids
+  stay. Reaction rules convert cells, such as fire igniting flammable neighbors and water turning to steam.
+  In Noita (2019) liquids compare densities to swap, wood burns for a set time and is destroyed, and explosions
+  turn pixels into collapsing sand. The world is split into 64x64 chunks with dirty rectangles, updated
+  bottom-up across threads in four checkerboard passes, with each pixel able to move 32 pixels beyond
+  its chunk. Rigid bodies made of pixels (Box2D) recompute their shape and split as pixels are destroyed.
+  The Powder Toy (2008), with 258 elements as of 2025, is the long-running sandbox in this lineage.'
+player_experience: Everything is simulated, so play becomes experiment. Players pour, burn, flood, and
+  dig, and they die to chain reactions they set off themselves. Wonder and danger come from the same rules.
+design_levers:
+- material catalog and per-material density, flammability, and melting point
+- update order and randomization, such as alternating left and right scans
+- reaction table between materials
+- 'simulation region: whole world or only near the player'
+- whether mass is conserved
+failure_modes:
+- A fixed scan order biases movement in one direction unless it alternates or randomizes.
+- Compute limits restrict simulation to areas near the player, so distant regions freeze.
+- Chain reactions kill the player suddenly, which can read as unfair.
+- Rules that duplicate or delete material break conservation and enable exploits.
+dynamics:
+- Hazard chains such as oil fires spreading, steam forming, and floors collapsing.
+- Players engineer traps and terrain with the same rules that threaten them.
+- The level is permanently reshaped by play, so no two runs stay alike.
+math_basis:
+- cellular-automata
+- combinatorics
+feedback: both
+player_interface:
+- direct-manipulation
+- observation
+legibility: 4
+emergence_potential: 5
+authoring_cost: 2
+compute_cost: 4
+tuning_difficulty: 3
+ai_leverage: 3
+maturity: established
+synergy:
+- id: material-interactions
+  note: Per-pixel materials with reaction rules produce chemistry players can exploit (Noita, Powder Toy).
+open_questions:
+- Can neural cellular automata or learned rules produce new materials with plausible behavior at runtime?
+- Can GPU compute extend per-pixel simulation to whole persistent worlds instead of the area near the
+  player?
+sources:
+- src-80lv-2019-noita-falling-sand
+- src-wikipedia-noita
+- src-wikipedia-the-powder-toy
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m4

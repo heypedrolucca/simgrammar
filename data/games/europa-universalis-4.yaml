@@ -1,10 +1,124 @@
 id: europa-universalis-4
 type: game
 name: Europa Universalis IV
-summary: TODO
+aliases:
+- EU4
+summary: A real-time-with-pause grand strategy game in which the player directs one of over 500 nations
+  from 1444 to 1821 through monarch-point spending, trade-node competition, colonization, diplomacy, and
+  war on a province map.
 year: 2013
 developer: Paradox Development Studio
+platforms:
+- pc
 subgenre: grand-strategy
-status: asserted
+sim_domain:
+- political-governance
+- military-conflict
+- economic
+player_role: ruler-statesman
+agency_model:
+- policy-parameter
+- direct-unit
+time_model: real-time-pausable
+sim_scale: nation
+fidelity: systemic
+perspective: top-down-2d
+win_structure: open-sandbox
+failure_model: soft-recoverable
+narrative_mode: hybrid
+multiplayer:
+- single
+- competitive
+modding: total-conversion
+production_tier: aa
+agent_count_order: '100'
+emergence: 4
+influence: 3
+core_loop: accrue administrative, diplomatic, and military monarch points -> buy technology, stability,
+  ideas, and development -> steer trade and colonize -> ally and declare wars -> occupy and annex provinces
+  -> manage unrest, estates, and coalitions
+design_notes: 'EU4 converts ruler quality into three spendable currencies (administrative, diplomatic,
+  and military monarch points) that buy technology, stability, ideas, and province development, which
+  makes each succession an economic event. Expansion is checked by systems rather than scripts: aggressive
+  expansion feeds defensive coalitions, and conquered provinces stay restless until integrated. Monarch
+  points, war score, province integration, and missionary conversion are not yet mechanics in the taxonomy
+  (proposals political-capital, war-score-peace, territorial-claims-integration, culture-religion-conversion).'
+mechanics:
+- id: faction-diplomacy
+  role: core
+  note: Alliances, vassals, tributaries, and royal marriages bind nations; aggressive expansion raises
+    other nations' hostility until they form a defensive coalition against the expander.
+- id: trade-routes
+  role: core
+  note: Trade value generated in provinces flows downstream through a fixed directed network of trade
+    nodes; merchants either collect in a node or steer value toward the player's home node, and trade
+    power in each node sets the share taken.
+- id: stability-unrest
+  role: core
+  note: Provinces accumulate unrest from foreign culture, religion, and recent conquest, and high unrest
+    spawns rebel armies; national stability is a separate stock raised with administrative monarch points.
+- id: tech-tree
+  role: supporting
+  note: Administrative, diplomatic, and military technology tracks are bought with matching monarch points;
+    institutions such as feudalism spread between provinces and raise technology cost until embraced.
+- id: interest-groups
+  role: supporting
+  note: Estates hold loyalty and influence over the crown and grant bonuses or demands.
+- id: dynasty-succession
+  role: supporting
+  note: Each monarch's administrative, diplomatic, and military skill sets monthly monarch point income;
+    on death an heir succeeds, with risks of regency, succession wars, or personal unions.
+- id: opinion-modifiers
+  role: supporting
+  note: AI opinion of the player is an itemized sum of modifiers such as improved relations, royal marriage,
+    and aggressive expansion.
+- id: triggered-event-chains
+  role: supporting
+  note: Historical and flavor events fire from national history and current state.
+- id: reputation
+  role: supporting
+  note: Prestige and power projection modify diplomacy and stability.
+- id: policy-toggles
+  role: supporting
+  note: Idea groups, policies, and government reforms change national rules.
+- id: loans-debt
+  role: supporting
+  note: Deficits are covered by loans, and unmanageable debt ends in bankruptcy.
+- id: fog-of-war
+  role: supporting
+- id: causal-tooltips
+  role: supporting
+- id: variable-speed
+  role: supporting
+- id: political-capital
+  role: core
+  note: Administrative, diplomatic, and military monarch points accrue monthly from the ruler's skills
+    (plus advisors) and buy technology, ideas, stability, and province development, so each succession
+    changes the nation's budget of action.
+- id: corruption-leakage
+  role: supporting
+  note: A national corruption value accumulates from several state conditions and falls with a monthly
+    budget line for rooting out corruption; while high it raises the cost of technology and other state
+    actions.
+- id: culture-religion-conversion
+  role: supporting
+  note: Provinces have a culture and a religion; missionaries convert province religion over time against
+    resistance, and non-state religion or non-accepted culture adds unrest.
+- id: territorial-control
+  role: core
+  note: Provinces have an owner and a controller; sieges flip control, peace deals transfer ownership,
+    and new provinces must be cored with administrative power, with uncored land adding overextension
+    and unrest.
+- id: war-score-peace
+  role: supporting
+  note: War score from battles, occupation, and the war goal caps peace demands, each priced in score
+    (provinces, gold, vassalage).
+- id: stat-combat-resolution
+  role: supporting
+  note: Land battles roll dice each phase of fire and shock, modified by general skill and terrain, and
+    drain each army's strength and morale until one side retreats.
+sources:
+- src-wikipedia-europa-universalis-4
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gi

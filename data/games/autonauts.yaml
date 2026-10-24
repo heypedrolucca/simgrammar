@@ -1,10 +1,117 @@
 id: autonauts
 type: game
 name: Autonauts
-summary: TODO
+summary: A colony automation game in which the player crafts workerbots from parts and teaches them farming,
+  crafting, and cooking routines in a Scratch-style visual language, so that bots supply the food, housing,
+  and care that a growing population of Folk needs.
 year: 2019
 developer: Denki
+platforms:
+- pc
+- console
+- handheld
 subgenre: programming-sim
-status: asserted
+subgenre_secondary:
+- factory-automation
+- farming-sim
+sim_domain:
+- computational-abstract
+- industrial-logistics
+- biological-ecological
+player_role: programmer
+agency_model:
+- direct-avatar
+- programmatic
+time_model: real-time
+sim_scale: settlement
+fidelity: stylized
+perspective: free-3d
+win_structure: open-sandbox
+failure_model: soft-recoverable
+narrative_mode: none
+multiplayer:
+- single
+modding: content
+production_tier: indie
+agent_count_order: '100'
+emergence: 2
+influence: 1
+core_loop: gather sticks and stone by hand -> craft tools and a workerbot -> teach the bot a task by demonstrating
+  it -> edit the visual script into a loop -> chain bots into farming, crafting, and cooking lines ->
+  supply Folk with food, housing, and care -> unlock new buildings and bot parts
+design_notes: 'Autonauts, from Denki and designers Gary Penn and Aaron Puzey, makes automation a matter
+  of teaching: the player performs an action while a bot watches, the bot records it as blocks in a Scratch-style
+  visual language, and the player adds repeat loops and conditions so the routine runs unattended. Programs
+  are bounded by bot hardware: the head sets maximum instructions (12 at Mk 0 to 32 at Mk 3, raised by
+  brain upgrades) and search range, the body sets hand, backpack, and upgrade slots, and the drive sets
+  speed, battery, and recharge time, so better routines need better-built bots. Folk are the demand side,
+  consuming food that lasts from 10 seconds for water to 120 seconds for apple pie or cooked fish and
+  needing housing and baths, and they are either fully happy or unhappy. Colonise mode introduces components
+  step by step, while Free and Creative modes unlock everything.'
+mechanics:
+- id: player-programming
+  role: core
+  note: Bots learn a task by recording the player's demonstrated actions as Scratch-style blocks that
+    the player edits into loops and conditions; the bot's head caps the number of instructions at 12 to
+    32 plus brain upgrades.
+- id: modular-assembly
+  role: core
+  note: Bots are built from a head, body, and drive at Mk 0 to Mk 3 that set instruction limit and search
+    range, hand and backpack slots, and speed, battery, and recharge time, with upgrade slots for brain,
+    sensor, speed, and energy parts.
+- id: production-chain
+  role: core
+  note: Workbenches and crafting stations turn crops, clay, wood, and other materials into tools, pottery,
+    baked food, and clothing through multi-step recipes that bots run in chains.
+- id: goods-consumption
+  role: core
+  note: Housed Folk consume food whose satiation lasts from 10 seconds (water) to 120 seconds (apple pie,
+    cooked fish) and need baths after messy meals; each Folk is either fully happy or unhappy.
+- id: hand-crafting
+  role: supporting
+  note: The Autonaut harvests sticks and stone and crafts the first tools, workbenches, and bot parts
+    from blueprints before bots take over.
+- id: crop-cultivation
+  role: supporting
+  note: Bots plant, grow, and harvest crops that feed cooking chains.
+- id: animal-husbandry
+  role: supporting
+  note: Animal husbandry and fishing supply food and materials alongside farming.
+- id: tech-tree
+  role: supporting
+  note: Research unlocks new buildings, recipes, and bot parts, and bots can be programmed to do science.
+- id: direct-avatar
+  role: supporting
+  note: The player's Autonaut walks the map, carries items, and performs each task once so bots can learn
+    it.
+- id: modding-api
+  role: supporting
+  note: Players share Automods, including bots and scripts, on Steam Workshop.
+- id: execution-budget
+  role: supporting
+  note: A bot's head caps its program at 12 to 32 instructions, raised by brain upgrades, so longer routines
+    need better-built bots.
+- id: programming-by-demonstration
+  role: core
+  note: Bots watch the player perform a task and record it as Scratch-style blocks, which the player edits
+    into loops and conditions; this teaching step is the game's main interface to automation.
+influenced_by: []
+claims:
+- text: A public demo was released on itch.io on 2017-07-05 and the full PC game on Steam on 2019-10-17;
+    `year` records the 2019 release rather than the demo. Nintendo Switch, PlayStation 4, and Xbox One
+    versions released on 2022-06-16.
+  sources:
+  - src-wikipedia-autonauts
+  - src-steam-2026-autonauts
+  - src-dekudeals-2026-autonauts
+  confidence: medium
+sources:
+- src-wikipedia-autonauts
+- src-steam-2026-autonauts
+- src-scottishgames-2019-autonauts-out-now
+- src-autonautswiki-2026-bots
+- src-autonautswiki-2026-folk
+- src-dekudeals-2026-autonauts
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gh

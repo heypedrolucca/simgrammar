@@ -1,0 +1,20 @@
+id: src-freeman-2021-brax
+type: source
+name: 'Brax: A Differentiable Physics Engine for Large Scale Rigid Body Simulation'
+kind: paper
+authors:
+- C. Daniel Freeman
+- Erik Frey
+- Anton Raichuk
+- Sertan Girgin
+- Igor Mordatch
+- Olivier Bachem
+venue: NeurIPS 2021 Datasets and Benchmarks
+date: 2021-06
+url: https://arxiv.org/abs/2106.13281
+arxiv: '2106.13281'
+accessed: '2026-10-24'
+notes: JAX rigid-body engine; millions of steps per second on one accelerator, hundreds of millions across
+  accelerators; Ant locomotion in about ten seconds versus about half an hour for standard PPO.
+provenance:
+  created: 2026-10-24-techniques-sim-math

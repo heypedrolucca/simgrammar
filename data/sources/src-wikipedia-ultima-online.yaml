@@ -1,0 +1,16 @@
+id: src-wikipedia-ultima-online
+type: source
+name: Ultima Online
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Ultima_Online
+accessed: '2026-10-24'
+notes: Origin Systems, Electronic Arts, 1997-09-24; lead designer Raph Koster. Skill-based progression with no levels
+  or classes; persistent player housing; craft-based player-driven economy; unrestricted PvP at launch; Trammel/Felucca
+  split with Renaissance (2000); item insurance (2003); planned artificial-life ecology removed in beta because
+  players killed creatures faster than they spawned; first MMORPG to reach 100,000 subscribers.
+provenance:
+  created: 2026-10-24-catalog-gi

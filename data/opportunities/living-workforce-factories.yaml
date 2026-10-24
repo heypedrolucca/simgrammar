@@ -1,0 +1,55 @@
+id: living-workforce-factories
+type: opportunity
+name: Factories with a living workforce
+summary: Automation games whose workers age, learn, form families, and retire, so a production network
+  is also a society that must be sustained across generations.
+opportunity_type: new-genre
+thesis: 'The white-space analysis shows production chains and agent lifecycles are both common yet almost
+  never combined: factory games are run by machines or faceless workers, and games with aging, family-forming
+  agents rarely have deep production. Colony sims and Workers & Resources sit closest. A factory whose
+  throughput depends on a workforce with skills, schooling, households, and turnover couples the most-used
+  rule-system in the catalog to the most attachment-generating ones. Salience-gated language agents make
+  that workforce individually legible without per-tick cost.'
+design_sketch: Machines need operators with trained skills; skilled workers age and retire; children of
+  workers attend schools the player builds; housing, food, and morale affect shift output. A bottleneck
+  can be a missing machine or a missing mentor. Generational play replaces the usual tech-tree endgame
+  with succession planning for the workforce.
+involves:
+- production-chain
+- lifecycle-aging
+- agent-skills
+- education-workforce
+- needs-decay
+- romance-family
+applies:
+- generative-agents
+- on-device-language-models
+- massively-parallel-simulation
+precedent:
+- captain-of-industry
+- workers-and-resources
+- oxygen-not-included
+- dwarf-fortress
+- banished
+novelty: 3
+feasibility: 4
+impact: 3
+horizon: now
+key_risks:
+- Workforce management can bury the logistics puzzle players came for.
+- Agent counts at factory scale strain compute.
+- Two audiences (automation and life-sim) may each find half the game unwanted.
+validation_experiment: 'Prototype a small automation map where each machine needs a skilled operator drawn
+  from a simulated population with aging and schooling; compare session length and self-reported attachment
+  with a machines-only control. Success: longer sessions and higher attachment without lower throughput-puzzle
+  ratings.'
+falsifiable_signal:
+  prediction: A factory or automation game where workers age, train, and are replaced by a simulated next
+    generation will reach 1,000 Steam reviews.
+  resolve_by: '2029-12-31'
+  criteria: Steam page describing generational workforce mechanics in a factory or automation game with
+    at least 1,000 reviews.
+sources: []
+status: asserted
+provenance:
+  created: 2026-10-24-synthesis

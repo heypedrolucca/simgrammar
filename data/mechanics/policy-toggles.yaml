@@ -1,8 +1,61 @@
 id: policy-toggles
 type: mechanic
 name: Policy toggles
+aliases:
+- laws
+- edicts
+- civics
+- ordinances
 summary: Enactable laws or policies change simulation rules with explicit tradeoffs.
 family: governance-policy
-status: asserted
+substrate:
+- rule-system
+definition: 'Owns a catalog of policies, each with an active flag or a choice among mutually exclusive options in a group,
+  prerequisites, an enactment cost (money, political capital, influence, or time), upkeep, and a cooldown. Enacting a policy
+  applies modifiers or changes rules: it unlocks an action, alters a rate, or changes how agents behave, with a stated benefit
+  and a stated cost. Frostpunk (2018) has a Book of Laws in which similar laws are sequenced so later ones are harsher, and
+  accepting early compromises makes later ones likelier. Victoria 3 groups laws into mutually exclusive sets and, since update
+  1.3, requires each law to pass three enactment phases whose success chances depend on interest-group support, with up to
+  three setbacks before failure. SimCity 2000 introduced city ordinances, and Civilization civics and Cities: Skylines district
+  policies are other forms.'
+player_experience: Choosing which tradeoff to live with. The player browses a menu of laws, weighs their benefits against
+  costs and side effects, and commits. In Frostpunk each signature feels like a moral line crossed; in grand strategy, passing
+  a law is a political campaign.
+design_levers:
+- number of policies and how many can be active at once (slots, groups, budget)
+- enactment cost, delay, and cooldown
+- size and visibility of side effects
+- 'reversibility: free to revoke, costly, or permanent'
+- prerequisites and sequencing (escalating law chains)
+failure_modes:
+- Policies with no real downside become always-on, leaving a menu of mandatory picks.
+- Too many small modifiers make each choice unnoticeable.
+- Free revocation lets players toggle policies around events, undermining the tradeoff.
+dynamics:
+- Escalating law chains pull players toward harsher policies one reasonable step at a time.
+- Policies that change agent behavior ripple into economic and social systems in ways their tooltips do not state.
+- 'Mutually exclusive groups create identity: a society defined by its chosen laws.'
+math_basis:
+- optimization
+- utility-decision
+feedback: none
+player_interface:
+- choice-cards
+- parameter
+legibility: 4
+emergence_potential: 2
+authoring_cost: 3
+compute_cost: 1
+tuning_difficulty: 3
+ai_leverage: 3
+maturity: classic
+open_questions:
+- Could players draft bespoke policies in language and have an LLM translate them into balanced, consistent rule changes?
+- Which explanations of second-order policy effects keep surprises interesting rather than unfair?
+sources:
+- src-wikipedia-frostpunk
+- src-paradox-2023-vic3-law-enactment
+- src-wikipedia-simcity-2000
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m2

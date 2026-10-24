@@ -1,10 +1,104 @@
 id: space-engineers
 type: game
 name: Space Engineers
-summary: TODO
+summary: A voxel sandbox where players mine asteroids and planets and build ships and stations block by
+  block, with every block carrying mass, inertia, power needs, and damage under Newtonian physics.
 year: 2013
+year_full_release: 2019
 developer: Keen Software House
+platforms:
+- pc
+- console
 subgenre: sandbox-world
-status: asserted
+subgenre_secondary:
+- construction-engineering
+- space-sim
+sim_domain:
+- physical-mechanical
+- cosmic-space
+- industrial-logistics
+player_role: engineer-designer
+agency_model:
+- direct-avatar
+- programmatic
+time_model: real-time
+sim_scale: facility
+fidelity: systemic
+perspective: first-person
+win_structure: open-sandbox
+failure_model: soft-recoverable
+narrative_mode: emergent
+multiplayer:
+- single
+- coop
+- competitive
+modding: scripting
+production_tier: indie
+agent_count_order: '10'
+emergence: 3
+influence: 2
+core_loop: mine ore from voxel asteroids and planets -> refine and assemble components -> weld blocks
+  into ship or station grids -> power and pilot under inertia -> collide, fight, or deform -> repair and
+  redesign
+design_notes: Space Engineers treats a ship as a grid of blocks where each block has mass, inertia, and
+  hit points, and functional blocks (thrusters per direction, gyroscopes, reactors, cockpits) decide whether
+  it can move at all; there is no ship stat sheet apart from the blocks. Collisions and weapons deform
+  or destroy individual blocks, and terrain is editable voxels, so construction, mining, and damage share
+  one physical model. Survival mode adds a refine-assemble production chain and suit oxygen and energy,
+  and an in-game programmable block lets players automate ships with scripts.
+mechanics:
+- id: modular-assembly
+  role: core
+  note: Ships and stations are small or large grids of armor and functional blocks; thrusters only push
+    along their facing, so thrust coverage on each axis, gyroscope count, and power supply decide handling.
+- id: rigid-body-physics
+  role: core
+  note: Volumetric physics gives every block mass and inertia; ships drift under Newtonian motion with
+    optional inertia dampeners, and gravity generators and planets pull loose objects.
+- id: voxel-destruction
+  role: core
+  note: Asteroid and planet voxels can be drilled and carved, and armor blocks deform or break block by
+    block under collisions and weapon fire.
+- id: resource-extraction
+  role: supporting
+  note: Hand drills and ship drills mine ore from voxel deposits.
+- id: production-chain
+  role: supporting
+  note: Refineries turn ore into ingots and assemblers turn ingots into components for welding.
+- id: conveyor-transport
+  role: supporting
+  note: Conveyor blocks connect inventories so refineries, assemblers, and cargo containers move items
+    automatically, with sorters filtering flow.
+- id: power-grid
+  role: supporting
+  note: Reactors, solar panels, batteries, and hydrogen engines feed every functional block on a grid;
+    unpowered blocks stop.
+- id: player-programming
+  role: supporting
+  note: The programmable block runs player-written C# scripts that read and command blocks on the grid.
+- id: signal-circuits
+  role: supporting
+  note: Sensors, timer blocks, and event controllers trigger block actions without code.
+- id: survival-meters
+  role: supporting
+  note: In survival the suit tracks health, energy, oxygen, and hydrogen.
+- id: fluid-gas-simulation
+  role: supporting
+  note: Air vents pressurize sealed rooms with oxygen; breaches depressurize them.
+- id: blueprints
+  role: supporting
+  note: Grids save as blueprints that a projector block displays for welding and that are shared on Steam
+    Workshop.
+- id: modding-api
+  role: supporting
+  note: A C# modding API, Workshop, and mod.io support custom blocks and logic.
+- id: subsystem-damage
+  role: supporting
+  note: Each block has hit points, and damaged functional blocks such as thrusters, reactors, and gyroscopes
+    stop working until welded back.
+sources:
+- src-wikipedia-space-engineers
+- src-steam-2026-space-engineers
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gg

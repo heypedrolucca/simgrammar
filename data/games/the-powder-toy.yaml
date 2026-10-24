@@ -1,10 +1,88 @@
 id: the-powder-toy
 type: game
 name: The Powder Toy
-summary: TODO
+aliases:
+- TPT
+summary: >-
+  An open-source falling-sand sandbox where hundreds of elements interact cell by cell under simulated air pressure, heat,
+  gravity, and electricity.
 year: 2008
 developer: The Powder Toy contributors
+platforms:
+- pc
+- mobile
+- web
 subgenre: physics-sandbox
-status: asserted
+sim_domain:
+- physical-mechanical
+- computational-abstract
+player_role: observer-gardener
+agency_model:
+- design-then-test
+- policy-parameter
+time_model: real-time-pausable
+sim_scale: micro
+fidelity: stylized
+perspective: top-down-2d
+win_structure: open-sandbox
+failure_model: none
+narrative_mode: none
+multiplayer:
+- single
+- async-shared
+modding: scripting
+production_tier: hobbyist
+agent_count_order: none
+emergence: 4
+influence: 2
+core_loop: >-
+  paint elements onto the grid -> unpause the simulation -> watch particles fall, flow, burn, and react under pressure, heat,
+  and electricity -> adjust or add elements -> save and share the build
+design_notes: >-
+  The Powder Toy combines a per-particle falling-sand layer with coarser fields for air pressure, air velocity, and heat,
+  so explosions push air, air moves powders, and temperature thresholds change element states such as ice to water to steam.
+  Electricity runs through conductive elements via sparks, and players build working logic gates, engines, and nuclear reactors
+  from them. Element count passed 250 by 2025; the source is GPLv3 and the in-game save browser is the main distribution channel
+  for builds.
+mechanics:
+- id: falling-sand-materials
+  role: core
+  note: >-
+    Each cell holds one particle of an element such as powder, liquid, gas, or solid, which moves by local rules each frame;
+    element types numbered 258 as of February 2025.
+- id: material-interactions
+  role: core
+  note: >-
+    Element pairs react by rule: acid dissolves most materials, acid and base neutralize into salt water, fuels ignite, and
+    neutrons from radioactive elements can drive chain reactions.
+- id: heat-transfer
+  role: core
+  note: >-
+    Particles carry temperature that conducts to neighbors; melting and boiling thresholds change states, and the heat display
+    shows the field.
+- id: fluid-gas-simulation
+  role: core
+  note: >-
+    A coarser grid of air pressure and velocity moves particles and is pushed by explosions and fans and blocked by walls.
+- id: signal-circuits
+  role: supporting
+  note: >-
+    Sparks conduct through metals and semiconductors to power switches, logic gates, and machines built from elements.
+- id: fire-spread
+  role: supporting
+  note: Fire and plasma ignite flammable elements and spread through fuel.
+- id: content-sharing
+  role: supporting
+  note: An online save browser with votes and comments distributes community builds.
+- id: modding-api
+  role: supporting
+  note: A Lua API adds elements and automation scripts; the source is GPLv3 on GitHub.
+- id: variable-speed
+  role: supporting
+  note: The simulation can be paused and stepped frame by frame.
+sources:
+- src-wikipedia-the-powder-toy
+- src-powdertoy-2026-official-site
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gg

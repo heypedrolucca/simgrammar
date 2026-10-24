@@ -1,0 +1,15 @@
+id: src-wikipedia-simlife
+type: source
+name: SimLife
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/SimLife
+accessed: '2026-10-24'
+notes: Maxis 1992 (Amiga 1993), designed by Ken Karakotsios; players modify plant and animal genetics, design environments
+  and ecosystems, change the world's physics, and control evolution; exclusive species Killer Penguin, Monkeyphant,
+  Orgot; 1993 Codie award.
+provenance:
+  created: 2026-10-24-catalog-gd

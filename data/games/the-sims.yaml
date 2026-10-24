@@ -1,10 +1,107 @@
 id: the-sims
 type: game
 name: The Sims
-summary: TODO
+summary: A life sim in which the player builds a house and guides a household of Sims whose decaying motives,
+  personalities, careers, and relationships produce an open-ended domestic story.
 year: 2000
 developer: Maxis
+platforms:
+- pc
+- console
 subgenre: life-sim
-status: asserted
+sim_domain:
+- domestic-personal
+- social-interpersonal
+player_role: caretaker
+agency_model:
+- direct-unit
+- indirect-incentive
+- zoning-placement
+time_model: real-time-pausable
+sim_scale: household
+fidelity: stylized
+perspective: isometric
+win_structure: open-sandbox
+failure_model: permadeath
+narrative_mode: emergent
+multiplayer:
+- single
+- coop
+modding: content
+production_tier: aaa
+agent_count_order: '10'
+emergence: 3
+influence: 5
+core_loop: build and furnish the lot -> motives decay -> objects advertise motive gains and Sims act or
+  take queued orders -> jobs pay for upgrades -> skills and friendships unlock promotions -> expand house
+  and family
+design_notes: 'Will Wright drew on Christopher Alexander''s A Pattern Language, treating a house as a
+  set of functional patterns judged by how well they serve the people living in it. Much of the behavioral
+  logic sits in objects: each object advertises which motives it raises and by how much, and Sims with
+  free will enabled choose among those advertisements weighted by their current motives. Sims are deliberately
+  not fully autonomous, since paying bills, finding jobs, exercising, and having children need explicit
+  commands, so the player alternates between architect and caretaker. Build and Buy modes pause time,
+  separating spatial design from the live simulation.'
+mechanics:
+- id: needs-decay
+  role: core
+  note: Eight motives (Hunger, Comfort, Hygiene, Bladder, Energy, Fun, Social, Room) decay at different
+    rates; low motives drag down mood, and neglect can kill.
+- id: smart-objects
+  role: core
+  note: Each of the 150-plus base-game objects advertises motive gains (a refrigerator advertises Hunger,
+    a bed Energy), and Sims query the lot's objects to find interactions.
+- id: free-placement
+  role: core
+  note: Build and Buy modes freeze time while the player lays walls, floors, and objects on a square tile
+    grid; object quality and layout set how efficiently motives can be met.
+- id: utility-action-selection
+  role: supporting
+  note: Free will scores advertised interactions against current motive levels so the most depleted motive
+    tends to win; players can cancel queued autonomous actions.
+- id: autonomy-levels
+  role: supporting
+  note: Free will is an option toggle; even with it on, bills, job hunting, exercise, and having children
+    need commands.
+- id: personality-traits
+  role: supporting
+  note: Twenty-five personality points are split across Neat, Outgoing, Active, Playful, and Nice, which
+    change preferred activities and social outcomes.
+- id: agent-skills
+  role: supporting
+  note: Cooking, Mechanical, Charisma, Body, Logic, and Creativity rise through objects such as bookshelves,
+    mirrors, and chess tables, and gate promotions.
+- id: career-ladder
+  role: supporting
+  note: Ten career tracks with ten levels each; promotions need skill points and a minimum number of household
+    friends, and change salary and hours.
+- id: budget-treasury
+  role: supporting
+  note: Every household starts with 20,000 simoleons regardless of size; wages, bills, and purchases set
+    the balance.
+- id: relationship-values
+  role: supporting
+  note: Each pair holds a relationship score moved by interactions and eroding without contact; friend
+    counts feed promotions.
+- id: social-exchanges
+  role: supporting
+  note: Talk, joke, compliment, hug, kiss, tease, slap, and similar interactions succeed or fail on relationship,
+    mood, and personality.
+- id: romance-family
+  role: supporting
+  note: Sims can become partners, marry, and have a baby by explicit command; neglected babies can be
+    taken away by a social worker.
+- id: decoration-beauty
+  role: supporting
+  note: The Room motive reflects lighting, cleanliness, and decorative value around the Sim.
+- id: permadeath
+  role: supporting
+  note: Sims die from neglect or accidents and leave an urn or tombstone; the household continues without
+    them.
+influenced_by:
+- little-computer-people
+sources:
+- src-wikipedia-the-sims
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gc

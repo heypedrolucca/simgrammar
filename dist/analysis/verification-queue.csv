@@ -1,0 +1,73 @@
+type,id,name
+game,where-winds-meet,Where Winds Meet
+mechanic,adjacency-scoring,Adjacency scoring
+mechanic,agent-inspection,Agent inspection
+mechanic,alerts-feed,Alerts feed
+mechanic,contracts-orders,Contracts and orders
+mechanic,culture-religion-conversion,Culture and religion conversion
+mechanic,data-overlays,Data overlays
+mechanic,dated-tech-timeline,Dated technology timeline
+mechanic,designation-orders,Designation orders
+mechanic,direct-avatar,Direct avatar control
+mechanic,embodied-skill-control,Embodied skill control
+mechanic,forecasting,Forecasting
+mechanic,free-placement,Building placement
+mechanic,habitat-suitability,Habitat suitability
+mechanic,milestone-unlocks,Milestone unlocks
+mechanic,needs-decay,Needs decay
+mechanic,power-allocation,Power allocation
+mechanic,product-development,Product development
+mechanic,scouting-knowledge,Scouting knowledge
+mechanic,service-queues,Service queues
+mechanic,stat-combat-resolution,Statistical combat resolution
+mechanic,stats-dashboards,Stats dashboards
+mechanic,subsystem-damage,Subsystem damage
+mechanic,territorial-control,Territorial control
+mechanic,track-laying,Track laying
+mechanic,unit-commands,Unit commands
+mechanic,vertical-layers,Vertical layers
+mechanic,villager-requests,Villager requests
+mechanic,war-score-peace,War score and peace terms
+opportunity,agent-ambassadors-async,Agent ambassadors between player worlds
+opportunity,ai-liquidity-in-player-markets,AI liquidity in player markets
+opportunity,bottleneck-explainer,Bottleneck explainer for production networks
+opportunity,branch-preview-forecasts,Branch preview of policy futures
+opportunity,calibrated-serious-sims,Calibrated serious simulations
+opportunity,causal-why-query,Why-query over the simulation log
+opportunity,content-elastic-events,Content-elastic event systems
+opportunity,drama-aware-storyteller,Drama-aware storyteller
+opportunity,dream-replay-layer,Generated dream and replay views
+opportunity,event-sourced-sim-runtime,Event-sourced simulation runtime
+opportunity,explained-delegation,Explained delegation to AI managers
+opportunity,generated-inspection-shifts,Generated inspection shifts
+opportunity,generated-recipe-graphs,Generated recipe graphs
+opportunity,generative-decoration-catalogs,Generative decoration catalogs
+opportunity,human-calibrated-customers,Human-calibrated customers
+opportunity,illustrated-chronicles,Illustrated chronicles
+opportunity,intent-level-orders,Intent-level orders
+opportunity,language-modding,Mechanic modding by description
+opportunity,learned-build-assist,Learned build assist for cities
+opportunity,learned-material-surrogates,Learned material surrogates at world scale
+opportunity,learned-weather-layer,Learned regional weather
+opportunity,living-workforce-factories,Factories with a living workforce
+opportunity,llm-society-terrarium,Language-agent society terrarium
+opportunity,local-first-ai-sims,Local-first AI simulation games
+opportunity,mean-field-crowds,Mean-field crowds and traffic
+opportunity,mechanic-discovery-search,Automated mechanic discovery
+opportunity,natural-language-legislation,Natural-language legislation
+opportunity,negotiating-faction-ai,Negotiating faction AI
+opportunity,neural-npc-motion,Learned motion for simulated crowds
+opportunity,open-ended-evolution-sandbox,Open-ended evolution sandbox
+opportunity,parallel-autobalance,Parallel autobalancing of economies
+opportunity,participatory-planning-sandboxes,Participatory planning sandboxes
+opportunity,placement-that-tells-stories,Placement that tells stories
+opportunity,qd-scenario-libraries,Quality-diversity scenario libraries
+opportunity,salience-gated-llm-agents,Salience-gated language agents
+opportunity,scientists-not-tech-trees,Research by named scientists
+opportunity,sim-instructor-coach,Simulator instructor coaching
+opportunity,sims-as-agent-benchmarks,Simulation games as agent benchmarks
+opportunity,specification-programming-games,Specification programming games
+opportunity,symbolic-sim-neural-render,"Symbolic simulation, neural rendering"
+opportunity,teachable-sim-companion,Teachable sim companion
+opportunity,trainable-creatures-revival,Trainable creatures revival
+opportunity,weather-coupled-grids,Weather-coupled energy grids

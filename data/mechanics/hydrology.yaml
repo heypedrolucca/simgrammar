@@ -1,8 +1,67 @@
 id: hydrology
 type: mechanic
 name: Hydrology
-summary: Water flows across terrain and rivers, producing floods, droughts, and dam management.
+aliases:
+- water simulation
+- rivers and floods
+- irrigation
+summary: Water flows across terrain and through rivers by height differences, producing floods, droughts,
+  irrigation, and dam management.
 family: environment-ecology
-status: asserted
+substrate:
+- cellular-grid
+- continuous-physics
+definition: 'Owns water depth per cell on a terrain heightfield, often with source and sink rates, flow
+  velocity, and soil moisture. Each tick water moves from higher to lower surface height between neighboring
+  cells, evaporates, and is added by springs, rain, or rivers; moisture spreads from water to nearby land
+  and gates crop growth. Timberborn links each tile to its four neighbors by virtual pipes, ticks every
+  few hundred milliseconds, evaporates water, and runs recurring droughts that switch sources off and
+  grow harsher; dams, levees, and floodgates regulate flow, and moisture falls off with distance and sharply
+  uphill. From Dust and Cities: Skylines also simulate terrain water, while Pharaoh schedules a yearly
+  Nile flood that waters floodplain farms. Inputs are terrain, sources, weather, and player structures;
+  outputs are water levels, floods, and moisture.'
+player_experience: Engineering with a moving material. The player shapes terrain and builds dams to store
+  water for dry spells, protects low ground from floods, and watches a mistake travel downstream. Droughts
+  turn reservoir size into the main survival question, and a dam failure is a visible, traceable disaster.
+design_levers:
+- grid resolution and tick rate of the flow solver
+- source strength schedules, including drought and flood cycles and how fast they ramp
+- evaporation rate, seepage, and moisture spread distance
+- 'structures: dams, levees, floodgates, pumps, canals, and their flow controls'
+- whether water erodes or deposits terrain
+failure_modes:
+- Fixed flow values on structures cause oscillations and waves; Timberborn's developers avoided hard-coded
+  dam values for this reason.
+- Abrupt switching of water sources makes water slosh unrealistically; Timberborn ramps source strength
+  down before a drought starts.
+- Water that leaks through gaps or ignores terrain edits reads as a bug and breaks trust in the system.
+- Large water grids can dominate simulation cost and cap map size.
+dynamics:
+- Upstream structures change downstream conditions, creating spatial dependencies across the map.
+- Reservoir capacity becomes a stock that buffers seasonal or drought variability.
+- Flooding couples with building placement, farmland, and disasters such as dam failure.
+math_basis:
+- continuum-mechanics
+- cellular-automata
+feedback: balancing
+player_interface:
+- placement
+- observation
+legibility: 3
+emergence_potential: 4
+authoring_cost: 1
+compute_cost: 3
+tuning_difficulty: 3
+ai_leverage: 3
+maturity: established
+synergy:
+- id: terraforming
+  note: Reshaping terrain redirects water, so terrain editing becomes water engineering (From Dust, Timberborn).
+open_questions:
+- Can learned shallow-water surrogates run large terrain water at interactive rates while staying predictable
+  enough to engineer against?
+sources:
+- src-amielanczyk-2023-timberborn-water
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m5

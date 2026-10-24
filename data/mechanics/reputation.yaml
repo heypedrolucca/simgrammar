@@ -1,8 +1,65 @@
 id: reputation
 type: mechanic
 name: Reputation
+aliases:
+- standing
+- fame
+- renown
 summary: A standing value with a faction or the public changes access, prices, and how others respond.
 family: social-relations
-status: asserted
+substrate:
+- aggregate-stocks
+- rule-system
+definition: >-
+  Owns a scalar or small vector (fame, infamy, honor) for the player or an organization, held per faction or globally, that
+  rises and falls with witnessed or reported acts and often decays toward neutral. Unlike pairwise relationships it is the
+  many-to-one view others hold of one actor, read by rules that gate access (quests, ranks, shops), set prices or acceptance
+  odds, and change NPC reactions. Crusader Kings III tracks character prestige and dynasty renown as standing currencies;
+  Europa Universalis IV diplomatic reputation adds 5 to alliance acceptance per point; RimWorld faction goodwill doubles as
+  reputation by gating trade, caravans, and military aid. Inputs: acts and who observed them. Outputs: modifiers on prices,
+  recruitment, acceptance, aggression, and unlocks.
+player_experience: >-
+  The player cultivates a public identity and feels its weight when doors open or close. Reputation makes past choices follow
+  the player into new encounters and creates tension between profitable acts and standing.
+design_levers:
+- per-faction versus global scope, and whether there are separate fame and infamy axes
+- magnitude per act and whether acts need witnesses or reports
+- decay toward neutral and its rate
+- threshold tiers and what each unlocks or blocks
+- spillover between allied or rival factions
+failure_modes:
+- 'Reputation grinding: repeating cheap acts maxes standing without meaningful choices.'
+- >-
+  Global reputation without witnesses means everyone knows everything instantly, which breaks plausibility.
+- Tiers that only unlock shops make reputation a currency, not an identity.
+- Irreversible collapse locks players out of content with no repair path.
+dynamics:
+- Good standing opens trade and quests that further raise standing, a reinforcing loop.
+- Opposed factions turn every gain with one into a loss with the other, forcing alignment choices.
+- When reputation spreads by gossip, information lag creates windows for crime before word gets out.
+math_basis:
+- system-dynamics
+- game-theory
+feedback: reinforcing
+player_interface:
+- observation
+- choice-cards
+legibility: 4
+emergence_potential: 3
+authoring_cost: 2
+compute_cost: 1
+tuning_difficulty: 3
+ai_leverage: 3
+maturity: classic
+open_questions:
+- >-
+  Can reputation be carried in language-model NPCs' remembered accounts of the player rather than in a number, and still gate
+  content predictably?
+- Should reputation be a property of the actor or of each observer's beliefs about the actor?
+sources:
+- src-paradoxwikis-2026-eu4-diplomacy
+- src-rimworldwiki-2026-goodwill
+- src-wikipedia-crusader-kings-3
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m3

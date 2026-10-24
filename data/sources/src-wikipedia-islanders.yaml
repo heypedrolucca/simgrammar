@@ -1,0 +1,16 @@
+id: src-wikipedia-islanders
+type: source
+name: Islanders (video game)
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Islanders_(video_game)
+accessed: '2026-10-24'
+notes: Grizzly Games (Coatsink from 2022); Windows 2019-04-04; Switch, PS4, Xbox One 2021; Meta Quest 2023; buildings
+  score points from proximity to compatible structures and lose points for incompatible ones; placements are permanent;
+  point thresholds offer a choice of two building packs; filling the gauge unlocks a new island; no resources, traffic,
+  or research; global leaderboard only.
+provenance:
+  created: 2026-10-24-catalog-ga

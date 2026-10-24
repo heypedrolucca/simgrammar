@@ -1,0 +1,79 @@
+id: continuous-alife-and-asal
+type: technique
+name: Continuous cellular automata and foundation-model search for artificial life
+aliases:
+- Lenia
+- Flow-Lenia
+- ASAL
+- Automated Search for Artificial Life
+summary: Continuous cellular automata such as Lenia and mass-conserving Flow-Lenia produce lifelike self-organizing
+  creatures, and ASAL uses vision-language foundation models to search their rule spaces for phenomena
+  described in text or for open-ended novelty.
+category: artificial-life-research
+year: 2024
+mechanism: Lenia stores a continuous field A(x) in [0,1]. Each step it convolves A with a smooth ring-shaped
+  kernel K, passes the result through a bell-shaped growth function G, and updates A by a small time step
+  dt times G(K*A), clipped to [0,1]; certain kernel and growth parameters yield moving, self-maintaining
+  patterns ('species'). Flow-Lenia replaces additive growth with an affinity field that moves matter along
+  its gradient, conserving total mass, and stores the rule parameters in the matter itself, so creatures
+  carrying different rules can coexist, collide and mix. ASAL renders a simulation, embeds the frames
+  with a vision-language foundation model, and scores parameter sets by similarity to a text prompt, by
+  novelty of the embedding trajectory over time, or by diversity across a population; an evolutionary
+  optimizer then searches the substrate's parameters (Boids, Particle Life, Game of Life, Lenia, NCA).
+key_results:
+- text: Lenia catalogued over 400 species in 18 families of geometric, segmented, resilient lifeforms,
+    many found by interactive evolutionary search.
+  sources:
+  - src-chan-2019-lenia
+  confidence: high
+- text: Flow-Lenia's mass conservation made localized creatures easier to find, and parameter localization
+    let multiple species with different rules coexist and interact in one world.
+  sources:
+  - src-plantec-2023-flow-lenia
+  confidence: high
+- text: ASAL found previously unseen Lenia and Boids lifeforms and open-ended cellular automata in the
+    style of Game of Life, and quantified qualitative phenomena in ways that aligned with human judgment.
+  sources:
+  - src-kumar-2024-asal
+  confidence: medium
+maturity: research
+trl: 3
+runtime:
+- design-assist
+- offline-authoring
+- client-realtime
+determinism_impact: preserves
+horizon: 3-5y
+risks:
+- controllability
+- legibility
+- evaluation
+affects:
+- id: natural-selection
+  effect: enables-new
+  note: In Flow-Lenia, rules travel with matter, so selection can act on creatures that emerge from the
+    physics itself rather than on declared fitness stats.
+- id: trait-inheritance
+  effect: deepens
+  note: Rule parameters mix where creatures meet in Flow-Lenia, giving inheritance and hybridization as
+    a spatial process instead of an explicit genome crossover function.
+- id: generative-content
+  effect: enables-new
+  note: ASAL turns a text prompt into a search over simulation rules that produce the described phenomenon,
+    a route to generating new creature rule sets from player or designer descriptions at design time.
+deployed_in: []
+limitations:
+- Lenia creatures exist in a narrow band of parameter space; most settings die out or explode, which is
+  what made search tools necessary.
+- Creatures are fields without discrete identity, needs or stats, so connecting them to resource economies
+  or player goals needs extra interpretation layers.
+- ASAL scores runs with a foundation model on rendered frames, which is offline-scale compute and inherits
+  that model's notion of what looks interesting.
+- Open-ended evolution in these substrates is a stated aim, not an established result.
+sources:
+- src-chan-2019-lenia
+- src-plantec-2023-flow-lenia
+- src-kumar-2024-asal
+status: sourced
+provenance:
+  created: 2026-10-24-techniques-sim-math

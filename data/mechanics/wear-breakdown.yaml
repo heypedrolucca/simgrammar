@@ -1,8 +1,65 @@
 id: wear-breakdown
 type: mechanic
 name: Wear and breakdown
-summary: Assets degrade with use and time, and maintenance prevents breakdown.
+aliases:
+- reliability
+- maintenance
+- durability
+summary: Assets lose condition with use and age, breakdown risk rises as condition falls, and maintenance or repair restores
+  it.
 family: risk-failure
-status: asserted
+substrate:
+- aggregate-stocks
+- stochastic-events
+- agent-based
+definition: >-
+  Each asset holds a condition or reliability stock. Each update it decays by a base rate scaled by usage, age, and environment,
+  and a breakdown is drawn with probability that rises as condition falls. A broken asset stops or malfunctions until a repair
+  job, often done by a maintenance agent, restores it. In RollerCoaster Tycoon 2 (as reimplemented in OpenRCT2), reliability
+  starts at 100% and drops every 256 ticks by the ride's unreliability factor plus an age penalty that grows from one-eighth
+  of that factor in year one to double after eight years; breakdown types are weighted, brake failure is likelier in rain,
+  players set inspection intervals for mechanics, and a repair restores reliability in proportion to the deficit. Transport
+  Tycoon vehicles lose reliability between depot services; Theme Hospital machines explode if handymen do not repair them.
+  Per-use item durability, as in Minecraft tools, is a variant without maintenance.
+player_experience: >-
+  A steady background of upkeep decisions. The player schedules inspections, staffs mechanics, and decides when an aging asset
+  should be replaced instead of repaired. Breakdowns are visible interruptions with queues of angry customers or stalled trains.
+design_levers:
+- decay rate per asset class and its usage and weather modifiers
+- age penalty curve that forces eventual replacement
+- breakdown probability as a function of condition, and the menu of breakdown types and severities
+- maintenance interval, labor required, and repair restoration amount
+- repair versus replacement cost
+- a global breakdown setting (off, reduced, normal)
+failure_modes:
+- Maintenance with no tradeoffs becomes a chore; OpenTTD exposes a setting to reduce or disable breakdowns, and many players
+  use it.
+- Too few maintenance workers lets breakdowns pile up faster than repairs, a spiral that is hard to diagnose.
+- Hidden condition values make breakdowns feel random even when the player could have prevented them.
+dynamics:
+- Aging fleets and rides create replacement waves that strain budgets years after the original build-out.
+- Mechanic coverage becomes a routing and staffing problem coupled to park or network layout.
+- Breakdowns create service queues and satisfaction drops that spread to nearby systems.
+math_basis:
+- markov-stochastic
+- queueing
+- system-dynamics
+feedback: both
+player_interface:
+- parameter
+- orders
+legibility: 4
+emergence_potential: 3
+authoring_cost: 2
+compute_cost: 2
+tuning_difficulty: 3
+ai_leverage: 2
+maturity: classic
+open_questions:
+- Can predictive maintenance tools that forecast failure from condition history become part of play instead of a hidden optimization?
+- When does per-use durability add decisions rather than inventory chores?
+sources:
+- src-openrct2-2026-ride-breakdowns
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m7

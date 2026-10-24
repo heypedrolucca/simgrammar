@@ -1,10 +1,100 @@
 id: kenshi
 type: game
 name: Kenshi
-summary: TODO
+summary: A squad-based open-world RPG with no hero character, where any recruit can starve, lose limbs,
+  train skills by doing, be enslaved, or found an outpost among reactive factions.
 year: 2013
+year_full_release: 2018
 developer: Lo-Fi Games
+platforms:
+- pc
 subgenre: rpg-sim
-status: asserted
+subgenre_secondary:
+- colony-sim
+sim_domain:
+- military-conflict
+- political-governance
+- biological-ecological
+player_role: overseer
+agency_model:
+- direct-unit
+- zoning-placement
+- order-queue
+time_model: real-time-pausable
+sim_scale: region
+fidelity: systemic
+perspective: free-3d
+win_structure: open-sandbox
+failure_model: permadeath
+narrative_mode: emergent
+multiplayer:
+- single
+modding: content
+production_tier: indie
+agent_count_order: '100'
+emergence: 4
+influence: 2
+core_loop: wander the world with a squad -> fight, trade, steal, or get captured -> injuries and hunger
+  reduce stats while skills train from use -> recruit and found an outpost -> factions react and world
+  states shift
+design_notes: 'There is no main character: every recruit and NPC is a potential equal, with no hero units
+  given stronger stats, and the world and shops do not scale to the player, so early characters are weaker
+  than most people they meet. Progress comes from use-based skill gain, which makes losing fights a form
+  of training. Deaths of notable faction leaders change world states, such as towns taken over by a new
+  faction. Chris Hunt developed it alone until 2013, and it was one of the first games in Steam Early
+  Access.'
+mechanics:
+- id: injury-body-model
+  role: core
+  note: Each limb has its own health; limbs can be damaged or severed and replaced with prosthetic or
+    robotic limbs, and blood loss and injuries reduce stats and movement while squadmates carry the wounded.
+- id: agent-skills
+  role: core
+  note: Skills rise from the actions they describe, such as stealing for thievery and fighting for combat,
+    with stats and appearance changing as characters grow.
+- id: unit-commands
+  role: core
+  note: The player commands any squad member directly in real time with pause; no character is privileged,
+    and the squad acts together.
+- id: faction-diplomacy
+  role: core
+  note: Many factions and species with relations to each other; the player can aid or oppose them, and
+    deaths of notable figures shift world states.
+- id: reputation
+  role: supporting
+  note: Player standing with each faction changes access and hostility.
+- id: survival-meters
+  role: supporting
+  note: Starvation reduces character stats.
+- id: free-placement
+  role: supporting
+  note: Outposts are built and upgraded into fortified havens or businesses.
+- id: work-priorities
+  role: supporting
+  note: Squad members keep job lists for base work and production.
+- id: production-chain
+  role: supporting
+- id: crop-cultivation
+  role: supporting
+  note: Zone soil types and terrain affect outpost farming.
+- id: tech-tree
+  role: supporting
+  note: Research unlocks equipment and technologies.
+- id: raid-defense
+  role: supporting
+  note: Outposts must be defended against attackers.
+- id: weather
+  role: supporting
+  note: Some weather, such as acid rain, harms characters.
+- id: permadeath
+  role: supporting
+- id: stat-combat-resolution
+  role: supporting
+  note: Fights resolve from character combat skills, weapon stats, and armor, with damage applied to individual
+    limbs.
+sources:
+- src-wikipedia-kenshi
+- src-steam-2026-kenshi
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gb

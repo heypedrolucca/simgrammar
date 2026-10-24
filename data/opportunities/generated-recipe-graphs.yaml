@@ -1,0 +1,49 @@
+id: generated-recipe-graphs
+type: opportunity
+name: Generated recipe graphs
+summary: Generate solvable, non-degenerate, on-theme production recipe graphs and tech trees, verified
+  by agents, to cut content cost for factory and crafting games.
+opportunity_type: authoring-tool
+thesis: 'Recipe graphs and tech trees are among the most prevalent content structures in the catalog,
+  and their design is slow: each new item must be reachable, useful, and not dominated. Automated rule
+  generation and quality-diversity search can propose graph variants, and agent playtests can check reachability,
+  ratio complexity, and whether alternate recipes create real choices. Modding communities could use the
+  same tool for overhaul mods.'
+design_sketch: Designers set a theme, resource set, and target depth; the tool proposes recipe graphs
+  with cycle times and alternates, simulates optimal and novice factories, and returns an archive ranked
+  by depth, branching, and degeneracy checks. Designers edit and lock items they like.
+involves:
+- production-chain
+- tech-tree
+- hand-crafting
+- milestone-unlocks
+applies:
+- automated-rule-generation
+- quality-diversity-search
+- automated-playtesting
+- alphaevolve-algorithm-discovery
+precedent:
+- factorio
+- satisfactory
+- dyson-sphere-program
+- minecraft
+novelty: 3
+feasibility: 4
+impact: 2
+horizon: 1-2y
+key_risks:
+- Generated graphs feel arbitrary without thematic logic.
+- Agents optimize for metrics that miss what makes a recipe satisfying.
+validation_experiment: 'Generate 100 recipe graphs for a fixed resource set and have experienced factory
+  players rate a sample against an authored graph blind. Success: top-decile generated graphs rated equal
+  to the authored one.'
+falsifiable_signal:
+  prediction: A factory or crafting game or major overhaul mod will credit a generative tool for its recipe
+    graph or tech tree.
+  resolve_by: '2028-12-31'
+  criteria: Developer or mod author statement crediting algorithmic or model-based generation of the shipped
+    recipe graph.
+sources: []
+status: asserted
+provenance:
+  created: 2026-10-24-synthesis

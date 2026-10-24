@@ -1,9 +1,66 @@
 id: smart-objects
 type: mechanic
 name: Smart objects
-summary: Objects advertise the need satisfaction they offer, and agents query nearby objects to decide
-  what to do.
+aliases:
+- object advertisements
+- affordance broadcasting
+summary: >-
+  Objects advertise the need satisfaction they offer, and agents query nearby objects to decide what to do.
 family: agents-behavior
-status: asserted
+substrate:
+- agent-based
+- rule-system
+definition: >-
+  Owns per-object interaction definitions: each interaction carries advertisements (which needs it satisfies and by how much),
+  availability checks, distance attenuation, and the behavior script the agent runs. Agents carry no knowledge of how to use
+  things; when choosing, an agent gathers advertisements from reachable objects, scales them by its needs, personality, and
+  distance, selects one, and runs that object's script. In The Sims, per Forbus and Wright's notes, advertisements cover nine
+  motives, can scale with personality points, attenuate with distance through high, moderate, low, or none presets, and check
+  trees hide unavailable interactions; a toilet advertises 0-70 Bladder. Because behavior lives in objects, new objects add
+  new behaviors without changing agent code, which suits expansion packs and mods. Inputs: objects in range, agent needs.
+  Outputs: candidate actions, need restoration, animations.
+player_experience: >-
+  Buying or placing an object changes what agents want to do, so the player designs behavior through the environment. Players
+  learn that a better object pulls agents across the room and use placement to steer them.
+design_levers:
+- advertised magnitude per need and whether it scales with personality or object quality
+- distance attenuation curve per interaction
+- advertised versus delivered value, which allows deceptive or broken objects
+- availability and permission checks such as ownership, age, and room
+- how many agents one object can serve at once
+failure_modes:
+- An over-tuned advertisement makes one object a magnet that agents queue for regardless of need.
+- >-
+  Assuming honest advertisements breaks when objects fail, producing loops of agents repeatedly using broken objects.
+- Attenuation errors make agents walk past nearby options to distant ones.
+- Behavior spread across hundreds of objects is harder to debug than one agent controller.
+dynamics:
+- >-
+  Each new object adds behaviors, so the behavior space grows with content packs, which is how The Sims expansions extended
+  play.
+- Players use objects as lures to route agents, coupling placement to behavior.
+- Scarce objects create queues and conflicts when several agents select the same one.
+math_basis:
+- utility-decision
+feedback: none
+player_interface:
+- placement
+- observation
+legibility: 4
+emergence_potential: 3
+authoring_cost: 4
+compute_cost: 2
+tuning_difficulty: 3
+ai_leverage: 3
+maturity: classic
+open_questions:
+- >-
+  Can generative models author new objects with consistent advertisements, scripts, and animations, turning content packs
+  into runtime generation?
+- >-
+  Should language-model agents read object affordances as numeric advertisements, as text descriptions, or both?
+sources:
+- src-forbus-2001-programming-objects-sims
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m3

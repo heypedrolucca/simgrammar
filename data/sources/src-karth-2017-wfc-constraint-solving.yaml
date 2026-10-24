@@ -1,0 +1,16 @@
+id: src-karth-2017-wfc-constraint-solving
+type: source
+name: WaveFunctionCollapse is Constraint Solving in the Wild
+kind: paper
+authors:
+- Isaac Karth
+- Adam M. Smith
+venue: Foundations of Digital Games (FDG 2017)
+date: 2017-08
+url: https://adamsmith.as/papers/wfc_is_constraint_solving_in_the_wild.pdf
+accessed: '2026-10-24'
+notes: Public release 2016-09-30; WFC as MRV-ordered search with arc-consistency propagation and global
+  restarts; Caves of Qud and Proc Skater 2016 as early users; global constraints caused many conflicts
+  that backtracking resolved.
+provenance:
+  created: 2026-10-24-techniques-rl-design

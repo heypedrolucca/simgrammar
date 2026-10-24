@@ -1,0 +1,15 @@
+id: src-steam-2026-paralives
+type: source
+name: Paralives on Steam
+kind: store-page
+authors:
+- Paralives Studio
+venue: Steam
+date: '2026-05-25'
+url: https://store.steampowered.com/app/1118520/Paralives/
+accessed: '2026-10-24'
+notes: Early access 2026-05-25 with about two years planned before 1.0; grid-less building, curved walls,
+  split-level floors; needs, wants, emotions, traits, skills, careers; multiselect group actions; in-game
+  modding interface and Steam Workshop.
+provenance:
+  created: 2026-10-24-catalog-gc

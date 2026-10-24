@@ -1,10 +1,75 @@
 id: seaman
 type: game
 name: Seaman
-summary: TODO
+summary: A Dreamcast virtual pet in which the player talks through a microphone to a sardonic human-faced
+  fish, managing its tank's heat, water, and food while it matures through five life stages.
 year: 1999
 developer: Vivarium
+platforms:
+- console
 subgenre: virtual-pet
-status: asserted
+sim_domain:
+- biological-ecological
+- social-interpersonal
+player_role: caretaker
+agency_model:
+- caretaking-interaction
+- conversational
+time_model: real-world-clock
+sim_scale: individual
+fidelity: stylized
+perspective: first-person
+win_structure: completion
+failure_model: hard-restart
+narrative_mode: hybrid
+multiplayer:
+- single
+modding: none
+production_tier: aa
+agent_count_order: '1'
+emergence: 2
+influence: 2
+core_loop: check the tank each real day -> adjust heat, clean water, and feed -> talk to Seaman through
+  the microphone -> it learns words and asks about the player -> the life stage advances through breeding
+  and die-off -> raise the Frogman generation and release it
+design_notes: 'Yoot Saito built Seaman around speech: a microphone accessory lets the player answer questions
+  and make small talk, early Gillmen repeat the player''s words back as gibberish, and the creature''s
+  vocabulary grows while it keeps insulting the player. The care loop is sparse but strict, with roughly
+  one check per real day needed to keep it alive, so the game paces itself to the player''s calendar.
+  Its life cycle is scripted and harsh: Gillmen fight until two remain, Podfish die after mating, Tadmen
+  eat each other until two remain, and the final Frogmen are released into the wild. Leonard Nimoy narrates
+  the English version as a guide who explains only part of the rules.'
+mechanics:
+- id: creature-care
+  role: core
+  note: The player sets tank heat, cleans dirty water, and supplies food, and later runs a sprinkler to
+    keep Frogmen moist.
+- id: natural-language-interaction
+  role: core
+  note: Microphone speech is matched against the creature's current vocabulary; it asks for the player's
+    birthday and other details and answers in conversation.
+- id: lifecycle-aging
+  role: core
+  note: Mushroomer, Gillman, Podfish, Tadman, and Frogman stages; Podfish parents die after mating and
+    the aquarium becomes a terrarium.
+- id: real-time-clock
+  role: core
+  note: Time follows the real calendar; going much longer than a day without a check can kill the creature.
+- id: creature-learning
+  role: supporting
+  note: Vocabulary grows through conversation, and the creature becomes tamer over time.
+- id: memories-thoughts
+  role: supporting
+  note: It remembers facts the player shares, such as a birthday, and later tells historical events from
+    that date.
+- id: habitat-suitability
+  role: supporting
+  note: Tank temperature and water cleanliness must suit the current life stage.
+- id: permadeath
+  role: supporting
+  note: A neglected creature dies permanently.
+sources:
+- src-wikipedia-seaman
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gc

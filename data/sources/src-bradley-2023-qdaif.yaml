@@ -1,0 +1,21 @@
+id: src-bradley-2023-qdaif
+type: source
+name: Quality-Diversity through AI Feedback
+kind: preprint
+authors:
+- Herbie Bradley
+- Andrew Dai
+- Hannah Teufel
+- Jenny Zhang
+- Koen Oostermeijer
+- Marco Bellagente
+- Jeff Clune
+- Kenneth Stanley
+- Grégory Schott
+- Joel Lehman
+venue: arXiv
+date: '2023-10-19'
+arxiv: '2310.13032'
+accessed: '2026-10-24'
+provenance:
+  created: 2026-10-24-techniques-rl-design

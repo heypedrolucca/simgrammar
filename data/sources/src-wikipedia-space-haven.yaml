@@ -1,0 +1,14 @@
+id: src-wikipedia-space-haven
+type: source
+name: Space Haven
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Space_Haven
+accessed: '2026-10-24'
+notes: Bugbyte; early access 2020, 1.0 2026-05-13; Windows, macOS, Linux; ship parts built from mined or salvaged
+  resources; oxygen and heat life support; crew characteristics, relationships, and faction leaders added in 2022.
+provenance:
+  created: 2026-10-24-catalog-gb

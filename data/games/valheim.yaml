@@ -1,10 +1,101 @@
 id: valheim
 type: game
 name: Valheim
-summary: TODO
+summary: A co-op Viking survival game in a seeded procedural world of biomes where players gather, build
+  structurally supported shelters, eat for stat buffs, and defeat biome bosses to progress.
 year: 2021
+year_full_release: 2026
 developer: Iron Gate Studio
+platforms:
+- pc
+- console
+- handheld
 subgenre: survival-sim
-status: asserted
+subgenre_secondary:
+- sandbox-world
+sim_domain:
+- physical-mechanical
+- biological-ecological
+player_role: inhabitant
+agency_model:
+- direct-avatar
+time_model: real-time
+sim_scale: individual
+fidelity: stylized
+perspective: third-person
+win_structure: completion
+failure_model: soft-recoverable
+narrative_mode: emergent
+multiplayer:
+- single
+- coop
+modding: scripting
+production_tier: indie
+agent_count_order: '100'
+emergence: 3
+influence: 2
+core_loop: explore seeded biomes -> gather wood, stone, and ore -> build shelters that must be supported
+  and roofed -> eat food for health and stamina -> craft better gear -> summon and defeat each biome's
+  boss -> sail to harder biomes
+design_notes: 'Food is a reward rather than a punishment: eating raises maximum health and stamina and
+  speeds regeneration, and there is no starvation, so the survival layer pushes players toward better
+  food rather than threatening death. This consumable-buff model does not fit survival-meters cleanly
+  (proposal filed). Building uses a support model in which stability falls with distance from the ground,
+  so architecture follows material limits, and uncovered wood decays to half durability in rain. Progression
+  is gated by eight bosses, each summoned with an offering. Early access began in February 2021 and 1.0
+  shipped in September 2026.'
+mechanics:
+- id: structural-integrity
+  role: core
+  note: Stability runs from blue (grounded) to red; it falls with horizontal and vertical distance from
+    ground, a piece cannot exceed its support's stability, and vertical limits are 16 m for wood and stone
+    and 24 m for core wood.
+- id: procedural-terrain
+  role: core
+  note: Each world is generated from a seed and divided into biomes (Meadows, Black Forest, Swamp, Mountains,
+    Plains, Ocean, Mistlands, Deep North, Ashlands), each with its own resources, enemies, and boss.
+- id: hand-crafting
+  role: core
+  note: Workbenches, forges, and other stations craft tools, weapons, and building pieces; new materials
+    unlock new recipes.
+- id: survival-meters
+  role: supporting
+  note: Food raises maximum health and stamina for a time instead of causing starvation; stamina drains
+    when running or attacking.
+- id: agent-skills
+  role: supporting
+  note: Skills rise to level 100 through use and affect damage and stamina drain; dying reduces skill
+    levels.
+- id: decoration-beauty
+  role: supporting
+  note: Comfort from nearby furnishings lengthens the Rested buff.
+- id: milestone-unlocks
+  role: supporting
+  note: Each boss leaves a trophy that grants a power at a central altar and opens the next tier of materials.
+- id: wear-breakdown
+  role: supporting
+  note: Uncovered or submerged wood decays to 50% durability; tools lose durability.
+- id: weather
+  role: supporting
+  note: Rain wets the player and rots exposed wood.
+- id: raid-defense
+  role: supporting
+  note: Random events send enemies against bases.
+- id: crop-cultivation
+  role: supporting
+- id: animal-husbandry
+  role: supporting
+  note: Some animals can be tamed and bred.
+- id: direct-avatar
+  role: supporting
+- id: loss-on-death
+  role: supporting
+  note: On death the player's equipment and inventory stay in a tombstone at the death site, and skill
+    levels drop, so the player must travel back to recover gear.
+sources:
+- src-wikipedia-valheim
+- src-steam-2026-valheim
+- src-valheimwiki-2026-building
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gb

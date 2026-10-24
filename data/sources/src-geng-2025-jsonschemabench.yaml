@@ -1,0 +1,23 @@
+id: src-geng-2025-jsonschemabench
+type: source
+name: 'JSONSchemaBench: A Rigorous Benchmark of Structured Outputs for Language Models'
+kind: preprint
+authors:
+- Saibo Geng
+- Hudson Cooper
+- Michał Moskal
+- Samuel Jenkins
+- Julian Berman
+- Nathan Ranchin
+- Robert West
+- Eric Horvitz
+- Harsha Nori
+venue: arXiv
+date: '2025-01-18'
+url: https://arxiv.org/abs/2501.10868
+arxiv: '2501.10868'
+accessed: '2026-10-24'
+notes: 10K real-world JSON schemas; evaluates Guidance, Outlines, llama.cpp, XGrammar, OpenAI, and Gemini
+  on efficiency, constraint coverage, and output quality, plus the official JSON Schema Test Suite.
+provenance:
+  created: 2026-10-24-techniques-llm-agents

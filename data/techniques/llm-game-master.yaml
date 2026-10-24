@@ -1,0 +1,158 @@
+id: llm-game-master
+type: technique
+name: LLM game master and narrative director
+aliases:
+- AI game master
+- AI Dungeon
+- Concordia Game Master
+- story engine
+- AI narrator
+summary: A language model that adjudicates player and NPC intentions, decides outcomes, generates events
+  and quests, and narrates them, either free-form or checked against a typed world state and canon.
+category: llm-narrative-dialogue
+year: 2019
+mechanism: 'The player types an intent; the system assembles a prompt from recent story, pinned memories,
+  and setting notes and asks the model to continue the story, as AI Dungeon has since 2019. Grounded variants
+  split the job: actors state intended actions in language, a Game Master component checks plausibility
+  against rules and state, decides what happens, writes state changes, and only then narrates (Concordia).
+  Hidden Door runs intent through plan, canon check, and world-state update steps over a typed, auditable
+  world model, using many small tuned models for about 100 narrative tasks; its example blocks Dracula
+  from entering a house uninvited. Research systems generate setting, items, and NPCs from designer criteria
+  and use the model to validate free-text input against the story (PANGeA), or assist a human Dungeon
+  Master (CALYPSO).'
+key_results:
+- text: AI Dungeon 2 (December 2019) ran the full 1.5B-parameter GPT-2 and moved to GPT-3 in mid-2020,
+    reaching over 100,000 players in its first week and 1.5 million by June 2020.
+  sources:
+  - src-wikipedia-ai-dungeon
+  confidence: high
+- text: AI Dungeon's 2021 content filter, added to block sexual content involving minors, produced false
+    positives on innocuous text and led human moderators to read flagged private stories, prompting review
+    bombing.
+  sources:
+  - src-wikipedia-ai-dungeon
+  confidence: high
+- text: In a 28-player study with five GPT-4 NPCs holding backstories, clues, and ordered goals, play
+    produced 53 narrative nodes absent from the designers' graph; about 15 seconds of lag frustrated 40%
+    of players and NPCs forgot earlier statements in 10% of reports.
+  sources:
+  - src-peng-2024-player-driven-emergence
+  confidence: high
+- text: Hidden Door announced early access in August 2025 and offers licensed worlds such as Dracula;
+    its engine checks every story turn against canon and rules before display and reports a tuned 1.7B
+    model beating a 120B general model on one core task.
+  sources:
+  - src-hiddendoor-2026-blog-index
+  - src-hiddendoor-2026-homepage
+  confidence: medium
+- text: Concordia's Game Master converts agents' natural-language actions into outcomes and checks physical
+    plausibility, and its 2025 design pattern classifies uses as Simulationist, Dramatist, or Evaluationist.
+  sources:
+  - src-vezhnevets-2023-concordia
+  - src-vezhnevets-2025-multi-actor-game-engine
+  - src-deepmind-2026-concordia-repo
+  confidence: high
+- text: Surveyed LLM game masters tend to accommodate even bizarre player requests that human GMs would
+    curb, and LLM NPCs can invent quests that do not exist in the game.
+  sources:
+  - src-gallotta-2024-llms-games-survey
+  confidence: medium
+maturity: shipped-niche
+trl: 8
+runtime:
+- server-realtime
+determinism_impact: breaks
+horizon: now
+risks:
+- consistency
+- content-safety
+- controllability
+- compute-cost
+- evaluation
+affects:
+- id: storyteller-director
+  effect: enables-new
+  note: The director can author an event in language for the exact current state, check it against canon
+    and rules, and narrate it, instead of choosing among a finite catalog of pre-written incidents by
+    a pacing budget.
+- id: triggered-event-chains
+  effect: replaces-substrate
+  note: Follow-up beats are generated from story state and player intent rather than scheduled by authored
+    templates with trigger predicates, while the player still experiences multi-step chains.
+- id: villager-requests
+  effect: deepens
+  note: Characters can ask for things tied to the specific story so far, not only fetch templates with
+    filled slots; ungrounded models invent quests that do not exist, so requests must be checked against
+    state.
+- id: generative-content
+  effect: deepens
+  note: Story continuation from Do, Say, Story, and See inputs makes the whole narrative generated content;
+    grounded engines turn it into typed state changes.
+- id: natural-language-interaction
+  effect: deepens
+  note: Any typed action is adjudicated for plausibility and consequence rather than matched against a
+    parser's verb list, so unanticipated approaches produce new narrative paths (53 emergent nodes in
+    one 28-player study).
+- id: procedural-characters
+  effect: cuts-authoring-cost
+  note: NPCs with backstories, goals, and personality are generated from designer criteria and voiced
+    in dialogue, removing per-character writing.
+builds_on: []
+deployed_in:
+- ai-dungeon
+limitations:
+- 'Long-session consistency: models forget or contradict earlier facts unless state is externalized into
+  memory or a typed world model.'
+- 'Accommodation bias: models rarely say no, which removes challenge and lets players talk past any obstacle.'
+- 'Content moderation is hard: AI Dungeon''s filter both missed and over-blocked, and Steam requires guardrail
+  disclosure for live-generated content.'
+- Latency of several to 15 seconds per turn frustrated players in a GPT-4 study; multi-step grounded pipelines
+  add calls per turn.
+- Every turn is an inference cost for the life of the service, which pushes products to subscriptions
+  or small tuned models.
+claims:
+- text: Steam requires games with live-generated AI content to disclose it and describe guardrails against
+    illegal output, and does not permit live-generated adult sexual content.
+  sources:
+  - src-valve-2026-steamworks-content-survey
+  - src-valve-2024-ai-content-on-steam
+  confidence: high
+- text: Dungeon Masters using CALYPSO presented some generated text almost directly and treated rougher
+    output as ideas while keeping creative control.
+  sources:
+  - src-zhu-2023-calypso
+  confidence: medium
+- text: PANGeA generated settings, key items, and Big Five personality-biased NPCs from designer criteria
+    and used the model to keep free-text player input within the narrative, tested in a browser demo and
+    a Unity game.
+  sources:
+  - src-buongiorno-2024-pangea
+  confidence: medium
+- text: Steam generative AI disclosures rose from about 1,000 games in April 2024 to 7,818 (about 7% of
+    the catalog, a little under 20% of 2025 releases) in July 2025 and 10,258 (about 8%) in November 2025;
+    about 60% of disclosures concern visual assets, so live-generated runtime systems such as LLM narration
+    are a small share.
+  sources:
+  - src-totallyhuman-2024-steam-genai-count
+  - src-totallyhuman-2025-steam-genai-count
+  - src-totallyhuman-2025-steam-ai-revenue
+  confidence: medium
+sources:
+- src-wikipedia-ai-dungeon
+- src-vezhnevets-2023-concordia
+- src-vezhnevets-2025-multi-actor-game-engine
+- src-deepmind-2026-concordia-repo
+- src-hiddendoor-2026-homepage
+- src-hiddendoor-2026-blog-index
+- src-peng-2024-player-driven-emergence
+- src-buongiorno-2024-pangea
+- src-zhu-2023-calypso
+- src-gallotta-2024-llms-games-survey
+- src-valve-2026-steamworks-content-survey
+- src-valve-2024-ai-content-on-steam
+- src-totallyhuman-2024-steam-genai-count
+- src-totallyhuman-2025-steam-genai-count
+- src-totallyhuman-2025-steam-ai-revenue
+status: sourced
+provenance:
+  created: 2026-10-24-techniques-llm-agents

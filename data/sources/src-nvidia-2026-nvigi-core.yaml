@@ -1,0 +1,15 @@
+id: src-nvidia-2026-nvigi-core
+type: source
+name: 'NVIGI-Core: NVIDIA In-Game Inferencing SDK core'
+kind: repository
+authors:
+- NVIDIA
+venue: GitHub
+date: '2026'
+url: https://github.com/NVIDIA-RTX/NVIGI-Core
+accessed: '2026-10-24'
+notes: Requires RTX 30x0 or A6000 class GPU or newer (4080/4090/5080/5090 preferred), at least 8 GB VRAM
+  with 12 GB recommended, Windows 11 22H2; some plugins require RTX 40x0; ARM64 (RTX Spark) is a developer
+  preview.
+provenance:
+  created: 2026-10-24-techniques-llm-agents

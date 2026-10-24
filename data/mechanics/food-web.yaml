@@ -1,8 +1,73 @@
 id: food-web
 type: mechanic
 name: Food web
-summary: Species eat and are eaten, and populations oscillate under predator-prey dynamics.
+aliases:
+- predator-prey
+- trophic web
+- ecosystem simulation
+summary: Species eat and are eaten along a feeding graph, so populations rise, crash, and oscillate under
+  predator-prey dynamics.
 family: environment-ecology
-status: asserted
+substrate:
+- aggregate-stocks
+- agent-based
+- network-graph
+definition: 'Owns population counts per species (aggregate) or individual animals (agent-based) and a
+  directed feeding graph of who eats whom. Each tick prey grow toward a carrying capacity set by plants
+  or habitat, predators remove prey in proportion to encounters, and predators reproduce from food eaten
+  and starve without it. The Lotka-Volterra form, published by Volterra in 1926, has prey growing at rate
+  a and consumed at rate b times predators, and predators converting prey into growth while dying at a
+  constant rate; the result cycles without damping. Games add carrying capacity, starvation, migration,
+  and respawn so species do not drift to extinction. SimLife and Species: Artificial Life, Real Evolution
+  let creatures eat each other on a shared map; Eco simulates plant and animal populations that players
+  can overhunt; Viva Pinata attracts visitors and predators according to garden contents. Inputs are species,
+  habitat, and harvesting; outputs are population trajectories.'
+player_experience: Tending a system the player cannot command. Adding a predator to fix overgrazing can
+  crash the herbivores and then starve the predator a few generations later. The player learns to act
+  through balance and delay, watches population graphs, and feels responsible when a species disappears.
+design_levers:
+- 'feeding graph topology: number of species, diet breadth, and omnivores'
+- prey growth rate and carrying capacity from plants or habitat
+- predation efficiency and conversion of food into offspring
+- starvation and natural death rates, and the minimum population before extinction
+- immigration or respawn rules that rescue extinct species
+- aggregate populations versus individually simulated animals
+failure_modes:
+- Undamped predator-prey cycles drift until a population hits zero, so ecosystems collapse without any
+  player error.
+- Hidden population floors or respawns added to prevent extinction make overhunting consequence-free.
+- Long delays between action and population response hide cause and effect, so players read crashes as
+  random.
+dynamics:
+- 'Trophic cascades: removing a top predator lets herbivores strip vegetation, which lowers carrying capacity
+  for everything.'
+- Player hunting or harvesting acts as an extra predator and can tip a stable cycle into collapse.
+- Coupled with habitat or climate change, species ranges shift and new feeding links form.
+math_basis:
+- population-dynamics
+- system-dynamics
+feedback: balancing
+player_interface:
+- placement
+- observation
+legibility: 2
+emergence_potential: 4
+authoring_cost: 3
+compute_cost: 2
+tuning_difficulty: 4
+ai_leverage: 3
+maturity: established
+synergy:
+- id: natural-selection
+  note: Predation supplies selective pressure; selection reshapes the food web over generations.
+- id: habitat-suitability
+  note: Habitat defines which species can co-occur, which sets the possible food webs.
+open_questions:
+- Can learned behavior models give individually simulated animals plausible foraging and avoidance at
+  ecosystem scale without hand-written AI?
+- Which visualizations make delayed predator-prey feedback legible without population graphs?
+sources:
+- src-volterra-1926-fluctuations
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m5

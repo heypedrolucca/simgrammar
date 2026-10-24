@@ -1,10 +1,82 @@
 id: ultima-online
 type: game
 name: Ultima Online
-summary: TODO
+aliases:
+- UO
+summary: A persistent fantasy MMO in which players progress through skills without classes or levels,
+  craft goods for a player-driven economy, own persistent houses, and could attack each other anywhere
+  until the 2000 split into Trammel and Felucca.
 year: 1997
 developer: Origin Systems
+platforms:
+- pc
 subgenre: mmo-world
-status: asserted
+subgenre_secondary:
+- rpg-sim
+sim_domain:
+- economic
+- social-interpersonal
+player_role: inhabitant
+agency_model:
+- direct-avatar
+time_model: asynchronous-persistent
+sim_scale: region
+fidelity: stylized
+perspective: isometric
+win_structure: open-sandbox
+failure_model: soft-recoverable
+narrative_mode: emergent
+multiplayer:
+- persistent-mmo
+modding: scripting
+production_tier: aaa
+agent_count_order: 1k
+emergence: 4
+influence: 4
+core_loop: practice skills by using them -> gather resources and craft goods -> trade with other players
+  -> build and furnish a house -> fight monsters or other players -> recover from death and re-equip
+design_notes: 'Ultima Online tried to simulate a world rather than a set of classes: skills grow with
+  practice, goods come from player crafting, and houses persist on the map. Its planned artificial-life
+  ecology, in which animal behavior responded to ecological events, was removed during beta because players
+  killed creatures faster than they could spawn. Unrestricted player killing at launch led to the 2000
+  Trammel and Felucca split into consensual and open PvP facets, an early rule-zoned world (proposal pvp-security-zones);
+  fans later reverse-engineered it to build server emulators.'
+mechanics:
+- id: agent-skills
+  role: core
+  note: Progression is skill-based with no levels or classes; skills improve as the character uses them,
+    so a character's abilities record what the player has practiced.
+- id: persistent-world
+  role: core
+  note: Shards keep persistent player houses and goods; unrestricted PvP at launch was split in 2000 into
+    a consensual-PvP Trammel facet and an open-PvP Felucca facet.
+- id: hand-crafting
+  role: core
+  note: 'The economy is craft-based: players gather materials and craft the weapons, armor, and goods
+    other players buy.'
+- id: resource-extraction
+  role: supporting
+- id: player-organizations
+  role: supporting
+  note: Player guilds such as Shadowclan formed persistent communities.
+- id: reputation
+  role: supporting
+  note: Criminal acts against other players carry consequences whose rules changed over the game's life.
+- id: free-placement
+  role: supporting
+  note: Players place houses on open land in the shared world.
+- id: direct-avatar
+  role: supporting
+- id: loss-on-death
+  role: supporting
+  note: A dead character leaves a corpse that other players can loot; item insurance, added in 2003, keeps
+    chosen items for a fee.
+- id: pvp-security-zones
+  role: supporting
+  note: The 2000 Renaissance expansion split the world into Trammel, where player-versus-player combat
+    is consensual, and Felucca, where it is open.
+sources:
+- src-wikipedia-ultima-online
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gi

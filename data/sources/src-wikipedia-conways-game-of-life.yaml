@@ -1,0 +1,15 @@
+id: src-wikipedia-conways-game-of-life
+type: source
+name: Conway's Game of Life
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
+accessed: '2026-10-24'
+notes: Devised by John Horton Conway; first published in Martin Gardner's Scientific American column, October 1970;
+  B3/S23 rule, simultaneous update, zero-player; Turing complete; R-pentomino 1,103 generations; Gosper glider gun
+  (November 1970, period 30); first interactive program on a PDP-7; Golly with Hashlife and Lua or Python scripting.
+provenance:
+  created: 2026-10-24-catalog-gd

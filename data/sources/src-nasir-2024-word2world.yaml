@@ -1,0 +1,14 @@
+id: src-nasir-2024-word2world
+type: source
+name: 'Word2World: Generating Stories and Worlds through Large Language Models'
+kind: preprint
+authors:
+- Muhammad U. Nasir
+- Steven James
+- Julian Togelius
+venue: arXiv
+date: '2024-05-06'
+arxiv: '2405.06686'
+accessed: '2026-10-24'
+provenance:
+  created: 2026-10-24-techniques-rl-design

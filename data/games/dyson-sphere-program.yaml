@@ -1,10 +1,140 @@
 id: dyson-sphere-program
 type: game
 name: Dyson Sphere Program
-summary: TODO
+summary: A 3D factory automation game in which the player's mech builds production lines on rotating planets,
+  links star systems with logistics drones and warp vessels, and launches sails and rockets to assemble
+  Dyson spheres around stars.
 year: 2021
 developer: Youthcat Studio
+platforms:
+- pc
 subgenre: factory-automation
-status: asserted
+subgenre_secondary:
+- space-sim
+sim_domain:
+- industrial-logistics
+- cosmic-space
+- military-conflict
+player_role: engineer-designer
+agency_model:
+- direct-avatar
+- zoning-placement
+time_model: real-time
+sim_scale: interplanetary
+fidelity: stylized
+perspective: free-3d
+win_structure: open-sandbox
+failure_model: soft-recoverable
+narrative_mode: none
+multiplayer:
+- single
+modding: scripting
+production_tier: indie
+agent_count_order: 1k
+emergence: 2
+influence: 2
+core_loop: mine planetary veins -> belt ores through smelters and assemblers -> craft matrix cubes for
+  research -> link planets and stars with logistics stations -> launch solar sails and carrier rockets
+  -> Dyson sphere power feeds endgame production
+design_notes: 'Dyson Sphere Program scales the factory puzzle from one map to a randomly generated cluster
+  of stars: each planet is a rotating sphere whose day-night cycle affects solar power, and logistics
+  stations match per-item local and remote supply and demand, sending up to 100 drones within a planet
+  and 10 vessels between planets or, with Space Warpers, between stars. The Dyson sphere is a megastructure
+  designed in a node-and-frame editor and built by ejecting solar sails (36 kW each at base, scaled by
+  star luminosity, expiring after 5,400 seconds unless captured by a completed shell) and launching carrier
+  rockets; ray receivers return its energy to planets or convert it to critical photons. The December
+  2023 Dark Fog update added hives and planetary bases whose threat rises with the player''s power generation
+  and combat, a variant of pollution-driven aggression. The developers drew inspiration from Stellaris,
+  which included Dyson sphere construction. The sphere works as a goal sink that absorbs very large quantities
+  of sails and rockets; no taxonomy mechanic covers such megaproject sinks, so this run proposed one.'
+mechanics:
+- id: production-chain
+  role: core
+  note: Smelters, assemblers, chemical plants, refineries, and particle colliders run fixed recipes that
+    build up to six matrix cube types and Dyson sphere components; proliferator coating adds extra products
+    or speed.
+- id: conveyor-transport
+  role: core
+  note: Three belt tiers carry items between sorters and machines on a planetary grid that wraps around
+    a sphere and narrows toward the poles.
+- id: tech-tree
+  role: core
+  note: Labs in research mode consume matrix cubes in technology-specific mixes, all stacked labs working
+    on the front of one queue; labs can instead be switched to manufacture matrices.
+- id: resource-extraction
+  role: core
+  note: Mining machines and advanced miners extract iron, copper, titanium, silicon, and rare veins whose
+    distribution differs by planet and star type; pumps and oil extractors tap fluids.
+- id: power-grid
+  role: core
+  note: Wind, thermal, solar, fusion, and artificial-star generators feed tower-linked grids; logistics
+    stations charge at 30 to 300 MW, and Dyson sphere energy reaches planets through ray receivers at
+    30% base efficiency.
+- id: modular-assembly
+  role: supporting
+  note: The Dyson sphere editor places nodes, frames, and shells on multiple orbital layers around a star,
+    and its power output depends on built structure and absorbed sails.
+- id: raid-defense
+  role: supporting
+  note: Dark Fog planetary bases and space hives attack factories and the player's mech, countered by
+    turrets, energy shields, and player combat units.
+- id: adaptive-threat-scaling
+  role: supporting
+  note: Dark Fog threat accumulates from the player's power generation and from combat, bases and hives
+    gain levels from experience, and aggressiveness settings scale attack sizes.
+- id: procedural-terrain
+  role: supporting
+  note: Each seed generates a star cluster with star types, planet types, and mineral distributions, including
+    neutron stars, white dwarfs, and black holes.
+- id: blueprints
+  role: supporting
+  note: Layouts are saved and pasted as blueprints, and the mech's construction drones place them.
+- id: day-night-cycle
+  role: supporting
+  note: Planets rotate around their axes and orbit their stars, so solar panel output varies with the
+    local day.
+- id: storage-capacity
+  role: supporting
+  note: Storage boxes, tanks, and per-slot capacity in logistics stations buffer flows between planets.
+- id: hand-crafting
+  role: supporting
+  note: The Icarus mech hand-crafts early buildings from inventory before assemblers take over.
+- id: direct-avatar
+  role: supporting
+  note: The player flies the Icarus mech across planets and through space to build within its range.
+- id: megaproject-sink
+  role: core
+  note: The Dyson sphere is designed in a node-and-frame editor and built from solar sails fired by EM-Rail
+    Ejectors and frames carried by rockets; unabsorbed sails expire after 5,400 seconds, and the finished
+    sphere's energy feeds endgame production.
+- id: machine-boosting
+  role: supporting
+  note: Proliferator coating on input items lets the consuming machine choose extra products or faster
+    production.
+- id: request-provider-logistics
+  role: core
+  note: Logistics stations set each item slot to local or remote supply, demand, or storage and are paired
+    automatically by priority; up to 100 drones per station haul within a planet and 10 vessels between
+    planets, with range and minimum-load sliders.
+influenced_by:
+- stellaris
+claims:
+- text: Dyson Sphere Program was still labeled Early Access on Steam when accessed in October 2026, so
+    no full-release year is recorded.
+  sources:
+  - src-steam-2026-dyson-sphere-program
+  confidence: high
+- text: Reviewers compare it favorably to Factorio and Satisfactory, but the cited source names only Stellaris
+    as a design inspiration, so no Factorio influence edge is recorded.
+  sources:
+  - src-wikipedia-dyson-sphere-program
+  confidence: medium
+sources:
+- src-wikipedia-dyson-sphere-program
+- src-steam-2026-dyson-sphere-program
+- src-dspwiki-2026-interstellar-logistics-station
+- src-dspwiki-2026-dyson-sphere
+- src-dspwiki-2026-dark-fog
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gh

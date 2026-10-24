@@ -1,10 +1,60 @@
 id: townscaper
 type: game
 name: Townscaper
-summary: TODO
+summary: A town-building toy in which clicking colored blocks onto an irregular grid lets a wave function collapse
+  solver assemble houses, arches, stairways, bridges, and gardens, with no goals or resources.
 year: 2020
+year_full_release: 2021
 developer: Oskar Stålberg
+platforms:
+- pc
+- console
+- handheld
+- mobile
+- web
 subgenre: city-builder
-status: asserted
+sim_domain:
+- urban
+player_role: engineer-designer
+agency_model:
+- zoning-placement
+time_model: turn-based
+sim_scale: settlement
+fidelity: abstract
+perspective: free-3d
+win_structure: open-sandbox
+failure_model: none
+narrative_mode: none
+multiplayer:
+- single
+modding: none
+production_tier: indie
+agent_count_order: none
+emergence: 2
+influence: 2
+boundary_case: true
+core_loop: click to add or remove a colored block on the irregular grid -> the solver picks modules for that cell
+  and its neighbors -> arches, stairs, roofs, and gardens appear -> keep editing
+design_notes: The grid is a subdivided, jittered hex grid of irregular quads, and each edit triggers a real-time
+  wave function collapse that narrows the valid corner modules for the changed cells and their neighbors before
+  decoration is applied. The player expresses only occupancy and color; all architectural detail is derived, which
+  makes the game a pure case of procedural build assist. It is a boundary case because nothing evolves without the
+  player; its author calls it more of a toy than a game.
+mechanics:
+- id: procedural-build-assist
+  role: core
+  note: Each block edit reruns a marching-cubes-style module lookup and a wave function collapse over affected cells,
+    then adds windows, chimneys, and bushes; delay grows with structure size.
+- id: free-placement
+  role: supporting
+  note: Colored blocks are added or removed anywhere on the grid, stacked vertically.
+- id: room-recognition
+  role: supporting
+  note: Enclosed areas are detected and filled with gardens rather than paving.
+sources:
+- src-wikipedia-townscaper
+- src-steam-2026-townscaper
+- src-thompson-2022-how-townscaper-works
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-ga

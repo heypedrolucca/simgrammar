@@ -1,0 +1,14 @@
+id: src-kocsis-2006-uct
+type: source
+name: Bandit Based Monte-Carlo Planning
+kind: paper
+authors:
+- Levente Kocsis
+- Csaba Szepesvári
+venue: 'Machine Learning: ECML 2006 (LNCS), pp. 282-293'
+date: '2006'
+doi: 10.1007/11871842_29
+accessed: '2026-10-24'
+notes: Introduces UCT, applying the UCB1 bandit rule to node selection in Monte Carlo tree search.
+provenance:
+  created: 2026-10-24-techniques-rl-design

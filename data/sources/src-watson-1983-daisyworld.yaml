@@ -1,0 +1,15 @@
+id: src-watson-1983-daisyworld
+type: source
+name: 'Biological homeostasis of the global environment: the parable of Daisyworld'
+kind: paper
+authors:
+- Andrew J. Watson
+- James E. Lovelock
+venue: Tellus B 35:284-289
+date: '1983'
+url: https://www.jameslovelock.org/biological-homeostasis-of-the-global-environment-the-parable-of-daisyworld/
+accessed: '2026-10-24'
+notes: 'Daisyworld model: black and white daisies with different albedo regulate planetary temperature across a range of stellar
+  luminosity without foresight, illustrating biosphere-climate feedback.'
+provenance:
+  created: 2026-10-24-taxonomy-m5

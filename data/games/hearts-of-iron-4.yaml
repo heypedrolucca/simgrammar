@@ -1,10 +1,114 @@
 id: hearts-of-iron-4
 type: game
 name: Hearts of Iron IV
-summary: TODO
+aliases:
+- HOI4
+summary: A World War II grand strategy game starting in 1936 or 1939 in which the player builds factories,
+  turns resources into equipment, designs divisions, follows a national focus tree, and directs fronts
+  and battle plans across land, sea, and air.
 year: 2016
 developer: Paradox Development Studio
+platforms:
+- pc
 subgenre: grand-strategy
-status: asserted
+subgenre_secondary:
+- wargame
+sim_domain:
+- military-conflict
+- political-governance
+- industrial-logistics
+player_role: commander
+agency_model:
+- direct-unit
+- policy-parameter
+- order-queue
+time_model: real-time-pausable
+sim_scale: nation
+fidelity: systemic
+perspective: top-down-2d
+win_structure: open-sandbox
+failure_model: soft-recoverable
+narrative_mode: hybrid
+multiplayer:
+- single
+- competitive
+- coop
+modding: total-conversion
+production_tier: aa
+agent_count_order: 1k
+emergence: 3
+influence: 2
+core_loop: pick national focuses and spend political power -> assign civilian factories to construction
+  and military factories to equipment -> design and train divisions -> draw fronts and battle plans ->
+  divisions fight on supply, terrain, and weather -> capitulate rivals or hold
+design_notes: 'HOI4 separates the industrial war from the field war: civilian factories build capacity
+  and military factories turn resources into equipment, so divisions fight only as well as stockpiles
+  and supply allow. Battle plans let the player act at army-group scale and leave division movement to
+  the AI. National focus trees are the authored branching layer that steers countries toward historical
+  or alternate paths, while battles resolve from unit statistics (proposal stat-combat-resolution).'
+mechanics:
+- id: modular-assembly
+  role: core
+  note: Division templates combine battalions (infantry, tanks, cavalry, motorized, mechanized) and support
+    companies, and the mix sets combat statistics and equipment needs; tank, ship, and plane designers
+    added by DLC apply the same idea to equipment.
+- id: supply-lines
+  role: core
+  note: Supply hubs connect to the capital by railway, with hub capacity set by railway level and limited
+    by the weakest link; supply falls off per province from the hub, and divisions at 35% supply or less
+    suffer attrition and combat penalties.
+- id: delegation-to-ai
+  role: core
+  note: The player draws front lines and offensive arrows for armies under generals, and the AI moves
+    divisions to carry out the battle plan; divisions can also be ordered directly.
+- id: tech-tree
+  role: core
+  note: Research runs in parallel slots, and each country has a national focus tree in which one focus
+    at a time is completed for bonuses such as extra factories or events; at launch only Germany, the
+    UK, the USSR, and the US had unique trees.
+- id: production-chain
+  role: supporting
+  note: Military factories turn strategic resources into equipment on production lines, dockyards build
+    ships, and civilian factories build infrastructure and handle trade.
+- id: faction-diplomacy
+  role: supporting
+  note: Countries join factions and guarantee others; world tension from 0 to 100 gates what democracies
+    can do.
+- id: policy-toggles
+  role: supporting
+  note: Mobilization, conscription, and trade laws and ministers are bought with political power.
+- id: stability-unrest
+  role: supporting
+  note: Ideology popularity among democratic, communist, fascist, and non-aligned groups shifts the government
+    and can end in civil war.
+- id: triggered-event-chains
+  role: supporting
+- id: fog-of-war
+  role: supporting
+- id: weather
+  role: supporting
+  note: Sea and air regions have weather that affects operations.
+- id: variable-speed
+  role: supporting
+- id: political-capital
+  role: supporting
+  note: Political power accrues over time and is spent on laws such as mobilization, conscription, and
+    trade, on ministers, and on decisions.
+- id: territorial-control
+  role: supporting
+  note: States are core or non-core, armies occupy enemy states during war, and peace conferences transfer
+    ownership.
+- id: war-score-peace
+  role: supporting
+  note: When a country capitulates, winners take turns spending peace conference points on annexation,
+    puppets, and other demands.
+- id: stat-combat-resolution
+  role: supporting
+  note: Divisions fight in hourly combat rounds comparing attacks against defense or breakthrough, draining
+    organization and strength under terrain, weather, and supply modifiers.
+sources:
+- src-wikipedia-hearts-of-iron-4
+- src-paradoxwikis-2026-hoi4-supply
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gi

@@ -1,0 +1,49 @@
+id: calibrated-serious-sims
+type: opportunity
+name: Calibrated serious simulations
+summary: Use simulation-based inference and differentiable simulators to calibrate game-grade models of
+  epidemics, traffic, and markets to real data, with published fit metrics.
+opportunity_type: non-game-transfer
+thesis: Plague Inc. and Rebel Inc. are used in classrooms and briefings despite stylized models. Simulation-based
+  inference and differentiable simulation make it practical to fit agent-based and compartment models
+  to observed data and quantify uncertainty. Shipping calibrated parameter sets with published fit metrics
+  lets game interfaces carry real insight while keeping play.
+design_sketch: A contagion sim offers a 'calibrated scenario' mode where parameters come from posterior
+  distributions fitted to historical outbreaks. Outcomes show credible intervals; a fit report explains
+  what data the model matches and where it is unreliable.
+involves:
+- contagion
+- traffic-congestion
+- supply-demand-pricing
+- forecasting
+- stats-dashboards
+applies:
+- simulation-based-inference
+- differentiable-simulation
+- massively-parallel-simulation
+precedent:
+- plague-inc
+- rebel-inc
+- cities-skylines
+- capitalism
+novelty: 3
+feasibility: 4
+impact: 2
+horizon: 1-2y
+key_risks:
+- Users over-trust calibrated outputs.
+- Data availability limits domains.
+- Calibration may reduce play value.
+validation_experiment: 'Fit a game-grade SIR network model to a public historical outbreak with simulation-based
+  inference and report posterior predictive coverage. Success: 90 percent interval coverage on held-out
+  weeks.'
+falsifiable_signal:
+  prediction: A serious-game or educational simulation will publish posterior-calibrated parameters with
+    fit metrics as part of its release.
+  resolve_by: '2028-12-31'
+  criteria: Release notes or paper accompanying a playable simulation that reports calibration method
+    and fit.
+sources: []
+status: asserted
+provenance:
+  created: 2026-10-24-synthesis

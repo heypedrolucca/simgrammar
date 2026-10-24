@@ -1,0 +1,15 @@
+id: src-wikipedia-project-hospital
+type: source
+name: Project Hospital
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Project_Hospital
+accessed: '2026-10-24'
+notes: 'Oxymoron Games (Czech), 2018-10-30, Windows/macOS/Linux; build and run a hospital with accurate medical
+  procedures; DLCs: Doctor Mode (2019, control individual doctors), Hospital Services (2020, staff training, cafeterias),
+  Infectious Diseases (2020), Traumatology (2020).'
+provenance:
+  created: 2026-10-24-catalog-gf

@@ -1,0 +1,15 @@
+id: src-steam-2019-command-modern-operations
+type: source
+name: 'Command: Modern Operations on Steam'
+kind: store-page
+venue: Steam
+date: '2026'
+url: https://store.steampowered.com/app/1076160/Command_Modern_Operations/
+accessed: '2026-10-24'
+notes: 'Release 2019-11-14, Matrix Games, Windows. Features: radar propagation, sensor degradation, terrain masking,
+  sonar thermal layers, weather, ballistics; jamming, comms disruption, anti-radiation strikes; EMCON and weapon
+  release authority doctrine; tactical AI; database of tens of thousands of platforms, sensors, weapons; thousands
+  of active platforms in real time; Lua scripting; scenario editor; 600+ scenarios; Steam Workshop; real-time multiplayer
+  PvP and co-op.'
+provenance:
+  created: 2026-10-24-catalog-gi

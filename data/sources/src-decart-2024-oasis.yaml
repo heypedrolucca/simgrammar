@@ -1,0 +1,15 @@
+id: src-decart-2024-oasis
+type: source
+name: Oasis project page (Decart and Etched)
+kind: tech-report
+authors:
+- Decart
+- Etched
+date: '2024-10-31'
+url: https://oasis-model.github.io/
+accessed: '2026-10-24'
+notes: 'Real-time Minecraft-like world model at 20 fps; ViT spatial autoencoder plus latent DiT; Diffusion
+  Forcing and dynamic noising; 500M open weights plus hosted larger model; limitations: fuzzy distance,
+  weak memory (~3 s example), imprecise inventory, weak domain generalization.'
+provenance:
+  created: 2026-10-24-techniques-world-models

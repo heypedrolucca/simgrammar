@@ -1,0 +1,15 @@
+id: src-wikipedia-plague-inc
+type: source
+name: Plague Inc.
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Plague_Inc.
+accessed: '2026-10-24'
+notes: Ndemic Creations, iOS release 26 May 2012; player evolves a pathogen to infect and kill humanity before a cure is developed;
+  creator James Vaughan invited to speak at the CDC in March 2013; Ndemic later stated the game is not on par with scientific
+  models.
+provenance:
+  created: 2026-10-24-taxonomy-m5

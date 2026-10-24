@@ -1,0 +1,107 @@
+id: 2026-10-24-catalog-ga
+type: run
+date: '2026-10-24'
+actor: agent
+operator: yoheinakajima
+agent:
+  model: claude-opus-5-5
+  harness: Claude app subagent
+purpose: Verify, characterize, and decompose city-builder lineage games into mechanics.
+method: >-
+  Read AGENTS.md, CONTRACT.md sections 1-3, the game, common, source, and run schemas, every vocab the game schema
+  references, rubrics.yaml, edge_types.yaml, and the RimWorld exemplars. Listed all mechanic ids and opened mechanic
+  files whose scope was unclear (walker-service-delivery, population-strata, land-value, rci-demand, hydrology,
+  procedural-build-assist, policy-toggles, elections, interest-groups, async-shared-region, milestone-unlocks,
+  service-coverage, hauling-jobs, and others). For each of 30 games, fetched the English Wikipedia article and, where
+  Wikipedia was thin or the game was in early access, the Steam store page (Banished, Manor Lords, Townscaper, Tiny Glade,
+  Against the Storm, Timberborn, Foundation, Workers and Resources, Songs of Syx, Farthest Frontier, Kingdoms and
+  Castles); used PCGamingWiki for Against the Storm storefront dates and Guinness World Records for the Utopia date
+  claim. Reused existing shared sources (src-wikipedia-hamurabi, -simcity-1989, -simcity-2000, -simcity-2013,
+  -caesar-iii, -frostpunk, -frostpunk-2, src-hopkins-2008-micropolis, src-cifaldi-2012-glassbox-engine,
+  src-bvschaik-2026-julius, src-paradox-2023-cs2-traffic-ai, src-anno1800wiki-2026-needs and -population,
+  src-paradoxwikis-2026-skylines-education, src-amielanczyk-2023-timberborn-water,
+  src-thompson-2022-how-townscaper-works) and created 35 new sources after an existence check. Set year to first public
+  release including early access. Scored emergence and influence against rubric anchors, taking the lower anchor when
+  between two. Mechanic notes use only facts in the cited sources or in existing mechanic definitions that cite them;
+  where a detail could not be confirmed it was left out. The shared web search budget ran out partway through, so
+  remaining checks used WebFetch on already-surfaced pages only.
+scope:
+  - data/games/hamurabi.yaml
+  - data/games/utopia.yaml
+  - data/games/simcity-*.yaml
+  - data/games/cities-skylines*.yaml
+  - data/games/simtower.yaml
+  - data/games/caesar-3.yaml
+  - data/games/pharaoh.yaml
+  - data/games/anno-*.yaml
+  - data/games/tropico-6.yaml
+  - data/games/banished.yaml
+  - data/games/frostpunk*.yaml
+  - data/games/manor-lords.yaml
+  - data/games/islanders.yaml
+  - data/games/townscaper.yaml
+  - data/games/tiny-glade.yaml
+  - data/games/against-the-storm.yaml
+  - data/games/timberborn.yaml
+  - data/games/foundation.yaml
+  - data/games/workers-and-resources.yaml
+  - data/games/surviving-mars.yaml
+  - data/games/songs-of-syx.yaml
+  - data/games/farthest-frontier.yaml
+  - data/games/kingdoms-and-castles.yaml
+  - data/sources/
+contract_version: '1.0'
+proposals:
+  - kind: new-mechanic
+    target: housing-evolution
+    detail: >-
+      Housing evolution: each house holds a level that rises when a checklist of requirements (food types, goods,
+      service coverage, local desirability) is met for some time and falls when any lapses, changing its capacity, tax
+      yield, and appearance. Distinct from population-strata, which names classes; here the state is per building and the
+      update is a requirement test. Used by Caesar III, Pharaoh, Anno 1800, Anno 117, Farthest Frontier, Banished-style
+      upgrades. Currently folded into population-strata notes.
+  - kind: new-mechanic
+    target: deity-favor
+    detail: >-
+      Deity favor: a set of gods each with a mood stock raised by temples, festivals, or offerings and lowered by
+      neglect or rival worship; thresholds grant blessings or trigger curses and disasters. Used by Caesar III (angry
+      gods), Pharaoh (Ra, Bast, Osiris, Ptah, Seth; Osiris modulates the Nile flood), and Anno 117 (belief tied to chosen
+      gods with scaling bonuses). Not covered by god-powers, which is player-cast.
+  - kind: new-mechanic
+    target: construction-logistics
+    detail: >-
+      Construction logistics: a placed building is a site that completes only after specified materials and labor are
+      delivered to it, so build speed depends on supply chains and haulers rather than a timer or instant payment.
+      Workers and Resources (concrete, steel, prefab panels plus construction-office workers or imported labor),
+      Pharaoh monuments (worker facilities and materials over years), Banished, Manor Lords, Timberborn. Today split
+      awkwardly across hauling-jobs and production-chain.
+  - kind: new-mechanic
+    target: building-heat
+    detail: >-
+      Building heat versus ambient temperature: each building or district holds a heat level from a heat source's range
+      and insulation, compared with a falling outside temperature; cold buildings cause illness and lower output.
+      Frostpunk (generator radius and heaters), Frostpunk 2 (district heat), Workers and Resources (winter heating
+      demand). heat-transfer is a physical diffusion model; this is an aggregate service-versus-threshold rule.
+  - kind: new-mechanic
+    target: run-meta-progression
+    detail: >-
+      Run meta-progression: resources earned in a finished run buy permanent upgrades that change the starting
+      conditions or options of later runs. Against the Storm (Smoldering City upgrades between settlements); common in
+      roguelite simulation games. Tagged as tech-tree for now.
+  - kind: new-mechanic
+    target: regional-city-network
+    detail: >-
+      Regional city network (single-player): several cities in one save share a region map and exchange power, water,
+      garbage, commuters, or demand through neighbor connections, so specialization across cities is a strategy.
+      SimCity 4 neighbor deals, SimCity 2000 neighbor connections. async-shared-region covers only the multiplayer form
+      (SimCity 2013).
+notes: >-
+  Facts flagged for review. (1) Utopia year is contested: Wikipedia's infobox gives 1982-06-03, Guinness and the
+  skeleton say 1981; set year 1982, status contested with a disputes claim. (2) Against the Storm first public release:
+  Wikipedia says early access October 2021, PCGamingWiki says Epic Games Store early access 2021-12-16 (Steam 2022-11-01);
+  both give 2021, changed from the skeleton's 2022. (3) Developer strings refined: Maxis Emeryville for SimCity (2013),
+  OPeNBooK (Yoot Saito) for SimTower, Gamatron AB for Songs of Syx, and Cities: Skylines II notes the 2026 handover to
+  Iceflake Studios. (4) Manor Lords and Songs of Syx are still in early access as of the sources (no year_full_release).
+  (5) Hamurabi influenced_by is empty because The Sumerian Game is not in data/games/; consider adding it as a
+  lineage-defining title. (6) Mechanic notes avoid specific numbers not in the cited pages; numbers quoted from
+  Micropolis and Julius come from existing mechanic definitions that cite those repositories.

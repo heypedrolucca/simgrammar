@@ -1,10 +1,74 @@
 id: hardspace-shipbreaker
 type: game
 name: 'Hardspace: Shipbreaker'
-summary: TODO
+summary: A zero-gravity salvage sim in which the player cuts derelict ships apart with a laser cutter and grapple,
+  manages decompression and volatile systems, and sorts salvage to pay down a large debt.
 year: 2020
+year_full_release: 2022
 developer: Blackbird Interactive
+platforms:
+- pc
+- console
 subgenre: job-sim
-status: asserted
+subgenre_secondary:
+- space-sim
+sim_domain:
+- occupational
+- physical-mechanical
+- cosmic-space
+player_role: worker
+agency_model:
+- direct-avatar
+time_model: real-time
+sim_scale: individual
+fidelity: systemic
+perspective: first-person
+win_structure: campaign
+failure_model: soft-recoverable
+narrative_mode: authored
+multiplayer:
+- single
+modding: none
+production_tier: aa
+agent_count_order: none
+emergence: 3
+influence: 1
+core_loop: start a shift -> scan the ship -> vent pressure and make power, fuel, coolant, and reactor systems safe
+  -> cut parts free -> grapple them to the correct receptacle -> salvage value pays down debt -> buy tool upgrades
+design_notes: 'Each ship is a physics assembly of joined parts and typed hazards rather than an authored level:
+  cutting into a pressurized room causes explosive decompression, cutting live electrical wires or coolant pipes
+  can explode, and a reactor removed from its casing must be delivered before it melts down. The order of disassembly
+  is the puzzle, and the taxonomy lacks a mechanic for it (proposed as salvage-deconstruction). Oxygen and thruster
+  fuel act as survival stocks, and shifts are timed except in Open Shift mode.'
+mechanics:
+- id: rigid-body-physics
+  role: core
+  note: Ships are assemblies of separable parts; freed parts keep mass and momentum in zero gravity and are pulled
+    or flung with the tether grapple toward the right receptacle.
+- id: surface-work-tools
+  role: core
+  note: The laser cutter severs structure at cut points and joints; cutting live electrical wires or coolant pipes
+    can cause an explosion, so where and in what order to cut is the core decision.
+- id: procedural-checklists
+  role: supporting
+  note: 'Systems must be made safe in order: pressurized rooms vented, electrical and coolant lines avoided, and
+    reactors delivered before they melt down; mistakes produce the physical result rather than an error.'
+- id: fluid-gas-simulation
+  role: supporting
+  note: Rooms hold atmosphere, and an uncontrolled decompression flushes the player and loose objects out of the
+    ship.
+- id: survival-meters
+  role: supporting
+  note: Oxygen and thruster fuel deplete during a shift and must be replenished.
+- id: daily-action-budget
+  role: supporting
+  note: Shifts are timed; Open Shift mode removes the limit.
+- id: loans-debt
+  role: supporting
+  note: The character owes $1.2 billion to Lynx Corporation, and salvage earnings pay it down.
+sources:
+- src-wikipedia-hardspace-shipbreaker
+- src-steam-2026-hardspace-shipbreaker
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gf

@@ -1,9 +1,78 @@
 id: crop-cultivation
 type: mechanic
 name: Crop cultivation
+aliases:
+- farming
+- growing
+- agriculture
 summary: Planted crops progress through growth stages over days or seasons depending on water, soil, and
   season, then are harvested.
 family: resources-production
-status: asserted
+substrate:
+- cellular-grid
+- aggregate-stocks
+- rule-system
+definition: 'Each planted cell or field holds a crop type, a growth progress value, and condition flags
+  such as watered, fertilized, or diseased. Each tick or day, progress advances at a base rate multiplied
+  by modifiers for soil fertility, water, light, temperature, and season; outside allowed conditions growth
+  stops or the plant dies. At maturity the crop is harvested for a yield, sometimes scaled by care or
+  skill, and the cell resets, regrows, or loses fertility. Harvest Moon and Stardew Valley require daily
+  watering and tie crops to seasons of a fixed calendar; RimWorld scales growth by soil fertility and
+  light and halts it outside a temperature band; Farming Simulator turns field preparation, sowing, fertilizing,
+  and harvesting into vehicle operations; Manor Lords and Farthest Frontier track soil fertility per field
+  and reward crop rotation. Inputs: seeds, labor or player actions, environmental conditions. Outputs:
+  harvested goods and an updated field state.'
+player_experience: Planning around a delayed payoff. The player commits land and time now for a harvest
+  days or a season later, then guards the field against weather, pests, and neglect. In avatar farming
+  games the daily watering round becomes a ritual; in colony sims the growing season becomes a deadline
+  that sets how much must be stored for winter.
+design_levers:
+- growth duration per crop and number of visible stages
+- which conditions gate growth (water, light, temperature, season, fertility) and whether violating them
+  pauses or kills the crop
+- single-harvest versus regrowing crops
+- yield and quality modifiers from fertilizer, skill, or care
+- soil fertility depletion and recovery rules, including rotation or fallow
+- labor or action cost of planting, tending, and harvesting
+failure_modes:
+- Daily manual tending scales poorly, so large farms become rote clicking until automation such as sprinklers
+  arrives.
+- One crop with the best value per day dominates and planting choice disappears.
+- Season-change crop deaths feel arbitrary when the calendar is not prominent.
+- Growth too fast relative to consumption makes food trivial; growth too slow with harsh winters makes
+  early runs unwinnable.
+dynamics:
+- Harvests arrive in pulses, creating labor peaks that compete with construction and hauling.
+- Seasonal growth windows couple farming to storage and spoilage, turning winter into a stockpiling test.
+- Soil depletion pushes expansion onto new land or forces rotation schedules.
+- Weather events and blights can wipe out a season and cascade into famine.
+math_basis:
+- system-dynamics
+- optimization
+feedback: none
+player_interface:
+- placement
+- direct-manipulation
+- orders
+legibility: 4
+emergence_potential: 3
+authoring_cost: 3
+compute_cost: 2
+tuning_difficulty: 3
+ai_leverage: 2
+maturity: classic
+synergy:
+- id: daily-action-budget
+  note: Watering and harvesting consume the daily energy budget, forcing farm sizing tradeoffs.
+- id: seasons
+  note: Season-locked crops create a calendar of planting decisions.
+open_questions:
+- Can learned plant growth models give crops plausible responses to microclimate that players can still
+  reason about?
+- How much automation can farming absorb before cultivation stops being a decision?
+sources:
+- src-wikipedia-harvest-moon
+- src-wikipedia-stardew-valley
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m1

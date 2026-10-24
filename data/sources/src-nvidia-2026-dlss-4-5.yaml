@@ -1,0 +1,15 @@
+id: src-nvidia-2026-dlss-4-5
+type: source
+name: NVIDIA DLSS 4.5 Delivers Major Upgrade With 2nd Gen Transformer Model For Super Resolution and 6X
+  Dynamic Multi Frame Generation
+kind: tech-report
+authors:
+- NVIDIA
+venue: GeForce News
+date: '2026-01-06'
+url: https://www.nvidia.com/en-us/geforce/news/dlss-4-5-dynamic-multi-frame-gen-6x-2nd-gen-transformer-super-res/
+accessed: '2026-10-24'
+notes: 2nd generation transformer SR for all RTX GPUs; Dynamic MFG and 6X mode (up to five generated frames)
+  for RTX 50; over 250 MFG titles; over 400 DLSS SR games and apps.
+provenance:
+  created: 2026-10-24-techniques-world-models

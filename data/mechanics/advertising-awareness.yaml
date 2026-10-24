@@ -1,0 +1,77 @@
+id: advertising-awareness
+type: mechanic
+name: Advertising and awareness
+aliases:
+- marketing
+- brand awareness
+- hype
+- advertising campaigns
+summary: Spending on advertising raises a demand or awareness stock that decays without upkeep and scales how many
+  customers arrive or buy.
+family: economy-finance
+substrate:
+- aggregate-stocks
+definition: >-
+  Owns an awareness, brand, or hype stock per business, product, or venue and the rule that maps it onto customer
+  traffic. Each period paid campaigns add to the stock with diminishing returns, and the stock decays toward a
+  baseline when spending stops; its current level multiplies arrivals, the share of customers who consider the
+  offering, or launch sales. Lemonade Stand (1973) reduces it to a daily input with no carryover: advertising signs
+  bought before the day resolves raise sales alongside price and the weather. Two Point Hospital has assistants run
+  marketing campaigns that bring in more patients. Capitalism and Game Dev Tycoon use advertising or marketing spend
+  to build brand or pre-release hype. It differs from customer-value-choice, which owns how a customer who is already
+  present chooses among offerings by price and value; this mechanic owns how many customers show up or consider the
+  offering at all.
+player_experience: >-
+  Buying customers. The player decides how much to spend before the demand exists, watches arrivals rise and fall
+  with each campaign, and learns that awareness fades: a store or game the market has forgotten needs fresh spending,
+  while a strong brand lets prices rise.
+design_levers:
+- cost per campaign unit and campaign duration
+- decay rate of awareness after spending stops
+- saturation curve, or diminishing returns per unit spent
+- targeting by customer segment, product, or condition
+- whether awareness raises arrivals, conversion, or willingness to pay
+- whether advertising can sell a poor product or only amplifies quality
+failure_modes:
+- Linear returns make maximum advertising always correct and remove the decision.
+- Effects too small to see in the statistics teach players to skip advertising entirely.
+- Without decay, one early campaign buys permanent demand.
+- Advertising that overrides quality lets poor products sell and undermines the product-quality systems.
+dynamics:
+- Advertising raises traffic and revenue that fund more advertising, a reinforcing loop limited by saturation.
+- Pre-release hype front-loads sales, so campaign timing and release timing couple.
+- Extra arrivals load service capacity, so a campaign can create queues that lower satisfaction.
+math_basis:
+- system-dynamics
+- optimization
+feedback: both
+player_interface:
+- parameter
+- choice-cards
+legibility: 3
+emergence_potential: 2
+authoring_cost: 1
+compute_cost: 1
+tuning_difficulty: 3
+ai_leverage: 3
+maturity: classic
+open_questions:
+- Could simulated customers with stated tastes respond to generated ad copy, making campaign content rather than
+  only spend a lever?
+- Which decay and saturation curves keep advertising a recurring decision instead of a one-time setting?
+claims:
+- text: Lemonade Stand's daily inputs are glasses made, advertising signs, and price per glass, set against a weather
+    report.
+  sources:
+  - src-wikipedia-lemonade-stand
+  confidence: medium
+- text: In Two Point Hospital assistants run marketing.
+  sources:
+  - src-wikipedia-two-point-hospital
+  confidence: medium
+sources:
+- src-wikipedia-lemonade-stand
+- src-wikipedia-two-point-hospital
+status: sourced
+provenance:
+  created: 2026-10-24-taxonomy-triage-a

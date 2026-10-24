@@ -1,0 +1,16 @@
+id: src-wikipedia-a-tale-in-the-desert
+type: source
+name: A Tale in the Desert
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/A_Tale_in_the_Desert
+accessed: '2026-10-24'
+notes: eGenesis; First Telling launched 2003-02-15; later Pluribus Games and Desert Nomad Studios. Windows, Linux,
+  Mac. No combat; Tellings average about 18 months and end in a wipe; seven tests per discipline leading to Oracle
+  rank and Monuments; laws by petition with signatures then a vote, a controlled variant of Nomic; elected Demi-Pharaoh
+  can ban up to seven characters; no official currency; gathering wood, mining, flax.
+provenance:
+  created: 2026-10-24-catalog-gi

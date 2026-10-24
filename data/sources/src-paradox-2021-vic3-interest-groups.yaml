@@ -1,0 +1,13 @@
+id: src-paradox-2021-vic3-interest-groups
+type: source
+name: 'Victoria 3 Dev Diary #6: Interest Groups'
+kind: tech-report
+authors:
+- Paradox Development Studio
+venue: Paradox Interactive forum
+date: '2021'
+url: https://forum.paradoxplaza.com/forum/developer-diary/victoria-3-dev-diary-6-interest-groups.1481423/
+accessed: '2026-10-24'
+notes: Political strength from pop wealth and enfranchisement; clout as share of national total; powerful, influential, marginalized classes; approval from laws, government membership, loyalists and radicals; traits activated by approval and clout.
+provenance:
+  created: 2026-10-24-taxonomy-m2

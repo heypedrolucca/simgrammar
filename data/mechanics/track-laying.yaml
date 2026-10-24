@@ -1,0 +1,62 @@
+id: track-laying
+type: mechanic
+name: Track laying
+aliases:
+- rail building
+- coaster track building
+- track construction
+summary: The player builds rail or coaster track segment by segment under grade, curvature, terrain, and cost constraints,
+  and vehicles then run on the resulting path.
+family: space-construction
+substrate:
+- cellular-grid
+- rule-system
+definition: >-
+  Owns a set of track pieces joined end to end, each with a type (straight, curve, slope, switch, bridge, tunnel, or special
+  element such as a loop), an entry and exit position and heading, and a cost. Construction extends an open endpoint with
+  a piece whose entry matches it; the game checks grade and curvature limits, terrain clearance, and collisions with other
+  structures, then charges a cost that depends on terrain (slopes, water, demolition) and piece type. Railroad Tycoon and
+  Transport Tycoon lay track on a tile grid, with slopes, bridges, and tunnels in Transport Tycoon; RollerCoaster Tycoon builds
+  coasters piece by piece on a tile grid by direction, height, steepness, and elements such as loops and corkscrews; Planet
+  Coaster adds spline editing; Factorio places straight and curved rail pieces. Outputs: a track graph that vehicles traverse,
+  used by scheduling, signaling, and ride rating. Unlike free-placement, the unit of building is a connected chain rather
+  than a footprint; unlike road-network, it owns segment geometry and its constraints rather than building connectivity; unlike
+  modular-assembly, the result is a path.
+player_experience: >-
+  Drawing a line through the world under constraints. Players hunt for the gentle grade around a hill, decide whether a bridge
+  is worth its price, and fit a coaster's drops and turns into a cramped park. A clean line that vehicles run smoothly on
+  is a craft object players admire and share.
+design_levers:
+- grade and curve radius limits and their effect on vehicle speed
+- terrain cost model for slopes, water, tunnels, and demolition
+- 'piece set: fixed tiles, free splines, or both'
+- auto-routing tools that pick a path between endpoints
+- special pieces such as switches, loops, lifts, and brakes
+failure_modes:
+- Tile-locked pieces make every layout look the same; free splines without snapping make clean joins hard.
+- Construction controls that need many precise clicks per segment make building tedious.
+- Costs too low make terrain irrelevant, so lines ignore the landscape.
+dynamics:
+- 'Terrain shapes networks and rides: lines follow valleys, and coasters use hills for drops.'
+- Junction and switch layouts couple track design to signaling and throughput.
+- Track geometry feeds ride ratings and train speeds, so building quality shows up in revenue.
+math_basis:
+- optimization
+- combinatorics
+feedback: none
+player_interface:
+- placement
+legibility: 4
+emergence_potential: 3
+authoring_cost: 2
+compute_cost: 1
+tuning_difficulty: 2
+ai_leverage: 2
+maturity: classic
+open_questions:
+- Can route-finding assistants that propose track under grade and cost constraints keep the craft while removing click work?
+- Could generative models propose coaster layouts that hit target ratings for players to refine?
+sources: []
+status: asserted
+provenance:
+  created: 2026-10-24-taxonomy-triage-b

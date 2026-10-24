@@ -1,0 +1,108 @@
+id: neural-rendering-shaders
+type: technique
+name: Neural rendering in the graphics pipeline
+aliases:
+- DLSS
+- DLSS 4
+- DLSS 5
+- neural shaders
+- RTX Neural Materials
+- neural texture compression
+- neural radiance cache
+summary: Small neural networks inside the renderer upscale frames, generate extra frames, denoise ray
+  tracing, decode compressed textures and layered materials, and since DLSS 5 re-light the final frame,
+  all without touching simulation state.
+category: neural-rendering-3d
+year: 2025
+mechanism: 'DLSS Super Resolution reconstructs a high-resolution frame from a lower-resolution render
+  plus motion vectors with a transformer network (from DLSS 4); Multi Frame Generation predicts up to
+  three (DLSS 4) or five (DLSS 4.5) frames between rendered frames; Ray Reconstruction replaces hand-tuned
+  denoisers. Neural shaders embed small MLPs inside shader code and run them on tensor units: neural texture
+  compression decodes textures from learned latents, neural materials evaluate layered BRDFs, and the
+  neural radiance cache learns multi-bounce indirect light online. DirectX cooperative vectors expose
+  this to cross-vendor shaders. DLSS 5 adds a final network pass that adds lighting and material detail
+  from color and motion vectors, with developer intensity controls and masks.'
+key_results:
+- text: DLSS 4 (January 2025) introduced Multi Frame Generation of up to three extra frames per rendered
+    frame on RTX 50 GPUs and transformer models for super resolution and ray reconstruction, with 75 games
+    and apps at launch and up to 8x frame rate over brute-force rendering.
+  sources:
+  - src-nvidia-2025-dlss-4
+  confidence: high
+- text: RTX neural shaders (January 2025) included neural texture compression using up to 7x less VRAM
+    than block-compressed textures at equal quality, neural materials up to 5x faster, and a neural radiance
+    cache for multi-bounce indirect lighting, with DirectX cooperative vector support announced.
+  sources:
+  - src-nvidia-2025-rtx-neural-rendering
+  confidence: high
+- text: By January 2026 over 250 titles supported Multi Frame Generation and over 400 games and apps supported
+    DLSS Super Resolution; DLSS 4.5 added a 6X mode generating up to five frames per rendered frame.
+  sources:
+  - src-nvidia-2026-dlss-4-5
+  confidence: high
+- text: DLSS 5 launched on 2026-09-03 in NBA 2K27 as a deterministic one-frame-in, one-frame-out neural
+    pass that adds lighting and material detail, with structure and tone intensity controls and semantic
+    masks for developers.
+  sources:
+  - src-nvidia-2026-dlss-5
+  confidence: high
+- text: DLSS 5's reveal drew largely negative reaction from players and developers over altered faces
+    and art direction, and a reported 50 to 60 percent frame-rate cost; frame generation in general adds
+    input latency and can introduce artifacts.
+  sources:
+  - src-wikipedia-deep-learning-super-sampling
+  confidence: medium
+- text: 'Simulation titles use DLSS: Microsoft Flight Simulator (2020) supports DLSS upscaling and DLSS
+    Frame Generation, and Cities: Skylines II supports DLSS upscaling.'
+  sources:
+  - src-pcgamingwiki-2026-msfs-2020
+  - src-pcgamingwiki-2026-cities-skylines-2
+  confidence: medium
+maturity: shipped-mainstream
+trl: 9
+runtime:
+- client-realtime
+determinism_impact: preserves
+horizon: now
+risks:
+- player-trust
+- latency
+- compute-cost
+- controllability
+affects:
+- id: embodied-skill-control
+  effect: accelerates
+  note: Upscaling and frame generation raise displayed frame rates in GPU-heavy flight and driving sims
+    for the same render cost; generated frames do not sample new input, so frame generation adds latency
+    that hurts precise hand-flying or driving.
+- id: day-night-cycle
+  effect: deepens
+  note: Neural denoising and the neural radiance cache make dynamic multi-bounce lighting affordable,
+    so player-built interiors and towns can be lit correctly across a full diurnal cycle where baked lighting
+    cannot follow player construction.
+- id: decoration-beauty
+  effect: deepens
+  note: Up to 7x VRAM savings from neural texture compression and cheaper layered materials let more distinct
+    high-detail decor assets be resident at once, raising the variety a beauty-driven builder can show
+    on screen.
+deployed_in:
+- microsoft-flight-simulator-2020
+- cities-skylines-2
+limitations:
+- 'Changes presentation, not simulation: CPU-bound simulation games (agent counts, pathfinding, economy
+  ticks) gain nothing from GPU-side neural rendering.'
+- Frame generation adds input latency and artifacts; DLSS 5's final pass reportedly costs 50 to 60 percent
+  of frame rate and can alter art direction.
+- 'Hardware-gated: Multi Frame Generation and DLSS 5 require RTX 50-series GPUs at launch, and neural
+  shader features depend on vendor SDKs and cooperative vector support.'
+sources:
+- src-nvidia-2025-dlss-4
+- src-nvidia-2025-rtx-neural-rendering
+- src-nvidia-2026-dlss-4-5
+- src-nvidia-2026-dlss-5
+- src-wikipedia-deep-learning-super-sampling
+- src-pcgamingwiki-2026-msfs-2020
+- src-pcgamingwiki-2026-cities-skylines-2
+status: sourced
+provenance:
+  created: 2026-10-24-techniques-world-models

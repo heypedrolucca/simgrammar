@@ -1,10 +1,87 @@
 id: against-the-storm
 type: game
 name: Against the Storm
-summary: TODO
-year: 2022
+summary: A roguelite city builder in which each settlement must fill a reputation gauge before the Queen's impatience
+  runs out, balancing three villager species' needs while opening dangerous forest glades under a recurring blightstorm.
+year: 2021
+year_full_release: 2023
 developer: Eremite Games
+platforms:
+- pc
+- console
+- handheld
 subgenre: city-builder
-status: asserted
+sim_domain:
+- urban
+- economic
+player_role: planner-mayor
+agency_model:
+- zoning-placement
+- policy-parameter
+time_model: real-time-pausable
+sim_scale: settlement
+fidelity: stylized
+perspective: isometric
+win_structure: scenario-goals
+failure_model: hard-restart
+narrative_mode: hybrid
+multiplayer:
+- single
+modding: none
+production_tier: indie
+agent_count_order: '100'
+emergence: 3
+influence: 2
+core_loop: embark with three species and a few goods -> build camps, production, and housing in a cleared glade
+  -> meet each species' needs to keep it content -> complete orders and open glades for reputation -> win before
+  the Queen's impatience fills -> carry rewards to the Smoldering City
+design_notes: 'Against the Storm compresses a city builder into short runs: each settlement is a fresh generated
+  map with a race between two gauges, reputation that the player fills and the Queen''s impatience that fills on
+  its own, and earning reputation also lowers impatience. Each village hosts three of seven species with distinct
+  housing, food, luxury, and recreation preferences, so the same production network must serve conflicting demands.
+  Rewards carry over to upgrade the Smoldering City between runs, a meta-progression system the taxonomy lacks (see
+  run proposal).'
+mechanics:
+- id: crisis-countdown
+  role: core
+  note: The Queen's Impatience gauge fills over time and recalls the player when full; recurring storms raise pressure
+    between calm periods.
+- id: scenario-objectives
+  role: core
+  note: Each settlement is won by filling the Reputation gauge through orders, villager contentment, and opened
+    glades.
+- id: production-chain
+  role: core
+  note: Production buildings convert goods by recipes such as raincoats, ale, and pies, chosen from a run-specific
+    building set.
+- id: citizen-satisfaction
+  role: core
+  note: Contentment per species responds to met needs; discontented villagers leave and content ones raise reputation.
+- id: population-strata
+  role: supporting
+  note: Seven species with distinct preferences; three per village.
+- id: procedural-terrain
+  role: supporting
+  note: A new map is generated for each settlement across six biomes.
+- id: seasons
+  role: supporting
+  note: A calm building period alternates with the storm.
+- id: fog-of-war
+  role: supporting
+  note: Forest glades stay hidden until cut open and may hold boons or threats.
+- id: adaptive-threat-scaling
+  role: supporting
+  note: Forest hostility rises as the settlement cuts trees and opens glades.
+- id: tech-tree
+  role: supporting
+  note: Meta-progression resources upgrade the Smoldering City between runs.
+- id: trade-routes
+  role: supporting
+  note: A visiting trader's wares change each year.
+sources:
+- src-wikipedia-against-the-storm
+- src-pcgamingwiki-2026-against-the-storm
+- src-steam-2026-against-the-storm
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-ga

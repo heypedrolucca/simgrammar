@@ -1,0 +1,88 @@
+id: 2026-10-24-taxonomy-m6
+type: run
+date: '2026-10-24'
+actor: agent
+operator: yoheinakajima
+agent:
+  model: claude-opus-5-5
+  harness: Claude app subagent
+purpose: 'Taxonomy run: complete the mechanic analyses for the information-legibility, control-automation, and progression-goals
+  families.'
+method: 'Read AGENTS.md, CONTRACT.md sections 1-3, schema/mechanic.schema.json, schema/common.schema.json, the vocab
+  files the mechanic schema references (mechanic_family, substrate, math_basis, feedback, player_interface, maturity,
+  status, confidence), vocab/rubrics.yaml, vocab/edge_types.yaml, and the exemplars needs-decay, rimworld, and src-wikipedia-rimworld.
+  Completed 24 skeleton mechanics in the information-legibility, control-automation, and progression-goals families
+  from designer knowledge of shipped games, then spent search effort on the 13 mechanics where a primary or encyclopedic
+  source most improves accuracy: Factorio Friday Facts 88, 122, 170, and 384 (circuits, blueprints); Screeps docs
+  on the game loop and CPU limit (player programming); Stellaris dev diaries 11 (research draws) and 21 (sectors);
+  Victoria 3 dev diary 74 and a PCGamesN report on nested tooltips; Wikipedia pages for SpaceChem, Opus Magnum,
+  Technology tree, Fog of war, SimCity (1989), RollerCoaster Tycoon, Populous, and Black & White; a Game Developer
+  interview on Opus Magnum; StrategyWiki Sims 2 careers; the Stardew Valley wiki on bundles. Each sourced fact is
+  recorded as a claim with confidence; mechanics with citations are status sourced, the rest asserted. One fetched
+  summary misattributed a SimCity Detroit detail; I re-fetched the page and replaced it with the Broderbund-suggested-scenarios
+  fact. Scores were assigned by matching rubric anchor text and moved to the lower anchor when between two. UI-layer
+  mechanics got feedback none and emergence 1. Only one relation was added: comparative-histograms requires design-performance-rating,
+  because the histograms plot that mechanic''s metrics. I rejected signal-circuits specializes player-programming
+  and career-ladder requires agent-skills as not clearly hard relations. Web search budget ran out mid-run; the
+  remaining checks used WebFetch on URLs already found.'
+contract_version: '1.0'
+proposals:
+- kind: other
+  target: milestone-unlocks
+  detail: 'Boundary with tech-tree is blurry: Satisfactory HUB milestones, Dyson Sphere Program research, and Factorio
+    science are paid with item deliveries rather than unlocked by thresholds. Suggest the orchestrator decide whether
+    paid unlocks are always tech-tree (my reading) and tag games accordingly.'
+- kind: other
+  target: signal-circuits
+  detail: 'Considered signal-circuits specializes player-programming (both are player-authored logic) but did not
+    add it: circuits are spatial, in-world, and often not Turing-oriented, while player-programming is textual or
+    instruction-track code. The orchestrator may want a specializes edge or a synergy edge in the global pass.'
+- kind: other
+  target: direct-avatar, embodied-skill-control
+  detail: These overlap. I scoped direct-avatar to controlling one character's locomotion and interaction and embodied-skill-control
+    to motor skill operating a simulated mechanism as the core challenge. Both pass admission (Minecraft has the
+    first without the second; a flight sim cockpit has the second without the first), but games will need care when
+    tagging.
+- kind: vocab-term
+  target: math_basis
+  detail: Information-display mechanics (overlays, dashboards, tooltips, alerts) have no clean math_basis term;
+    I used probability-statistics or information-theory as the nearest. A term such as visualization or information-design
+    might be worth an ADR.
+scope:
+- data/mechanics/advisors.yaml
+- data/mechanics/agent-inspection.yaml
+- data/mechanics/alerts-feed.yaml
+- data/mechanics/causal-tooltips.yaml
+- data/mechanics/comparative-histograms.yaml
+- data/mechanics/data-overlays.yaml
+- data/mechanics/fog-of-war.yaml
+- data/mechanics/forecasting.yaml
+- data/mechanics/scouting-knowledge.yaml
+- data/mechanics/stats-dashboards.yaml
+- data/mechanics/blueprints.yaml
+- data/mechanics/delegation-to-ai.yaml
+- data/mechanics/designation-orders.yaml
+- data/mechanics/direct-avatar.yaml
+- data/mechanics/embodied-skill-control.yaml
+- data/mechanics/god-powers.yaml
+- data/mechanics/player-programming.yaml
+- data/mechanics/signal-circuits.yaml
+- data/mechanics/unit-commands.yaml
+- data/mechanics/career-ladder.yaml
+- data/mechanics/collection-goals.yaml
+- data/mechanics/milestone-unlocks.yaml
+- data/mechanics/scenario-objectives.yaml
+- data/mechanics/tech-tree.yaml
+- data/sources/* (new sources only)
+notes: 'Sources created by this run (all cited by entities in this partition): src-wube-2015-fff-88-combinators,
+  src-wube-2016-fff-122-better-circuit-network, src-wube-2016-fff-170-blueprint-library, src-wube-2023-fff-384-combinators-2,
+  src-screeps-2026-docs-cpu-limit, src-screeps-2026-docs-game-loop, src-wikipedia-spacechem, src-wikipedia-opus-magnum,
+  src-couture-2019-road-to-igf-opus-magnum, src-paradox-2015-stellaris-dev-diary-11, src-paradox-2016-stellaris-dev-diary-21-sectors,
+  src-paradox-2023-victoria-3-dev-diary-74, src-pcgamesn-2022-victoria-3-nested-tooltips, src-wikipedia-technology-tree,
+  src-wikipedia-fog-of-war, src-strategywiki-2026-sims-2-careers, src-stardewvalleywiki-2026-bundles, src-wikipedia-rollercoaster-tycoon,
+  src-wikipedia-simcity-1989, src-wikipedia-populous, src-wikipedia-black-and-white. Date precision is low on three:
+  the Victoria 3 diary page shows no date (2023 inferred from screenshot timestamps), the PCGamesN article has no
+  date (2022 inferred), and the Stellaris sector diary month comes from image filenames. Several game examples in
+  the text come from memory and are unsourced: Football Manager and OOTP scouting details, Frostpunk temperature
+  forecast, Oxygen Not Included overlays and errand priorities, the SimCity (2013) agent shortcut claim in agent-inspection,
+  the Cities: Skylines Chirper mod claim, and the later Stellaris sector rework. Families unchanged.'

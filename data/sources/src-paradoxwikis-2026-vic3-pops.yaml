@@ -1,0 +1,15 @@
+id: src-paradoxwikis-2026-vic3-pops
+type: source
+name: Pops
+kind: encyclopedia
+authors:
+- Victoria 3 Wiki contributors
+venue: Victoria 3 Wiki (paradoxwikis.com)
+date: '2026'
+url: https://vic3.paradoxwikis.com/Pops
+accessed: '2026-10-24'
+notes: Pops share profession, culture, religion, state, and workplace; professions grouped into classes and strata; standard
+  of living sets needs and radicalism; monthly qualifications from literacy and wealth; literacy moves toward education access;
+  migration toward states with higher attraction, mainly standard of living; workforce 25% by default.
+provenance:
+  created: 2026-10-24-taxonomy-m3

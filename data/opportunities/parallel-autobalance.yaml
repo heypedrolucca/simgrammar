@@ -1,0 +1,51 @@
+id: parallel-autobalance
+type: opportunity
+name: Parallel autobalancing of economies
+summary: Run thousands of scripted, learned, and diversity-seeking agents through a game's economy at
+  accelerated speed to find degenerate strategies and tune parameters before players do.
+opportunity_type: authoring-tool
+thesis: Production chains, markets, threat scaling, and tech trees have many interacting parameters and
+  are tuned by small QA teams and patches after launch. GPU-parallel simulation and quality-diversity
+  search make it practical to run very large populations of strategies and to search parameter space for
+  regions with no dominant strategy. This shifts balance work from reactive patching to pre-launch search.
+design_sketch: A headless build of the simulation runs on a GPU cluster. A quality-diversity search maintains
+  an archive of strategies across behavior descriptors (expansion speed, military share, trade dependence);
+  a tuner adjusts parameters to keep win rates and resource curves inside designer-set bands; reports
+  flag exploits with replays.
+involves:
+- production-chain
+- supply-demand-pricing
+- tech-tree
+- adaptive-threat-scaling
+- rival-firms
+applies:
+- automated-playtesting
+- massively-parallel-simulation
+- quality-diversity-search
+- differentiable-simulation
+precedent:
+- factorio
+- offworld-trading-company
+- anno-1800
+- rimworld
+novelty: 2
+feasibility: 4
+impact: 3
+horizon: now
+key_risks:
+- Bots find exploits humans never would and miss ones humans find.
+- Headless builds of legacy engines are expensive to make.
+- Over-balancing removes interesting asymmetries.
+validation_experiment: 'Run a MAP-Elites search over strategies in an open-source economy game for one
+  GPU-day and compare discovered exploits with the game''s historical patch notes. Success: at least half
+  of historically patched economic exploits rediscovered.'
+falsifiable_signal:
+  prediction: At least two studios will publicly describe using large-scale agent search to balance a
+    simulation or strategy game's economy before release.
+  resolve_by: '2027-12-31'
+  criteria: GDC talks, technical blogs, or papers by studio staff describing the practice for a named
+    commercial title.
+sources: []
+status: asserted
+provenance:
+  created: 2026-10-24-synthesis

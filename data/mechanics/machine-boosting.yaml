@@ -1,0 +1,70 @@
+id: machine-boosting
+type: mechanic
+name: Machine boosting
+aliases:
+- modules
+- overclocking
+- clock speed
+- beacons
+- proliferation
+summary: Per-machine modifiers such as modules, beacons, clock speed, or coatings trade extra power, scarce items, or currency
+  for faster or more productive machines.
+family: resources-production
+substrate:
+- rule-system
+- aggregate-stocks
+definition: >-
+  Owns, for each producing machine, a set of modifier slots or settings and the effect vector they sum to: speed, productivity
+  (extra output per cycle), energy use, and sometimes pollution or quality. Cycle time divides by one plus the speed bonus,
+  productivity fills a bonus bar that yields free outputs, and power draw scales with the boost, often superlinearly. Satisfactory
+  clock speed runs from 1% to 250%, each of up to three Power Shards raises the cap by 50 points, and power scales with exponent
+  1.321928, so 250% draws 335.77% of base power. Factorio fills module slots with speed, productivity, efficiency, or quality
+  modules, beacons project module effects onto nearby machines, and productivity bonuses are capped at +300%. Dyson Sphere
+  Program coats items with proliferator so machines consuming them gain extra products or speed. Captain of Industry spends
+  Unity on building boosts. Unlike production-chain, which owns recipes and buffers, and quality-tiers, which owns item grades,
+  this mechanic owns the cost-benefit curve of pushing a single machine harder.
+player_experience: >-
+  An optimization layer on top of ratio planning. Players decide whether to build more machines or push the ones they have,
+  weighing floor space and materials against a growing power bill. Slotting the last productivity module or overclocking a
+  bottleneck machine is a satisfying fix, and the power spike that follows is the bill.
+design_levers:
+- shape of the power or cost curve per unit of boost, linear or convex such as Satisfactory's exponent of about 1.32
+- separate effect axes (speed, productivity, efficiency, pollution) and the tradeoffs bundled into one slot
+- slot counts per machine and whether boosts can be shared with neighbors, as with beacons
+- 'cost of the boost itself: crafted modules, rare world pickups such as Power Shards, or a currency such as Unity'
+- caps on stacked bonuses, such as Factorio's +300% productivity limit
+- 'which machine types accept boosts: assemblers, drills, labs, turrets'
+failure_modes:
+- Productivity bonuses that stack without a cap create net-positive loops; Factorio caps productivity at +300% to prevent
+  this.
+- One dominant configuration, such as productivity modules everywhere with beacons for speed, becomes a solved template.
+- Convex power costs that are not shown make overclocking feel like a sudden grid failure.
+- Boosts gated on rare pickups push players into exploration chores unrelated to factory design.
+dynamics:
+- 'Players trade space for power: compact boosted builds compete with sprawling unboosted ones.'
+- Productivity bonuses on late stages save every upstream input, so players boost the end of a chain first.
+- Boosting a bottleneck moves the bottleneck to power generation, coupling factory design to the grid.
+math_basis:
+- optimization
+- system-dynamics
+feedback: reinforcing
+player_interface:
+- placement
+- parameter
+legibility: 3
+emergence_potential: 2
+authoring_cost: 2
+compute_cost: 1
+tuning_difficulty: 4
+ai_leverage: 2
+maturity: established
+open_questions:
+- Can planners that solve module and clock settings for a target rate coexist with players who enjoy solving them by hand?
+- Which cost curves keep boosted and unboosted builds both viable through the late game?
+sources:
+- src-satisfactorywiki-2026-clock-speed
+- src-wube-2023-fff-375-quality
+- src-coiwiki-2026-unity
+status: sourced
+provenance:
+  created: 2026-10-24-taxonomy-triage-b

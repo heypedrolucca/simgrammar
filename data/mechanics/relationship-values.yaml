@@ -1,8 +1,69 @@
 id: relationship-values
 type: mechanic
 name: Relationship values
+aliases:
+- affinity
+- friendship meter
+- relationship score
 summary: Pairwise numeric affinity between characters changes with interactions and drives social choices.
 family: social-relations
-status: asserted
+substrate:
+- network-graph
+- agent-based
+- aggregate-stocks
+definition: 'Owns a weighted, often directed graph over agent pairs holding one or more scalar affinities
+  (friendship, romance, respect) and labels derived by threshold (friend, rival, lover). Interactions
+  add or subtract amounts that depend on the action, personalities, and the current value; many games
+  decay values toward neutral without contact. Agents read the values to decide whom to approach, help,
+  or attack. RimWorld opinion runs -100 to 100 with rival below -20 and friend above 20; chitchat adds
+  about 0.66 up to +10, while insults, up to 6 times likelier at -100 opinion, can start social fights.
+  Prom Week keeps three bidirectional networks: buddy, romance, and cool. The Sims: Hot Date introduced
+  separate short-term and long-term relationship scores. Inputs: interactions, traits, events. Outputs:
+  social choices, cooperation, romance eligibility, conflict.'
+player_experience: The player watches friendships and feuds form, reads relationship meters, and engineers
+  meetings to repair or create bonds. Relationships make losses personal and give characters reasons to
+  act together.
+design_levers:
+- number of dimensions per pair (single affinity versus friendship, romance, respect)
+- change per interaction and its dependence on the current value
+- decay toward neutral and its rate
+- label thresholds such as friend, rival, and partner
+- 'symmetry: directed or mutual values'
+failure_modes:
+- One-dimensional affinity conflates liking with respect or attraction, so relationships feel thin.
+- Positive feedback drives every long-standing pair to best friends or mortal enemies.
+- Repeating one friendly action maxes a relationship with no story behind it.
+- Pairwise storage grows with the square of population, so large games restrict it to notable characters.
+dynamics:
+- Agents with compatible traits cluster into friend groups, producing cliques within a colony or town.
+- Insults at low opinion push values lower, a reinforcing loop into feuds and fights.
+- Deaths and breakups spread grief along the graph, coupling relationships to mood.
+math_basis:
+- social-network
+- system-dynamics
+feedback: reinforcing
+player_interface:
+- observation
+- choice-cards
+legibility: 4
+emergence_potential: 4
+authoring_cost: 2
+compute_cost: 2
+tuning_difficulty: 3
+ai_leverage: 3
+maturity: classic
+synergy:
+- id: villager-requests
+  note: Completing requests raises friendship, giving the social meter a concrete verb (Animal Crossing,
+    Stardew).
+open_questions:
+- Can relationship state be inferred from language-model agent conversations rather than incremented by
+  fixed amounts, and stay stable?
+- How many relationship dimensions do players track before additional meters stop adding meaning?
+sources:
+- src-rimworldwiki-2026-social
+- src-mccoy-2014-social-story-worlds
+- src-wikipedia-the-sims
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m3

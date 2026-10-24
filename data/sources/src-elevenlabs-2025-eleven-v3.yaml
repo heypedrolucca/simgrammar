@@ -1,0 +1,15 @@
+id: src-elevenlabs-2025-eleven-v3
+type: source
+name: Eleven v3 (alpha) announcement
+kind: tech-report
+authors:
+- ElevenLabs
+venue: ElevenLabs blog
+date: '2025-06-03'
+url: https://elevenlabs.io/blog/eleven-v3
+accessed: '2026-10-24'
+notes: Expressive TTS with inline audio tags ([whispers], [sighs], [excited]), a Text to Dialogue endpoint
+  for multi-speaker turns and interruptions, 70+ languages. Not recommended for real-time or conversational
+  use at launch (latency, reliability); v2.5 Turbo or Flash recommended for real time.
+provenance:
+  created: 2026-10-24-techniques-llm-agents

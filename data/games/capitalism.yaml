@@ -1,10 +1,90 @@
 id: capitalism
 type: game
 name: Capitalism
-summary: TODO
+summary: A corporate business sim in which the player builds retail stores, factories, farms, mines, and
+  R&D centers from internal unit layouts and competes with AI firms on price, quality, and brand across
+  city markets.
 year: 1995
 developer: Enlight Software
+platforms:
+- pc
 subgenre: business-economic-sim
-status: asserted
+sim_domain:
+- economic
+- industrial-logistics
+player_role: manager-owner
+agency_model:
+- zoning-placement
+- policy-parameter
+time_model: real-time-pausable
+sim_scale: region
+fidelity: systemic
+perspective: top-down-2d
+win_structure: scenario-goals
+failure_model: hard-restart
+narrative_mode: none
+multiplayer:
+- single
+modding: content
+production_tier: indie
+agent_count_order: aggregate
+emergence: 3
+influence: 2
+core_loop: buy land and place a firm -> lay out its internal units -> link purchasing, manufacturing,
+  and sales units into supply chains -> set prices and advertising -> compete for market share on price,
+  quality, and brand -> reinvest, research, or trade stock
+design_notes: 'Trevor Chan''s Capitalism models a firm as a small grid of internal units (purchasing,
+  manufacturing, sales, advertising) that the player wires together, so every factory, farm, mine, and
+  store is a layout and logistics puzzle inside a market model. Retail is the main income source: each
+  department store sells up to four products, and customers weigh price, product quality, and brand against
+  competing stores. R&D centers raise product quality over projects lasting from six months to ten years,
+  and AI rivals can be set from aggressive to conservative. An optional stock market allows takeovers,
+  and hired presidents can run divisions. Advertising spend that builds brand awareness has no mechanic
+  in the taxonomy (proposed as advertising-awareness).'
+mechanics:
+- id: production-chain
+  role: core
+  note: Factories turn purchased inputs into products through linked manufacturing units; farms, mines,
+    oil wells, and logging camps supply raw materials.
+- id: customer-value-choice
+  role: core
+  note: City consumers pick among stores by price, product quality, and brand; each department store stocks
+    up to four items.
+- id: rival-firms
+  role: core
+  note: AI corporations with aggressive to conservative management styles compete in the same cities for
+    market share.
+- id: free-placement
+  role: core
+  note: Each firm is a grid of internal units placed and linked by the player; layout decides what flows
+    where.
+- id: quality-tiers
+  role: supporting
+  note: Product quality comes from input quality and technology level and drives demand and price.
+- id: tech-tree
+  role: supporting
+  note: R&D centers run projects from six months to ten years that raise technology and unlock new products.
+- id: equity-buyouts
+  role: supporting
+  note: An optional stock market lets the player buy shares, take over rivals, or be bought out.
+- id: resource-extraction
+  role: supporting
+  note: Mines, oil wells, farms, and logging camps produce raw materials.
+- id: delegation-to-ai
+  role: supporting
+  note: Hired presidents can run divisions day to day.
+- id: blueprints
+  role: supporting
+  note: A layout plan library saves and reuses firm unit layouts.
+- id: scenario-objectives
+  role: supporting
+  note: Seventeen scenarios set goals such as market-share dominance within a time limit.
+- id: advertising-awareness
+  role: supporting
+  note: Advertising units inside firms spend money to raise a product's brand rating, which customers
+    weigh with price and quality when choosing among stores.
+sources:
+- src-wikipedia-capitalism-video-game
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-ge

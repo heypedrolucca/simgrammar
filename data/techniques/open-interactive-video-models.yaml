@@ -1,0 +1,121 @@
+id: open-interactive-video-models
+type: technique
+name: Open real-time interactive video world models
+aliases:
+- Matrix-Game
+- Hunyuan-GameCraft
+- WorldPlay
+- Yan
+- Mirage
+- Odyssey-2
+summary: Open and startup interactive video models (Matrix-Game, Hunyuan-GameCraft, WorldPlay, Yan, Mirage,
+  Odyssey) adapt pretrained video diffusion transformers to keyboard and mouse control and stream frames
+  in real time, adding pose-indexed memory and text edits during play.
+category: generative-world-model
+year: 2025
+mechanism: 'A pretrained text- or image-to-video diffusion transformer (SkyReels-V2 for Matrix-Game 2.0,
+  HunyuanVideo for GameCraft) gets action modules: keyboard and mouse mapped to camera translation and
+  rotation, injected through cross-attention, token addition, or Plucker camera embeddings. Training uses
+  gameplay recordings from Unreal Engine scenes, GTA V, Minecraft, Temple Run, or 100+ AAA titles. The
+  bidirectional model is then distilled into a causal few-step generator (Self-Forcing with distribution
+  matching, or phased consistency models) that streams chunks with a rolling KV cache. 2026 systems add
+  memory by retrieving past frames whose camera pose overlaps the current view (Matrix-Game 3.0, WorldPlay).
+  Yan, Mirage 2, and Odyssey-2 accept typed text during play to edit the world.'
+key_results:
+- text: Matrix-Game 2.0 (Skywork, August 2025) streams 352x640 video at 25 fps on one H100 with about
+    1.8B parameters trained on about 1,200 hours of Unreal Engine, GTA driving, Minecraft, and Temple
+    Run data, and releases weights and code; it has no explicit memory.
+  sources:
+  - src-he-2025-matrix-game-2
+  confidence: high
+- text: Hunyuan-GameCraft trained on over 1M recordings from more than 100 AAA titles; distillation raised
+    speed from 0.25 to 6.6 fps with under 5 seconds latency per action, and weights released in August
+    2025 need at least 24 GB of GPU memory (80 GB recommended).
+  sources:
+  - src-li-2025-hunyuan-gamecraft
+  - src-tencent-2025-hunyuan-gamecraft-weights
+  confidence: high
+- text: Yan (Tencent, August 2025) reports 1080p at 50 to 60 fps for its simulation module trained on
+    the game Yuan Meng Star and an editing module that separates interactive mechanics simulation from
+    visual rendering so text can restyle the world during play.
+  sources:
+  - src-tencent-2025-yan
+  confidence: medium
+- text: Matrix-Game 3.0 (April 2026) reaches up to 40 fps at 720p with a 5B model on an 8+1 GPU setup
+    and keeps minute-long consistency by retrieving memory frames by camera pose; WorldPlay (Tencent Hunyuan)
+    streams 720p at 24 fps with a reconstituted context memory for long-term geometric consistency.
+  sources:
+  - src-wang-2026-matrix-game-3
+  - src-sun-2025-worldplay
+  confidence: high
+- text: Mirage 2 (Dynamics Lab, August 2025) lets players turn photos or sketches into browser-playable
+    worlds and change them by typing commands, with saved and shared worlds, but struggles with precise
+    controls and visual stability; Odyssey-2 (October 2025) generates each frame in under 50 ms from text
+    prompts.
+  sources:
+  - src-thedecoder-2025-mirage-2
+  - src-odyssey-2025-odyssey-2
+  confidence: medium
+maturity: prototype
+trl: 6
+runtime:
+- server-realtime
+determinism_impact: breaks
+horizon: 3-5y
+risks:
+- consistency
+- compute-cost
+- ip-provenance
+- controllability
+- latency
+affects:
+- id: vehicle-dynamics
+  effect: replaces-substrate
+  note: Matrix-Game 2.0 was fine-tuned on 574 hours of GTA driving; car handling is reproduced from video
+    rather than tire and suspension models, with no guarantee of consistent grip or mass.
+- id: direct-avatar
+  effect: replaces-substrate
+  note: Walking, turning, and jumping are rendered from a unified camera-action space; GameCraft's action
+    space lacks shooting, throwing, and explosions.
+- id: procedural-terrain
+  effect: enables-new
+  note: A world starts from any image, sketch, or photo (Mirage 2, GameCraft); pose-indexed memory in
+    Matrix-Game 3.0 and WorldPlay lets revisited areas stay consistent for about a minute, still far short
+    of a save file.
+- id: generative-content
+  effect: enables-new
+  note: Typed text during play adds or restyles objects and scenes (Yan editing, Mirage 2 commands, Odyssey-2
+    prompts), so content is requested at runtime rather than authored.
+- id: content-sharing
+  effect: enables-new
+  note: Mirage 2 lets players save and share generated worlds; what is shared is a prompt and seed image
+    for a model rather than an asset bundle, so the receiver needs the same hosted model.
+- id: rigid-body-physics
+  effect: replaces-substrate
+  note: Contact and motion responses come from video priors; out-of-domain views degrade (Matrix-Game
+    2.0 reports over-saturation under sustained upward or forward camera motion).
+builds_on:
+- diffusion-game-engines
+limitations:
+- 'Resolution and speed trade against hardware: Matrix-Game 2.0 is 352x640 on one H100, Matrix-Game 3.0''s
+  720p 40 fps needs 9 GPUs, and GameCraft runs at 6.6 fps after distillation.'
+- Consistency horizon is about a minute even with retrieval memory; earlier open models have no explicit
+  memory at all.
+- Training data includes recordings of commercial games (GTA V, 100+ AAA titles), so output provenance
+  is contested.
+- Stronger history conditioning improves consistency but reduces responsiveness to new actions (GameCraft
+  ablation).
+- Action spaces cover camera movement and basic locomotion; game verbs such as shooting, building, or
+  trading are not modeled.
+sources:
+- src-he-2025-matrix-game-2
+- src-li-2025-hunyuan-gamecraft
+- src-tencent-2025-hunyuan-gamecraft-weights
+- src-tencent-2025-yan
+- src-wang-2026-matrix-game-3
+- src-sun-2025-worldplay
+- src-thedecoder-2025-mirage-2
+- src-odyssey-2025-odyssey-2
+status: sourced
+provenance:
+  created: 2026-10-24-techniques-world-models

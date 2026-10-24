@@ -1,0 +1,12 @@
+id: src-steam-2026-universe-sandbox
+type: source
+name: Universe Sandbox on Steam
+kind: store-page
+venue: Steam
+date: '2026'
+url: https://store.steampowered.com/app/230290/Universe_Sandbox/
+accessed: '2026-10-24'
+notes: Steam release 2015-08-24, still listed as Early Access; Giant Army; Newtonian N-body gravity; planet and
+  star collisions; sea ice responding to axial tilt; 12 materials for building planets; supernovae and black holes.
+provenance:
+  created: 2026-10-24-catalog-gg

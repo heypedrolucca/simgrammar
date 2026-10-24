@@ -1,0 +1,17 @@
+id: src-liu-2025-centaur-instruction-understanding
+type: source
+name: Can Centaur truly simulate human cognition? The fundamental limitation of instruction understanding
+kind: paper
+authors:
+- Wei Liu
+- Nai Ding
+venue: National Science Open 5(1)
+date: '2025-12-11'
+url: https://www.nso-journal.org/10.1360/nso/20250053
+doi: 10.1360/nso/20250053
+accessed: '2026-10-24'
+notes: With task instructions removed or replaced by misleading ones, Centaur still generally outperformed
+  domain-specific cognitive models; authors conclude it relies on superficial statistical cues rather
+  than understanding instructions.
+provenance:
+  created: 2026-10-24-techniques-llm-agents

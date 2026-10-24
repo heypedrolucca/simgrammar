@@ -1,9 +1,66 @@
 id: work-priorities
 type: mechanic
 name: Work priorities
-summary: The player sets which agents do which job types in what order, and agents self-assign from that
-  priority table.
+aliases:
+- work tab
+- labor assignments
+- job priorities
+summary: >-
+  The player sets which agents do which job types in what order, and agents self-assign from that priority table.
 family: agents-behavior
-status: asserted
+substrate:
+- rule-system
+- agent-based
+definition: >-
+  Owns a matrix of agents by job types holding enabled flags or priority numbers, plus a fixed ordering of job types. When
+  an agent is idle it scans job types in priority order, breaking ties by column order, and takes an available job of the
+  highest priority it can do, usually the nearest. RimWorld's work tab has a standard mode (checkmarks, columns further left
+  more important) and a manual mode with priorities 1 (highest) to 4; all available work at one priority is done before the
+  next, blank cells are never done, incapable work types are excluded, and allowed areas restrict where jobs are taken. Dwarf
+  Fortress uses per-dwarf labor toggles, and Oxygen Not Included combines per-duplicant errand priorities with 1-9 priorities
+  on individual buildings. Inputs: the job queue, skills, distances. Outputs: who does what, and how fast the group responds
+  to new work.
+player_experience: >-
+  The player acts as a manager, matching people to jobs by skill and interest, then debugging the table when hauling never
+  happens or the doctor is busy cooking. The table is where strategy is expressed without micromanaging each task.
+design_levers:
+- granularity of job types
+- number of priority levels and tie-break rules
+- global agent-by-type priorities versus per-task or per-building overrides
+- 'interaction with distance: nearest job first versus highest priority first'
+- automatic suggestions based on skill
+failure_modes:
+- >-
+  Priority inversion: an agent hauls a distant item at priority 1 while a patient bleeds, because all priority-1 work is done
+  before the next level.
+- >-
+  Large matrices become spreadsheet management that players solve once with a template and stop engaging with.
+- Poor tie-breaking sends agents across the map for low-value tasks.
+- Hidden ordering within a job type surprises players.
+dynamics:
+- Fixing one starved job type exposes the next bottleneck, so the table evolves as the group grows.
+- Priorities aligned with skills create specialists, which reinforces skill gaps.
+- Emergencies force temporary reshuffles or direct control, producing spikes of micromanagement.
+math_basis:
+- scheduling
+- optimization
+feedback: none
+player_interface:
+- parameter
+legibility: 3
+emergence_potential: 3
+authoring_cost: 1
+compute_cost: 2
+tuning_difficulty: 2
+ai_leverage: 3
+maturity: established
+open_questions:
+- >-
+  Can a manager agent translate high-level intents (keep everyone fed, prioritize medicine) into the priority table and explain
+  its settings?
+- Does automatic assignment remove the managerial decision or only the spreadsheet tedium?
+sources:
+- src-rimworldwiki-2026-work
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m3

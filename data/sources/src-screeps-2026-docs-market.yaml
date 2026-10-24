@@ -1,0 +1,12 @@
+id: src-screeps-2026-docs-market
+type: source
+name: Market
+kind: docs
+venue: Screeps documentation
+date: '2026'
+url: https://docs.screeps.com/market.html
+accessed: '2026-10-24'
+notes: Terminals trade through public buy and sell orders in credits with a 5% order fee; the party executing
+  a deal pays an energy transfer cost that grows with distance; NPC terminals sit at highway crossroads.
+provenance:
+  created: 2026-10-24-catalog-gh

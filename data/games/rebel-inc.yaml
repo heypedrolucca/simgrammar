@@ -1,10 +1,81 @@
 id: rebel-inc
 type: game
 name: Rebel Inc.
-summary: TODO
+aliases:
+- 'Rebel Inc: Escalation'
+summary: A counterinsurgency strategy game in which the player, as a coalition governor, spends a monthly
+  budget on civilian and military initiatives to build popular support and stabilize regions of a war-torn
+  country while corruption, inflation, and an insurgency push back.
 year: 2018
 developer: Ndemic Creations
+platforms:
+- mobile
+- pc
 subgenre: political-sim
-status: asserted
+subgenre_secondary:
+- wargame
+sim_domain:
+- political-governance
+- military-conflict
+- economic
+player_role: ruler-statesman
+agency_model:
+- policy-parameter
+- direct-unit
+time_model: real-time-pausable
+sim_scale: region
+fidelity: stylized
+perspective: top-down-2d
+win_structure: scenario-goals
+failure_model: hard-restart
+narrative_mode: hybrid
+multiplayer:
+- single
+modding: none
+production_tier: indie
+agent_count_order: aggregate
+emergence: 2
+influence: 1
+core_loop: fund civilian initiatives in regions -> popular support rises -> spending raises corruption
+  and inflation -> an insurgency emerges and contests regions -> deploy troops, counter corruption, or
+  negotiate -> stabilize the country to win
+design_notes: 'Rebel Inc. inverts Ndemic''s earlier Plague Inc.: instead of spreading a disease, the player
+  contains an insurgency by building popular support, and spending itself generates corruption and inflation.
+  The tension is between civilian initiatives that win support slowly and military spending that holds
+  ground without building support. Corruption as a side effect of spending is not yet a mechanic in the
+  taxonomy (proposal corruption-leakage).'
+mechanics:
+- id: budget-treasury
+  role: core
+  note: A monthly budget funds infrastructure, jobs, education, roads, and military spending; the more
+    initiatives the player funds, the more corruption and inflation rise, and the Economist governor receives
+    the whole budget annually.
+- id: stability-unrest
+  role: core
+  note: An insurgency emerges partway through and contests regions against coalition forces; later, peace
+    can be negotiated with insurgent leaders.
+- id: citizen-satisfaction
+  role: core
+  note: Civilian initiatives raise popular support region by region, and stabilizing the country without
+    letting insurgents take control is the goal.
+- id: policy-toggles
+  role: supporting
+  note: A governance tab offers anti-corruption measures.
+- id: triggered-event-chains
+  role: supporting
+  note: Random events interrupt plans and offer choices.
+- id: scenario-objectives
+  role: supporting
+  note: Each region has its own geography, and selectable governors such as the Economist and the Warlord
+    change the rules.
+- id: corruption-leakage
+  role: supporting
+  note: Funding more civilian initiatives raises corruption and inflation, which erode what the monthly
+    budget achieves; the governance tab offers anti-corruption measures.
+influenced_by:
+- plague-inc
+sources:
+- src-wikipedia-rebel-inc
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gi

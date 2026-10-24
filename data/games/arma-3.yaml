@@ -1,10 +1,78 @@
 id: arma-3
 type: game
 name: Arma 3
-summary: TODO
+summary: A first-person military simulation on large open terrains in which infantry, vehicles, and aircraft
+  fight under modeled ballistics, recoil, and load-based stamina, extended by the Eden editor, SQF scripting,
+  and a large mod community.
 year: 2013
 developer: Bohemia Interactive
+platforms:
+- pc
 subgenre: wargame
-status: asserted
+sim_domain:
+- military-conflict
+- physical-mechanical
+player_role: inhabitant
+agency_model:
+- direct-avatar
+- direct-unit
+time_model: real-time
+sim_scale: individual
+fidelity: systemic
+perspective: first-person
+win_structure: scenario-goals
+failure_model: hard-restart
+narrative_mode: emergent
+multiplayer:
+- single
+- coop
+- competitive
+modding: total-conversion
+production_tier: aa
+agent_count_order: '100'
+emergence: 3
+influence: 3
+core_loop: load a scenario or join a server -> move and coordinate as infantry or vehicle crew -> spot
+  and engage under ballistics and recoil -> manage load, stamina, and wounds -> complete objectives or
+  die -> build and share new scenarios
+design_notes: 'Arma 3 treats the battlefield as a sandbox: large terrains of up to 163 square kilometers
+  host infantry, vehicles, and aircraft under the same ballistic rules, and scenarios define the war.
+  Much of its life comes from community scenarios and mods built with the Eden editor and SQF scripting,
+  while Bohemia''s military consultants reviewed its Tac-Ops missions. Projectile ballistics is not yet
+  a mechanic in the taxonomy (proposal projectile-ballistics).'
+mechanics:
+- id: direct-avatar
+  role: core
+  note: The player is one soldier in first person; clothing and carried equipment add weight that reduces
+    movement speed and stamina.
+- id: military-operations
+  role: core
+  note: Infantry, armor, helicopters, jets, and boats share one large terrain, and weapons are heavily
+    affected by external ballistics and recoil, so range and load-out shape every engagement.
+- id: modding-api
+  role: core
+  note: The Eden 3D editor and the SQF scripting language let players build single-player and multiplayer
+    scenarios and mods, from realism overhauls to new game modes.
+- id: unit-commands
+  role: supporting
+  note: Squad leaders issue orders to AI subordinates.
+- id: injury-body-model
+  role: supporting
+- id: scenario-objectives
+  role: supporting
+- id: content-sharing
+  role: supporting
+  note: Scenarios and mods are shared through the Steam Workshop.
+- id: weather
+  role: supporting
+- id: day-night-cycle
+  role: supporting
+- id: projectile-ballistics
+  role: core
+  note: Weapons are heavily affected by external ballistics and recoil, so shooters account for drop and
+    travel time at range.
+sources:
+- src-wikipedia-arma-3
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gi

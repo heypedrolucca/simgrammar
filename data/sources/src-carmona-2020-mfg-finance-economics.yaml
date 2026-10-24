@@ -1,0 +1,14 @@
+id: src-carmona-2020-mfg-finance-economics
+type: source
+name: Applications of Mean Field Games in Financial Engineering and Economic Theory
+kind: preprint
+authors:
+- Rene Carmona
+date: '2020-12-09'
+url: https://arxiv.org/abs/2012.05237
+arxiv: '2012.05237'
+accessed: '2026-10-24'
+notes: Review of MFG applications in finance and economics, including bitcoin mining, energy markets,
+  macro-finance models and contract theory.
+provenance:
+  created: 2026-10-24-techniques-sim-math

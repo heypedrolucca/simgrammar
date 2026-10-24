@@ -1,0 +1,13 @@
+id: src-harris-2020-democracy4-fixed-income
+type: source
+name: 'Democracy 4: the fixed income rewrite'
+kind: tech-report
+authors:
+- Cliff Harris
+venue: Cliffski's Blog (Positech Games)
+date: '2020-06-23'
+url: https://positech.co.uk/cliffsblog/2020/06/23/democracy-4-the-fixed-income-rewrite
+accessed: '2026-10-24'
+notes: Democracy 1-4 use a homebrew neural network where voters, groups, policies, ministers, and events are neurons capped 0..1 or -1..+1; percentage effects on 0-1 income favored the rich; added fixed-income neurons that can exceed 1.
+provenance:
+  created: 2026-10-24-taxonomy-m2

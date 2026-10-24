@@ -1,8 +1,63 @@
 id: planetary-climate
 type: mechanic
 name: Planetary climate
-summary: Global atmosphere, temperature, and biosphere variables evolve and can be deliberately altered.
+aliases:
+- global climate
+- gaia model
+- global warming
+summary: Planet-scale variables such as atmospheric composition, temperature, sea level, and biosphere evolve under coupled
+  feedbacks and can be deliberately altered.
 family: environment-ecology
-status: asserted
+substrate:
+- aggregate-stocks
+- cellular-grid
+definition: 'Owns a small set of planet-scale stocks such as atmospheric gas fractions, greenhouse level, mean temperature,
+  ice cover, sea level, and biomass, sometimes resolved on a coarse map grid. Each tick emissions, volcanism, and life change
+  the gases, temperature follows radiative balance and albedo, and temperature moves ice, sea level, and where life can grow.
+  SimEarth, advised by James Lovelock, shows gas levels as percentages, melts ice caps and raises seas under warming, cools
+  the planet with volcanic dust, and offers a Daisyworld mode based on Watson and Lovelock''s model, in which daisies of different
+  albedo regulate temperature. Civilization added global warming from unchecked pollution; Surviving Mars: Green Planet terraforms
+  by raising planetary parameters toward habitable targets; Eco lets player emissions raise sea level. Inputs are emissions
+  and player projects; outputs are habitability and disasters.'
+player_experience: Slow consequence at the largest scale. The player makes small persistent changes, such as emissions or
+  terraforming projects, and watches planet-wide numbers creep toward thresholds where oceans boil, ice advances, or the planet
+  becomes habitable. Success feels like stewardship; failure arrives long after its cause.
+design_levers:
+- which planetary stocks exist and how many feedbacks link them (albedo, greenhouse, biosphere)
+- time constants between emissions and temperature or sea-level response
+- presence of tipping points or runaway regimes versus smooth response
+- 'player levers: emissions policy, terraforming buildings, direct parameter sliders'
+- 'spatial resolution: single global numbers or a gridded map'
+failure_modes:
+- Many coupled variables with long delays make cause and effect opaque, so players change sliders without learning what moved
+  the planet.
+- Linear, delay-free responses reduce climate to a single meter to keep below a line.
+- Runaway feedback with no recovery path ends runs because of early mistakes the player could not see.
+dynamics:
+- Biosphere-climate feedback can stabilize temperature, as in Daisyworld, or amplify change when it breaks down.
+- Climate shifts move habitat suitability, crop yields, and coastlines, forcing migration or rebuilding.
+- Shared emissions in multiplayer worlds such as Eco create commons problems between players.
+math_basis:
+- system-dynamics
+- control-theory
+feedback: both
+player_interface:
+- parameter
+- placement
+- observation
+legibility: 2
+emergence_potential: 3
+authoring_cost: 2
+compute_cost: 2
+tuning_difficulty: 4
+ai_leverage: 3
+maturity: established
+open_questions:
+- Can learned climate emulators give fast, plausible regional responses to player emissions without hand-tuned equations?
+- How short can feedback delays be made before climate stops reading as climate?
+sources:
+- src-wikipedia-simearth
+- src-watson-1983-daisyworld
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m5

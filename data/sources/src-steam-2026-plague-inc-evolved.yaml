@@ -1,0 +1,13 @@
+id: src-steam-2026-plague-inc-evolved
+type: source
+name: 'Plague Inc: Evolved on Steam'
+kind: store-page
+venue: Steam
+date: '2026'
+url: https://store.steampowered.com/app/246620/Plague_Inc_Evolved/
+accessed: '2026-10-24'
+notes: Released 2016-02-18; Windows, macOS, Linux; 10 disease types; body scanner; competitive and co-op multiplayer;
+  23 scenarios; scenario creator; Steam Workshop with over 10,000 custom scenarios; CDC asked to discuss its infection
+  models.
+provenance:
+  created: 2026-10-24-catalog-gd

@@ -1,10 +1,64 @@
 id: gran-turismo
 type: game
 name: Gran Turismo
-summary: TODO
+summary: A PlayStation racing game that paired a tuned handling model and 140 production cars with license tests,
+  prize credits, and parts tuning in a Simulation mode career.
 year: 1997
-developer: Polys Entertainment
+developer: Polys Entertainment (Polyphony Digital)
+platforms:
+- console
 subgenre: vehicle-sim
-status: asserted
+sim_domain:
+- physical-mechanical
+- sports
+player_role: operator-pilot
+agency_model:
+- direct-avatar
+time_model: real-time
+sim_scale: individual
+fidelity: stylized
+perspective: third-person
+win_structure: completion
+failure_model: soft-recoverable
+narrative_mode: none
+multiplayer:
+- single
+- competitive
+modding: none
+production_tier: aaa
+agent_count_order: '10'
+emergence: 2
+influence: 4
+core_loop: pass license tests -> enter championships -> win credits and prize cars -> buy cars and performance parts
+  -> tune the car -> enter higher-class events
+design_notes: 'Simulation mode made car ownership and driving skill the progression: driver''s licenses earned through
+  timed tests gate events, and credits from championships buy cars, parts, and tuning. Reviewers singled out the
+  handling model and the tuning freedom, and criticized license tests that could be harder than the races they unlocked.
+  It was the first game designed for the DualShock''s analog control and rumble, and IGN called it the grandfather
+  of modern console racing sims.'
+mechanics:
+- id: vehicle-dynamics
+  role: core
+  note: Each of 140 cars has its own handling that responds to parts and tuning; reviewers rated it above any earlier
+    racing game.
+- id: career-ladder
+  role: core
+  note: Simulation mode requires earning driver's licenses through timed tests before entering higher events.
+- id: collection-goals
+  role: supporting
+  note: Credits and prize cars build a garage drawn from 140 production cars.
+- id: embodied-skill-control
+  role: core
+  note: The first game designed for DualShock analog control and rumble; license tests and races grade precise braking
+    and cornering.
+- id: modular-assembly
+  role: supporting
+  note: Credits buy performance parts and tuning that tailor a car to the player's driving style.
+- id: scenario-objectives
+  role: supporting
+  note: Championships award trophies, credits, and prize cars.
+sources:
+- src-wikipedia-gran-turismo-1997
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gf

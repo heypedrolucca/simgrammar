@@ -1,10 +1,88 @@
 id: democracy-4
 type: game
 name: Democracy 4
-summary: TODO
+summary: A turn-based government sim in which the player, as leader of a democracy, adjusts policy sliders
+  whose weighted effects move statistics and overlapping voter groups, resolves dilemmas, and tries to
+  balance the budget and win the next election.
 year: 2020
+year_full_release: 2022
 developer: Positech Games
+platforms:
+- pc
+- console
+- handheld
 subgenre: political-sim
-status: asserted
+sim_domain:
+- political-governance
+- economic
+player_role: ruler-statesman
+agency_model:
+- policy-parameter
+time_model: turn-based
+sim_scale: nation
+fidelity: stylized
+perspective: text-ui
+win_structure: survival-duration
+failure_model: hard-restart
+narrative_mode: hybrid
+multiplayer:
+- single
+modding: content
+production_tier: indie
+agent_count_order: 1k
+emergence: 2
+influence: 2
+core_loop: spend political capital to adjust policy sliders -> effects propagate through the weighted
+  policy network -> statistics, situations, and voter group happiness shift -> resolve dilemmas and events
+  -> make election promises -> win or lose the election
+design_notes: 'Democracy 4 models a country as one visible causal graph: policies, statistics, situations,
+  and voter groups are nodes, and the interface shows the weighted links in and out of each. The player
+  is constrained by political capital, earned through loyal ministers and spent on policy changes, and
+  by voters who belong to several groups at once. Political capital as a regenerating action currency
+  is not yet a mechanic in the taxonomy (proposal political-capital).'
+mechanics:
+- id: policy-influence-network
+  role: core
+  note: Policies in seven areas (tax, economy, welfare, foreign policy, transport, law and order, public
+    services) are sliders; the engine treats voters, groups, policies, ministers, and events as neurons
+    in a homebrew network with bounded values, so weighted effects move statistics such as crime and air
+    quality and the happiness of voter groups.
+- id: elections
+  role: core
+  note: Before each general election the player makes two promises to the electorate; broken promises
+    raise voter cynicism, and losing the election ends the game.
+- id: interest-groups
+  role: core
+  note: Voter groups such as the religious, patriotic, parents, capitalists, socialists, liberals, and
+    conservatives overlap, since each voter belongs to several, so pleasing every group is nearly impossible.
+- id: dilemma-cards
+  role: supporting
+  note: Dilemmas, such as appointing a senior judge, must be resolved before the turn can end.
+- id: policy-toggles
+  role: supporting
+  note: Introducing or cancelling a policy costs political capital.
+- id: taxation
+  role: supporting
+  note: Excessive taxes cause tax evasion.
+- id: loans-debt
+  role: supporting
+  note: Deficits add to national debt that the player must pay down.
+- id: triggered-event-chains
+  role: supporting
+  note: Situations such as pollution or homelessness persist while conditions hold, and events arrive
+    outside player control.
+- id: turn-structure
+  role: supporting
+- id: stats-dashboards
+  role: supporting
+- id: political-capital
+  role: supporting
+  note: Political capital, earned through loyal ministers, is spent each turn to introduce, cancel, or
+    adjust policies, so it caps how fast the government can change.
+sources:
+- src-wikipedia-democracy-4
+- src-harris-2020-democracy4-fixed-income
+- src-positech-2024-democracy-4-consoles
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gi

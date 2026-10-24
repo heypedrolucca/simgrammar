@@ -1,0 +1,17 @@
+id: src-hart-1968-astar
+type: source
+name: A Formal Basis for the Heuristic Determination of Minimum Cost Paths
+kind: paper
+authors:
+- Peter E. Hart
+- Nils J. Nilsson
+- Bertram Raphael
+venue: IEEE Transactions on Systems Science and Cybernetics 4(2), 100-107
+date: 1968-07
+url: https://doi.org/10.1109/TSSC.1968.300136
+doi: 10.1109/TSSC.1968.300136
+accessed: '2026-10-24'
+notes: 'Introduces the A* search algorithm: nodes are expanded in order of path cost so far plus a heuristic estimate of remaining
+  cost; with an admissible heuristic the first path found to the goal has minimum cost.'
+provenance:
+  created: 2026-10-24-taxonomy-m3

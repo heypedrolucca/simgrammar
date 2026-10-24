@@ -1,0 +1,14 @@
+id: src-deepmind-2023-graphcast-blog
+type: source
+name: 'GraphCast: AI model for faster and more accurate global weather forecasting'
+kind: tech-report
+authors:
+- Google DeepMind
+venue: Google DeepMind blog
+date: '2023-11-14'
+url: https://deepmind.google/discover/blog/graphcast-ai-model-for-faster-and-more-accurate-global-weather-forecasting/
+accessed: '2026-10-24'
+notes: 10-day forecast in under a minute on one TPU v4 machine versus hours for HRES on a supercomputer;
+  beat HRES on over 90% of 1,380 targets; code released.
+provenance:
+  created: 2026-10-24-techniques-sim-math

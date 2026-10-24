@@ -1,8 +1,67 @@
 id: heat-transfer
 type: mechanic
 name: Heat transfer
-summary: Temperature diffuses through materials and gases, and thresholds change states and damage things.
+aliases:
+- temperature simulation
+- thermal simulation
+- thermodynamics
+summary: Temperature diffuses between cells, materials, and objects by conductivity and heat capacity,
+  and thresholds trigger phase changes and damage.
 family: physics-materials
-status: asserted
+substrate:
+- cellular-grid
+- aggregate-stocks
+definition: Each cell, room, or object holds a temperature and often mass, specific heat capacity, and
+  thermal conductivity. Each tick heat flows between neighbors in proportion to the temperature difference
+  and a conductance from both materials, and temperature changes by heat divided by mass times heat capacity.
+  Thresholds trigger melting, boiling, freezing, damage, and effects on agents. In Oxygen Not Included
+  a tick is 0.2 s; cell-to-cell transfer uses q = dT x dt x k x 1000, multiplied by 25 between solids
+  and gases and 625 between liquids; transfer stops below a 1 C difference or 0.1 DTU, and one tick may
+  close at most a quarter of the difference. Insulated tiles divide conductivity heavily. RimWorld holds
+  one temperature per room that equalizes with outdoors through walls and doors and is driven by heaters
+  and coolers.
+player_experience: 'Thermal engineering. Players insulate, vent, and cool, and they watch overlays for
+  creeping heat. Late failures arrive slowly: a base heats a fraction of a degree per cycle until crops
+  die or machines stop.'
+design_levers:
+- per-material specific heat capacity and conductivity
+- phase-change temperatures and their consequences
+- transfer multipliers between solids, liquids, and gases
+- tick length and per-tick caps for stability
+- insulation strength and environmental heat sinks
+- damage and agent thresholds
+failure_modes:
+- Rounding and phase-change edge cases let players create or delete heat, which becomes a standard exploit.
+- Per-cell diffusion across a large map becomes a late-game performance cost.
+- Without overlays, rising temperature is invisible until a threshold fails.
+- If equilibrium takes far longer than a session, heat stops mattering; if it is fast, it becomes noise.
+dynamics:
+- Machines emit heat as a byproduct, so a growing industrial base slowly overheats itself.
+- Seasons, fire, and magma couple to temperature and drive phase changes and evacuations.
+- Heat moved by fluids links plumbing layout to thermal management.
+math_basis:
+- continuum-mechanics
+feedback: balancing
+player_interface:
+- placement
+- observation
+legibility: 3
+emergence_potential: 4
+authoring_cost: 2
+compute_cost: 3
+tuning_difficulty: 3
+ai_leverage: 2
+maturity: established
+synergy:
+- id: material-interactions
+  note: Temperature thresholds trigger material state changes and reactions.
+- id: spoilage
+  note: Temperature drives rot rates.
+open_questions:
+- Can forecasting tools that project temperature trends turn slow thermal failure into a readable planning
+  problem?
+sources:
+- src-oxygennotincludedwiki-2026-thermal-conductivity
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m4

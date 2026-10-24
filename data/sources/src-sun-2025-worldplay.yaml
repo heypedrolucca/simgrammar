@@ -1,0 +1,16 @@
+id: src-sun-2025-worldplay
+type: source
+name: 'WorldPlay: Towards Long-Term Geometric Consistency for Real-Time Interactive World Modeling'
+kind: preprint
+authors:
+- Wenqiang Sun
+- Haiyu Zhang
+- and others (Tencent Hunyuan)
+date: 2025-12
+url: https://arxiv.org/abs/2512.14614
+arxiv: '2512.14614'
+accessed: '2026-10-24'
+notes: 720p streaming at 24 fps; Reconstituted Context Memory and temporal reframing; Context Forcing
+  distillation; code at Tencent-Hunyuan/HY-WorldPlay; listed as an ICML 2026 poster.
+provenance:
+  created: 2026-10-24-techniques-world-models

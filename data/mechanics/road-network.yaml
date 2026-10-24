@@ -1,9 +1,58 @@
 id: road-network
 type: mechanic
 name: Road networks
-summary: Roads and paths define connectivity; buildings must connect to function, and travel cost depends
-  on network geometry.
+aliases:
+- roads
+- path network
+- connectivity
+summary: Roads and paths define connectivity; buildings must connect to function, and travel cost depends on network geometry.
 family: logistics-networks
-status: asserted
+substrate:
+- network-graph
+- cellular-grid
+definition: >-
+  Road tiles or segments form a graph whose nodes are intersections and building access points. Each building checks for a
+  road connection; unconnected buildings do not function, grow, or receive services. Travel along the graph has a cost per
+  segment set by road type, speed limit, and length, used by pathfinding and trip generation. In Micropolis, the released
+  SimCity engine, a zone scans its perimeter for a road; if none exists the traffic test fails and residential and commercial
+  zones shrink. Caesar III walkers move only on roads, so road shape determines service coverage. Cities: Skylines adds a
+  road hierarchy with lanes and capacities. Banished treats roads as a speed boost rather than a requirement. Inputs: player-placed
+  road segments. Outputs: connectivity per building and travel costs between points.
+player_experience: >-
+  Drawing the city's skeleton. Players lay roads first and fill blocks after, so road layout fixes later possibilities. Disconnected
+  buildings are an immediate, readable failure, while inefficient geometry shows up slowly as long trips and congestion.
+design_levers:
+- whether connection is required or only speeds movement
+- road types with different speeds, capacities, and costs
+- 'placement freedom: grid-locked, free curves, or segments'
+- intersection rules and traffic controls
+- cost per segment and upkeep
+failure_modes:
+- Grid-only placement makes every city look the same.
+- Free placement without snapping guides makes clean layouts hard.
+- Dead-end tolerance that is too forgiving removes any layout pressure.
+dynamics:
+- Road layout determines which areas are reachable and therefore where growth happens.
+- Hierarchies of arterials and local streets emerge under congestion pressure.
+- Coupled with walker or coverage systems, road shape becomes a service-distribution tool.
+math_basis:
+- graph-search
+- network-flow
+feedback: none
+player_interface:
+- placement
+legibility: 4
+emergence_potential: 3
+authoring_cost: 2
+compute_cost: 2
+tuning_difficulty: 2
+ai_leverage: 2
+maturity: classic
+open_questions:
+- Could procedural road generation that follows terrain and demand make player road-drawing optional without losing authorship?
+sources:
+- src-hopkins-2008-micropolis
+- src-wikipedia-caesar-iii
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m1

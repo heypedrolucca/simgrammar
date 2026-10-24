@@ -1,0 +1,15 @@
+id: src-rimworldwiki-2026-work
+type: source
+name: Work
+kind: encyclopedia
+authors:
+- RimWorld Wiki contributors
+venue: RimWorld Wiki
+date: '2026'
+url: https://rimworldwiki.com/wiki/Work
+accessed: '2026-10-24'
+notes: Work tab in standard mode (checkmarks, columns further left more important) or manual priorities 1-4; all available
+  work at one priority is done before the next; ties resolve left to right; blank cells never done; incapable types excluded;
+  allowed areas restrict where work is taken.
+provenance:
+  created: 2026-10-24-taxonomy-m3

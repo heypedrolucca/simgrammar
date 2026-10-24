@@ -1,9 +1,67 @@
 id: rci-demand
 type: mechanic
 name: RCI demand
+aliases:
+- RCI meter
+- demand bars
+- zone demand
 summary: A demand signal for residential, commercial, and industrial land derived from the balance of
   jobs, workers, and goods.
 family: economy-finance
-status: asserted
+substrate:
+- aggregate-stocks
+definition: 'Owns three demand valves (residential, commercial, industrial) updated from the balance of
+  population, jobs, and outside trade, and read by zone growth. In Micropolis, the SimCity engine, projected
+  residents = residents + migration (proportional to jobs per resident - 1) + 2% births; projected commerce
+  = total population / 3.7 x a labor ratio capped at 1.3; projected industry = industry x labor ratio
+  x an external market factor (1.2, 1.1, or 0.98 by difficulty). Each valve moves by (projected / actual
+  - 1) x 600 plus a tax offset (+200 at 0% tax, 0 at 7%, -600 at 20% on easy), is clamped to +/-2000 (residential)
+  or +/-1500, and is held at 0 until a needed stadium, seaport, or airport exists. A zone grows when valve
+  + a local score (land value for homes) passes a random test. SimCity''s RCI bar and Cities: Skylines''
+  demand bars display these valves.'
+player_experience: A steering signal. The player glances at three bars, zones whatever is in demand, and
+  learns that homes need jobs, jobs need workers, and industry needs outside trade. When a bar stays pinned
+  despite growth, the player hunts for the missing stadium, port, or tax cut.
+design_levers:
+- inputs to each valve (jobs per resident, internal market size, external trade, taxes)
+- gain and clamp on each valve, which set how fast demand swings
+- caps that hold demand at zero until a specific building is placed
+- how much local factors (land value, traffic, pollution) add to the global valve
+- whether demand is split further by wealth or density tier
+failure_modes:
+- Players treat the bar as an instruction and zone mechanically, so the city grows without plan or tradeoff.
+- Hidden caps (needing a stadium or port) freeze growth with no explanation unless an advisor says why.
+- High gain makes demand oscillate between booms and abandonment.
+dynamics:
+- Residential and job growth chase each other, producing alternating waves of house and workplace construction.
+- Raising taxes depresses all three valves at once, so tax policy shows up as slower development rather
+  than a direct penalty.
+- Valve caps create milestone moments when one building unlocks a growth spurt.
+math_basis:
+- system-dynamics
+- control-theory
+feedback: balancing
+player_interface:
+- observation
+- placement
+legibility: 4
+emergence_potential: 3
+authoring_cost: 1
+compute_cost: 1
+tuning_difficulty: 3
+ai_leverage: 2
+maturity: classic
+requires:
+- zoning
+synergy:
+- id: zoning
+  note: The demand meter tells the player which zone to paint next; zoning answers it.
+open_questions:
+- Would demand derived bottom-up from simulated households and firms be more interesting than a three-valve
+  controller, and could players still read it?
+- Can an AI advisor turn valve inputs into a plain causal explanation of why demand is low?
+sources:
+- src-hopkins-2008-micropolis
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m2

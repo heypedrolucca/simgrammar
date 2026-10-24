@@ -1,0 +1,17 @@
+id: src-greenberg-2019-apt
+type: source
+name: Automatic Posterior Transformation for Likelihood-Free Inference
+kind: paper
+authors:
+- David S. Greenberg
+- Marcel Nonnenmacher
+- Jakob H. Macke
+venue: ICML 2019
+date: '2019-05-17'
+url: https://arxiv.org/abs/1905.07488
+arxiv: '1905.07488'
+accessed: '2026-10-24'
+notes: Sequential neural posterior estimation with arbitrary, dynamically updated proposals and normalizing-flow
+  density estimators; works on high-dimensional time series and images.
+provenance:
+  created: 2026-10-24-techniques-sim-math

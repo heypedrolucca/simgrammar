@@ -1,0 +1,65 @@
+id: 2026-10-24-taxonomy-m2
+type: run
+date: '2026-10-24'
+actor: agent
+operator: yoheinakajima
+agent:
+  model: claude-opus-5-5
+  harness: Claude app subagent
+purpose: Complete the mechanic analyses for the economy-finance and governance-policy families.
+method: >-
+  Completed 23 skeleton mechanics (16 economy-finance, 7 governance-policy) to the full mechanic schema, matching
+  needs-decay.yaml. Primary-source reading: downloaded the Micropolis (GPL SimCity) C sources from
+  github.com/SimHacker/micropolis (micropolis-activity/src/sim) and read SetValves, CollectTax, UpdateFundEffects
+  (s_sim.c), the land value and crime equations (s_scan.c), DoProblems, GetScore, DoVotes (s_eval.c), and zone growth
+  (s_zone.c); the formulas quoted in rci-demand, land-value, taxation, budget-treasury, labor-market, and
+  citizen-satisfaction come from that code. Read Victoria 3 dev diaries 6 (interest groups), 9 (national markets),
+  54 (trade revisions), and 80 (law enactment and revolution clock); Cliff Harris's 2020 blog post on Democracy's
+  neural-network model; and Wikipedia pages for M.U.L.E., Democracy 4, Eve Online, Capitalism, Offworld Trading
+  Company, Eco, Railroad Tycoon, Frostpunk, Frostpunk 2, SimCity 2000, Theme Hospital, and Lemonade Stand. Cited the
+  existing sources src-hopkins-2008-micropolis and src-wikipedia-eve-online (created by taxonomy-m7) instead of
+  rewriting them, and created 16 new sources. Game facts not backed by a fetched source were written from
+  contributor knowledge and kept qualitative. Scored rubrics against vocab/rubrics.yaml anchors, taking the lower
+  anchor when between two. Added requires edges only where the dependency is hard: loans-debt and taxation require
+  budget-treasury, rci-demand requires zoning, policy-influence-network requires policy-toggles. No synergy or
+  tension edges. The web search budget for the turn ran out after about four searches, so the remaining
+  verification used direct fetches of pages already found.
+scope:
+  - data/mechanics/{auctions,budget-treasury,contracts-orders,customer-value-choice,equity-buyouts,labor-market,land-value,loans-debt}
+  - data/mechanics/{player-driven-market,product-development,rci-demand,rival-firms,staff-hiring,supply-demand-pricing,taxation,trade-routes}
+  - data/mechanics/{citizen-satisfaction,elections,interest-groups,player-legislation,policy-influence-network,policy-toggles,stability-unrest}
+  - data/sources/* (16 new)
+contract_version: '1.0'
+proposals:
+  - kind: other
+    target: policy-influence-network
+    detail: >-
+      Admission check: this mechanic is canonical mainly in Positech's Democracy series (plus imitators such as
+      Suzerain-style political sims). It passes nameable only narrowly. Kept at maturity established because the
+      series has shipped four main entries since 2005; the orchestrator may want to lower it to emerging if E017
+      grounding finds fewer than two catalog games using it.
+  - kind: other
+    target: citizen-satisfaction / stability-unrest
+    detail: >-
+      Boundary between the two: citizen-satisfaction owns a recomputed aggregate score; stability-unrest owns an
+      accumulating grievance stock with escalation thresholds. Games such as Frostpunk use one meter (Discontent) for
+      both roles. Kept separate because many games have one without the other (SimCity has satisfaction without
+      revolt; Europa Universalis IV has unrest without a satisfaction score), but tagging agents should not list both
+      for a single meter.
+  - kind: other
+    target: supply-demand-pricing / player-driven-market
+    detail: >-
+      player-driven-market could be modeled as specializing supply-demand-pricing, but its price formation comes from
+      order matching rather than a price update rule, so I did not add a specializes edge. The orchestrator may
+      prefer a synergy edge in the global pass.
+notes: >-
+  Facts I am less sure of (written from knowledge, not a fetched source): Transport Tycoon selling rival shares in
+  25% blocks; Civilization (1991) civil disorder when unhappy citizens outnumber happy ones; Europa Universalis IV
+  rebel progress from positive unrest; A Tale in the Desert's player-petitioned laws implemented by developers;
+  World of Warcraft auction house buyout prices; RollerCoaster Tycoon guests refusing overpriced rides; Football
+  Manager and Two Point Hospital staff models; Big Pharma's ingredient-effect machine lines; Victoria 3 periodic
+  elections. Micropolis formulas are from the SimHacker C code, which may differ from the 1989 commercial binary.
+  The Micropolis code also shows that tax revenue uses the rate at the moment of collection (CollectTax ignores
+  the averaged AvCityTax), which I list as a failure mode under taxation. The 2021 dates for Victoria 3 dev diaries
+  6 and 9 are inferred from the series schedule (the pages show no date). None of the 23 mechanics are yet used by
+  any game file, so E017 will fire until the catalog runs tag them.

@@ -1,8 +1,68 @@
 id: military-operations
 type: mechanic
 name: Military operations
-summary: Units with sensors, weapons, and doctrine are simulated at operational fidelity.
+aliases:
+- operational wargaming
+- sensor and weapons simulation
+summary: Units with modeled sensors, weapons, platforms, and doctrine conduct operations at operational
+  fidelity, mostly under player orders and automated behavior.
 family: conflict-defense
-status: asserted
+substrate:
+- agent-based
+- continuous-physics
+- stochastic-events
+definition: 'Each unit is an agent with a platform record (speed, endurance, signatures), sensors with
+  detection models against target signatures, weapons with ranges and hit or kill probabilities, and a
+  doctrine or rules-of-engagement profile that governs when it fires and emits. The simulation advances
+  in continuous or stepped time with acceleration; contacts are detected, classified, and engaged under
+  that doctrine, often without per-shot player input. Command: Modern Operations, from Warfare Sims, gives
+  operational control of units on a map of Earth through missions or direct orders, runs scenarios lasting
+  hours to days with time acceleration, and draws platforms and weapons from databases such as DB3000;
+  a Professional Edition adds database editing and Monte Carlo analysis for defense customers. Harpoon
+  is the lineage ancestor. Inputs: orders, missions, doctrine settings. Outputs: detections, engagements,
+  losses, and mission outcomes.'
+player_experience: The player is a commander, not a pilot. They plan patrols, set emission and engagement
+  rules, manage fuel and munitions, and watch detections develop, so most decisions concern information
+  and timing. Success comes from planning; failure arrives as a missile on the screen that should have
+  been detected earlier.
+design_levers:
+- fidelity of sensor and signature models
+- kill probabilities and countermeasure effects
+- doctrine, rules-of-engagement, and emission-control settings available to the player
+- database breadth and accuracy
+- time acceleration and command granularity (mission versus direct orders)
+failure_modes:
+- High fidelity buries the player in parameters, and new players cannot tell why an engagement failed.
+- Database errors or outdated data undermine credibility with expert players.
+- Automated unit behavior that ignores doctrine settings reads as the simulation disobeying orders.
+dynamics:
+- Emission control creates cat-and-mouse play, because radiating sensors reveal the radiating unit.
+- Munitions and fuel limits turn engagements into logistics problems over long scenarios.
+- Monte Carlo repetition shows outcome distributions, so planning targets probabilities rather than certainties.
+math_basis:
+- probability-statistics
+- classical-mechanics
+- information-theory
+feedback: both
+player_interface:
+- orders
+- parameter
+legibility: 2
+emergence_potential: 4
+authoring_cost: 4
+compute_cost: 3
+tuning_difficulty: 4
+ai_leverage: 3
+maturity: established
+synergy:
+- id: supply-lines
+  note: Operations stall when supply is cut.
+open_questions:
+- Can reinforcement-learning opponents trained in operational simulators provide credible adversaries
+  without scripted behavior?
+- Can language interfaces let players issue operational orders at the level of commander's intent?
+sources:
+- src-wikipedia-command-modern-operations
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m7

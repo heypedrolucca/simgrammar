@@ -1,10 +1,66 @@
 id: ai-dungeon
 type: game
 name: AI Dungeon
-summary: TODO
+aliases:
+- AI Dungeon 2
+summary: A text adventure in which a large language model continues the story after each player input, so actions,
+  dialogue, and world facts the player types are improvised into narration rather than resolved by authored rules.
 year: 2019
 developer: Latitude
+platforms:
+- web
+- mobile
+- pc
 subgenre: ai-native
-status: asserted
+sim_domain:
+- social-interpersonal
+player_role: inhabitant
+agency_model:
+- conversational
+time_model: turn-based
+sim_scale: individual
+fidelity: abstract
+perspective: text-ui
+win_structure: open-sandbox
+failure_model: none
+narrative_mode: generative
+multiplayer:
+- single
+- coop
+- async-shared
+modding: content
+production_tier: indie
+agent_count_order: none
+emergence: 2
+influence: 3
+boundary_case: true
+core_loop: choose a setting -> type a Do, Say, or Story input -> model continues the text from recent story and
+  pinned memory -> player undoes, retries, or edits the output -> next input
+design_notes: 'At runtime the model does all the work: each turn, the game assembles a prompt from the scenario
+  premise, player-pinned memory, and recent story text, and a language model (GPT-2 with 1.5 billion parameters
+  in AI Dungeon 2, GPT-3 through OpenAI''s API for the premium Dragon model from July 2020) generates the next passage.
+  There is no separate world state, inventory, or rules engine, so consistency lasts only as long as facts stay
+  in the context window, and undo, retry, and edit are the player''s tools for steering. Nick Walton built the first
+  version at a BYU hackathon on a 126-million-parameter GPT-2 and released it in May 2019; Latitude relaunched it
+  in December 2019. It is a boundary case: no system is simulated outside the model''s text.'
+mechanics:
+- id: generative-content
+  role: core
+  note: A language model continues the story text from a prompt of scenario, pinned memory, and recent turns; the
+    See input generates an image that does not change play.
+- id: natural-language-interaction
+  role: core
+  note: Free-text input typed as Do (action), Say (dialogue), or Story (narration or facts), with blank input asking
+    the model to continue.
+- id: content-sharing
+  role: supporting
+  note: Players publish custom adventures and scenarios that others can start from.
+- id: turn-structure
+  role: supporting
+  note: Play alternates player input and model output; multiplayer (from April 2020) rotates turns among players'
+    characters while the host can edit model output.
+sources:
+- src-wikipedia-ai-dungeon
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gd

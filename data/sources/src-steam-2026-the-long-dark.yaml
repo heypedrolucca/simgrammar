@@ -1,0 +1,15 @@
+id: src-steam-2026-the-long-dark
+type: source
+name: The Long Dark on Steam
+kind: store-page
+authors:
+- Hinterland Studio
+venue: Steam
+date: '2026'
+url: https://store.steampowered.com/app/305620/The_Long_Dark/
+accessed: '2026-10-24'
+notes: Release 2017-08-01; Survival mode deletes the save on death; hunger, thirst, fatigue, and cold; every action
+  costs calories; wolves, bears, and other wildlife; hypothermia, frostbite, and dysentery; 12 regions; Wintermute
+  story mode without permadeath.
+provenance:
+  created: 2026-10-24-catalog-gb

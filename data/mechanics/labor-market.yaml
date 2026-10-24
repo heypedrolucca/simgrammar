@@ -1,9 +1,58 @@
 id: labor-market
 type: mechanic
 name: Labor market
-summary: Workers fill jobs by type and education; mismatches create unemployment or labor shortages that
-  throttle production.
+aliases:
+- jobs and workers
+- employment
+- workforce
+summary: Workers fill jobs by type and education; mismatches create unemployment or labor shortages that throttle production.
 family: economy-finance
-status: asserted
+substrate:
+- aggregate-stocks
+- agent-based
+definition: 'Owns the worker supply by type (education, class, or profession) and the job slots by type that buildings offer,
+  and matches them. Unmatched workers are unemployed; unfilled jobs leave buildings understaffed, and output scales with staffing.
+  In Micropolis, the SimCity engine, Employment = jobs / (residents / 8) drives migration of (residents / 8) x (Employment
+  - 1) per cycle, a labor ratio of residents to jobs clamped to 0-1.3 scales projected commercial and industrial growth, and
+  unemployment is one of the problems citizens complain about. Cities: Skylines and Workers and Resources split workers by
+  education, so a city without educated workers cannot staff offices or advanced plants. Victoria 3 hires pops into buildings
+  by profession and wage, and Anno 1800 requires each residence tier to staff that tier''s production buildings.'
+player_experience: Balancing homes against jobs. The player reads unemployment and vacancy numbers, builds housing or schools
+  when factories sit idle, and learns that a new industry is useless without workers to run it.
+design_levers:
+- number of worker types and whether higher types can fill lower jobs
+- staffing-to-output curve (linear, threshold, or minimum crew)
+- commute or catchment limits on which workers can reach which jobs
+- migration response to unemployment and vacancies
+- wages as a lever that shifts who takes which job
+failure_modes:
+- Aggregate matching hides the cause of shortages, so players see idle buildings without knowing which worker type is missing.
+- Education systems that push the whole population past the available jobs can stall industry with no clear fix.
+- Instant matching removes the lag that makes workforce planning interesting.
+dynamics:
+- Jobs attract migrants, migrants demand shops and services, and those create more jobs, producing boom cycles.
+- A large employer far from housing generates commuter traffic and congestion.
+- Education pays off with a long lag, so labor mismatches appear whenever the economy shifts.
+math_basis:
+- system-dynamics
+- optimization
+feedback: balancing
+player_interface:
+- observation
+- placement
+legibility: 3
+emergence_potential: 3
+authoring_cost: 1
+compute_cost: 2
+tuning_difficulty: 3
+ai_leverage: 2
+maturity: classic
+open_questions:
+- Can agent-level career choice by learned or LLM agents produce realistic structural unemployment without hand-tuned migration
+  formulas?
+- How much labor detail (types, commutes, wages) can players manage before the mechanic becomes opaque?
+sources:
+- src-hopkins-2008-micropolis
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m2

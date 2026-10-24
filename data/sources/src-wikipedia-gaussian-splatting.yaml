@@ -1,0 +1,14 @@
+id: src-wikipedia-gaussian-splatting
+type: source
+name: Gaussian splatting
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Gaussian_splatting
+accessed: '2026-10-24'
+notes: Training about 35-45 min vs about 48 h for Mip-NeRF 360; higher memory than NeRF; peak training
+  memory over 20 GB; splotchy and popping artifacts; dynamic (4D) variants.
+provenance:
+  created: 2026-10-24-techniques-world-models

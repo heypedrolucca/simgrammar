@@ -1,8 +1,65 @@
 id: personality-traits
 type: mechanic
 name: Personality traits
-summary: Fixed traits change each agent's needs, preferences, and available actions.
+aliases:
+- traits
+- personality points
+summary: Fixed or slow-changing traits change each agent's needs, preferences, and available actions.
 family: agents-behavior
-status: asserted
+substrate:
+- agent-based
+- rule-system
+definition: >-
+  Owns a small per-agent set of discrete traits or continuous personality dimensions, assigned at generation or during development.
+  Traits hold no dynamics of their own; other systems read them as modifiers: they scale need decay, shift utility scores
+  and break thresholds, nullify or add memories, change opinions of others, and unlock or forbid actions. The Sims (2000)
+  uses points in opposing pairs such as nice/grouchy and active/lazy that scale object advertisements (Feed Fish gives 1-11
+  Fun by Playful); The Sims 3 lets adults hold up to five traits; RimWorld traits such as Steadfast and Nervous shift the
+  mental break threshold, and Psychopath nullifies several death thoughts. Crusader Kings III characters tend to hold three
+  personality traits gained through childhood events at ages 9, 11, and 13, opposites are excluded, and stress breaks can
+  change them. Inputs: generation or life events. Outputs: differentiated behavior from shared rules.
+player_experience: >-
+  Traits are the shorthand by which players recognize and cast characters. The player reads a trait list, predicts behavior,
+  and assigns roles; contradictory combinations become memorable, and players chase or avoid specific traits when recruiting.
+design_levers:
+- trait count per agent and exclusivity rules
+- magnitude of each trait's modifiers and which systems it touches
+- discrete traits versus continuous dimensions
+- 'acquisition: fixed at birth, childhood events, life events, or stress'
+- visibility of traits to the player
+failure_modes:
+- Strictly positive traits make recruitment a search for the same few, flattening variety.
+- Flavor traits with no mechanical effect feel fake; traits with huge effects dwarf player choices.
+- Too many traits per agent average out into bland behavior.
+dynamics:
+- Traits that affect opinion create recurring frictions and friendships between particular pairs.
+- Players build around trait combinations, so traits become strategy as well as flavor.
+- >-
+  Inherited or culturally transmitted traits drift across generations, coupling personality to lineage.
+math_basis:
+- utility-decision
+- combinatorics
+feedback: none
+player_interface:
+- observation
+- choice-cards
+legibility: 4
+emergence_potential: 3
+authoring_cost: 3
+compute_cost: 1
+tuning_difficulty: 3
+ai_leverage: 3
+maturity: classic
+open_questions:
+- >-
+  Can a natural-language persona replace a trait list while keeping behavior predictable enough for players to plan around?
+- What is the smallest trait set that still produces distinct, recognizable characters?
+sources:
+- src-forbus-2001-programming-objects-sims
+- src-wikipedia-the-sims-3
+- src-rimworldwiki-2026-mental-break
+- src-rimworldwiki-2026-thoughts
+- src-paradoxwikis-2026-ck3-traits
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m3

@@ -1,9 +1,74 @@
 id: mood-breakdown
 type: mechanic
 name: Mood and breakdowns
-summary: Mood aggregates needs, memories, and environment; crossing thresholds triggers mental breaks
+aliases:
+- mental breaks
+- stress breaks
+- inspirations
+summary: Mood aggregates needs, memories, and environment, and crossing thresholds triggers mental breaks
   or inspired performance.
 family: agents-behavior
-status: asserted
+substrate:
+- aggregate-stocks
+- stochastic-events
+- agent-based
+definition: 'Owns a per-agent mood value equal to a baseline plus the sum of active modifiers (needs,
+  memories, environment, traits), usually smoothed toward that target, and a set of thresholds. While
+  mood sits below a threshold a hazard rate rolls for a break whose severity rises with depth; during
+  a break the agent leaves player control. High mood can roll for positive states. RimWorld: base mood
+  22 to 42 by difficulty; the bar moves toward its target at up to +12 per hour rising and -8 falling;
+  break thresholds are 35%, 20%, and 5% (traits shift the minor one, capped 1-50%), with mean times between
+  breaks of about 4, 0.8, and 0.5 days; above 49% mood, inspirations arrive with a mean interval of 410
+  - 400 x mood days and grant effects such as x1.8 work speed for 8 days. Dwarf Fortress keeps a hidden
+  stress value, scaled by personality facets, that can end in tantrums or depression. Inputs: needs, memories,
+  traits. Outputs: lost labor, destructive acts, temporary buffs.'
+player_experience: 'The player manages risk rather than events: watching mood bars near thresholds, removing
+  stressors, and bracing when a disaster pushes several agents under at once. Breaks are memorable because
+  they are partly random and partly the player''s fault.'
+design_levers:
+- baseline per difficulty and weights of each mood input
+- threshold levels and trait offsets
+- hazard rate per band and severity table
+- break catalog (sad wander, binge, tantrum, violence) and whether breaks harm others
+- chance and size of positive states at high mood
+failure_modes:
+- 'Cascades: one break creates negative memories in witnesses, and the group spirals beyond recovery after
+  a random event, which feels unfair.'
+- Mood that is easy to max removes the system from mid and late game.
+- Breaks that destroy hours of work feel punitive rather than dramatic.
+- Opaque mood sources make breaks feel random.
+dynamics:
+- 'Breakdown contagion: breaks generate negative memories in witnesses that lower their mood, a reinforcing
+  loop.'
+- Players build mood infrastructure (recreation, beauty, fine meals) as defense, coupling mood to the
+  economy.
+- Inspirations reward stable groups with bursts of output, so content colonies pull further ahead.
+math_basis:
+- markov-stochastic
+- system-dynamics
+feedback: both
+player_interface:
+- observation
+- placement
+legibility: 3
+emergence_potential: 4
+authoring_cost: 3
+compute_cost: 1
+tuning_difficulty: 4
+ai_leverage: 3
+maturity: established
+synergy:
+- id: needs-decay
+  note: Unmet needs feed mood; breakdowns make neglect dramatic instead of a silent efficiency loss.
+open_questions:
+- Can breaks be generated as character-specific behavior by language-model agents instead of drawn from
+  a fixed catalog, and still be legible?
+- What hazard shape keeps breaks dramatic without producing unrecoverable cascades?
+sources:
+- src-rimworldwiki-2026-mental-break
+- src-rimworldwiki-2026-mood
+- src-rimworldwiki-2026-inspiration
+- src-dfwiki-2026-stress
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m3

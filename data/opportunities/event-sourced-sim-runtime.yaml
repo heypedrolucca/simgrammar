@@ -1,0 +1,49 @@
+id: event-sourced-sim-runtime
+type: opportunity
+name: Event-sourced simulation runtime
+summary: An engine layer that records simulation and model calls as an append-only event log, giving replay,
+  forking, explanation, and determinism for games with AI components.
+opportunity_type: infrastructure
+thesis: 'Most AI-component risks in simulation games are determinism risks: model outputs are not reproducible,
+  so replays, lockstep multiplayer, bug reports, and save integrity break. Recording every model call
+  and its output as an event, and treating the log as the source of truth with state as a projection,
+  restores reproducibility: replays read cached outputs, forks branch from any event, and explanations
+  cite events. The same log feeds why-queries, branch previews, and chronicles.'
+design_sketch: Developers use a runtime where every state change, including those decided by a model,
+  is an event with inputs, outputs, and causes. Replays and multiplayer clients consume logged outputs
+  instead of re-calling models. Tools offer fork-from-here, diff-between-branches, and cause tracing.
+involves:
+- history-chronicle
+- forecasting
+- persistent-world
+- causal-tooltips
+- modding-api
+applies:
+- constrained-decoding
+- llm-explanation-of-state
+- massively-parallel-simulation
+precedent:
+- dwarf-fortress
+- factorio
+- eve-online
+novelty: 3
+feasibility: 4
+impact: 4
+horizon: 1-2y
+key_risks:
+- Log size grows quickly in large simulations.
+- Retrofitting existing engines is costly.
+- Privacy and storage of logged player text.
+validation_experiment: 'Wrap the model calls of an AI-agent prototype in an event log, then replay 100
+  sessions and verify byte-identical state reconstruction and fork divergence only after the fork point.
+  Success: 100 percent reproducible replays with log overhead under 20 percent of save size per hour.'
+falsifiable_signal:
+  prediction: A game engine or middleware vendor will ship an event-log-based replay and determinism layer
+    designed for generative AI components.
+  resolve_by: '2028-12-31'
+  criteria: Public release from Unity, Epic, a major middleware vendor, or an open-source project with
+    documented adoption in a shipped game.
+sources: []
+status: asserted
+provenance:
+  created: 2026-10-24-synthesis

@@ -1,0 +1,45 @@
+id: generated-inspection-shifts
+type: opportunity
+name: Generated inspection shifts
+summary: Rule-checking job sims with generated documents, items, and rule changes each shift, verified
+  against an answer key so infinite variety stays fair.
+opportunity_type: mechanic-upgrade
+thesis: Papers, Please and its successors are limited by hand-built document sets that players memorize.
+  Constrained generation can produce documents, forgeries, and edge cases from a formal rule set, and
+  because the rules are formal, every generated case has a computable correct answer. That combination
+  gives endless fair variety, which ordinary procedural generation struggles to make interesting and unconstrained
+  generation cannot make fair.
+design_sketch: Each day introduces rule changes written as formal predicates and rendered as in-world
+  memos. Applicants, documents, and stories are generated to exercise boundary cases of the current rules.
+  The game knows the correct ruling for every case and scores accordingly.
+involves:
+- rule-checking-inspection
+- contracts-orders
+- dilemma-cards
+- procedural-characters
+applies:
+- constrained-decoding
+- llm-game-master
+- automated-rule-generation
+precedent:
+- papers-please
+- contraband-police
+novelty: 3
+feasibility: 5
+impact: 2
+horizon: now
+key_risks:
+- Generated text leaks the answer or contradicts the formal case.
+- Repetitive tone across generated applicants.
+validation_experiment: 'Generate 1,000 inspection cases from a 30-predicate rule set and have a checker
+  and two humans verify the answer key on a sample of 200. Success: 99 percent agreement between generated
+  answers and human rulings.'
+falsifiable_signal:
+  prediction: A released inspection or bureaucracy job sim will use runtime generation of documents or
+    applicants with a rule-derived answer key.
+  resolve_by: '2027-12-31'
+  criteria: Store page or developer statement describing generated cases scored against formal rules.
+sources: []
+status: asserted
+provenance:
+  created: 2026-10-24-synthesis

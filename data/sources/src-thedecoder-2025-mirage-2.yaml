@@ -1,0 +1,13 @@
+id: src-thedecoder-2025-mirage-2
+type: source
+name: Mirage 2 allows users to turn sketches and photos into interactive game worlds
+kind: news
+venue: The Decoder
+date: '2025-08-22'
+url: https://the-decoder.com/mirage-2-allows-users-to-turn-sketches-and-photos-into-interactive-game-worlds/
+accessed: '2026-10-24'
+notes: Dynamics Lab Mirage 2 launched about 2025-08-21; players change worlds in real time by typed commands;
+  worlds can be saved and shared; struggles with precise controls and visual stability relative to Genie
+  3.
+provenance:
+  created: 2026-10-24-techniques-world-models

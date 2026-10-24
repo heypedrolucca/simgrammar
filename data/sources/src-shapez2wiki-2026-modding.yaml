@@ -1,0 +1,14 @@
+id: src-shapez2wiki-2026-modding
+type: source
+name: Modding
+kind: encyclopedia
+authors:
+- shapez 2 Wiki contributors
+venue: shapez 2 Wiki
+date: '2026'
+url: https://shapez2.wiki.gg/wiki/Modding
+accessed: '2026-10-24'
+notes: The game loads mods natively with the ShapezShifter API; mods are published to and auto-downloaded
+  from Steam Workshop.
+provenance:
+  created: 2026-10-24-catalog-gh

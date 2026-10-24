@@ -1,0 +1,20 @@
+id: src-guo-2025-mineworld
+type: source
+name: 'MineWorld: a Real-Time and Open-Source Interactive World Model on Minecraft'
+kind: preprint
+authors:
+- Junliang Guo
+- Yang Ye
+- Tianyu He
+- Haoyu Wu
+- Yushu Jiang
+- Tim Pearce
+- Jiang Bian
+date: 2025-04
+url: https://arxiv.org/abs/2504.08388
+arxiv: '2504.08388'
+accessed: '2026-10-24'
+notes: Visual-action autoregressive Transformer over image and action tokens with parallel decoding; 4
+  to 7 fps across model scales; code and model released (microsoft/MineWorld).
+provenance:
+  created: 2026-10-24-techniques-world-models

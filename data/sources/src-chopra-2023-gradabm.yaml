@@ -1,0 +1,21 @@
+id: src-chopra-2023-gradabm
+type: source
+name: Differentiable Agent-based Epidemiology
+kind: paper
+authors:
+- Ayush Chopra
+- Alexander Rodriguez
+- Jayakumar Subramanian
+- Arnau Quera-Bofarull
+- Balaji Krishnamurthy
+- B. Aditya Prakash
+- Ramesh Raskar
+venue: AAMAS 2023
+date: '2022-07-20'
+url: https://arxiv.org/abs/2207.09714
+arxiv: '2207.09714'
+accessed: '2026-10-24'
+notes: 'GradABM: tensorized differentiable agent-based epidemic model; million-agent populations in a
+  few seconds on commodity hardware; gradient-based calibration to COVID-19 and influenza data.'
+provenance:
+  created: 2026-10-24-techniques-sim-math

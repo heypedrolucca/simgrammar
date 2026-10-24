@@ -1,0 +1,13 @@
+id: src-openttd-2026-manual-orders
+type: source
+name: "Manual/Orders"
+kind: docs
+authors:
+  - "OpenTTD Wiki contributors"
+venue: "OpenTTD Wiki"
+date: "2026"
+url: https://wiki.openttd.org/en/Manual/Orders
+accessed: "2026-10-24"
+notes: "Go-to orders, full load any or all cargo, unload, transfer with partial payment for feeders, no loading, go via, timetables, conditional order jumps, shared orders, depot service orders."
+provenance:
+  created: 2026-10-24-taxonomy-m1

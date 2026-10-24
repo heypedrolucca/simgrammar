@@ -1,0 +1,14 @@
+id: src-wikipedia-technology-tree
+type: source
+name: Technology tree
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Technology_tree
+accessed: '2026-10-24'
+notes: Tech tree as a directed acyclic graph with tiers; Francis Tresham's 1980 board game Civilization generally credited
+  with introducing it; Sid Meier's Civilization (1991); simple versus complex trees; repeatable future tech in Civilization.
+provenance:
+  created: 2026-10-24-taxonomy-m6

@@ -1,10 +1,110 @@
 id: stardew-valley
 type: game
 name: Stardew Valley
-summary: TODO
+summary: A farming and life sim in which the player restores an inherited farm over four 28-day seasons,
+  splitting a daily energy budget among crops, animals, mining, fishing, and friendships with Pelican
+  Town's residents.
 year: 2016
 developer: ConcernedApe
+platforms:
+- pc
+- console
+- handheld
+- mobile
 subgenre: farming-sim
-status: asserted
+subgenre_secondary:
+- life-sim
+sim_domain:
+- biological-ecological
+- social-interpersonal
+- economic
+player_role: inhabitant
+agency_model:
+- direct-avatar
+- zoning-placement
+time_model: real-time
+sim_scale: facility
+fidelity: stylized
+perspective: top-down-2d
+win_structure: open-sandbox
+failure_model: soft-recoverable
+narrative_mode: hybrid
+multiplayer:
+- single
+- coop
+modding: scripting
+production_tier: indie
+agent_count_order: '10'
+emergence: 2
+influence: 4
+core_loop: plan the day -> spend energy watering, harvesting, mining, or fishing -> sell crops and artisan
+  goods -> buy seeds, tools, and buildings -> gift and talk to villagers -> complete Community Center
+  bundles -> new areas and seasons open
+design_notes: Eric Barone built Stardew Valley alone over about five years in response to Harvest Moon,
+  keeping its seasonal crop calendar and town relationships while leaving the long-term structure open-ended.
+  Each day is bounded by an energy bar refilled each morning and a clock that forces sleep, so play is
+  a daily allocation problem across farming, foraging, fishing, mining, and socializing. Friendship is
+  a point stock (250 points per heart, 10 hearts for most villagers) that loses 2 points per day without
+  conversation and accepts two gifts per week, with birthday gifts worth eight times as much. Community
+  Center bundles make collection the main progression gate.
+mechanics:
+- id: crop-cultivation
+  role: core
+  note: Seasonal seeds need daily watering (rain or sprinklers substitute) and grow through stages over
+    set day counts; most crops must be harvested before the season changes.
+- id: seasons
+  role: core
+  note: Four 28-day seasons gate which crops grow, which fish and forage appear, and which festivals occur.
+- id: daily-action-budget
+  role: core
+  note: An energy bar refills each morning, drains with tool use, and is restored by food; the clock forces
+    bed by 2 a.m. or the player passes out and loses money.
+- id: relationship-values
+  role: core
+  note: Each villager has a friendship stock of 250 points per heart up to 10 hearts; it decays 2 points
+    per day without talking, takes two gifts a week, multiplies birthday gifts by 8, and unlocks heart
+    events.
+- id: collection-goals
+  role: core
+  note: Community Center bundles ask for sets of crops, forage, fish, and artisan goods; completed rooms
+    repair town infrastructure and unlock areas, and the museum collects minerals and artifacts.
+- id: animal-husbandry
+  role: supporting
+  note: Barns and coops house animals that produce eggs, milk, and wool when fed and cared for; animals
+    cannot be slaughtered.
+- id: romance-family
+  role: supporting
+  note: Twelve marriage candidates regardless of player gender; spouses help with chores, and couples
+    can have children.
+- id: agent-skills
+  role: supporting
+  note: Farming, foraging, fishing, mining, and combat levels rise with practice and unlock recipes and
+    professions.
+- id: production-chain
+  role: supporting
+  note: Kegs, preserves jars, and other machines convert crops and animal products into higher-value artisan
+    goods over fixed processing times.
+- id: quality-tiers
+  role: supporting
+  note: Crops and animal products come in normal, silver, gold, and iridium quality.
+- id: villager-requests
+  role: supporting
+  note: A help-wanted board posts item, fishing, and slaying requests from townspeople.
+- id: hand-crafting
+  role: supporting
+  note: Recipes turn gathered materials into sprinklers, fences, machines, and bombs.
+- id: daily-schedules
+  role: supporting
+  note: Villagers follow routines that vary by weekday, season, and weather.
+- id: weather
+  role: supporting
+  note: Rain waters crops and changes fish and villager routines.
+influenced_by:
+- harvest-moon
+sources:
+- src-wikipedia-stardew-valley
+- src-stardewwiki-2026-friendship
+- src-stardewvalleywiki-2026-bundles
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gc

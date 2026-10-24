@@ -1,0 +1,65 @@
+id: where-winds-meet
+type: game
+name: Where Winds Meet
+summary: An open-world martial-arts RPG whose NPCs answer free-text and voice chat through a live language
+  model, included as an early large-audience deployment of runtime LLM characters.
+year: 2024
+developer: Everstone Studio (NetEase Games)
+platforms:
+- pc
+subgenre: rpg-sim
+subgenre_secondary:
+- ai-native
+sim_domain:
+- social-interpersonal
+- military-conflict
+player_role: inhabitant
+agency_model:
+- direct-avatar
+- conversational
+time_model: real-time
+sim_scale: individual
+fidelity: stylized
+perspective: third-person
+win_structure: campaign
+failure_model: soft-recoverable
+narrative_mode: hybrid
+multiplayer:
+- single
+- coop
+modding: none
+production_tier: aaa
+agent_count_order: '100'
+emergence: 2
+influence: 2
+boundary_case: true
+core_loop: explore the open world -> talk to NPCs in free text or voice -> take quests and fights -> build
+  reputation and skills -> explore further
+design_notes: Included as a boundary case for natural-language interaction at scale. The Steam AI disclosure
+  describes NPC text and voice chat generated in real time from player input. The main questline and combat
+  remain authored and rule-based, so the language model sits beside the simulation rather than inside
+  its state.
+mechanics:
+- id: natural-language-interaction
+  role: core
+  note: Players type or speak to NPCs and receive live generated replies, per the game's Steam AI disclosure.
+- id: direct-avatar
+  role: core
+  note: Third-person martial-arts traversal and combat.
+- id: reputation
+  role: supporting
+- id: relationship-values
+  role: supporting
+- id: day-night-cycle
+  role: supporting
+claims:
+- text: The Steam page discloses AI-driven NPC text and voice chat that responds to player input in real
+    time; global PC release was 2025-11-14.
+  sources:
+  - src-steam-2025-where-winds-meet
+  confidence: high
+sources:
+- src-steam-2025-where-winds-meet
+status: asserted
+provenance:
+  created: 2026-10-24-catalog-additions

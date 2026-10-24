@@ -1,0 +1,103 @@
+id: mean-field-games
+type: technique
+name: Mean field games and mean-field learning
+aliases:
+- MFG
+- mean field MARL
+- online mirror descent for MFGs
+summary: Mean field game theory replaces an N-player game with one representative agent responding to
+  the population distribution, and recent learning methods compute these equilibria for state spaces of
+  hundreds of billions of states.
+category: game-theoretic-solvers
+year: 2021
+mechanism: 'Each agent is small, anonymous and interchangeable, so the game depends on others only through
+  the population distribution m(t,x). An equilibrium is a fixed point: the representative agent''s value
+  function u solves a backward Hamilton-Jacobi-Bellman equation given m, and m evolves forward by a Fokker-Planck
+  equation under the resulting policy. Numerical and learning methods iterate this pair: fictitious play
+  averages past best responses; online mirror descent accumulates Q-values and updates the policy by a
+  softmax of them; RL variants learn from samples when the model is unknown. Mean-field multi-agent RL
+  applies the same idea locally, with each agent learning against the mean action of its neighbors. Cost
+  scales with the size of the individual state space, not with the number of agents.'
+key_results:
+- text: Lasry and Lions (2007) formulated mean field games as coupled forward-backward nonlinear PDEs
+    for many rational players reacting to aggregates and showed the problems are generally well-posed.
+  sources:
+  - src-lasry-2007-mean-field-games
+  confidence: high
+- text: Online mirror descent converged to MFG Nash equilibria under monotonicity, outperformed fictitious
+    play, and solved MFGs with hundreds of billions of states.
+  sources:
+  - src-perolat-2021-mfg-omd
+  confidence: high
+- text: Mean-field MARL let each agent learn against its neighbors' mean action, scaling multi-agent learning
+    to many-agent battle games and solving the Ising model with model-free RL.
+  sources:
+  - src-yang-2018-mean-field-marl
+  confidence: high
+- text: MFGs are applied to energy markets, bitcoin mining, macro-finance models and contract theory.
+  sources:
+  - src-carmona-2020-mfg-finance-economics
+  confidence: medium
+- text: Learning methods for static, stationary and evolutive MFG equilibria and social optima are now
+    surveyed as an established toolkit.
+  sources:
+  - src-lauriere-2022-learning-mfg-survey
+  confidence: medium
+maturity: research
+trl: 3
+runtime:
+- offline-authoring
+- client-realtime
+determinism_impact: preserves
+horizon: 3-5y
+risks:
+- legibility
+- controllability
+affects:
+- id: traffic-congestion
+  effect: replaces-substrate
+  note: Trip routing changes from each agent reacting to current travel times, which oscillates, to an
+    equilibrium in which drivers anticipate congestion, computed once for the population at a cost independent
+    of car count.
+- id: crowd-preferences
+  effect: deepens
+  note: Park visitors can choose attractions in equilibrium with expected queues and crowding rather than
+    greedily, producing realistic spreading of crowds across a park.
+- id: service-queues
+  effect: deepens
+  note: Queue choice and arrival timing become equilibrium behavior, so changing capacity at one service
+    shifts load across the others as people anticipate the change.
+- id: supply-demand-pricing
+  effect: deepens
+  note: Prices can come from many small rational producers and consumers in equilibrium (as in MFG models
+    of energy markets), instead of a fixed elasticity formula.
+- id: agent-pathfinding
+  effect: accelerates
+  note: One equilibrium policy over positions serves any number of agents, like a flow field that already
+    includes congestion effects, replacing per-agent searches.
+- id: travel-mode-choice
+  effect: deepens
+  note: Mode split solved as a population equilibrium in which each traveler responds to congestion created
+    by everyone else.
+deployed_in: []
+limitations:
+- Assumes anonymous, symmetric, individually negligible agents; named characters with unique state, or
+  a player large enough to move the aggregate, need major-player extensions.
+- Equilibrium describes settled behavior; the learning, overshoot and panic dynamics games often want
+  are absent unless modeled separately.
+- The forward-backward coupling needs the whole horizon at once, so player interventions mid-run require
+  re-solving or a fast approximate solver.
+- Convergence guarantees such as those for online mirror descent need monotonicity assumptions that game
+  rules can violate.
+- No game implementation was found in this run's sources.
+sources:
+- src-lasry-2007-mean-field-games
+- src-perolat-2021-mfg-omd
+- src-yang-2018-mean-field-marl
+- src-carmona-2020-mfg-finance-economics
+- src-lauriere-2022-learning-mfg-survey
+status: sourced
+provenance:
+  created: 2026-10-24-techniques-sim-math
+  reviewed:
+  - 2026-10-24-technique-links

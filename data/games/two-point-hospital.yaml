@@ -1,10 +1,108 @@
 id: two-point-hospital
 type: game
 name: Two Point Hospital
-summary: TODO
+summary: A hospital management game and spiritual successor to Theme Hospital in which the player builds
+  rooms, trains staff with traits and qualifications, and cures comic illnesses across a chain of hospitals.
 year: 2018
 developer: Two Point Studios
+platforms:
+- pc
+- console
+- handheld
 subgenre: management-tycoon
-status: asserted
+subgenre_secondary:
+- medical-sim
+sim_domain:
+- medical
+- economic
+player_role: manager-owner
+agency_model:
+- zoning-placement
+- policy-parameter
+- direct-unit
+time_model: real-time-pausable
+sim_scale: facility
+fidelity: stylized
+perspective: free-3d
+win_structure: scenario-goals
+failure_model: soft-recoverable
+narrative_mode: none
+multiplayer:
+- single
+- coop
+- competitive
+- async-shared
+modding: content
+production_tier: aa
+agent_count_order: '100'
+emergence: 3
+influence: 2
+core_loop: build and decorate rooms -> hire staff with traits and train qualifications -> patients flow
+  from GP to diagnosis to treatment -> cures earn money and reputation -> research and Kudosh unlock items
+  -> earn stars to open the next hospital
+design_notes: 'Two Point Hospital keeps Theme Hospital''s room-blueprint and diagnosis-pipeline structure
+  and adds a deeper staff layer: every hire has personality traits, a specialisation, and trainable qualifications,
+  so the training room is a second production line beside the clinical one. Room prestige rises with room
+  size and decoration and feeds staff happiness, which links interior design to staff retention. Progress
+  spreads across many hospitals with one-to-three-star goals, and items unlock with Kudosh, a currency
+  earned from challenges rather than money. Assistants can run marketing campaigns (proposed mechanic
+  advertising-awareness).'
+mechanics:
+- id: diagnosis-treatment
+  role: core
+  note: Patients start in a GP's Office and move through further diagnostic rooms until diagnosed, then
+    to a treatment room; illnesses are comic, such as Light-Headedness and Mock Star.
+- id: staff-hiring
+  role: core
+  note: Doctors, nurses, janitors, and assistants come with personality traits and specialisations that
+    change performance; wages and morale must be managed.
+- id: service-queues
+  role: core
+  note: Patients queue at rooms while their health falls; untreated patients die, and long waits lower
+    satisfaction.
+- id: free-placement
+  role: core
+  note: Rooms are drawn and furnished with required machines, plus corridors with toilets, cafes, vending
+    machines, and staff rooms.
+- id: agent-skills
+  role: supporting
+  note: Staff earn qualifications in the training room that unlock or improve tasks.
+- id: personality-traits
+  role: supporting
+  note: Staff traits change efficiency and behavior.
+- id: decoration-beauty
+  role: supporting
+  note: Room prestige depends on size and decoration and affects staff happiness.
+- id: needs-decay
+  role: supporting
+  note: Patients and staff need toilets, food, drinks, and rest.
+- id: contagion
+  role: supporting
+  note: Later levels bring epidemics with a limited vaccine supply; immunizing every infected patient
+    earns a reward.
+- id: wear-breakdown
+  role: supporting
+  note: Machines degrade and need janitor maintenance.
+- id: tech-tree
+  role: supporting
+  note: The Research room unlocks new rooms and machine upgrades.
+- id: milestone-unlocks
+  role: supporting
+  note: Kudosh from challenges unlocks items; one star unlocks the next hospital.
+- id: scenario-objectives
+  role: supporting
+  note: Each hospital has star objectives; extra objectives raise the rating to two or three stars.
+- id: content-sharing
+  role: supporting
+  note: Steam Workshop support added in 2019.
+- id: advertising-awareness
+  role: supporting
+  note: Assistants in the marketing room run paid campaigns that draw more patients, optionally targeted
+    at specific illnesses.
+influenced_by:
+- theme-hospital
+sources:
+- src-wikipedia-two-point-hospital
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-ge

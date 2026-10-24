@@ -1,0 +1,13 @@
+id: src-factoriowiki-2026-transport-belt-physics
+type: source
+name: "Transport belts/Physics"
+kind: encyclopedia
+authors:
+  - "Factorio Wiki contributors"
+venue: "Official Factorio Wiki"
+date: "2026"
+url: https://wiki.factorio.com/Transport_belts/Physics
+accessed: "2026-10-24"
+notes: "4 items per lane per tile on straight belts; throughput 15, 30, 45, 60 items/s for transport, fast, express, and turbo belts."
+provenance:
+  created: 2026-10-24-taxonomy-m1

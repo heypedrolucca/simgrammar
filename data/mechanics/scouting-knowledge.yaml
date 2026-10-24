@@ -1,8 +1,62 @@
 id: scouting-knowledge
 type: mechanic
 name: Scouting knowledge
-summary: Entity attributes are known only with uncertainty that scouting reduces.
+aliases:
+- attribute masking
+- scouting reports
+- rating uncertainty
+summary: Entity attributes are known only with uncertainty that scouting effort reduces.
 family: information-legibility
+substrate:
+- agent-based
+- stochastic-events
+definition: >-
+  Each entity attribute has a true hidden value and, per player, a knowledge level or confidence interval. Scouting
+  actions (assigning a scout, watching matches, spending time or money) raise knowledge for specific entities or
+  regions; knowledge may decay. The display shows a masked value, a range, a noisy point estimate, or a star rating
+  whose noise scales with the scout's judging skill and the knowledge level. State owned: (player, entity, attribute)
+  knowledge and the current estimate. Update rule: knowledge increases with effort and observer skill; estimate
+  = true value plus noise scaled by remaining uncertainty, or hidden until a threshold. Canonical forms: Football
+  Manager attribute masking, regional scouting knowledge, and scout ability and potential star ratings; Out of the
+  Park Baseball, where displayed ratings are your scouting staff's opinion and accuracy is a setting.
+player_experience: >-
+  Recruitment becomes investment under uncertainty. The player decides where to send scouts, weighs a cheap unknown
+  against a known star, and feels vindicated or burned when performance reveals the true value.
+design_levers:
+- 'representation of uncertainty: masked, range, noisy estimate, or rating'
+- scouting cost and speed per entity or region
+- scout skill as the noise level of reports
+- whether knowledge decays over time
+- whether true values are ever fully revealed, for example after signing
+- separate uncertainty for current ability and future potential
+failure_modes:
+- Third-party editors and database tools reveal true attributes, collapsing the mechanic for players who use them.
+- Cheap, complete scouting turns uncertainty into a delay rather than a decision.
+- Uncertainty that persists after acquisition and long observation feels arbitrary.
+dynamics:
+- 'Information asymmetry creates market behavior: overpaying for hyped players and bargains in under-scouted regions.'
+- Uncertain potential couples with skill growth to make youth signings speculative bets.
+- Rival AI clubs with better knowledge outbid the player, making scouting investment competitive.
+math_basis:
+- information-theory
+- probability-statistics
+feedback: none
+player_interface:
+- orders
+- observation
+legibility: 3
+emergence_potential: 3
+authoring_cost: 1
+compute_cost: 2
+tuning_difficulty: 3
+ai_leverage: 3
+maturity: established
+open_questions:
+- Can language-model scouts write reports whose hedges and biases track their numeric noise, so reading reports
+  is itself a skill?
+- Does Bayesian updating from observed performance, shown to the player, make uncertainty feel fairer than fixed
+  masking?
+sources: []
 status: asserted
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m6

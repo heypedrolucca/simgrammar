@@ -1,10 +1,80 @@
 id: teardown
 type: game
 name: Teardown
-summary: TODO
+summary: >-
+  A heist and destruction game set in fully destructible voxel levels where the player plans a route by cutting, smashing,
+  and driving through structures, then races a 60-second alarm timer to grab the targets.
 year: 2020
+year_full_release: 2022
 developer: Tuxedo Labs
+platforms:
+- pc
+- console
 subgenre: physics-sandbox
-status: asserted
+sim_domain:
+- physical-mechanical
+player_role: inhabitant
+agency_model:
+- direct-avatar
+time_model: real-time
+sim_scale: facility
+fidelity: systemic
+perspective: first-person
+win_structure: campaign
+failure_model: hard-restart
+narrative_mode: authored
+multiplayer:
+- single
+- coop
+- competitive
+modding: scripting
+production_tier: indie
+agent_count_order: '10'
+emergence: 3
+influence: 2
+core_loop: >-
+  survey the level -> cut, blast, and ram a route through voxel structures -> stage vehicles and ramps -> trigger the alarm
+  by taking a target -> grab the rest along the planned path before the timer ends
+design_notes: >-
+  Every object is made of small voxels with material types (wood, plaster, brick, metal, glass), and disconnected chunks become
+  rigid bodies that fall, roll, and burn, so geometry is a resource the player spends. The design separates an unlimited planning
+  phase from a timed execution phase: picking up a connected target starts a 60-second alarm, so the player engineers shortcuts
+  with tools, explosives, and vehicles before the first grab. Materials resist tools differently, and fire spreads through
+  wood, which turns construction knowledge into route planning.
+mechanics:
+- id: voxel-destruction
+  role: core
+  note: >-
+    Levels are made of small voxels whose material sets which tools can break them; the sledgehammer breaks soft materials,
+    the blowtorch cuts metal, and explosives remove volumes.
+- id: rigid-body-physics
+  role: core
+  note: >-
+    Voxel chunks cut loose become dynamic bodies with mass that fall, roll, and crush; vehicles and cranes push and lift them.
+- id: crisis-countdown
+  role: core
+  note: >-
+    In most heists taking an alarmed target starts a 60-second timer to reach the getaway vehicle, so the route must be prepared
+    during an unlimited setup phase.
+- id: fire-spread
+  role: supporting
+  note: >-
+    Fire spreads across wood and other flammables and can burn targets or open routes; burning structures weaken and fall.
+- id: material-interactions
+  role: supporting
+  note: Materials respond differently to each tool and to fire; a fire extinguisher puts fires out.
+- id: structural-integrity
+  role: supporting
+  note: Sections cut off from all supports fall, so removing pillars can drop a floor.
+- id: scenario-objectives
+  role: supporting
+  note: >-
+    40 campaign missions specify targets, optional targets, and conditions such as stealing, destroying, or collecting evidence.
+- id: modding-api
+  role: supporting
+  note: Lua scripting, a level editor, and Steam Workshop support custom levels, tools, and modes.
+sources:
+- src-wikipedia-teardown
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gg

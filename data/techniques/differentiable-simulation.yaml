@@ -1,0 +1,104 @@
+id: differentiable-simulation
+type: technique
+name: Differentiable simulation
+aliases:
+- differentiable physics
+- DiffTaichi
+- NVIDIA Warp
+- GradABM
+- differentiable agent-based models
+summary: Simulators written so automatic differentiation returns gradients of an outcome with respect
+  to initial state, controls, or rule parameters, replacing black-box search with gradient descent for
+  tuning and inverse design.
+category: differentiable-simulation
+year: 2020
+mechanism: 'The simulator step is written in a language with automatic differentiation: source-transformed
+  kernels (DiffTaichi, NVIDIA Warp) or traced array programs (JAX in Brax). A loss is defined on the final
+  or accumulated state, for example distance of a soft robot from a goal or error between simulated and
+  observed infection counts. Reverse-mode differentiation propagates the gradient back through every timestep
+  to the parameters, which are updated by gradient descent. Contacts and discrete events are smoothed
+  or given surrogate gradients. For agent-based models, agent state is held in tensors and stochastic
+  discrete events are replaced by differentiable relaxations so the whole population update has gradients
+  (GradABM). The payoff is that tuning takes tens of gradient iterations instead of thousands of blind
+  rollouts.'
+key_results:
+- text: DiffTaichi implemented 10 differentiable simulators; its elastic-object simulator was 4.2x shorter
+    than hand-written CUDA at similar speed and 188x faster than a TensorFlow version, and neural controllers
+    optimized in tens of iterations.
+  sources:
+  - src-hu-2020-difftaichi
+  confidence: high
+- text: Brax exposed gradients through a JAX rigid-body engine running at millions of steps per second
+    on one accelerator.
+  sources:
+  - src-freeman-2021-brax
+  confidence: medium
+- text: NVIDIA Warp lets developers write differentiable GPU kernels in Python; NVIDIA reports Autodesk
+    fluid simulations 8x faster and 5x larger than with traditional frameworks.
+  sources:
+  - src-nvidia-2024-warp-blog
+  confidence: medium
+- text: GradABM made a million-agent epidemic agent-based model differentiable, ran it in a few seconds
+    on commodity hardware, and calibrated it to COVID-19 and influenza data by gradient descent.
+  sources:
+  - src-chopra-2023-gradabm
+  confidence: high
+- text: 'As of 2026, gradient support is uneven across GPU engines: MuJoCo Warp lists differentiability
+    via Warp as not yet available.'
+  sources:
+  - src-deepmind-2026-mujoco-warp
+  confidence: medium
+maturity: research
+trl: 3
+runtime:
+- offline-authoring
+- design-assist
+determinism_impact: preserves
+horizon: 3-5y
+risks:
+- controllability
+- compute-cost
+affects:
+- id: design-performance-rating
+  effect: explains
+  note: The gradient of a design's rating with respect to each part parameter tells the player which strut,
+    joint or track segment most changes the score, enabling hints like 'move this support left'.
+- id: soft-body-deformation
+  effect: tunes
+  note: Material stiffness and damping of node-beam or finite-element bodies can be fitted to reference
+    motion or a target feel by gradient descent, as DiffTaichi does for elastic objects.
+- id: vehicle-dynamics
+  effect: tunes
+  note: Tire, suspension and drivetrain constants can be fitted to recorded telemetry by differentiating
+    lap or trajectory error, replacing manual parameter sweeps.
+- id: contagion
+  effect: tunes
+  note: GradABM shows transmission parameters of a million-agent outbreak model calibrated to real case
+    data by gradients, a route to epidemic games whose curves match real diseases or designer targets.
+- id: fluid-gas-simulation
+  effect: tunes
+  note: Differentiable fluid kernels (Warp, DiffTaichi) allow inverse design, solving for emitter or vent
+    settings that produce a target flow, usable for level authoring or tuning puzzles.
+- id: modular-assembly
+  effect: enables-new
+  note: A controller for a player-built soft or articulated body can be optimized in tens of gradient
+    iterations, so assembled machines can learn to walk or swim during play.
+deployed_in: []
+limitations:
+- Collisions, contact switching, and integer or threshold game rules give zero, undefined, or misleading
+  gradients and need smoothing or relaxations that change the dynamics being tuned.
+- Reverse-mode differentiation must store or recompute intermediate states, so memory grows with timesteps
+  times state size; long horizons also produce exploding or vanishing gradients.
+- Support is incomplete in production-grade GPU engines; MuJoCo Warp lists differentiability via Warp
+  as not yet available.
+- Gradient descent finds local optima of a stated loss; matching a target curve is not the same as making
+  a system fun or balanced.
+sources:
+- src-hu-2020-difftaichi
+- src-freeman-2021-brax
+- src-nvidia-2024-warp-blog
+- src-chopra-2023-gradabm
+- src-deepmind-2026-mujoco-warp
+status: sourced
+provenance:
+  created: 2026-10-24-techniques-sim-math

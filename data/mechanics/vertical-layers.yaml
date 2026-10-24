@@ -1,8 +1,56 @@
 id: vertical-layers
 type: mechanic
 name: Vertical layers
-summary: The world has multiple stacked layers such as z-levels or underground networks that interact.
+aliases:
+- z-levels
+- underground layer
+- multi-floor
+summary: The world has stacked layers such as z-levels, floors, or underground networks, and rules connect
+  what happens between them.
 family: space-construction
+substrate:
+- cellular-grid
+- network-graph
+definition: 'The map is a stack of layers indexed by depth or named by function. Each layer holds its
+  own grid, and cross-layer rules link them: stairs and ramps for movement, support from below, fluids
+  and objects falling through openings, and utilities in a hidden layer serving the surface tiles above.
+  Dwarf Fortress models a full 3D map of z-levels where dwarves dig down, build stairs and channels, and
+  water and magma flow downward through openings. SimCity 2000 adds an underground view for water pipes
+  and subways under the surface grid. Cities: Skylines places metro tunnels and pipes underground, and
+  Factorio: Space Age adds elevated rails over ground tracks. State: per-layer grids plus inter-layer
+  links; update: per-layer rules plus transfer rules at the links.'
+player_experience: Depth and hidden infrastructure. Players dig toward risk and reward, route utilities
+  out of sight, and switch camera layers to manage what they cannot see at once.
+design_levers:
+- number of layers and whether they are uniform or functionally distinct
+- 'what crosses layers: movement, fluids, support, light, utilities'
+- 'visibility tools: cutaways, layer toggles, isometric views'
+- cost and hazard gradient with depth
+failure_modes:
+- Legibility collapses when players must mentally stack many layers; Dwarf Fortress players used third-party
+  visualizers to see their fortresses in 3D.
+- A utility layer that mirrors the surface grid becomes a chore with no decisions of its own.
+- Pathfinding and fluid updates across many layers become a major performance cost.
+dynamics:
+- Digging into water or magma floods layers below or above, a classic Dwarf Fortress disaster.
+- Vertical separation lets transit and utilities cross without conflicts, relieving surface congestion.
+- Defenses gain a vertical dimension through chokepoints, drops, and layered walls.
+math_basis:
+- graph-search
+feedback: none
+player_interface:
+- placement
+- observation
+legibility: 3
+emergence_potential: 3
+authoring_cost: 2
+compute_cost: 3
+tuning_difficulty: 2
+ai_leverage: 2
+maturity: classic
+open_questions:
+- Can automatic camera and cutaway selection make deep 3D colonies as legible as a single-layer map?
+sources: []
 status: asserted
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m4

@@ -1,10 +1,110 @@
 id: football-manager
 type: game
 name: Football Manager
-summary: TODO
+aliases:
+- Worldwide Soccer Manager
+summary: A football club management series in which the player sets tactics, training, transfers, and
+  finances while a match engine simulates games from the attributes of players drawn from a researched
+  database of real footballers.
 year: 2004
 developer: Sports Interactive
+platforms:
+- pc
+- mobile
+- handheld
+- console
 subgenre: sports-management
-status: asserted
+sim_domain:
+- sports
+- economic
+- social-interpersonal
+player_role: manager-owner
+agency_model:
+- policy-parameter
+- direct-unit
+time_model: turn-based
+sim_scale: household
+fidelity: high-fidelity
+perspective: text-ui
+win_structure: open-sandbox
+failure_model: soft-recoverable
+narrative_mode: emergent
+multiplayer:
+- single
+- competitive
+modding: content
+production_tier: aa
+agent_count_order: 10k-plus
+emergence: 4
+influence: 4
+core_loop: scout and sign players -> set tactics and training -> the match engine simulates fixtures from
+  attributes and instructions -> morale, form, and finances shift -> the board and fans judge results
+  -> rebuild the squad over seasons
+design_notes: 'Football Manager simulates the whole football world from a database of real players, staff,
+  and clubs maintained by fan researchers, with tens of thousands of players developing, aging, and moving
+  in loaded leagues. Matches are simulated from player attributes and tactical instructions and shown
+  through a 2D engine in FM 2005 and a 3D engine from FM 2009. Information is uncertain: scouts and analysts
+  reveal attributes and fit, and scout knowledge of an area is tracked (as 0 to 100 percent from FM 2018).
+  Everton agreed in 2008 to use the database for scouting. Contract and transfer talks and the board''s
+  job-security judgment have no matching mechanics in the taxonomy (proposed as negotiation and board-confidence).
+  The series began as Championship Manager in 1992 and was relaunched under this name with FM 2005 in
+  2004.'
+mechanics:
+- id: attribute-match-engine
+  role: core
+  note: Fixtures are simulated event by event from each player's attributes, condition, and morale and
+    the manager's tactics and touchline instructions, shown in 2D or 3D.
+- id: scouting-knowledge
+  role: core
+  note: Players' attributes are shown only as well as the club's scouts know them; scout knowledge accumulates
+    per region and is shown as a percentage from FM 2018.
+- id: staff-hiring
+  role: core
+  note: Players and staff are signed through transfers, loans, and contracts with wages, bonuses, and
+    agents.
+- id: agent-skills
+  role: core
+  note: Player attributes develop through training schedules, match experience, and coaching quality up
+    to individual potential.
+- id: lifecycle-aging
+  role: supporting
+  note: Players peak and decline with age, retire, and are replaced by yearly youth intakes.
+- id: procedural-characters
+  role: supporting
+  note: Generated youth players enter the database each season alongside the real ones.
+- id: personality-traits
+  role: supporting
+  note: Personality and hidden attributes such as professionalism affect development and reactions.
+- id: relationship-values
+  role: supporting
+  note: Squad hierarchy, cohesion, and player opinions of the manager are tracked from FM 2018.
+- id: social-exchanges
+  role: supporting
+  note: Team talks and private conversations with players praise, criticize, or promise, changing morale.
+- id: dilemma-cards
+  role: supporting
+  note: Press conferences pose questions with answer options that change morale and media relations.
+- id: reputation
+  role: supporting
+  note: Club and manager reputation set who will sign; board and fan confidence decide whether the manager
+    is sacked.
+- id: budget-treasury
+  role: supporting
+  note: Club finances cover wage and transfer budgets, with taxes added in FM 2013.
+- id: stats-dashboards
+  role: supporting
+  note: Data analysts and statistics screens report player and team performance.
+- id: negotiation
+  role: supporting
+  note: Transfer fees are negotiated with selling clubs and contracts with players and their agents over
+    wages, length, bonuses, and clauses, and talks can break down.
+- id: board-confidence
+  role: supporting
+  note: The board sets season expectations and, with fan confidence, judges results against them; falling
+    confidence brings warnings and then sacking.
+sources:
+- src-wikipedia-football-manager
+- src-wikipedia-football-manager-2005
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-ge

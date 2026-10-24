@@ -1,10 +1,68 @@
 id: terra-nil
 type: game
 name: Terra Nil
-summary: TODO
+summary: A reverse city builder in which the player places machines to clean toxic soil, restore water, and grow biomes on
+  a barren map, then recycles every building and leaves.
 year: 2023
 developer: Free Lives
-subgenre: ecosystem-evolution
-status: asserted
+platforms:
+- pc
+- mobile
+- console
+- handheld
+subgenre: city-builder
+subgenre_secondary:
+- ecosystem-evolution
+sim_domain:
+- biological-ecological
+- planetary-natural
+player_role: caretaker
+agency_model:
+- zoning-placement
+time_model: real-time
+sim_scale: region
+fidelity: stylized
+perspective: isometric
+win_structure: scenario-goals
+failure_model: soft-recoverable
+narrative_mode: none
+multiplayer:
+- single
+modding: none
+production_tier: indie
+agent_count_order: none
+emergence: 2
+influence: 1
+core_loop: place wind turbines on rock -> power toxin scrubbers that clean soil -> irrigate and pump water into riverbeds
+  -> upgrade to grow wetlands, meadows, and forest -> attract animals and restore weather -> recycle every building and leave
+design_notes: 'It inverts the city-builder loop: growth is measured in restored tiles rather than population, and points earned
+  per restored tile are the only currency for further buildings, so efficient placement compounds. The final step requires
+  recycling all infrastructure to build an airship and leave, so a layout must be removable as well as productive. Subgenre
+  is set to city-builder because its lineage is placement and budget puzzles rather than population or evolution modeling.
+  It began as a Ludum Dare 45 entry in October 2019.'
+mechanics:
+- id: free-placement
+  role: core
+  note: 'Buildings have placement rules: wind turbines go only on stone tiles and power toxin scrubbers, which clean soil
+    so irrigators can green it.'
+- id: budget-treasury
+  role: core
+  note: Each restored tile earns points, and points are the only currency for buildings and upgrades, so a map can stall if
+    spending outruns restoration.
+- id: hydrology
+  role: supporting
+  note: Pumps refill dried riverbeds and tools carve new rivers.
+- id: terraforming
+  role: supporting
+  note: Tools create new rivers and some stone tiles.
+- id: habitat-suitability
+  role: supporting
+  note: Restored biomes attract deer, birds, fish, and bears.
+- id: scenario-objectives
+  role: supporting
+  note: Each map sets restoration targets before the player can recycle buildings and leave.
+sources:
+- src-wikipedia-terra-nil
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gb

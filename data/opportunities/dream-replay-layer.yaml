@@ -1,0 +1,48 @@
+id: dream-replay-layer
+type: opportunity
+name: Generated dream and replay views
+summary: Use generative world models for non-authoritative views such as memories, rumors, and alternate
+  histories, where drift is acceptable and variety is the point.
+opportunity_type: new-mechanic
+thesis: 'The weaknesses of generative world models (short consistency horizon, no exact state) disqualify
+  them as engines but suit a different role: showing things that are supposed to be subjective. A colonist''s
+  memory, a rumor that changed in the telling, a forecast that might not happen, or the history of a ruin
+  are views where approximation reads as character rather than bug.'
+design_sketch: Clicking a memory in a colonist's inspector plays a few seconds of generated footage conditioned
+  on the logged event and the colonist's mood. Rumors render with distortions proportional to how many
+  retellings they passed through. Ruins found in worldgen offer a short generated vision of their past
+  from history-generation records.
+involves:
+- memories-thoughts
+- history-chronicle
+- gossip-propagation
+- history-generation
+- forecasting
+applies:
+- genie-world-models
+- diffusion-game-engines
+- open-interactive-video-models
+precedent:
+- dwarf-fortress
+- rimworld
+- kenshi
+novelty: 5
+feasibility: 3
+impact: 2
+horizon: 1-2y
+key_risks:
+- Generation latency breaks the inspection flow.
+- Generated imagery of violent events needs content controls.
+- Players may read subjective views as ground truth.
+validation_experiment: 'Prototype generated memory clips from 50 logged events in a colony sim using an
+  available video model; measure generation time and ask players whether clips increased attachment. Success:
+  under 10 seconds per clip and a majority reporting increased attachment.'
+falsifiable_signal:
+  prediction: A shipped game will use a generative video or world model to show character memories or
+    in-world histories.
+  resolve_by: '2028-12-31'
+  criteria: Store page, trailer, or patch notes describing generated memory or history visualizations.
+sources: []
+status: asserted
+provenance:
+  created: 2026-10-24-synthesis

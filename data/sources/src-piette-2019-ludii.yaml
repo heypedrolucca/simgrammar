@@ -1,0 +1,17 @@
+id: src-piette-2019-ludii
+type: source
+name: Ludii -- The Ludemic General Game System
+kind: preprint
+authors:
+- Éric Piette
+- Dennis J. N. J. Soemers
+- Matthew Stephenson
+- Chiara F. Sironi
+- Mark H. M. Winands
+- Cameron Browne
+venue: arXiv
+date: '2019-05-13'
+arxiv: '1905.05013'
+accessed: '2026-10-24'
+provenance:
+  created: 2026-10-24-techniques-rl-design

@@ -1,0 +1,13 @@
+id: src-revolutionarygames-2016-thrive-vs-species
+type: source
+name: 'Devblog #5: Thrive vs Species'
+kind: tech-report
+venue: Revolutionary Games Studio
+date: '2016-02-27'
+url: https://www.revolutionarygamesstudio.com/devblog-5-thrive-vs-species
+accessed: '2026-10-24'
+notes: Describes Species (single developer Quasar, free alpha) genes stored as numbers; most mutations add a random
+  value in [-1, 1] times a modifier for background mutation rate and radiation; species defined by interbreeding
+  within genetic distance, splitting only when intermediates die out; stamina from joint torques.
+provenance:
+  created: 2026-10-24-catalog-gd

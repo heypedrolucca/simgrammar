@@ -1,9 +1,68 @@
 id: natural-language-interaction
 type: mechanic
 name: Natural-language interaction
+aliases:
+- free-text dialogue
+- conversational characters
+- voice input
 summary: The player communicates with characters by free text or voice, and the system interprets intent
   and responds.
 family: social-relations
-status: asserted
+substrate:
+- learned-model
+- rule-system
+definition: 'Owns the mapping from a player utterance to a game-meaningful interpretation and the character''s
+  reply. A parser or model classifies free text or speech into intents, or produces an open reply, and
+  the result updates character state, relationships, or plot. Facade (2005) maps typed text through about
+  800 hand-authored template rules (compiled to about 6,800 Jess rules) into 24 discourse act types such
+  as agree, criticize, and flirt, plus a catch-all for non-understanding; the rules are permissive, accepting
+  false positives to avoid non-understanding, and a drama manager sequences story beats from the result.
+  AI Dungeon (2019) passes player text to GPT-2 and from 2020 GPT-3 to continue the story. Seaman (1999)
+  took microphone input, and Suck Up! (2023) has players talk their way into homes of language-model characters.
+  Inputs: text or speech, game state. Outputs: intent or discourse act, state updates, generated dialogue.'
+player_experience: 'The player says what they mean instead of picking from a menu, which raises both agency
+  and anxiety: phrasing becomes a skill and characters can surprise. Misunderstandings and off-topic replies
+  break immersion quickly, so players probe the system''s limits.'
+design_levers:
+- 'interpretation target: a fixed intent set, discourse acts, or open generation'
+- fallback behavior when input is not understood
+- grounding constraints that tie replies to game state and authored canon
+- input modality (typed or voice) and response latency
+- how strongly language outcomes change simulation state versus adding flavor only
+failure_modes:
+- 'Non-understanding loops: the system misreads input and the player rephrases repeatedly.'
+- Open models drift from canon or game state and promise things the simulation cannot deliver; AI Dungeon
+  was criticized for forgetting earlier content.
+- Players manipulate characters with meta-instructions, trivializing persuasion goals.
+- Moderation filters misfire; AI Dungeon's 2021 filter flagged harmless content.
+dynamics:
+- Players develop phrasing strategies (flattery, logic traps, role-play) that work as skill expression.
+- Language outcomes feed relationship and opinion systems, making conversation a primary social lever.
+- Players share transcripts, so interactions become community content.
+math_basis:
+- machine-learning
+- information-theory
+feedback: none
+player_interface:
+- language
+legibility: 2
+emergence_potential: 4
+authoring_cost: 3
+compute_cost: 4
+tuning_difficulty: 4
+ai_leverage: 5
+maturity: emerging
+synergy:
+- id: relationship-values
+  note: Free-text conversation can move relationship state in ways menu choices cannot enumerate.
+open_questions:
+- How can free-form dialogue be grounded so that what characters say always matches simulation state and
+  what they can do?
+- What evaluation shows that language input adds agency rather than guesswork compared with dialogue menus?
+sources:
+- src-mateas-2004-facade-nlu
+- src-wikipedia-facade
+- src-wikipedia-ai-dungeon
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m3

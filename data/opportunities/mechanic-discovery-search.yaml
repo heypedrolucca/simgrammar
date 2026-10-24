@@ -1,0 +1,48 @@
+id: mechanic-discovery-search
+type: opportunity
+name: Automated mechanic discovery
+summary: Search the space of rule programs with language-model-guided evolution and agent playtests to
+  propose new mechanics that are learnable, deep, and unlike existing ones.
+opportunity_type: authoring-tool
+thesis: Automated game design has produced board-game rules (Ludii and GAVEL) and levels, and LLM-guided
+  evolutionary search (FunSearch, AlphaEvolve) has found new algorithms and constructions. Simulation
+  mechanics are small rule programs over state; a search that proposes rule variants, evaluates them with
+  agent populations for depth and learnability proxies, and keeps a diversity archive could surface mechanics
+  designers have not tried. The taxonomy in this repository is a candidate search space and novelty reference.
+design_sketch: A designer selects a base simulation and a family. The system mutates rule code, runs agent
+  populations, scores emergent variety, strategic depth, and legibility proxies, and returns an archive
+  of diverse candidates with replays and plain-language descriptions, deduplicated against the existing
+  taxonomy.
+involves:
+- production-chain
+- design-performance-rating
+- adaptive-threat-scaling
+- modding-api
+applies:
+- alphaevolve-algorithm-discovery
+- automated-rule-generation
+- quality-diversity-search
+- automated-playtesting
+precedent:
+- factorio
+- dwarf-fortress
+- spacechem
+novelty: 5
+feasibility: 2
+impact: 4
+horizon: 3-5y
+key_risks:
+- Proxies for fun are weak; search optimizes the proxy.
+- Discovered mechanics may be illegible to humans.
+- Compute cost of agent evaluation.
+validation_experiment: 'Run LLM-guided evolution over rule variants of a small production-chain sim with
+  a quality-diversity archive, then have designers rate the top 20 candidates for novelty and promise.
+  Success: at least three candidates rated novel and worth prototyping by a majority of designers.'
+falsifiable_signal:
+  prediction: A shipped commercial game will credit a mechanic to an automated rule-discovery system.
+  resolve_by: '2030-12-31'
+  criteria: Developer statement or paper attributing a shipped mechanic's origin to automated search.
+sources: []
+status: asserted
+provenance:
+  created: 2026-10-24-synthesis

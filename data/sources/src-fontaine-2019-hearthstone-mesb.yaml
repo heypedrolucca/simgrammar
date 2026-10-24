@@ -1,0 +1,17 @@
+id: src-fontaine-2019-hearthstone-mesb
+type: source
+name: Mapping Hearthstone Deck Spaces through MAP-Elites with Sliding Boundaries
+kind: preprint
+authors:
+- Matthew C. Fontaine
+- Scott Lee
+- L. B. Soros
+- Fernando De Mesentier Silva
+- Julian Togelius
+- Amy K. Hoover
+venue: arXiv
+date: '2019-04-24'
+arxiv: '1904.10656'
+accessed: '2026-10-24'
+provenance:
+  created: 2026-10-24-techniques-rl-design

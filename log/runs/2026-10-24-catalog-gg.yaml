@@ -1,0 +1,67 @@
+id: 2026-10-24-catalog-gg
+type: run
+date: '2026-10-24'
+actor: agent
+operator: yoheinakajima
+agent:
+  model: claude-opus-5-5
+  harness: Claude app subagent
+purpose: Verify, characterize, and decompose space, physics-sandbox, construction-engineering, and sandbox-world
+  games into mechanics.
+method: >-
+  Read AGENTS.md, CONTRACT.md sections 1-3, the game, common, and source schemas, every vocab file the game schema
+  references, rubrics.yaml, edge_types.yaml, and the needs-decay, rimworld, and src-wikipedia-rimworld exemplars.
+  For each of 16 skeleton games fetched the English Wikipedia article and, where Wikipedia was thin or missing,
+  the Steam store page or official site (Stationeers had no Wikipedia article; Steam page used; Universe Sandbox
+  and Poly Bridge also cross-checked on Steam; The Powder Toy on powdertoy.co.uk). Verified first public release
+  (early access or public alpha), 1.0 year, developer, and platforms from those pages and created one or two
+  sources per game; reused the existing src-wikipedia-ftl. Filled categorical fields only from vocab, scored
+  emergence and influence by matching rubric anchors (taking the lower when between two), and decomposed each
+  game using only mechanic ids from scripts/find.py --list mechanic, marking core only for identity-defining
+  mechanics with implementation notes. influenced_by is set only where a source states lineage: elite-dangerous
+  from elite, noita from the-powder-toy, minecraft from dwarf-fortress. Corrections to skeleton values: poly-bridge
+  year 2016 to 2015 (Steam early access 2015, 1.0 2016); universe-sandbox developer given as "Dan Dixon; Giant
+  Army" because the 2008 original predates the 2011 company. Rules hit while iterating: none beyond expected
+  noise on other agents' files.
+contract_version: '1.0'
+proposals:
+  - kind: new-mechanic
+    target: power-allocation
+    detail: >-
+      Power allocation: a fixed power budget (reactor bars, distributor pips) that the player reassigns among
+      subsystems in real time, trading shields against weapons against engines. Distinct from power-grid, which
+      models network distribution and brownouts rather than a moment-to-moment split. Used by ftl (reactor bars),
+      elite-dangerous (power distributor pips and module priorities); also known from Star Trek bridge sims and
+      X-Wing. Levers: total budget, cost per system level, reallocation speed, damage effect on capacity.
+  - kind: new-mechanic
+    target: subsystem-damage
+    detail: >-
+      Subsystem damage: a vehicle or ship is a set of named components with their own hit points, and damage
+      removes the component's capacity (power, thrust, shields, sensors) until repaired. Distinct from
+      wear-breakdown (degradation by use and time) and injury-body-model (organisms). Used by ftl (system bars
+      disabled by hits, repaired by crew), elite-dangerous (module integrity), space-engineers (per-block damage
+      disabling functional blocks), kerbal-space-program (parts destroyed by overheating or impact). Levers:
+      component granularity, damage routing, repair speed, partial versus binary loss.
+  - kind: new-mechanic
+    target: composable-ability-programs
+    detail: >-
+      Composable ability programs: the player arranges modifier and action items in ordered slots so that order
+      and combination define behavior (Noita wands with cast order, cast delay, mana; also spell crafting in
+      Magicka-like games). Currently filed under modular-assembly in noita, which fits only loosely because the
+      parts are logical rather than physical. Levers: slot count, modifier stacking rules, resource cost per cast.
+notes: >-
+  Completed all 16 partition files with status sourced. Sources created (all accessed 2026-10-24):
+  src-wikipedia-kerbal-space-program, src-wikipedia-elite, src-wikipedia-elite-dangerous,
+  src-wikipedia-universe-sandbox, src-steam-2026-universe-sandbox, src-wikipedia-space-engineers,
+  src-steam-2026-space-engineers, src-steam-2026-stationeers, src-wikipedia-poly-bridge, src-steam-2026-poly-bridge,
+  src-wikipedia-besiege, src-wikipedia-garrys-mod, src-wikipedia-teardown, src-wikipedia-the-powder-toy,
+  src-powdertoy-2026-official-site, src-wikipedia-noita, src-wikipedia-zelda-breath-of-the-wild,
+  src-wikipedia-the-incredible-machine, src-wikipedia-minecraft. Reused src-wikipedia-ftl.
+  Uncertain facts: Poly Bridge 1.0 date conflicts on Wikipedia (12 June vs 12 July 2016; Steam says 12 July);
+  Stationeers Wikipedia-sourced date (December 2017) matches Steam (2017-12-12) and it is still early access;
+  Universe Sandbox is still listed as Steam early access, VR platform inferred from a Meta Quest store listing
+  on the official site; The Incredible Machine 1993 platforms (MS-DOS, 3DO) and the publisher split between
+  Dynamix and Sierra are from the series article; mechanic notes for Minecraft, Space Engineers scripting
+  language (C#), and Stationeers IC10 come from general knowledge consistent with but not fully stated in the
+  cited pages. zelda-breath-of-the-wild is marked boundary_case. Skeleton developer "Mojang Studios" kept for
+  minecraft although the studio was named Mojang in 2009-2011.

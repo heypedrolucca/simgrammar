@@ -1,8 +1,66 @@
 id: adjacency-scoring
 type: mechanic
 name: Adjacency scoring
-summary: Placements gain or lose value from neighboring placements.
+aliases:
+- adjacency bonus
+- neighbor bonus
+- synergy radius
+summary: A placement's value is computed from a table of bonuses and penalties for the placements around
+  it.
 family: space-construction
+substrate:
+- cellular-grid
+- rule-system
+definition: Each placeable type has a table of signed effects from neighbor types within a footprint,
+  ring, or radius. When an object is placed (and in some games when a neighbor later changes), its value
+  is recomputed as a base plus the sum of qualifying neighbor contributions, sometimes capped or with
+  diminishing returns. The value feeds score, production yield, or desirability. Islanders (2019) previews
+  the points a building will earn from nearby buildings before it is placed, and points unlock new building
+  packs. Civilization VI (2016) gives districts adjacency yields from neighboring terrain and districts,
+  such as science for a Campus next to mountains and gold for a Commercial Hub next to a river. Tile-laying
+  builders such as Dorfromantik score matching edges between neighboring tiles. The state is the placement
+  map plus the effect table; the update is a local sum.
+player_experience: Every placement is a small search problem with a visible answer. Players hover candidates
+  to read preview numbers, reserve tiles for pieces they expect later, and feel clever when one placement
+  lights up several neighbors. Penalties make them keep nuisances apart, so layouts acquire districts
+  and buffers.
+design_levers:
+- 'neighborhood shape: touching tiles, ring, or radius, and whether diagonals count'
+- size and asymmetry of the effect table, including negative pairs that force separation
+- 'stacking rule for multiple neighbors: linear, capped, or diminishing'
+- whether values freeze at placement or recompute when neighbors change later
+- how much of the calculation the preview shows before commitment
+failure_modes:
+- Once players find the best repeating cluster, every settlement uses the same stamp and the spatial puzzle
+  ends.
+- Positive-only tables make maximum density always optimal, removing any reason to spread out.
+- Hidden or partly shown effect tables push players to wikis and calculators to plan placements.
+- Retroactive recomputation changes the value of old placements in ways players did not intend and cannot
+  trace.
+dynamics:
+- Clusters of mutually reinforcing types form districts, and nuisance types get pushed to edges or buffers.
+- Scarce space turns adjacency into a packing problem in which early placements constrain later ones.
+- When adjacency feeds unlocks or income, early good clusters compound into a lead.
+math_basis:
+- optimization
+- combinatorics
+feedback: reinforcing
+player_interface:
+- placement
+legibility: 4
+emergence_potential: 2
+authoring_cost: 2
+compute_cost: 1
+tuning_difficulty: 3
+ai_leverage: 2
+maturity: established
+requires:
+- free-placement
+open_questions:
+- Can a learned model of layout quality replace hand-written pairwise tables while staying predictable
+  enough to plan against?
+- What table size and asymmetry keep a solved cluster template from appearing within a few hours of play?
+sources: []
 status: asserted
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m4

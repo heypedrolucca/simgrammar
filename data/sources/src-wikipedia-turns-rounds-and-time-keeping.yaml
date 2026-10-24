@@ -1,0 +1,15 @@
+id: src-wikipedia-turns-rounds-and-time-keeping
+type: source
+name: Turns, rounds and time-keeping systems in games
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Turns,_rounds_and_time-keeping_systems_in_games
+accessed: '2026-10-24'
+notes: 'Taxonomy: turn-based, simultaneous (decision then execution phases, e.g. Diplomacy, Combat Mission), phased turns
+  (Agricola harvest phases, Imperium Romanum II taxation every third turn), real-time, pausable real-time (Baldur''s Gate,
+  Paradox games, SimCity, RollerCoaster Tycoon), time compression (flight simulators), action points.'
+provenance:
+  created: 2026-10-24-taxonomy-m5

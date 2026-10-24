@@ -1,0 +1,13 @@
+id: src-wikipedia-frostpunk
+type: source
+name: Frostpunk
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Frostpunk
+accessed: '2026-10-24'
+notes: 2018, 11 bit studios; Hope and Discontent meters; Book of Laws with sequenced laws and escalating compromises; revolt ends the game when hope is too low or discontent too high for too long.
+provenance:
+  created: 2026-10-24-taxonomy-m2

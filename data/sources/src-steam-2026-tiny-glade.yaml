@@ -1,0 +1,15 @@
+id: src-steam-2026-tiny-glade
+type: source
+name: Tiny Glade on Steam
+kind: store-page
+authors:
+- Pounce Light
+venue: Steam
+date: '2026'
+url: https://store.steampowered.com/app/2198150/Tiny_Glade/
+accessed: '2026-10-24'
+notes: Pounce Light; release 2024-09-23; structures assembled procedurally from strokes; a path drawn through a
+  building makes a door; raising a building adds columns and beams; ivy grows, sheep wander paths; no management,
+  combat, or failure states.
+provenance:
+  created: 2026-10-24-catalog-ga

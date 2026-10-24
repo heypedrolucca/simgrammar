@@ -1,0 +1,120 @@
+id: on-device-language-models
+type: technique
+name: On-device small language models for characters
+aliases:
+- NVIDIA ACE
+- Smart Zoi
+- PUBG Ally
+- co-playable characters
+- SLM NPCs
+- quantized local LLMs
+summary: Pruned, distilled, and 4-bit quantized language, speech, and embedding models that run on the
+  player's GPU beside rendering to drive character decisions, dialogue, and voice without per-token server
+  cost.
+category: inference-efficiency
+year: 2025
+mechanism: A 12B or 8B model is pruned in depth and width and distilled into an 8B, 4B, or 2B student
+  (Minitron), then weights are quantized to 3-4 bits with second-order (GPTQ) or activation-aware (AWQ)
+  methods, shrinking memory so a 2B model fits in about 1.5 GB of VRAM. An in-game inference SDK runs
+  the models in-process and schedules them alongside graphics on the same GPU. A character loop chains
+  on-device speech recognition, the small model (perceive, decide, act, reflect), text-to-speech, and
+  facial animation, with an in-process embedding model for memory retrieval; slow strategic planning can
+  be offloaded to a larger cloud model while fast decisions stay local. Fine-tuning a small model on a
+  narrow game task can beat much larger general models on that task.
+key_results:
+- text: Minitron pruning and distillation compressed Mistral NeMo 12B to an 8B model and Llama 3.1 8B
+    to 4B, and NVIDIA's ACE character stack lists Minitron 8B, 4B, and 2B instruct models, the 2B fitting
+    in about 1.5 GB of VRAM.
+  sources:
+  - src-sreenivas-2024-minitron
+  - src-nvidia-2025-ace-companions
+  confidence: high
+- text: GPTQ quantizes weights to 3-4 bits with minimal accuracy loss and generates 3.25-4.5x faster than
+    FP16; AWQ's 4-bit runtime is over 3x faster than FP16 on desktop and mobile GPUs.
+  sources:
+  - src-frantar-2022-gptq
+  - src-lin-2023-awq
+  confidence: high
+- text: inZOI (early access March 2025) ships an on-device SLM through which typed prompts influence Zois'
+    actions and thoughts; an August 2025 update made Smart Zois observe surroundings and react to events
+    better and align actions with inner thoughts.
+  sources:
+  - src-steam-2025-inzoi
+  - src-nvidia-2025-gamescom-ace
+  confidence: high
+- text: KRAFTON ran a public PUBG Ally beta (Ally Duo, 17 June to 1 July 2026) in which an AI teammate
+    takes voice instructions via an on-device small language model built on NVIDIA ACE with speech-to-text
+    and text-to-speech.
+  sources:
+  - src-krafton-2026-pubg-ally-beta
+  confidence: high
+- text: NVIDIA's in-game inference SDK requires an RTX 30-series class GPU or newer with at least 8 GB
+    of VRAM (12 GB recommended), and some plugins need RTX 40-series.
+  sources:
+  - src-nvidia-2026-nvigi-core
+  confidence: high
+- text: Hidden Door reports that a 1.7B model tuned on real play beat a 120B general model on one of its
+    core narrative tasks.
+  sources:
+  - src-hiddendoor-2026-homepage
+  confidence: low
+maturity: shipped-niche
+trl: 7
+runtime:
+- client-realtime
+determinism_impact: mitigable
+horizon: now
+risks:
+- consistency
+- latency
+- controllability
+- content-safety
+- player-trust
+affects:
+- id: natural-language-interaction
+  effect: accelerates
+  note: Free-text and voice input to characters runs on the player's GPU, removing per-token server cost
+    and network round trips, so open conversation can be offered to every player of a premium game.
+- id: utility-action-selection
+  effect: replaces-substrate
+  note: Smart Zois pick actions with a small model that reads needs, surroundings, and inner thoughts
+    rather than only scored need curves, while the game's action set stays the same.
+- id: memories-thoughts
+  effect: deepens
+  note: Characters generate text thoughts about events and reflect on past decisions, giving each agent
+    a running inner monologue rather than a list of authored mood modifiers.
+- id: advisors
+  effect: replaces-substrate
+  note: 'Total War: PHARAOH''s ACE advisor answers questions about the game''s systems from a small on-device
+    model connected to game data, instead of firing authored lines when indicators cross thresholds.'
+- id: unit-commands
+  effect: enables-new
+  note: A co-playable teammate such as PUBG Ally takes spoken orders about movement, looting, and strategy
+    mid-match and acts on them, a command channel that needs no menus or ping wheel.
+builds_on: []
+deployed_in:
+- inzoi
+limitations:
+- 'Hardware floor: the inference SDK needs an RTX 30-series class GPU with 8 GB of VRAM minimum, which
+  excludes many players and consoles, and the model competes with rendering for VRAM and GPU time.'
+- Small models are less capable at multi-step reasoning, so vendors offload strategic planning to cloud
+  models, reintroducing cost and latency.
+- Quality and safety filters must also run locally; local weights can be extracted or modified by players.
+- 'Player reception risk: inZOI drew negative user reviews in May 2025 after Krafton announced its generative
+  AI use.'
+- Exact model sizes and latency in shipped titles are mostly undisclosed.
+sources:
+- src-sreenivas-2024-minitron
+- src-frantar-2022-gptq
+- src-lin-2023-awq
+- src-nvidia-2025-ace-companions
+- src-nvidia-2025-gamescom-ace
+- src-nvidia-2026-ace-developer-page
+- src-nvidia-2026-nvigi-core
+- src-steam-2025-inzoi
+- src-wikipedia-inzoi
+- src-krafton-2026-pubg-ally-beta
+- src-hiddendoor-2026-homepage
+status: sourced
+provenance:
+  created: 2026-10-24-techniques-llm-agents

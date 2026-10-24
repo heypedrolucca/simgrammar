@@ -1,10 +1,90 @@
 id: caesar-3
 type: game
 name: Caesar III
-summary: TODO
+summary: A Roman city builder in which service walkers roam the roads from their buildings, houses evolve only where
+  food, goods, and services actually reach them, and missions are won on culture, prosperity, peace, and favor ratings.
 year: 1998
 developer: Impressions Games
+platforms:
+- pc
 subgenre: city-builder
-status: asserted
+sim_domain:
+- urban
+- economic
+- military-conflict
+player_role: planner-mayor
+agency_model:
+- zoning-placement
+- policy-parameter
+- direct-unit
+time_model: real-time-pausable
+sim_scale: city
+fidelity: stylized
+perspective: isometric
+win_structure: campaign
+failure_model: soft-recoverable
+narrative_mode: hybrid
+multiplayer:
+- single
+modding: none
+production_tier: aa
+agent_count_order: '100'
+emergence: 3
+influence: 4
+core_loop: place housing plots and roads -> walkers from service buildings roam the roads and cover the houses they
+  pass -> houses evolve when food, goods, and services reach them -> taxes and trade fund the city -> raise culture,
+  prosperity, peace, and favor ratings to win the mission
+design_notes: Coverage is delivered by individual walkers whose routes depend on road layout, so the same buildings
+  serve a block well or badly depending on junctions; the developers cited SimCity's static placement as what they
+  wanted to make less static. In the logic preserved by the Julius re-implementation, a walker sets a house's coverage
+  to 96 and coverage decays by 1 per update, while prefects zero fire risk and engineers zero collapse risk. City
+  and empire share one map, and gods that punish neglect have no matching taxonomy mechanic (see run proposal).
+mechanics:
+- id: walker-service-delivery
+  role: core
+  note: Service walkers leave their building and roam roads; each house passed gets coverage set to 96, which decays
+    by 1 per update until the next visit.
+- id: population-strata
+  role: core
+  note: Housing evolves through levels from tents up to villas and palaces when food, goods, services, and desirability
+    are met, and devolves when they lapse.
+- id: scenario-objectives
+  role: core
+  note: 'Each assignment sets population and thresholds for four ratings: culture, prosperity, peace, and favor.'
+- id: goods-consumption
+  role: supporting
+  note: Higher houses need food plus pottery, furniture, oil, and wine delivered by market walkers.
+- id: production-chain
+  role: supporting
+  note: Raw materials such as clay, olives, and timber become pottery, oil, and furniture in workshops.
+- id: trade-routes
+  role: supporting
+  note: An empire map opens land and sea routes to cities that buy and sell specific goods.
+- id: wear-breakdown
+  role: supporting
+  note: Buildings accumulate fire and collapse risk that prefects and engineers reset to zero.
+- id: reputation
+  role: supporting
+  note: Favor with Caesar rises with timely tribute and gifts and falls when requests are missed.
+- id: raid-defense
+  role: supporting
+  note: Military assignments bring invasions; legions, walls, and towers defend the city map.
+- id: labor-market
+  role: supporting
+  note: Buildings need workers from housing; shortages idle walkers and industry.
+- id: decoration-beauty
+  role: supporting
+  note: Gardens, statues, and plazas raise desirability that houses need to evolve.
+- id: road-network
+  role: supporting
+  note: Walkers and goods move on roads, so road layout sets coverage.
+- id: taxation
+  role: supporting
+influenced_by:
+- simcity-1989
+sources:
+- src-wikipedia-caesar-iii
+- src-bvschaik-2026-julius
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-ga

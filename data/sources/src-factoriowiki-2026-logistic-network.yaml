@@ -1,0 +1,15 @@
+id: src-factoriowiki-2026-logistic-network
+type: source
+name: Logistic network
+kind: encyclopedia
+authors:
+- Factorio Wiki contributors
+venue: Factorio Wiki
+date: '2026'
+url: https://wiki.factorio.com/Logistic_network
+accessed: '2026-10-24'
+notes: Roboports define logistic and construction zones; logistic robots move items between active provider,
+  passive provider, storage, buffer, and requester chests in priority order; default cargo 1 item at 3
+  tiles/s; construction robots build blueprint ghosts, repair, and deconstruct.
+provenance:
+  created: 2026-10-24-catalog-gh

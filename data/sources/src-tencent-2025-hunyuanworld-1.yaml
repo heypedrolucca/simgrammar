@@ -1,0 +1,14 @@
+id: src-tencent-2025-hunyuanworld-1
+type: source
+name: 'HunyuanWorld 1.0: Generating Immersive, Explorable, and Interactive 3D Worlds from Words or Pixels'
+kind: preprint
+authors:
+- HunyuanWorld Team (Tencent)
+date: 2025-07
+url: https://arxiv.org/abs/2507.21809
+arxiv: '2507.21809'
+accessed: '2026-10-24'
+notes: Panoramic world proxies lifted to a semantically layered 3D mesh; mesh export for graphics pipelines;
+  game development listed as an application.
+provenance:
+  created: 2026-10-24-techniques-world-models

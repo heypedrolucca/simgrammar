@@ -1,0 +1,15 @@
+id: src-wikipedia-teardown
+type: source
+name: Teardown (video game)
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Teardown_(video_game)
+accessed: '2026-10-24'
+notes: Tuxedo Labs (Dennis Gustafsson); early access 2020-10-29; full release 2022-04-21; PS5 and Xbox Series 2023;
+  fully destructible voxel levels; alarm starts 60-second getaway timer; fire spread; ray-traced lighting; Lua scripting
+  and Workshop; co-op multiplayer update 2026-03-12.
+provenance:
+  created: 2026-10-24-catalog-gg

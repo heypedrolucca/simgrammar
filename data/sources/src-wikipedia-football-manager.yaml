@@ -1,0 +1,15 @@
+id: src-wikipedia-football-manager
+type: source
+name: Football Manager
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Football_Manager
+accessed: '2026-10-24'
+notes: 'Series article: Sports Interactive, Sega; relaunch after the Eidos split; platforms PC, mobile, PSP, Xbox
+  360, Switch; researcher database; scout knowledge; 2D engine 2005, 3D engine 2009; tactics, transfers, finances,
+  board, press conferences; Everton use of the database 2008.'
+provenance:
+  created: 2026-10-24-catalog-ge

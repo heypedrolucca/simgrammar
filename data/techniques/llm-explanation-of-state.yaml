@@ -1,0 +1,106 @@
+id: llm-explanation-of-state
+type: technique
+name: LLM explanation of simulation state
+aliases:
+- AI advisor chat
+- natural-language explanations of agent behavior
+- LLM commentator
+- log summarization
+summary: Language models that read simulation state, modifier breakdowns, agent traces, or event logs
+  and answer why and what-if questions or summarize what happened for players and designers.
+category: llm-narrative-dialogue
+year: 2023
+mechanism: The game serializes the relevant slice of state (indicator values and their contributing modifiers,
+  an agent's thought log and action trace, recent events) into the prompt, or exposes it through retrieval
+  or tool calls over game data and documentation, and the model answers a player question or writes a
+  summary. Zhang et al. first learn a compact representation of an agent's behavior from observed states
+  and actions, then have the LLM explain from that representation, which limits hallucination and supports
+  follow-up and what-if questions. For designers, a model can segment play logs into strategies and merge
+  them into a graph to compare with the intended path. The explanation layer reads state and does not
+  write it, so the simulation stays deterministic.
+key_results:
+- text: Explanations generated from a learned behavior representation plus an LLM were rated about as
+    helpful as a human domain expert's, with little hallucination, and supported clarification and counterfactual
+    follow-ups.
+  sources:
+  - src-zhang-2023-explaining-agent-behavior
+  confidence: medium
+- text: 'NVIDIA lists a Total War: PHARAOH AI advisor that helps players learn the game''s systems using
+    a small on-device model connected to game data; no public release date was found.'
+  sources:
+  - src-nvidia-2026-ace-developer-page
+  confidence: medium
+- text: SIMA 2 explains its intended steps and answers questions about its behavior and environment in
+    commercial 3D games.
+  sources:
+  - src-deepmind-2025-sima-2-blog
+  confidence: high
+- text: GPT-4 converted 28 players' logs into narrative graphs, letting designers count 53 player-created
+    narrative nodes that their design did not include.
+  sources:
+  - src-peng-2024-player-driven-emergence
+  confidence: high
+- text: GPT-4 predicted whole text-game state transitions correctly at most 59.9% of the time and environment-driven
+    changes at most 49.7%, so explanations of dynamics must be computed by the simulation and narrated,
+    not inferred by the model.
+  sources:
+  - src-wang-2024-text-world-simulators
+  confidence: high
+- text: A 2024 survey found research on LLM commentators and retellers of game events rather limited.
+  sources:
+  - src-gallotta-2024-llms-games-survey
+  confidence: medium
+maturity: prototype
+trl: 5
+runtime:
+- client-realtime
+- server-realtime
+- analytics
+determinism_impact: preserves
+horizon: 1-2y
+risks:
+- consistency
+- evaluation
+- latency
+- player-trust
+affects:
+- id: advisors
+  effect: deepens
+  note: Advisors can answer arbitrary player questions about the current situation and recommend actions
+    in context, instead of speaking a fixed catalog of threshold-triggered messages.
+- id: agent-inspection
+  effect: explains
+  note: The inspection panel can answer why an agent did something by summarizing its needs, itemized
+    mood terms, and recent thought log into a short causal account.
+- id: causal-tooltips
+  effect: explains
+  note: A long nested modifier chain can be condensed into a ranked plain-language list of the largest
+    causes and what would change them, while the numbers still come from the simulation.
+- id: stats-dashboards
+  effect: explains
+  note: Graph changes can be annotated with narrated causes drawn from the event log, such as which policy
+    or disaster preceded a drop.
+- id: history-chronicle
+  effect: deepens
+  note: Recorded events can be retold as biographies, recaps, or highlight summaries for the player, a
+    commentator and reteller role.
+builds_on: []
+deployed_in: []
+limitations:
+- 'Wrong but fluent causes: models are unreliable at inferring dynamics, so explanations are only trustworthy
+  when causes are passed in from the simulation.'
+- Serializing large state (thousands of modifiers, long logs) into context is slow and costly; selection
+  of what to include determines what can be explained.
+- 'Hard to QA: the answer space is open-ended, and a confident wrong explanation damages trust more than
+  no explanation.'
+- 'Shipped evidence is thin: known game examples are tech demos or research previews.'
+sources:
+- src-zhang-2023-explaining-agent-behavior
+- src-nvidia-2026-ace-developer-page
+- src-deepmind-2025-sima-2-blog
+- src-peng-2024-player-driven-emergence
+- src-wang-2024-text-world-simulators
+- src-gallotta-2024-llms-games-survey
+status: sourced
+provenance:
+  created: 2026-10-24-techniques-llm-agents

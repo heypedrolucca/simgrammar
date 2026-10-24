@@ -1,0 +1,13 @@
+id: src-meta-2025-v-jepa-2-blog
+type: source
+name: Introducing V-JEPA 2 world model and new physical reasoning benchmarks
+kind: tech-report
+authors:
+- Meta AI
+date: '2025-06-11'
+url: https://ai.meta.com/blog/v-jepa-2-world-model-benchmarks/
+accessed: '2026-10-24'
+notes: 1.2B parameters; IntPhys 2, MVPBench, CausalVQA released; humans 85-95% on the benchmarks; current
+  video models near chance on IntPhys 2; single time-scale limitation.
+provenance:
+  created: 2026-10-24-techniques-world-models

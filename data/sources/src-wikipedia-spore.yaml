@@ -1,0 +1,15 @@
+id: src-wikipedia-spore
+type: source
+name: Spore (2008 video game)
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Spore_(2008_video_game)
+accessed: '2026-10-24'
+notes: Creations auto-uploaded to the Sporepedia, ranked by downloads, and redistributed into other players' galaxies;
+  a few kilobytes per item thanks to procedural reconstruction; content filters and in-game bans; over 100 million
+  creations by May 2009; released September 2008.
+provenance:
+  created: 2026-10-24-taxonomy-m7

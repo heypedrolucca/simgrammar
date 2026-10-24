@@ -1,8 +1,76 @@
 id: player-programming
 type: mechanic
 name: Player programming
-summary: The player writes code in a language the game executes.
+aliases:
+- scripting
+- coding gameplay
+- programming puzzles
+summary: The player writes code in a language the game executes to control units, machines, or the world.
 family: control-automation
-status: asserted
+substrate:
+- player-authored-logic
+definition: 'The player authors programs in a textual or visual language that the game interprets each
+  tick to drive entities. State owned: program source, interpreter state (instruction pointer, registers,
+  memory), and an execution budget. Update rule: each tick, run each program for up to a budget of instructions
+  or CPU time, read sensors through an API, and issue commands that the simulation resolves. Languages
+  range from real ones (JavaScript in Screeps and Bitburner, Python-like code in The Farmer Was Replaced)
+  to assembly-like puzzle languages (TIS-100, Shenzhen I/O, Exapunks) and visual instruction tracks (SpaceChem
+  waldos, Opus Magnum arms). Screeps is canonical for a persistent world: each player''s main module runs
+  once per tick against a fixed state, commands are applied together at tick end, and a CPU limit with
+  a carryover bucket constrains computation.'
+player_experience: The player designs behavior rather than performing it. Writing, running, and debugging
+  a program that then works unattended is satisfying in a way direct control is not, and failures are
+  logic errors the player can find and fix.
+design_levers:
+- 'language: real general-purpose, constrained assembly, or visual'
+- execution budget per tick (instructions or CPU milliseconds)
+- sensor and actuator API surface
+- 'debugging tools: stepping, logs, breakpoints, visualization'
+- 'persistence: programs keep running while the player is offline'
+- scoring of programs by size, speed, or cost
+failure_modes:
+- A steep entry cost excludes players who cannot already program.
+- A real language with a rich API lets players import libraries and copied code, so the community's code
+  replaces the puzzle.
+- Execution budgets set too tight make debugging feel like fighting the platform.
+- Weak debugging tools turn failures into opaque guessing.
+dynamics:
+- Automation through code lets players operate at scales no one could control by hand.
+- In shared worlds, players' programs compete directly, producing an arms race of strategies and exploits.
+- Code sharing builds communities around libraries and frameworks.
+math_basis:
+- computation-theory
+feedback: reinforcing
+player_interface:
+- programming
+legibility: 3
+emergence_potential: 3
+authoring_cost: 2
+compute_cost: 3
+tuning_difficulty: 3
+ai_leverage: 4
+maturity: established
+synergy:
+- id: signal-circuits
+  note: Both express automation as logic; games that offer both span visual and textual programming.
+open_questions:
+- When code assistants can write competent bots from a description, what remains of the programming puzzle,
+  and does play shift to specification and review?
+- Can games teach programming effectively by letting AI assistants scaffold and then withdraw?
+claims:
+- text: In Screeps each player's main module runs once per tick against a fixed game state, and queued
+    commands are applied together at the end of the tick.
+  sources:
+  - src-screeps-2026-docs-game-loop
+  confidence: high
+- text: Screeps limits CPU per tick (20 without CPU Unlock), with unused CPU accumulating into a bucket
+    of up to 10,000 that allows bursts up to 500 per tick.
+  sources:
+  - src-screeps-2026-docs-cpu-limit
+  confidence: high
+sources:
+- src-screeps-2026-docs-game-loop
+- src-screeps-2026-docs-cpu-limit
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m6

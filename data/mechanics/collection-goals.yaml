@@ -1,8 +1,67 @@
 id: collection-goals
 type: mechanic
 name: Collection goals
-summary: Catalogs of items, species, or bundles give the player sets to complete.
+aliases:
+- catalogs
+- bundles
+- collection logs
+- museum donations
+summary: Catalogs of items, species, or bundles give the player sets to complete for rewards or recognition.
 family: progression-goals
-status: asserted
+substrate:
+- rule-system
+definition: >-
+  The game defines named sets of collectibles (items, fish, insects, fossils, species, recipes) and tracks which
+  members the player has obtained, donated, or observed. State owned: per set, a membership checklist and completion
+  state. Update rule: when the player acquires or submits a qualifying item, mark it; when a set is complete, grant
+  a reward or unlock. Collection drives engagement with other systems because members are spread across seasons,
+  locations, and rarities. Canonical forms: Stardew Valley's Community Center, with six rooms and thirty bundles
+  whose rewards repair the quarry bridge, greenhouse, minecarts, and bus, Animal Crossing: New Horizons' museum
+  and Critterpedia, and Viva Pinata's species journal with per-species visit, resident, and romance requirements.
+player_experience: >-
+  A gentle, open checklist. The player plans around a missing fish that appears only in rain in autumn, feels a
+  click when a set completes, and has a reason to explore every corner of the simulation.
+design_levers:
+- set size and rarity distribution of members
+- seasonal, weather, or location gating of members
+- 'reward type: functional unlocks, cosmetics, or none'
+- fixed versus randomized set contents, such as Stardew Valley remixed bundles
+- whether items are consumed by submission
+- visibility of missing members as silhouettes or hints
+failure_modes:
+- The last few rare members take far longer than the rest, turning completion into a grind.
+- Members missable for a season or year punish players who fall behind.
+- Functional rewards locked behind collection force players who dislike collecting through it.
+dynamics:
+- Collection targets route player attention through seasons, weather, and locations they would otherwise skip.
+- Players share calendars and spreadsheets of where and when members appear.
+- Alternative completion routes, such as the Joja membership in Stardew Valley, frame collection as a moral choice.
+math_basis:
+- combinatorics
+- probability-statistics
+feedback: none
+player_interface:
+- observation
+- direct-manipulation
+legibility: 5
+emergence_potential: 1
+authoring_cost: 3
+compute_cost: 1
+tuning_difficulty: 2
+ai_leverage: 2
+maturity: classic
+open_questions:
+- Can generated collectible sets tied to world state, such as species that evolved in this run, keep collection
+  goals meaningful in procedural worlds?
+- What rarity curve keeps the final members exciting rather than grinding?
+claims:
+- text: Stardew Valley's Community Center has six rooms and thirty bundles; completing rooms repairs the quarry
+    bridge, greenhouse, minecarts, and bus, and a Joja membership replaces bundles with payments.
+  sources:
+  - src-stardewvalleywiki-2026-bundles
+  confidence: medium
+sources:
+- src-stardewvalleywiki-2026-bundles
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m6

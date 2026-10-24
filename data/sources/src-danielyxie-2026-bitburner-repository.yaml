@@ -1,0 +1,14 @@
+id: src-danielyxie-2026-bitburner-repository
+type: source
+name: Bitburner (original repository)
+kind: repository
+authors:
+- danielyxie
+venue: GitHub
+date: '2026'
+url: https://github.com/danielyxie/bitburner
+accessed: '2026-10-24'
+notes: Original repository by danielyxie describing 'a programming-based incremental game that revolves
+  around hacking and cyberpunk themes'; playable in the browser and on Steam; development moved to bitburner-official/bitburner-src.
+provenance:
+  created: 2026-10-24-catalog-gh

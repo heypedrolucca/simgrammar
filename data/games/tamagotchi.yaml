@@ -1,10 +1,74 @@
 id: tamagotchi
 type: game
 name: Tamagotchi
-summary: TODO
+summary: A 1996 keychain virtual pet whose hunger, happiness, and training meters run on a real-time clock,
+  and whose care quality determines which adult form it grows into and how long it lives.
 year: 1996
 developer: Bandai
+platforms:
+- dedicated-device
 subgenre: virtual-pet
-status: asserted
+sim_domain:
+- biological-ecological
+player_role: caretaker
+agency_model:
+- caretaking-interaction
+time_model: real-world-clock
+sim_scale: individual
+fidelity: abstract
+perspective: device-lcd
+win_structure: survival-duration
+failure_model: hard-restart
+narrative_mode: none
+multiplayer:
+- single
+modding: none
+production_tier: aa
+agent_count_order: '1'
+emergence: 2
+influence: 4
+core_loop: pet calls for attention -> feed a meal or snack, play, scold, clean, or give medicine -> meters
+  and care history accumulate -> pet ages after each sleep -> care history selects its next form -> it
+  lives on or dies
+design_notes: Aki Maita and Akihiro Yokoi reduced a pet to three meters (Hunger, Happy, Training) plus
+  droppings and sickness on a three-button LCD device that runs continuously; early units could pause
+  only through the clock settings. Meals fill Hunger, snacks and a minigame raise Happy but excess snacks
+  cause illness, scolding when the pet calls for attention fills Training, and uncleaned droppings lead
+  to sickness shown by a skull. Each life stage lasts a set number of days and age advances when the pet
+  wakes, and care quality selects the adult character, turning care history into a visible outcome (proposed
+  as care-dependent-development).
+mechanics:
+- id: creature-care
+  role: core
+  note: Care actions are meal, snack, game, scold, clean, and medicine; meals are limited by fullness
+    while snacks are not, and excess snacks cause sickness.
+- id: needs-decay
+  role: core
+  note: Hunger and Happy meters, shown as hearts, deplete over real time and are refilled by meals, snacks,
+    and the minigame.
+- id: real-time-clock
+  role: core
+  note: The pet lives on the device clock set at hatching and sleeps nightly; time keeps passing between
+    check-ins.
+- id: lifecycle-aging
+  role: core
+  note: Baby, Child, Teenager, Adult, and Special stages (plus Senior in some models) each last a set
+    number of days, with age advancing on waking; old age eventually ends its life.
+- id: permadeath
+  role: supporting
+  note: Poor care, sickness, or old age kills the pet; the A and C buttons start a new egg.
+- id: day-night-cycle
+  role: supporting
+  note: A nightly sleep period suspends care demands and marks age increments.
+- id: alerts-feed
+  role: supporting
+  note: The device beeps and shows an attention icon when the pet needs care or calls for discipline.
+- id: care-dependent-development
+  role: supporting
+  note: Care quality during each life stage, such as unanswered calls, overfeeding snacks, and uncleaned
+    droppings, selects the next form, so the same egg can grow into different adult characters.
+sources:
+- src-wikipedia-tamagotchi
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gc

@@ -1,0 +1,13 @@
+id: src-wikipedia-theme-hospital
+type: source
+name: Theme Hospital
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Theme_Hospital
+accessed: '2026-10-24'
+notes: 1997, Bullfrog; hire doctors, nurses, handymen, receptionists with performance statistics; training; specialist skills gate rooms; rest; dismissal over pay disputes; loans via policy setting.
+provenance:
+  created: 2026-10-24-taxonomy-m2

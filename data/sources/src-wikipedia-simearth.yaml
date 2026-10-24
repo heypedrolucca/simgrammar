@@ -1,0 +1,15 @@
+id: src-wikipedia-simearth
+type: source
+name: SimEarth
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/SimEarth
+accessed: '2026-10-24'
+notes: Maxis, 1990, designed by Will Wright and Fred Haslam; James Lovelock advised and his Gaia hypothesis shaped the models;
+  atmospheric gas percentages, warming melts ice caps and raises seas, volcanic dust cools; Daisyworld mode; Mars and Venus
+  terraforming scenarios; actions cost energy.
+provenance:
+  created: 2026-10-24-taxonomy-m5

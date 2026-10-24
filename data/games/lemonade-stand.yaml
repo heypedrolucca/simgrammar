@@ -1,10 +1,70 @@
 id: lemonade-stand
 type: game
 name: Lemonade Stand
-summary: TODO
+summary: A 1973 educational business sim in which the player runs a lemonade stand for 12 days, setting
+  glasses made, advertising signs, and price against a daily weather report.
 year: 1973
 developer: Bob Jamison (MECC)
+platforms:
+- mainframe-early
+- pc
 subgenre: business-economic-sim
-status: asserted
+sim_domain:
+- economic
+player_role: manager-owner
+agency_model:
+- policy-parameter
+time_model: turn-based
+sim_scale: facility
+fidelity: abstract
+perspective: text-ui
+win_structure: score-ranking
+failure_model: soft-recoverable
+narrative_mode: none
+multiplayer:
+- single
+- competitive
+modding: none
+production_tier: hobbyist
+agent_count_order: aggregate
+emergence: 1
+influence: 2
+core_loop: read the weather report -> choose glasses to make, signs to buy, and price per glass -> demand
+  resolves into sales -> profit or a storm loss -> reinvest the next day
+design_notes: 'Lemonade Stand reduces a business to three daily inputs (glasses made, advertising signs,
+  price per glass) and one exogenous variable, the weather (sunny, cloudy, or hot and dry), which shifts
+  demand. Shocks are random: thunderstorms on cloudy days wipe out the day''s investment, and street closures
+  or wind that blows signs away also occur. Up to 30 players can each run an independent stand under the
+  same weather. Signs are an early case of advertising spend used as a demand lever; the taxonomy has
+  no mechanic for marketing spend, so the run proposes advertising-awareness.'
+mechanics:
+- id: customer-value-choice
+  role: core
+  note: Aggregate customers buy more at lower prices and with more advertising signs; sales are capped
+    by the glasses made that day.
+- id: weather
+  role: core
+  note: Each day is sunny, cloudy, or hot and dry, and the weather sets the demand level the price and
+    sign choices act on.
+- id: turn-structure
+  role: core
+  note: 'Twelve rounds of one day each: the player makes decisions, the day resolves, and an earnings
+    report follows.'
+- id: budget-treasury
+  role: supporting
+  note: Cash on hand limits how many glasses and signs can be bought each day.
+- id: random-disasters
+  role: supporting
+  note: Thunderstorms void a day's profits; street closures and blown-away signs also occur.
+- id: forecasting
+  role: supporting
+  note: The weather for the day is shown before the player commits to production.
+- id: advertising-awareness
+  role: supporting
+  note: Advertising signs bought each day raise that day's demand alongside price and weather, with no
+    carryover between days.
+sources:
+- src-wikipedia-lemonade-stand
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-ge

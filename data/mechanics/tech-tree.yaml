@@ -1,8 +1,76 @@
 id: tech-tree
 type: mechanic
 name: Tech tree
-summary: A research or unlock graph gates buildings, recipes, or abilities.
+aliases:
+- research tree
+- technology tree
+- research
+summary: A research or unlock graph gates buildings, recipes, or abilities behind prerequisites and accumulated
+  research.
 family: progression-goals
-status: asserted
+substrate:
+- network-graph
+- rule-system
+definition: >-
+  Technologies are nodes in a directed acyclic graph; each has prerequisites, a research cost, and unlocks. State
+  owned: which techs are researched, current research progress, and queued research. Update rule: each tick or turn,
+  research output (from labs, scientists, or consumed science items) accumulates toward the selected tech; when
+  it reaches the cost, the tech is researched and its unlocks apply. Variants: complete trees where everything is
+  reachable (Civilization), branching trees with exclusive choices, and weighted random draws (Stellaris). Francis
+  Tresham's 1980 board game Civilization is generally credited with introducing the tree, and Sid Meier's Civilization
+  (1991) carried it into video games. Factorio consumes science packs as research input; Stellaris offers three
+  semi-random options per research area, weighted by ethics, scientist traits, and known techs.
+player_experience: >-
+  A visible map of future capability. The player plans paths, makes long bets on branches, anticipates key unlocks,
+  and feels progress as a chain of small upgrades toward transformative ones.
+design_levers:
+- 'graph shape: linear, branching, web, or random draws'
+- cost curve per tier
+- 'research input: abstract points, science items, or scientists'
+- 'exclusivity: mutually exclusive branches versus all reachable'
+- repeatable infinite techs for the late game
+- visibility of future nodes
+failure_modes:
+- A dominant path that every player follows removes strategic choice.
+- Late-tree techs that do nothing useful leave research facilities idle; some players dismantle labs to save upkeep.
+- Top techs so strong that the game ends quickly once they are researched, as with the final technologies in Rise
+  of Nations.
+- Fully random draws frustrate players who plan, since a needed tech may not appear.
+dynamics:
+- Research pace couples to the economy, so economic snowballing compounds into technological leads.
+- Exclusive branches create faction or playstyle identity and replay value.
+- In factory games, science items make research a production target, linking progression to logistics throughput.
+math_basis:
+- graph-search
+- optimization
+feedback: reinforcing
+player_interface:
+- choice-cards
+legibility: 4
+emergence_potential: 2
+authoring_cost: 3
+compute_cost: 1
+tuning_difficulty: 4
+ai_leverage: 3
+maturity: classic
+open_questions:
+- Can a tech tree be generated from the simulation's own physics or chemistry so that research discovers real affordances
+  rather than authored unlocks?
+- Can RL agents search tree costs and structures for balance faster than human playtesting?
+claims:
+- text: A technology tree is a directed acyclic graph; Francis Tresham's 1980 board game Civilization is generally
+    credited with introducing it, and Sid Meier's Civilization (1991) is the iconic video game example.
+  sources:
+  - src-wikipedia-technology-tree
+  confidence: medium
+- text: Stellaris replaces a fixed tree with three semi-random research options per area, weighted by empire ethics,
+    scientist traits, and known techs, plus rare techs and procedurally generated improvement techs.
+  sources:
+  - src-paradox-2015-stellaris-dev-diary-11
+  confidence: high
+sources:
+- src-wikipedia-technology-tree
+- src-paradox-2015-stellaris-dev-diary-11
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m6

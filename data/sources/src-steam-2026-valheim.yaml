@@ -1,0 +1,14 @@
+id: src-steam-2026-valheim
+type: source
+name: Valheim on Steam
+kind: store-page
+authors:
+- Iron Gate Studio
+venue: Steam
+date: '2026'
+url: https://store.steampowered.com/app/892970/Valheim/
+accessed: '2026-10-24'
+notes: Release 2026-09-09, early access 2021-02-02; 1 to 10 players; procedurally generated biomes; building with
+  structural integrity and decorating for comfort; food gives boons rather than punishing; sailing; Forsaken bosses.
+provenance:
+  created: 2026-10-24-catalog-gb

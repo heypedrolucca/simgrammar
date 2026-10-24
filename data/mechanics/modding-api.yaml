@@ -1,8 +1,57 @@
 id: modding-api
 type: mechanic
 name: Modding API
-summary: Official hooks for scripts and data let players extend the simulation.
+aliases:
+- mod support
+- scripting API
+- data-driven modding
+summary: Official hooks for scripts and data definitions let players change and extend the simulation's content and rules.
 family: multiplayer-persistence
-status: asserted
+substrate:
+- player-authored-logic
+- rule-system
+definition: >-
+  The game exposes two surfaces: data definitions for entities, recipes, and parameters that the engine loads at startup,
+  and a scripting runtime that registers handlers for game events and calls an API to read and change state. Factorio mods
+  use modified Lua 5.2 and pass through settings, prototype (data), and runtime (control) stages in a fixed lifecycle, with
+  the runtime stage event-driven. RimWorld loads XML definitions and C# assemblies; Crusader Kings III exposes event, trigger,
+  and effect scripting; Minecraft's Java Edition relies largely on third-party loaders. A mod manager resolves load order
+  and dependencies. Inputs: mod files. Outputs: changed content, rules, and UI.
+player_experience: >-
+  Players reshape the game to their taste, from small fixes to total conversions, and the game keeps renewing years after
+  release. Modders gain a creative outlet and an audience, and non-modders browse mod lists to assemble their own version
+  of the game.
+design_levers:
+- 'surface breadth: data only, data plus scripting, or full code injection'
+- sandboxing and determinism requirements, such as lockstep multiplayer
+- API stability and versioning policy
+- load-order and dependency management
+- distribution channel and discovery, such as an official mod portal or Steam Workshop
+failure_modes:
+- Game updates break mods, and players delay updating or abandon saves.
+- Large mod lists conflict and degrade performance in ways that are hard to diagnose.
+- Unsandboxed code mods carry security risk to players' machines.
+dynamics:
+- Popular mods become de facto features, and developers later absorb them into the base game.
+- Moddable games keep long active communities and sales tails.
+- Mods expose and fix balance problems faster than official patches.
+math_basis:
+- computation-theory
+feedback: reinforcing
+player_interface:
+- programming
+legibility: 3
+emergence_potential: 3
+authoring_cost: 2
+compute_cost: 2
+tuning_difficulty: 2
+ai_leverage: 4
+maturity: classic
+open_questions:
+- Can coding models let non-programmers write working mods from natural-language descriptions against a documented API?
+- What API design keeps generated mods sandboxed, deterministic, and compatible across updates?
+sources:
+- src-wube-2026-factorio-lua-api
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m7

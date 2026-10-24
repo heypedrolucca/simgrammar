@@ -1,0 +1,23 @@
+id: 2026-10-24-synthesis
+type: run
+date: "2026-10-24"
+actor: agent
+operator: yoheinakajima
+agent:
+  model: claude-opus-5-5
+  harness: Claude app (cloud workspace), orchestrator
+purpose: Integrate parallel runs, add the global synergy and tension pass, synthesize opportunities, compute analysis, and write the report.
+method: >-
+  Merged the partitioned taxonomy, catalog, and technique runs after each passed partition validation, then ran the
+  full validator. Added synergy and tension edges in one pass over the whole taxonomy so that symmetric relations were
+  judged with every mechanic in view. Derived opportunities from three inputs: the historical constraints each technique
+  relaxes (compute, authoring cost, legibility, determinism, agent believability), the technique-to-mechanic `affects`
+  edges, and the white-space table of common mechanics that rarely co-occur. Scored opportunities against the rubric
+  anchors without reference to the resulting ranking. Wrote report prose with tokens only; every dataset number is
+  rendered by the build.
+scope:
+  - data/mechanics/* (synergy, tension, maturity reconciliation)
+  - data/opportunities/*
+  - report/src/*
+contract_version: "1.0"
+proposals: []

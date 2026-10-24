@@ -1,0 +1,20 @@
+id: src-xie-2023-physgaussian
+type: source
+name: 'PhysGaussian: Physics-Integrated 3D Gaussians for Generative Dynamics'
+kind: preprint
+authors:
+- Tianyi Xie
+- Zeshun Zong
+- Yuxing Qiu
+- Xuan Li
+- Yutao Feng
+- Yin Yang
+- Chenfanfu Jiang
+date: 2023-11
+url: https://arxiv.org/abs/2311.12198
+arxiv: '2311.12198'
+accessed: '2026-10-24'
+notes: Custom MPM on Gaussian kernels; elastic, metal, non-Newtonian, granular materials; no meshing;
+  'what you see is what you simulate'.
+provenance:
+  created: 2026-10-24-techniques-world-models

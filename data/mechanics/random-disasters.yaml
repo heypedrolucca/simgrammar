@@ -1,8 +1,60 @@
 id: random-disasters
 type: mechanic
 name: Random disasters
-summary: Stochastic disasters such as earthquakes, storms, or meteors damage the system.
+aliases:
+- natural disasters
+- catastrophes
+summary: Stochastic disasters such as fires, floods, earthquakes, storms, or meteors strike at random times and places and
+  damage the system.
 family: risk-failure
-status: asserted
+substrate:
+- stochastic-events
+- cellular-grid
+definition: >-
+  A hazard process samples each tick or cycle whether a disaster occurs, picks a type from a weighted table that may be conditioned
+  on state, picks a location, and applies a damage template such as destroying tiles, starting fires, or flooding. In the
+  SimCity engine (Micropolis), doDisasters fires with probability 1/481, 1/241, or 1/61 per cycle depending on difficulty,
+  then chooses among fire, flood, tornado, earthquake, or nothing, and spawns a monster only if average pollution exceeds
+  60. Cities: Skylines Natural Disasters adds early-warning buildings and shelters; RimWorld adds short circuits, solar flares,
+  and toxic fallout; Banished has tornadoes and fires. Unlike a crisis countdown, timing is unknown in advance. Inputs: difficulty,
+  optional state conditions. Outputs: damage events and secondary hazards passed to fire, flood, or health systems.
+player_experience: >-
+  Background dread and sudden recovery work. The player builds redundancy, spreads out critical infrastructure, keeps cash
+  in reserve, and then scrambles to rebuild when a disaster hits. Players who want a calm build often disable disasters, which
+  shows how much they change the tone.
+design_levers:
+- base frequency per difficulty level and whether the player can disable or manually trigger disasters
+- type weights and state conditions, such as monsters tied to pollution or fires tied to dry weather
+- magnitude distribution and area of effect
+- warning time and mitigation tools (shelters, firefighters, seawalls, insurance)
+- secondary effects that hand off to fire spread, flooding, or disease
+failure_modes:
+- Large unmitigable disasters erase hours of building and read as arbitrary rather than as a test of preparation.
+- Frequent small disasters turn into repetitive cleanup chores.
+- If disasters are rare and easily disabled, the mechanic adds content that most players never see.
+dynamics:
+- Players disperse and duplicate critical services so one hit cannot cripple the system.
+- Disaster damage reduces income and service coverage, which can cascade into abandonment if reserves are thin.
+- State-conditioned disasters turn neglected variables, such as pollution, into delayed risks.
+math_basis:
+- markov-stochastic
+- probability-statistics
+feedback: none
+player_interface:
+- observation
+- placement
+legibility: 4
+emergence_potential: 3
+authoring_cost: 3
+compute_cost: 2
+tuning_difficulty: 2
+ai_leverage: 2
+maturity: classic
+open_questions:
+- Can learned physical simulators make disaster damage depend on how the player actually built, rather than on fixed templates?
+- What warning lead time makes disasters feel like a test of preparation rather than bad luck?
+sources:
+- src-hopkins-2008-micropolis
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m7

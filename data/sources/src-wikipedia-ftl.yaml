@@ -1,0 +1,14 @@
+id: src-wikipedia-ftl
+type: source
+name: 'FTL: Faster Than Light'
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/FTL:_Faster_Than_Light
+accessed: '2026-10-24'
+notes: Eight procedurally generated sectors of about twenty beacons with events and choices; rebel fleet advances
+  with each jump; save deleted when the ship is destroyed or crew lost; Subset Games, 2012-09-14.
+provenance:
+  created: 2026-10-24-taxonomy-m7

@@ -1,0 +1,51 @@
+id: open-ended-evolution-sandbox
+type: opportunity
+name: Open-ended evolution sandbox
+summary: Evolution games built on continuous artificial-life substrates and automated discovery, where
+  morphology and behavior evolve without designer-authored part catalogs.
+opportunity_type: new-genre
+thesis: Evolution games either use authored parts (Spore's editor) or simple genomes (Species, The Bibites).
+  Research on Lenia, Flow-Lenia, neural cellular automata, and foundation-model-guided search for artificial
+  life (ASAL, 2024) produced substrates where lifelike, open-ended forms emerge and tools that find interesting
+  ones automatically. A game can use those tools as a camera operator over an evolving world, surfacing
+  novelty to the player.
+design_sketch: The player tunes environment parameters and selection pressures for a continuous artificial-life
+  world. An automated discovery system scans the running world for novel forms and behaviors and bookmarks
+  them; the player curates, names, and transplants organisms between worlds and shares discoveries.
+involves:
+- natural-selection
+- trait-inheritance
+- food-web
+- habitat-suitability
+- content-sharing
+applies:
+- continuous-alife-and-asal
+- neural-cellular-automata
+- quality-diversity-search
+- massively-parallel-simulation
+precedent:
+- species-alre
+- spore
+- equilinox
+- game-of-life
+- simlife
+novelty: 4
+feasibility: 3
+impact: 2
+horizon: 1-2y
+key_risks:
+- Open-ended substrates often stagnate or explode.
+- Players may not read abstract organisms as creatures.
+- GPU requirements.
+validation_experiment: 'Run a Flow-Lenia world on a consumer GPU with an automated novelty detector for
+  8 hours and have players rate bookmarked discoveries against random snapshots. Success: bookmarked organisms
+  rated more interesting in at least 75 percent of pairwise comparisons.'
+falsifiable_signal:
+  prediction: A commercial game built on a continuous artificial-life substrate (Lenia family or neural
+    cellular automata) will reach 1,000 Steam reviews.
+  resolve_by: '2029-12-31'
+  criteria: Steam page describing a Lenia-family or NCA substrate and at least 1,000 reviews.
+sources: []
+status: asserted
+provenance:
+  created: 2026-10-24-synthesis

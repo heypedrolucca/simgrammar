@@ -1,0 +1,67 @@
+id: projectile-ballistics
+type: mechanic
+name: Projectile ballistics
+aliases:
+- external ballistics
+- bullet drop
+- penetration modeling
+- torpedo and shell flight
+summary: Shots are simulated as projectiles in flight with velocity, gravity, drag, and penetration, so range, angle, and
+  lead decide hits rather than an instant trace or a dice roll.
+family: physics-materials
+substrate:
+- continuous-physics
+definition: >-
+  Owns, per fired projectile, position, velocity, and type data (mass, drag or ballistic coefficient, guidance if any, and
+  penetration or warhead parameters). Each physics step integrates gravity, drag, and wind (or propulsion and guidance for
+  torpedoes and missiles), tests for intersection with targets or terrain, and on impact resolves penetration against the
+  struck material's thickness and angle, then passes damage to the target. Arma 3 weapons are affected by external ballistics
+  and recoil, so shooters must account for drop and travel time at range; Silent Hunter III torpedoes run at a set speed,
+  depth, and gyro angle toward a computed intercept; DCS World flies missiles, bombs, and gun rounds as projectiles; Command:
+  Modern Operations lists ballistics among its modeled effects. Unlike rigid-body-physics, the projectile is a point mass
+  or simple body integrated at high speed with no contact solver; unlike military-operations, this mechanic owns only the
+  shot's flight and impact, not detection or doctrine.
+player_experience: >-
+  Hitting a target is a skill or a calculation rather than a cursor placement. The player estimates range, holds over for
+  drop, leads a moving target, or computes a torpedo solution, and a long-range hit feels earned. Misses teach the model;
+  cover that stops some rounds and not others teaches materials.
+design_levers:
+- 'which forces are integrated: gravity only, drag, wind, Coriolis, or guidance'
+- 'penetration model: none, thickness and angle tables, or material-based energy loss'
+- projectile speed relative to engagement ranges, which sets how much lead and drop matter
+- dispersion and weapon accuracy versus player aim
+- aids that show the solution, such as ranging reticles or automatic firing solutions
+failure_modes:
+- Ballistics fidelity beyond what players can perceive costs compute and data without changing decisions.
+- Fast projectiles tunnel through thin geometry at low step rates and register no hit.
+- Penetration tables that disagree with visible armor make hits and non-hits feel arbitrary.
+- Networked games must reconcile projectile flight across clients, and disagreements show as hits that did not happen.
+dynamics:
+- Engagement ranges spread out as skilled players exploit long-range accuracy, changing how teams move across terrain.
+- Cover becomes material-dependent, so the environment's construction feeds tactics.
+- Aids such as rangefinders and fire-control computers become valuable equipment, coupling ballistics to loadouts and procedures.
+math_basis:
+- classical-mechanics
+- probability-statistics
+feedback: none
+player_interface:
+- embodied-skill
+- parameter
+legibility: 3
+emergence_potential: 3
+authoring_cost: 3
+compute_cost: 2
+tuning_difficulty: 3
+ai_leverage: 2
+maturity: classic
+open_questions:
+- Can learned surrogate models of penetration and fragmentation replace hand-built tables while staying consistent with what
+  players see?
+- Which aids keep long-range ballistics learnable for new players without removing the skill?
+sources:
+- src-wikipedia-arma-3
+- src-wikipedia-silent-hunter-3
+- src-steam-2019-command-modern-operations
+status: sourced
+provenance:
+  created: 2026-10-24-taxonomy-triage-b

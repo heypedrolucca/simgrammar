@@ -1,0 +1,14 @@
+id: src-park-2023-generative-agents-repository
+type: source
+name: joonspk-research/generative_agents
+kind: repository
+authors:
+- Joon Sung Park
+venue: GitHub
+date: '2023'
+url: https://github.com/joonspk-research/generative_agents
+accessed: '2026-10-24'
+notes: Apache-2.0 code for the paper; reverie backend simulation server plus Django frontend rendering Smallville;
+  one game step is 10 game seconds; requires an OpenAI API key; replay and demo modes.
+provenance:
+  created: 2026-10-24-catalog-gd

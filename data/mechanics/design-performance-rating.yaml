@@ -1,9 +1,74 @@
 id: design-performance-rating
 type: mechanic
 name: Design performance rating
-summary: Player-built designs are evaluated by simulated metrics such as ride excitement, bridge stress,
-  or cost and cycles.
+aliases:
+- ride ratings
+- solution metrics
+- stress test
+summary: Player-built designs are run or analyzed and scored on simulated metrics such as ride excitement,
+  bridge stress, or cost and cycles.
 family: space-construction
-status: asserted
+substrate:
+- continuous-physics
+- rule-system
+definition: 'The player builds a design (a coaster track, a bridge, a machine program), the game runs
+  or analyzes it, and a metric vector is computed from what happened. Metrics gate success, set income,
+  or rank the design. In RollerCoaster Tycoon 2, as documented by OpenRCT2, a test run yields excitement,
+  intensity, and nausea from peak positive, negative, and lateral g, number of drops, highest drop, inversions,
+  and nearby scenery; excitement stops rising after 9 drops and 6 inversions, is cut 25% when intensity
+  exceeds 10 with further cuts at 11, 12, 13.2, and 14.5, and is halved when lateral g exceeds 3.1. Poly
+  Bridge drives vehicles over a bridge and shows member stress under a budget. SpaceChem scores solutions
+  on cycles, reactors, and instructions, and Opus Magnum on cost, cycles, and area. State: the design
+  and its last metric vector; update: re-evaluate on test or edit.'
+player_experience: Build, test, read the numbers, revise. Players learn the hidden physics through the
+  scores, enjoy beating a threshold, and then chase better tradeoffs between metrics that pull against
+  each other.
+design_levers:
+- which metrics exist and how many are orthogonal
+- formula shape, caps, and penalties, such as excitement penalties for excessive intensity
+- hard pass or fail thresholds versus continuous scores
+- 'when evaluation runs: an explicit test run, continuous re-evaluation, or end of level'
+- how much of each metric's derivation the game exposes
+- comparison against other players' results
+failure_modes:
+- Players optimize the formula instead of the fantasy, producing designs that score well but look absurd.
+- A single scalar score collapses the design space onto one optimum.
+- Opaque formulas require community reverse engineering; RollerCoaster Tycoon 2's rating rules are documented
+  in detail only through the OpenRCT2 project.
+- Scores that contradict intuition (a ride that looks thrilling rates low) make the simulation feel arbitrary.
+dynamics:
+- Designs converge on formula sweet spots, such as stopping at the drop and inversion caps that end excitement
+  gains.
+- Multiple competing metrics produce distinct design schools, such as cheap versus fast solutions in Zachtronics
+  games.
+- When ratings set prices or demand, design quality couples directly to the economy.
+math_basis:
+- optimization
+- classical-mechanics
+feedback: balancing
+player_interface:
+- placement
+- observation
+legibility: 3
+emergence_potential: 3
+authoring_cost: 2
+compute_cost: 2
+tuning_difficulty: 3
+ai_leverage: 3
+maturity: established
+synergy:
+- id: modular-assembly
+  note: Rating the assembled design closes the build-test loop.
+- id: structural-integrity
+  note: Stress and load ratings turn structural rules into a score (Poly Bridge).
+open_questions:
+- Can a learned critic rate open-ended designs on qualities like elegance or thrill that hand formulas
+  miss, without becoming a new exploit target?
+- Does showing per-term contributions to a score widen or narrow the range of designs players explore?
+sources:
+- src-openrct2-2026-ride-rating-calculation
+- src-wikipedia-spacechem
+- src-wikipedia-opus-magnum
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m4

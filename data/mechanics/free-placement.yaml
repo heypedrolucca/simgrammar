@@ -1,9 +1,59 @@
 id: free-placement
 type: mechanic
 name: Building placement
-summary: The player places discrete structures on a grid or freely, and placement constraints define the
-  layout puzzle.
+aliases:
+- plopping
+- construction placement
+- grid placement
+summary: The player places discrete structures on a grid or freely, and placement constraints turn layout
+  into a spatial puzzle.
 family: space-construction
+substrate:
+- cellular-grid
+- rule-system
+definition: The player picks a structure type, position, and usually rotation. The game tests the footprint
+  against occupancy, terrain slope, required neighbors (road access, a water tile, an ore patch), and
+  cost. A valid placement writes the structure into the occupancy grid or spatial index and deducts cost;
+  demolition reverses it, often with a partial refund. Tile grids (SimCity, Factorio, RimWorld) make footprints
+  exact; gridless placement (Manor Lords, Foundation) allows arbitrary angles and curved streets. A ghost
+  preview tinted valid or invalid is the standard interface. The occupancy map is the input to pathing,
+  coverage, adjacency, and room detection.
+player_experience: A spatial puzzle with immediate feedback. Players plan space, fit footprints together,
+  and live with early decisions as the layout fills. Gridless placement adds expressive freedom but also
+  the chore of aligning things by eye.
+design_levers:
+- grid, offset grid, or gridless placement, with or without snapping
+- footprint sizes and shapes, and whether rotation changes them
+- 'terrain rules: slope tolerance, water, and foundations'
+- requirement rules such as road adjacency or resource tiles
+- demolition refund and rebuild cost, which set how much commitment a placement carries
+failure_modes:
+- Gridless placement leaves slivers and gaps that waste space and look untidy.
+- Free demolition and full refunds remove commitment, so placement stops being a decision.
+- A red ghost with no reason given makes hidden placement rules feel arbitrary.
+- Permissive rules with abundant space make layout trivial.
+dynamics:
+- Early placements constrain later ones, producing path-dependent layouts and eventual rebuilds.
+- Space becomes a resource that players trade against throughput or beauty.
+- Players converge on standard modules, which leads to blueprint copying and sharing.
+math_basis:
+- optimization
+- combinatorics
+feedback: none
+player_interface:
+- placement
+legibility: 4
+emergence_potential: 3
+authoring_cost: 3
+compute_cost: 1
+tuning_difficulty: 2
+ai_leverage: 2
+maturity: classic
+open_questions:
+- Can natural-language or sketch placement ("put a market near the docks") keep the puzzle while removing
+  the click cost?
+- Which footprint rules make gridless placement as plannable as a grid?
+sources: []
 status: asserted
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m4

@@ -1,0 +1,27 @@
+# Space Haven
+
+*Source* · `src-bugbyte-2026-space-haven` · status: **n/a**
+
+| field | value |
+|---|---|
+| kind | Documentation |
+| authors | Bugbyte |
+| venue | Bugbyte |
+| date | 2026 |
+| url | https://bugbyte.fi/spacehaven/ |
+| accessed | 2026-10-24 |
+
+## Notes
+
+Official page: spaceship colony sim inspired by RimWorld, Dwarf Fortress, Spacebase DF-9, and Oxygen Not Included, combining RimWorld-style emergent stories with a tile-based gas simulation.
+
+## Backlinks (computed)
+
+**cited by:** [Space Haven](../game/space-haven.md)
+
+## Citation
+
+Bugbyte (2026). *Space Haven*. Bugbyte https://bugbyte.fi/spacehaven/
+
+---
+Provenance: created in run `2026-10-24-catalog-gb`.

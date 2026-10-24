@@ -1,0 +1,15 @@
+id: src-wikipedia-dont-starve
+type: source
+name: Don't Starve
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Don%27t_Starve
+accessed: '2026-10-24'
+notes: Klei Entertainment; beta 2012, release 2013-04-23 for Windows, OS X, Linux, later PlayStation, Wii U, Xbox
+  One, iOS, Android, Switch; hunger, health, and sanity meters; below 15% sanity figments attack; 8-minute days;
+  Charlie attacks in darkness; spoilage; permadeath except rare items; random worlds; Don't Starve Together.
+provenance:
+  created: 2026-10-24-catalog-gb

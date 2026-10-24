@@ -1,0 +1,18 @@
+id: src-kazemkhani-2024-gpudrive
+type: source
+name: 'GPUDrive: Data-driven, multi-agent driving simulation at 1 million FPS'
+kind: preprint
+authors:
+- Saman Kazemkhani
+- Aarav Pandya
+- Daphne Cornelisse
+- Brennan Shacklett
+- Eugene Vinitsky
+date: '2024-08-02'
+url: https://arxiv.org/abs/2408.01584
+arxiv: '2408.01584'
+accessed: '2026-10-24'
+notes: Built on Madrona; over one million simulation steps per second; multi-agent driving agents trained
+  on Waymo Open Motion scenarios in minutes to hours.
+provenance:
+  created: 2026-10-24-techniques-sim-math

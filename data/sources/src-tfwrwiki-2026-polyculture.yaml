@@ -1,0 +1,14 @@
+id: src-tfwrwiki-2026-polyculture
+type: source
+name: Polyculture
+kind: encyclopedia
+authors:
+- The Farmer Was Replaced Wiki contributors
+venue: The Farmer Was Replaced Wiki
+date: '2026'
+url: https://thefarmerwasreplaced.wiki.gg/wiki/Polyculture
+accessed: '2026-10-24'
+notes: Grass, bushes, trees, and carrots request a different companion plant at a tile within 3 moves,
+  read with get_companion(); planting it multiplies yield (5x before upgrades, doubled per upgrade).
+provenance:
+  created: 2026-10-24-catalog-gh

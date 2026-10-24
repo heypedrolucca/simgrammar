@@ -1,8 +1,69 @@
 id: procedural-build-assist
 type: mechanic
 name: Procedural build assist
-summary: Rough player input is turned into detailed, organic structures by procedural rules.
+aliases:
+- mixed-initiative building
+- smart building
+- auto-detailing
+summary: Coarse player input such as a block or a drawn wall is turned into detailed, organic structures
+  by procedural rules.
 family: space-construction
-status: asserted
+substrate:
+- rule-system
+- cellular-grid
+definition: 'The player supplies coarse intent (add or remove a block, drag a wall or path) and local
+  rules pick the detailed geometry for the affected cells and their neighbors. In Townscaper each click
+  adds or removes a block on an irregular quad grid made by subdividing a hex grid and jittering points;
+  corner modules are chosen with a marching-cubes-style lookup and a real-time wave function collapse
+  that narrows valid modules per cell, then decorations such as windows, chimneys, and bushes are added,
+  and gardens appear only in enclosed areas. Each change ripples through connected cells, so delay grows
+  with structure size, and the solver may fail silently. Tiny Glade (2024) turns drawn walls and paths
+  into detailed castles and gardens. State: a coarse occupancy grid; output: derived geometry, recomputed
+  locally on edit.'
+player_experience: Low effort, high expressiveness. A few clicks yield something that looks hand-made,
+  which feels like collaborating with a builder. There is no failure state, so play is calm, exploratory,
+  and screenshot-driven.
+design_levers:
+- 'input granularity: blocks, strokes, or brushes'
+- size of the module library and number of variants per configuration
+- constraint priorities, such as which modules win when several fit
+- 'determinism: whether the same input always yields the same output'
+- how much manual override the player gets
+failure_modes:
+- After hours of play the module library repeats and outputs start to look the same.
+- Players cannot get the exact shape they want because the rules decide the detail.
+- Silent solver failures leave odd fragments; Townscaper can leave loose structures where no module fits.
+- Recalculation delay grows on large builds.
+dynamics:
+- Builds spread through screenshots and social media more than through gameplay goals.
+- Rules produce context-sensitive surprises, such as stairs, arches, or gardens appearing where the player
+  did not place them.
+- Shipped examples rarely couple the output to a simulation; when they do, agents must interpret generated
+  spaces.
+math_basis:
+- procedural-noise
+- combinatorics
+feedback: none
+player_interface:
+- placement
+- direct-manipulation
+legibility: 4
+emergence_potential: 2
+authoring_cost: 3
+compute_cost: 2
+tuning_difficulty: 1
+ai_leverage: 4
+maturity: emerging
+tension:
+- id: structural-integrity
+  note: Assisted organic building favors freedom; strict structural rules punish it.
+open_questions:
+- Can generative 3D models replace hand-built module libraries while keeping the instant, local response
+  players expect?
+- Can build-assist output feed a simulation (rooms, pathing, structural load) without the player losing
+  track of what they built?
+sources:
+- src-thompson-2022-how-townscaper-works
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m4

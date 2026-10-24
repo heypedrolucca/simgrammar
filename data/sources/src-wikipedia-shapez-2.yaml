@@ -1,0 +1,16 @@
+id: src-wikipedia-shapez-2
+type: source
+name: Shapez 2
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Shapez_2
+accessed: '2026-10-24'
+notes: tobspr Games (Germany), Unity engine; Gamera Games publishes in China and Japan; early access 2024-08-15;
+  1.0 on 2026-04-23; update 1.1 on 2026-06-25; Windows, macOS, Linux; shapes of up to four layers of four
+  quadrants; buildings are free and there are no victory conditions; procedurally generated world; sequel
+  to Shapez (2020).
+provenance:
+  created: 2026-10-24-catalog-gh

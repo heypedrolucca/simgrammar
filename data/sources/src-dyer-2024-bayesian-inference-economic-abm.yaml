@@ -1,0 +1,20 @@
+id: src-dyer-2024-bayesian-inference-economic-abm
+type: source
+name: Black-box Bayesian inference for economic agent-based models
+kind: paper
+authors:
+- Joel Dyer
+- Patrick Cannon
+- J. Doyne Farmer
+- Sebastian Schmon
+venue: Journal of Economic Dynamics and Control
+date: '2024'
+url: https://arxiv.org/abs/2202.00625
+doi: 10.1016/j.jedc.2024.104827
+arxiv: '2202.00625'
+accessed: '2026-10-24'
+notes: Neural posterior estimation and neural ratio estimation give state-of-the-art parameter inference
+  for economic ABMs from multivariate time series, versus older methods needing hundreds of thousands
+  of runs.
+provenance:
+  created: 2026-10-24-techniques-sim-math

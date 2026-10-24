@@ -1,10 +1,61 @@
 id: powerwash-simulator
 type: game
 name: PowerWash Simulator
-summary: TODO
+summary: A first-person cleaning sim in which the player power-washes vehicles and buildings, choosing nozzles and
+  soaps to strip dirt layers until every part reports clean.
 year: 2021
+year_full_release: 2022
 developer: FuturLab
+platforms:
+- pc
+- console
+- handheld
+- vr
+- mobile
 subgenre: job-sim
-status: asserted
+sim_domain:
+- occupational
+player_role: worker
+agency_model:
+- direct-avatar
+time_model: real-time
+sim_scale: individual
+fidelity: stylized
+perspective: first-person
+win_structure: completion
+failure_model: none
+narrative_mode: authored
+multiplayer:
+- single
+- coop
+modding: none
+production_tier: indie
+agent_count_order: none
+emergence: 1
+influence: 2
+core_loop: accept a job -> pick nozzle and soap -> wash surfaces -> per-part progress reaches 100 percent -> job
+  pays -> buy washer upgrades -> next job
+design_notes: 'The simulation is a per-surface dirt state: each surface carries layers (dirt, grime, lichen, moss,
+  rust) that the spray removes according to nozzle, soap, and range, and every object reports its percentage done.
+  Four nozzles trade power against spray width, so play is matching the tool to the layer and distance. Progress
+  bars per object and a highlight for remaining dirt make completion fully legible, and the career''s story arrives
+  as client text messages rather than through the simulation.'
+mechanics:
+- id: surface-work-tools
+  role: core
+  note: Four nozzles with different power and spray width and surface-specific soaps remove dirt, grime, lichen,
+    moss, and rust; progress bars track each object and the level, and a button highlights remaining dirt.
+- id: contracts-orders
+  role: supporting
+  note: Career mode in the town of Muckingham offers 38 main jobs plus bonus jobs whose pay buys upgrades and cosmetics.
+- id: direct-avatar
+  role: supporting
+  note: Ladders and scaffolding reach higher surfaces.
+- id: scenario-objectives
+  role: supporting
+  note: Challenge mode limits water or time and ranks the result.
+sources:
+- src-wikipedia-powerwash-simulator
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gf

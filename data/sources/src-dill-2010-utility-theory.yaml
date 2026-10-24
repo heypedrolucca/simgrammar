@@ -1,0 +1,15 @@
+id: src-dill-2010-utility-theory
+type: source
+name: Improving AI Decision Modeling Through Utility Theory
+kind: talk
+authors:
+- Kevin Dill
+- Dave Mark
+venue: Game Developers Conference 2010, AI Summit
+date: '2010'
+url: https://gdcvault.com/play/1012410/Improving-AI-Decision-Modeling-Through
+accessed: '2026-10-24'
+notes: Argues that if-then logic makes agent decisions switch abruptly; proposes utility theory with response curves, population
+  distributions, and weighted random selection for more natural decisions, wider action ranges, and better edge-case handling.
+provenance:
+  created: 2026-10-24-taxonomy-m3

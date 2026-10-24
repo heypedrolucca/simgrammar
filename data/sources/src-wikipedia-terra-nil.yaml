@@ -1,0 +1,15 @@
+id: src-wikipedia-terra-nil
+type: source
+name: Terra Nil
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Terra_Nil
+accessed: '2026-10-24'
+notes: Free Lives, published by Devolver Digital; Windows, Android, iOS 2023-03-28 (mobile via Netflix Games), Linux
+  and macOS 2023-10, Switch 2023-12; began as a Ludum Dare 45 entry (October 2019); turbines on stone power toxin
+  scrubbers; pumps refill rivers; points per restored tile; biomes attract animals; recycle buildings and leave.
+provenance:
+  created: 2026-10-24-catalog-gb

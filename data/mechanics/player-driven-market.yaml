@@ -1,8 +1,60 @@
 id: player-driven-market
 type: mechanic
 name: Player-driven markets
+aliases:
+- order book
+- regional market
+- player economy
 summary: Players post buy and sell orders in shared order books, and prices emerge from player behavior.
 family: economy-finance
-status: asserted
+substrate:
+- agent-based
+- rule-system
+definition: 'Owns per-market order books. Each order has an item, a price, a quantity, a location or range, and an expiry.
+  A new buy order fills against the cheapest compatible sell order and vice versa; any remainder rests in the book. Transaction
+  fees and sales taxes remove currency while NPC bounties and sales add it, so the operator manages faucets and sinks rather
+  than prices. Players make nearly all goods, so prices emerge from their mining, manufacturing, hauling, and speculation.
+  EVE Online (2003) is the canonical form: regional markets where players gather most raw materials and build nearly all ships,
+  price history charts, and large-scale manipulation such as ramping and bear raids; its developer hired an economist in 2007
+  to monitor the economy. Ultima Online''s player vendors and Albion Online''s player-crafted gear economy are other forms.'
+player_experience: Being one trader among thousands. The player hunts arbitrage between regions, undercuts by a fraction of
+  a unit, posts low buy orders and waits, and reads price charts like a real trader. Wealth comes from information and patience
+  as much as production.
+design_levers:
+- 'market topology: one global book, regional books, or local station markets with hauling between them'
+- fees, sales tax, and order modification costs as sinks and anti-spam measures
+- how much NPC supply or demand exists to anchor prices
+- order range, duration, and how much order-book depth is visible
+- currency faucets (bounties, NPC sales) relative to sinks
+failure_modes:
+- Faucets that outpace sinks inflate prices and devalue new players' earnings.
+- Low population leaves thin books where one player sets prices or nothing sells.
+- Bots and automated relisting dominate when order updates are free and fast.
+- Manipulation and scams drive away players who did not opt into that kind of play.
+dynamics:
+- Trade hubs form where liquidity concentrates, as at EVE's Jita, which concentrates trade further.
+- Wars destroy goods and raise demand, coupling combat to manufacturing prices.
+- Speculators anticipate patches and events, so prices move before a change ships.
+math_basis:
+- mechanism-design
+- game-theory
+feedback: both
+player_interface:
+- orders
+- parameter
+legibility: 3
+emergence_potential: 4
+authoring_cost: 1
+compute_cost: 2
+tuning_difficulty: 4
+ai_leverage: 3
+maturity: established
+open_questions:
+- Can LLM or RL trader agents supply liquidity for small servers or single-player worlds without becoming exploitable market
+  makers?
+- Which sink and faucet controls keep a long-running player market stable without visible developer intervention?
+sources:
+- src-wikipedia-eve-online
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m2

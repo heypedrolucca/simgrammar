@@ -1,0 +1,13 @@
+id: src-wube-2023-fff-375-quality
+type: source
+name: "Friday Facts #375 - Quality"
+kind: tech-report
+authors:
+  - "kovarex"
+venue: "Factorio blog (Wube Software)"
+date: "2023-09-08"
+url: https://factorio.com/blog/post/fff-375
+accessed: "2026-10-24"
+notes: "Five quality levels (normal, uncommon +30%, rare +60%, epic +90%, legendary +150%); quality module 1 adds +1% chance; each further step 10x less likely; recycler returns 25% of ingredients; productivity capped at +300%."
+provenance:
+  created: 2026-10-24-taxonomy-m1

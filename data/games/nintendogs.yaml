@@ -1,10 +1,71 @@
 id: nintendogs
 type: game
 name: Nintendogs
-summary: TODO
+summary: A Nintendo DS puppy sim in which the player pets, washes, feeds, and walks up to three dogs,
+  teaches them tricks with recorded voice commands, and enters disc, agility, and obedience trials.
 year: 2005
 developer: Nintendo EAD
+platforms:
+- handheld
 subgenre: virtual-pet
-status: asserted
+sim_domain:
+- biological-ecological
+- domestic-personal
+player_role: caretaker
+agency_model:
+- caretaking-interaction
+- conversational
+time_model: real-world-clock
+sim_scale: individual
+fidelity: stylized
+perspective: first-person
+win_structure: open-sandbox
+failure_model: soft-recoverable
+narrative_mode: none
+multiplayer:
+- single
+- async-shared
+modding: none
+production_tier: aaa
+agent_count_order: '1'
+emergence: 2
+influence: 3
+core_loop: care for the dog by touch -> teach tricks by voice -> walk the dog and find items -> enter
+  disc, agility, and obedience trials -> earn prize money and trainer points -> buy supplies and unlock
+  new breeds
+design_notes: 'Nintendogs was built to show off DS hardware: the touchscreen handles petting, grooming,
+  and washing, and the microphone handles the dog''s name and trick commands. Care runs on the DS clock,
+  so hunger, thirst, and coat condition worsen with elapsed time, but dogs cannot die, breed, or age,
+  which makes neglect a recoverable setback rather than a fail state. Trials have five classes from Beginner
+  to Championship, and placing third or better promotes a dog. Bark Mode lets nearby players'' dogs meet
+  and exchange presents.'
+mechanics:
+- id: creature-care
+  role: core
+  note: Touch petting, brushing, and washing plus food and water bowls maintain hunger, thirst, and coat
+    condition; walks, balls, discs, and toys add play.
+- id: creature-learning
+  role: core
+  note: When the dog strikes a pose such as sit, the player records a spoken command; repeating the pairing
+    teaches the trick, and the dog later responds to the voice cue.
+- id: natural-language-interaction
+  role: supporting
+  note: The microphone recognizes the dog's name and trick words by matching the player's voice against
+    recorded samples.
+- id: needs-decay
+  role: supporting
+  note: Hunger, thirst, and dirtiness worsen with real elapsed time.
+- id: real-time-clock
+  role: supporting
+  note: Care state advances with the DS internal clock and calendar.
+- id: milestone-unlocks
+  role: supporting
+  note: Trial prize money and trainer points unlock new breeds and supplies.
+- id: async-shared-region
+  role: supporting
+  note: Bark Mode lets nearby DS owners meet each other's dogs and exchange presents.
+sources:
+- src-wikipedia-nintendogs
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gc

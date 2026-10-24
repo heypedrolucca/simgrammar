@@ -1,0 +1,17 @@
+id: src-guan-2024-richelieu
+type: source
+name: 'Richelieu: Self-Evolving LLM-Based Agents for AI Diplomacy'
+kind: preprint
+authors:
+- Zhenyu Guan
+- Xiangyu Kong
+- Fangwei Zhong
+- Yizhou Wang
+venue: arXiv
+date: '2024-07-09'
+arxiv: '2407.06813'
+accessed: '2026-10-24'
+notes: LLM Diplomacy agent combining planning with memory and reflection, goal-directed negotiation, and
+  self-play memory augmentation without human data.
+provenance:
+  created: 2026-10-24-techniques-rl-design

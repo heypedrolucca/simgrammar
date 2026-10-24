@@ -1,10 +1,75 @@
 id: second-life
 type: game
 name: Second Life
-summary: TODO
+aliases:
+- SL
+summary: A persistent 3D virtual world in which residents build objects from prims and meshes, script them in the
+  Linden Scripting Language, own land in server-simulated regions, and trade goods and land for Linden Dollars exchangeable
+  for real currency.
 year: 2003
 developer: Linden Lab
+platforms:
+- pc
 subgenre: mmo-world
-status: asserted
+subgenre_secondary:
+- sandbox-world
+sim_domain:
+- economic
+- social-interpersonal
+player_role: inhabitant
+agency_model:
+- direct-avatar
+- programmatic
+time_model: asynchronous-persistent
+sim_scale: region
+fidelity: stylized
+perspective: third-person
+win_structure: open-sandbox
+failure_model: none
+narrative_mode: none
+multiplayer:
+- persistent-mmo
+modding: scripting
+production_tier: aa
+agent_count_order: 10k-plus
+emergence: 3
+influence: 3
+boundary_case: true
+core_loop: customize an avatar -> buy or rent land in a region -> build objects from prims and mesh -> script behavior
+  in LSL -> sell creations, land, or services for Linden Dollars -> exchange Linden Dollars on the LindeX
+design_notes: 'Linden Lab describes Second Life as a platform rather than a game: it has no set objective, and almost
+  all content is built and scripted by residents, who keep copyright to it. It is a boundary case included for its
+  user-content pipeline, server-side object scripting, and a virtual currency with a real-money exchange that produced
+  real income for some residents. Each region is simulated on its own CPU core with Havok physics, which caps how
+  many avatars and objects a place can hold.'
+mechanics:
+- id: persistent-world
+  role: core
+  note: The world is a grid of 256 by 256 meter regions, each simulated on a dedicated CPU core with Havok physics
+    and capped at 40 avatars on the mainland or 100 on private islands.
+- id: player-programming
+  role: core
+  note: Objects run Linden Scripting Language scripts on Linden Lab's servers, which is how built objects become
+    interactive.
+- id: player-driven-market
+  role: core
+  note: Residents trade land, goods, and services for Linden Dollars, which are bought and sold for real currency
+    on the LindeX exchange; the Marketplace has listed about 2.1 million items.
+- id: modular-assembly
+  role: supporting
+  note: Objects are built from linked primitives, up to 256 per linked set, or from imported mesh.
+- id: rigid-body-physics
+  role: supporting
+- id: content-sharing
+  role: supporting
+  note: Creators keep copyright to their content and sell it to other residents.
+- id: player-organizations
+  role: supporting
+  note: Groups give residents shared chat and voice channels.
+- id: direct-avatar
+  role: supporting
+sources:
+- src-wikipedia-second-life
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gi

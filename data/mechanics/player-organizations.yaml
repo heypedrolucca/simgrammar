@@ -1,8 +1,62 @@
 id: player-organizations
 type: mechanic
 name: Player organizations
-summary: Players form corporations, guilds, or governments with roles and shared assets.
+aliases:
+- guilds
+- corporations
+- clans
+- alliances
+summary: Players form corporations, guilds, or governments with membership, roles, permissions, and shared assets.
 family: multiplayer-persistence
-status: asserted
+substrate:
+- network-graph
+- rule-system
+definition: >-
+  An organization entity holds a membership list, a role table that maps roles to permissions (hire, spend, access storage,
+  declare war), shared assets such as a treasury, hangars, or land, and optional revenue rules such as a tax on members' income.
+  Organizations can nest into federations and act as parties to diplomacy and war. In Eve Online, a CEO runs each corporation
+  and assigns roles such as director and accountant, corporations can tax members' earnings, declare war on other corporations
+  for a weekly fee, and join alliances that claim sovereignty over null-sec star systems. Ultima Online guilds, Eco governments,
+  and A Tale in the Desert's guilds are other forms. Inputs: membership and role changes, member income. Outputs: shared pools,
+  permissions, and collective standing.
+player_experience: >-
+  Players belong to something larger than their own account. They take on roles such as leader, logistician, or recruiter,
+  coordinate on projects too big for one person, and argue about governance. Betrayal and politics become play.
+design_levers:
+- role and permission granularity
+- shared asset types and access controls
+- organization taxes and costs of founding or upkeep
+- size caps and federation rules
+- war and diplomacy rules between organizations
+- protection against theft by members with access
+failure_modes:
+- Coarse permissions let a single member empty shared storage; Eve Online has a history of such corporate thefts.
+- Large blocs coordinate so well that they lock smaller groups out of contested territory.
+- Leaders who quit leave organizations, and their assets, stranded.
+dynamics:
+- Specialization inside organizations, with miners, haulers, fighters, and diplomats, creates internal economies.
+- Coalitions form and split, producing large-scale political history.
+- Organizations act as onboarding for new players and as a reason veterans stay.
+math_basis:
+- game-theory
+- social-network
+- mechanism-design
+feedback: reinforcing
+player_interface:
+- parameter
+- orders
+legibility: 4
+emergence_potential: 4
+authoring_cost: 1
+compute_cost: 1
+tuning_difficulty: 4
+ai_leverage: 3
+maturity: classic
+open_questions:
+- Can AI officers or members fill organizational roles in small groups without crowding out human players?
+- Which permission and asset rules best reduce insider theft while preserving trust-based play?
+sources:
+- src-wikipedia-eve-online
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m7

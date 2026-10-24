@@ -1,0 +1,17 @@
+id: src-gravina-2019-pcg-quality-diversity
+type: source
+name: Procedural Content Generation through Quality Diversity
+kind: paper
+authors:
+- Daniele Gravina
+- Ahmed Khalifa
+- Antonios Liapis
+- Julian Togelius
+- Georgios N. Yannakakis
+venue: IEEE Conference on Games 2019
+date: '2019-07-09'
+doi: 10.1109/CIG.2019.8848053
+arxiv: '1907.04053'
+accessed: '2026-10-24'
+provenance:
+  created: 2026-10-24-techniques-rl-design

@@ -1,0 +1,15 @@
+id: src-factoriowiki-2026-rail-signal
+type: source
+name: Rail signal
+kind: encyclopedia
+authors:
+- Factorio Wiki contributors
+venue: Factorio Wiki
+date: '2026'
+url: https://wiki.factorio.com/Rail_signal
+accessed: '2026-10-24'
+notes: Rail signals divide track into blocks; a train reserves a block and the block's other entrance
+  signals turn red; chain signals mirror the signal ahead so trains stop earlier; circuit conditions can
+  force a signal red.
+provenance:
+  created: 2026-10-24-catalog-gh

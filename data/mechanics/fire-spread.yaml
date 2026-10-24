@@ -1,8 +1,66 @@
 id: fire-spread
 type: mechanic
 name: Fire spread
-summary: Fire ignites and spreads across flammable materials based on fuel, wind, and moisture.
+aliases:
+- fire propagation
+- wildfire
+summary: Fire ignites and spreads across flammable cells or objects at rates set by fuel, wind, and moisture,
+  consuming what it burns.
 family: environment-ecology
-status: asserted
+substrate:
+- cellular-grid
+- stochastic-events
+definition: Owns a burning state per cell, tile, or object (unburnt, burning, burnt), often with fuel
+  and heat values. Each tick a burning unit consumes fuel and tries to ignite neighbors with a chance
+  or rate scaled by their flammability, moisture, and wind direction; it goes out when fuel runs out or
+  when water, rain, or firefighters remove it. Inputs are material flammability, weather, and suppression;
+  outputs are destroyed structures and terrain, heat, and sometimes smoke or updrafts. SimCity spreads
+  fire between flammable tiles and fire stations put it out; Breath of the Wild's chemistry engine lets
+  fire change the state of materials such as grass, whose burning creates updrafts, and rain stops it;
+  Far Cry 2 and Dwarf Fortress propagate fire through grass and trees.
+player_experience: 'A small spark becomes an emergency. The player races to contain fire before it reaches
+  stockpiles or homes, or uses it as a tool: burning a field to clear it, lighting grass to drive enemies,
+  or riding the updraft. Fire teaches the player to read the map as fuel and firebreaks.'
+design_levers:
+- 'ignition sources and their rates: lightning, overheating, arson, player tools'
+- flammability, fuel load, and burn duration per material
+- spread probability per neighbor and the wind bias on it
+- moisture and weather modifiers, such as rain suppressing ignition
+- 'suppression tools: water, firefighters, fire station coverage, firebreak materials'
+failure_modes:
+- Spread tuned slightly too high burns the whole map before the player can react; slightly too low makes
+  fire a nonevent.
+- Fire that ignores construction choices, such as stone burning like wood, removes the decision space.
+- Large burning areas in cell-based implementations cost noticeable frame time during big fires.
+dynamics:
+- Players build firebreaks and separate flammable storage, which changes settlement layout.
+- 'Fire couples with weather and terrain: dry seasons and wind produce larger fires, and rain ends them.'
+- Players repurpose fire as a weapon or tool, such as burning grass under enemies or clearing forest.
+math_basis:
+- cellular-automata
+- markov-stochastic
+- continuum-mechanics
+feedback: reinforcing
+player_interface:
+- observation
+- direct-manipulation
+- placement
+legibility: 4
+emergence_potential: 4
+authoring_cost: 2
+compute_cost: 2
+tuning_difficulty: 4
+ai_leverage: 2
+maturity: classic
+synergy:
+- id: weather
+  note: Wind and dryness govern fire spread.
+open_questions:
+- Can learned combustion and smoke surrogates make fire visually rich while its spread stays readable
+  and controllable?
+sources:
+- src-fujibayashi-2017-botw-change-and-constant
+- src-thumbsticks-2017-botw-chemistry
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m5

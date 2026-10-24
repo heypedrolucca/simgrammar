@@ -1,0 +1,52 @@
+id: negotiating-faction-ai
+type: opportunity
+name: Negotiating faction AI
+summary: Grand strategy rivals that negotiate in language and plan around their promises, combining strategic
+  search with dialogue.
+opportunity_type: mechanic-upgrade
+thesis: Diplomacy in grand strategy is reduced to acceptance scores on fixed proposals. Cicero showed
+  in 2022 that grounding dialogue in a planner that predicts others' moves lets an agent negotiate and
+  keep useful commitments in a seven-player game. Applying the pattern to faction diplomacy makes alliances,
+  betrayals, and bargains first-class play, and opinion modifiers give the model a structured memory of
+  who kept their word.
+design_sketch: AI rulers send and answer proposals in text; each message is backed by an intent object
+  (offer, demand, threat, promise) that the planner evaluates. Broken promises create named opinion modifiers
+  visible to every faction. Players can still use classic proposal menus; text adds nuance such as conditional
+  offers and side deals.
+involves:
+- faction-diplomacy
+- opinion-modifiers
+- reputation
+- causal-tooltips
+applies:
+- cicero-strategic-dialogue
+- imperfect-information-solvers
+- constrained-decoding
+precedent:
+- crusader-kings-3
+- stellaris
+- civilization
+- europa-universalis-4
+- balance-of-power
+novelty: 3
+feasibility: 3
+impact: 3
+horizon: 1-2y
+key_risks:
+- Planner cost scales badly with many factions.
+- Players exploit language models with persuasion that the planner should ignore.
+- Long campaigns exceed the consistency horizon of dialogue memory.
+validation_experiment: 'In a five-faction diplomacy sandbox, compare menu-only AI with planner-plus-dialogue
+  AI on player-rated plausibility, commitment-keeping rate, and win rates against scripted baselines.
+  Success: higher plausibility and a commitment-keeping rate above 80 percent without exploitable persuasion
+  loops in red-team play.'
+falsifiable_signal:
+  prediction: A major grand strategy or 4X release will ship AI opponents that negotiate through free-text
+    or generated-language diplomacy backed by a planner.
+  resolve_by: '2029-06-30'
+  criteria: Developer statement or documentation describing language-based AI diplomacy in a title from
+    Paradox, Firaxis, Amplitude, or a peer studio.
+sources: []
+status: asserted
+provenance:
+  created: 2026-10-24-synthesis

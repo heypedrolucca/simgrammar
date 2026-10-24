@@ -1,0 +1,14 @@
+id: src-boristhebrave-2020-wfc-explained
+type: source
+name: Wave Function Collapse Explained
+kind: tech-report
+authors:
+- Boris the Brave
+venue: boristhebrave.com
+date: '2020-04-13'
+url: https://www.boristhebrave.com/2020/04/13/wave-function-collapse-explained/
+accessed: '2026-10-24'
+notes: WFC as constraint programming based on Paul Merrell's model synthesis; contradictions; local constraints
+  rarely give large-scale structure; overlapping model slower and can copy the sample.
+provenance:
+  created: 2026-10-24-techniques-rl-design

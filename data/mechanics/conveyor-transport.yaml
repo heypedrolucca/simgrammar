@@ -1,8 +1,65 @@
 id: conveyor-transport
 type: mechanic
 name: Conveyor transport
+aliases:
+- belts
+- conveyor belts
+- transport belts
 summary: Items move continuously on belts or lanes with throughput limits, splitters, merges, and priorities.
 family: logistics-networks
-status: asserted
+substrate:
+- network-graph
+- rule-system
+definition: 'Belts form directed chains of tiles; each tile holds a fixed number of item slots per lane
+  and moves items forward at a tier-dependent speed. Items enter from inserters, machines, or side-loading
+  and exit at the end, onto another belt, or into a machine. Splitters divide and merge flows, often with
+  priority and filter settings; undergrounds and bridges cross other belts. Factorio holds 4 items per
+  lane per tile and carries 15, 30, 45, or 60 items per second across both lanes for transport, fast,
+  express, and turbo belts. Internally it groups adjacent belts into transport lines and stores the gaps
+  between items, so a free-flowing line updates only its end gaps each tick. Satisfactory, Dyson Sphere
+  Program, and Mindustry use similar belt tiers, and Shapez raises belt speed through upgrades. Inputs:
+  items placed on belts. Outputs: items delivered at a throughput capped by the slowest segment.'
+player_experience: Layout as the main puzzle. Players route belts around each other, balance lanes, and
+  design compact buses, and they can see throughput problems as gaps or backed-up lines. A compressed
+  belt feeding a full row of machines is a visible proof of a correct design.
+design_levers:
+- throughput per tier and number of lanes
+- splitter, merger, and priority or filter options
+- crossing options such as undergrounds, bridges, or vertical lifts
+- item density and whether mixed items share a lane
+- belt cost and unlock schedule
+failure_modes:
+- Spaghetti layouts become unreadable and players stop understanding their own factory.
+- Lane imbalance and side-loading rules are opaque without wikis.
+- Belt counts at large scale cost simulation time; Factorio's transport-line rewrite was made to cut this
+  cost.
+dynamics:
+- Main-bus and ratio-block conventions emerge from throughput caps, and players share them as blueprints.
+- Belt saturation sets factory module sizes, so each tier upgrade reshapes layouts.
+- Mixed-item belts create sushi designs and clogging failure modes.
+math_basis:
+- network-flow
+- queueing
+feedback: none
+player_interface:
+- placement
+legibility: 4
+emergence_potential: 3
+authoring_cost: 1
+compute_cost: 3
+tuning_difficulty: 2
+ai_leverage: 2
+maturity: established
+synergy:
+- id: production-chain
+  note: Belts make recipe chains spatial, turning ratios into a layout puzzle (Factorio, Satisfactory).
+open_questions:
+- Could layout assistants that propose belt routing under player constraints keep the puzzle while removing
+  tedium?
+- What is the smallest set of belt primitives that still supports deep layout optimization?
+sources:
+- src-wube-2017-fff-176-belts-optimization
+- src-factoriowiki-2026-transport-belt-physics
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m1

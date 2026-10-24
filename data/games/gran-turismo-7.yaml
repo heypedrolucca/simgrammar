@@ -1,0 +1,68 @@
+id: gran-turismo-7
+type: game
+name: Gran Turismo 7
+summary: A console racing simulator that combines a detailed vehicle dynamics model and car collection with GT Sophy, a deep reinforcement learning opponent added as a permanent rival in 2023.
+year: 2022
+developer: Polyphony Digital
+platforms:
+  - console
+subgenre: vehicle-sim
+sim_domain:
+  - physical-mechanical
+  - sports
+player_role: operator-pilot
+agency_model:
+  - direct-avatar
+time_model: real-time
+sim_scale: individual
+fidelity: high-fidelity
+perspective: third-person
+win_structure: campaign
+failure_model: soft-recoverable
+narrative_mode: authored
+multiplayer:
+  - single
+  - competitive
+modding: none
+production_tier: aaa
+agent_count_order: "10"
+emergence: 2
+influence: 3
+core_loop: buy or tune a car -> race against AI or players -> earn credits -> expand the collection -> harder events
+design_notes: >-
+  Included because it is the clearest shipped case of a learned opponent in a simulation game. GT Sophy, trained with
+  model-free deep reinforcement learning on parallel simulator instances, became selectable as a permanent rival in
+  2023 and was extended to custom races in 2025, one content update at a time.
+mechanics:
+  - id: vehicle-dynamics
+    role: core
+    note: Tire, suspension, aerodynamics, and drivetrain models per car; tuning parts and settings change handling.
+  - id: embodied-skill-control
+    role: core
+    note: Racing lines, braking points, and throttle control on wheel or pad decide results; GT Sophy is trained to the same physics.
+  - id: collection-goals
+    role: supporting
+  - id: career-ladder
+    role: supporting
+  - id: scenario-objectives
+    role: supporting
+  - id: weather
+    role: supporting
+influenced_by:
+  - gran-turismo
+claims:
+  - text: GT Sophy 2.0 was added to Gran Turismo 7 as a rival in Quick Race across nine tracks and 340 cars in November 2023.
+    sources:
+      - src-polyphony-2023-gt-sophy-2
+    confidence: high
+  - text: In 2025 GT Sophy 2.1 extended to Custom Race with tuning, tire, and fuel options.
+    sources:
+      - src-sony-2025-gt-sophy-2-1
+    confidence: high
+sources:
+  - src-polyphony-2023-gt-sophy-2
+  - src-sony-2025-gt-sophy-2-1
+  - src-wurman-2022-gt-sophy
+status: sourced
+provenance:
+  created: 2026-10-24-catalog-additions

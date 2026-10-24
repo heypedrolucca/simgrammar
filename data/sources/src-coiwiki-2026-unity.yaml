@@ -1,0 +1,15 @@
+id: src-coiwiki-2026-unity
+type: source
+name: Unity
+kind: encyclopedia
+authors:
+- Captain of Industry Wiki contributors
+venue: Captain of Industry Wiki
+date: '2026'
+url: https://wiki.coigame.com/Unity
+accessed: '2026-10-24'
+notes: Each fully satisfied settlement need yields about 1-2 Unity per month; Unity is spent on edicts,
+  outposts, quick trades, contracts, research lab I, quick-build, vehicle recovery, emergency repairs,
+  and building boosts (0.25 each).
+provenance:
+  created: 2026-10-24-catalog-gh

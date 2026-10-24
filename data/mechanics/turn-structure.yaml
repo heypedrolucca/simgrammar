@@ -1,8 +1,59 @@
 id: turn-structure
 type: mechanic
 name: Turn structure
-summary: The simulation advances in discrete turns divided into phases.
+aliases:
+- turn-based play
+- phases
+- WEGO
+summary: The simulation advances in discrete turns, each divided into ordered phases in which players decide and the world
+  then resolves.
 family: time-pacing
-status: asserted
+substrate:
+- rule-system
+definition: Owns the turn counter, the current phase, and the order of actors. Within a turn players act in sequence or submit
+  orders simultaneously; then the world resolves production, growth, movement, combat, and events, and the next turn begins.
+  A turn stands for a fixed span of game time, from a year in Hamurabi to two weeks in The Oregon Trail. Phased variants split
+  a turn into stages, as in Agricola's work and harvest phases or Imperium Romanum II's taxation every third turn; simultaneous
+  variants, called WEGO, such as Diplomacy and Combat Mission, collect all orders and then execute them together. Civilization
+  is the canonical sequential form in strategy simulation. Inputs are player orders; outputs are the resolved world state
+  each turn.
+player_experience: Unlimited time to think. The player studies the state, plans, and commits, then watches the consequences
+  resolve at once. Turns make cause and effect easy to trace and support a 'one more turn' rhythm, while simultaneous turns
+  add the tension of predicting what others will do.
+design_levers:
+- game time per turn and whether it changes over the game
+- sequential, simultaneous, or mixed actor order
+- phase decomposition and which systems update in which phase
+- per-turn action limits or action points
+- time limits on turns in multiplayer
+failure_modes:
+- Late-game turns with many units or cities take long to play and process, producing micromanagement fatigue.
+- Sequential order gives first-mover or last-mover advantages that need compensation.
+- Waiting for other players' turns makes multiplayer sessions long and idle.
+dynamics:
+- Players optimize per-turn efficiency, making the turn itself the unit of strategy.
+- Batched world resolution makes chains of consequences visible as discrete steps.
+- Simultaneous orders create bluffing and prediction between players.
+math_basis:
+- game-theory
+- scheduling
+feedback: none
+player_interface:
+- orders
+- choice-cards
+legibility: 5
+emergence_potential: 1
+authoring_cost: 1
+compute_cost: 1
+tuning_difficulty: 2
+ai_leverage: 1
+maturity: classic
+open_questions:
+- Can learned opponents that negotiate in natural language make phase-based diplomacy viable against AI rather than only humans?
+sources:
+- src-wikipedia-turns-rounds-and-time-keeping
+- src-wikipedia-hamurabi
+- src-wikipedia-oregon-trail-1971
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m5

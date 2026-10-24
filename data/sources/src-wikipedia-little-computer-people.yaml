@@ -1,0 +1,14 @@
+id: src-wikipedia-little-computer-people
+type: source
+name: Little Computer People
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Little_Computer_People
+accessed: '2026-10-24'
+notes: Designers Rich Gold and David Crane, Activision; C64 release 1985-09-27 and later ports; six-hour
+  real-time day, 256 names, typed commands, no win condition; Will Wright played it.
+provenance:
+  created: 2026-10-24-catalog-gc

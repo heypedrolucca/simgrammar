@@ -1,0 +1,19 @@
+id: src-hafner-2025-dreamerv3
+type: source
+name: Mastering diverse control tasks through world models
+kind: paper
+authors:
+- Danijar Hafner
+- Jurgis Pasukonis
+- Jimmy Ba
+- Timothy Lillicrap
+venue: Nature 640:647-653
+date: '2025-04-02'
+doi: 10.1038/s41586-025-08744-2
+arxiv: '2301.04104'
+accessed: '2026-10-24'
+notes: 'DreamerV3: one fixed configuration beats specialized methods on over 150 tasks; first algorithm
+  to collect Minecraft diamonds from scratch without human data or curricula (first diamond near 30M environment
+  steps, about 17 days of play).'
+provenance:
+  created: 2026-10-24-techniques-rl-design

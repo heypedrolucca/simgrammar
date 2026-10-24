@@ -1,0 +1,13 @@
+id: src-rimworldwiki-2026-stockpile
+type: source
+name: "Stockpile"
+kind: encyclopedia
+authors:
+  - "RimWorld Wiki contributors"
+venue: "RimWorld Wiki"
+date: "2026"
+url: https://rimworldwiki.com/wiki/Stockpile
+accessed: "2026-10-24"
+notes: "Stockpile priorities low, normal, preferred, important, critical; haulers bring items to higher-priority stockpiles with space, including items already stored in lower ones."
+provenance:
+  created: 2026-10-24-taxonomy-m1

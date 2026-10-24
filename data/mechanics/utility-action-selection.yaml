@@ -1,9 +1,66 @@
 id: utility-action-selection
 type: mechanic
 name: Utility action selection
-summary: Agents choose actions by scoring options against needs and context and picking the highest or
-  a sampled utility.
+aliases:
+- utility AI
+- utility scoring
+- needs-based AI
+summary: >-
+  Agents choose actions by scoring options against needs and context, then picking the highest or sampling among high scores.
 family: agents-behavior
-status: asserted
+substrate:
+- agent-based
+definition: >-
+  Owns per-agent scoring weights and response curves rather than world state. Each decision cycle it enumerates candidate
+  actions, scores each from inputs such as need levels, distance, personality, risk, and context passed through response curves
+  and combined by product or weighted sum, then selects the top action or samples among high scorers. Dill and Mark (GDC 2010)
+  present response curves, population distributions, and weighted random selection as a fix for the abrupt switches of if-then
+  logic. The Sims picks the behavior that most increases happiness from object advertisements; The Sims 3 (Richard Evans)
+  samples with a modified Boltzmann distribution whose temperature rises when a Sim is doing poorly; the Infinite Axis Utility
+  System (Mark and Lewis, GDC 2015) multiplies normalized considerations. Inputs: candidate actions and their considerations.
+  Outputs: the chosen action and, if exposed, a ranked list of reasons.
+player_experience: >-
+  Agents look like they are weighing options: they handle the urgent thing first but sometimes surprise. The player steers
+  them indirectly by changing inputs such as needs, objects, and priorities, and reads odd choices as personality.
+design_levers:
+- response curve shape per consideration
+- combination rule (product, sum, max) and normalization
+- 'selection rule: argmax, random among the top N, or softmax with a temperature'
+- inertia or commitment bonus that prevents switching between close options
+- per-agent personality weights
+failure_modes:
+- 'Dithering: two actions with close scores alternate, so agents start and abandon tasks.'
+- One consideration dominates the product or sum, and agents ignore everything else.
+- >-
+  Choices are hard to explain because each score is the product of many curves, so players see randomness.
+- Weight tuning grows with the number of actions times considerations and resists local fixes.
+dynamics:
+- >-
+  Priorities emerge from scores rather than authored order, so new situations get plausible, unscripted responses.
+- Coupled with needs decay, agents cycle through activities in rhythms that read as routines.
+- Small weight changes ripple across a population, so balance patches visibly change agent culture.
+math_basis:
+- utility-decision
+- probability-statistics
+feedback: balancing
+player_interface:
+- observation
+legibility: 3
+emergence_potential: 3
+authoring_cost: 2
+compute_cost: 2
+tuning_difficulty: 3
+ai_leverage: 4
+maturity: classic
+open_questions:
+- >-
+  Can language-model agents propose candidate actions that a utility layer then scores, combining open-ended options with
+  predictable tuning?
+- Can scoring functions learned from player-labeled preferences replace hand-built response curves?
+sources:
+- src-dill-2010-utility-theory
+- src-wikipedia-utility-system
+- src-forbus-2001-programming-objects-sims
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m3

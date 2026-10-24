@@ -1,0 +1,14 @@
+id: src-wikipedia-left-4-dead
+type: source
+name: Left 4 Dead
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Left_4_Dead
+accessed: '2026-10-24'
+notes: The AI Director places infected and items based on each player's situation, status, skill, and location,
+  uses music and effects to build tension; Valve calls it procedural narrative; released 2008-11-18.
+provenance:
+  created: 2026-10-24-taxonomy-m7

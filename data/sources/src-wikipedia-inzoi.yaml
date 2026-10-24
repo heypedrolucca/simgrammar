@@ -1,0 +1,14 @@
+id: src-wikipedia-inzoi
+type: source
+name: inZOI
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/InZOI
+accessed: '2026-10-24'
+notes: inZOI Studio, Krafton; Windows early access 2025-03-28, macOS 2025-08-20, PS5 delayed to early
+  2027; eight needs, karma system, cities Dowon, Bliss Bay, Kucingku; official mod support added May 2025.
+provenance:
+  created: 2026-10-24-catalog-gc

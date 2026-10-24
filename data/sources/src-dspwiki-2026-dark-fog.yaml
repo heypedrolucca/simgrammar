@@ -1,0 +1,15 @@
+id: src-dspwiki-2026-dark-fog
+type: source
+name: Dark Fog
+kind: encyclopedia
+authors:
+- Dyson Sphere Program Wiki contributors
+venue: Dyson Sphere Program Wiki
+date: '2026'
+url: https://dsp-wiki.com/Dark_Fog
+accessed: '2026-10-24'
+notes: Space hives and planetary bases built around relays; threat builds from the player's power generation
+  and from combat; bases and hives gain levels from experience; aggressiveness and growth settings; relays
+  rebuild a destroyed hive core.
+provenance:
+  created: 2026-10-24-catalog-gh

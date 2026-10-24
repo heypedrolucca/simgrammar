@@ -1,0 +1,18 @@
+id: src-li-2025-hunyuan-gamecraft
+type: source
+name: 'Hunyuan-GameCraft: High-dynamic Interactive Game Video Generation with Hybrid History Condition'
+kind: preprint
+authors:
+- Jiaqi Li
+- Junshu Tang
+- Zhiyong Xu
+- and others (Tencent Hunyuan)
+date: 2025-06
+url: https://arxiv.org/abs/2506.17201
+arxiv: '2506.17201'
+accessed: '2026-10-24'
+notes: Over 1M recordings from 100+ AAA titles split into 6 s clips; keyboard and mouse unified into camera
+  actions with Plucker embeddings; hybrid history conditioning; PCM distillation 0.25 to 6.6 fps, under
+  5 s latency per action; 720p; lacks shooting and throwing actions.
+provenance:
+  created: 2026-10-24-techniques-world-models

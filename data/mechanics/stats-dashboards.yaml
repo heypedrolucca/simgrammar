@@ -1,8 +1,61 @@
 id: stats-dashboards
 type: mechanic
 name: Stats dashboards
-summary: Graphs and tables show the history of simulation variables.
+aliases:
+- graphs
+- statistics screens
+- production statistics
+- reports
+summary: Graphs and tables show the recorded history of simulation variables over selectable time windows.
 family: information-legibility
+substrate:
+- ui-layer
+- aggregate-stocks
+definition: >-
+  The game samples aggregate variables (population, money, production and consumption per item, prices, power, happiness,
+  crime) at fixed intervals into time series and renders them as line graphs, stacked areas, tables, or pies. State
+  owned: ring buffers of samples per variable, usually at several resolutions with older data downsampled. Update
+  rule: each sample period, append the aggregate; when a buffer fills, merge samples into a coarser tier. The player
+  picks variables, windows, and breakdowns. Canonical forms: the SimCity graphs window, Factorio production statistics
+  per item across windows from seconds to hundreds of hours, Transport Tycoon company graphs for income and cargo
+  delivered, Oxygen Not Included's daily colony report, and market price history in EVE Online and Victoria 3.
+player_experience: >-
+  The player steps back from the moment to read trends, confirm a change worked, and spot slow declines that no
+  single frame reveals. A rising curve is its own reward.
+design_levers:
+- which variables are logged and at what granularity (per item, per region, per agent class)
+- time windows and downsampling scheme
+- 'comparison views: against rivals, against previous periods, production versus consumption'
+- drill-down from an aggregate line to its contributors
+- trend-based alerts and export of data
+failure_modes:
+- Graphs show a decline but give no path to its cause.
+- Coarse sampling hides short spikes or aliases oscillations into smooth lines.
+- Dashboards buried in menus are never opened by most players.
+- Long high-resolution histories bloat save files.
+dynamics:
+- Visible production and consumption rates make ratio optimization possible, as in finding Factorio bottlenecks
+  from item statistics.
+- 'Trend reading supports experimental play: change one policy, watch the curve, revert.'
+- Public price histories in shared markets feed speculation and coordinated trading.
+math_basis:
+- probability-statistics
+- system-dynamics
+feedback: none
+player_interface:
+- observation
+legibility: 4
+emergence_potential: 1
+authoring_cost: 1
+compute_cost: 2
+tuning_difficulty: 1
+ai_leverage: 3
+maturity: classic
+open_questions:
+- Can natural-language queries over logged history (why did power drop last winter) replace browsing graphs for
+  most players?
+- Which few variables, logged by default, let players diagnose most failures in a given genre?
+sources: []
 status: asserted
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m6

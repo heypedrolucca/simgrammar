@@ -1,0 +1,16 @@
+id: src-factoriowiki-2026-enemies
+type: source
+name: Enemies
+kind: encyclopedia
+authors:
+- Factorio Wiki contributors
+venue: Factorio Wiki
+date: '2026'
+url: https://wiki.factorio.com/Enemies
+accessed: '2026-10-24'
+notes: Evolution factor rises with time, total pollution produced, and destroyed spawners (0.002 each
+  by default), squashed as total/(1+total); enemies attack only when the pollution cloud reaches nests;
+  absorbed pollution recruits units (small biter 4, behemoth biter 400); attack groups launch every 1
+  to 10 minutes.
+provenance:
+  created: 2026-10-24-catalog-gh

@@ -1,10 +1,103 @@
 id: inzoi
 type: game
 name: inZOI
-summary: TODO
+summary: A Krafton life sim in early access since March 2025 in which the player oversees autonomous Zois
+  with eight needs in dense cities, with optional on-device language model prompts and generative tools
+  for patterns and objects.
 year: 2025
 developer: inZOI Studio (Krafton)
+platforms:
+- pc
 subgenre: life-sim
-status: asserted
+sim_domain:
+- domestic-personal
+- social-interpersonal
+- urban
+player_role: caretaker
+agency_model:
+- direct-unit
+- indirect-incentive
+- zoning-placement
+- conversational
+time_model: real-time-pausable
+sim_scale: household
+fidelity: stylized
+perspective: free-3d
+win_structure: open-sandbox
+failure_model: permadeath
+narrative_mode: emergent
+multiplayer:
+- single
+modding: content
+production_tier: aaa
+agent_count_order: '100'
+emergence: 3
+influence: 1
+core_loop: create Zois and build homes -> Zois act on needs and personality -> player directs actions
+  or prompts thoughts -> jobs, relationships, rumors, and illness move through the city -> edit the city
+  and generate new items -> share on Canvas
+design_notes: 'inZOI casts the player as an intern at AR Company who manages a city of virtual people
+  and its karma system. It pairs a Sims-style needs model (hunger, hygiene, bathroom, fun, social, energy,
+  sleep, recognition) with city-scale free will that the developers say produces rumors, trends, and disease,
+  plus optional direct control of a Zoi or vehicle. Generative models sit mainly in the creation layer:
+  text prompts generate patterns and images for clothing and furniture, 2D images convert to 3D props,
+  and an on-device small language model lets typed prompts steer a Zoi''s thoughts and actions. City-wide
+  progression of unplayed Zois is the offscreen-life-progression mechanic; karma has no mechanic id.'
+mechanics:
+- id: needs-decay
+  role: core
+  note: Eight needs (hunger, hygiene, bathroom, fun, social, energy, sleep, recognition) decay and drive
+    Zois' free-will choices.
+- id: generative-content
+  role: core
+  note: Text prompts generate patterns and images for outfits, props, and furniture; 2D images become
+    3D in-game objects; uploaded video becomes character motion.
+- id: natural-language-interaction
+  role: supporting
+  note: An on-device small language model lets the player type prompts that influence a Zoi's thoughts
+    and actions.
+- id: gossip-propagation
+  role: supporting
+  note: Autonomous interactions generate rumors that spread among Zois.
+- id: contagion
+  role: supporting
+  note: The developers list disease, alongside rumors and trends, among the outcomes that spread through
+    Zois' autonomous interactions.
+- id: personality-traits
+  role: supporting
+  note: Personality and life experience shape each Zoi's actions and relationships.
+- id: relationship-values
+  role: supporting
+- id: romance-family
+  role: supporting
+- id: career-ladder
+  role: supporting
+  note: Careers include active jobs played on site.
+- id: agent-skills
+  role: supporting
+- id: lifecycle-aging
+  role: supporting
+  note: Zois age and die.
+- id: free-placement
+  role: supporting
+  note: Build mode places walls, roofs, stairs, fences, and gates; city edit changes streets, properties,
+    and weather.
+- id: content-sharing
+  role: supporting
+  note: Canvas is the in-game platform for sharing characters, homes, and stories.
+- id: direct-avatar
+  role: supporting
+  note: Players can switch from point-and-click orders to direct control of a Zoi or a vehicle.
+- id: offscreen-life-progression
+  role: supporting
+  note: City-wide free will keeps Zois across the city living autonomously while the player directs one
+    household, producing rumors, trends, and disease; the fidelity of the update for distant Zois is not
+    documented.
+influenced_by:
+- the-sims
+sources:
+- src-wikipedia-inzoi
+- src-steam-2025-inzoi
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gc

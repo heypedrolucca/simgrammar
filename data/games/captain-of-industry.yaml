@@ -1,10 +1,144 @@
 id: captain-of-industry
 type: game
 name: Captain of Industry
-summary: TODO
+summary: An industrial colony builder in which the player reshapes island terrain with excavators and
+  trucks, runs production chains to feed, house, and power a settlement, and spends the Unity its satisfied
+  population generates on edicts, quick builds, and world-map expansion.
 year: 2022
 developer: MaFi Games
+platforms:
+- pc
 subgenre: factory-automation
-status: asserted
+subgenre_secondary:
+- city-builder
+sim_domain:
+- industrial-logistics
+- urban
+- economic
+player_role: engineer-designer
+agency_model:
+- zoning-placement
+- order-queue
+- policy-parameter
+time_model: real-time-pausable
+sim_scale: settlement
+fidelity: systemic
+perspective: free-3d
+win_structure: open-sandbox
+failure_model: cascading-collapse
+narrative_mode: none
+multiplayer:
+- single
+modding: scripting
+production_tier: indie
+agent_count_order: '100'
+emergence: 3
+influence: 1
+core_loop: designate mining and dumping areas -> trucks haul ore and rock -> smelt and refine into goods
+  -> feed, power, and house the population -> satisfied needs generate Unity -> spend Unity and products
+  on research, edicts, and ship expeditions -> expand and terraform
+design_notes: 'Captain of Industry joins a factory game to a settlement whose population is both labor
+  and a consumer: residents need housing, food, water, electricity, healthcare, and household goods, each
+  fully satisfied need yields about one to two Unity per month, and Unity buys edicts, outposts, quick
+  trades, instant construction, and emergency repairs. Every working vehicle and many buildings consume
+  crafted Maintenance I, II, or III; below 75% a monthly breakdown roll begins, reaching 50% at zero,
+  so maintenance is itself a production chain whose failure cascades through the economy. Terrain is a
+  stock of materials: excavators dig inside a Mine Control Tower''s area, trucks dump rock and dirt that
+  settle at per-material angles of repose (about 42 degrees for loose dirt to 78 for hardened rock), and
+  dumping reclaims ocean for ports. A ship explores a world map for islands, refugees, and trade partners.
+  Unity works like a political-capital currency earned from welfare, which the taxonomy lacks; this run
+  proposed one.'
+mechanics:
+- id: production-chain
+  role: core
+  note: Smelters, refineries, chemical plants, food processors, and assembly lines run recipe chains from
+    iron and copper ore to electronics, fuel, consumer goods, and nuclear fuel across 100+ technologies.
+- id: hauling-jobs
+  role: core
+  note: Trucks are assigned to mines, storages, and buildings and automatically deliver products where
+    they are needed, so fleet size and road layout cap throughput before belts and trains replace them.
+- id: terraforming
+  role: core
+  note: Mining designations inside a Mine Control Tower area lower terrain and dumping designations raise
+    it; loose material settles at per-material angles of repose, retaining walls stabilize slopes, and
+    dumping can reclaim ocean.
+- id: goods-consumption
+  role: core
+  note: Residents consume food, water, electricity, healthcare, and household goods; each fully satisfied
+    need yields Unity, and unmet food or health shrinks the population.
+- id: wear-breakdown
+  role: core
+  note: Working vehicles and buildings consume Maintenance I to III crafted at depots (idle at about a
+    third); below 75% maintenance a breakdown is rolled monthly with chance rising to 50% at zero.
+- id: resource-extraction
+  role: core
+  note: Excavators dig ore, coal, limestone, and rock from designated terrain, while oil rigs, quartz
+    and uranium mines, and water pumps work fixed deposits and outposts.
+- id: designation-orders
+  role: supporting
+  note: The player paints mining and dumping designations, and excavators and trucks assigned to a Mine
+    Control Tower carry out the work inside its area.
+- id: conveyor-transport
+  role: supporting
+  note: Belts and pipes give high-throughput direct links between machines once truck logistics become
+    a bottleneck.
+- id: power-grid
+  role: supporting
+  note: Generators up to nuclear reactors feed the settlement and factories, and residents require electricity
+    as one of their needs.
+- id: tech-tree
+  role: supporting
+  note: Research labs consume products and Unity to unlock over 100 technologies from basic smelting to
+    space flight.
+- id: pollution-spread
+  role: supporting
+  note: Air and water pollution and unmanaged waste spread disease among the population.
+- id: byproducts-waste
+  role: supporting
+  note: Production emits slag, waste, carbon dioxide, wastewater, and spent nuclear fuel that must be
+    dumped, treated, recycled, or stored.
+- id: policy-toggles
+  role: supporting
+  note: Captain's Office edicts change settlement rules, such as raising population growth by tier, for
+    a monthly Unity cost.
+- id: trade-routes
+  role: supporting
+  note: Ships explore a world map to discover islands and trading partners; quick trades and recurring
+    contracts exchange goods.
+- id: crop-cultivation
+  role: supporting
+  note: Farms grow crops for food and industrial inputs, fertilizer boosts yields, and greenhouses grow
+    advanced crops.
+- id: storage-capacity
+  role: supporting
+  note: Storages and loose storage piles buffer materials, and full outputs stall production upstream.
+- id: vehicle-route-scheduling
+  role: supporting
+  note: Trains move bulk cargo over long distances, and ships run trade contracts between the home island
+    and partners.
+- id: periodic-ticks
+  role: supporting
+  note: Unity income, population change, edict costs, and maintenance breakdown rolls resolve monthly.
+- id: political-capital
+  role: supporting
+  note: Each fully satisfied settlement need yields about 1 to 2 Unity per month, spent on edicts, outposts,
+    quick trades, instant construction, and emergency repairs.
+- id: machine-boosting
+  role: supporting
+  note: Unity is spent on building boosts (0.25 Unity each) that speed up individual buildings.
+influenced_by: []
+claims:
+- text: Captain of Industry entered Steam Early Access on 2022-05-31 and was still in Early Access in
+    October 2026, with the developers estimating two to four more years.
+  sources:
+  - src-steam-2026-captain-of-industry
+  confidence: high
+sources:
+- src-steam-2026-captain-of-industry
+- src-coiwiki-2026-maintenance
+- src-coiwiki-2026-unity
+- src-coiwiki-2026-population
+- src-coiwiki-2026-dumping-designation
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gh

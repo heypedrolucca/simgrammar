@@ -1,9 +1,72 @@
 id: creature-learning
 type: mechanic
 name: Creature learning
+aliases:
+- trainable creature
+- reinforcement training
 summary: A creature's behavior is learned from player reward and punishment or from neural adaptation
   over its life.
 family: agents-behavior
-status: asserted
+substrate:
+- learned-model
+- agent-based
+definition: 'Owns a creature''s learned decision parameters: weights linking perceived situations or objects
+  to actions. After the creature acts, a reward or punishment signal (a player stroke or slap, or a change
+  in an internal drive) adjusts the weights for that situation-action pair, so its future selection probability
+  rises or falls and generalizes to similar situations. Creatures (1996) uses about 1,000 neurons in 9
+  lobes; a 16-cell decision layer picks the strongest-firing action; drive reduction releases a reward
+  chemical and drive increase a punishment chemical, which reinforce excitatory or inhibitory synapses,
+  so norns learn to eat when hungry but not when full. In Black & White (2001) the creature follows a
+  belief-desire-intention model with desires as simplified perceptrons and opinions as decision trees;
+  the player strokes or slaps it after actions and uses leashes to direct its attention. Inputs: player
+  feedback, drives, perceived objects. Outputs: changed action probabilities.'
+player_experience: The player becomes a parent or trainer. Each reward is a bet about what the creature
+  will generalize, and personality emerges from the history of training. Success feels like understanding;
+  failure feels like a stubborn pet, and players blame themselves for bad habits.
+design_levers:
+- learning rate and how quickly old associations fade
+- credit assignment window that decides which recent action receives the feedback
+- granularity of the situation representation (object types, desires, contexts), which decides what generalizes
+- feedback channels such as stroke and slap, food, demonstration, and attention leashes
+- innate drives and biases the learning starts from
+failure_modes:
+- Credit assignment errors attach feedback to the wrong action or object, and players cannot tell why
+  the creature learned something.
+- Learning too slowly makes training feel ignored; too quickly lets one slap erase hours of shaping.
+- Generalization surprises, such as a creature learning to eat villagers, read as bugs rather than lessons.
+- Emergent learned behavior varies by player, which makes testing and balancing expensive; Black & White
+  was later called overrated for underusing its creature.
+dynamics:
+- Creatures from the same start diverge into distinct personalities, which drives players to share and
+  compare them.
+- Learned behavior acts on the world, so training choices reshape villages, alignment, and appearance
+  in Black & White.
+- Learning from internal drives without player input produces self-taught habits and odd local optima.
+math_basis:
+- machine-learning
+- utility-decision
+feedback: both
+player_interface:
+- direct-manipulation
+- observation
+legibility: 2
+emergence_potential: 4
+authoring_cost: 2
+compute_cost: 2
+tuning_difficulty: 4
+ai_leverage: 4
+maturity: experimental
+synergy:
+- id: god-powers
+  note: The creature learns from how the god acts, making the player's own behavior a training signal
+    (Black & White).
+open_questions:
+- Can modern reinforcement learning or language-conditioned policies give creatures learning that generalizes
+  the way players intend, with explainable credit assignment?
+- Does exposing a creature's learned associations improve attachment or destroy the illusion of a mind?
+sources:
+- src-grand-1996-creatures-alife
+- src-wikipedia-black-and-white
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m3

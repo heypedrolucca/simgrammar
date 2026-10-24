@@ -1,0 +1,21 @@
+id: src-plantec-2023-flow-lenia
+type: source
+name: 'Flow-Lenia: Towards open-ended evolution in cellular automata through mass conservation and parameter
+  localization'
+kind: paper
+authors:
+- Erwan Plantec
+- Gautier Hamon
+- Mayalen Etcheverry
+- Pierre-Yves Oudeyer
+- Clement Moulin-Frier
+- Bert Wang-Chak Chan
+venue: ALIFE 2023
+date: '2022-12-14'
+url: https://arxiv.org/abs/2212.07906
+arxiv: '2212.07906'
+accessed: '2026-10-24'
+notes: Mass-conserving Lenia where rule parameters are carried by matter, so multiple species with different
+  local rules coexist, interact and mix.
+provenance:
+  created: 2026-10-24-techniques-sim-math

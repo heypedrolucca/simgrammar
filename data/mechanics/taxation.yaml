@@ -1,9 +1,60 @@
 id: taxation
 type: mechanic
 name: Taxation
-summary: Player-set tax rates convert economic activity into revenue at the cost of growth, happiness,
-  or competitiveness.
+aliases:
+- tax rate
+- tax policy
+summary: Player-set tax rates convert economic activity into revenue at the cost of growth, happiness, or competitiveness.
 family: economy-finance
-status: asserted
+substrate:
+- aggregate-stocks
+definition: Owns one or more tax rates (global, by zone type, by class, or by good) and converts a tax base into revenue each
+  accounting period, while applying a growth or satisfaction penalty that rises with the rate. In Micropolis, the SimCity
+  engine, revenue = population x average land value / 120 x tax rate x a difficulty factor; the rate (0-20%) indexes a table
+  that offsets all three RCI demand valves by +200 at 0%, 0 at 7%, and -600 at 20% on the easiest level, enters the citizens'
+  problem list as rate x 10, and is subtracted from the city score. SimCity 2000 lets players set separate residential, commercial,
+  and industrial rates. Democracy 4 ties tax policies to voter-group happiness and makes very high taxes cause evasion. Victoria
+  3 derives the tax base from a taxation law and lets the player set an overall tax level.
+player_experience: Turning a dial between money now and growth later. The player raises taxes to fund services or pay debts,
+  then watches demand or approval sag and searches for the rate the economy will bear.
+design_levers:
+- tax base (population, land value, income, trade, goods) and how many separate rates exist
+- shape of the penalty curve (linear, threshold, accelerating) and where the neutral rate sits
+- lag between a rate change and its effect on growth or approval
+- avoidance responses such as evasion, emigration, or capital flight
+- who bears the tax and which groups react
+failure_modes:
+- A fixed neutral point (Micropolis' 7%) becomes a memorized constant, so the lever is set once and forgotten.
+- When revenue uses the rate at the moment of collection, as in Micropolis, players can keep taxes low most of the year and
+  raise them just before collection.
+- A single global rate removes distributional choices and the politics around them.
+dynamics:
+- Revenue funds services that grow the tax base while high rates suppress growth, so a revenue-maximizing rate emerges.
+- Different rates by zone or class let players steer development, such as cutting industrial taxes to attract jobs.
+- Tax hikes during a crisis can trigger emigration that shrinks the base and deepens the deficit.
+math_basis:
+- system-dynamics
+- optimization
+feedback: both
+player_interface:
+- parameter
+legibility: 4
+emergence_potential: 2
+authoring_cost: 1
+compute_cost: 1
+tuning_difficulty: 3
+ai_leverage: 2
+maturity: classic
+requires:
+- budget-treasury
+open_questions:
+- Could AI-simulated households and firms respond to tax changes with realistic avoidance and migration, making tax design
+  a policy puzzle rather than one slider?
+- How should tax effects be lagged so the tradeoff is felt without enabling raise-before-collection exploits?
+sources:
+- src-hopkins-2008-micropolis
+- src-wikipedia-simcity-2000
+- src-wikipedia-democracy-4
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m2

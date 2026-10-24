@@ -1,10 +1,99 @@
 id: planet-zoo
 type: game
 name: Planet Zoo
-summary: TODO
+summary: >-
+  A zoo management game where the player builds habitats to meet each species' welfare needs, manages genetics and breeding,
+  and raises a conservation rating, using Planet Coaster's building tools.
 year: 2019
 developer: Frontier Developments
+platforms:
+- pc
+- console
 subgenre: management-tycoon
-status: asserted
+subgenre_secondary:
+- ecosystem-evolution
+sim_domain:
+- biological-ecological
+- economic
+player_role: manager-owner
+agency_model:
+- zoning-placement
+- policy-parameter
+time_model: real-time-pausable
+sim_scale: facility
+fidelity: systemic
+perspective: free-3d
+win_structure: open-sandbox
+failure_model: soft-recoverable
+narrative_mode: none
+multiplayer:
+- single
+- async-shared
+modding: content
+production_tier: aa
+agent_count_order: 1k
+emergence: 3
+influence: 2
+core_loop: >-
+  build a habitat for a species' needs -> animals respond to space, terrain, enrichment, and group size -> breed and manage
+  genomes -> trade or release animals for conservation -> guests pay and learn -> expand the zoo
+design_notes: >-
+  Planet Zoo gives each animal species a requirements profile (habitat size, land and water, terrain and plant biome, temperature,
+  group size and sex ratio, enrichment, privacy, and guest exposure) and reports the shortfalls as welfare, so habitat design
+  is a constraint-satisfaction problem. Each animal carries a genome that affects lifespan, size, health, and fertility; offspring
+  inherit it, and inbreeding harms the young, which turns breeding into a population-genetics task. Franchise mode connects
+  zoos to an online market where players buy and trade animals with conservation credits. It reuses Planet Coaster's construction
+  and Workshop tools.
+mechanics:
+- id: habitat-suitability
+  role: core
+  note: >-
+    Each species needs habitat size, land and water area, biome terrain and plants, temperature, shelter, and enrichment;
+    welfare drops when any requirement is unmet.
+- id: trait-inheritance
+  role: core
+  note: >-
+    Animals carry genomes that set lifespan, size, health, and fertility; offspring inherit them, and inbreeding causes harmful
+    effects.
+- id: needs-decay
+  role: core
+  note: >-
+    Animals have food, water, social, enrichment, and privacy needs whose shortfalls lower welfare and can cause illness.
+- id: player-driven-market
+  role: supporting
+  note: >-
+    In Franchise mode an online animal market shared across players lists animals for sale and trade, priced in conservation
+    credits.
+- id: reputation
+  role: supporting
+  note: A conservation rating rises with endangered species, releases to the wild, and education.
+- id: crowd-preferences
+  role: supporting
+  note: Guests choose exhibits, shops, and talks and react to animal welfare and park layout.
+- id: staff-hiring
+  role: supporting
+  note: Keepers, vets, mechanics, security, and vendors are hired with work zones and facility needs.
+- id: lifecycle-aging
+  role: supporting
+  note: Animals age from juveniles to adults and die of old age.
+- id: modular-assembly
+  role: supporting
+  note: Barriers, buildings, and scenery use Planet Coaster's modular piece system.
+- id: tech-tree
+  role: supporting
+  note: Vets research species to unlock knowledge and enrichment items.
+- id: content-sharing
+  role: supporting
+  note: Habitat and building blueprints are shared on the Steam Workshop.
+- id: day-night-cycle
+  role: supporting
+- id: weather
+  role: supporting
+influenced_by:
+- zoo-tycoon
+- planet-coaster
+sources:
+- src-wikipedia-planet-zoo
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-ge

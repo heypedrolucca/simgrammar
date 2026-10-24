@@ -1,8 +1,67 @@
 id: diagnosis-treatment
 type: mechanic
 name: Diagnosis and treatment
-summary: Patients present symptoms, diagnosis reduces uncertainty, and correct treatment cures.
+aliases:
+- medical diagnosis
+- differential diagnosis
+summary: Patients present symptoms, examinations reduce uncertainty about a hidden condition, and the
+  correct treatment cures it while wrong or late treatment harms.
 family: biology-health
-status: asserted
+substrate:
+- rule-system
+- stochastic-events
+definition: Owns, per patient, a hidden condition, a set of symptoms (some visible, some revealed only
+  by examinations), a diagnosis certainty or candidate list, and a deterioration timer. Each examination
+  reveals symptoms or raises certainty at a cost in time and capacity; once certainty passes a threshold
+  or one candidate remains, the patient goes to the matching treatment, whose success depends on staff
+  skill or equipment. Untreated or mistreated patients worsen or die. Theme Hospital sends patients from
+  a GP's office to diagnosis rooms, lets policy raise the required diagnosis level, and can kill patients
+  when a guessed cure is wrong; Project Hospital has examinations uncover symptoms drawn from real medicine,
+  tunes symptom overlap so one examination rarely settles a case, and requires finding dangerous hidden
+  symptoms in time. Inputs are arrivals and examination capacity; outputs are cures, deaths, and throughput.
+player_experience: 'Detective work under time pressure. The player weighs another test against the risk
+  of the patient worsening and decides when certainty is good enough to act. In management games the same
+  choice becomes a policy over many patients: how much diagnosis to buy before treating.'
+design_levers:
+- number of conditions and the overlap of their symptom sets
+- information gained per examination and its time, cost, and capacity
+- certainty threshold for treatment and whether the player can override it
+- deterioration rate of untreated patients and the cost of misdiagnosis
+- staff skill and equipment effects on test accuracy and treatment success
+failure_modes:
+- Distinctive symptom sets let one examination solve every case, removing the uncertainty that defines
+  the mechanic.
+- Opaque certainty math leaves players unable to tell whether a death was bad luck or bad policy.
+- Conditions are expensive to author, so case variety runs out and players memorize answers.
+dynamics:
+- Diagnosis capacity becomes a bottleneck that creates queues, so room layout and staffing drive outcomes.
+- Guessing cures to clear queues trades throughput against deaths and reputation.
+- Contagious conditions couple diagnosis speed to outbreaks inside the facility.
+math_basis:
+- probability-statistics
+- information-theory
+feedback: balancing
+player_interface:
+- choice-cards
+- parameter
+- orders
+legibility: 3
+emergence_potential: 2
+authoring_cost: 3
+compute_cost: 1
+tuning_difficulty: 3
+ai_leverage: 4
+maturity: established
+synergy:
+- id: service-queues
+  note: Patients queue at each diagnostic step, so hospital layout is queue design (Theme Hospital).
+open_questions:
+- Can language-model patients that describe symptoms in their own words make history-taking a real diagnostic
+  channel?
+- Can generated cases keep symptom overlap tuned so diagnosis stays uncertain but solvable?
+sources:
+- src-wikipedia-theme-hospital
+- src-jgeekstudies-2020-project-hospital
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m5

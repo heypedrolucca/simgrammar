@@ -1,10 +1,60 @@
 id: iracing
 type: game
 name: iRacing
-summary: TODO
+summary: A subscription online racing sim with laser-scanned cars and tracks in which drivers race scheduled official
+  series and advance through license classes gated by a no-fault Safety Rating, while an Elo-style iRating sorts
+  fields.
 year: 2008
-developer: iRacing.com Motorsport Simulations
+developer: iRacing Studios (iRacing.com Motorsport Simulations)
+platforms:
+- pc
 subgenre: vehicle-sim
-status: asserted
+sim_domain:
+- physical-mechanical
+- sports
+player_role: operator-pilot
+agency_model:
+- direct-avatar
+time_model: real-time
+sim_scale: individual
+fidelity: high-fidelity
+perspective: first-person
+win_structure: competitive-victory
+failure_model: soft-recoverable
+narrative_mode: none
+multiplayer:
+- single
+- competitive
+modding: none
+production_tier: aa
+agent_count_order: '10'
+emergence: 3
+influence: 3
+core_loop: join a scheduled official race -> qualify and race on laser-scanned tracks -> incidents and results update
+  Safety Rating and iRating -> license promotion opens higher series -> buy cars and tracks for the next season
+design_notes: 'iRacing grew from Papyrus''s NASCAR Racing 2003 Season code with a new tire model and LIDAR-scanned
+  cars and tracks. Its distinctive layer is the competitive structure: a no-fault Safety Rating from incident points
+  per corner gates license classes (Rookie, D, C, B, A, with Pro reserved for esports), an Elo-style iRating sorts
+  drivers into sessions and divisions, and 13-week seasons rotate tracks weekly. Skill rating and matchmaking have
+  no mechanic in the taxonomy (proposed as skill-rating-matchmaking).'
+mechanics:
+- id: vehicle-dynamics
+  role: core
+  note: A new tire model replaced the one in the NASCAR Racing 2003 Season code iRacing was built from, and cars
+    and tracks are LIDAR-scanned.
+- id: embodied-skill-control
+  role: core
+  note: Races are against human drivers on the publisher's servers, so results depend on the driver's braking, throttle,
+    and line precision.
+- id: career-ladder
+  role: core
+  note: Licenses progress Rookie, D, C, B, A, with Pro for esports qualifiers; promotion depends on a per-discipline
+    Safety Rating computed from incident points and corners per incident.
+- id: wear-breakdown
+  role: supporting
+  note: Cars take damage and tires wear over a race, which pit stops address.
+sources:
+- src-wikipedia-iracing
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gf

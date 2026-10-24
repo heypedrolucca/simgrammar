@@ -1,0 +1,14 @@
+id: src-tencent-2025-hunyuan3d-2-1-repo
+type: source
+name: Hunyuan3D-2.1 repository
+kind: repository
+authors:
+- Tencent Hunyuan
+venue: GitHub
+date: '2025-06-13'
+url: https://github.com/Tencent-Hunyuan/Hunyuan3D-2.1
+accessed: '2026-10-24'
+notes: Released 2025-06-13 as 'production-ready'; PBR texture synthesis; full weights and training code;
+  VRAM about 10 GB shape, 21 GB texture, 29 GB both.
+provenance:
+  created: 2026-10-24-techniques-world-models

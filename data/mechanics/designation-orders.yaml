@@ -1,9 +1,70 @@
 id: designation-orders
 type: mechanic
 name: Designation orders
-summary: The player marks tiles or objects for work such as dig, chop, or build, and agents execute the
-  jobs.
+aliases:
+- designations
+- job designations
+- work orders
+- zones of work
+summary: The player marks tiles or objects for work such as dig, chop, or build, and autonomous agents
+  claim and execute the jobs.
 family: control-automation
+substrate:
+- rule-system
+- agent-based
+- cellular-grid
+definition: 'The player paints a designation onto tiles or objects (mine, chop, harvest, build, haul,
+  deconstruct, hunt) instead of commanding a specific agent. Each designation creates a job entry with
+  location, type, required skill or tool, and priority. Agents that are free and allowed to do that work
+  query the job pool, score candidate jobs by priority, distance, and reachability, reserve one, path
+  to it, and execute it; the designation clears on completion. State owned: the set of designations and
+  their job entries and reservations. Inputs: player marks; outputs: jobs consumed by agent action selection.
+  Canonical forms: Dwarf Fortress dig, chop, and gather designations, RimWorld mine, cut, haul, and deconstruct
+  designations, Oxygen Not Included errands with 1 to 9 priorities, Dungeon Keeper digging, and Going
+  Medieval.'
+player_experience: The player states what should happen and watches agents figure out who and how. Painting
+  a mine and seeing dwarves converge on it feels like management rather than puppetry, and the gap between
+  intent and execution, such as a dwarf walking across the map for one job, becomes a source of frustration
+  and stories.
+design_levers:
+- per-designation priority levels
+- 'job claiming: nearest agent, best-skilled agent, or first free'
+- reservation and timeout rules for unreachable or abandoned jobs
+- area painting tools versus per-object marking
+- whether designations wait on prerequisites (materials, tools) or fail immediately
+- interaction with per-agent work priorities and restrictions
+failure_modes:
+- Unreachable designations jam the queue and agents repeatedly attempt and abandon them.
+- Agents cross the whole map for a single low-value job because claiming ignores travel cost.
+- Large designations starve critical work such as feeding and hauling without clear priority overrides.
+- 'Players cannot see why a designation is not being worked: no one allowed, no path, or no materials.'
+dynamics:
+- Throughput depends on agent count, travel, and hauling, so mass designation exposes logistics bottlenecks.
+- Accidental designations produce stories, such as mining into an aquifer or magma.
+- Order of designation becomes a planning skill, since agents take jobs in the order the claiming rule
+  finds them.
+math_basis:
+- scheduling
+- graph-search
+feedback: none
+player_interface:
+- orders
+- placement
+legibility: 4
+emergence_potential: 3
+authoring_cost: 1
+compute_cost: 2
+tuning_difficulty: 2
+ai_leverage: 3
+maturity: classic
+synergy:
+- id: hauling-jobs
+  note: Designated work creates items that must be hauled, chaining jobs.
+open_questions:
+- Can players state work goals in language (dig a three-room hall near the stockpile) and have a model
+  translate them into designations reliably?
+- Which claiming rule best balances efficiency with legible agent behavior?
+sources: []
 status: asserted
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m6

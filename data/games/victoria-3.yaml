@@ -1,10 +1,122 @@
 id: victoria-3
 type: game
 name: Victoria 3
-summary: TODO
+aliases:
+- Vic3
+summary: An economic grand strategy game set from 1836 to 1936 in which the player industrializes a nation
+  by building production chains, passing laws through interest-group politics, and pursuing diplomatic
+  plays while population strata respond through wages, needs, and radicalism.
 year: 2022
 developer: Paradox Development Studio
+platforms:
+- pc
 subgenre: grand-strategy
-status: asserted
+subgenre_secondary:
+- political-sim
+sim_domain:
+- economic
+- political-governance
+- industrial-logistics
+player_role: ruler-statesman
+agency_model:
+- policy-parameter
+- order-queue
+- indirect-incentive
+time_model: real-time-pausable
+sim_scale: nation
+fidelity: systemic
+perspective: top-down-2d
+win_structure: open-sandbox
+failure_model: soft-recoverable
+narrative_mode: hybrid
+multiplayer:
+- single
+- competitive
+modding: scripting
+production_tier: aa
+agent_count_order: aggregate
+emergence: 3
+influence: 2
+core_loop: queue construction of buildings -> buildings hire pops and run production methods -> goods
+  trade at shifting market prices -> wages and needs set standard of living and interest-group support
+  -> enact laws and pursue diplomatic plays -> expand industry
+design_notes: 'Victoria 3 moves the player''s main lever from units to the economy: the player queues
+  construction and sets laws, and pops, prices, and wages respond, while armies are handled by generals
+  assigned to fronts. Politics is an output of economics, since pops'' economic status sets their interest-group
+  affiliation and political strength. Diplomatic plays turn war declaration into a timed escalation of
+  demands and counter-demands with a chance to back down (proposal crisis-escalation).'
+mechanics:
+- id: interest-groups
+  role: core
+  note: Pops' political strength, from wealth and enfranchisement, flows into interest groups such as
+    the Devout, Industrialists, and Rural Folk; clout is each group's share of the national total, approval
+    comes from laws and government membership, and enacting a law runs phases whose advance or stall chances
+    depend on group endorsement.
+- id: production-chain
+  role: core
+  note: Buildings such as mines, farms, and factories convert input goods to outputs; switchable production
+    methods change the input mix, output, and which professions are employed.
+- id: supply-demand-pricing
+  role: core
+  note: Each good has a base price, and the market price moves with the ratio of buy orders from consumption
+    to sell orders from production, scaled by market access from infrastructure; prices feed back into
+    building profitability, wages, and pops' cost of living.
+- id: population-strata
+  role: core
+  note: The population is stored as pops by profession, culture, and religion in lower, middle, and upper
+    strata, each with its own wages, needs, and political leanings.
+- id: goods-consumption
+  role: supporting
+  note: Pops buy goods to meet needs, and the share met sets their standard of living.
+- id: labor-market
+  role: supporting
+  note: Buildings hire pops by profession and qualification, so labor shortages throttle new industry.
+- id: policy-toggles
+  role: supporting
+  note: Laws such as Free Trade and Laissez-Faire change economic and political rules.
+- id: stability-unrest
+  role: supporting
+  note: Pops whose needs fall short become radicals, and radical interest groups can start a revolutionary
+    movement with a revolution clock.
+- id: faction-diplomacy
+  role: supporting
+  note: Diplomatic plays present a demand, allow counter-demands, run a countdown to mobilize and gather
+    backers, and become war if unresolved.
+- id: tech-tree
+  role: supporting
+  note: Technologies such as the Atmospheric Engine unlock buildings and production methods.
+- id: taxation
+  role: supporting
+- id: budget-treasury
+  role: supporting
+- id: immigration-attractiveness
+  role: supporting
+- id: causal-tooltips
+  role: supporting
+  note: Nested tooltips break values into contributing modifiers, extended to battle and market calculations.
+- id: political-capital
+  role: supporting
+  note: 'Authority, influence, and bureaucracy are capacities with monthly supply and ongoing usage: decrees
+    draw on authority and diplomatic pacts on influence.'
+- id: culture-religion-conversion
+  role: supporting
+  note: Pops carry a culture and a religion; over time pops assimilate toward primary cultures and convert
+    toward the state religion, and citizenship and church laws decide which identities face discrimination.
+- id: territorial-control
+  role: supporting
+  note: States change hands through diplomatic plays and wars, and newly acquired states are incorporated
+    over time before they count fully.
+- id: war-score-peace
+  role: supporting
+  note: Each side's war support falls with exhaustion until one capitulates or the sides settle on the
+    demands from the diplomatic play.
+sources:
+- src-wikipedia-victoria-3
+- src-paradox-2021-vic3-interest-groups
+- src-paradox-2021-vic3-national-markets
+- src-paradox-2023-vic3-law-enactment
+- src-pcgamesn-2022-victoria-3-nested-tooltips
+- src-paradox-2023-victoria-3-dev-diary-74
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gi

@@ -1,0 +1,15 @@
+id: src-inworld-2026-tts-1-5
+type: source
+name: 'Inworld TTS-1.5: Upgrading the #1 Ranked TTS Model with Production-Grade Latency, Expression and
+  Stability'
+kind: tech-report
+authors:
+- Inworld AI
+venue: Inworld blog
+date: '2026-01-21'
+url: https://inworld.ai/blog/introducing-inworld-tts-1-5
+accessed: '2026-10-24'
+notes: 'TTS-1.5 Max: P90 time to first audio under 250 ms, $25 per 1M characters (about $0.025 per minute).
+  TTS-1.5 Mini: under 130 ms, $15 per 1M characters (about $0.015 per minute). 15 languages. Vendor figures.'
+provenance:
+  created: 2026-10-24-techniques-llm-agents

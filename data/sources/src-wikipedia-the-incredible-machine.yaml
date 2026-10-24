@@ -1,0 +1,15 @@
+id: src-wikipedia-the-incredible-machine
+type: source
+name: The Incredible Machine
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/The_Incredible_Machine_(video_game)
+accessed: '2026-10-24'
+notes: Series from 1993; designed and coded by Kevin Ryan, produced by Jeff Tunnell (Jeff Tunnell Productions),
+  published by Dynamix/Sierra; MS-DOS, 3DO, later Windows and Mac; Rube Goldberg puzzles with fixed objects and
+  provided parts; deterministic engine simulating gravity and air pressure; freeform mode; Contraption Maker successor.
+provenance:
+  created: 2026-10-24-catalog-gg

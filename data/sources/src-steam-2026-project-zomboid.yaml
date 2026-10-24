@@ -1,0 +1,15 @@
+id: src-steam-2026-project-zomboid
+type: source
+name: Project Zomboid on Steam
+kind: store-page
+authors:
+- The Indie Stone
+venue: Steam
+date: '2026'
+url: https://store.steampowered.com/app/108600/Project_Zomboid/
+accessed: '2026-10-24'
+notes: Early access since 2013-11-08; hunger, thirst, depression, boredom, illness; crafting, barricading, farming,
+  fishing, trapping; skills from actions; vehicles; online multiplayer and split-screen; Knox County map based on
+  Kentucky; zombies with sight and hearing; electricity failing; full Lua modding.
+provenance:
+  created: 2026-10-24-catalog-gb

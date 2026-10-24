@@ -1,0 +1,14 @@
+id: src-wikipedia-animal-crossing
+type: source
+name: Animal Crossing
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Animal_Crossing
+accessed: '2026-10-24'
+notes: Series uses the console's internal clock and calendar so game time matches real time; some events and tree growth require
+  real time to pass; hourly music; original Dobutsu no Mori on Nintendo 64, 14 April 2001.
+provenance:
+  created: 2026-10-24-taxonomy-m5

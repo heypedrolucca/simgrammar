@@ -1,10 +1,95 @@
 id: offworld-trading-company
 type: game
 name: Offworld Trading Company
-summary: TODO
-year: 2016
+summary: >-
+  A real-time economic strategy game on Mars where companies claim resource tiles, refine goods for a shared market whose
+  prices move with every trade, and win by buying out every rival's stock.
+year: 2015
+year_full_release: 2016
 developer: Mohawk Games
+platforms:
+- pc
 subgenre: business-economic-sim
-status: asserted
+sim_domain:
+- economic
+- industrial-logistics
+player_role: manager-owner
+agency_model:
+- zoning-placement
+- policy-parameter
+time_model: real-time-pausable
+sim_scale: region
+fidelity: stylized
+perspective: free-3d
+win_structure: competitive-victory
+failure_model: hard-restart
+narrative_mode: none
+multiplayer:
+- single
+- competitive
+modding: content
+production_tier: indie
+agent_count_order: none
+emergence: 3
+influence: 2
+core_loop: >-
+  land an HQ -> claim tiles and build extractors -> refine resources into goods -> sell into a market whose prices move with
+  each trade -> buy black market sabotage and stock -> buy out every rival
+design_notes: >-
+  Soren Johnson replaced combat with a shared market: 13 resources trade at prices that move with every purchase and sale,
+  so selling a large stockpile drives the price down and one player's bulk purchases create openings for others. Black market
+  items such as nukes, EMPs, and mutinies act through the economy, and each purchase raises the price of the next one. Victory
+  comes from equity: players buy shares in rivals until they hold a majority of every company, and buying back one's own shares
+  makes a takeover more expensive. Johnson names M.U.L.E. and Railroad Tycoon as inspirations.
+mechanics:
+- id: supply-demand-pricing
+  role: core
+  note: >-
+    Each of 13 resources has a market price that falls when players sell and rises when they buy, with shortages and gluts
+    driving rapid swings.
+- id: equity-buyouts
+  role: core
+  note: >-
+    Players buy shares in rival companies and win by holding a majority of every company; debt lowers stock price, and buying
+    back one's own stock raises buyout cost.
+- id: resource-extraction
+  role: core
+  note: >-
+    Extractors on claimed hex tiles mine water, aluminum, iron, silicon, and carbon at rates set by tile richness.
+- id: production-chain
+  role: core
+  note: >-
+    Steel mills, glass kilns, electronics factories, greenhouses, and hydrolysis reactors turn raw resources into higher-value
+    goods and life support.
+- id: rival-firms
+  role: core
+  note: >-
+    Up to eight companies, AI or human, compete in one market and attack each other through black market sabotage such as
+    nukes, EMPs, and mutinies.
+- id: auctions
+  role: supporting
+  note: Some resource tiles and patents are sold by auction.
+- id: goods-consumption
+  role: supporting
+  note: >-
+    Each HQ consumes life support resources such as water, food, oxygen, and power, which must be produced or bought.
+- id: loans-debt
+  role: supporting
+  note: Companies can run into debt, which depresses their share price.
+- id: tech-tree
+  role: supporting
+  note: Patents and HQ upgrades unlock buildings and bonuses.
+- id: procedural-terrain
+  role: supporting
+  note: Each match generates a new Martian map, so resource layouts and claims differ.
+influenced_by:
+- mule
+- railroad-tycoon
+sources:
+- src-wikipedia-offworld-trading-company
+- src-steam-2026-offworld-trading-company
+- src-gamesbeat-2015-offworld-trading-company
+- src-spacesector-2015-offworld-early-access
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-ge

@@ -1,0 +1,14 @@
+id: src-thacker-2025-physx-gpu-open-source
+type: source
+name: NVIDIA open-sources PhysX's GPU simulation code
+kind: news
+authors:
+- Jim Thacker
+venue: CG Channel
+date: '2025-04-22'
+url: https://www.cgchannel.com/2025/04/nvidia-open-sources-physxs-gpu-simulation-code
+accessed: '2026-10-24'
+notes: PhysX 5.6 and Flow 2.2 GPU source released under BSD-3 with over 500 CUDA kernels; previously GPU
+  support shipped as binaries only; Unreal Engine 5 uses Chaos instead.
+provenance:
+  created: 2026-10-24-techniques-sim-math

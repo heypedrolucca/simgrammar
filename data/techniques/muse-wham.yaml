@@ -1,0 +1,79 @@
+id: muse-wham
+type: technique
+name: Muse World and Human Action Model (WHAM)
+aliases:
+- Muse
+- WHAM
+- WHAMM
+- World and Human Action Model
+summary: Microsoft Research's WHAM is a transformer trained on seven years of Bleeding Edge play that
+  generates both future frames and the player's controller actions, aimed at gameplay ideation, with a
+  real-time Quake II follow-up (WHAMM).
+category: generative-world-model
+year: 2025
+mechanism: Frames are encoded into discrete image tokens and controller inputs into action tokens; a decoder-only
+  transformer models the interleaved sequence, so it predicts both how the world evolves and what a human
+  player is likely to do next. Prompting with a few frames yields many plausible continuations (diversity);
+  a designer can edit a frame, such as inserting a character, and the model carries the edit forward (persistency).
+  WHAM-1.6B produces about one frame per second at 300x180. WHAMM replaces token-by-token decoding with
+  MaskGIT-style parallel prediction (a 500M backbone plus a 250M refiner) to reach more than 10 fps at
+  640x360 on Quake II.
+key_results:
+- text: The Nature paper (February 2025) frames consistency, diversity, and persistency of user modifications
+    as the three capabilities generative models need to support game ideation, and shows WHAM provides
+    them.
+  sources:
+  - src-kanervisto-2025-wham
+  confidence: high
+- text: WHAM was trained on more than 1 billion images and controller actions, over 7 years of continuous
+    play, from Bleeding Edge matches recorded under the game's EULA; model weights, sample data, and the
+    WHAM Demonstrator were released on Azure AI Foundry.
+  sources:
+  - src-microsoft-2025-muse-blog
+  confidence: high
+- text: WHAMM ran a playable section of one Quake II level at 10+ fps and 640x360 after training on one
+    week of gameplay data; enemies were blurry, damage could be wrong, context was 0.9 seconds, and health
+    counters were unreliable.
+  sources:
+  - src-microsoft-2025-whamm
+  confidence: high
+maturity: prototype
+trl: 6
+runtime:
+- design-assist
+- server-realtime
+determinism_impact: breaks
+horizon: 3-5y
+risks:
+- consistency
+- compute-cost
+- controllability
+- labor
+- player-trust
+affects:
+- id: direct-avatar
+  effect: replaces-substrate
+  note: In WHAMM the avatar's movement and camera are rendered by the model from controller input, at
+    10+ fps with a 0.9 second context.
+- id: rigid-body-physics
+  effect: replaces-substrate
+  note: Movement and collisions follow learned game dynamics; the Nature paper's consistency criterion
+    is that generated play respects controller input and the game's physics, which is measured statistically
+    rather than enforced.
+- id: generative-content
+  effect: enables-new
+  note: Designers insert an object or character into a frame and the model generates plausible gameplay
+    around it (persistency), giving a preview of how a content change might play before it is built.
+limitations:
+- WHAM-1.6B generates about one image per second at 300x180, too slow and too small for play; WHAMM trades
+  data scope (one level section) for speed.
+- Needs years of recorded human play with consent terms for a single game; few studios hold such datasets.
+- Context of under a second (WHAMM) means objects out of view are forgotten.
+- Counts, damage, and other exact quantities are unreliable in generated frames.
+sources:
+- src-kanervisto-2025-wham
+- src-microsoft-2025-muse-blog
+- src-microsoft-2025-whamm
+status: sourced
+provenance:
+  created: 2026-10-24-techniques-world-models

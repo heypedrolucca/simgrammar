@@ -1,10 +1,92 @@
 id: zelda-breath-of-the-wild
 type: game
 name: 'The Legend of Zelda: Breath of the Wild'
-summary: TODO
+aliases:
+- Breath of the Wild
+- BotW
+summary: >-
+  An open-world action adventure whose physics and chemistry engines let fire, wind, electricity, temperature, and material
+  properties combine, so puzzles and fights accept solutions the designers did not script.
 year: 2017
 developer: Nintendo EPD
+platforms:
+- console
+- handheld
 subgenre: sandbox-world
-status: asserted
+subgenre_secondary:
+- physics-sandbox
+- survival-sim
+sim_domain:
+- physical-mechanical
+- planetary-natural
+player_role: inhabitant
+agency_model:
+- direct-avatar
+time_model: real-time-pausable
+sim_scale: region
+fidelity: stylized
+perspective: third-person
+win_structure: completion
+failure_model: soft-recoverable
+narrative_mode: authored
+multiplayer:
+- single
+modding: content
+production_tier: aaa
+agent_count_order: '100'
+emergence: 3
+influence: 3
+boundary_case: true
+core_loop: >-
+  spot a landmark -> climb, glide, or ride toward it under stamina limits -> solve shrines and fights with physics and elemental
+  interactions -> gather and cook ingredients -> replace broken weapons -> push farther into the world
+design_notes: >-
+  The game is mostly authored content (map, shrines, story) and is included for its systemic layer. A modified Havok physics
+  engine and a separate chemistry engine give objects material properties, so fire burns grass and creates updrafts, metal
+  draws lightning and conducts electricity, wind carries flames and gliders, and cold or heat drains health unless countered
+  by clothing or cooked food. Weapon durability and stamina force continual scavenging and route choice, and shrine puzzles
+  accept any solution that satisfies the physical end condition.
+mechanics:
+- id: material-interactions
+  role: core
+  note: >-
+    The chemistry engine gives objects properties such as flammable, metallic, or conductive; fire ignites wood and grass,
+    metal attracts lightning in storms and conducts electricity, and ice melts near fire.
+- id: rigid-body-physics
+  role: core
+  note: >-
+    A modified Havok engine moves crates, boulders, and weapons; Magnesis lifts metal objects, Stasis freezes an object so
+    stored hits launch it, and Cryonis raises ice pillars from water, giving shrines and fights unscripted solutions.
+- id: survival-meters
+  role: core
+  note: >-
+    A stamina wheel limits sprinting, climbing, swimming, and gliding; hearts are health, and ambient cold and heat damage
+    the player without matching clothing or elixirs.
+- id: fire-spread
+  role: supporting
+  note: Fire spreads across grass in the wind direction and produces updrafts that the paraglider can ride.
+- id: weather
+  role: supporting
+  note: Rain makes surfaces too slippery to climb, and thunderstorms strike metal equipment with lightning.
+- id: heat-transfer
+  role: supporting
+  note: >-
+    Region temperature and fire sources set a temperature gauge that damages the player beyond tolerance.
+- id: hand-crafting
+  role: supporting
+  note: >-
+    Cooking combines up to five ingredients in a pot into meals or elixirs whose effects and duration depend on the ingredients.
+- id: wear-breakdown
+  role: supporting
+  note: Weapons, bows, and shields lose durability with use and shatter; the Master Sword recharges instead.
+- id: day-night-cycle
+  role: supporting
+  note: Time of day changes enemy and creature activity, and the Blood Moon respawns defeated enemies.
+- id: direct-avatar
+  role: supporting
+  note: Link can climb almost any surface, glide, ride horses, and use runes.
+sources:
+- src-wikipedia-zelda-breath-of-the-wild
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gg

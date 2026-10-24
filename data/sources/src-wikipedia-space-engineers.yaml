@@ -1,0 +1,15 @@
+id: src-wikipedia-space-engineers
+type: source
+name: Space Engineers
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Space_Engineers
+accessed: '2026-10-24'
+notes: Keen Software House (Czech); alpha 2013-10-23 on Steam early access; full release 2019-02-28; Xbox One 2020,
+  PS4/PS5 2023; VRAGE engine; editable voxel asteroids and planets; small and large grids; deformable armor blocks;
+  conveyors; inertia dampeners; oxygen and energy survival; 5 million+ sold.
+provenance:
+  created: 2026-10-24-catalog-gg

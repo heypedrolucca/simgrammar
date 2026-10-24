@@ -1,8 +1,57 @@
 id: day-night-cycle
 type: mechanic
 name: Day-night cycle
-summary: A diurnal cycle changes visibility, schedules, and activity.
+aliases:
+- diurnal cycle
+- time of day
+summary: A diurnal cycle changes light, visibility, temperature, and which agents are active, so activity follows the hour
+  of the day.
 family: environment-ecology
-status: asserted
+substrate:
+- rule-system
+definition: 'Owns a time-of-day value that advances each tick and wraps at a fixed day length, usually split into phases such
+  as day, dusk, and night. Each phase sets ambient light, sometimes temperature, and flags read by other systems: agent schedules,
+  spawn tables, growth, sanity or fear, and shop hours. Don''t Starve uses an 8-minute real-time day of sixteen 30-second
+  segments whose day, dusk, and night split shifts with the season; in total darkness the monster Charlie attacks and sanity
+  drains at 50 per minute. Minecraft has a 20-minute day and spawns hostile mobs in low light, and The Long Dark makes nights
+  colder. Inputs are elapsed time and season; outputs are phase flags and light levels.'
+player_experience: A rhythm of safety and threat. Day is for travel and work, dusk is a warning to head home, light fires,
+  or finish tasks, and night is spent defending, sleeping, or risking the dark for better rewards. The player plans each day
+  around the remaining light and learns to read the sky as a clock.
+design_levers:
+- day length in real time and the day, dusk, and night split, fixed or varying by season
+- how dark night gets and whether light sources are required to act
+- 'which systems read the phase: spawns, agent schedules, temperature, growth, prices'
+- penalty for being caught in darkness, from reduced visibility to direct damage
+- whether the player can skip the night by sleeping
+failure_modes:
+- Night that is only darker visuals with no mechanical difference becomes an annoyance players remove by raising brightness.
+- 'Nights that are too punishing make every night identical: retreat and wait, wasting play time.'
+- Long real-time days make planning trivial; very short ones make players feel unable to finish trips.
+dynamics:
+- Bases cluster around light sources, and trips shrink to what can be done before dusk.
+- Combined with daily schedules, synchronized agents create rush hours at dawn and dusk.
+- Night becomes a high-risk, high-reward window when rare resources or creatures appear only in darkness.
+math_basis:
+- scheduling
+- information-theory
+feedback: none
+player_interface:
+- observation
+- placement
+legibility: 5
+emergence_potential: 2
+authoring_cost: 2
+compute_cost: 1
+tuning_difficulty: 2
+ai_leverage: 2
+maturity: classic
+open_questions:
+- Can learned relighting or neural rendering make time-of-day visual variety nearly free, moving authoring effort to behavioral
+  differences?
+sources:
+- src-dontstarvewiki-2026-day-night-cycle
+- src-wikipedia-the-long-dark
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m5

@@ -1,0 +1,13 @@
+id: src-steam-2026-autonauts
+type: source
+name: Autonauts
+kind: store-page
+venue: Steam
+date: '2026'
+url: https://store.steampowered.com/app/979120
+accessed: '2026-10-24'
+notes: Released 2019-10-17; Denki; Curve Games; Windows; single-player; teach workerbots tasks by having
+  them repeat actions; Scratch-style visual programming; colonists need help to survive; farming, animal
+  husbandry, fishing, cooking, housing, tailoring.
+provenance:
+  created: 2026-10-24-catalog-gh

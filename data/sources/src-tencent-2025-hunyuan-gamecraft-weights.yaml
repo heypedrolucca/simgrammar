@@ -1,0 +1,14 @@
+id: src-tencent-2025-hunyuan-gamecraft-weights
+type: source
+name: Hunyuan-GameCraft-1.0 model card
+kind: repository
+authors:
+- Tencent Hunyuan
+venue: Hugging Face
+date: '2025-08-14'
+url: https://huggingface.co/tencent/Hunyuan-GameCraft-1.0
+accessed: '2026-10-24'
+notes: Inference code and weights released 2025-08-14; minimum 24 GB GPU memory (very slow), 80 GB recommended;
+  tested on 8 GPUs; distilled model uses 8 steps.
+provenance:
+  created: 2026-10-24-techniques-world-models

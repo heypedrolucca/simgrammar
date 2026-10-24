@@ -1,0 +1,15 @@
+id: src-wikipedia-nintendogs
+type: source
+name: Nintendogs
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Nintendogs
+accessed: '2026-10-24'
+notes: Nintendo EAD, DS; Japan release 2005-04-21; touch care, microphone tricks, disc, agility, and obedience
+  trials with five classes, DS clock-driven hunger and dirt, dogs cannot die, three dogs at home, Bark
+  Mode.
+provenance:
+  created: 2026-10-24-catalog-gc

@@ -1,0 +1,14 @@
+id: src-stardewwiki-2026-friendship
+type: source
+name: Friendship
+kind: encyclopedia
+authors:
+- Stardew Valley Wiki contributors
+venue: Stardew Valley Wiki
+date: '2026'
+url: https://stardewvalleywiki.com/Friendship
+accessed: '2026-10-24'
+notes: Official community wiki; accessed revision. 250 points per heart, 10 hearts for most villagers,
+  2-point daily decay without talking, two gifts per week, birthday gifts multiplied by 8, heart events.
+provenance:
+  created: 2026-10-24-catalog-gc

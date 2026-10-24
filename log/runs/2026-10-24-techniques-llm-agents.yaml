@@ -1,0 +1,96 @@
+id: 2026-10-24-techniques-llm-agents
+type: run
+date: '2026-10-24'
+actor: agent
+operator: yoheinakajima
+agent:
+  model: claude-opus-5-5
+  harness: Claude app subagent
+purpose: Research and record LLM agent, dialogue, social simulation, speech, and on-device inference techniques
+  that change simulation game mechanics.
+method: 'Read AGENTS.md, CONTRACT.md, technique/source/common/run schemas, the vocab files they reference,
+  rubrics, edge types, and the needs-decay, rimworld, and src-wikipedia-rimworld exemplars. Listed mechanics,
+  games, and techniques; read definitions of the roughly 35 mechanics targeted by affects edges. Searched
+  the web (budget ran out after about 20 queries, shared across agents) and then fetched primary pages
+  directly: arXiv abstracts and HTML for Park 2023, Yu 2024, Project Sid, AgentSociety, Concordia (2023
+  and 2025), OASIS, Park 2024, Argyle, Aher, Voyager, FLE, SIMA, SIMA 2, Minitron, GPTQ, AWQ, Outlines,
+  XGrammar, Tam 2024, JSONSchemaBench, Moshi, Gallotta survey, CALYPSO, Peng 2024, PANGeA, Wang 2024 world
+  simulators, Zhang 2023; Nature and NSO pages for Centaur and its critique; DeepMind, OpenAI, Sesame,
+  ElevenLabs, Inworld, NVIDIA, KRAFTON, Hidden Door pages; Steam store pages (inZOI, Whispers from the
+  Star, Where Winds Meet); Steamworks Content Survey docs; GDC 2025 and 2026 State of the Industry articles;
+  Totally Human Steam disclosure counts; Wikipedia (AI Dungeon, inZOI, Infinite Craft, AI in video games).
+  Fetch rate limit was then hit. Decisions: kept all ten candidate ids; added llm-rule-adjudication (LLM
+  as rule engine with memoized results, Infinite Craft) because it changes crafting and material-interaction
+  mechanics in a way none of the candidates covers. Scored maturity and trl for deployment in games only.
+  Cited three sources created concurrently by catalog-gd (src-park-2023-generative-agents, src-altera-2024-project-sid,
+  src-wikipedia-infinite-craft) instead of rewriting them. Wrote 57 new sources; deleted two of my own
+  duplicates (NVIDIA ACE CES 2025 article, Whispers from the Star Steam page) that other runs had filed
+  first under different ids, and cite theirs.'
+scope:
+- data/techniques/generative-agents.yaml
+- data/techniques/llm-agent-societies.yaml
+- data/techniques/human-behavior-simulation-models.yaml
+- data/techniques/voyager-skill-libraries.yaml
+- data/techniques/generalist-game-agents.yaml
+- data/techniques/on-device-language-models.yaml
+- data/techniques/constrained-decoding.yaml
+- data/techniques/realtime-voice-models.yaml
+- data/techniques/llm-game-master.yaml
+- data/techniques/llm-explanation-of-state.yaml
+- data/techniques/llm-rule-adjudication.yaml
+- data/sources/*
+contract_version: '1.0'
+proposals:
+- kind: merge
+  target: src-deepmind-2025-sima-2
+  detail: src-deepmind-2025-sima-2 (techniques-rl-design) and src-deepmind-2025-sima-2-blog (this run)
+    are the same DeepMind blog post. Both are cited (rl-design cites the -blog id in automated-playtesting
+    and open-ended-environment-generation; this run cites -blog). Keep one and repoint.
+- kind: other
+  target: realtime-voice-models
+  detail: builds_on on-device-language-models is intra-run and could be stored, but was left out because
+    cloud speech-to-speech does not depend on it; a maintainer may add it for the on-device ASR and TTS
+    path.
+- kind: other
+  target: on-device-language-models
+  detail: 'Games wanted in data/games for deployed_in edges that this run could not add because they do
+    not exist there: PUBG BATTLEGROUNDS (PUBG Ally beta 2026), Where Winds Meet (live AI NPC text and
+    voice chat, 2025), Total War PHARAOH (ACE advisor demo), NARAKA BLADEPOINT (ACE teammate), Death by
+    AI (Playroom, 2024), Hidden Door (2025 early access). If added, append deployed_in edges to on-device-language-models,
+    realtime-voice-models, llm-game-master, and llm-explanation-of-state.'
+- kind: other
+  target: realtime-voice-models
+  detail: deployed_in suck-up is plausible for realtime-voice-models and llm-game-master, but Suck Up!
+    pages could not be fetched in this run (robots disallowed, no Wikipedia article found); a later run
+    should verify and add the edge.
+- kind: vocab-term
+  target: technique_category
+  detail: constrained-decoding was filed under llm-agents as the closest term; an inference-control or
+    structured-generation category would fit it better.
+- kind: new-mechanic
+  target: background-life-progression
+  detail: generative-agents, on-device-language-models, and llm-agent-societies change how off-screen
+    populations live their lives; a mechanic for simulating unplayed agents at lower fidelity would give
+    them an edge target. The catalog-gc run notes the same gap for inZOI.
+notes: |-
+  Market and adoption sources (some uncited by entities on purpose):
+  src-totallyhuman-2024-steam-genai-count: about 1,000 Steam games disclosed generative AI by April 2024.
+  src-totallyhuman-2025-steam-genai-count: 7,818 titles (about 7% of Steam) disclosed GenAI by July 2025, up from about 1.1% a year earlier; a little under 20% of 2025 releases.
+  src-totallyhuman-2025-steam-ai-revenue: 10,258 disclosing games (about 8%) by November 2025, estimated $660M combined gross; only 12 at eight figures.
+  src-valve-2024-ai-content-on-steam: Valve's January 2024 policy change to allow most AI games with disclosure.
+  src-valve-2026-steamworks-content-survey: pre-generated vs live-generated disclosure; live-generated needs guardrails; no live-generated adult sexual content.
+  src-gdc-2025-state-of-industry: 52% of developers at companies using GenAI, 36% personally use it, 30% see negative impact (n over 3,000).
+  src-gdc-2026-state-of-industry: 36% use GenAI at work (30% at studios), 52% see negative impact, 7% positive (n over 2,300).
+  src-wikipedia-artificial-intelligence-in-video-games: ARC Raiders marked down for AI voices; SAG-AFTRA strike July 2024 to July 2025 ended with AI voice consent terms.
+  src-steam-2025-where-winds-meet: a NetEase open-world release with disclosed live AI NPC text and voice chat (Nov 2025).
+  src-steam-2026-whispers-from-the-star (catalog-gd): a 2025 commercial game built entirely on real-time AI voice conversation.
+  src-krafton-2026-pubg-ally-beta: on-device SLM teammate in PUBG beta, June-July 2026.
+  src-openai-2024-realtime-api and src-openai-2025-gpt-realtime: speech-to-speech list prices, about $0.30 per conversation-minute (2024) falling about 60-70% by Aug 2025.
+  src-inworld-2026-tts-1-5 and src-inworld-2026-consumer-ai-cost: streaming TTS about $0.015-0.025 per minute; vendor claim that about 3 in 100 consumer AI users pay.
+  src-inworld-2025-death-by-ai: vendor case study, Death by AI 20M players in three months, 1.2B tokens month one.
+  Per-player-hour inference cost: no primary source gives a per-player-hour figure. Derived estimate from OpenAI list prices
+  (stated as an estimate in realtime-voice-models limitations): about $9 per hour of 50/50 voice conversation at Oct 2024 rates,
+  about $3 at Aug 2025 rates, excluding context re-reads. On-device inference moves this cost to the player's GPU.
+  Uncertain facts: Hidden Door early access date is from a blog post title only; Total War PHARAOH advisor has no confirmed
+  release; Park 2024 GSS figure differs between the HAI brief (85%) and the later arXiv abstract (83-86% by condition);
+  SIMA 2 numeric success rates were not readable from the paper text.

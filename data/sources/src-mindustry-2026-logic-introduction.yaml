@@ -1,0 +1,12 @@
+id: src-mindustry-2026-logic-introduction
+type: source
+name: 'Mindustry Logic: Introduction'
+kind: docs
+venue: Mindustry Wiki
+date: '2026'
+url: https://mindustrygame.github.io/wiki/logic/0-introduction/
+accessed: '2026-10-24'
+notes: Mindustry Logic (mlog) was added in v6; it is assembly-like with one operation per instruction
+  and can control buildings and turrets, read and write memory cells, and read switch input.
+provenance:
+  created: 2026-10-24-catalog-gh

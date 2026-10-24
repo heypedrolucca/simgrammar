@@ -1,10 +1,111 @@
 id: bitburner
 type: game
 name: Bitburner
-summary: TODO
+summary: A free, open-source incremental hacking game in which the player writes JavaScript scripts that
+  hack, grow, and weaken simulated servers for money, then spends it with faction reputation on augmentations
+  that reset progress in exchange for permanent multipliers.
 year: 2017
-developer: danielyxie
+year_full_release: 2021
+developer: danielyxie and Bitburner contributors
+platforms:
+- web
+- pc
 subgenre: programming-sim
-status: asserted
+sim_domain:
+- computational-abstract
+- economic
+player_role: programmer
+agency_model:
+- programmatic
+time_model: real-world-clock
+sim_scale: individual
+fidelity: abstract
+perspective: text-ui
+win_structure: campaign
+failure_model: none
+narrative_mode: authored
+multiplayer:
+- single
+modding: scripting
+production_tier: hobbyist
+agent_count_order: none
+emergence: 2
+influence: 1
+boundary_case: true
+core_loop: write a script -> gain root on servers -> run hack, grow, and weaken threads -> earn money
+  and hacking experience -> buy RAM and programs -> gain faction reputation -> buy augmentations and install
+  them, resetting progress -> destroy a BitNode for a Source-File and start the next
+design_notes: 'Bitburner is an incremental game whose economy is a small numerical model the player automates
+  in code. Each server holds a money stock and a security level: hack() steals a percentage of the money
+  and raises security, grow() multiplies money back and also raises security, and weaken() lowers security
+  toward a floor of max(1, round(starting security / 3)), with hack chance and timing set by security
+  and the player''s hacking level. Writing schedulers that balance these three calls across many servers
+  and threads is the main skill. Progress is layered by resets: augmentations bought with money and faction
+  reputation (each purchase doubling later prices) take effect only when installed, which wipes most progress,
+  and destroying a BitNode by hacking w0r1d_d43m0n at hacking level 3000 resets further but grants a permanent
+  Source-File. This prestige-reset structure has no taxonomy entry, so this run proposed one. Later BitNodes
+  add systems such as Bladeburner and sleeves.'
+mechanics:
+- id: player-programming
+  role: core
+  note: Netscript scripts in JavaScript run on servers whose RAM caps how many threads can run; the TIX
+    API automates stock trading, and a beginner path teaches programming from scratch.
+- id: resource-extraction
+  role: core
+  note: hack() takes a share of a server's finite money that rises with hacking level and falls with security;
+    grow() restores money and weaken() lowers security toward its floor, and both hack and grow raise
+    security, so sustained yield needs a balanced hack-grow-weaken schedule.
+- id: reputation
+  role: core
+  note: Working for factions builds reputation that gates which augmentations can be bought; Daedalus
+    reputation gates The Red Pill needed to end a BitNode.
+- id: agent-skills
+  role: supporting
+  note: Hacking, combat, and charisma stats rise with use; hacking level raises success chance and money
+    stolen, shortens hack time, and gates which servers can be hacked.
+- id: supply-demand-pricing
+  role: supporting
+  note: Stock prices move about every 6 seconds by a forecast probability that large trades shift; hacking
+    or growing a company's server can lower or raise its stock's hidden forecast.
+- id: contracts-orders
+  role: supporting
+  note: Coding contracts found on servers pose programming problems that earn rewards when solved.
+- id: real-time-clock
+  role: supporting
+  note: Time spent offline accumulates and later speeds stock-market updates from about every 6 seconds
+    to about every 4.
+- id: execution-budget
+  role: supporting
+  note: Each script has a RAM cost, and a server's RAM caps how many script threads can run on it, so
+    buying RAM and writing lean scripts both raise income.
+influenced_by: []
+claims:
+- text: The earliest dated changelog entry is v0.26.4 on 2017-08-01 and earlier versions are undated,
+    so the 2017 first public web release is inferred; version 1.0.0 is dated 2021-11-10 and the Steam
+    release was 2021-12-10.
+  sources:
+  - src-bitburner-2026-changelog-v0
+  - src-bitburner-2026-changelog-v1
+  - src-steam-2026-bitburner
+  confidence: medium
+- text: Bitburner was started by danielyxie and is now developed as open source by hundreds of contributors,
+    with the Steam release credited to Fulcrum Games, hydroflame, and GitHub contributors.
+  sources:
+  - src-danielyxie-2026-bitburner-repository
+  - src-steam-2026-bitburner
+  confidence: high
+- text: Its listed inspirations are Else Heart.break(), Hacknet, Uplink, and Deus Ex, none of which are
+    in this dataset.
+  sources:
+  - src-mobygames-2026-bitburner
+  confidence: medium
+sources:
+- src-steam-2026-bitburner
+- src-danielyxie-2026-bitburner-repository
+- src-bitburner-2026-changelog-v0
+- src-bitburner-2026-changelog-v1
+- src-oddiz-2026-bitburner-docs
+- src-mobygames-2026-bitburner
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gh

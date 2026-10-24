@@ -1,0 +1,19 @@
+id: src-wang-2020-enhanced-poet
+type: source
+name: 'Enhanced POET: Open-Ended Reinforcement Learning through Unbounded Invention of Learning Challenges
+  and their Solutions'
+kind: preprint
+authors:
+- Rui Wang
+- Joel Lehman
+- Aditya Rawal
+- Jiale Zhi
+- Yulun Li
+- Jeff Clune
+- Kenneth O. Stanley
+venue: arXiv
+date: '2020-03-19'
+arxiv: '2003.08536'
+accessed: '2026-10-24'
+provenance:
+  created: 2026-10-24-techniques-rl-design

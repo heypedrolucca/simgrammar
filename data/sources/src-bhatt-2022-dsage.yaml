@@ -1,0 +1,15 @@
+id: src-bhatt-2022-dsage
+type: source
+name: Deep Surrogate Assisted Generation of Environments
+kind: preprint
+authors:
+- Varun Bhatt
+- Bryon Tjanaka
+- Matthew C. Fontaine
+- Stefanos Nikolaidis
+venue: arXiv
+date: '2022-06-09'
+arxiv: '2206.04199'
+accessed: '2026-10-24'
+provenance:
+  created: 2026-10-24-techniques-rl-design

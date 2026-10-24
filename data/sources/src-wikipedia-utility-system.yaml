@@ -1,0 +1,15 @@
+id: src-wikipedia-utility-system
+type: source
+name: Utility system
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Utility_system
+accessed: '2026-10-24'
+notes: Utility AI scores candidate actions and picks the best or a weighted random one; The Sims combined needs with object
+  scores; The Sims 3 used a modified Boltzmann distribution whose temperature rises when a Sim is doing poorly (Richard Evans);
+  response curves (Dave Mark); Infinite Axis Utility System (Mark and Lewis, GDC 2015).
+provenance:
+  created: 2026-10-24-taxonomy-m3

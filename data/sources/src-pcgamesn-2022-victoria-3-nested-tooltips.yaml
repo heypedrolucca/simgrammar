@@ -1,0 +1,13 @@
+id: src-pcgamesn-2022-victoria-3-nested-tooltips
+type: source
+name: Victoria 3 nested tooltip system
+kind: news
+venue: PCGamesN
+date: '2022'
+url: https://www.pcgamesn.com/victoria-3/nested-tooltip-system
+accessed: '2026-10-24'
+notes: Reports that Victoria 3 adopts the nested tooltip system introduced in Crusader Kings III, where highlighted terms
+  inside a tooltip open further tooltips. Title paraphrased from the page; year inferred from the article saying Victoria
+  3 was expected that year.
+provenance:
+  created: 2026-10-24-taxonomy-m6

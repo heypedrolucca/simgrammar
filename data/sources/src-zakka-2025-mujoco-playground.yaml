@@ -1,0 +1,19 @@
+id: src-zakka-2025-mujoco-playground
+type: source
+name: MuJoCo Playground
+kind: paper
+authors:
+- Kevin Zakka
+- Baruch Tabanpour
+- Qiayuan Liao
+- Mustafa Haiderbhai
+- et al.
+venue: 'Robotics: Science and Systems 2025'
+date: '2025-02-12'
+url: https://arxiv.org/abs/2502.08844
+arxiv: '2502.08844'
+accessed: '2026-10-24'
+notes: MJX-based open-source suite; policies trained in minutes on a single GPU; zero-shot sim-to-real
+  for quadrupeds, humanoids, hands; RSS 2025 outstanding demo paper.
+provenance:
+  created: 2026-10-24-techniques-sim-math

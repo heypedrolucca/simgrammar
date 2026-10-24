@@ -1,0 +1,19 @@
+id: src-sreenivas-2024-minitron
+type: source
+name: 'LLM Pruning and Distillation in Practice: The Minitron Approach'
+kind: preprint
+authors:
+- Sharath Turuvekere Sreenivas
+- Saurav Muralidharan
+- et al.
+- Bryan Catanzaro
+venue: arXiv
+date: '2024-08-21'
+url: https://arxiv.org/abs/2408.11796
+arxiv: '2408.11796'
+accessed: '2026-10-24'
+notes: 'Depth and width pruning plus distillation: Llama 3.1 8B to 4B and Mistral NeMo 12B to Mistral-NeMo-Minitron-8B;
+  slight teacher fine-tuning on the distillation set helps when original data is unavailable; weights
+  released.'
+provenance:
+  created: 2026-10-24-techniques-llm-agents

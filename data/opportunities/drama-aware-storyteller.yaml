@@ -1,0 +1,48 @@
+id: drama-aware-storyteller
+type: opportunity
+name: Drama-aware storyteller
+summary: A storyteller that models characters' arcs and relationships, not only threat budgets, choosing
+  authored incidents that create meaningful stakes for specific colonists.
+opportunity_type: mechanic-upgrade
+thesis: 'RimWorld''s storytellers select incidents mostly by threat budget and timing. They create tension
+  but not arcs: they do not know that two colonists are estranged siblings or that the doctor is the colony''s
+  only hope. A model that reads relationship and memory state can score candidate incidents by narrative
+  relevance while the incidents themselves stay authored and rules-bound, adding arc awareness without
+  surrendering control to generation.'
+design_sketch: 'Each candidate incident from the authored deck is scored on threat budget plus a narrative
+  score: which characters it involves, whether it resolves or escalates an open thread, and whether it
+  pays off a setup. The chosen incident is logged with the narrative reason, readable in the chronicle.'
+involves:
+- storyteller-director
+- triggered-event-chains
+- relationship-values
+- memories-thoughts
+- history-chronicle
+applies:
+- llm-game-master
+- constrained-decoding
+precedent:
+- rimworld
+- crusader-kings-3
+- frostpunk
+- this-war-of-mine
+novelty: 3
+feasibility: 4
+impact: 3
+horizon: now
+key_risks:
+- Players perceive arc-shaped events as rigged.
+- Narrative scoring adds latency at incident time.
+- Arcs can repeat across runs if scoring is too deterministic.
+validation_experiment: 'Add narrative scoring to an incident deck in a colony prototype; run blind playthroughs
+  and ask players to recount their run a week later. Success: players recall more named characters and
+  causal links with the narrative storyteller.'
+falsifiable_signal:
+  prediction: A colony sim or survival management game will ship an event director that uses a language
+    model to evaluate narrative state when choosing authored events.
+  resolve_by: '2028-06-30'
+  criteria: Developer documentation describing model-based narrative scoring in event selection.
+sources: []
+status: asserted
+provenance:
+  created: 2026-10-24-synthesis

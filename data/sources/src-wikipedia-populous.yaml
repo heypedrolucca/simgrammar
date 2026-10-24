@@ -1,0 +1,14 @@
+id: src-wikipedia-populous
+type: source
+name: Populous (video game)
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Populous_(video_game)
+accessed: '2026-10-24'
+notes: Bullfrog, designed by Peter Molyneux, Amiga March 1989; raising and lowering land is the basic power; mana comes from
+  followers building houses; more mana unlocks earthquakes, floods, swamps, volcanoes, and knights.
+provenance:
+  created: 2026-10-24-taxonomy-m6

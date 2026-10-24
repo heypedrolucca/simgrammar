@@ -1,0 +1,15 @@
+id: src-brown-2019-pluribus
+type: source
+name: Superhuman AI for multiplayer poker
+kind: paper
+authors:
+- Noam Brown
+- Tuomas Sandholm
+venue: Science 365:885-890
+date: '2019-07-11'
+doi: 10.1126/science.aay2400
+accessed: '2026-10-24'
+notes: Pluribus beat professionals in six-player no-limit hold'em with a self-play blueprint plus real-time
+  search.
+provenance:
+  created: 2026-10-24-techniques-rl-design

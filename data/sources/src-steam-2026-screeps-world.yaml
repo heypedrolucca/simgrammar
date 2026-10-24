@@ -1,0 +1,13 @@
+id: src-steam-2026-screeps-world
+type: source
+name: 'Screeps: World'
+kind: store-page
+venue: Steam
+date: '2026'
+url: https://store.steampowered.com/app/464350
+accessed: '2026-10-24'
+notes: Screeps, LLC; released 2016-11-16; Windows, macOS, Linux; 24/7 MMO world where scripts keep running
+  offline; JavaScript plus C/C++, Rust, TypeScript, Go, and C# via WebAssembly; 20 CPU starter limit with
+  CPU unlocks; official shards tick every 2-5 s; open-source private server.
+provenance:
+  created: 2026-10-24-catalog-gh

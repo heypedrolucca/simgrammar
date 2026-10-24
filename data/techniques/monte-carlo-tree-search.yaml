@@ -1,0 +1,90 @@
+id: monte-carlo-tree-search
+type: technique
+name: Monte Carlo tree search for game AI
+aliases:
+- MCTS
+- UCT
+- information-set MCTS
+summary: A best-first search that grows a game tree from repeated simulated playouts and picks branches
+  with a bandit rule such as UCT, letting AI players plan from a forward model without a hand-tuned evaluation
+  function.
+category: game-theoretic-solvers
+year: 2006
+mechanism: 'Each iteration has four steps. Selection descends from the root by a tree policy; UCT picks
+  the child that maximizes mean reward plus c*sqrt(ln N / n), trading exploitation against exploration.
+  Expansion adds an untried child. Simulation plays forward from that node with a cheap default policy
+  (random or heuristic) to a terminal state or depth limit. Backpropagation adds the outcome to the visit
+  count and value of every node on the path. The search is anytime: it stops after an iteration count
+  or time budget and returns the most-visited action. It needs only a forward model that can copy a state,
+  list legal actions, and apply them, so it works for rule sets without a known evaluation function. Variants
+  add chance nodes, determinization or information-set trees for hidden information, simultaneous moves,
+  and macro-actions that search over plans instead of single moves.'
+key_results:
+- text: Kocsis and Szepesvari introduced UCT, applying the UCB1 bandit rule to node selection in Monte
+    Carlo planning (ECML 2006); Coulom coined the name Monte Carlo tree search the same year.
+  sources:
+  - src-kocsis-2006-uct
+  - src-wikipedia-monte-carlo-tree-search
+  confidence: high
+- text: A 2012 survey in IEEE TCIAIG catalogued MCTS variants, enhancements, and applications in board,
+    card, and video games after its first six years.
+  sources:
+  - src-browne-2012-mcts-survey
+  confidence: medium
+- text: 'Total War: Rome II used MCTS in its high-level campaign AI, and Fable Legends used real-time
+    MCTS for tactical planning (2015 talk).'
+  sources:
+  - src-wikipedia-monte-carlo-tree-search
+  confidence: medium
+maturity: shipped-niche
+trl: 7
+runtime:
+- client-realtime
+determinism_impact: mitigable
+horizon: now
+risks:
+- latency
+- controllability
+- legibility
+affects:
+- id: utility-action-selection
+  effect: replaces-substrate
+  note: Agents choose actions by sampling futures from the game's forward model and backing up outcomes,
+    instead of scoring one-step options with hand-tuned utility curves, so choices account for consequences
+    several actions ahead at a per-decision compute cost.
+- id: military-operations
+  effect: deepens
+  note: Tactical AI plans multi-unit action sequences within a time budget, as in Fable Legends' real-time
+    tactical planning, rather than following scripted doctrine; the iteration budget becomes a difficulty
+    lever.
+- id: faction-diplomacy
+  effect: deepens
+  note: 'AI factions can weigh war, peace, and alliance options by simulating future turns of the campaign,
+    the kind of high-level campaign decision Total War: Rome II gave to MCTS, so choices respond to the
+    actual strategic position instead of fixed opinion thresholds.'
+- id: rival-firms
+  effect: deepens
+  note: AI competitors can pick prices, expansions, and acquisitions by rolling the economic model forward,
+    so rival play adapts to the player's position and to rule changes without bespoke heuristics per market
+    rule.
+- id: delegation-to-ai
+  effect: deepens
+  note: Governors or managers given a subsystem can search over action sequences toward the player-set
+    goal with the same forward model, staying competent in rule configurations designers did not script
+    for.
+limitations:
+- Needs a fast, copyable forward model; a full simulation state with thousands of agents is expensive
+  to clone and step, so practical use usually requires an abstracted model or macro-actions.
+- Random playouts estimate value poorly in long-horizon systems with delayed consequences such as economies
+  and colony survival unless a heuristic rollout policy or evaluation function is supplied.
+- Time-budgeted search returns different moves on different hardware, which breaks replays and lockstep
+  multiplayer unless budgets are counted in iterations with seeded randomness.
+- Determinized search over hidden information averages over sampled worlds and can make choices that are
+  only good if it could see the hidden state (strategy fusion).
+sources:
+- src-kocsis-2006-uct
+- src-browne-2012-mcts-survey
+- src-wikipedia-monte-carlo-tree-search
+status: sourced
+provenance:
+  created: 2026-10-24-techniques-rl-design

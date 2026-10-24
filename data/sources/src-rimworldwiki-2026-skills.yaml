@@ -1,0 +1,15 @@
+id: src-rimworldwiki-2026-skills
+type: source
+name: Skills
+kind: encyclopedia
+authors:
+- RimWorld Wiki contributors
+venue: RimWorld Wiki
+date: '2026'
+url: https://rimworldwiki.com/wiki/Skills
+accessed: '2026-10-24'
+notes: Levels 0-20; XP to next level 1,000 at level 0 rising to 30,000 at 19; passion learning 35%, 100%, 150% and +8 or +14
+  mood during related work; decay above level 9 from 30 to 3,600 XP per day; daily cap 4,000 XP per skill, then gains x20%;
+  construction speed 50% plus 15% per level; incapable work types.
+provenance:
+  created: 2026-10-24-taxonomy-m3

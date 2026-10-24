@@ -1,10 +1,109 @@
 id: the-sims-3
 type: game
 name: The Sims 3
-summary: TODO
+summary: The third mainline Sims game, which places households in a seamless open neighborhood where unplayed
+  Sims keep living, and replaces personality sliders with up to five traits and mood with stacked moodlets.
 year: 2009
-developer: The Sims Studio
+developer: Maxis Redwood Shores
+platforms:
+- pc
+- console
+- handheld
+- mobile
 subgenre: life-sim
-status: asserted
+sim_domain:
+- domestic-personal
+- social-interpersonal
+player_role: caretaker
+agency_model:
+- direct-unit
+- indirect-incentive
+- zoning-placement
+time_model: real-time-pausable
+sim_scale: household
+fidelity: stylized
+perspective: free-3d
+win_structure: open-sandbox
+failure_model: permadeath
+narrative_mode: emergent
+multiplayer:
+- single
+modding: scripting
+production_tier: aaa
+agent_count_order: '100'
+emergence: 3
+influence: 3
+core_loop: pick traits and a lifetime wish -> moodlets from events stack into mood -> wishes and opportunities
+  appear -> act across the open town -> earn Lifetime Happiness for rewards -> story progression advances
+  other households
+design_notes: Neighborhoods are seamless worlds, so Sims walk between lots without loading screens on
+  PC, and Story Progression keeps households the player is not controlling aging, working, and forming
+  relationships. Personality is a set of up to five discrete traits that unlock and bias interactions,
+  and mood is the sum of moodlets, timed modifiers with named causes. Fulfilled wishes pay Lifetime Happiness
+  points spent on Lifetime Rewards, replacing the wants and fears of The Sims 2. Off-screen story progression
+  and wish generation are captured by the offscreen-life-progression and aspiration-wants mechanics.
+mechanics:
+- id: personality-traits
+  role: core
+  note: Adult Sims hold up to five traits chosen from a list, replacing the point sliders of earlier games;
+    traits add exclusive interactions and bias autonomous choices.
+- id: memories-thoughts
+  role: core
+  note: Moodlets are named, timed mood modifiers (for example Nauseous during pregnancy) whose sum sets
+    mood, which affects performance at work and school.
+- id: needs-decay
+  role: core
+  note: Six motives (Hunger, Bladder, Energy, Social, Hygiene, Fun) decay and spawn negative moodlets
+    when low.
+- id: smart-objects
+  role: supporting
+  note: Objects advertise motive, skill, and fun gains; traits bias which advertisements a Sim picks.
+- id: villager-requests
+  role: supporting
+  note: Opportunities arrive from neighbors, community lots, and jobs, such as skill requests or overtime,
+    and pay cash, raises, or relationship gains.
+- id: career-ladder
+  role: supporting
+  note: Twelve base careers that branch around level 6, plus part-time jobs; a performance style (Work
+    Hard, Take It Easy, Suck Up to Boss) trades mood against promotion speed.
+- id: agent-skills
+  role: supporting
+  note: Ten-level skills such as Logic, Cooking, Painting, Gardening, Writing, Guitar, Athletic, Handiness,
+    Charisma, and Fishing feed careers and opportunities.
+- id: lifecycle-aging
+  role: supporting
+  note: Seven life stages with an adjustable lifespan setting.
+- id: relationship-values
+  role: supporting
+- id: romance-family
+  role: supporting
+- id: social-exchanges
+  role: supporting
+  note: Conversation menus offer trait- and mood-gated interactions whose acceptance depends on relationship
+    state.
+- id: daily-schedules
+  role: supporting
+  note: Jobs and school run on fixed hours at rabbit-hole buildings, structuring each household's day.
+- id: free-placement
+  role: supporting
+  note: Build and Buy modes with Create-a-Style, which recolors walls, floors, objects, and clothing with
+    any pattern and material.
+- id: permadeath
+  role: supporting
+  note: Sims die of old age or of fire, starvation, drowning, or electrocution.
+- id: aspiration-wants
+  role: supporting
+  note: A Lifetime Wish is chosen at creation and short-term wishes appear from traits and events; fulfilled
+    wishes pay Lifetime Happiness points spent on Lifetime Rewards.
+- id: offscreen-life-progression
+  role: supporting
+  note: Story Progression keeps households the player is not controlling aging, working, forming relationships,
+    and moving around the open neighborhood; it can be switched off in the options.
+influenced_by:
+- the-sims-2
+sources:
+- src-wikipedia-the-sims-3
+- src-simswiki-2026-motive
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gc

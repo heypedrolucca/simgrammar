@@ -1,0 +1,15 @@
+id: src-totallyhuman-2025-steam-genai-count
+type: source
+name: The NEW Surprising Number of Steam Games that Use GenAI
+kind: tech-report
+authors:
+- Totally Human Media
+venue: Totally Human blog
+date: '2025-07-13'
+url: https://www.totallyhuman.io/blog/the-surprising-new-number-of-genai-games-on-steam
+accessed: '2026-10-24'
+notes: 7,818 Steam titles with generative AI disclosures, about 7% of about 114,126; about 1.1% a year
+  earlier; a little under 20% of 2025 releases; visual assets in about 60% of disclosures. Lower bound,
+  voluntary disclosures, counted via Steam API.
+provenance:
+  created: 2026-10-24-techniques-llm-agents

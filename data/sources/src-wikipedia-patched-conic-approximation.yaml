@@ -1,0 +1,15 @@
+id: src-wikipedia-patched-conic-approximation
+type: source
+name: Patched conic approximation
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Patched_conic_approximation
+accessed: '2026-10-24'
+notes: Spheres of influence reduce n-body motion to two-body conics joined at boundaries by matching position
+  and velocity; does not model Lagrange points; lists Kerbal Space Program as a spaceflight simulator
+  based on it.
+provenance:
+  created: 2026-10-24-taxonomy-m4

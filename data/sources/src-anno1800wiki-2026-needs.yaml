@@ -1,0 +1,13 @@
+id: src-anno1800wiki-2026-needs
+type: source
+name: "Needs"
+kind: encyclopedia
+authors:
+  - "Anno 1800 Wiki contributors"
+venue: "Anno 1800 Wiki (Fandom)"
+date: "2026"
+url: https://anno1800.fandom.com/wiki/Needs
+accessed: "2026-10-24"
+notes: "Basic needs raise inhabitants per house; luxury needs raise taxes and happiness; houses must be full to advance tiers; consumption measured per residence per second."
+provenance:
+  created: 2026-10-24-taxonomy-m1

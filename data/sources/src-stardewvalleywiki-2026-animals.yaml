@@ -1,0 +1,15 @@
+id: src-stardewvalleywiki-2026-animals
+type: source
+name: Animals
+kind: encyclopedia
+authors:
+- Stardew Valley Wiki contributors
+venue: Stardew Valley Wiki
+date: '2026'
+url: https://stardewvalleywiki.com/Animals
+accessed: '2026-10-24'
+notes: Friendship 0-1000 (petting +15, unfed -20); mood 0-255; mood under 70 may skip production, quality products need mood
+  150; unfed animals stop producing but do not die; nightly birth check 50% base then about 0.55% per animal; hay for winter;
+  open doors risk wild animal attacks.
+provenance:
+  created: 2026-10-24-taxonomy-m5

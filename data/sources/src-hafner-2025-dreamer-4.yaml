@@ -1,0 +1,16 @@
+id: src-hafner-2025-dreamer-4
+type: source
+name: Training Agents Inside of Scalable World Models
+kind: preprint
+authors:
+- Danijar Hafner
+- Wilson Yan
+- Timothy Lillicrap
+venue: arXiv
+date: '2025-09-29'
+arxiv: '2509.24527'
+accessed: '2026-10-24'
+notes: Dreamer 4 learns behavior by RL inside a world model trained mostly on unlabeled video; model runs
+  interactively on one GPU; first agent to obtain Minecraft diamonds from offline data only.
+provenance:
+  created: 2026-10-24-techniques-rl-design

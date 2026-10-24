@@ -1,0 +1,15 @@
+id: src-fair-2022-cicero
+type: source
+name: Human-level play in the game of Diplomacy by combining language models with strategic reasoning
+kind: paper
+authors:
+- Meta Fundamental AI Research Diplomacy Team (FAIR)
+venue: Science 378(6624):1067-1074
+date: '2022-11-22'
+doi: 10.1126/science.ade9097
+accessed: '2026-10-24'
+notes: 'Cicero: language model plus planning and RL; in 40 games of an anonymous online league it scored
+  more than double the human average and ranked in the top 10% of participants who played more than one
+  game.'
+provenance:
+  created: 2026-10-24-techniques-rl-design

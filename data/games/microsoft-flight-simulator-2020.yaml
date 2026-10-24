@@ -1,10 +1,73 @@
 id: microsoft-flight-simulator-2020
 type: game
 name: Microsoft Flight Simulator (2020)
-summary: TODO
+aliases:
+- MSFS 2020
+- Microsoft Flight Simulator
+summary: A flight sim that streams a photorealistic model of the whole Earth built from map and photogrammetry
+  data and flies aircraft through live weather with a surface-level aerodynamic model.
 year: 2020
 developer: Asobo Studio
+platforms:
+- pc
+- console
+- vr
 subgenre: flight-sim
-status: asserted
+sim_domain:
+- physical-mechanical
+- planetary-natural
+player_role: operator-pilot
+agency_model:
+- direct-avatar
+time_model: real-time-pausable
+sim_scale: individual
+fidelity: high-fidelity
+perspective: first-person
+win_structure: open-sandbox
+failure_model: hard-restart
+narrative_mode: none
+multiplayer:
+- single
+- coop
+modding: scripting
+production_tier: aaa
+agent_count_order: '100'
+emergence: 2
+influence: 3
+core_loop: pick aircraft, airport, and time -> preflight and start up -> take off into live or set weather
+  -> navigate and hand-fly or use autopilot -> approach and land -> pick the next flight
+design_notes: 'The world is data rather than authored terrain: Bing Maps imagery refreshed every 28 days,
+  Blackshark.ai photogrammetry, and Azure AI 3D generation streamed from more than two petabytes, with
+  Meteoblue weather and real air traffic fed in live. The flight model simulates over 1,000 control surfaces
+  and wind over terrain, and a legacy model is kept as an option. No mechanic in the taxonomy covers simulation
+  state driven by real-world data feeds (proposed as real-world-data-feeds).'
+mechanics:
+- id: flight-aerodynamics
+  role: core
+  note: The physics engine computes forces over more than 1,000 control surfaces and models wind flowing
+    over terrain; a legacy flight model option remains.
+- id: weather
+  role: core
+  note: Meteoblue live global weather sets clouds, wind, and precipitation in real time, and wind interacts
+    with the terrain model.
+- id: embodied-skill-control
+  role: supporting
+- id: procedural-checklists
+  role: supporting
+- id: day-night-cycle
+  role: supporting
+- id: scenario-objectives
+  role: supporting
+- id: modding-api
+  role: supporting
+  note: An in-game marketplace and third-party aircraft and airports extend the sim.
+- id: real-world-data-feeds
+  role: core
+  note: The whole Earth is built from Bing Maps imagery updated every 28 days and AI-generated 3D content
+    streamed from more than two petabytes in the cloud, while Meteoblue live weather and live air traffic
+    feed the sim at runtime.
+sources:
+- src-wikipedia-microsoft-flight-simulator-2020
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gf

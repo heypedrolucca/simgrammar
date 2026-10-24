@@ -1,0 +1,12 @@
+id: src-wube-2016-fff-170-blueprint-library
+type: source
+name: 'Friday Facts #170 - Blueprint library GUI design and redesign'
+kind: tech-report
+venue: Factorio blog (Wube Software)
+date: '2016-12-23'
+url: https://www.factorio.com/blog/post/fff-170
+accessed: '2026-10-24'
+notes: 'Blueprint library design: personal blueprints persist across saves and are shared with other players in multiplayer;
+  separate save-specific game blueprints; blueprints dragged to the hotbar like items. Described as work in progress.'
+provenance:
+  created: 2026-10-24-taxonomy-m6

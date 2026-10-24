@@ -1,0 +1,14 @@
+id: src-roblox-2025-cube
+type: source
+name: 'Cube: A Roblox View of 3D Intelligence'
+kind: preprint
+authors:
+- Roblox Foundation AI Team
+date: 2025-03
+url: https://arxiv.org/abs/2503.15475
+arxiv: '2503.15475'
+accessed: '2026-10-24'
+notes: 3D shape tokenizer as foundation for Roblox developers; text-to-shape, shape-to-text, text-to-scene;
+  LLM integration for scene reasoning.
+provenance:
+  created: 2026-10-24-techniques-world-models

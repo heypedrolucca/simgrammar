@@ -1,8 +1,63 @@
 id: soft-body-deformation
 type: mechanic
 name: Soft-body deformation
-summary: Objects deform under stress via node-beam or finite-element models.
+aliases:
+- soft-body physics
+- node-beam physics
+- deformable bodies
+summary: Objects built from mass nodes and spring beams bend, crumple, and break under stress, and deformation
+  persists.
 family: physics-materials
-status: asserted
+substrate:
+- continuous-physics
+definition: 'An object is a network of nodes (point masses) linked by beams (massless springs with damping).
+  Each step every beam applies force from its length deviation and damping, nodes integrate, and collisions
+  push nodes. A beam whose force passes a deform threshold permanently changes its rest length, and one
+  that passes its strength breaks, so parts detach. In BeamNG.drive vehicles are authored in JBeam: nodes
+  have weight, beams have beamSpring (stiffness), beamDamp, beamDeform, and beamStrength. Beams do not
+  resist bending or twisting, so cross braces are needed for rigidity, and stiff beams on light nodes
+  vibrate or explode (the documentation''s example stabilizes a structure by raising nodes from 6 kg to
+  7 kg). Finite-element and position-based methods are alternatives.'
+player_experience: Visceral, readable damage. Crashes crumple metal where they hit, and the damage changes
+  how the vehicle drives. Players experiment with crashes as much as they drive.
+design_levers:
+- node density and placement
+- beam stiffness and damping per part
+- deform and break thresholds
+- physics step rate
+- which parts are soft and which are rigid or cosmetic
+- coupling of deformation to function, such as steering or engine damage
+failure_modes:
+- Stiff beams on light nodes vibrate or explode, so every structure needs stability tuning.
+- CPU cost per vehicle limits how many soft bodies can run at once.
+- Hand-building node-beam structures for every vehicle is a large authoring cost.
+- Too-soft settings make solid objects look like jelly.
+dynamics:
+- Damage changes handling, which changes driving, which causes more damage.
+- Crash testing becomes its own play style and community genre.
+- Deformed tires and suspension couple to grip and vehicle dynamics.
+math_basis:
+- continuum-mechanics
+- classical-mechanics
+feedback: none
+player_interface:
+- embodied-skill
+- direct-manipulation
+legibility: 4
+emergence_potential: 3
+authoring_cost: 3
+compute_cost: 4
+tuning_difficulty: 3
+ai_leverage: 3
+maturity: emerging
+synergy:
+- id: vehicle-dynamics
+  note: Deforming chassis change handling after impacts (BeamNG.drive).
+open_questions:
+- Can node-beam structures be generated automatically from a visual mesh and material labels?
+- Can learned deformation surrogates run many soft bodies at once on consumer hardware?
+sources:
+- src-beamng-2026-intro-jbeam
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m4

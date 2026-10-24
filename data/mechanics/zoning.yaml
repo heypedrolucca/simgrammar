@@ -1,8 +1,61 @@
 id: zoning
 type: mechanic
 name: Zoning
-summary: The player paints land-use zones, and agents or the market develop buildings within them.
+aliases:
+- land-use zoning
+- RCI zones
+- growables
+summary: The player paints land-use zones, and the simulation decides whether and what to build, upgrade,
+  or abandon on each zoned lot.
 family: space-construction
-status: asserted
+substrate:
+- cellular-grid
+- agent-based
+- rule-system
+definition: 'The player paints a land-use type, often with density, onto tiles or lots. A zone places
+  nothing by itself. Each update the simulation checks zoned lots and grows, upgrades, downgrades, or
+  abandons buildings based on demand, access, utilities, services, pollution, crime, and nearby uses.
+  In SimCity (1989) players zone residential, commercial, and industrial land, and the Sims choose what
+  to build and upgrade based on traffic, power, crime, and proximity to other buildings, so homes next
+  to a power plant seldom reach the highest grade. Cities: Skylines grows buildings in low- and high-density
+  zones along roads. Games without zoning, such as Anno, have the player place every house directly. State:
+  zone type per tile plus building level per lot.'
+player_experience: Indirect control. Players paint intent and watch a city grow into it, like gardening.
+  The main skill is diagnosing why a zone stalls or decays and fixing the conditions rather than the buildings.
+design_levers:
+- zone categories and density tiers
+- 'development rule: growth probability, thresholds, and upgrade conditions'
+- hard requirements such as road access, power, and water
+- lot size and shape rules
+- abandonment and decline rules
+- whether the player can also place specific buildings directly
+failure_modes:
+- Zones fail to develop with no visible reason, forcing players to hunt through overlays and demand meters.
+- Cheap zoning paint encourages over-zoning, leaving large empty tracts.
+- Uniform growth rules produce monotonous cities with little local character.
+dynamics:
+- City form emerges from the interaction of zones, transport, and land value rather than from direct design.
+- Nuisance uses push residential away, producing segregated districts and commute traffic.
+- Successful zones raise demand and land value, which invites more zoning, a growth loop until services
+  saturate.
+math_basis:
+- cellular-automata
+- system-dynamics
+feedback: reinforcing
+player_interface:
+- placement
+legibility: 3
+emergence_potential: 4
+authoring_cost: 3
+compute_cost: 2
+tuning_difficulty: 3
+ai_leverage: 3
+maturity: classic
+open_questions:
+- Can LLM-driven developer agents make zoned growth explain itself and vary by local character?
+- Can generated building assets end the repetition of growable buildings across a large city?
+sources:
+- src-wikipedia-simcity-1989
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m4

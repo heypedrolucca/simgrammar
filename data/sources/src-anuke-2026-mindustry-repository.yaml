@@ -1,0 +1,14 @@
+id: src-anuke-2026-mindustry-repository
+type: source
+name: Mindustry source repository
+kind: repository
+authors:
+- Anuken
+venue: GitHub
+date: '2026'
+url: https://github.com/Anuken/Mindustry
+accessed: '2026-10-24'
+notes: README describes 'The automation tower defense RTS, written in Java'; GPL-3.0; desktop, Android,
+  and server builds.
+provenance:
+  created: 2026-10-24-catalog-gh

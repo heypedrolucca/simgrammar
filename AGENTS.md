@@ -93,10 +93,11 @@ Names at least one mechanic in `involves`, has a `validation_experiment` a small
 | `{{table:<name>}}` | a table from `report/tables.yaml` or `dist/analysis/*.csv` |
 | `{{figure:<name>}}` | an SVG from `dist/analysis/figures/` |
 | `{{vocab:<vocab>:<term>}}` | a vocab label |
+| `{{assert:<stat> <op> <value>}}` | renders nothing; fails the build (E029) if false. Put one next to every sentence that interprets a ranking, sign, or ordering, e.g. `{{assert:rho_legibility_emergence_potential < 0}}` |
 | `[[id]]`, `[[id\|text]]` | link to an entity |
 | `[@src-id]`, `[@src-a; @src-b]` | numbered citation |
 
-Never type a dataset count ("140 games") into prose (E021). If you need a new statistic, add it to `scripts/analyze.py` (deterministic) in the same PR. If you need a new table view, add it to `report/tables.yaml`.
+Never type a dataset count ("140 games") into prose (E021). When a sentence interprets data ("X is the most exposed family", "the correlation is negative"), pin it with an assertion so the build fails if a later data change makes the sentence false. If you need a new statistic, add it to `scripts/analyze.py` (deterministic) in the same PR. If you need a new table view, add it to `report/tables.yaml`.
 
 ## 7. Never
 

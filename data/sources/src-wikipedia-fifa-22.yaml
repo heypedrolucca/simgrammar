@@ -1,0 +1,14 @@
+id: src-wikipedia-fifa-22
+type: source
+name: FIFA 22
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/FIFA_22
+accessed: '2026-10-24'
+notes: 'HyperMotion: 22 players in mocap suits for a full match; ML algorithm using over 8.7 million frames
+  of match capture generates animation in real time; PS5, Xbox Series X/S, Stadia only.'
+provenance:
+  created: 2026-10-24-techniques-world-models

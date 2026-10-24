@@ -1,0 +1,108 @@
+id: ml-weather-models
+type: technique
+name: Machine-learned weather forecasting
+aliases:
+- GraphCast
+- GenCast
+- Aurora
+- AIFS
+- FGN
+- WeatherNext
+- ML weather prediction
+summary: Neural networks trained on decades of atmospheric reanalysis forecast global weather 10-15 days
+  ahead in seconds to minutes on one accelerator, matching or beating physics-based operational models
+  on most verification targets.
+category: neural-physics
+year: 2023
+mechanism: Models take the current and recent atmospheric state on a global 0.25 degree latitude-longitude
+  grid (temperature, wind, humidity, pressure at many levels plus surface variables) and predict the state
+  one fixed step later; rolling the prediction forward gives a 10-15 day forecast. GraphCast maps grid
+  cells onto a multi-resolution icosahedral mesh and runs learned message passing there. GenCast is a
+  conditional diffusion model that samples stochastic trajectories in 12-hour steps, so repeated samples
+  form an ensemble with calibrated spread. FGN (2025) builds ensembles from learned model perturbations
+  trained on CRPS. Aurora is a 1.3B-parameter foundation model pretrained on over a million hours of geophysical
+  data and fine-tuned for air quality, ocean waves, cyclone tracks and 0.1 degree weather. Inference replaces
+  hours on a supercomputer with seconds to minutes on one accelerator.
+key_results:
+- text: GraphCast produced 0.25 degree, 10-day global forecasts in under one minute on one TPU v4 machine
+    and beat ECMWF HRES on over 90% of 1,380 verification targets.
+  sources:
+  - src-lam-2023-graphcast
+  - src-deepmind-2023-graphcast-blog
+  confidence: high
+- text: GenCast's 50-member diffusion ensembles were more skillful than ECMWF's ENS on 97.2% of 1,320
+    targets; one 15-day forecast took about 8 minutes on a Cloud TPU v5.
+  sources:
+  - src-price-2024-gencast
+  confidence: high
+- text: Aurora (1.3B parameters) matched or beat operational systems on 74% of air-quality targets, 86%
+    of ocean-wave variables and 92% of 0.1 degree weather targets, beat seven centres on 5-day cyclone
+    tracks, and ran about 100,000x faster than CAMS for air quality.
+  sources:
+  - src-bodnar-2025-aurora
+  confidence: high
+- text: ECMWF made its AIFS machine-learned model operational on 25 February 2025, reporting about 1,000x
+    less energy per forecast than its physics model, at 28 km grid spacing versus 9 km.
+  sources:
+  - src-ecmwf-2025-aifs-operational
+  confidence: high
+- text: FGN (2025) reported state-of-the-art ensemble skill and cyclone tracks while being trained only
+    on per-location targets.
+  sources:
+  - src-alet-2025-fgn
+  confidence: medium
+maturity: research
+trl: 3
+runtime:
+- offline-authoring
+- server-realtime
+determinism_impact: mitigable
+horizon: 3-5y
+risks:
+- compute-cost
+- controllability
+affects:
+- id: weather
+  effect: deepens
+  note: Weather becomes a coherent global field with fronts, cyclones and multi-day evolution across hundreds
+    of variables, instead of a per-region Markov chain of weather states.
+- id: forecasting
+  effect: enables-new
+  note: Ensembles (50 GenCast members) give calibrated probabilities, so an in-game forecast can carry
+    real uncertainty that players plan against and that occasionally misses honestly.
+- id: random-disasters
+  effect: deepens
+  note: Storms emerge from atmospheric state with forecastable tracks (Aurora beat operational centres
+    on 5-day cyclone tracks), turning disasters from dice rolls into threats with lead time.
+- id: pollution-spread
+  effect: deepens
+  note: Aurora's fine-tuned air-quality forecasts run about 100,000x faster than CAMS, a path to pollution
+    plumes transported by simulated wind at playable cost.
+- id: planetary-climate
+  effect: deepens
+  note: Earth-system foundation models fine-tuned to several domains suggest climate sims coupling atmosphere,
+    ocean waves and air chemistry, though they are trained for days-ahead weather, not decades.
+builds_on:
+- graph-network-simulators
+deployed_in: []
+limitations:
+- Trained on Earth's reanalysis record, so they reproduce Earth's atmosphere only; fictional planets,
+  altered geography or deliberate climate change lie outside the training data.
+- 'Grids are coarse for game maps: 0.25 degree (about 28 km at the equator), and operational AIFS runs
+  at 28 km.'
+- Inference needs an accelerator and gigabytes of weights (Aurora has 1.3B parameters), heavy for client-side
+  use.
+- Designers cannot author dramatic timing; the model follows the statistics of real weather, so pacing
+  must be imposed by selecting or conditioning forecasts.
+- Autoregressive rollouts are validated to 10-15 days; behavior over seasons or years is not established
+  by these sources.
+sources:
+- src-lam-2023-graphcast
+- src-deepmind-2023-graphcast-blog
+- src-price-2024-gencast
+- src-bodnar-2025-aurora
+- src-ecmwf-2025-aifs-operational
+- src-alet-2025-fgn
+status: sourced
+provenance:
+  created: 2026-10-24-techniques-sim-math

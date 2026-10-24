@@ -1,0 +1,15 @@
+id: src-wikipedia-dcs-world
+type: source
+name: DCS World
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/DCS_World
+accessed: '2026-10-24'
+notes: Eagle Dynamics; study sim with interactive cockpit switches; subsystems such as engines, fuel, electrical,
+  hydraulic, radios modeled; used by the USAF 355th Training Squadron as an A-10C instrument and weapons-systems
+  trainer.
+provenance:
+  created: 2026-10-24-taxonomy-m7

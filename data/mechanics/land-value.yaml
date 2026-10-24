@@ -1,9 +1,72 @@
 id: land-value
 type: mechanic
 name: Land value
+aliases:
+- desirability
+- property value
 summary: Each location's value is computed from nearby amenities, nuisances, and access, and it drives
   density and building upgrades.
 family: economy-finance
-status: asserted
+substrate:
+- cellular-grid
+- aggregate-stocks
+definition: 'Owns a value per tile or block, recomputed periodically from distance to centers, nearby
+  amenities and nature, and nuisances. In Micropolis, the open-source SimCity engine, each developed 2x2
+  block gets value = 4 x (34 - distance to the population-weighted center) + a bonus for nearby trees
+  and water - pollution, minus 20 where crime exceeds 190, clamped to 1-250. The value then drives residential
+  growth (value minus pollution, scaled and capped), picks which of four building quality tiers develops,
+  raises tax revenue through the city average, and lowers crime, which is computed as 128 - land value
+  + density - police coverage. SimCity 4 computes desirability separately for each wealth level, and Cities:
+  Skylines levels up buildings partly on land value raised by services and parks and lowered by pollution
+  and noise.'
+player_experience: Shaping neighborhoods. The player places parks, transit, and services to lift values,
+  keeps factories away from homes, and watches shabby blocks turn into towers. Checking the land value
+  overlay becomes a planning habit.
+design_levers:
+- components of the value formula (center distance, amenities, terrain, pollution, crime, noise) and their
+  weights
+- radius and falloff of each amenity or nuisance
+- smoothing and update frequency of the value field
+- thresholds that map value to building tiers, density, or wealth class
+- whether value feeds taxes, rents, or residents' wealth directly
+failure_modes:
+- Stacking cheap amenities such as parks in one spot maxes value and becomes a dominant pattern.
+- When the formula is visible only as an overlay color, players cannot tell which factor holds a block
+  back.
+- 'A strong distance-to-center term makes every city look the same: dense core, poor fringe.'
+dynamics:
+- Low value raises crime and crime lowers value, so neglected districts slide toward slums unless policing
+  or amenities break the loop.
+- Rising value upgrades buildings and density, which adds traffic and noise that cap further gains.
+- Value-based tax revenue rewards beautification, coupling aesthetics to the budget.
+math_basis:
+- cellular-automata
+- system-dynamics
+feedback: reinforcing
+player_interface:
+- placement
+- observation
+legibility: 3
+emergence_potential: 3
+authoring_cost: 1
+compute_cost: 2
+tuning_difficulty: 3
+ai_leverage: 2
+maturity: classic
+synergy:
+- id: zoning
+  note: Zones develop according to land value, so placement decisions compound over time.
+- id: service-coverage
+  note: Service coverage raises land value, rewarding complete coverage with density.
+- id: pollution-spread
+  note: Pollution depresses land value, creating the industrial-residential separation puzzle.
+open_questions:
+- Could a learned hedonic model trained on real property data give land values that feel like real cities,
+  and would players accept its opacity?
+- Can land value include speculation and expectations, not only current neighbors, without destabilizing
+  growth?
+sources:
+- src-hopkins-2008-micropolis
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m2

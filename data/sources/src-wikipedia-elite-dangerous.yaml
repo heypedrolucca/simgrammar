@@ -1,0 +1,15 @@
+id: src-wikipedia-elite-dangerous
+type: source
+name: Elite Dangerous
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Elite_Dangerous
+accessed: '2026-10-24'
+notes: Frontier Developments; backer alpha December 2013; full release 2014-12-16 (Windows); Xbox One 2015, PS4
+  2017; VR support; Stellar Forge 1:1 Milky Way of ~400 billion systems; Background Simulation of factions and economies;
+  Powerplay (2015); Solo, Private Group, Open modes; Odyssey 2021.
+provenance:
+  created: 2026-10-24-catalog-gg

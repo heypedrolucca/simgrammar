@@ -1,8 +1,68 @@
 id: opinion-modifiers
 type: mechanic
 name: Opinion modifiers
+aliases:
+- opinion breakdown
+- modifier stacks
 summary: Opinions are sums of named, decaying modifiers from events and traits, itemized for the player.
 family: social-relations
-status: asserted
+substrate:
+- rule-system
+- aggregate-stocks
+definition: 'Owns, for each observer-target pair, a list of named modifiers, each with a value, a source,
+  and an expiry or decay rate. Opinion is the clamped sum of static modifiers (shared traits, faith, dynasty,
+  attraction) and event modifiers (gifts, insults, broken promises), and the list is shown as a tooltip.
+  Event modifiers decay toward zero or expire; some are permanent. Crusader Kings III: most opinion decays
+  to 0, tyranny decays 0.25 per month, Friend gives +60 and Nemesis -120, Broke Truce -50 for 3 years,
+  faith hostility 0 to -30, Beautiful +30 attraction, and predecessor opinion is the only inheritable
+  kind. RimWorld pawn opinions are built the same way from social thoughts such as insulted (-15 for 20
+  days) and deep talk (+15). Europa Universalis IV caps nation opinion at +200 and -200 with itemized
+  reasons. Inputs: events, traits, relations. Outputs: one opinion number for AI decisions plus its legible
+  breakdown.'
+player_experience: 'The player reads exactly why someone likes or hates them and treats opinion as an
+  account: stacking small positives, waiting out a scandal, or choosing which grudge to pay off. Itemized
+  lists make social systems feel fair and gameable.'
+design_levers:
+- modifier catalog and magnitudes
+- decay or expiry per modifier and whether repeats diminish
+- clamp range and thresholds that change AI behavior
+- balance between static and event modifiers
+- which modifiers are hidden from the player
+failure_modes:
+- Additive stacking lets players farm cheap positives, such as repeated gifts or feasts, to override severe
+  grievances.
+- Long tooltip lists overwhelm, so players read only the total.
+- Linear sums ignore context, so a murderer can be liked if enough small bonuses stack.
+- Hidden modifiers that contradict the visible list break trust in the itemization.
+dynamics:
+- Players time requests around expiry, waiting for a negative modifier to lapse before asking a favor.
+- Shared static modifiers such as faith and culture create blocs whose opinions move together.
+- Modifier accounting turns relationships into economic decisions priced in gold or prestige.
+math_basis:
+- system-dynamics
+- social-network
+feedback: balancing
+player_interface:
+- observation
+legibility: 4
+emergence_potential: 3
+authoring_cost: 2
+compute_cost: 2
+tuning_difficulty: 3
+ai_leverage: 3
+maturity: established
+synergy:
+- id: triggered-event-chains
+  note: Events add named modifiers, and modifiers gate later events, chaining stories.
+open_questions:
+- Can modifiers be generated from free-form events described by a language model while keeping magnitudes
+  balanced and itemized?
+- Which nonlinear combination rules (per-category caps, context checks) keep opinions plausible without
+  losing legibility?
+sources:
+- src-paradoxwikis-2026-ck3-opinion
+- src-rimworldwiki-2026-social
+- src-paradoxwikis-2026-eu4-diplomacy
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m3

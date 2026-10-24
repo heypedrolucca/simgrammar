@@ -1,25 +1,26 @@
 id: rimworld
 type: game
 name: RimWorld
-summary: A colony sim where a few named colonists with needs, traits, injuries, and relationships survive on a frontier planet while a storyteller AI paces events.
+summary: A colony sim where a few named colonists with needs, traits, injuries, and relationships survive
+  on a frontier planet while a storyteller AI paces events.
 year: 2013
 year_full_release: 2018
 developer: Ludeon Studios
 platforms:
-  - pc
-  - console
+- pc
+- console
 subgenre: colony-sim
 subgenre_secondary:
-  - survival-sim
+- survival-sim
 sim_domain:
-  - social-interpersonal
-  - biological-ecological
-  - military-conflict
+- social-interpersonal
+- biological-ecological
+- military-conflict
 player_role: overseer
 agency_model:
-  - order-queue
-  - indirect-incentive
-  - direct-unit
+- order-queue
+- indirect-incentive
+- direct-unit
 time_model: real-time-pausable
 sim_scale: settlement
 fidelity: systemic
@@ -28,69 +29,76 @@ win_structure: open-sandbox
 failure_model: cascading-collapse
 narrative_mode: emergent
 multiplayer:
-  - single
+- single
 modding: total-conversion
 production_tier: indie
-agent_count_order: "10"
+agent_count_order: '10'
 emergence: 5
 influence: 4
-core_loop: designate work -> colonists self-assign by priority -> needs and moods shift -> storyteller injects events -> colony adapts or collapses
-design_notes: >-
-  Tynan Sylvester describes RimWorld as a story generator. Its systems are chosen for how legible and
-  story-relevant their outputs are rather than for realism: thoughts are itemized with sources and durations,
-  injuries are named body parts, and raids scale with colony wealth to keep tension.
+core_loop: designate work -> colonists self-assign by priority -> needs and moods shift -> storyteller
+  injects events -> colony adapts or collapses
+design_notes: 'Tynan Sylvester describes RimWorld as a story generator. Its systems are chosen for how
+  legible and story-relevant their outputs are rather than for realism: thoughts are itemized with sources
+  and durations, injuries are named body parts, and raids scale with colony wealth to keep tension.'
 mechanics:
-  - id: storyteller-director
-    role: core
-    note: Selectable storytellers (Cassandra, Phoebe, Randy) choose incidents using a threat budget derived from colony wealth and time since the last major event.
-  - id: needs-decay
-    role: core
-    note: Colonists track food, rest, recreation, comfort, beauty, and other needs whose levels feed mood.
-  - id: mood-breakdown
-    role: core
-    note: Mood below trait-adjusted break thresholds triggers minor, major, or extreme mental breaks; high mood can grant inspirations.
-  - id: memories-thoughts
-    role: core
-    note: Every mood effect is an itemized thought with a source and expiry, visible in the needs tab.
-  - id: work-priorities
-    role: core
-    note: A work tab matrix sets 1-4 priorities per colonist per job type; colonists self-assign.
-  - id: injury-body-model
-    role: core
-    note: Bodies are hierarchies of parts with hit points, bleeding, infection, scars, and prosthetics that change capacities like moving and manipulation.
-  - id: adaptive-threat-scaling
-    role: core
-    note: Raid strength scales with colony wealth, number of colonists, and difficulty, so growth raises danger.
-  - id: designation-orders
-    role: supporting
-  - id: personality-traits
-    role: supporting
-  - id: agent-skills
-    role: supporting
-  - id: relationship-values
-    role: supporting
-  - id: room-recognition
-    role: supporting
-  - id: decoration-beauty
-    role: supporting
-  - id: raid-defense
-    role: supporting
-  - id: crop-cultivation
-    role: supporting
-  - id: spoilage
-    role: supporting
-  - id: procedural-characters
-    role: supporting
-  - id: agent-inspection
-    role: supporting
-  - id: permadeath
-    role: supporting
-  - id: variable-speed
-    role: supporting
+- id: storyteller-director
+  role: core
+  note: Selectable storytellers (Cassandra, Phoebe, Randy) choose incidents using a threat budget derived
+    from colony wealth and time since the last major event.
+- id: needs-decay
+  role: core
+  note: Colonists track food, rest, recreation, comfort, beauty, and other needs whose levels feed mood.
+- id: mood-breakdown
+  role: core
+  note: Mood below trait-adjusted break thresholds triggers minor, major, or extreme mental breaks; high
+    mood can grant inspirations.
+- id: memories-thoughts
+  role: core
+  note: Every mood effect is an itemized thought with a source and expiry, visible in the needs tab.
+- id: work-priorities
+  role: core
+  note: A work tab matrix sets 1-4 priorities per colonist per job type; colonists self-assign.
+- id: injury-body-model
+  role: core
+  note: Bodies are hierarchies of parts with hit points, bleeding, infection, scars, and prosthetics that
+    change capacities like moving and manipulation.
+- id: adaptive-threat-scaling
+  role: core
+  note: Raid strength scales with colony wealth, number of colonists, and difficulty, so growth raises
+    danger.
+- id: designation-orders
+  role: supporting
+- id: personality-traits
+  role: supporting
+- id: agent-skills
+  role: supporting
+- id: relationship-values
+  role: supporting
+- id: room-recognition
+  role: supporting
+- id: decoration-beauty
+  role: supporting
+- id: raid-defense
+  role: supporting
+- id: crop-cultivation
+  role: supporting
+- id: spoilage
+  role: supporting
+- id: procedural-characters
+  role: supporting
+- id: agent-inspection
+  role: supporting
+- id: permadeath
+  role: supporting
+- id: variable-speed
+  role: supporting
+- id: autonomy-levels
+  role: supporting
+  note: Drafting switches a colonist from self-assigned work to direct player control for combat or emergencies.
 influenced_by:
-  - dwarf-fortress
+- dwarf-fortress
 sources:
-  - src-wikipedia-rimworld
+- src-wikipedia-rimworld
 status: sourced
 provenance:
   created: 2026-10-23-bootstrap

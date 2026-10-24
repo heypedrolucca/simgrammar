@@ -1,0 +1,13 @@
+id: src-brown-2018-libratus
+type: source
+name: 'Superhuman AI for heads-up no-limit poker: Libratus beats top professionals'
+kind: paper
+authors:
+- Noam Brown
+- Tuomas Sandholm
+venue: Science 359:418-424
+date: '2018-01-26'
+doi: 10.1126/science.aao1733
+accessed: '2026-10-24'
+provenance:
+  created: 2026-10-24-techniques-rl-design

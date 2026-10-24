@@ -1,0 +1,14 @@
+id: src-kemper-2024-genesis-430000x
+type: source
+name: Genesis speeds up AI robot training with simulations 430,000x faster than reality
+kind: news
+authors:
+- Jonathan Kemper
+venue: The Decoder
+date: '2024-12-26'
+url: https://the-decoder.com/genesis-speeds-up-ai-robot-training-with-simulations-430000x-faster-than-reality/
+accessed: '2026-10-24'
+notes: Reports the launch claim of up to 43 million FPS (430,000x real time) for simple scenes; notes
+  skepticism and that contact-rich dexterous scenes remain hard.
+provenance:
+  created: 2026-10-24-techniques-sim-math

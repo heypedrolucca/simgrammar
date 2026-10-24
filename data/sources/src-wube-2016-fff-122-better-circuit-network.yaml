@@ -1,0 +1,15 @@
+id: src-wube-2016-fff-122-better-circuit-network
+type: source
+name: 'Friday Facts #122 - Better Circuit Network I'
+kind: tech-report
+authors:
+- Robert (Wube Software)
+venue: Factorio blog (Wube Software)
+date: '2016-01-22'
+url: https://www.factorio.com/blog/post/fff-122
+accessed: '2026-10-24'
+notes: 'Factorio 0.13 circuit changes: lamps colored by color signals, roboports reporting logistic contents, requester chests
+  set from signals, more virtual signals; states a design principle of not adding new combinator types such as logic, bit,
+  or timer combinators.'
+provenance:
+  created: 2026-10-24-taxonomy-m6

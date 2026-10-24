@@ -1,10 +1,99 @@
 id: aurora-4x
 type: game
 name: Aurora 4X
-summary: TODO
-year: 2010
+aliases:
+- Aurora
+- C# Aurora
+summary: A free space 4X simulation by a single developer in which the player runs an interstellar empire
+  through ship design from components, mineral mining, sensor-based detection, missile and beam combat,
+  and named officers, with time advanced in steps from seconds to days.
+year: 2004
 developer: Steve Walmsley
+platforms:
+- pc
 subgenre: 4x-strategy
-status: asserted
+subgenre_secondary:
+- space-sim
+sim_domain:
+- cosmic-space
+- military-conflict
+- industrial-logistics
+player_role: ruler-statesman
+agency_model:
+- direct-unit
+- order-queue
+time_model: turn-based
+sim_scale: interplanetary
+fidelity: systemic
+perspective: text-ui
+win_structure: open-sandbox
+failure_model: soft-recoverable
+narrative_mode: emergent
+multiplayer:
+- single
+modding: none
+production_tier: hobbyist
+agent_count_order: '100'
+emergence: 4
+influence: 2
+core_loop: survey bodies and jump points -> mine Trans-Newtonian minerals and build installations -> research
+  components -> design ship classes -> build fleets and assign officers -> detect and fight with sensors,
+  missiles, and beams -> colonize and expand
+design_notes: Aurora began as a helper program for the Starfire board wargame and grew into a standalone
+  simulation with no fixed goals. It exposes almost every subsystem as windows of numbers, from mineral
+  accessibility to officer bonuses and ship maintenance. Time advances in player-chosen steps from 5 seconds
+  to 30 days, so the same engine resolves both strategic expansion and individual missile salvos. The
+  Visual Basic 6 original was superseded by a C# rewrite released in 2020.
+mechanics:
+- id: modular-assembly
+  role: core
+  note: Ship classes are designed from researched components (engines, sensors, weapons, armor), and the
+    player sets armor, speed, and range per class; weapons and sensors must themselves be researched and
+    designed first.
+- id: fog-of-war
+  role: core
+  note: Jump points and mineral deposits stay unknown until gravitational and geological survey sensors
+    sweep each body or survey point, and other ships are known only within sensor detection range.
+- id: deposit-depletion
+  role: core
+  note: Eleven Trans-Newtonian Elements sit in finite deposits on planets and asteroids, each with an
+    accessibility rating from 0.1 to 1 that scales mining output; all construction consumes them.
+- id: resource-extraction
+  role: supporting
+  note: Mines on colonies and asteroid mining extract the minerals.
+- id: tech-tree
+  role: supporting
+  note: Research labs are assigned to scientists with field specialties.
+- id: agent-skills
+  role: supporting
+  note: Scientists, administrators, naval officers, and ground commanders gain bonuses and improve over
+    time.
+- id: habitat-suitability
+  role: supporting
+  note: Colony cost depends on a world's gravity, atmosphere, and temperature.
+- id: planetary-climate
+  role: supporting
+  note: Terraforming alters a world's atmosphere to lower its colony cost.
+- id: procedural-terrain
+  role: supporting
+  note: Star systems are randomly generated or built from real star data.
+- id: budget-treasury
+  role: supporting
+  note: Wealth comes from taxes and exports and is spent on construction, research, and maintenance.
+- id: wear-breakdown
+  role: supporting
+  note: Ships require maintenance support, which can be disabled in setup.
+- id: turn-structure
+  role: supporting
+  note: The player chooses each time increment, from 5 seconds to 30 days, and the engine resolves movement,
+    detection, combat, and production for it.
+- id: real-world-data-feeds
+  role: supporting
+  note: Star systems can be built from real star data instead of generated at random.
+sources:
+- src-giantbomb-2026-aurora
+- src-wikipedia-starfire
+- src-metafilter-2020-aurora-csharp
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gi

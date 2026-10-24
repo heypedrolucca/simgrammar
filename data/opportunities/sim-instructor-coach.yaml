@@ -1,0 +1,51 @@
+id: sim-instructor-coach
+type: opportunity
+name: Simulator instructor coaching
+summary: Flight, driving, and procedure sims with a voice instructor that watches inputs and state, explains
+  mistakes, and adapts lessons in real time.
+opportunity_type: mechanic-upgrade
+thesis: Vehicle and job simulators teach through checklists and failure. Professional training uses instructors
+  who watch and talk. Realtime voice models, state-grounded explanation, and player modeling make an instructor
+  that comments on what the player is actually doing, with references to the simulator's telemetry, feasible
+  in consumer sims. The same tool serves professional training and lowers the entry barrier for the most
+  intimidating subgenres.
+design_sketch: During a landing, the instructor says 'airspeed 12 knots fast, reduce power' based on telemetry,
+  then debriefs with a timeline of deviations. Lessons adapt to repeated errors. The player can ask questions
+  mid-flight by voice.
+involves:
+- procedural-checklists
+- embodied-skill-control
+- flight-aerodynamics
+- vehicle-dynamics
+- diagnose-repair
+applies:
+- realtime-voice-models
+- llm-explanation-of-state
+- on-device-language-models
+precedent:
+- microsoft-flight-simulator-2024
+- iracing
+- dcs-world
+- x-plane
+- euro-truck-simulator-2
+novelty: 2
+feasibility: 4
+impact: 3
+horizon: now
+key_risks:
+- Wrong advice in safety-relevant domains if transferred to real training.
+- Voice latency during time-critical maneuvers.
+- Instructor chatter annoys experienced players.
+validation_experiment: 'Add a telemetry-grounded voice instructor to a flight sim landing lesson; compare
+  novice landing success after five attempts with and without the instructor. Success: at least 25 percent
+  higher success with no increase in reported frustration.'
+falsifiable_signal:
+  prediction: A major flight or racing simulator will ship an AI voice instructor that comments on live
+    telemetry.
+  resolve_by: '2027-12-31'
+  criteria: Official feature in Microsoft Flight Simulator, X-Plane, DCS, iRacing, Gran Turismo, or a
+    peer title.
+sources: []
+status: asserted
+provenance:
+  created: 2026-10-24-synthesis

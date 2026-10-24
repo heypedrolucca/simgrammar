@@ -1,0 +1,15 @@
+id: src-wikipedia-stardew-valley
+type: source
+name: Stardew Valley
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Stardew_Valley
+accessed: '2026-10-24'
+notes: ConcernedApe (Eric Barone), Windows release 2016-02-26, later consoles, handhelds, and mobile;
+  energy bar, four 28-day seasons, crops, animals, mines, five skills, 12 marriage candidates, Community
+  Center bundles, co-op multiplayer 2018, Harvest Moon inspiration.
+provenance:
+  created: 2026-10-24-catalog-gc

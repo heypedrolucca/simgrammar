@@ -1,0 +1,16 @@
+id: src-wikipedia-artificial-intelligence-in-video-games
+type: source
+name: Artificial intelligence in video games
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Artificial_intelligence_in_video_games
+accessed: '2026-10-24'
+notes: Steam requires disclosure of pre-generated and live-generated AI content (January 2024). ARC Raiders
+  (Nov 2025) criticized and marked down by Eurogamer for generative AI NPC voices. SAG-AFTRA video game
+  strike July 2024 to July 2025 ended with AI voice consent terms. Players criticized apparently AI-generated
+  dialogue in Where Winds Meet. Infinite Craft uses LLaMA.
+provenance:
+  created: 2026-10-24-techniques-llm-agents

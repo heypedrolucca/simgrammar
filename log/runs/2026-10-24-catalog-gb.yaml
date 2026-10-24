@@ -1,0 +1,111 @@
+id: 2026-10-24-catalog-gb
+type: run
+date: '2026-10-24'
+actor: agent
+operator: yoheinakajima
+agent:
+  model: claude-opus-5-5
+  harness: Claude app subagent
+purpose: Verify, characterize, and decompose colony, survival, and god games into mechanics.
+method: >-
+  Read AGENTS.md, CONTRACT.md sections 1-3, the game, common, source, and run schemas, every vocab file the game
+  schema references, rubrics.yaml, edge_types.yaml, and the rimworld exemplar. Verified first public release, 1.0 year,
+  developer, and platforms for all 17 games with WebFetch against English Wikipedia articles and, where Wikipedia was
+  thin, Steam store pages and the developer site (Bugbyte). Pulled mechanic specifics and numbers from community wikis:
+  Oxygen Not Included (morale, germs; existing thermal conductivity, liquid pipe, and natural gas generator sources),
+  Dwarf Fortress (stress; existing legends source), Prison Architect (needs), PZwiki (moodles), The Long Dark
+  (condition), Don't Starve (hounds; existing hunger and day-night sources), and Valheim (building stability). Reused
+  existing sources for dwarf-fortress, prison-architect, the-long-dark, oregon-trail, populous, and black-and-white
+  rather than duplicating them, and checked existence immediately before creating 30 new source files. Chose mechanics
+  only from the 168 ids listed by scripts/find.py --list mechanic, opening mechanic files where scope was unclear;
+  marked core only for identity-defining systems and wrote implementation notes using sourced numbers. Scored emergence
+  and influence against rubric anchors (Dwarf Fortress is the named anchor for 5 on both; Populous for influence 5 as
+  the first god game). Changed terra-nil subgenre from ecosystem-evolution to city-builder (secondary
+  ecosystem-evolution) because it is a reverse city builder with no population or evolution model, and marked subnautica
+  as a boundary case because its map, story, and progression are authored. WebSearch budget ran out partway; one late
+  Steam fetch hit the hourly fetch limit, so a few supporting details below rest on contributor knowledge.
+scope:
+  - data/games/dwarf-fortress.yaml
+  - data/games/oxygen-not-included.yaml
+  - data/games/prison-architect.yaml
+  - data/games/going-medieval.yaml
+  - data/games/space-haven.yaml
+  - data/games/kenshi.yaml
+  - data/games/the-long-dark.yaml
+  - data/games/this-war-of-mine.yaml
+  - data/games/project-zomboid.yaml
+  - data/games/dont-starve.yaml
+  - data/games/subnautica.yaml
+  - data/games/valheim.yaml
+  - data/games/oregon-trail.yaml
+  - data/games/populous.yaml
+  - data/games/black-and-white.yaml
+  - data/games/from-dust.yaml
+  - data/games/terra-nil.yaml
+  - data/sources/*
+contract_version: '1.0'
+proposals:
+  - kind: new-mechanic
+    target: housing-population-growth
+    detail: >-
+      Housing-driven population growth: each dwelling's size or quality sets a spawn or birth rate of new population
+      units, so the housing stock is the population growth rate. Levers: growth rate per dwelling tier, housing cap,
+      what limits dwelling size (flat land, materials), and whether new units are individuals or aggregate counts. Used by
+      populous (flat land lets followers build larger houses, houses produce followers and mana) and black-and-white
+      (villagers assigned to start families). Distinct from lifecycle-aging (individual life stages) and
+      immigration-attractiveness (arrivals from outside).
+  - kind: new-mechanic
+    target: moral-alignment
+    detail: >-
+      Moral alignment: the player's acts accumulate on a good-evil axis that changes how NPCs respond, which options are
+      offered, and how the world is presented. Levers: which acts count and by how much, decay toward neutral, threshold
+      effects, and whether the axis is visible. Used by black-and-white (land, interface, music, and followers change
+      with the god's alignment; good and evil advisors) and partly this-war-of-mine (morally weighted acts lower
+      survivors' mood). Distinct from reputation, which is standing with a specific faction or public.
+  - kind: new-mechanic
+    target: noise-attraction
+    detail: >-
+      Noise and stimulus attraction: player actions emit sound or light stimuli with a radius and decay, and hostile
+      agents that perceive them move toward the source, so stealth means managing emissions. Levers: emission radius per
+      action, perception thresholds, stimulus decay, and group following (hordes). Used by project-zomboid (zombies with
+      sight and hearing, migrating hordes, coughing from a cold attracts zombies) and this-war-of-mine (noise during
+      night scavenging). No current mechanic models agent perception of player-made stimuli; fog-of-war is about player
+      information.
+  - kind: new-mechanic
+    target: food-buff-slots
+    detail: >-
+      Food buff slots: eating fills a limited number of slots with time-limited boosts to maximum health, stamina, or
+      other stats instead of restoring a decaying need, so diet is an optimization rather than a threat. Levers: slot
+      count, buff size and duration by food, diminishing value as a buff expires, and whether repeats are allowed. Used by
+      valheim (three food slots raising maximum health and stamina; no starvation) and partly zelda-breath-of-the-wild
+      (cooked meal buffs). It does not fit survival-meters, which assumes stocks that deplete and kill.
+  - kind: new-mechanic
+    target: sanity-perception
+    detail: >-
+      Sanity and perception: a mental stock drains from darkness, horror, or unpleasant acts and, below thresholds,
+      changes what the world presents (hallucinations, hostile phantoms, unreliable UI). Levers: drain sources and rates,
+      restoration actions, threshold count, and whether phantoms can deal real damage. Used by dont-starve (sanity falls
+      at dusk and night, and below 15% shadow creatures attack). It currently sits awkwardly inside survival-meters, which
+      covers bodily stocks.
+  - kind: new-mechanic
+    target: journey-pacing
+    detail: >-
+      Journey pacing: a party travels along a fixed route of landmarks, and player-set pace and ration levels trade
+      distance per turn against consumption, health, and event risk. Levers: pace and ration tiers, route length and
+      landmark spacing, per-leg event tables, and resupply points. Used by oregon-trail (per-round consumption choice in
+      1971; pace, rations, forts, and river crossings in 1985); likely also The Banner Saga, Organ Trail, and FTL's sector
+      jumps. Currently split awkwardly across survival-meters, turn-structure, and random-disasters.
+notes: >-
+  All 17 games are complete with status sourced. Dates after mid-2025 were checked against both Wikipedia and the Steam
+  store page: going-medieval 1.0 2026-03-17, space-haven 1.0 2026-05-13, valheim 1.0 2026-09-09. Project Zomboid and
+  Dwarf Fortress have no 1.0 (Zomboid is still in early access; Dwarf Fortress's Steam edition is version 50+, not 1.0),
+  so neither has year_full_release. Don't Starve year is 2012 (public beta) with full release 2013. Facts not confirmed
+  by a fetched source, from contributor knowledge, medium confidence: Going Medieval structural integrity and
+  cool-cellar food storage; Valheim skill loss on death; Prison Architect bureaucracy research and power and water
+  networks; This War of Mine winter fuel demand, refusal or departure of broken survivors, and changing barter values;
+  Kenshi job lists; Populous papal magnet; Subnautica cooked-fish spoilage. Modding levels for the-long-dark, space-haven,
+  this-war-of-mine, and subnautica are de facto community levels and are low confidence. Kenshi may have sold a website
+  alpha before March 2013; I did not find a source, so year stays 2013. going-medieval influenced_by rimworld rests on
+  widespread press comparison (Wikipedia, Rock Paper Shotgun) rather than a developer statement. Black & White's belief
+  and village conversion would fit the culture-religion-conversion proposal from catalog-gi; I mapped it to
+  reputation for now.

@@ -1,0 +1,15 @@
+id: src-wikipedia-simcity-1989
+type: source
+name: SimCity (1989 video game)
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/SimCity_(1989_video_game)
+accessed: '2026-10-24'
+notes: Released February 1989; goal-oriented, time-limited scenarios ending in win or loss, added at Broderbund's suggestion
+  to make it more like a traditional game; disasters including floods, tornadoes, fires, earthquakes, and monsters; Super
+  NES version adds advisor Dr. Wright who reports city problems.
+provenance:
+  created: 2026-10-24-taxonomy-m6

@@ -1,0 +1,15 @@
+id: src-steam-2026-kingdoms-and-castles
+type: source
+name: Kingdoms and Castles on Steam
+kind: store-page
+authors:
+- Lion Shield
+venue: Steam
+date: '2026'
+url: https://store.steampowered.com/app/569480/Kingdoms_and_Castles/
+accessed: '2026-10-24'
+notes: Lion Shield; 2017-07-20; each villager and resource individually simulated; layout raises happiness and attracts
+  residents; castle blocks stack into walls and towers, taller archer towers reach farther; vikings kidnap and burn,
+  dragon torches granaries; winter starvation, plague; Steam Workshop and level editor.
+provenance:
+  created: 2026-10-24-catalog-ga

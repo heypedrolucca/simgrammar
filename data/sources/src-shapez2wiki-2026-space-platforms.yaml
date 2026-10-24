@@ -1,0 +1,14 @@
+id: src-shapez2wiki-2026-space-platforms
+type: source
+name: Space Platforms
+kind: encyclopedia
+authors:
+- shapez 2 Wiki contributors
+venue: shapez 2 Wiki
+date: '2026'
+url: https://shapez2.wiki.gg/wiki/Space_Platforms
+accessed: '2026-10-24'
+notes: Space view chunks correspond to 20x20 machine-view areas; notches (1x4, three levels tall) carry
+  shapes, fluids, or wire signals between platforms; one notch handles up to 12 saturated belts.
+provenance:
+  created: 2026-10-24-catalog-gh

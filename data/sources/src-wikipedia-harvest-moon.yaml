@@ -1,0 +1,15 @@
+id: src-wikipedia-harvest-moon
+type: source
+name: Harvest Moon (video game)
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Harvest_Moon_(video_game)
+accessed: '2026-10-24'
+notes: Developer Amccus (Pack-In-Soft team of 8-10), Super Famicom Japan 1996-08-09 as Bokujo Monogatari;
+  daily watering, livestock care rules, bar open after dark, wife added as a goal; director Yasuhiro Wada's
+  three principles.
+provenance:
+  created: 2026-10-24-catalog-gc

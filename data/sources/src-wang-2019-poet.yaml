@@ -1,0 +1,16 @@
+id: src-wang-2019-poet
+type: source
+name: 'Paired Open-Ended Trailblazer (POET): Endlessly Generating Increasingly Complex and Diverse Learning
+  Environments and Their Solutions'
+kind: preprint
+authors:
+- Rui Wang
+- Joel Lehman
+- Jeff Clune
+- Kenneth O. Stanley
+venue: arXiv
+date: '2019-01-07'
+arxiv: '1901.01753'
+accessed: '2026-10-24'
+provenance:
+  created: 2026-10-24-techniques-rl-design

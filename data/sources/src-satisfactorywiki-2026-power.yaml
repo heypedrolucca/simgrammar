@@ -1,0 +1,15 @@
+id: src-satisfactorywiki-2026-power
+type: source
+name: Power
+kind: encyclopedia
+authors:
+- Satisfactory Wiki contributors
+venue: Satisfactory Wiki
+date: '2026'
+url: https://satisfactory.wiki.gg/wiki/Power
+accessed: '2026-10-24'
+notes: A grid trips when consumption exceeds production and Power Storage is empty, stopping every connected
+  building until the fuse is reset; buildings do not slow during shortages; Power Storage holds 100 MWh;
+  generators from 30 MW (Biomass Burner) to 2,500 MW (Nuclear Power Plant); idle buildings draw 0.1 MW.
+provenance:
+  created: 2026-10-24-catalog-gh

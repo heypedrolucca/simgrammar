@@ -1,0 +1,14 @@
+id: src-paradox-2023-cs2-traffic-ai
+type: source
+name: "Cities: Skylines II Feature Highlight #2: Traffic AI"
+kind: tech-report
+authors:
+  - "Colossal Order"
+  - "Paradox Interactive"
+venue: "Paradox Interactive"
+date: "2023-06-26"
+url: https://paradoxinteractive.com/games/cities-skylines-ii/features/traffic-ai
+accessed: "2026-10-24"
+notes: "Pathfinding cost combines time, comfort, money, and behavior; vehicles spread across lanes; parking fees enter route cost; citizens compare driving, transit, and walking; accident checks per road segment."
+provenance:
+  created: 2026-10-24-taxonomy-m1

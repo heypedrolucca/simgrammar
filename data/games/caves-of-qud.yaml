@@ -1,0 +1,74 @@
+id: caves-of-qud
+type: game
+name: Caves of Qud
+summary: A science-fantasy roguelike RPG with simulated factions, liquids, body parts, and procedurally generated histories, built partly with wave function collapse.
+year: 2015
+year_full_release: 2024
+developer: Freehold Games
+platforms:
+  - pc
+subgenre: rpg-sim
+sim_domain:
+  - social-interpersonal
+  - biological-ecological
+  - physical-mechanical
+player_role: inhabitant
+agency_model:
+  - direct-avatar
+time_model: turn-based
+sim_scale: individual
+fidelity: systemic
+perspective: top-down-2d
+win_structure: campaign
+failure_model: permadeath
+narrative_mode: hybrid
+multiplayer:
+  - single
+modding: scripting
+production_tier: indie
+agent_count_order: "100"
+emergence: 4
+influence: 2
+boundary_case: true
+core_loop: explore generated and handmade zones -> fight, trade, and talk with faction members -> mutate and equip -> uncover generated history -> go deeper
+design_notes: >-
+  A roguelike included for its simulation layers: faction reputation that every creature carries, liquids that mix
+  and flow, body-part anatomy, and procedurally generated sultan histories that the world refers to. It is a frequently
+  cited example of wave function collapse in a shipped game.
+mechanics:
+  - id: reputation
+    role: core
+    note: Every creature belongs to factions; the player's standing with each faction decides who attacks, trades, or talks.
+  - id: history-generation
+    role: core
+    note: Generated histories of past sultans are written into the world as lore, shrines, and quests.
+  - id: procedural-terrain
+    role: core
+    note: Zones mix handmade and procedural maps; some generators use wave function collapse.
+  - id: fluid-gas-simulation
+    role: supporting
+  - id: material-interactions
+    role: supporting
+  - id: injury-body-model
+    role: supporting
+  - id: permadeath
+    role: supporting
+  - id: turn-structure
+    role: supporting
+  - id: faction-diplomacy
+    role: supporting
+claims:
+  - text: Early access began 2015-07-15 and 1.0 released 2024-12-05, published by Kitfox Games.
+    sources:
+      - src-steam-2024-caves-of-qud
+    confidence: high
+  - text: Caves of Qud is among the shipped games listed as using wave function collapse.
+    sources:
+      - src-gumin-2016-wavefunctioncollapse
+    confidence: medium
+sources:
+  - src-steam-2024-caves-of-qud
+  - src-gumin-2016-wavefunctioncollapse
+status: sourced
+provenance:
+  created: 2026-10-24-catalog-additions

@@ -1,8 +1,74 @@
 id: data-overlays
 type: mechanic
 name: Data overlays
+aliases:
+- info views
+- map modes
+- data maps
+- heatmaps
 summary: Map layers visualize hidden variables such as land value, pollution, coverage, or traffic.
 family: information-legibility
+substrate:
+- ui-layer
+- cellular-grid
+definition: 'A map mode recolors the world by one per-cell, per-building, or per-segment field: land value,
+  pollution concentration, crime, service coverage, traffic volume or speed, power and water connectivity,
+  temperature, gas composition, germs, or political ownership. It owns no simulation state; it samples
+  a field and maps it through a color ramp or categorical palette, sometimes adding glyphs such as flow
+  arrows. Update rule: when active, sample the field each frame or on change and redraw; some games switch
+  an overlay on automatically when the player places a related building. Canonical forms: the data maps
+  of SimCity and SimCity 2000, Cities: Skylines info views, the oxygen, temperature, power, plumbing,
+  decor, and germ overlays of Oxygen Not Included, Factorio''s pollution cloud on the map view, and the
+  map modes of Europa Universalis IV.'
+player_experience: A hunch becomes a picture. The player sees the shape of a hidden field, such as a pollution
+  plume or a coverage gap, and responds spatially by moving, adding, or separating buildings. Overlays
+  are the main debugging tool for layout.
+design_levers:
+- which fields get an overlay, since exposing a field makes it an optimization target
+- continuous gradient versus thresholded bands
+- fixed absolute scale versus auto-normalized to the current map range
+- automatic display while placing a related building
+- instantaneous value versus time-averaged value
+- single overlay at a time versus composites, and colorblind-safe palettes
+failure_modes:
+- Auto-normalized color ramps make a minor problem look red and a severe one look identical.
+- Overlays without legends or units show where something is high but not how high.
+- Overlays of fields with hidden formulas, such as land value, show where but not why.
+- Red-green ramps are unreadable for many colorblind players.
+dynamics:
+- 'An exposed field becomes a painting target: players lay out coverage grids until no red remains.'
+- Visible spatial externalities push players toward land-use separation, such as industry far from housing.
+- In games with diffusing fields (heat, gas), overlays are how players discover emergent flows they did
+  not intend.
+math_basis:
+- probability-statistics
+feedback: none
+player_interface:
+- observation
+legibility: 4
+emergence_potential: 1
+authoring_cost: 2
+compute_cost: 2
+tuning_difficulty: 1
+ai_leverage: 2
+maturity: classic
+synergy:
+- id: pollution-spread
+  note: Overlays make invisible diffusion fields legible.
+- id: traffic-congestion
+  note: Traffic overlays turn congestion from a vague complaint into a located problem.
+- id: service-coverage
+  note: Coverage overlays show gaps that would otherwise surface only as complaints.
+- id: land-value
+  note: Land value maps are the canonical city-builder overlay.
+tension:
+- id: fog-of-war
+  note: Full-information overlays undercut hidden-information play; games must choose what to reveal.
+open_questions:
+- Can automated annotation of overlays (this plume originates from these three sources) close the gap
+  between where and why?
+- Which fields should stay without an overlay to preserve discovery and uncertainty?
+sources: []
 status: asserted
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m6

@@ -1,0 +1,15 @@
+id: src-wikipedia-the-powder-toy
+type: source
+name: The Powder Toy
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/The_Powder_Toy
+accessed: '2026-10-24'
+notes: Falling-sand game first released 2008 by Stanislaw Skowronek; maintained by GitHub contributors under GPLv3;
+  Windows, macOS, Linux, Android, Steam (2024); 258 elements as of February 2025; online save sharing with votes;
+  Lua scripting.
+provenance:
+  created: 2026-10-24-catalog-gg

@@ -1,8 +1,59 @@
 id: milestone-unlocks
 type: mechanic
 name: Milestone unlocks
-summary: Reaching thresholds such as population or output unlocks new content.
+aliases:
+- milestones
+- population tiers
+- progression thresholds
+summary: Reaching thresholds such as population, output, or score unlocks new buildings, areas, or features.
 family: progression-goals
+substrate:
+- rule-system
+- aggregate-stocks
+definition: >-
+  A milestone is a predicate over aggregate state (population at least 1,000, output of an item, cumulative revenue,
+  a tier of residents) paired with a set of unlocks. State owned: the ordered list of milestones and which are reached.
+  Update rule: periodically test the next milestones; on success, permanently unlock their content and notify the
+  player. Unlike research, the player spends nothing directly; progress is a side effect of growth. Canonical forms:
+  Cities: Skylines population milestones that unlock services, zoning types, policies, and map tiles; Anno resident
+  tiers whose population thresholds unlock new buildings. Satisfactory names its HUB unlocks milestones, but they
+  are paid for with item deliveries, which places them closer to a tech tree.
+player_experience: >-
+  Growth is rewarded with options. The player expands toward the next threshold, gets a burst of new tools, and
+  learns systems in the order the designer chose rather than all at once.
+design_levers:
+- 'threshold variable: population, output, money, or satisfaction'
+- spacing of thresholds, linear or geometric
+- which content is gated and in what order
+- whether milestones can be lost if the variable falls back
+- option to disable gating for sandbox play
+failure_modes:
+- Gating essential services, such as sewage or healthcare, behind milestones forces players to build broken cities
+  before they can fix them.
+- Thresholds hit too quickly flood the player with unexplained tools.
+- Thresholds placed far apart produce long stretches of growing without new decisions.
+dynamics:
+- Players inflate the gated variable artificially, such as dense cheap housing to reach a population tier, then
+  rebuild.
+- Milestone order shapes city or factory layout, since early buildings lock in space before later ones arrive.
+- As a tutorial pacing tool it teaches systems in sequence; experienced players disable it.
+math_basis:
+- system-dynamics
+feedback: reinforcing
+player_interface:
+- observation
+legibility: 5
+emergence_potential: 1
+authoring_cost: 2
+compute_cost: 1
+tuning_difficulty: 2
+ai_leverage: 2
+maturity: established
+open_questions:
+- Can milestones be selected adaptively from what the player has not yet engaged with, rather than fixed by the
+  designer?
+- Does gating by behavior (built a working transit line) teach better than gating by aggregate size?
+sources: []
 status: asserted
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m6

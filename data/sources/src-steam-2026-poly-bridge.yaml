@@ -1,0 +1,12 @@
+id: src-steam-2026-poly-bridge
+type: source
+name: Poly Bridge on Steam
+kind: store-page
+venue: Steam
+date: '2026'
+url: https://store.steampowered.com/app/367450/Poly_Bridge/
+accessed: '2026-10-24'
+notes: Release date 2016-07-12; Dry Cactus; Windows, macOS, Linux; physics bridge puzzles with resource limits;
+  multi-phase hydraulics controller; sandbox publishing levels to Workshop; GIF replays; Steam leaderboards.
+provenance:
+  created: 2026-10-24-catalog-gg

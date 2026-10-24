@@ -1,0 +1,15 @@
+id: src-emerson-2013-flow-field-tiles
+type: source
+name: Crowd Pathfinding and Steering Using Flow Field Tiles
+kind: book
+authors:
+- Elijah Emerson
+venue: Game AI Pro, ed. Steve Rabin, CRC Press (chapter 23)
+date: '2013'
+url: http://www.gameaipro.com/GameAIPro/GameAIPro_Chapter23_Crowd_Pathfinding_and_Steering_Using_Flow_Field_Tiles.pdf
+accessed: '2026-10-24'
+notes: 'Book and year from the hosting site and contributor knowledge. Supreme Commander 2: 10x10 m sectors linked by portals;
+  A* over the portal graph; 8-bit cost field with 255 for walls; integration field from the goal; shared flow field directions
+  for many units; dirty sectors rebuilt by a time-sliced queue; earlier per-unit repathing on collision compounded stalls.'
+provenance:
+  created: 2026-10-24-taxonomy-m3

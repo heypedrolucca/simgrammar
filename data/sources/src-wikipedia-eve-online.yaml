@@ -1,0 +1,15 @@
+id: src-wikipedia-eve-online
+type: source
+name: Eve Online
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Eve_Online
+accessed: '2026-10-24'
+notes: Single-universe MMO on the Tranquility server, taken offline daily for maintenance; player-driven economy;
+  real-time skill training while offline; corporations with CEO and roles, member taxes, weekly-fee war declarations,
+  alliances claiming null-sec sovereignty; Bloodbath of B-R5RB lasted 21 hours; CCP Games, 2003-05-06.
+provenance:
+  created: 2026-10-24-taxonomy-m7

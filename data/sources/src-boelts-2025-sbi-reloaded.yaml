@@ -1,0 +1,18 @@
+id: src-boelts-2025-sbi-reloaded
+type: source
+name: 'sbi reloaded: a toolkit for simulation-based inference workflows'
+kind: preprint
+authors:
+- Jan Boelts
+- Michael Deistler
+- Manuel Gloeckler
+- et al.
+- Jakob H. Macke
+date: '2024-11-26'
+url: https://arxiv.org/abs/2411.17337
+arxiv: '2411.17337'
+accessed: '2026-10-24'
+notes: 'PyTorch sbi package: neural posterior, likelihood and ratio estimators, diagnostics, amortized
+  inference; needs only simulator samples, no gradients.'
+provenance:
+  created: 2026-10-24-techniques-sim-math

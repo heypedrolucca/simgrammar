@@ -1,10 +1,64 @@
 id: populous
 type: game
 name: Populous
-summary: TODO
+summary: The first god game, in which the player raises and lowers land so followers can build and multiply, then spends the
+  mana they generate on disasters against a rival deity's people.
 year: 1989
 developer: Bullfrog Productions
+platforms:
+- pc
+- console
+- handheld
 subgenre: god-game
-status: asserted
+sim_domain:
+- planetary-natural
+- military-conflict
+player_role: god
+agency_model:
+- supernatural-intervention
+- indirect-incentive
+time_model: real-time
+sim_scale: region
+fidelity: abstract
+perspective: isometric
+win_structure: competitive-victory
+failure_model: hard-restart
+narrative_mode: none
+multiplayer:
+- single
+- competitive
+modding: none
+production_tier: indie
+agent_count_order: '100'
+emergence: 2
+influence: 5
+core_loop: raise and lower land to make flat ground -> followers settle and build houses -> houses breed followers and raise
+  mana -> spend mana on knights, earthquakes, swamps, volcanoes, and floods -> overwhelm the rival deity's followers
+design_notes: 'Populous established the god game by making terrain the player''s main tool and population the player''s currency:
+  flat land lets followers build larger houses, houses produce followers, and followers produce mana for powers, so shaping
+  the land is also running the economy. The landscape type of each world (desert, lava, snow and ice) changes how followers
+  develop. Population growth from housing has no mechanic id yet (proposal filed). The game ships 500 worlds, each won by
+  outgrowing and destroying the opposing population.'
+mechanics:
+- id: terraforming
+  role: core
+  note: Raising and lowering land is the basic power; its main use is creating flat ground on which followers can build larger
+    settlements.
+- id: god-powers
+  role: core
+  note: 'Mana from the follower population unlocks progressively stronger interventions: knights, earthquakes, swamps, volcanoes,
+    and floods.'
+- id: unit-commands
+  role: supporting
+  note: A papal magnet and behavior modes send followers to settle, gather, or fight.
+- id: habitat-suitability
+  role: supporting
+  note: Landscape type changes how followers develop.
+- id: scenario-objectives
+  role: supporting
+  note: 500 worlds, each won by defeating the enemy's followers.
+sources:
+- src-wikipedia-populous
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gb

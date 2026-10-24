@@ -1,8 +1,64 @@
 id: triggered-event-chains
 type: mechanic
 name: Triggered event chains
-summary: Authored event templates fire when state conditions hold and chain into multi-step stories.
+aliases:
+- scripted events
+- event chains
+- story events
+summary: Authored event templates fire when state conditions hold, and their outcomes schedule follow-up events that chain
+  into multi-step stories.
 family: narrative-generation
-status: asserted
+substrate:
+- rule-system
+- stochastic-events
+definition: >-
+  Each template holds a trigger predicate over state, a selection weight or mean time to happen, an immediate effect block,
+  options with effects, and calls that schedule follow-up events with delays. Hooks such as yearly pulses, births, or deaths
+  evaluate eligible templates and fire them. In Crusader Kings III, events do not fire on their own: on_actions, decisions,
+  or interactions call them; an on_action can fire a list of events, weighted random_events, or the first valid one; and trigger_event
+  schedules a follow-up such as days = { 7 14 } later, so a chain carries saved scopes and flags across months. Europa Universalis
+  IV and Stellaris use the same Paradox script family; Frostpunk and Banished use simpler condition-fired events. Unlike a
+  storyteller director, which paces generic incidents, chains carry authored story state forward. Inputs: state predicates
+  and flags. Outputs: effects, flags, and scheduled events.
+player_experience: >-
+  The simulation seems to notice what the player did. A rival's illness leads to a succession dispute, which leads to a war
+  invitation. Players feel stories unfolding from their situation, learn to set up conditions for chains they want, and dread
+  chains they recognize.
+design_levers:
+- 'trigger specificity: broad pulses versus narrow state predicates'
+- weights, mean time to happen, and random delay ranges between links
+- branching factor and how many chain steps carry state forward
+- whether follow-ups re-check conditions so chains can fail when the world changes
+- cooldowns and once-per-game flags that limit repetition
+failure_modes:
+- Players see the same chains every playthrough once the event pool is exhausted.
+- Chains ignore world changes made between links, producing contradictions such as an event about a ruler who has died.
+- Broad iteration in frequent pulses (the CK3 modding wiki warns against every_living_character in pulse on_actions) causes
+  late-game slowdown.
+- Authored text quality caps depth, because each branch must be written by hand.
+dynamics:
+- Chains link otherwise separate systems, such as health, inheritance, and war, into multi-year storylines.
+- Overlapping chains on the same characters produce compound situations that no single template described.
+- Modders extend event pools until mods conflict on shared hooks.
+math_basis:
+- markov-stochastic
+- computation-theory
+feedback: none
+player_interface:
+- choice-cards
+- observation
+legibility: 3
+emergence_potential: 3
+authoring_cost: 5
+compute_cost: 2
+tuning_difficulty: 3
+ai_leverage: 4
+maturity: classic
+open_questions:
+- Can a language model write follow-up links conditioned on the actual state reached, keeping chains coherent with world changes?
+- What fraction of authored chain content could be replaced by generated text while keeping effects hand-tuned?
+sources:
+- src-paradoxwikis-2026-ck3-event-modding
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m7

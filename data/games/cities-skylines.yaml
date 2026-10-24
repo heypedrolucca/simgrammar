@@ -1,10 +1,112 @@
 id: cities-skylines
 type: game
 name: 'Cities: Skylines'
-summary: TODO
+summary: A city builder in which road-following zones, agent citizens who route to work along computed
+  paths, district policies, and player-drawn transit lines make traffic flow the central design problem.
 year: 2015
 developer: Colossal Order
+platforms:
+- pc
+- console
+- handheld
 subgenre: city-builder
-status: asserted
+subgenre_secondary:
+- transport-logistics
+sim_domain:
+- urban
+- economic
+player_role: planner-mayor
+agency_model:
+- zoning-placement
+- policy-parameter
+time_model: real-time-pausable
+sim_scale: city
+fidelity: systemic
+perspective: free-3d
+win_structure: open-sandbox
+failure_model: soft-recoverable
+narrative_mode: emergent
+multiplayer:
+- single
+modding: scripting
+production_tier: aa
+agent_count_order: 10k-plus
+emergence: 4
+influence: 4
+core_loop: draw roads and zone along them -> citizens move in, commute, and shop along computed routes
+  -> population milestones unlock services and map tiles -> set district policies, taxes, and budgets
+  -> fix traffic with road hierarchy and transit -> expand
+design_notes: Colossal Order carried the road and transit systems of its Cities in Motion series into
+  a full city builder, so every citizen and vehicle is an agent taking the fastest route and congestion
+  is read directly from visible jams. Zoning cells are generated along whatever road geometry the player
+  draws, freeing layouts from a fixed grid, and districts let the player apply policies and tax rates
+  to painted areas. Paradox approved the project after the reception of SimCity (2013), the game was built
+  for Steam Workshop mods, and widely used mods replace core systems such as traffic rules.
+mechanics:
+- id: zoning
+  role: core
+  note: Zoning cells follow the shape of drawn roads; residential, commercial, industrial, and office
+    zones develop and level up.
+- id: road-network
+  role: core
+  note: Road type sets lanes, speed, and zone frontage; network geometry such as interchanges and one-way
+    systems decides throughput.
+- id: traffic-congestion
+  role: core
+  note: Each citizen takes the fastest route to work or other destinations; poor road design shows up
+    as visible jams that delay services and deliveries.
+- id: public-transit
+  role: core
+  note: Player-drawn bus, tram, train, metro, ferry, and taxi lines carry passengers, cut congestion,
+    and earn fares.
+- id: agent-pathfinding
+  role: supporting
+  note: Citizens and vehicles path individually through roads, paths, and transit.
+- id: milestone-unlocks
+  role: supporting
+  note: Population milestones unlock services, zoning types, policies, and purchase of up to 25 map tiles.
+- id: policy-toggles
+  role: supporting
+  note: District policies restrict development types, set district tax rates, or make transit free.
+- id: power-grid
+  role: supporting
+- id: fluid-pipe-network
+  role: supporting
+  note: Water and sewage pipes; sewage released upstream contaminates downstream intakes.
+- id: service-coverage
+  role: supporting
+  note: Service buildings reach buildings by network distance and dispatch vehicles.
+- id: education-workforce
+  role: supporting
+  note: Elementary (300), high school (1,000), and university (4,500) capacities move citizens through
+    four education levels that higher-level jobs require.
+- id: lifecycle-aging
+  role: supporting
+  note: Citizens age and die; an initial cohort moving in together can age into a wave of deaths that
+    overloads hearses.
+- id: land-value
+  role: supporting
+  note: Services and parks raise land value, pollution and noise lower it, and land value helps buildings
+    level up.
+- id: modding-api
+  role: supporting
+  note: Steam Workshop and a mod-friendly architecture; mods add assets, maps, and new behavior.
+- id: travel-mode-choice
+  role: supporting
+  note: Citizens choose between walking, driving, and the player's bus, tram, train, metro, ferry, and
+    taxi lines when routing to destinations, so new lines shift demand off roads.
+influenced_by:
+- simcity-4
+claims:
+- text: 'Cities: Skylines is credited with reviving the SimCity style of city builder after SimCity (2013).'
+  sources:
+  - src-wikipedia-city-building-game
+  - src-wikipedia-cities-skylines
+  confidence: medium
+sources:
+- src-wikipedia-cities-skylines
+- src-paradoxwikis-2026-skylines-education
+- src-wikipedia-city-building-game
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-ga

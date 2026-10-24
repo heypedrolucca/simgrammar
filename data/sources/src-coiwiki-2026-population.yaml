@@ -1,0 +1,14 @@
+id: src-coiwiki-2026-population
+type: source
+name: Population
+kind: encyclopedia
+authors:
+- Captain of Industry Wiki contributors
+venue: Captain of Industry Wiki
+date: '2026'
+url: https://wiki.coigame.com/Population
+accessed: '2026-10-24'
+notes: Natural growth depends on colony health; population falls 0.1% per month per health point below
+  0; diseases and radiation cause further losses; villages can be adopted for Unity.
+provenance:
+  created: 2026-10-24-catalog-gh

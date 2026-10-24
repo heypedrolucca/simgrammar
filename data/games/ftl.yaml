@@ -1,10 +1,102 @@
 id: ftl
 type: game
 name: 'FTL: Faster Than Light'
-summary: TODO
+aliases:
+- FTL
+summary: A roguelite starship sim where the player allocates reactor power and directs crew through room-level
+  oxygen, fire, breach, and system-damage simulation while fleeing a rebel fleet across eight sectors.
 year: 2012
 developer: Subset Games
+platforms:
+- pc
+- mobile
 subgenre: space-sim
-status: asserted
+sim_domain:
+- cosmic-space
+- military-conflict
+player_role: commander
+agency_model:
+- direct-unit
+- policy-parameter
+time_model: real-time-pausable
+sim_scale: household
+fidelity: stylized
+perspective: top-down-2d
+win_structure: campaign
+failure_model: hard-restart
+narrative_mode: hybrid
+multiplayer:
+- single
+modding: content
+production_tier: indie
+agent_count_order: '10'
+emergence: 3
+influence: 3
+core_loop: jump to a beacon -> resolve an event or fight -> allocate reactor power and direct crew under
+  fire -> repair breaches, fires, and systems -> spend scrap on upgrades -> stay ahead of the rebel fleet
+  to the flagship
+design_notes: FTL models a ship as rooms with oxygen levels, doors, systems, and crew positions; hits
+  create breaches, fires, and system damage that crew must walk to and repair, so a combat is a spatial
+  triage problem as well as a damage race. The reactor's power bars are the central budget shared by shields,
+  engines, weapons, oxygen, and medbay, and the player shifts them during paused combat. Manual reactor
+  power allocation and per-system damage that removes capacity until repaired have no dedicated taxonomy
+  ids (power-grid is the closest fit); both are recorded as new-mechanic proposals.
+mechanics:
+- id: fluid-gas-simulation
+  role: core
+  note: Each room has an oxygen level that equalizes through open doors, drains through hull breaches
+    and opened airlocks, and is refilled by the oxygen system; crew suffocate in empty rooms.
+- id: fire-spread
+  role: supporting
+  note: Hits and events start fires that spread between rooms, damage systems and crew, and burn oxygen;
+    crew extinguish them or the player vents the room.
+- id: crisis-countdown
+  role: core
+  note: Each jump advances the rebel fleet across the sector map; overtaken beacons yield hard fights
+    and no reward, forcing a trade between exploration and speed.
+- id: permadeath
+  role: core
+  note: Losing the ship or all crew ends the run and deletes the save; dead crew members are gone.
+- id: agent-skills
+  role: supporting
+  note: Crew gain skill in piloting, engines, shields, weapons, repair, and combat through use, improving
+    station bonuses.
+- id: personality-traits
+  role: supporting
+  note: Eight species have fixed traits such as faster repair, fire immunity, or extra combat damage.
+- id: unit-commands
+  role: core
+  note: The player moves crew between rooms to man stations, repair systems and breaches, fight boarders,
+    and put out fires; crew act on their own only within the room they occupy.
+- id: procedural-terrain
+  role: supporting
+  note: Each sector is a generated map of about twenty beacons with stores, hazards, and events.
+- id: triggered-event-chains
+  role: supporting
+  note: Beacon events offer text choices, with extra options unlocked by specific crew, systems, or equipment,
+    and some quests chain across beacons.
+- id: fog-of-war
+  role: supporting
+  note: Beacon contents are unknown until visited unless revealed by upgrades such as long-range scanners.
+- id: variable-speed
+  role: supporting
+  note: Pause is the main tactical tool for issuing orders mid-combat.
+- id: power-allocation
+  role: core
+  note: Reactor power bars are assigned among shields, engines, weapons, oxygen, medbay, and other systems,
+    usually while paused in combat; each system caps how many bars it accepts, and damage removes usable
+    bars until crew repair it.
+- id: stat-combat-resolution
+  role: supporting
+  note: Each weapon shot rolls against the target's evasion, shield layers absorb hits, and hits damage
+    the room and the system inside it.
+- id: subsystem-damage
+  role: core
+  note: Hits damage the system in the struck room (shields, weapons, engines, oxygen, piloting), removing
+    its usable power bars until crew repair it, and the player targets enemy rooms to disable specific
+    systems.
+sources:
+- src-wikipedia-ftl
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gg

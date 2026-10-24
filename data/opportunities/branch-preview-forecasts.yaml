@@ -1,0 +1,51 @@
+id: branch-preview-forecasts
+type: opportunity
+name: Branch preview of policy futures
+summary: Fork the simulation in the background and show the player likely futures of a decision before
+  committing, using parallel or surrogate simulation.
+opportunity_type: new-mechanic
+thesis: 'Forecasting in shipped games is shallow: a runway counter, a weather icon, a predicted approval
+  delta. Accelerated and learned simulators make it cheap to run many short futures of the actual game
+  state. Showing a distribution of outcomes for a pending law, budget, or layout change turns opaque coupling
+  into a visible tradeoff and makes long feedback delays playable. Deterministic, event-sourced simulations
+  can fork from any tick, so the preview runs the real rules rather than a hand-built predictor.'
+design_sketch: 'Before enacting a policy the player opens Preview: the game forks 32 to 256 copies from
+  the current tick with stochastic seeds, fast-forwards each one in-game year on spare cores (or a learned
+  surrogate), and shows fan charts for key indicators plus the two most divergent futures as short replays.
+  Preview costs an in-game resource so it remains a decision.'
+involves:
+- forecasting
+- policy-toggles
+- data-overlays
+- stats-dashboards
+- variable-speed
+applies:
+- massively-parallel-simulation
+- graph-network-simulators
+- differentiable-simulation
+precedent:
+- frostpunk
+- democracy-4
+- surviving-mars
+novelty: 4
+feasibility: 4
+impact: 4
+horizon: 1-2y
+key_risks:
+- Previews reveal hidden randomness and can make play feel solved.
+- Simulations with large state may not fork cheaply on consumer hardware.
+- Surrogate predictions that disagree with the real run break trust.
+validation_experiment: 'Take a deterministic city or colony prototype, implement state snapshot plus N-way
+  fork, and measure fork-and-simulate cost for one in-game year at mid-game scale. Playtest with preview
+  off and on; measure decision regret (outcome versus best available) and session length. Success: preview
+  of 64 branches under 5 seconds on a mid-range PC and a measurable drop in regret without lower engagement.'
+falsifiable_signal:
+  prediction: At least one commercial city builder, colony sim, or grand strategy game will ship a feature
+    that simulates multiple stochastic futures of the player's current state before a decision.
+  resolve_by: '2028-06-30'
+  criteria: Store page, patch notes, or developer talk describing multi-run forward simulation of the
+    live game state shown to players.
+sources: []
+status: asserted
+provenance:
+  created: 2026-10-24-synthesis

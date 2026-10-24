@@ -1,0 +1,16 @@
+id: src-hiddendoor-2026-homepage
+type: source
+name: Hidden Door
+kind: docs
+authors:
+- Hidden Door
+venue: hiddendoor.co
+date: '2026'
+url: https://www.hiddendoor.co/
+accessed: '2026-10-24'
+notes: 'Story engine turns player intent into story beats and world-state changes checked against canon
+  and rules before display (example: Dracula cannot enter uninvited); typed, auditable world model with
+  embeddings; nearly 100 specialized narrative tasks; a tuned 1.7B model beat a 120B general model on
+  one core task. Licensed worlds include Dracula, Oz, Pride and Prejudice, Sherlock Holmes.'
+provenance:
+  created: 2026-10-24-techniques-llm-agents

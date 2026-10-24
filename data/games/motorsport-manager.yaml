@@ -1,10 +1,86 @@
 id: motorsport-manager
 type: game
 name: Motorsport Manager
-summary: TODO
+summary: A racing team management game in which the player designs car parts across seasons, hires drivers
+  and staff, and makes live strategy calls on tyres, pit stops, and weather while races are simulated.
 year: 2016
 developer: Playsport Games
+platforms:
+- pc
 subgenre: sports-management
-status: asserted
+sim_domain:
+- sports
+- physical-mechanical
+- economic
+player_role: manager-owner
+agency_model:
+- policy-parameter
+- direct-unit
+- design-then-test
+time_model: real-time-pausable
+sim_scale: household
+fidelity: stylized
+perspective: free-3d
+win_structure: open-sandbox
+failure_model: soft-recoverable
+narrative_mode: emergent
+multiplayer:
+- single
+modding: content
+production_tier: indie
+agent_count_order: '100'
+emergence: 2
+influence: 1
+core_loop: design and build car parts -> hire drivers, designers, and mechanics -> set race weekend strategy
+  -> race simulates with tyre, fuel, and weather calls -> results earn money and standing -> develop next
+  season's car
+design_notes: Motorsport Manager splits the job into a between-races engineering game and a live race
+  game. Between races the player commissions car parts and chooses which go into next season's car, trading
+  performance against development time. During races the simulation runs in real time with pause, and
+  the player decides tyre compounds, pit timing, and whether to gamble on a fast pit stop or stay on slicks
+  as dynamic weather changes. Drivers have personality types that cause team drama and respond to tough
+  love or support. A simpler mobile game of the same name was released on iOS in 2014; this entry covers
+  the 2016 PC game.
+mechanics:
+- id: attribute-match-engine
+  role: core
+  note: Races are simulated in real time from driver attributes, car part performance, tyres, fuel, and
+    weather, with the player intervening on strategy.
+- id: design-performance-rating
+  role: core
+  note: Car parts are designed and built over time, rated on performance, and chosen for next season's
+    car, which sets pace at pre-season testing.
+- id: staff-hiring
+  role: core
+  note: Drivers, team managers, mechanics, and designers are hired; skilled mechanics shorten pit stops.
+- id: weather
+  role: core
+  note: Dynamic weather during sessions forces calls such as switching to intermediates or staying on
+    slicks.
+- id: personality-traits
+  role: supporting
+  note: Drivers have distinct personality types that cause team drama and respond differently to tough
+    love or support.
+- id: wear-breakdown
+  role: supporting
+  note: Tyres wear over a stint and car parts lose condition, so strategy balances pace against wear.
+- id: budget-treasury
+  role: supporting
+  note: Prize money and sponsor income fund salaries and part development.
+- id: variable-speed
+  role: supporting
+  note: Races run in real time with pause and speed controls.
+- id: negotiation
+  role: supporting
+  note: Driver and staff contracts are negotiated over wages, length, and bonuses, and candidates can
+    reject offers and end talks.
+- id: board-confidence
+  role: supporting
+  note: The chairman sets objectives each season, and missing them lowers the chairman's confidence until
+    the player is fired.
+sources:
+- src-wikipedia-motorsport-manager
+- src-steam-2026-motorsport-manager
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-ge

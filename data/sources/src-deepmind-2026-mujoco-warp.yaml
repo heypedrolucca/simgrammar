@@ -1,0 +1,15 @@
+id: src-deepmind-2026-mujoco-warp
+type: source
+name: MuJoCo Warp (MJWarp)
+kind: repository
+authors:
+- Google DeepMind
+- NVIDIA
+venue: GitHub
+date: '2026'
+url: https://github.com/google-deepmind/mujoco_warp
+accessed: '2026-10-24'
+notes: GPU MuJoCo on NVIDIA Warp, maintained within the Newton project; batch renderer for many cameras
+  across worlds; some solvers unsupported; differentiability via Warp not yet available.
+provenance:
+  created: 2026-10-24-techniques-sim-math

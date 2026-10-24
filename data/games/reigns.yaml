@@ -1,10 +1,61 @@
 id: reigns
 type: game
 name: Reigns
-summary: TODO
+summary: A swipe-based card game in which the player, as a succession of medieval monarchs, accepts or rejects advisers'
+  requests that push church, people, army, and treasury meters, and each reign ends when any meter empties or fills.
 year: 2016
 developer: Nerial
+platforms:
+- pc
+- mobile
+- console
+- handheld
 subgenre: political-sim
-status: asserted
+sim_domain:
+- political-governance
+player_role: ruler-statesman
+agency_model:
+- policy-parameter
+time_model: turn-based
+sim_scale: nation
+fidelity: abstract
+perspective: text-ui
+win_structure: survival-duration
+failure_model: permadeath
+narrative_mode: hybrid
+multiplayer:
+- single
+modding: none
+production_tier: indie
+agent_count_order: none
+emergence: 2
+influence: 3
+boundary_case: true
+core_loop: draw an adviser's card -> swipe left or right -> church, people, army, and treasury meters shift -> a
+  meter hits empty or full -> the king dies -> the next reign begins with unlocked cards
+design_notes: Reigns reduces governance to four bounded meters in which both extremes are fatal, so every choice
+  is a balancing act rather than a maximization. The swipe interface, modeled on Tinder, keeps each decision binary
+  and fast. It is a boundary case included for the dilemma-card mechanic and its use of death as progress between
+  reigns.
+mechanics:
+- id: dilemma-cards
+  role: core
+  note: Advisers present cards that the player swipes left or right; each choice moves one or more of four meters
+    (church, people, army, treasury), and the reign ends when any meter becomes completely full or completely empty.
+- id: dynasty-succession
+  role: core
+  note: When a king's reign ends, play continues with a new king; unlocked cards and some effects carry across reigns,
+    and the in-game years keep advancing.
+- id: triggered-event-chains
+  role: supporting
+  note: Story cards chain across reigns, such as the Devil's visits in the years 666, 1332, and 1998.
+- id: milestone-unlocks
+  role: supporting
+  note: Completing tasks unlocks new cards.
+- id: permadeath
+  role: supporting
+sources:
+- src-wikipedia-reigns
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gi

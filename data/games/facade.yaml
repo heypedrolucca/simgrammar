@@ -1,10 +1,70 @@
 id: facade
 type: game
 name: Façade
-summary: TODO
+aliases:
+- Facade
+summary: A free 2005 interactive drama in which the player types natural language as a dinner guest of
+  the married couple Grace and Trip while a drama manager sequences authored beats toward one of three
+  endings.
 year: 2005
 developer: Procedural Arts
+platforms:
+- pc
 subgenre: social-sim
-status: asserted
+sim_domain:
+- social-interpersonal
+player_role: inhabitant
+agency_model:
+- conversational
+- direct-avatar
+time_model: real-time
+sim_scale: household
+fidelity: stylized
+perspective: first-person
+win_structure: scenario-goals
+failure_model: hard-restart
+narrative_mode: hybrid
+multiplayer:
+- single
+modding: none
+production_tier: academic
+agent_count_order: '1'
+emergence: 2
+influence: 2
+boundary_case: true
+core_loop: type to or touch Grace and Trip -> parser maps input to a discourse act -> characters react
+  and tension shifts -> drama manager picks the next beat -> secrets surface -> the couple reconciles,
+  splits, or throws the player out
+design_notes: 'Michael Mateas and Andrew Stern built Façade as a research artifact: Grace and Trip are
+  written in A Behavior Language (ABL) as reactive behaviors, and a drama manager picks the next story
+  beat from an authored library to follow a tension arc toward a climax. Typed text is mapped to a small
+  set of discourse acts (the Versu paper counts 30 parameterized speech acts and 27 beats), which lets
+  a limited body of authored dialogue answer open-ended input. It is a boundary case: the simulated systems
+  are the parser, character behaviors, and beat sequencing over mostly authored dialogue, built for replay
+  so players can find other outcomes.'
+mechanics:
+- id: natural-language-interaction
+  role: core
+  note: Typed sentences are matched by keywords and context to discourse acts such as agreeing, criticizing,
+    or flirting, which Grace and Trip answer in character.
+- id: storyteller-director
+  role: core
+  note: A drama manager chooses the next beat whose preconditions match the state, steering toward a rising
+    tension arc and one of three endings.
+- id: triggered-event-chains
+  role: supporting
+  note: Revelations such as a confessed affair fire only when earlier beats and player choices set them
+    up.
+- id: relationship-values
+  role: supporting
+  note: As the couple argues, the player's responses read as taking one side, which shapes later beats.
+- id: direct-avatar
+  role: supporting
+  note: The player walks around the apartment in first person and can click objects or body parts to hug,
+    comfort, or kiss.
+sources:
+- src-wikipedia-facade
+- src-evans-2014-versu
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gc

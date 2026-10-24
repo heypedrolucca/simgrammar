@@ -1,0 +1,22 @@
+id: src-gudmundsson-2018-human-like-playtesting
+type: source
+name: Human-Like Playtesting with Deep Learning
+kind: paper
+authors:
+- S. Gudmundsson
+- Philipp Eisen
+- E. Poromaa
+- Alex Nodet
+- Sami Purmonen
+- B. Kozakowski
+- Richard Meurling
+- Le-le Cao
+venue: IEEE Conference on Computational Intelligence and Games (CIG 2018)
+date: '2018'
+doi: 10.1109/CIG.2018.8490442
+accessed: '2026-10-24'
+notes: 'King: CNN trained on player moves in Candy Crush Saga and Candy Crush Soda Saga predicts human
+  moves and estimates level difficulty; correlates better with average difficulty than MCTS at a fraction
+  of compute.'
+provenance:
+  created: 2026-10-24-techniques-rl-design

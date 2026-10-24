@@ -1,8 +1,63 @@
 id: rigid-body-physics
 type: mechanic
 name: Rigid-body physics
-summary: Objects with mass collide and move under forces, joints, and constraints.
+aliases:
+- physics engine
+- rigid-body dynamics
+summary: Objects with mass and inertia move under forces and collide, constrained by contacts and joints
+  solved each step.
 family: physics-materials
-status: asserted
+substrate:
+- continuous-physics
+definition: Each body holds mass, an inertia tensor, position, orientation, and linear and angular velocity.
+  Each step the engine applies forces and gravity, finds colliding pairs with a broad phase and contact
+  points with a narrow phase, solves contact and joint constraints iteratively (sequential impulses or
+  projected Gauss-Seidel), and integrates positions; resting bodies sleep to save compute. Engines include
+  Havok, used for Half-Life 2's gravity gun puzzles in 2004, PhysX, and Box2D by Erin Catto. Dennis Gustafsson's
+  voxel physics engine after Teardown uses substeps instead of more solver iterations, in the style of
+  temporal Gauss-Seidel, with a parallel solver for large piles. Outputs are motion, contact events, and
+  impact forces that other systems read as damage or sound.
+player_experience: Tactile and playful. Objects behave as expected, so players stack, throw, and build
+  contraptions, and failures turn into slapstick. Physics puzzles feel solved by understanding rather
+  than by finding the intended key.
+design_levers:
+- solver iterations or substeps per frame
+- friction and restitution per material
+- allowed mass ratios between interacting bodies
+- joint types and limits
+- sleep thresholds and active simulation range
+- determinism requirements for replays and networking
+failure_modes:
+- Large mass ratios and stiff joints cause jitter or explosive separation.
+- Fast small objects tunnel through thin walls without continuous collision detection.
+- Non-deterministic solvers desynchronize multiplayer sessions and replays.
+- Players exploit clipping and stacking to launch themselves or bypass level geometry.
+- Body count caps scale and causes late slowdowns in sandbox play.
+dynamics:
+- Contraptions, chain reactions, and Rube Goldberg machines arise in sandboxes such as Garry's Mod, whose
+  tool gun welds and constrains props.
+- Impact forces feed damage, sound, and destruction systems.
+- Ragdoll physics turns failure into comedy and shareable clips.
+math_basis:
+- classical-mechanics
+feedback: none
+player_interface:
+- direct-manipulation
+- embodied-skill
+legibility: 4
+emergence_potential: 4
+authoring_cost: 2
+compute_cost: 3
+tuning_difficulty: 3
+ai_leverage: 3
+maturity: classic
+open_questions:
+- Can learned simulators handle thousands of interacting bodies more cheaply than iterative solvers while
+  staying stable?
+- Can deterministic GPU solvers make large rigid-body worlds practical in multiplayer?
+sources:
+- src-80lv-2025-teardown-voxel-physics
+- src-wikipedia-garrys-mod
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m4

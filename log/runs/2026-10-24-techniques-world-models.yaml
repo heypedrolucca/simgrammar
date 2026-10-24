@@ -1,0 +1,99 @@
+id: 2026-10-24-techniques-world-models
+type: run
+date: '2026-10-24'
+actor: agent
+operator: yoheinakajima
+agent:
+  model: claude-opus-5-5
+  harness: Claude app subagent
+purpose: Research and record generative world model, neural rendering, 3D generation, and learned animation
+  techniques that change simulation game mechanics.
+method: >-
+  Read AGENTS.md, CONTRACT.md sections 1-3, the technique, source, and common schemas, the referenced vocab
+  files, rubrics, and the exemplars. Listed mechanics, games, techniques, and opportunities to reuse ids
+  (opportunities symbolic-sim-neural-render, dream-replay-layer, neural-npc-motion, generative-decoration-catalogs,
+  and illustrated-chronicles already reference several candidate ids, which were kept unchanged). Searched the
+  web and then fetched primary sources: arXiv records for GameNGen, DIAMOND, MineWorld, Genie, Matrix-Game 2.0
+  and 3.0, Hunyuan-GameCraft, WorldPlay, Yan, HunyuanWorld, 3DGS, PhysGaussian, TRELLIS, Hunyuan3D 2.0, Roblox
+  Cube, MaskedMimic, InterMimic, Cosmos, V-JEPA 2; lab posts from DeepMind (Genie 2, Genie 3), Microsoft Research
+  (Muse, WHAMM), Decart (Oasis, MirageLSD, Oasis 2.0), Odyssey, World Labs (Marble, RTFM, Atlas, blog index),
+  NVIDIA (DLSS 4, 4.5, 5, RTX neural rendering, ACE), Meta (V-JEPA 2), Khronos (glTF splat extension), Ubisoft
+  La Forge (learned motion matching); GitHub repos for TRELLIS, TRELLIS.2, Hunyuan3D-2.1, Cube, Open-Oasis; plus
+  Wikipedia, PCGamingWiki, and Steam pages for deployment facts. Web search hit the shared per-turn budget and
+  WebFetch hit its hourly limit near the end, so a few planned checks (Marble pricing, World API terms,
+  HunyuanWorld license, inZOI DLSS support, Cosmos Transfer details) were not done and the related claims were
+  left out. Created 13 techniques: the 10 candidates plus learned-motion-synthesis (split from
+  physics-based-character-control because kinematic learned animation ships while physics controllers do not),
+  real-time-video-restyling (MirageLSD and Oasis 2.0 change only pixels over a running game, unlike world models
+  that replace the engine), and satellite-world-reconstruction (shipped in Microsoft Flight Simulator). Merged no
+  candidates. deployed_in lists only games in data/games with documented use: inzoi (image-to-3D and
+  video-to-motion per its Steam disclosure), microsoft-flight-simulator-2020 and cities-skylines-2 (DLSS per
+  PCGamingWiki), microsoft-flight-simulator-2020 and -2024 (satellite reconstruction), minecraft (Oasis 2.0 mod).
+  Scored maturity and trl against game deployment only: frame-generating world models are public demos (trl 6);
+  physics-based control and physical foundation models have no game deployment (trl 4 and 3).
+scope:
+- data/techniques/diffusion-game-engines.yaml
+- data/techniques/genie-world-models.yaml
+- data/techniques/muse-wham.yaml
+- data/techniques/open-interactive-video-models.yaml
+- data/techniques/generated-3d-worlds.yaml
+- data/techniques/gaussian-splatting.yaml
+- data/techniques/text-to-3d-assets.yaml
+- data/techniques/physics-based-character-control.yaml
+- data/techniques/learned-motion-synthesis.yaml
+- data/techniques/physical-world-foundation-models.yaml
+- data/techniques/neural-rendering-shaders.yaml
+- data/techniques/real-time-video-restyling.yaml
+- data/techniques/satellite-world-reconstruction.yaml
+- data/sources (new src-* files created by this run)
+contract_version: '1.0'
+proposals:
+- kind: other
+  target: physical-world-foundation-models
+  detail: builds_on massively-parallel-simulation (Cosmos and V-JEPA 2-AC are used with GPU-parallel robot simulation
+    for training and closed-loop evaluation); cross-run edge not allowed to this run.
+- kind: other
+  target: physics-based-character-control
+  detail: builds_on massively-parallel-simulation (MaskedMimic and InterMimic policies are trained with RL in GPU-parallel
+    physics simulation); cross-run edge not allowed to this run.
+- kind: other
+  target: muse-wham
+  detail: builds_on diffusion-game-engines is not appropriate (WHAM is an autoregressive token transformer, published
+    in parallel); recorded here so the orchestrator does not add it. No edge wanted.
+- kind: other
+  target: diffusion-game-engines
+  detail: Genie, WHAM, and the open interactive video models share one effect pattern (replace avatar control and
+    physics with learned frame prediction; no explicit state). If the report needs a single node, consider an umbrella
+    view in report/tables.yaml rather than merging entities, since their maturity, access, and data differ.
+- kind: new-mechanic
+  target: imagined-world-view
+  detail: 'Candidate mechanic: a non-authoritative generated view (dream, memory, rumor, alternate history) rendered
+    by a world model from symbolic state that cannot change that state. Appears in no shipped game yet, so it likely
+    fails the nameable test today; recorded for the taxonomy run because opportunity dream-replay-layer describes it.'
+- kind: other
+  target: inzoi
+  detail: The inzoi game entry could cite src-nvidia-2025-ace-companions for its on-device language model (NVIDIA
+    ACE Smart Zoi), and its generative-content note could link techniques text-to-3d-assets and learned-motion-synthesis.
+    Not edited because the game file belongs to another run.
+notes: >-
+  Market and adoption sources (some uncited by entities, for the report). src-wikipedia-project-genie: video
+  game company shares including Unity fell after Project Genie opened Genie 3 to paying subscribers (2026-01-29),
+  a sign investors price world models as a threat to engine and content businesses. src-techcrunch-2026-project-genie:
+  the consumer Genie 3 product is capped at 60 seconds per world because of compute cost. src-maginative-2024-decart-oasis:
+  Decart says cost is the main barrier to real-time world models at scale; no per-player-hour figure is published
+  by any lab in this area. src-nvidia-2026-dlss-4-5: over 250 titles support DLSS Multi Frame Generation and over 400
+  support DLSS Super Resolution (2026-01), so neural rendering is the one technique in this area that is a genre norm.
+  src-wikipedia-deep-learning-super-sampling: DLSS 5's generative relighting drew largely negative player and
+  developer reaction and a reported 50-60 percent frame-rate cost (2026). src-wikipedia-inzoi: inZOI sold over 1M
+  copies in its first early-access week but drew negative reviews in May 2025 after announcing generative AI use.
+  src-wikipedia-arc-raiders (uncited): ARC Raiders sold 14M copies by 2026-02 despite criticism of AI text-to-speech
+  voice lines; Embark later re-recorded some lines with human actors (2026-03). src-nvidia-2025-ace-companions
+  (uncited): shipped or announced on-device and LLM characters in PUBG Ally, inZOI Smart Zoi, NARAKA: BLADEPOINT,
+  MIR5. src-worldlabs-2026-blog: World Labs, the main prompt-to-3D-world startup, announced it is joining AMD
+  (2026-09-28). src-khronos-2026-gltf-gaussian-splatting: a glTF Gaussian splat standard reached release candidate
+  in 2026-02, a precondition for engine-agnostic splat assets. Facts with lower confidence: the FIFA 22 HyperMotion
+  frame count comes from Wikipedia only; DLSS support in Microsoft Flight Simulator (2020) and Cities: Skylines II
+  comes from PCGamingWiki with no dates; Blackshark.ai's role in Microsoft Flight Simulator comes from Wikipedia,
+  and Blackshark's own site does not name the game; Yan's organization and figures come from the arXiv HTML with
+  some ambiguity on which GPU Yan-Sim uses. The source src-yang-2024-oasis created by another run is a different
+  work (not Decart Oasis).

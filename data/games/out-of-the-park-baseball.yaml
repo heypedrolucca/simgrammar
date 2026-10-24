@@ -1,10 +1,88 @@
 id: out-of-the-park-baseball
 type: game
 name: Out of the Park Baseball
-summary: TODO
+aliases:
+- OOTP
+summary: A text-based baseball management sim in which the player runs a franchise's roster, scouting,
+  draft, trades, and finances while a pitch-by-pitch engine simulates games for career, historical, or
+  fictional leagues.
 year: 1999
 developer: Out of the Park Developments
+platforms:
+- pc
 subgenre: sports-management
-status: asserted
+sim_domain:
+- sports
+- economic
+player_role: manager-owner
+agency_model:
+- policy-parameter
+- direct-unit
+time_model: turn-based
+sim_scale: household
+fidelity: high-fidelity
+perspective: text-ui
+win_structure: open-sandbox
+failure_model: soft-recoverable
+narrative_mode: emergent
+multiplayer:
+- single
+- competitive
+modding: content
+production_tier: indie
+agent_count_order: 1k
+emergence: 3
+influence: 2
+core_loop: scout and draft players -> set rosters, lineups, and depth charts -> simulate games pitch by
+  pitch -> players develop or decline -> trade, sign, and manage finances -> build a franchise across
+  seasons
+design_notes: 'OOTP simulates baseball pitch by pitch from player ratings and reports it as scrolling
+  play-by-play text with a minimal diamond, plus 3D ballparks and ball flight from OOTP 15. Its range
+  of setups defines it: real current leagues under the MLB and Minor League Baseball licenses from OOTP
+  16, historical play that drops the player into any era with real rookies arriving each season, and fictional
+  leagues. Ratings are filtered through scouting, so the GM sees estimates rather than true values. The
+  league keeps a full statistical history with HTML reports, so long careers build an almanac.'
+mechanics:
+- id: attribute-match-engine
+  role: core
+  note: Games are simulated pitch by pitch from batter, pitcher, and fielder ratings and managerial settings,
+    in real time, pitch-by-pitch control, or bulk simulation.
+- id: scouting-knowledge
+  role: core
+  note: Player ratings are shown through a scout's evaluation, so accuracy depends on the scouting staff;
+    the system was recoded in OOTP 14.
+- id: staff-hiring
+  role: core
+  note: The GM signs free agents, drafts amateurs, and hires managers, coaches, and scouts within a budget.
+- id: agent-skills
+  role: core
+  note: Player ratings develop and decline over careers, including fielding development added in OOTP
+    14.
+- id: lifecycle-aging
+  role: supporting
+  note: Players age, retire, and are replaced by drafts and historical debuts.
+- id: procedural-characters
+  role: supporting
+  note: Fictional players are generated for fictional leagues and amateur drafts.
+- id: history-chronicle
+  role: supporting
+  note: League histories, records, and player careers are stored and exported as HTML reports.
+- id: budget-treasury
+  role: supporting
+  note: Franchise finances cover payroll, revenue, and budgets; the system was reworked in OOTP 16.
+- id: stats-dashboards
+  role: supporting
+  note: Extensive statistics and reports cover every player, team, and season.
+- id: negotiation
+  role: supporting
+  note: Contract offers to free agents and extensions to rostered players are accepted or rejected against
+    each player's demands, and trades are proposed to AI general managers who accept, reject, or counter.
+- id: board-confidence
+  role: supporting
+  note: Owners set expectations, and the general manager's job security falls when results and finances
+    miss them, ending in dismissal.
+sources:
+- src-wikipedia-out-of-the-park-baseball
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-ge

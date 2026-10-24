@@ -1,0 +1,16 @@
+id: src-beamng-2026-intro-jbeam
+type: source
+name: Introduction to JBeam
+kind: docs
+authors:
+- BeamNG GmbH
+venue: BeamNG documentation
+date: '2026'
+url: https://documentation.beamng.com/modding/vehicle/intro_jbeam/
+accessed: '2026-10-24'
+notes: Soft-body vehicles as nodes (point masses) and beams (massless springs that do not resist bending
+  or torsion); beamSpring, beamDamp, beamDeform, beamStrength; cross braces required for rigidity; stiff
+  beams on light nodes vibrate or explode (6 kg vs 7 kg node example); typical values such as suspension
+  spring 40000.
+provenance:
+  created: 2026-10-24-taxonomy-m4

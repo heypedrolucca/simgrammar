@@ -1,10 +1,98 @@
 id: stationeers
 type: game
 name: Stationeers
-summary: TODO
+summary: >-
+  A first-person space station survival game whose core is an atmospheric simulation of gas mixtures, pressure, temperature,
+  and combustion that the player must engineer with pipes, power, and programmable logic.
 year: 2017
 developer: RocketWerkz
+platforms:
+- pc
 subgenre: survival-sim
-status: asserted
+subgenre_secondary:
+- sandbox-world
+sim_domain:
+- physical-mechanical
+- industrial-logistics
+- cosmic-space
+player_role: engineer-designer
+agency_model:
+- direct-avatar
+- programmatic
+time_model: real-time
+sim_scale: facility
+fidelity: systemic
+perspective: first-person
+win_structure: open-sandbox
+failure_model: soft-recoverable
+narrative_mode: emergent
+multiplayer:
+- single
+- coop
+modding: content
+production_tier: indie
+agent_count_order: none
+emergence: 3
+influence: 1
+core_loop: >-
+  land with a starter kit -> mine and smelt ore -> build an airtight frame -> pipe, filter, and heat a breathable atmosphere
+  -> power and automate with logic chips -> expand while fixing pressure, fire, and temperature failures
+design_notes: >-
+  The atmosphere is the main simulated system: each sealed volume and pipe network carries a mix of gases with temperature
+  and pressure, so heating a room raises its pressure, mixing fuel and oxygen can burn or explode, and a pressure difference
+  across a wall can blow it out. Survival needs are deliberately front-loaded; later play is building plant that keeps the
+  atmosphere stable, then automating it with IC10 chips programmed in an assembly language. The game has been in early access
+  since 2017.
+mechanics:
+- id: fluid-gas-simulation
+  role: core
+  note: >-
+    Rooms and pipe networks hold mixtures of oxygen, nitrogen, carbon dioxide, volatiles, pollutants, and water with pressure
+    and temperature; gases mix, and combustion consumes fuel and oxygen and releases heat.
+- id: heat-transfer
+  role: core
+  note: >-
+    Gas temperature changes pressure and habitability; radiators, heat exchangers, heaters, and coolers move heat between
+    pipes, rooms, and the planet's atmosphere.
+- id: fluid-pipe-network
+  role: core
+  note: >-
+    Pipes, pumps, filtration units, mixers, and regulators route gases between devices; pipes and tanks fail when pressure
+    exceeds their rating.
+- id: survival-meters
+  role: core
+  note: >-
+    Early survival requires breathable gas, food, water, and suit temperature; suits carry tanks and filters until a habitat
+    is sealed.
+- id: power-grid
+  role: supporting
+  note: Solar panels, generators, and batteries feed cable networks; overloaded cables burn out.
+- id: player-programming
+  role: supporting
+  note: >-
+    IC10 chips run player-written assembly that reads and writes device logic values such as pressure and temperature.
+- id: signal-circuits
+  role: supporting
+  note: Logic readers, writers, memory, and sensors chain devices without code.
+- id: resource-extraction
+  role: supporting
+  note: Ore is mined from deformable voxel terrain.
+- id: production-chain
+  role: supporting
+  note: >-
+    Furnaces and arc furnaces smelt ore into ingots, and autolathes and other fabricators turn ingots into kits.
+- id: crop-cultivation
+  role: supporting
+  note: Hydroponic plants need light, water, and suitable gases, and exchange carbon dioxide for oxygen.
+- id: structural-integrity
+  role: supporting
+  note: Walls hold limited pressure differences; exceeding them causes fatigue and explosive decompression.
+- id: free-placement
+  role: supporting
+  note: >-
+    Frames, walls, pipes, and devices are placed on a grid piece by piece, and placement decides airtightness.
+sources:
+- src-steam-2026-stationeers
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gg

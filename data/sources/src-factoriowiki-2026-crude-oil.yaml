@@ -1,0 +1,13 @@
+id: src-factoriowiki-2026-crude-oil
+type: source
+name: "Crude oil"
+kind: encyclopedia
+authors:
+  - "Factorio Wiki contributors"
+venue: "Official Factorio Wiki"
+date: "2026"
+url: https://wiki.factorio.com/Crude_oil
+accessed: "2026-10-24"
+notes: "Oil field yield in percent; 1% equals 300 pumpjack cycles; yield floor of 20% (raised from 10% in 0.15.0)."
+provenance:
+  created: 2026-10-24-taxonomy-m1

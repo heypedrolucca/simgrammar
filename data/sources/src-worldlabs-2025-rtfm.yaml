@@ -1,0 +1,13 @@
+id: src-worldlabs-2025-rtfm
+type: source
+name: 'RTFM: A Real-Time Frame Model'
+kind: tech-report
+authors:
+- World Labs
+date: '2025-10-16'
+url: https://www.worldlabs.ai/blog/rtfm
+accessed: '2026-10-24'
+notes: Research preview; single H100; interactive frame rates; posed frames as spatial memory with context
+  juggling; no explicit 3D; dynamic worlds and interaction listed as future work.
+provenance:
+  created: 2026-10-24-techniques-world-models

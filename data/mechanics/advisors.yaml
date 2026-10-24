@@ -1,8 +1,73 @@
 id: advisors
 type: mechanic
 name: Advisors
-summary: In-world advisors summarize problems and suggest actions.
+aliases:
+- advisor council
+- counselors
+- department advisors
+summary: In-world advisor characters monitor simulation indicators, summarize problems, and recommend actions.
 family: information-legibility
-status: asserted
+substrate:
+- ui-layer
+- rule-system
+definition: >-
+  An advisor layer watches a set of indicators (budget balance, unemployment, crime, service coverage, happiness,
+  military strength) and maps threshold crossings or rule matches to authored messages spoken by a named character,
+  usually with a recommended action. It owns no simulation state: only trigger conditions, a priority per message,
+  cooldowns, and an optional persona per department. Each evaluation interval it tests its conditions, ranks firing
+  messages by severity, suppresses those still on cooldown, and presents the top one as a pop-up, voiced line, or
+  entry in an advisor panel the player opens on demand. Inputs are aggregate state variables; outputs are text and,
+  in some games, a one-click link to the relevant tool. Canonical forms: the department advisors of SimCity 2000
+  and SimCity 4, the Super NES SimCity advisor Dr. Wright who appears to report city problems, the advisor screens
+  of the Civilization series, and Tropico's Penultimo.
+player_experience: >-
+  The player gets a running diagnosis without reading every graph. Early on advisors teach which variables matter
+  and what usually fixes them; later the player weighs advice against their own model, and conflicting advisors
+  make tradeoffs explicit. Bad or repetitive advice is felt as nagging.
+design_levers:
+- which indicators each advisor watches and the threshold or trend that triggers a message
+- diagnosis only versus a concrete recommendation or a one-click fix
+- one generalist advisor versus a council of department advisors with conflicting priorities
+- 'delivery mode: interrupting pop-up, voiced line, or passive panel opened on demand'
+- cooldown and repetition rules per message
+- 'accuracy: whether advisors read true state, a lagged view, or a view biased toward their department'
+failure_modes:
+- A message keeps firing while the player cannot act on it, so players mute or ignore the advisor entirely.
+- Advice derived from a single indicator recommends the wrong fix when the cause is an interaction, such as more
+  police when crime is driven by unemployment.
+- Advisors that are always right reduce the player to following instructions; advisors that are often wrong teach
+  players to ignore all advice.
+- Lines written for early-game states become irrelevant or wrong at late-game scale.
+dynamics:
+- Advisors act as an embedded tutorial whose value fades as the player's own causal model improves.
+- Department advisors arguing for opposite policies externalize tradeoffs such as tax revenue versus satisfaction.
+- When advice is trusted, player builds converge on what the advisor recommends, narrowing strategic variety.
+math_basis:
+- utility-decision
+- information-theory
+feedback: none
+player_interface:
+- observation
+legibility: 4
+emergence_potential: 1
+authoring_cost: 3
+compute_cost: 1
+tuning_difficulty: 2
+ai_leverage: 4
+maturity: classic
+open_questions:
+- Can a language-model advisor grounded in live state queries answer arbitrary why-questions accurately enough to
+  be trusted, and how should it express uncertainty?
+- Does advice deliberately biased by an advisor's department or personality produce better decisions than neutral
+  advice?
+claims:
+- text: The Super NES version of SimCity added Dr. Wright, an advisor character who appears to report problems in
+    the city.
+  sources:
+  - src-wikipedia-simcity-1989
+  confidence: medium
+sources:
+- src-wikipedia-simcity-1989
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m6

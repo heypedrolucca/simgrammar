@@ -1,9 +1,62 @@
 id: hand-crafting
 type: mechanic
 name: Hand crafting
-summary: The player or avatar combines carried components into items from a recipe list, gated by workstations
-  and known recipes.
+aliases:
+- crafting
+- recipe crafting
+- survival crafting
+summary: The player or avatar combines carried components into items from a recipe list, gated by workstations and known recipes.
 family: resources-production
-status: asserted
+substrate:
+- rule-system
+definition: >-
+  The player holds an inventory of components and a set of known recipes, each mapping an input multiset to an output item.
+  A craft checks that inputs are present, any required station (workbench, forge, furnace) is nearby, and the recipe is unlocked,
+  then consumes the inputs and produces the output instantly or after a short delay. Minecraft uses a 2x2 grid in the inventory
+  and a 3x3 grid at a crafting table, with shaped recipes keyed to spatial arrangement; Don't Starve, Valheim, and Subnautica
+  use menu lists gated by stations and blueprints; Ultima Online ties success to a crafting skill. Infinite Craft replaces
+  the recipe table with a language model (Llama 2, later Llama 3.1) that generates the result of any new pair and stores it
+  so every player gets the same answer. Inputs: carried items, station proximity, unlock state. Outputs: new items and consumed
+  components.
+player_experience: >-
+  Gathering with intent. The player looks at a desired item, works back to its components, and goes out to collect them, so
+  the recipe list becomes a shopping list that structures exploration. The first craft of a new tool is a small power spike
+  that opens the next zone or task.
+design_levers:
+- recipe count and depth of intermediate components
+- 'discovery model: all visible, unlocked by research or blueprints, or found by experimentation'
+- station gating and whether stations must be nearby
+- craft time and whether crafts can be queued or batched
+- spatial grid versus list interface
+- inventory limits that bound how much can be carried to a station
+failure_modes:
+- Hidden recipes without in-game discovery aids push players to wikis, as in early Minecraft before its recipe book.
+- Long chains of trivial intermediates turn crafting into inventory sorting.
+- Crafting that is strictly better than found loot, or strictly worse, makes one of the two systems irrelevant.
+dynamics:
+- Tool tiers gate access to materials, which gate the next tool tier, producing a progression ladder from rules alone.
+- Inventory limits couple crafting to base building and storage chests.
+- In multiplayer worlds players specialize in crafting lines and trade, as Ultima Online crafters did.
+math_basis:
+- combinatorics
+feedback: reinforcing
+player_interface:
+- direct-manipulation
+- choice-cards
+legibility: 4
+emergence_potential: 2
+authoring_cost: 3
+compute_cost: 1
+tuning_difficulty: 2
+ai_leverage: 4
+maturity: classic
+open_questions:
+- Can generative models produce open recipe spaces like Infinite Craft whose outputs also have balanced, mechanically meaningful
+  stats rather than only names?
+- How should discovery be explained to players when a model rather than a table decides what a combination yields?
+sources:
+- src-wikipedia-infinite-craft
+- src-wikipedia-minecraft
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m1

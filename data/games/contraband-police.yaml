@@ -1,10 +1,68 @@
 id: contraband-police
 type: game
 name: Contraband Police
-summary: TODO
+summary: A first-person border-post sim set in 1981 in which the player checks drivers' documents, searches vehicles
+  for hidden contraband, chases smugglers, and upgrades the post against gang attacks.
 year: 2023
-developer: Crazy Rocks
+developer: Crazy Rocks Studios
+platforms:
+- pc
+- console
 subgenre: job-sim
-status: asserted
+sim_domain:
+- occupational
+- political-governance
+player_role: worker
+agency_model:
+- direct-avatar
+time_model: real-time
+sim_scale: individual
+fidelity: stylized
+perspective: first-person
+win_structure: campaign
+failure_model: soft-recoverable
+narrative_mode: hybrid
+multiplayer:
+- single
+modding: none
+production_tier: indie
+agent_count_order: '10'
+emergence: 2
+influence: 1
+core_loop: check documents -> search the vehicle with UV light and tools -> extract contraband or approve -> arrest
+  or chase fleeing smugglers -> earn cash -> upgrade the post, cars, and defenses -> story missions and raids
+design_notes: 'It moves the Papers, Please inspection loop into a 3D first-person space: document discrepancies
+  are found on paper, but contraband is found physically by examining the vehicle with a UV flashlight and extracting
+  it with tools. The number of documents per entrant grows over time, raising the error rate at constant attention.
+  Inspection income funds post upgrades whose maintenance costs rise, while authored special assignments, chases,
+  and gang raids interrupt the shift loop.'
+mechanics:
+- id: rule-checking-inspection
+  role: core
+  note: Drivers present documents whose number grows over the campaign; small discrepancies require refusal, and
+    suspicious vehicles are searched with a UV flashlight before tools extract hidden goods.
+- id: direct-avatar
+  role: core
+  note: The player walks the post in first person, opens and searches vehicles, drives upgradable police cars in
+    pursuits, and uses firearms in shootouts.
+- id: budget-treasury
+  role: supporting
+  note: Cash from inspections, foiled smuggling, and interventions pays for upgrades while post maintenance costs
+    rise over time.
+- id: raid-defense
+  role: supporting
+  note: Gang attacks on the post are countered with purchased defense upgrades.
+- id: triggered-event-chains
+  role: supporting
+  note: Special assignments and story decisions shape the fate of Acaristan and lead to multiple endings.
+- id: procedural-characters
+  role: supporting
+influenced_by:
+- papers-please
+sources:
+- src-wikipedia-contraband-police
+- src-steam-2026-contraband-police
+- src-twinfinite-2023-contraband-police
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gf

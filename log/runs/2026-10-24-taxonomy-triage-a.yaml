@@ -1,0 +1,80 @@
+id: 2026-10-24-taxonomy-triage-a
+type: run
+date: '2026-10-24'
+actor: agent
+operator: yoheinakajima
+agent:
+  model: claude-opus-5-5
+  harness: Claude app subagent
+purpose: 'Taxonomy triage: create accepted new mechanics proposed by earlier runs (agents, social, economy,
+  governance, population, progression families).'
+method: 'Read AGENTS.md, CONTRACT.md sections 1-3, the mechanic and common schemas, the vocab files they reference,
+  rubrics.yaml, edge_types.yaml, and the exemplars needs-decay, rimworld, and src-wikipedia-rimworld. Pulled the original
+  new-mechanic proposals from catalog-gc (aspiration-wants, background-life-progression, branching-development), catalog-gd
+  (combination-discovery), catalog-ge (advertising-awareness, negotiation, dated-tech-timeline, board-confidence), catalog-gh
+  (megaproject-sink, welfare-currency), catalog-gi (political-capital, corruption-leakage, culture-religion-conversion),
+  taxonomy-m1 (delivery-time-payment), taxonomy-m3 (stress-accumulation), and techniques-llm-agents. Read the neighboring
+  mechanics named in the task (needs-decay, career-ladder, milestone-unlocks, lifecycle-aging, autonomy-levels, mood-breakdown,
+  memories-thoughts, creature-care, trait-inheritance, budget-treasury, policy-toggles, taxation, stability-unrest, population-strata,
+  customer-value-choice, staff-hiring, faction-diplomacy, contracts-orders, vehicle-route-scheduling, elections, scenario-objectives,
+  tech-tree, hand-crafting, generative-content, goods-consumption) plus interest-groups, reputation, god-powers, collection-goals,
+  and product-development, and wrote each definition to name the state it owns and what separates it from them. Applied
+  the four admission tests; all fourteen pass. Merged welfare-currency into political-capital as instructed (Unity is
+  an alias and a worked example). No web search (budget exhausted): cited only existing data/sources files whose notes
+  support the definition''s factual claims, recorded those as claims, and set status sourced where they do. culture-religion-conversion
+  and dated-tech-timeline are asserted because no existing source covers their core rule (missionary conversion; dated
+  model introduction). Read every candidate game file before tagging and wrote tags to the scratchpad file triage_tags_taxonomy-triage-a.yaml;
+  skipped games where the mechanic is covered by an existing tag or I could not confirm it. Considered requires edges
+  (care-dependent-development to lifecycle-aging, delivery-time-payment to vehicle-route-scheduling, advertising-awareness
+  to customer-value-choice, megaproject-sink to production-chain) and rejected each as not strictly necessary in every
+  game; no edges added. Scores assigned by anchor text, lower anchor when between two.'
+contract_version: '1.0'
+scope:
+- data/mechanics/aspiration-wants.yaml
+- data/mechanics/offscreen-life-progression.yaml
+- data/mechanics/stress-accumulation.yaml
+- data/mechanics/care-dependent-development.yaml
+- data/mechanics/political-capital.yaml
+- data/mechanics/corruption-leakage.yaml
+- data/mechanics/culture-religion-conversion.yaml
+- data/mechanics/advertising-awareness.yaml
+- data/mechanics/negotiation.yaml
+- data/mechanics/delivery-time-payment.yaml
+- data/mechanics/board-confidence.yaml
+- data/mechanics/dated-tech-timeline.yaml
+- data/mechanics/combination-discovery.yaml
+- data/mechanics/megaproject-sink.yaml
+proposals:
+- kind: other
+  target: crusader-kings-3, dwarf-fortress, mood-breakdown
+  detail: 'Both games tag mood-breakdown core with notes that describe stress, not mood. Suggest replacing mood-breakdown
+    with stress-accumulation on crusader-kings-3 (it has no mood meter), and on dwarf-fortress keeping mood-breakdown
+    only if its note is rewritten around emotions and tantrums. The Dwarf Fortress stress sentence in mood-breakdown''s
+    definition could then move to stress-accumulation.'
+- kind: other
+  target: infinite-craft, hand-crafting
+  detail: infinite-craft tags hand-crafting core, but it has no workstations, costs, or known recipe list, and hand-crafting's
+    definition mentions Infinite Craft. Suggest replacing that tag with combination-discovery core and trimming the Infinite
+    Craft sentence from hand-crafting.
+- kind: other
+  target: vehicle-route-scheduling, creature-care
+  detail: vehicle-route-scheduling's definition and levers describe Transport Tycoon's delivery-time pay, now owned by
+    delivery-time-payment; creature-care's lever and dynamic about care quality shaping the adult form are now owned by
+    care-dependent-development. Suggest trimming both in a later pass.
+- kind: other
+  target: game design_notes
+  detail: Game files still refer to the old proposal ids background-life-progression (the-sims-3, the-sims-4, inzoi) and
+    branching-development (tamagotchi, princess-maker-2), and to "proposal political-capital" or welfare currency (democracy-4,
+    europa-universalis-4, captain-of-industry). They should be repointed to offscreen-life-progression, care-dependent-development,
+    and political-capital when the tags are applied.
+notes: 'Tag confidence. Medium or low, from designer knowledge only: railroad-tycoon delivery-time-payment (I recall pay
+  depending on transit time but could not source it); inzoi offscreen-life-progression (city-wide free will may be full
+  simulation rather than a cheaper off-screen model); noita combination-discovery (seed-specific Lively Concoction and Alchemic
+  Precursor recipes); big-ambitions advertising-awareness; stellaris corruption-leakage (empire size raising costs, which
+  stretches the corruption label). Considered and skipped: paralives aspiration-wants (wants are documented, a reward meter
+  is not); minecraft combination-discovery (covered by hand-crafting); euro-truck-simulator-2 delivery-time-payment (deadline
+  contracts, already covered by contracts-orders); tropico-6 corruption-leakage (embezzlement, not a leak of state revenue);
+  surviving-mars megaproject-sink (wonders are single costly buildings, not staged sinks). Core tags used: the-sims-2 aspiration-wants,
+  dwarf-fortress and crusader-kings-3 stress-accumulation, princess-maker-2 care-dependent-development, europa-universalis-4
+  political-capital, infinite-craft combination-discovery, dyson-sphere-program megaproject-sink. Every mechanic has two
+  or more tagged games.'

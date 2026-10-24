@@ -1,10 +1,68 @@
 id: whispers-from-the-star
 type: game
 name: Whispers from the Star
-summary: TODO
+summary: A voice-driven sci-fi narrative game in which the player helps stranded astronaut Stella survive on the
+  planet Gaia through open-ended spoken or typed conversation answered by an AI-generated, voiced performance.
 year: 2025
 developer: Anuttacon
+platforms:
+- pc
 subgenre: ai-native
-status: asserted
+subgenre_secondary:
+- social-sim
+sim_domain:
+- social-interpersonal
+player_role: overseer
+agency_model:
+- conversational
+- indirect-incentive
+time_model: real-time
+sim_scale: individual
+fidelity: stylized
+perspective: third-person
+win_structure: campaign
+failure_model: hard-restart
+narrative_mode: generative
+multiplayer:
+- single
+modding: none
+production_tier: aa
+agent_count_order: '1'
+emergence: 2
+influence: 1
+boundary_case: true
+core_loop: Stella calls, texts, or sends voice messages about her situation -> player answers by voice or text ->
+  model generates her spoken reply and choice -> her choices change whether she survives the situation -> story
+  advances
+design_notes: 'At runtime a model generates Stella''s side of every exchange: the player''s microphone or text input
+  is answered with dialogue and a fully voiced performance that Anuttacon says was created in collaboration with
+  an actor, with safety filters screening output. The store page says there is no script and that the player''s
+  words shape her choices and her survival, so advice acts as an indirect control on an agent the player cannot
+  command. The surrounding structure is linear and story-driven per its store tags, which makes it a hybrid of authored
+  situations and generated conversation. Anuttacon was formed in late 2023 by miHoYo co-founder Cai Haoyu, and this
+  is its first game. It is a boundary case: the only simulated state is the conversation and Stella''s choices.'
+mechanics:
+- id: natural-language-interaction
+  role: core
+  note: Open-ended conversation by voice (a microphone is required for the full experience) or text over Stella's
+    communicator, through video calls, voice messages, and texts.
+- id: generative-content
+  role: core
+  note: An AI model generates Stella's dialogue and voiced performance in real time, constrained by safety filters,
+    and her in-story decisions follow from what the player says.
+- id: triggered-event-chains
+  role: supporting
+  note: The store tags the game as linear and story-rich, so generated conversation plays out inside a sequence
+    of survival situations.
+claims:
+- text: Anuttacon, the developer, was formed in late 2023 by Cai Haoyu, and Whispers from the Star is its first
+    game.
+  sources:
+  - src-wikipedia-cai-haoyu
+  confidence: medium
+sources:
+- src-steam-2026-whispers-from-the-star
+- src-wikipedia-cai-haoyu
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gd

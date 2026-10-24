@@ -1,0 +1,16 @@
+id: src-wube-2023-fff-384-combinators-2
+type: source
+name: 'Friday Facts #384 - Combinators 2.0'
+kind: tech-report
+authors:
+- kovarex
+- Klonan
+venue: Factorio blog (Wube Software)
+date: '2023-11-10'
+url: https://factorio.com/blog/post/fff-384
+accessed: '2026-10-24'
+notes: 'Factorio 2.0 circuit changes: new selector combinator (index, count, random, stack size), decider combinator with
+  multiple AND/OR conditions and outputs, per-wire input selection, live signal values in GUIs, combinator descriptions saved
+  in blueprints.'
+provenance:
+  created: 2026-10-24-taxonomy-m6

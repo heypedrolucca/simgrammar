@@ -1,0 +1,15 @@
+id: src-steam-2026-oxygen-not-included
+type: source
+name: Oxygen Not Included on Steam
+kind: store-page
+authors:
+- Klei Entertainment
+venue: Steam
+date: '2026'
+url: https://store.steampowered.com/app/457140/Oxygen_Not_Included/
+accessed: '2026-10-24'
+notes: Release 2019-07-30; oxygen generation and carbon dioxide buildup with an oxygen overlay; thermodynamics;
+  gas and liquid pipes; coal, hydrogen, natural gas, and manual power with circuit overloads; colonist stress; creature
+  ranching; procedurally generated asteroids.
+provenance:
+  created: 2026-10-24-catalog-gb

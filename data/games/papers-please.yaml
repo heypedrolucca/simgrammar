@@ -1,10 +1,75 @@
 id: papers-please
 type: game
 name: Papers, Please
-summary: TODO
+summary: A border inspection game in which the player checks entrants' documents against daily-changing rules on
+  a timed shift and spends the wages on a family's rent, food, and heat.
 year: 2013
-developer: Lucas Pope
+developer: Lucas Pope (3909 LLC)
+platforms:
+- pc
+- mobile
+- handheld
 subgenre: job-sim
-status: asserted
+sim_domain:
+- occupational
+- political-governance
+- domestic-personal
+player_role: worker
+agency_model:
+- direct-avatar
+- policy-parameter
+time_model: real-time
+sim_scale: individual
+fidelity: stylized
+perspective: top-down-2d
+win_structure: campaign
+failure_model: hard-restart
+narrative_mode: hybrid
+multiplayer:
+- single
+modding: none
+production_tier: indie
+agent_count_order: '10'
+emergence: 2
+influence: 3
+core_loop: read the day's rules -> inspect each entrant's papers -> interrogate, fingerprint, or scan discrepancies
+  -> stamp approve, deny, or detain -> citations and bribes adjust pay -> pay rent, food, and heat -> next day adds
+  rules
+design_notes: The inspection rules are predicates that accumulate day by day as the fictional state's politics shift,
+  so the same entrant generator yields harder cases over time. Pay is per correctly processed entrant within a fixed
+  shift and citations arrive by fax after each error, which makes speed and accuracy a direct trade. The household
+  ledger converts that trade into moral pressure, and bribes and rule-bending choices feed scripted branches that
+  lead to twenty endings.
+mechanics:
+- id: rule-checking-inspection
+  role: core
+  note: Each day adds or changes entry requirements; the player cross-checks passports, permits, and other papers,
+    can interrogate, compare fingerprints, or order body scans, and receives faxed citations after protocol violations.
+- id: daily-action-budget
+  role: core
+  note: Each shift is a fixed real-time working day and pay is per properly processed entrant, so processing speed
+    trades against error risk.
+- id: budget-treasury
+  role: core
+  note: The end-of-day ledger adds wages and bribes, subtracts citation penalties, and requires paying rent, food,
+    heat, and other necessities; going into debt ends the game.
+- id: needs-decay
+  role: supporting
+  note: Family members' condition worsens on days when food, heat, or other necessities go unpaid.
+- id: dilemma-cards
+  role: supporting
+  note: Scripted entrants pose choices such as admitting a supposed spouse without complete papers, trading rule
+    compliance against helping people.
+- id: triggered-event-chains
+  role: supporting
+  note: EZIC contacts and other scripted encounters branch the story toward twenty endings, including escape to
+    Obristan.
+- id: procedural-characters
+  role: supporting
+  note: Randomly generated entrants are mixed with scripted ones; the unlockable endless mode uses only generated
+    entrants.
+sources:
+- src-wikipedia-papers-please
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gf

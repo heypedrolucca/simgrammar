@@ -1,10 +1,117 @@
 id: transport-tycoon
 type: game
 name: Transport Tycoon
-summary: TODO
+aliases:
+- Transport Tycoon Deluxe
+summary: A transport business sim in which the player builds road, rail, sea, and air networks between
+  towns and industries over a century, earning by delivery speed and distance while vehicles age and break
+  down.
 year: 1994
 developer: Chris Sawyer
+platforms:
+- pc
+- console
+- mobile
 subgenre: transport-logistics
-status: asserted
+subgenre_secondary:
+- business-economic-sim
+sim_domain:
+- industrial-logistics
+- economic
+player_role: manager-owner
+agency_model:
+- zoning-placement
+- direct-unit
+time_model: real-time-pausable
+sim_scale: region
+fidelity: stylized
+perspective: isometric
+win_structure: score-ranking
+failure_model: hard-restart
+narrative_mode: none
+multiplayer:
+- single
+- competitive
+modding: content
+production_tier: indie
+agent_count_order: '100'
+emergence: 3
+influence: 4
+core_loop: survey towns and industries -> build stations, track, roads, docks, and airports -> give vehicles
+  order lists -> payment by cargo, distance, and delivery time -> station ratings and towns grow -> replace
+  aging vehicles and expand
+design_notes: Transport Tycoon extends Railroad Tycoon to four transport modes on one isometric map and
+  makes cargo value decay with transit time, so mail suits short or fast routes while coal keeps its value
+  over long hauls. Stations only collect from nearby towns and industries, and a station rating decides
+  how much of an industry's output it receives, which rewards frequent, fast service. Vehicles lose reliability
+  with age and new models arrive on a timeline from 1930 to 2030 (1950 to 2050 in Deluxe), so the fleet
+  must be renewed; date-driven model availability is proposed as dated-tech-timeline. Town councils rate
+  each company through the Local Authority system, which can block new stations. OpenTTD, a reverse-engineered
+  reimplementation first released in 2004, continues the design.
+mechanics:
+- id: vehicle-route-scheduling
+  role: core
+  note: Trains, road vehicles, ships, aircraft, and helicopters run order lists between stations; revenue
+    depends on cargo type, distance, quantity, and delivery time.
+- id: service-coverage
+  role: core
+  note: Stations accept and supply cargo only within a catchment around them, and station ratings set
+    how much nearby industries hand over.
+- id: wear-breakdown
+  role: core
+  note: Vehicle reliability falls with age, breakdowns become more frequent, and vehicles must be serviced
+    and eventually replaced; prototypes offer better specs with reliability risk.
+- id: production-chain
+  role: supporting
+  note: Primary industries feed secondary ones and finished goods go to towns; poorly served industries
+    can close.
+- id: rail-signaling
+  role: supporting
+  note: Bi-directional signals in the original; Deluxe adds one-way signals.
+- id: deposit-depletion
+  role: supporting
+  note: Some resource sites run out and new ones appear.
+- id: reputation
+  role: supporting
+  note: Local Authority ratings per town fall with poor service and tree clearing and can block demolition
+    and new stations.
+- id: contracts-orders
+  role: supporting
+  note: Towns offer subsidies for serving specific routes.
+- id: rival-firms
+  role: supporting
+  note: Up to seven AI transport companies compete for the same towns and industries.
+- id: equity-buyouts
+  role: supporting
+  note: Deluxe adds trading company shares and buying out competitors.
+- id: loans-debt
+  role: supporting
+  note: The company starts with an interest-bearing loan.
+- id: road-network
+  role: supporting
+  note: Road vehicles use town roads and player-built roads from depots.
+- id: free-placement
+  role: supporting
+- id: terraforming
+  role: supporting
+- id: delivery-time-payment
+  role: supporting
+  note: Revenue per delivery depends on cargo type, quantity, distance, and transit time; mail and passengers
+    lose value quickly while coal tolerates long, slow hauls.
+- id: dated-tech-timeline
+  role: supporting
+  note: Road, rail, sea, and air models are introduced on a timeline from 1930 to 2030 (1950 to 2050 in
+    Deluxe), new models carry reliability risk, and aging fleets must be renewed as better models arrive.
+- id: track-laying
+  role: supporting
+  note: Rail track, including slopes, bridges, and tunnels, is laid piece by piece on the isometric tile
+    map, with costs for terrain changes and demolition.
+influenced_by:
+- railroad-tycoon
+- simcity-2000
+- theme-park
+sources:
+- src-wikipedia-transport-tycoon
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-ge

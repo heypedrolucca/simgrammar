@@ -1,0 +1,54 @@
+id: symbolic-sim-neural-render
+type: opportunity
+name: Symbolic simulation, neural rendering
+summary: Keep gameplay in a small deterministic symbolic simulation and let a generative world model render
+  it, decoupling visual variety from simulation cost and art budgets.
+opportunity_type: infrastructure
+thesis: 'Generative world models (GameNGen, Genie 3, Muse, Oasis) produce convincing interactive frames
+  but drift, forget, and cannot be trusted as game state. Simulation games need the opposite: exact, persistent,
+  inspectable state. Splitting the stack resolves the conflict: the authoritative simulation stays symbolic
+  (grids, agents, stocks), and a conditioned generative model renders it, so visual variety becomes nearly
+  free while rules, saves, replays, and multiplayer sync remain deterministic.'
+design_sketch: A city builder whose simulation is a tile grid of typed buildings, agents, and fields.
+  A renderer conditioned on the grid, time of day, and a style prompt produces the view; players restyle
+  their city as medieval, solarpunk, or watercolor without new art. Inspection tools always read the symbolic
+  state.
+involves:
+- decoration-beauty
+- procedural-build-assist
+- free-placement
+- zoning
+- data-overlays
+applies:
+- diffusion-game-engines
+- genie-world-models
+- neural-rendering-shaders
+- gaussian-splatting
+precedent:
+- townscaper
+- tiny-glade
+- cities-skylines
+- islanders
+novelty: 5
+feasibility: 2
+impact: 4
+horizon: 3-5y
+key_risks:
+- Rendered frames that misrepresent symbolic state confuse players (a building that looks like a hospital
+  but is not).
+- Inference cost per frame on consumer GPUs.
+- Temporal flicker and style drift across sessions.
+validation_experiment: 'Condition an open video or image model on a 32x32 symbolic city grid and measure
+  per-tile semantic fidelity (does a rendered tile read as its type to human raters) and frame time. Success:
+  over 95 percent rater agreement with the symbolic type at 10 frames per second on a current consumer
+  GPU.'
+falsifiable_signal:
+  prediction: A released game will render its primary view with a generative model conditioned on an explicit
+    symbolic game state.
+  resolve_by: '2029-12-31'
+  criteria: Developer documentation showing gameplay state is symbolic and the main viewport is produced
+    by a learned generative renderer.
+sources: []
+status: asserted
+provenance:
+  created: 2026-10-24-synthesis

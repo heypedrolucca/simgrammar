@@ -1,9 +1,63 @@
 id: storage-capacity
 type: mechanic
 name: Storage and buffers
-summary: Goods occupy finite storage; buffers decouple producers from consumers, and full storage blocks
-  production.
+aliases:
+- buffers
+- warehouses
+- inventory limits
+- stockpiles
+summary: Goods occupy finite storage; buffers decouple producers from consumers, and full storage blocks production.
 family: resources-production
-status: asserted
+substrate:
+- aggregate-stocks
+- rule-system
+definition: >-
+  Storage containers, warehouses, stockpile zones, and machine input or output slots each hold a capacity measured in units,
+  stacks, slots, or volume. Producers push into storage until it is full, then stall; consumers pull from it until it is empty,
+  then starve. Between those limits, buffer level absorbs mismatches in timing. Factorio chests have fixed slot counts and
+  machines hold small input and output buffers; RimWorld stockpile zones accept filtered items in priority order (low, normal,
+  preferred, important, critical) and haulers move items toward higher-priority zones with space; Anno caps each good at an
+  island-wide storage limit that warehouses raise; GlassBox in SimCity (2013) stores everything in capacity-limited resource
+  bins, such as a house holding 20 of 30 food and 4 of 10 people. Inputs: incoming and outgoing flows. Outputs: stock level
+  and full or empty states that gate adjacent processes.
+player_experience: >-
+  Buffers give breathing room and hide problems. Players size storage to survive supply gaps, then discover that a full warehouse
+  has silently stopped a production line. Organizing what goes where becomes its own small design task.
+design_levers:
+- capacity per container and whether it is per good, per slot, or shared
+- filters and priorities that decide what goes where
+- 'behavior when full: stall, overflow to the ground, or discard'
+- local buffers on machines versus central warehouses
+- storage cost in space, money, or construction
+failure_modes:
+- Very large storage hides every imbalance, so production ratios never matter.
+- Tiny buffers make chains brittle and turn play into constant stop-and-go.
+- Full storage stalls without alerts make the cause invisible.
+dynamics:
+- Buffers absorb shocks such as raids, winters, and broken links, trading space for resilience.
+- Full buffers propagate backpressure upstream, so one blocked output can stop an entire chain.
+- Coupled with spoilage, storage becomes a liability instead of a safe stockpile.
+- Players build overflow sinks or priority splits so critical chains never block.
+math_basis:
+- queueing
+- system-dynamics
+feedback: balancing
+player_interface:
+- placement
+- parameter
+- observation
+legibility: 4
+emergence_potential: 2
+authoring_cost: 1
+compute_cost: 1
+tuning_difficulty: 2
+ai_leverage: 1
+maturity: classic
+open_questions:
+- Can automatic buffer sizing advisors teach players about backpressure without solving the layout for them?
+sources:
+- src-rimworldwiki-2026-stockpile
+- src-cifaldi-2012-glassbox-engine
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m1

@@ -1,10 +1,80 @@
 id: garrys-mod
 type: game
 name: Garry's Mod
-summary: TODO
+aliases:
+- GMod
+summary: >-
+  A Source engine physics sandbox in which players spawn props, ragdolls, and NPCs, join them with welds and constraints,
+  and script whole new multiplayer game modes in Lua.
 year: 2004
 developer: Facepunch Studios
+platforms:
+- pc
 subgenre: physics-sandbox
-status: asserted
+sim_domain:
+- physical-mechanical
+- computational-abstract
+player_role: engineer-designer
+agency_model:
+- direct-avatar
+- programmatic
+time_model: real-time
+sim_scale: individual
+fidelity: stylized
+perspective: first-person
+win_structure: open-sandbox
+failure_model: none
+narrative_mode: emergent
+multiplayer:
+- single
+- coop
+- competitive
+modding: total-conversion
+production_tier: indie
+agent_count_order: '10'
+emergence: 3
+influence: 4
+core_loop: >-
+  spawn props, ragdolls, and NPCs -> move and freeze them with the physics gun -> weld, rope, and motor them with the tool
+  gun -> test the contraption or scene -> share it, or play a community game mode built on the same tools
+design_notes: >-
+  Garry's Mod exposes the Source engine's rigid-body physics directly: the physics gun grabs, rotates, and freezes any prop,
+  and the tool gun adds welds, ropes, axles, motors, thrusters, and other constraints, so contraptions are built from rigid
+  bodies and joints. Its larger contribution is that the whole game is scriptable in Lua and servers download addons on join,
+  so most play happens inside player-made game modes such as Trouble in Terrorist Town, Prop Hunt, and DarkRP, and the add-on
+  Wiremod adds sensors and logic gates. Garry's Mod began as a free Half-Life 2 mod in 2004 and became a paid Steam product
+  in 2006.
+mechanics:
+- id: rigid-body-physics
+  role: core
+  note: >-
+    Every spawned prop and ragdoll is a physics object; the physics gun lifts, rotates, and freezes them, and collisions,
+    gravity, and buoyancy follow the Source physics engine.
+- id: modular-assembly
+  role: core
+  note: >-
+    The tool gun joins props with welds, ropes, axles, sliders, winches, motors, wheels, and thrusters, turning loose props
+    into vehicles and machines.
+- id: modding-api
+  role: core
+  note: >-
+    A Lua API covers entities, weapons, HUD, and game rules; servers send addons to clients on join, and community game modes
+    (TTT, Prop Hunt, DarkRP) became the main way people play.
+- id: direct-avatar
+  role: supporting
+  note: >-
+    The player is a first-person character who walks, flies with noclip, and wields the physics and tool guns.
+- id: content-sharing
+  role: supporting
+  note: Steam Workshop distributes saves, dupes, maps, and addons.
+- id: signal-circuits
+  role: supporting
+  note: The Wiremod addon adds wires, sensors, gates, and programmable chips to contraptions.
+- id: blueprints
+  role: supporting
+  note: The duplicator tool and Advanced Duplicator addon copy and paste multi-prop contraptions.
+sources:
+- src-wikipedia-garrys-mod
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gg

@@ -1,0 +1,16 @@
+id: src-steam-2026-townscaper
+type: source
+name: Townscaper on Steam
+kind: store-page
+authors:
+- Oskar Stalberg
+- Raw Fury
+venue: Steam
+date: '2026'
+url: https://store.steampowered.com/app/1291340/Townscaper/
+accessed: '2026-10-24'
+notes: Developer Oskar Stalberg, publisher Raw Fury; early access 2020-06-30; full release 2021-08-26; instant town
+  building toy with no goal; colored blocks on an irregular grid; an algorithm turns blocks into houses, arches,
+  stairways, bridges, and gardens.
+provenance:
+  created: 2026-10-24-catalog-ga

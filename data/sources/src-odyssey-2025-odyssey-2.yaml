@@ -1,0 +1,14 @@
+id: src-odyssey-2025-odyssey-2
+type: source
+name: 'Introducing Odyssey-2: A General-Purpose World Model'
+kind: tech-report
+authors:
+- Oliver Cameron
+venue: Odyssey
+date: '2025-10-27'
+url: https://odyssey.systems/introducing-odyssey-2
+accessed: '2026-10-24'
+notes: Every frame generated in under 50 ms (~20 fps); text-prompt interaction; multi-minute streams;
+  causal autoregressive; API announced as coming soon.
+provenance:
+  created: 2026-10-24-techniques-world-models

@@ -1,10 +1,79 @@
 id: viva-pinata
 type: game
 name: Viva Piñata
-summary: TODO
+summary: A garden sim in which the player shapes terrain, plants, and water to attract 60 piñata species, then meets
+  each species' requirements to make them residents, breed them, and manage the predators among them.
 year: 2006
 developer: Rare
+platforms:
+- console
+- pc
 subgenre: ecosystem-evolution
-status: asserted
+subgenre_secondary:
+- farming-sim
+sim_domain:
+- biological-ecological
+player_role: caretaker
+agency_model:
+- indirect-incentive
+- zoning-placement
+- caretaking-interaction
+time_model: real-time
+sim_scale: facility
+fidelity: stylized
+perspective: free-3d
+win_structure: open-sandbox
+failure_model: soft-recoverable
+narrative_mode: hybrid
+multiplayer:
+- single
+- async-shared
+modding: none
+production_tier: aaa
+agent_count_order: '100'
+emergence: 2
+influence: 2
+core_loop: dig, plant, and water the garden -> species outlines appear when appear requirements are met -> resident
+  requirements turn visitors into residents -> residents meet romance requirements and lay eggs -> predators and
+  sours disrupt -> sell or trade piñatas -> attract new species
+design_notes: 'Viva Piñata turns habitat suitability into a readable checklist: each species has staged appear,
+  visit, resident, and romance requirements, shown as a black-and-white outline that fills in when residency is
+  met. Because piñatavores must eat other piñatas to become residents or breed, attracting one species can consume
+  another, so the garden is a hand-built food web the player tunes by fencing, spacing, and timing. Sours and Professor
+  Pester''s ruffians supply authored pressure, and romance requirements can be bypassed with candy once a species
+  has bred, trading early difficulty for collection speed.'
+mechanics:
+- id: habitat-suitability
+  role: core
+  note: Each of the 60 species has staged requirements (garden contents, plants, water, terrain, or having eaten
+    a specific item) that turn an outline into a visitor and then a resident.
+- id: food-web
+  role: core
+  note: Piñatavores must eat other piñatas to become residents or breed, and visiting predators eat residents to
+    meet their own requirements.
+- id: animal-husbandry
+  role: core
+  note: Two residents of a species that meet romance requirements perform a romance dance and a maze minigame that
+    yields an egg; piñatas are ungendered, and candy skips romance requirements after a species' first romance.
+- id: collection-goals
+  role: core
+  note: The journal of 60 species, each with requirements to discover, is the long-term goal structure.
+- id: crop-cultivation
+  role: supporting
+  note: Seeds sown with tools grow into flowers, vegetables, and trees that species eat or require; weeds spread
+    and destroy vegetable rows if not removed.
+- id: terraforming
+  role: supporting
+  note: The shovel and other tools plough soil, dig ponds, and sculpt terrain.
+- id: free-placement
+  role: supporting
+- id: milestone-unlocks
+  role: supporting
+- id: async-shared-region
+  role: supporting
+  note: Eggs and piñatas could be sent to other players over Xbox Live.
+sources:
+- src-wikipedia-viva-pinata
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gd

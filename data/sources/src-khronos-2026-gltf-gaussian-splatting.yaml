@@ -1,0 +1,14 @@
+id: src-khronos-2026-gltf-gaussian-splatting
+type: source
+name: Khronos releases KHR_gaussian_splatting glTF extension release candidate
+kind: tech-report
+authors:
+- The Khronos Group
+date: '2026-02-03'
+url: https://www.khronos.org/news/press/gltf-gaussian-splatting-press-release
+accessed: '2026-10-24'
+notes: Release candidate of baseline glTF 2.0 splat extension; compression proposals SPZ (Niantic Spatial)
+  and L-GSC (Qualcomm); contributors Autodesk, Cesium/Bentley, Esri, Huawei, Niantic Spatial, NVIDIA,
+  XGRIDS; ratification expected Q2 2026.
+provenance:
+  created: 2026-10-24-techniques-world-models

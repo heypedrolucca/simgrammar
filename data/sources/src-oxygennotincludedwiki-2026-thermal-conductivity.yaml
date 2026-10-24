@@ -1,0 +1,15 @@
+id: src-oxygennotincludedwiki-2026-thermal-conductivity
+type: source
+name: Thermal Conductivity
+kind: encyclopedia
+authors:
+- Oxygen Not Included Wiki contributors
+venue: Oxygen Not Included Wiki (wiki.gg)
+date: '2026'
+url: https://oxygennotincluded.wiki.gg/wiki/Thermal_Conductivity
+accessed: '2026-10-24'
+notes: Tick 0.2 s; cell-to-cell q = dT x dt x k x 1000, x25 solid-gas, x625 liquid-liquid; no transfer
+  below 1 C or 0.1 DTU; per-tick change capped at a quarter of the difference; insulated tile conductivity
+  divided by (255/2)^2; building and pipe formulas.
+provenance:
+  created: 2026-10-24-taxonomy-m4

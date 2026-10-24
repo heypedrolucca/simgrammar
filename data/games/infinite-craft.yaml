@@ -1,10 +1,60 @@
 id: infinite-craft
 type: game
 name: Infinite Craft
-summary: TODO
+summary: A browser crafting game in which combining any two elements yields a new element whose name and
+  emoji a language model generates on first request and a shared database then fixes for all players.
 year: 2024
 developer: Neal Agarwal
+platforms:
+- web
+- mobile
 subgenre: ai-native
-status: asserted
+sim_domain:
+- computational-abstract
+player_role: engineer-designer
+agency_model:
+- design-then-test
+time_model: turn-based
+sim_scale: individual
+fidelity: abstract
+perspective: text-ui
+win_structure: open-sandbox
+failure_model: none
+narrative_mode: none
+multiplayer:
+- single
+- async-shared
+modding: none
+production_tier: hobbyist
+agent_count_order: none
+emergence: 2
+influence: 1
+boundary_case: true
+core_loop: start with water, fire, wind, and earth -> drag two elements together -> look up the pair in
+  the shared database -> if new, a language model names the result and picks an emoji -> result is cached
+  for everyone -> combine the new element further
+design_notes: 'At runtime the model is consulted only on a cache miss: the game checks a global database
+  for the unordered pair, and if no result exists, Llama 2 (later Llama 3.1) generates a short element
+  name, capped at twenty tokens, plus an emoji; the result is stored so the same pair returns the same
+  element to every player. The recipe graph is therefore written collectively and lazily by players and
+  the model, and a First Discovery label marks players who triggered a generation. Pairwise combination
+  discovery is not yet a mechanic in the taxonomy (proposal combination-discovery). It is a boundary case:
+  there is no simulated system beyond the generated recipe graph.'
+mechanics:
+- id: generative-content
+  role: core
+  note: On a cache miss, a Llama model generates the combined element's name (up to twenty tokens) and
+    emoji; the result is written to a shared database so later requests are deterministic.
+- id: collection-goals
+  role: supporting
+  note: Players accumulate discovered elements and First Discoveries, which mark elements no player had
+    made before.
+- id: combination-discovery
+  role: core
+  note: Every action combines two owned elements; on a cache miss a Llama model names the result, the
+    result is stored so every player gets the same answer, and new results earn a First Discovery label.
+sources:
+- src-wikipedia-infinite-craft
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-gd

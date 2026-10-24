@@ -1,0 +1,15 @@
+id: src-wikipedia-tamagotchi
+type: source
+name: Tamagotchi
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Tamagotchi
+accessed: '2026-10-24'
+notes: Bandai with WiZ, creators Aki Maita and Akihiro Yokoi; Japan release 1996-11-23; Hunger, Happy,
+  and Training meters, life stages, care-dependent adult form, droppings and sickness, death; about 40
+  million units in the first run.
+provenance:
+  created: 2026-10-24-catalog-gc

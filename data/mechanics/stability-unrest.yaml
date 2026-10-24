@@ -1,8 +1,59 @@
 id: stability-unrest
 type: mechanic
 name: Stability and unrest
+aliases:
+- unrest
+- rebellion
+- revolt meter
 summary: Grievances accumulate into unrest that triggers protests, strikes, or revolt.
 family: governance-policy
-status: asserted
+substrate:
+- aggregate-stocks
+- stochastic-events
+definition: 'Owns an unrest or radicalism stock per region, group, or nation. Each period grievances (unmet needs, opposed
+  laws, taxes, war exhaustion, occupation) add to it and suppression (police, garrisons, concessions, propaganda) subtracts.
+  Crossing thresholds triggers escalating events: protests, strikes, riots, rebel spawns, secession, revolution, or game over.
+  Civilization (1991) puts a city into disorder, halting production, when unhappy citizens outnumber happy ones. Europa Universalis
+  IV accumulates rebel progress in provinces with positive unrest until rebels rise. Victoria 3 starts a revolution clock
+  when a political movement''s radicalism is high enough that it turns to revolt, and each time the clock fills the revolution
+  advances through events. Frostpunk (2018) ends in revolt when discontent stays too high or hope too low for an extended
+  period.'
+player_experience: A pressure cooker. The player watches unrest rise, decides whether to concede, suppress, or wait it out,
+  and feels the cost of each option. Thresholds create anxious countdowns and dramatic turning points.
+design_levers:
+- grievance sources and their weights
+- suppression tools, their costs, and side effects such as increasing long-term grievance
+- threshold ladder and escalation speed
+- 'spatial scope: per province, per group, or national'
+- warning visibility, such as clocks, meters, and forecasts
+failure_modes:
+- Cheap suppression makes unrest trivial, as with stacking garrisons or police.
+- Instant revolt at a threshold feels arbitrary without visible warning.
+- Revolts that only spawn more units to fight turn politics into whack-a-mole combat.
+dynamics:
+- Disorder halts production, which worsens shortages and raises grievances, a death spiral.
+- Suppression buys time but raises long-term grievances, deferring rather than resolving crises.
+- Unrest in one region can spread or inspire neighboring regions.
+math_basis:
+- system-dynamics
+- markov-stochastic
+feedback: reinforcing
+player_interface:
+- observation
+- choice-cards
+legibility: 3
+emergence_potential: 4
+authoring_cost: 2
+compute_cost: 1
+tuning_difficulty: 4
+ai_leverage: 3
+maturity: classic
+open_questions:
+- Can agent-based protest dynamics (social contagion, leaders) replace scalar unrest meters while staying readable?
+- Can LLM-generated demands make movements negotiable rather than just threats to suppress?
+sources:
+- src-paradox-2023-vic3-law-enactment
+- src-wikipedia-frostpunk
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m2

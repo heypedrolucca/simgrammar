@@ -1,0 +1,15 @@
+id: src-wikipedia-noita
+type: source
+name: Noita (video game)
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Noita_(video_game)
+accessed: '2026-10-24'
+notes: Nolla Games; early access 2019-09-24; 1.0 on 2020-10-15; Windows; Falling Everything engine simulates every
+  pixel; liquids, gases, solids react; Box2D rigid bodies; wand and spell crafting; permadeath roguelite; influences
+  The Powder Toy, Liero, roguelikes.
+provenance:
+  created: 2026-10-24-catalog-gg

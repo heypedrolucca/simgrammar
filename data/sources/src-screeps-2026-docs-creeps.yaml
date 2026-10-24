@@ -1,0 +1,13 @@
+id: src-screeps-2026-docs-creeps
+type: source
+name: Creeps
+kind: docs
+venue: Screeps documentation
+date: '2026'
+url: https://docs.screeps.com/creeps.html
+accessed: '2026-10-24'
+notes: Bodies of up to 50 parts (WORK, MOVE, CARRY, ATTACK, RANGED_ATTACK, HEAL, CLAIM, TOUGH); lifespan
+  1,500 ticks; spawn budget 300 energy plus extensions; non-MOVE parts add fatigue 1/2/10 on road/plain/swamp
+  and each MOVE part removes 2 per tick; 100 hits per part.
+provenance:
+  created: 2026-10-24-catalog-gh

@@ -1,0 +1,15 @@
+id: src-wikipedia-garrys-mod
+type: source
+name: Garry's Mod
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Garry%27s_Mod
+accessed: '2026-10-24'
+notes: Facepunch Studios, Garry Newman; Source engine mod released 2004-12-24; standalone on Steam 2006-11-29 (Valve);
+  Windows, macOS, Linux; physics gun, tool gun welds and constraints; Lua addons; gamemodes TTT, Prop Hunt, DarkRP,
+  Wiremod; 25.5 million sold by 2024.
+provenance:
+  created: 2026-10-24-catalog-gg

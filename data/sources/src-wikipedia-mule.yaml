@@ -1,0 +1,13 @@
+id: src-wikipedia-mule
+type: source
+name: M.U.L.E.
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/M.U.L.E.
+accessed: '2026-10-24'
+notes: 1983, Ozark Softscape, Danielle Bunten Berry; real-time auctions; ties go to the trailing player; withholding supply raises later prices; land auctions replaced by a free plot per turn because of a feedback loop.
+provenance:
+  created: 2026-10-24-taxonomy-m2

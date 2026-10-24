@@ -1,0 +1,13 @@
+id: src-openttd-2026-manual-signals
+type: source
+name: "Manual/Signals"
+kind: docs
+authors:
+  - "OpenTTD Wiki contributors"
+venue: "OpenTTD Wiki"
+date: "2026"
+url: https://wiki.openttd.org/en/Manual/Signals
+accessed: "2026-10-24"
+notes: "A block is all track reachable up to the next signal; path signals are red by default until a route is reserved; one-way path signals; entry pre-signals require a green exit."
+provenance:
+  created: 2026-10-24-taxonomy-m1

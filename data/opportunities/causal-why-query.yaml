@@ -1,0 +1,53 @@
+id: causal-why-query
+type: opportunity
+name: Why-query over the simulation log
+summary: Let players ask why something happened and answer from the simulation's own event log, making
+  deep systemic games legible without simplifying them.
+opportunity_type: legibility-layer
+thesis: 'The strongest constraint on simulation depth has been legibility: players abandon systems they
+  cannot diagnose, so designers cap coupling. Overlays and causal tooltips help with current values but
+  not with histories (''why did the hospital close?''). If the simulation records an event log with causes,
+  a language model can retrieve the relevant chain and narrate it with citations to specific events, and
+  a constrained output format can force every claim to point at a logged record. This turns the event
+  log, which many engines already keep for replays and debugging, into a player-facing explanation layer.'
+design_sketch: A query box and a right-click 'why?' on any entity. The answer is three to six sentences,
+  each linked to log events the player can jump to on the timeline, plus a small causal graph. Answers
+  that cannot be grounded say so. Advisors use the same pipeline proactively when a key indicator crosses
+  a threshold.
+involves:
+- causal-tooltips
+- agent-inspection
+- advisors
+- history-chronicle
+- stats-dashboards
+- alerts-feed
+applies:
+- llm-explanation-of-state
+- constrained-decoding
+precedent:
+- dwarf-fortress
+- victoria-3
+- rimworld
+- cities-skylines-2
+novelty: 4
+feasibility: 4
+impact: 5
+horizon: 1-2y
+key_risks:
+- Ungrounded but fluent answers teach players wrong models of the system.
+- Event logs in shipped engines often lack cause links; instrumenting them is real work.
+- Explanations can make optimal play too easy, flattening difficulty.
+validation_experiment: 'Instrument an open-source simulation (a city or colony sim) to log events with
+  parent-cause ids. Give two player groups the same failing save; one gets the why-query. Measure time
+  to correct diagnosis and the share of answer sentences whose cited events actually support them (human
+  audit). Success: 40 percent faster diagnosis with at least 95 percent supported sentences.'
+falsifiable_signal:
+  prediction: A simulation or strategy title in Steam's top 100 by concurrent players will ship a natural-language
+    why-query grounded in game state.
+  resolve_by: '2027-12-31'
+  criteria: Official release notes or store page describing a player-facing feature that answers causal
+    questions about the player's own game state in natural language.
+sources: []
+status: asserted
+provenance:
+  created: 2026-10-24-synthesis

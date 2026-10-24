@@ -1,9 +1,62 @@
 id: habitat-suitability
 type: mechanic
 name: Habitat suitability
-summary: Species or crops thrive only where biome conditions such as terrain, temperature, water, and
-  cover match their needs.
+aliases:
+- biome requirements
+- habitat requirements
+- fertility
+summary: Species or crops thrive only where conditions such as terrain, temperature, water, and cover
+  match their needs, scored per location.
 family: environment-ecology
+substrate:
+- cellular-grid
+- rule-system
+definition: Owns a preference profile per species or crop (acceptable ranges or targets for terrain type,
+  temperature, humidity, water, foliage, space, and company) and computes a suitability score for each
+  tile, region, or enclosure by comparing local conditions to the profile, often as a weighted sum or
+  as the worst single factor. The score gates where things can be placed or survive and scales growth,
+  yield, welfare, or breeding. Zoo Tycoon and Planet Zoo grade each enclosure on terrain mix, foliage,
+  area, and biome for each animal; Anno 1800 gives each island fertilities that decide which crops it
+  can farm; Viva Pinata spawns a species only when the garden meets its requirements. Inputs are terrain
+  and climate state; outputs are a scalar per location used by other systems.
+player_experience: Matching puzzles on the map. The player reads a species' or crop's profile, then sculpts
+  terrain, plants foliage, or picks locations until the indicator turns green. Unmet requirements show
+  up as unhappy animals or missing harvests, so the player iterates on the place rather than on the creature.
+design_levers:
+- number of factors in the profile and how narrow each acceptable range is
+- 'combination rule: weighted average, product, or worst single factor'
+- hard gate on placement versus soft multiplier on growth or welfare
+- 'how the score is shown: checklist, percentage, overlay, or only through outcomes'
+- whether conditions change at runtime through seasons, climate, or terraforming
+failure_modes:
+- Checklists with exact percentages become form-filling once the player knows the threshold values.
+- Averaging factors lets a perfect score on one factor hide a fatal mismatch on another.
+- Static suitability makes each location solved once, removing reasons to revisit it.
+dynamics:
+- Different profiles force specialization by location, which drives trade between regions or islands.
+- Coupled with climate or seasons, suitable areas move and populations must migrate or be relocated.
+- Players terraform to manufacture suitability, creating demand for terrain tools and materials.
+math_basis:
+- utility-decision
+- population-dynamics
+feedback: none
+player_interface:
+- placement
+- observation
+legibility: 4
+emergence_potential: 2
+authoring_cost: 2
+compute_cost: 1
+tuning_difficulty: 2
+ai_leverage: 2
+maturity: established
+synergy:
+- id: terraforming
+  note: Terrain edits change biome conditions, letting the player engineer habitats (Terra Nil, Equilinox).
+open_questions:
+- Can species distribution models learned from ecological data generate plausible, varied requirement
+  profiles for procedurally generated species?
+sources: []
 status: asserted
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m5

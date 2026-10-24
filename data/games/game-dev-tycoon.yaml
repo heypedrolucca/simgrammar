@@ -1,10 +1,87 @@
 id: game-dev-tycoon
 type: game
 name: Game Dev Tycoon
-summary: TODO
+summary: A game-studio business sim where the player picks topic, genre, and platform for each game, splits
+  development effort across design and technology focus areas, and lives or dies by review scores across
+  the history of the industry.
 year: 2012
 developer: Greenheart Games
+platforms:
+- pc
+- mobile
+- handheld
 subgenre: business-economic-sim
-status: asserted
+sim_domain:
+- economic
+- occupational
+player_role: manager-owner
+agency_model:
+- policy-parameter
+time_model: real-time-pausable
+sim_scale: facility
+fidelity: stylized
+perspective: isometric
+win_structure: score-ranking
+failure_model: hard-restart
+narrative_mode: hybrid
+multiplayer:
+- single
+modding: scripting
+production_tier: indie
+agent_count_order: '10'
+emergence: 2
+influence: 2
+core_loop: choose topic, genre, platform, and audience -> allocate focus across three development stages
+  -> design and technology points accumulate with bugs -> reviews score the game -> sales and fans ->
+  research, engines, and hires
+design_notes: 'Game Dev Tycoon reduces game making to a configuration problem scored by a hidden market
+  model: each topic and genre pair, each genre and audience pair, and each platform carry fit weights,
+  and each genre favors a particular split of effort across the development stages. Review scores compare
+  the new game against the player''s previous best, so the bar rises as the studio improves. A fictional
+  timeline of parody consoles enters and leaves the market from the 1980s onward, which forces platform
+  bets (date-driven availability is proposed as dated-tech-timeline). Greenheart released its own cracked
+  copy in which piracy bankrupts the in-game studio.'
+mechanics:
+- id: product-development
+  role: core
+  note: Each game is a topic, genre, platform, and audience pick plus focus sliders across three development
+    stages; reviews score its fit and quality against the studio's best.
+- id: staff-hiring
+  role: core
+  note: After moving out of the garage, the player hires designers and programmers with design, technology,
+    and speed stats and assigns them to development tasks.
+- id: tech-tree
+  role: core
+  note: Research points unlock new topics, genres, and engine features; custom engines bundle researched
+    features and raise technology output.
+- id: agent-skills
+  role: supporting
+  note: Staff gain experience and can be sent to training to raise stats or specialize.
+- id: budget-treasury
+  role: supporting
+  note: Salaries, office upkeep, and development costs drain cash between releases; running out ends the
+    game.
+- id: milestone-unlocks
+  role: supporting
+  note: Bigger offices, R&D and hardware labs, and larger projects unlock as money and fans grow.
+- id: reputation
+  role: supporting
+  note: A fan count from past releases scales sales of future games.
+- id: triggered-event-chains
+  role: supporting
+  note: Industry news, console launches, and studio events fire on a fixed historical timeline.
+- id: modding-api
+  role: supporting
+  note: Mods are written in JavaScript through the gdt-modAPI and shared on the Steam Workshop.
+- id: advertising-awareness
+  role: supporting
+  note: Marketing campaigns bought during development raise a game's hype, which boosts its launch sales.
+- id: dated-tech-timeline
+  role: supporting
+  note: Fictional consoles launch and retire on a fixed in-game calendar from the 1980s onward, so platform
+    choice is a bet on a console's remaining market life.
+sources:
+- src-wikipedia-game-dev-tycoon
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-catalog-ge

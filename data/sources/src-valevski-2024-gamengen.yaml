@@ -1,0 +1,19 @@
+id: src-valevski-2024-gamengen
+type: source
+name: Diffusion Models Are Real-Time Game Engines
+kind: paper
+authors:
+- Dani Valevski
+- Yaniv Leviathan
+- Moab Arar
+- Shlomi Fruchter
+venue: ICLR 2025
+date: 2024-08
+url: https://arxiv.org/abs/2408.14837
+arxiv: '2408.14837'
+accessed: '2026-10-24'
+notes: 'GameNGen: DOOM at 20 fps on one TPU-v5; PSNR 29.43; raters 58%/60% on 1.6 s/3.2 s clips; 64-frame
+  context (~3 s); trained on 70M frames from a PPO agent (50M env steps); 128 TPU-v5e for training; limitations:
+  memory, heuristic errors, no game creation.'
+provenance:
+  created: 2026-10-24-techniques-world-models

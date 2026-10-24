@@ -1,8 +1,65 @@
 id: direct-avatar
 type: mechanic
 name: Direct avatar control
-summary: The player controls one embodied character's movement and actions.
+aliases:
+- avatar control
+- third-person control
+- first-person control
+summary: The player directly controls one embodied character's movement and actions in the simulated world.
 family: control-automation
+substrate:
+- continuous-physics
+- agent-based
+definition: >-
+  The player maps controller or keyboard input to one character's locomotion (walk, run, jump, swim, fly) and interactions
+  (pick up, use, attack, build) in real time. State owned: the avatar's position, velocity, facing, stance, and
+  interaction target. Update rule: each frame, read input, apply a movement controller (kinematic or physics-based)
+  subject to collision and terrain, and resolve interaction requests against objects in range. The world simulation
+  runs around the avatar, often with only the area near it simulated in detail. It contrasts with overseer control,
+  where the player commands at a distance. Canonical forms: Minecraft, Stardew Valley, The Long Dark, Subnautica,
+  Valheim, and the farmer in Harvest Moon; hybrid games such as Satisfactory and Factorio put a factory builder
+  in an avatar.
+player_experience: >-
+  The player is in the world rather than above it. Scale, distance, and danger are felt in the body: a long walk
+  to a resource, a fall, darkness. Systems are learned by touching them, and attachment shifts from managed agents
+  to one's own character.
+design_levers:
+- movement speed, traversal options, and fast travel, which set how large the world feels
+- interaction reach and whether actions take time or animate
+- physics-based versus kinematic controller
+- whether the avatar has needs or survival meters
+- 'camera: first person, third person, or top-down'
+- how much of the world simulates outside the avatar's vicinity
+failure_modes:
+- Large worlds with slow movement turn logistics into walking chores until fast travel or automation unlocks.
+- Simulation limited to the avatar's surroundings freezes distant systems, breaking the illusion that the world
+  runs without the player.
+- Avatar control competes with overseer tools in hybrid games, forcing awkward building from a character's viewpoint.
+dynamics:
+- The avatar's travel time becomes the hidden limiting resource, pushing players to build transport and automation.
+- Embodied presence makes environmental systems such as weather, temperature, and day-night directly threatening.
+- Avatar location sets what is simulated, so player movement shapes world state in games that simulate only loaded
+  chunks.
+math_basis:
+- classical-mechanics
+- control-theory
+feedback: none
+player_interface:
+- embodied-skill
+- direct-manipulation
+legibility: 5
+emergence_potential: 2
+authoring_cost: 4
+compute_cost: 2
+tuning_difficulty: 2
+ai_leverage: 3
+maturity: classic
+open_questions:
+- Can learned motion models (physics-based character controllers trained by RL) give avatars natural interaction
+  with arbitrary simulated objects without per-object animation?
+- In generative world models where the world is rendered from the avatar's action stream, what simulation persistence
+  can survive outside the view?
+sources: []
 status: asserted
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m6

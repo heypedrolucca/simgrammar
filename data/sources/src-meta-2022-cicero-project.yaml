@@ -1,0 +1,14 @@
+id: src-meta-2022-cicero-project
+type: source
+name: CICERO
+kind: tech-report
+authors:
+- Meta AI
+venue: Meta AI research project page
+date: '2022'
+url: https://ai.meta.com/research/cicero/
+accessed: '2026-10-24'
+notes: Describes a controllable dialogue model steered by plans from a planning engine that predicts other
+  players' moves from the board and conversation history; games played on webDiplomacy.net.
+provenance:
+  created: 2026-10-24-techniques-rl-design

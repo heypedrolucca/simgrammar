@@ -1,0 +1,15 @@
+id: src-openrct2-2026-guest-behaviour
+type: source
+name: 'OpenRCT2 source: Guest.cpp (guest ride choice and thoughts)'
+kind: repository
+authors:
+- OpenRCT2 contributors
+venue: GitHub (OpenRCT2/OpenRCT2)
+date: '2026'
+url: https://github.com/OpenRCT2/OpenRCT2/blob/develop/src/openrct2/entity/Guest.cpp
+accessed: '2026-10-24'
+notes: GPL-3.0 reimplementation of RollerCoaster Tycoon 2. Guests reject rides below minimum or above maximum preferred intensity
+  (both widened by happiness), above nausea tolerance (300, 600, 800, 1000 plus happiness), or priced above twice value (value
+  quartered in pay-to-enter parks); rejections create thoughts and lower happiness; guests with no ride left head home.
+provenance:
+  created: 2026-10-24-taxonomy-m3

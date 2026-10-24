@@ -1,0 +1,15 @@
+id: src-wikipedia-out-of-the-park-baseball
+type: source
+name: Out of the Park Baseball
+kind: encyclopedia
+authors:
+- Wikipedia contributors
+venue: Wikipedia
+date: '2026'
+url: https://en.wikipedia.org/wiki/Out_of_the_Park_Baseball
+accessed: '2026-10-24'
+notes: Out of the Park Developments, Markus Heinsohn, first release May 1999 for Windows 98; text play-by-play,
+  3D ballpark from OOTP 15, scouting recode OOTP 14, trade AI, finances OOTP 16, MLB license OOTP 16, historical
+  leagues and debuts, HTML reports.
+provenance:
+  created: 2026-10-24-catalog-ge

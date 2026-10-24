@@ -1,0 +1,15 @@
+id: src-paradox-2023-victoria-3-dev-diary-74
+type: source
+name: 'Victoria 3 Dev Diary #74 - UX Improvements'
+kind: tech-report
+authors:
+- Henrik (Paradox UX designer)
+venue: Paradox Interactive forums
+date: '2023'
+url: https://forum.paradoxplaza.com/forum/developer-diary/victoria-3-dev-diary-74-ux-improvements.1567815/
+accessed: '2026-10-24'
+notes: 'UX changes: repositioned tooltips so players can move into a nested tooltip without opening another by accident; military
+  tooltips break down battle calculations; more detailed pop needs, market access, and radicals tooltips. No date shown on
+  the page; year inferred from screenshot timestamps (early 2023).'
+provenance:
+  created: 2026-10-24-taxonomy-m6

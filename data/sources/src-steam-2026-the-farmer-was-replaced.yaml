@@ -1,0 +1,13 @@
+id: src-steam-2026-the-farmer-was-replaced
+type: source
+name: The Farmer Was Replaced
+kind: store-page
+venue: Steam
+date: '2026'
+url: https://store.steampowered.com/app/2060160
+accessed: '2026-10-24'
+notes: Timon Herzog with publisher Metaroot; early access 2023-02-10; release 2025-10-10; Windows and
+  macOS; drone programmed in a Python-like language stored as .py files editable externally; continuous
+  progression with unlocks; single-player; Steam leaderboards.
+provenance:
+  created: 2026-10-24-catalog-gh

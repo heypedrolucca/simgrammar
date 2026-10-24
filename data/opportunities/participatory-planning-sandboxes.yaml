@@ -1,0 +1,50 @@
+id: participatory-planning-sandboxes
+type: opportunity
+name: Participatory planning sandboxes
+summary: City-builder interfaces over calibrated urban models with simulated resident voices, used by
+  communities and planners to explore tradeoffs together.
+opportunity_type: non-game-transfer
+thesis: Planners already use city builders to communicate, but the games' models are not calibrated to
+  real cities and residents are absent. Simulation-based inference can calibrate traffic, housing, and
+  service models to local data; language-model residents grounded in survey data can voice how proposals
+  affect them. The city builder becomes a deliberation interface, with game mechanics (overlays, budgets,
+  forecasts) as the legibility layer.
+design_sketch: A neighborhood is loaded from open data. Participants zone, budget, and route transit;
+  overlays show calibrated effects; simulated residents from different groups react, each tied to the
+  data that grounds them. Sessions export a report of options and tradeoffs.
+involves:
+- zoning
+- traffic-congestion
+- citizen-satisfaction
+- data-overlays
+- forecasting
+- budget-treasury
+applies:
+- simulation-based-inference
+- human-behavior-simulation-models
+- llm-agent-societies
+precedent:
+- cities-skylines
+- simcity-1989
+- democracy-4
+novelty: 3
+feasibility: 3
+impact: 3
+horizon: 1-2y
+key_risks:
+- Simulated residents substitute for real community input.
+- False precision of calibrated models.
+- Political misuse.
+validation_experiment: 'Calibrate a traffic and housing model for one district, run three participatory
+  sessions, and measure whether participants'' understanding of tradeoffs (pre and post quiz) improves
+  relative to a slide presentation. Success: significant improvement with participants rating the tool
+  as fair.'
+falsifiable_signal:
+  prediction: A city government will publicly use a game-style calibrated simulation with simulated resident
+    feedback in a formal planning consultation.
+  resolve_by: '2029-12-31'
+  criteria: Public planning document or press release naming the tool and its use in consultation.
+sources: []
+status: asserted
+provenance:
+  created: 2026-10-24-synthesis

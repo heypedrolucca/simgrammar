@@ -1,0 +1,15 @@
+id: src-dontstarvewiki-2026-day-night-cycle
+type: source
+name: Day-Night Cycle
+kind: encyclopedia
+authors:
+- Don't Starve Wiki contributors
+venue: Don't Starve Wiki (wiki.gg)
+date: '2026'
+url: https://dontstarve.wiki.gg/wiki/Day-Night_Cycle
+accessed: '2026-10-24'
+notes: Default day lasts 8 real minutes in sixteen 30-second segments of day, dusk, and night; split varies by season; base
+  cycle 36 days (20 summer, 16 winter); Charlie attacks in total darkness; sanity drain 5/min at dusk, 50/min in total darkness
+  at night, 5/min near light.
+provenance:
+  created: 2026-10-24-taxonomy-m5

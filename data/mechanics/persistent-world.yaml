@@ -1,8 +1,72 @@
 id: persistent-world
 type: mechanic
 name: Persistent shared world
-summary: A server-side world runs continuously for many players.
+aliases:
+- MMO world
+- single-shard world
+- living world
+summary: A server-side world keeps running and keeps its state for many players, whether or not any one
+  player is logged in.
 family: multiplayer-persistence
-status: asserted
+substrate:
+- agent-based
+- rule-system
+definition: 'Authoritative world state lives on servers that advance it continuously in real time; clients
+  submit actions and receive updates, and changes such as built structures, market orders, territory,
+  and destroyed assets persist for everyone. Design choices are shard topology and what the world does
+  while a player is away. Eve Online runs one universe on the Tranquility server rather than parallel
+  copies, takes it offline daily for maintenance, trains character skills in real time while players are
+  logged out, and slows the server clock in crowded systems (time dilation) so large fights stay simulated;
+  the Bloodbath of B-R5RB ran 21 hours. Ultima Online (1997), A Tale in the Desert, Second Life, and Eco
+  are other persistent worlds. Inputs: concurrent player actions and world rules. Outputs: shared, durable
+  state and history.'
+player_experience: Actions matter to strangers, and the world changes while the player sleeps. Players
+  log in to see what happened, plan around other time zones, and take part in events, such as wars or
+  market crashes, that no single player or designer controlled.
+design_levers:
+- 'shard topology: one universe, many parallel shards, or instanced zones'
+- 'offline progression: what continues for absent players (skills, production, decay)'
+- 'persistence scope: which changes are permanent versus reset'
+- server tick rate and overload handling such as time dilation or queues
+- world resets, seasons, or wipes
+- rules for asset loss and protection of offline players
+failure_modes:
+- Early arrivals accumulate wealth and territory, and new players find no room to matter.
+- Load spikes in popular locations degrade simulation for everyone present.
+- Abandoned structures and items clutter the world without decay rules.
+- The world dies when concurrency falls below what its systems assume.
+dynamics:
+- Player-driven economies, wars, and politics emerge because consequences persist and accumulate.
+- Time-zone coverage becomes a strategic resource for groups that hold territory.
+- Persistent history makes notable events into community lore and news.
+math_basis:
+- game-theory
+- system-dynamics
+feedback: reinforcing
+player_interface:
+- direct-manipulation
+- orders
+legibility: 3
+emergence_potential: 4
+authoring_cost: 3
+compute_cost: 4
+tuning_difficulty: 5
+ai_leverage: 3
+maturity: classic
+synergy:
+- id: player-driven-market
+  note: A persistent world lets player markets accumulate history, monopolies, and scams (EVE Online).
+- id: player-legislation
+  note: Laws only matter where the world persists long enough to need governance (Eco, A Tale in the Desert).
+tension:
+- id: variable-speed
+  note: A shared persistent world cannot be paused or sped up by one player.
+open_questions:
+- Can AI agents that stand in for absent players keep a persistent world active at low concurrency without
+  dominating it?
+- What offline progression rules keep a persistent world fair to players with little play time?
+sources:
+- src-wikipedia-eve-online
+status: sourced
 provenance:
-  created: 2026-10-23-bootstrap
+  created: 2026-10-24-taxonomy-m7
