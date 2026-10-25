@@ -1,5 +1,7 @@
-pyyaml>=6.0
-jsonschema>=4.18
-referencing>=0.30
-numpy>=1.26
-scipy>=1.11
+# Pinned so that `python scripts/build.py --check` reproduces dist/ byte for byte on any machine (CI included).
+pyyaml==6.0.3
+jsonschema==4.26.0
+referencing==0.37.0
+numpy==2.5.3
+scipy==1.18.1
+markdown-it-py==4.2.0

@@ -14,6 +14,7 @@ Projections:
   dist/wiki/                         one markdown page per entity and vocab, with computed backlinks
   dist/paper/                        paper.md (rendered report), references.bib, figures/
   dist/site/data.json                compact bundle for site/index.html
+  dist/web/                          the website: paper with interactive figures, a page per record (scripts/web.py)
 """
 from __future__ import annotations
 
@@ -46,6 +47,7 @@ from lib import (  # noqa: E402
 )
 from report_render import Context, render  # noqa: E402
 from rules import RULES  # noqa: E402
+from web import build_web  # noqa: E402
 
 DIST = ROOT / "dist"
 GENERATED_DOCS = ["README.md", "CONTRACT.md", "AGENTS.md"]
@@ -319,6 +321,9 @@ def build() -> tuple[dict[str, str], dict[str, str]]:
     for name, fig in sorted(analysis["figures"].items()):
         outs[f"analysis/figures/{name}.svg"] = fig["svg"]
         outs[f"paper/figures/{name}.svg"] = fig["svg"]
+    for name, vz in sorted(analysis.get("vizzes", {}).items()):
+        outs[f"analysis/figures/viz-{name}.svg"] = vz["svg"] + "\n"
+        outs[f"paper/figures/viz-{name}.svg"] = vz["svg"] + "\n"
 
     # ---- wiki
     edges_out = defaultdict(list)
@@ -397,6 +402,10 @@ def build() -> tuple[dict[str, str], dict[str, str]]:
         "paper": paper,
     }
     outs["site/data.json"] = canonical_json(site) + "\n"
+
+    # ---- website (dist/web): the paper, a page per record, indexes, data page; deployed by .github/workflows/pages.yml
+    figs = {k[len("paper/figures/"):-4]: v for k, v in outs.items() if k.startswith("paper/figures/")}
+    outs.update(build_web(ents, edges, analysis, vocabs, registry, schemas, ctx, manifest, meta, paper, outs["paper/references.bib"], figs))
 
     docs = {}
     blocks = generated_blocks(ents, analysis, vocabs, registry)

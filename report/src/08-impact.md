@@ -12,7 +12,7 @@ The imbalance shows where research effort points. Generating content and replaci
 
 Technique exposure weights each `affects` edge by the technique's maturity in games and by its effect type (weights in `vocab/rubrics.yaml`), then sums over a family's mechanics.
 
-{{figure:exposure-by-family}}
+{{viz:technique-flows}}
 
 {{table:family-summary}}
 

@@ -1,0 +1,27 @@
+id: 2026-10-25-website
+type: run
+kind: maintenance
+date: '2026-10-25'
+actor: agent
+operator: yoheinakajima
+agent:
+  model: claude-opus-5-5
+  harness: Claude app (cloud workspace), orchestrator
+purpose: Publish the report as a website (simgrammar.yohei.me) with five interactive figures, styled with the Register design system.
+method: >-
+  Added scripts/web.py, which projects the paper, one page per record, an index per type, and a data page into
+  dist/web as part of the deterministic build, and scripts/viz.py, which lays out five figures in Python from the
+  structures analyze.py computes (every use as a game by mechanic grid, cumulative vocabulary strata by family,
+  an island map of the clusters, a built and vacant lots plan of common mechanic pairs, and parallel sets from
+  techniques through effects to families). Each figure is a complete static SVG with a plain-text twin table;
+  web/simgrammar.js only toggles precomputed layouts, highlights, and reads values out. Vendored register.css
+  and its DESIGN.md contract into web/. Placed the figures in report sections 5 and 8 with {{viz:...}} tokens,
+  restyled the static figures to Register tokens, pinned dependency versions so CI reproduces dist byte for byte,
+  and added a Pages workflow that publishes dist/web. No data records changed.
+scope:
+  - scripts/web.py, scripts/viz.py, scripts/build.py, scripts/report_render.py, scripts/analyze.py (figure styling, shared structures)
+  - web/ (register.css, DESIGN.md, simgrammar.js)
+  - report/src/05-structure.md, report/src/08-impact.md, report/meta.yaml, report/analysis.yaml (viz parameters)
+  - .github/workflows/pages.yml, .github/workflows/check.yml, requirements.txt
+contract_version: '1.0'
+proposals: []

@@ -4,8 +4,8 @@ subtitle: "A machine-readable atlas of simulation game mechanics and the mathema
 author:
   - Yohei Nakajima
   - SimGrammar contributors
-date: "2026-10-23"
-version: "0.1"
+date: "2026-10-25"
+version: "0.2"
 dataset_sha256: "7bd89fd5e2618f6f4144cc60a1034cb081f1a456383346c8cb659e03308d167a"
 bibliography: references.bib
 ---
@@ -628,7 +628,13 @@ Owns hands-on work: checklists, tool use on surfaces, diagnosis and repair, rule
 
 ### 5.1 What games are made of
 
-The average catalog game uses 11.2 mechanics (median 11). The most widely used is Pause and speed control, present in 47 percent of games. The head of the distribution is interface and structure more than simulation: time controls, placement, progression structures (tech trees, scenarios), then production, skills, avatars, and modding. The table ranks mechanics across families; §4.2 lists them within each family.
+The average catalog game uses 11.2 mechanics (median 11). The most widely used is Pause and speed control, present in 47 percent of games. The head of the distribution is interface and structure more than simulation: time controls, placement, progression structures (tech trees, scenarios), then production, skills, avatars, and modding. The table ranks mechanics across families; §4.2 lists them within each family. The figure shows every use at once.
+
+
+![Every use: the catalog as a grid](figures/viz-matrix.svg)
+
+*Figure: Every use: the catalog as a grid. Each square is one game using one mechanic: 582 core uses (dark) and 1370 supporting uses (light). Rows are grouped into the clusters of §5.4 and columns into mechanic families. Hover to read a cell; reorder rows by release year or columns by first use. Interactive version: https://simgrammar.yohei.me/#fig-matrix*
+
 
 
 | name | family | games | core in | earliest | legibility | emergence potential | ai leverage |
@@ -655,9 +661,9 @@ The average catalog game uses 11.2 mechanics (median 11). The most widely used i
 ### 5.2 How the vocabulary grew
 
 
-![Cumulative count of mechanics by first appearance in the dataset. Steps mark the years a design vocabulary expanded.](figures/mechanic-accumulation.svg)
+![The vocabulary, year by year](figures/viz-strata.svg)
 
-*Figure: Cumulative count of mechanics by first appearance in the dataset. Steps mark the years a design vocabulary expanded.*
+*Figure: The vocabulary, year by year. Cumulative mechanics by the year of their first catalog game, one layer per family, oldest families at the bottom. Labels mark the years that added the most mechanics and the game that introduced most of them. Drag the year control or hover the chart to read what each year added. Interactive version: https://simgrammar.yohei.me/#fig-strata*
 
 
 68 percent of mechanics appear in at least one catalog game released by 2000, and 59 percent first appear in the 1980s or 1990s (1990s the largest decade). The early vocabulary came from a short list of titles: [SimCity](../wiki/game/simcity-1989.md) (zoning, land value, overlays, disasters), [Populous](../wiki/game/populous.md) (terraforming as a god power), [Railroad Tycoon](../wiki/game/railroad-tycoon.md) and [Transport Tycoon](../wiki/game/transport-tycoon.md) (route scheduling and competitors), [Theme Park](../wiki/game/theme-park.md) and [Theme Hospital](../wiki/game/theme-hospital.md) (crowds with preferences, queues, diagnosis), [Creatures](../wiki/game/creatures.md) (learning creatures and genetics), and [The Sims](../wiki/game/the-sims.md) (smart objects).
@@ -769,6 +775,12 @@ Co-occurrence lift measures how much more often two mechanics share a game than 
 Clustering games by the mechanics they use, ignoring their subgenre labels, produces 16 clusters, 14 of which mix subgenres. Each mechanic is weighted by inverse prevalence, so two games sharing a rare mechanic count as closer than two games sharing a pause button.
 
 
+![A map of the design space](figures/viz-design-map.svg)
+
+*Figure: A map of the design space. One island per cluster (14 of 16 mix subgenres). Inside an island, lines join games to their nearest neighbours by shared mechanics (inverse-prevalence weighted Jaccard, the measure behind the clustering); bridges join islands whose games are each other's nearest neighbours, wider for more links. Islands sit near the islands they most resemble. Hover a game to see its neighbours; highlight a subgenre to see it spread across islands. Interactive version: https://simgrammar.yohei.me/#fig-design-map*
+
+
+
 | cluster | label | size | dominant subgenres | signature mechanics | members |
 |---|---|---|---|---|---|
 | C01 | Utility action selection + Personality traits | 31 | Management / tycoon (8), Life sim (7) | [Utility action selection](../wiki/mechanic/utility-action-selection.md), [Personality traits](../wiki/mechanic/personality-traits.md), [Staff hiring and rosters](../wiki/mechanic/staff-hiring.md), [Needs decay](../wiki/mechanic/needs-decay.md), [Agent skills](../wiki/mechanic/agent-skills.md) | [Paralives](../wiki/game/paralives.md), [Two Point Hospital](../wiki/game/two-point-hospital.md), [The Sims 4](../wiki/game/the-sims-4.md), [The Sims](../wiki/game/the-sims.md), [The Sims 3](../wiki/game/the-sims-3.md), [The Sims 2](../wiki/game/the-sims-2.md), [Theme Hospital](../wiki/game/theme-hospital.md), [inZOI](../wiki/game/inzoi.md), and 23 more |
@@ -805,7 +817,13 @@ These families match the layer profiles in §4.1: minds invest in agents and soc
 
 ### 5.5 White space
 
-Some mechanics are individually common but rarely combined. The table lists pairs where each mechanic appears in at least eight percent of games, the two belong to different families, neither is a time-and-pacing control, they are not recorded as being in design tension, and they co-occur at most once.
+Some mechanics are individually common but rarely combined. The table lists pairs where each mechanic appears in at least eight percent of games, the two belong to different families, neither is a time-and-pacing control, they are not recorded as being in design tension, and they co-occur at most once. The figure lays every pair of common mechanics out as a plan of built and vacant lots.
+
+
+![Built and vacant lots](figures/viz-vacant-lots.svg)
+
+*Figure: Built and vacant lots. Every pair of the 41 mechanics used by at least 8 percent of games, laid out like a plan: each lot is a pair, darker lots are built more often than chance would predict, dashed lots are white space (different families, no recorded tension, co-occurring at most 1 time), and slashed lots are pairs recorded as being in design tension. Numbers mark the ten largest gaps in the white-space table. Names sit on the diagonal: read a lot by following its row and its column back to the staircase. Interactive version: https://simgrammar.yohei.me/#fig-vacant-lots*
+
 
 
 | mechanic a | mechanic b | family a | family b | observed | expected | gap |
@@ -1044,9 +1062,9 @@ The imbalance shows where research effort points. Generating content and replaci
 Technique exposure weights each `affects` edge by the technique's maturity in games and by its effect type (weights in `vocab/rubrics.yaml`), then sums over a family's mechanics.
 
 
-![Where current techniques concentrate: summed exposure of each family's mechanics.](figures/exposure-by-family.svg)
+![Where the techniques land](figures/viz-technique-flows.svg)
 
-*Figure: Where current techniques concentrate: summed exposure of each family's mechanics.*
+*Figure: Where the techniques land. Each ribbon follows one technique's edges to one mechanic family, through the kind of change it makes. Darker ribbons come from techniques that have shipped in games. Hover a technique, an effect, or a family to isolate its ribbons; switch the width to weight each edge by maturity and effect, the exposure measure of §8.2. Families with no ribbon: operation & procedure. Interactive version: https://simgrammar.yohei.me/#fig-technique-flows*
 
 
 

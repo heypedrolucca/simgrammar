@@ -6,6 +6,7 @@ Syntax (documented in AGENTS.md):
   {{stat:<name>}}             named statistic from scripts/analyze.py
   {{table:<name>}}            table from report/tables.yaml or scripts/analyze.py
   {{figure:<name>}}           SVG figure from scripts/analyze.py
+  {{viz:<name>}}              interactive figure from scripts/viz.py (static SVG in the paper, interactive on the site)
   {{vocab:<vocab>:<term>}}    a vocab term's label
   {{assert:<ref> <op> <value|ref>}}  renders nothing; fails E029 when false. <ref> is a stat name,
                               derived.<id>.<field>, field.<id>.<path> (a stored field), or rank.<table>.<id>[.<id>] (1-based row of the first
@@ -42,6 +43,10 @@ class Context:
         spec = read_yaml(ROOT / "report" / "tables.yaml") or {}
         self.decl_tables = {t["name"]: t for t in spec.get("tables", [])}
         self.citations: list[str] = []
+        meta = read_yaml(ROOT / "report" / "meta.yaml") or {}
+        self.site_url = (meta.get("site") or {}).get("url", "")
+
+    web_base = ""  # relative prefix from the page being rendered to the web root (mode "web")
 
     def link_target(self, eid: str, mode: str) -> str:
         e = self.by_id[eid]
@@ -49,6 +54,8 @@ class Context:
             return f"../{e.type}/{eid}.md"
         if mode == "site":
             return f"#/{e.type}/{eid}"
+        if mode == "web":
+            return f"{self.web_base}{e.type}/{eid}/"
         return f"../wiki/{e.type}/{eid}.md"
 
     def label(self, eid: str) -> str:
@@ -176,6 +183,25 @@ def render(text: str, ctx: Context, mode: str = "paper") -> tuple[str, list[tupl
                 errors.append(("E019", f"unknown stat {m.group(0)}"))
                 return m.group(0)
             return _fmt(a["stats"][arg])
+        if kind == "table" and mode == "web":
+            if table_md(ctx, arg, "paper") is None:
+                errors.append(("E019", f"unknown table {m.group(0)}"))
+                return m.group(0)
+            return f"\n\n<!--TABLE:{arg}-->\n\n"
+        if kind in ("figure", "viz") and mode == "web":
+            pool = a["figures"] if kind == "figure" else a.get("vizzes", {})
+            if arg not in pool:
+                errors.append(("E019", f"unknown {kind} {m.group(0)}"))
+                return m.group(0)
+            return f"\n\n<!--{kind.upper()}:{arg}-->\n\n"
+        if kind == "viz":
+            v = a.get("vizzes", {}).get(arg)
+            if v is None:
+                errors.append(("E019", f"unknown viz {m.group(0)}"))
+                return m.group(0)
+            site = ctx.site_url.rstrip("/") + "/" if ctx.site_url else ""
+            more = f" Interactive version: {site}#fig-{arg}" if site else ""
+            return f"\n![{v['title']}](figures/viz-{arg}.svg)\n\n*Figure: {v['title']}. {v['caption']}{more}*\n"
         if kind == "table":
             md = table_md(ctx, arg, mode)
             if md is None:

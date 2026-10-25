@@ -12,7 +12,7 @@ The repository is the research. The report, wiki, tables, graph, and site are pr
 | techniques | 45 | 45 |
 | opportunities | 42 | 0 |
 | sources | 644 | 644 |
-| runs (provenance log) | 27 | n/a |
+| runs (provenance log) | 28 | n/a |
 
 Typed edges: **4244** · game→mechanic uses: **1952** · games span **1968–2026**.
 <!-- END GENERATED: stats -->
@@ -21,6 +21,7 @@ Typed edges: **4244** · game→mechanic uses: **1952** · games span **1968–2
 
 | You want | Open |
 |---|---|
+| The website: paper with interactive figures, a page per record | **[simgrammar.yohei.me](https://simgrammar.yohei.me/)** · built into [`dist/web/`](dist/web/) by `scripts/web.py` |
 | The report (paper form) | [`dist/paper/paper.md`](dist/paper/paper.md) · BibTeX: [`dist/paper/references.bib`](dist/paper/references.bib) |
 | A wiki you can click through | [`dist/wiki/index.md`](dist/wiki/index.md) |
 | Sortable / filterable tables | [`dist/tables/`](dist/tables/) (games, mechanics, techniques, opportunities, sources, edges, game×mechanic matrix) |
@@ -61,6 +62,7 @@ report/          tables.yaml (declarative table views), analysis.yaml (analysis 
 scripts/         validate.py, build.py, analyze.py, new.py, find.py
 dist/            generated projections (committed; CI fails if stale)
 site/            static explorer over dist/site/data.json
+web/             website assets: register.css (vendored, see web/DESIGN.md) and simgrammar.js
 ```
 
 ## Design lineage

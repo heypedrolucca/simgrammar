@@ -87,7 +87,7 @@ Names at least one mechanic in `involves`, has a `validation_experiment` a small
 
 ## 6. Writing the report
 
-`report/src/*.md` is prose plus tokens. Rendered by `make build` into `dist/paper/paper.md` and the site.
+`report/src/*.md` is prose plus tokens. Rendered by `make build` into `dist/paper/paper.md` and the website (`dist/web/`, published at simgrammar.yohei.me).
 
 | Token | Renders |
 |---|---|
@@ -96,12 +96,17 @@ Names at least one mechanic in `involves`, has a `validation_experiment` a small
 | `{{stat:<name>}}` | a statistic from `dist/analysis/stats.json` |
 | `{{table:<name>}}` | a table from `report/tables.yaml` or `dist/analysis/*.csv` |
 | `{{figure:<name>}}` | an SVG from `dist/analysis/figures/` |
+| `{{viz:<name>}}` | an interactive figure from `scripts/viz.py`: a static SVG in `paper.md`, interactive on the website, always with a plain-text twin table |
 | `{{vocab:<vocab>:<term>}}` | a vocab label |
 | `{{assert:<ref> <op> <value\|ref>}}` | renders nothing; fails the build (E029) if false. Put one next to every sentence that interprets a ranking, sign, ordering, or grouping. `<ref>` is a stat (`rho_legibility_emergence_potential < 0`), an entity's derived field (`derived.rimworld.cluster == derived.the-sims.cluster`), a stored field (`field.genie-world-models.maturity == prototype`), or a row rank in a generated table (`rank.whitespace.lifecycle-aging.production-chain <= 10`; 9999 when absent) |
 | `[[id]]`, `[[id\|text]]` | link to an entity |
 | `[@src-id]`, `[@src-a; @src-b]` | numbered citation |
 
 Never type a dataset count ("140 games") into prose (E021). When a sentence interprets data ("X is the most exposed family", "the correlation is negative"), pin it with an assertion so the build fails if a later data change makes the sentence false. If you need a new statistic, add it to `scripts/analyze.py` (deterministic) in the same PR. If you need a new table view, add it to `report/tables.yaml`.
+
+### The website
+
+`scripts/web.py` projects everything into `dist/web/`: the paper, one page per record, an index per type, and a data page. It uses Register (`web/register.css`, vendored; its contract is `web/DESIGN.md`). Follow that contract when you change a page template: no new stylesheet or classes, lowercase mono labels, one accent, every component with a plain-text twin, and every page complete without JavaScript (`web/simgrammar.js` only adds interaction). Figures are laid out in Python, deterministically; the script never lays anything out. The domain lives in `report/meta.yaml` (`site.domain`) and is written to `dist/web/CNAME`. `.github/workflows/pages.yml` publishes `dist/web/` on every push to `main`.
 
 ## 7. Never
 

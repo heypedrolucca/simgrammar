@@ -3,5 +3,16 @@ subtitle: "A machine-readable atlas of simulation game mechanics and the mathema
 authors:
   - Yohei Nakajima
   - SimGrammar contributors
-date: "2026-10-23"
-version: "0.1"
+date: "2026-10-25"
+version: "0.2"
+# The website projection (scripts/web.py -> dist/web). Changing these changes generated pages.
+site:
+  url: "https://simgrammar.yohei.me/"
+  domain: "simgrammar.yohei.me"   # written to dist/web/CNAME; must match the DNS record
+  repo: "https://github.com/yoheinakajima/simgrammar"
+  theme: "slate"                  # register.css data-theme on <html>
+  family:                         # the "site family" bar: sister sites built on the same stylesheet
+    - ["yohei.me", "https://yohei.me"]
+    - ["research atlas", "https://yoheinakajima.github.io/research-atlas/"]
+    - ["epistemedia", "https://epistemedia.org"]
+    - ["register", "https://yoheinakajima.github.io/register/"]

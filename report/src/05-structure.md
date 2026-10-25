@@ -2,13 +2,15 @@
 
 ### 5.1 What games are made of
 
-The average catalog game uses {{stat:mean_mechanics_per_game}} mechanics (median {{stat:median_mechanics_per_game}}). The most widely used is {{stat:most_prevalent_mechanic}}, present in {{stat:most_prevalent_mechanic_share_pct}} percent of games. The head of the distribution is interface and structure more than simulation: time controls, placement, progression structures (tech trees, scenarios), then production, skills, avatars, and modding.{{assert:derived.variable-speed.prevalence > derived.production-chain.prevalence}}{{assert:derived.free-placement.prevalence > derived.production-chain.prevalence}}{{assert:derived.tech-tree.prevalence > derived.production-chain.prevalence}} The table ranks mechanics across families; §4.2 lists them within each family.
+The average catalog game uses {{stat:mean_mechanics_per_game}} mechanics (median {{stat:median_mechanics_per_game}}). The most widely used is {{stat:most_prevalent_mechanic}}, present in {{stat:most_prevalent_mechanic_share_pct}} percent of games. The head of the distribution is interface and structure more than simulation: time controls, placement, progression structures (tech trees, scenarios), then production, skills, avatars, and modding.{{assert:derived.variable-speed.prevalence > derived.production-chain.prevalence}}{{assert:derived.free-placement.prevalence > derived.production-chain.prevalence}}{{assert:derived.tech-tree.prevalence > derived.production-chain.prevalence}} The table ranks mechanics across families; §4.2 lists them within each family. The figure shows every use at once.
+
+{{viz:matrix}}
 
 {{table:top-mechanics}}
 
 ### 5.2 How the vocabulary grew
 
-{{figure:mechanic-accumulation}}
+{{viz:strata}}
 
 {{assert:pct_mechanics_seen_by_2000 >= 60}}{{stat:pct_mechanics_seen_by_2000}} percent of mechanics appear in at least one catalog game released by 2000, and {{stat:pct_mechanics_first_seen_1980_1999}} percent first appear in the 1980s or 1990s ({{stat:peak_origin_decade}} the largest decade).{{assert:peak_origin_decade == "1990s"}} The early vocabulary came from a short list of titles: [[simcity-1989]] (zoning, land value, overlays, disasters), [[populous]] (terraforming as a god power), [[railroad-tycoon]] and [[transport-tycoon]] (route scheduling and competitors), [[theme-park]] and [[theme-hospital]] (crowds with preferences, queues, diagnosis), [[creatures]] (learning creatures and genetics), and [[the-sims]] (smart objects).
 
@@ -32,6 +34,8 @@ Co-occurrence lift measures how much more often two mechanics share a game than 
 
 Clustering games by the mechanics they use, ignoring their subgenre labels, produces {{stat:n_clusters}} clusters, {{stat:n_clusters_cross_subgenre}} of which mix subgenres.{{assert:n_clusters_cross_subgenre >= 10}} Each mechanic is weighted by inverse prevalence, so two games sharing a rare mechanic count as closer than two games sharing a pause button.
 
+{{viz:design-map}}
+
 {{table:game-clusters}}
 
 The clusters read as design families:
@@ -48,7 +52,9 @@ These families match the layer profiles in §4.1: minds invest in agents and soc
 
 ### 5.5 White space
 
-Some mechanics are individually common but rarely combined. The table lists pairs where each mechanic appears in at least eight percent of games, the two belong to different families, neither is a time-and-pacing control, they are not recorded as being in design tension, and they co-occur at most once.
+Some mechanics are individually common but rarely combined. The table lists pairs where each mechanic appears in at least eight percent of games, the two belong to different families, neither is a time-and-pacing control, they are not recorded as being in design tension, and they co-occur at most once. The figure lays every pair of common mechanics out as a plan of built and vacant lots.
+
+{{viz:vacant-lots}}
 
 {{table:whitespace}}
 

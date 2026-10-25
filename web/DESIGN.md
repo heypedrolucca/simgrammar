@@ -1,0 +1,58 @@
+# DESIGN.md · register
+
+This file is the design contract for agents working in this repository. Read it before generating or editing any page. When it conflicts with a general instinct, this file wins.
+
+## Stylesheet
+
+- The only stylesheet is `register.css`. Do not add another. Do not add Tailwind, shadcn, or a component library.
+- Do not write inline `<style>` blocks or new classes for variants. Use the grammar below. If a variant does not exist, add it to `register.css` as a `data-*` value on the existing component, not as a new class.
+- No JavaScript is required for any page to be complete. Interactive controls must degrade to a complete static table or list.
+
+## Grammar
+
+- A class names the component (`register`, `row`, `panel`, `band`, `numbers`, `receipt`, `note`, `chart`, `rule`, `pattern`).
+- `data-surface` picks the paper: `tint` `wash` `deep` `s1`–`s4` `s1w`–`s4w` `ok` `open` `stop` `info` `duo`.
+- `data-series` picks a data series `1`–`4`. Only for numbers that are series.
+- `data-state` marks state: `done` `active` `waiting` `blocked` `parked` `optional` `live` `reserved` `superseded`. Claim workflows map: proposed/sourced/derived → `waiting`; implemented/checked → `active`; verified/independently-reproduced → `done`; refuted → `blocked`; superseded/retired → `parked`.
+- `data-style` is a component's own variant; `data-size` is `sm` `lg` `wide`; `data-kind` says what a register lists.
+- `data-theme` and `data-display` go on `<html>`.
+
+## Skins
+
+- Looks are tokens. To change how pages look, write or edit a skin in `skins/` following `skins/_schema.md`; never edit component rules for a look. A skin may set any token in the schema and nothing else.
+- Set `data-skin` on `<html>`; load the skin after `register.css`.
+- Meet the contrast floors in the schema. A dark paper needs a light `--deep` block.
+- Every skin file starts with the seven-line image brief; the prompt templates depend on it.
+
+## Images
+
+- Use `figure.image` with `data-ratio` so nothing shifts on load. Treat images (`data-treatment`) so they sit in the palette.
+- Every image carries a provenance line in its caption: `generated` or `photo` · prompt id · model · date · seed · treatment. No untraced images.
+- Generate images only with the templates in `prompts/`, with the skin brief pasted in. No text in generated images; the page sets type.
+
+## Rules (the default skin; a skin may relax the ones marked ◇)
+
+1. Every object shows its identifier in the register column (`.row > .id`), at the same x. Dates, claim ids, case numbers, commits, run ids.
+2. ◇ Hierarchy from hairlines and alignment. No cards, no border-radius, no drop shadows, no gradients, no backdrop blur, no colored edge stripes. Fills are `data-surface`. At most one `deep` or series surface per screen, never two adjacent. `deep` is `--deep`, never `#000`. (A skin may set `--radius` up to 12px and a hard-offset `--shadow`; never a blur.)
+3. ◇ Identifiers, numbers, labels, and metadata are lowercase monospace. Prose and headings are sans. No `text-transform: uppercase` anywhere. Case only for names, symbols, and sentences. (A skin may set `--label-case` and `--label` for spaced caps; identifiers stay mono.)
+4. One accent (`--accent`) for links and current. Three states: `--ok` `--open` `--stop`. Four series `--s1`–`--s4` for charts and labs only. Color never appears without a glyph or a word.
+5. Every component must have a plain-text twin (a table, list, or key/value block). If you cannot write it as text, do not add it. Accents come only from `accents.html`, rationed: one signature accent per page, one texture per page, one stamp per site.
+
+## Numbers
+
+- Exact results go in `.numbers` (20px mono). The stat-banner tell, and the scorer, start at 22px; nothing in the system sits in a row above that size. Counts (works, claims, runs) go in `.meta`, never in a number strip.
+- Live values go in `.numbers[data-style="readout"]` (18px mono).
+- A filled figure block (`.panel[data-surface="s1"]` with one `.number[data-style="block"]`) is always alone. A row of them is forbidden.
+- Every number strip or chart carries a source line naming the run, claim, or commit.
+
+## Copy
+
+- Plain verbs, sentence case, no filler. No em dashes. Straight quotes. No emoji.
+- Headlines state a specific claim or question, never an aspiration.
+- Do not invent numbers, identifiers, or citations. Mark sample data as sample.
+
+## Before you finish
+
+- Run `npx design-slop-cop <url>` on any new page. It must score 0/14.
+- Check the page at 390px wide. The register column collapses to inline ids; nothing scrolls horizontally except `.table-wrap`.
+- Confirm every new component has its twin shown in `components.html`.

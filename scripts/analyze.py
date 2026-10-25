@@ -45,6 +45,7 @@ def compute(ents: dict, edges: list, vocabs: dict) -> dict:
     stats: dict[str, object] = {}
     tables: dict[str, dict] = {}
     figures: dict[str, dict] = {}
+    shared: dict[str, object] = {}  # intermediate structures handed to viz.py; never written to dist directly
 
     # ---------------- inverse edges (computed, never stored)
     inverse = vocab_terms(vocabs, "edge_types")
@@ -181,6 +182,7 @@ def compute(ents: dict, edges: list, vocabs: dict) -> dict:
             pair_count[(a, b)] += 1
     prev = {m: derived[m]["prevalence"] for m in mids}
     tension_pairs = {tuple(sorted((ed.source, ed.target))) for ed in edges if ed.type == "tension"}
+    shared.update({"gm": gm, "pair_count": pair_count, "prev": prev, "tension_pairs": tension_pairs, "year": year, "games": games, "N": N})
     rows = []
     for (a, b), c in pair_count.items():
         if c < cfg["cooccurrence"]["min_support"]:
@@ -215,6 +217,7 @@ def compute(ents: dict, edges: list, vocabs: dict) -> dict:
         wrows.append({"mechanic_a": a, "mechanic_b": b, "family_a": by_id[a].data["family"], "family_b": by_id[b].data["family"],
                       "observed": obs, "expected": _r(expected, 2), "gap": _r(expected - obs, 2)})
     wrows.sort(key=lambda r: (-r["gap"], r["mechanic_a"], r["mechanic_b"]))
+    shared.update({"common": common, "whitespace_all": wrows})
     tables["whitespace"] = {"description": f"Pairs of common mechanics (each in >= {int(ws['min_prevalence_share']*100)}% of games, different families, not marked as tension{', excluding ' + ', '.join(fam_terms[f]['label'] for f in ws.get('exclude_families', [])) if ws.get('exclude_families') else ''}) that co-occur at most {ws['max_observed']} time(s). Gap = expected - observed co-occurrence under independence.",
                             "columns": ["mechanic_a", "mechanic_b", "family_a", "family_b", "observed", "expected", "gap"], "rows": wrows[: ws["top_n"]], "link_columns": ["mechanic_a", "mechanic_b"]}
     stats["n_whitespace_pairs"] = len(wrows)
@@ -238,6 +241,7 @@ def compute(ents: dict, edges: list, vocabs: dict) -> dict:
                 mx = np.maximum(X[i], X[j]).sum()
                 d = 1 - (mn / mx if mx else 0)
                 D[i, j] = D[j, i] = d
+        shared.update({"game_ids": [g.id for g in games], "game_distance": D})
         Z = linkage(squareform(D, checks=False), method="average")
         labels = fcluster(Z, t=cl["k"], criterion="maxclust")
         clusters = defaultdict(list)
@@ -415,17 +419,19 @@ def compute(ents: dict, edges: list, vocabs: dict) -> dict:
 
     # ---------------- figures
     figures.update(_figures(mechs, derived, fam_terms, famrows, by_id, games, year))
+    import viz  # local import: viz renders figures from the structures computed above
+    vizzes = viz.build(shared, live, by_id, derived, tables, stats, vocabs, cfg)
     return {"derived": {k: dict(sorted(v.items())) for k, v in sorted(derived.items())}, "stats": dict(sorted(stats.items())),
-            "tables": tables, "figures": figures}
+            "tables": tables, "figures": figures, "vizzes": vizzes}
 
 
 # ======================================================================= SVG
-_FONT = "font-family='Helvetica, Arial, sans-serif'"
+_FONT = "style=\"font-family:var(--mono,'IBM Plex Mono',ui-monospace,Menlo,monospace);font-size:10px\""
 
 
 def _svg(w, h, body):
-    return (f"<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 {w} {h}' width='{w}' height='{h}' {_FONT} font-size='11'>"
-            f"<rect width='{w}' height='{h}' fill='#ffffff'/>{body}</svg>\n")
+    return (f"<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 {w} {h}' width='{w}' height='{h}' {_FONT}>"
+            f"<rect width='{w}' height='{h}' style='fill:var(--paper,#fafaf7)'/>{body}</svg>\n")
 
 
 def _esc(s):
@@ -442,8 +448,8 @@ def _figures(mechs, derived, fam_terms, famrows, by_id, games, year):
     for v in range(1, 6):
         x = L + (v - 0.5) * (W - L - 20) / 5
         y = H - B - (v - 0.5) * (H - B - 20) / 5
-        body.append(f"<line x1='{x:.1f}' y1='20' x2='{x:.1f}' y2='{H-B}' stroke='#eee'/>")
-        body.append(f"<line x1='{L}' y1='{y:.1f}' x2='{W-20}' y2='{y:.1f}' stroke='#eee'/>")
+        body.append(f"<line x1='{x:.1f}' y1='20' x2='{x:.1f}' y2='{H-B}' style='stroke:var(--rule,#dcdcd4)'/>")
+        body.append(f"<line x1='{L}' y1='{y:.1f}' x2='{W-20}' y2='{y:.1f}' style='stroke:var(--rule,#dcdcd4)'/>")
         body.append(f"<text x='{x:.1f}' y='{H-B+16}' text-anchor='middle'>{v}</text>")
         body.append(f"<text x='{L-10}' y='{y+4:.1f}' text-anchor='end'>{v}</text>")
     maxp = max(derived[m.id]["prevalence"] for m in mechs) or 1
@@ -454,9 +460,9 @@ def _figures(mechs, derived, fam_terms, famrows, by_id, games, year):
         x = L + (m.data["legibility"] - 0.5 + jx) * (W - L - 20) / 5
         y = H - B - (m.data["emergence_potential"] - 0.5 + jy) * (H - B - 20) / 5
         r = 2.5 + 9 * math.sqrt(derived[m.id]["prevalence"] / maxp)
-        body.append(f"<circle cx='{x:.1f}' cy='{y:.1f}' r='{r:.1f}' fill='#2f5d8a' fill-opacity='0.35' stroke='#2f5d8a' stroke-width='0.6'><title>{_esc(m.data['name'])}</title></circle>")
-    body.append(f"<text x='{(W+L)/2:.0f}' y='{H-12}' text-anchor='middle' font-size='12'>Legibility (1 opaque - 5 transparent)</text>")
-    body.append(f"<text transform='translate(16,{(H-B)/2:.0f}) rotate(-90)' text-anchor='middle' font-size='12'>Emergence potential</text>")
+        body.append(f"<circle cx='{x:.1f}' cy='{y:.1f}' r='{r:.1f}' fill-opacity='0.3' style='fill:var(--ink,#171717);stroke:var(--ink,#171717);stroke-width:0.6'><title>{_esc(m.data['name'])}</title></circle>")
+    body.append(f"<text x='{(W+L)/2:.0f}' y='{H-12}' text-anchor='middle'>Legibility (1 opaque - 5 transparent)</text>")
+    body.append(f"<text transform='translate(16,{(H-B)/2:.0f}) rotate(-90)' text-anchor='middle'>Emergence potential</text>")
     figs["legibility-vs-emergence"] = {"svg": _svg(W, H, "".join(body)),
                                        "caption": "Each mechanic placed by rubric legibility (x) and emergence potential (y); area ~ number of games using it. Jitter is deterministic."}
 
@@ -471,9 +477,9 @@ def _figures(mechs, derived, fam_terms, famrows, by_id, games, year):
             y = 20 + i * rowh
             wbar = (W - L - 60) * r["technique_exposure"] / mx
             body.append(f"<text x='{L-8}' y='{y+14}' text-anchor='end'>{_esc(fam_terms[r['family']]['label'])}</text>")
-            body.append(f"<rect x='{L}' y='{y+3}' width='{wbar:.1f}' height='{rowh-7}' fill='#2f5d8a'/>")
+            body.append(f"<rect x='{L}' y='{y+3}' width='{wbar:.1f}' height='{rowh-7}' style='fill:var(--ink,#171717)'/>")
             body.append(f"<text x='{L+wbar+6:.1f}' y='{y+14}'>{r['technique_exposure']}</text>")
-        body.append(f"<text x='{L}' y='{H-8}' font-size='11' fill='#555'>Summed technique exposure (maturity x effect weights)</text>")
+        body.append(f"<text x='{L}' y='{H-8}' style='fill:var(--muted,#696961)'>Summed technique exposure (maturity x effect weights)</text>")
         figs["exposure-by-family"] = {"svg": _svg(W, H, "".join(body)), "caption": "Where current techniques concentrate: summed exposure of each family's mechanics."}
 
     # 3. cumulative mechanics by earliest year
@@ -487,14 +493,14 @@ def _figures(mechs, derived, fam_terms, famrows, by_id, games, year):
             x = L + (y - y0) / (y1 - y0) * (W - L - 20)
             yy = H - B - i / n * (H - B - 20)
             pts.append(f"{x:.1f},{yy:.1f}")
-        body = [f"<polyline points='{' '.join(pts)}' fill='none' stroke='#2f5d8a' stroke-width='2'/>"]
+        body = [f"<polyline points='{' '.join(pts)}' style='fill:none;stroke:var(--ink,#171717);stroke-width:2'/>"]
         for dec in range((y0 // 10) * 10, y1 + 1, 10):
             if dec < y0:
                 continue
             x = L + (dec - y0) / (y1 - y0) * (W - L - 20)
-            body.append(f"<line x1='{x:.1f}' y1='20' x2='{x:.1f}' y2='{H-B}' stroke='#eee'/><text x='{x:.1f}' y='{H-B+16}' text-anchor='middle'>{dec}</text>")
+            body.append(f"<line x1='{x:.1f}' y1='20' x2='{x:.1f}' y2='{H-B}' style='stroke:var(--rule,#dcdcd4)'/><text x='{x:.1f}' y='{H-B+16}' text-anchor='middle'>{dec}</text>")
         body.append(f"<text x='{L-8}' y='{H-B}' text-anchor='end'>0</text><text x='{L-8}' y='26' text-anchor='end'>{n}</text>")
-        body.append(f"<text x='{(W+L)/2:.0f}' y='{H-6}' text-anchor='middle' font-size='12'>Year of earliest dataset game using the mechanic</text>")
+        body.append(f"<text x='{(W+L)/2:.0f}' y='{H-6}' text-anchor='middle'>Year of earliest dataset game using the mechanic</text>")
         figs["mechanic-accumulation"] = {"svg": _svg(W, H, "".join(body)),
                                          "caption": "Cumulative count of mechanics by first appearance in the dataset. Steps mark the years a design vocabulary expanded."}
     return figs

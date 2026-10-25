@@ -13,3 +13,9 @@ clustering:
   core_weight: 2.0         # weight of core vs supporting mechanics in game vectors
   idf: true                # weight each mechanic by log(N / prevalence) so ubiquitous mechanics (pause, placement) do not dominate
   top_mechanics_per_cluster: 5
+viz:
+  design_map:
+    neighbors: 4              # each game links to its k most similar games (same distance as clustering)
+    island_iterations: 300    # force-layout steps for cluster islands (positions rounded each step for determinism)
+    island_unit: 1.0          # island radius scale
+    min_bridge_links: 2       # draw a bridge between islands joined by at least this many nearest-neighbour links

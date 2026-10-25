@@ -10,9 +10,9 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
+          python-version: "3.13"
       - run: pip install -r requirements.txt
-      - name: Validate (rules E001-E028)
+      - name: Validate (rules in CONTRACT.md section 5)
         run: python scripts/validate.py
-      - name: Projections are fresh (E023)
+      - name: Projections are fresh, website included (E023)
         run: python scripts/build.py --check

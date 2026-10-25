@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en" data-theme="slate">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>OpenRCT2 source: Guest.cpp (guest ride choice and thoughts) · source · simgrammar</title>
+<meta name="description" content="GPL-3.0 reimplementation of RollerCoaster Tycoon 2. Guests reject rides below minimum or above maximum preferred intensity (both widened by happiness), above nausea tolerance (300, 600, 800, 1000 plus happiness), or priced above twice value (value quartered in pay-to-enter parks); rejections create thoughts and lower happiness; guests with no ride left head home.">
+<link rel="canonical" href="https://simgrammar.yohei.me/source/src-openrct2-2026-guest-behaviour/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenRCT2 source: Guest.cpp (guest ride choice and thoughts) · source · simgrammar">
+<meta property="og:description" content="GPL-3.0 reimplementation of RollerCoaster Tycoon 2. Guests reject rides below minimum or above maximum preferred intensity (both widened by happiness), above nausea tolerance (300, 600, 800, 1000 plus happiness), or priced above twice value (value quartered in pay-to-enter parks); rejections create thoughts and lower happiness; guests with no ride left head home.">
+<meta property="og:url" content="https://simgrammar.yohei.me/source/src-openrct2-2026-guest-behaviour/">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/register.css">
+<link rel="alternate" type="text/markdown" href="../../paper.md" title="The paper as markdown">
+<script src="../../assets/simgrammar.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+<div class="family shell" aria-label="Site family"><ul><li><a href="https://yohei.me">yohei.me</a></li><li><a href="https://yoheinakajima.github.io/research-atlas/">research atlas</a></li><li><a href="https://epistemedia.org">epistemedia</a></li><li><a href="https://yoheinakajima.github.io/register/">register</a></li><li><a href="../../" aria-current="true" data-internal>simgrammar</a></li></ul><span>one dataset · paper, tables, graph, wiki</span></div>
+<header class="topbar shell">
+  <a class="brand" href="../../" data-internal>simgrammar <small>the grammar of simulation</small></a>
+  <input type="checkbox" id="menu" class="menu-toggle"><label for="menu" class="menu-label">menu</label>
+  <nav class="nav" aria-label="Primary"><a href="../../" data-internal>Paper</a><a href="../../game/" data-internal>Games</a><a href="../../mechanic/" data-internal>Mechanics</a><a href="../../technique/" data-internal>Techniques</a><a href="../../opportunity/" data-internal>Opportunities</a><a href="../../source/" aria-current="page" data-internal>Sources</a><a href="../../data/" data-internal>Data</a></nav>
+  <nav class="nav-utility" aria-label="Utility"><a href="https://github.com/yoheinakajima/simgrammar">github</a><a href="../../paper.md" data-internal>paper.md</a><a href="../../#cite" data-internal>cite</a></nav>
+</header>
+<main id="content" class="shell">
+<nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="../../" data-internal>simgrammar</a></li><li><a href="../" data-internal>sources</a></li><li>src-openrct2-2026-guest-behaviour</li></ol></nav><div class="page-header"><p class="eyebrow"><span class="id">src-openrct2-2026-guest-behaviour</span> <span>source</span></p><h1>OpenRCT2 source: Guest.cpp (guest ride choice and thoughts)</h1><div class="meta"><span>Code repository / dataset</span><span>GitHub (OpenRCT2/OpenRCT2)</span><span>2026</span><span>accessed 2026-10-24</span></div><div class="twins"><b>this record as</b><a href="https://github.com/yoheinakajima/simgrammar/blob/main/data/sources/src-openrct2-2026-guest-behaviour.yaml">yaml source</a><a href="https://github.com/yoheinakajima/simgrammar/blob/main/dist/wiki/source/src-openrct2-2026-guest-behaviour.md">markdown</a><a href="https://github.com/yoheinakajima/simgrammar/blob/main/dist/entities/sources.json">json</a></div></div><div class="split"><div style="min-width:0"><section class="section"><div class="section-line"><h2>locator</h2></div><p><a href="https://github.com/OpenRCT2/OpenRCT2/blob/develop/src/openrct2/entity/Guest.cpp">https://github.com/OpenRCT2/OpenRCT2/blob/develop/src/openrct2/entity/Guest.cpp</a></p></section><section class="section"><div class="section-line"><h2>notes</h2></div><p>GPL-3.0 reimplementation of RollerCoaster Tycoon 2. Guests reject rides below minimum or above maximum preferred intensity (both widened by happiness), above nausea tolerance (300, 600, 800, 1000 plus happiness), or priced above twice value (value quartered in pay-to-enter parks); rejections create thoughts and lower happiness; guests with no ride left head home.</p></section><section class="section"><div class="section-line"><h2>cited by</h2><span>1 records</span></div><p><a href="../../mechanic/crowd-preferences/" data-internal>Crowd preferences</a></p></section><section class="section"><div class="section-line"><h2>provenance</h2><span>runs in log/runs</span></div><div class="register" data-kind="log" data-style="timeline"><div class="row" data-state="done"><div class="id">2026-10-24</div><span class="dot"></span><span class="kind">created</span><span class="what"><a href="https://github.com/yoheinakajima/simgrammar/blob/main/log/runs/2026-10-24-taxonomy-m3.yaml">2026-10-24-taxonomy-m3</a></span><span class="src">taxonomy</span></div></div></section></div><aside class="aside" style="min-width:0"><h3>record</h3><dl class="receipt"><dt>kind</dt><dd>Code repository / dataset</dd><dt>authors</dt><dd>OpenRCT2 contributors</dd><dt>venue</dt><dd>GitHub (OpenRCT2/OpenRCT2)</dd><dt>date</dt><dd>2026</dd><dt>url</dt><dd>https://github.com/OpenRCT2/OpenRCT2/blob/develop/src/openrct2/entity/Guest.cpp</dd><dt>accessed</dt><dd>2026-10-24</dd></dl></aside></div>
+<footer class="site-footer"><span>dataset 7bd89fd5 · contract 1.0 · paper v0.2</span><span>generated by scripts/build.py · built with register.css</span></footer>
+</main>
+</body>
+</html>
