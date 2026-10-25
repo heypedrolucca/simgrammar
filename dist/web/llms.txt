@@ -6,9 +6,9 @@ dataset sha256: 7bd89fd5e2618f6f4144cc60a1034cb081f1a456383346c8cb659e03308d167a
 contract: 1.0 · paper v0.2 (2026-10-25)
 
 ## Read
-- https://simgrammar.yohei.me/paper.md: the paper as markdown
-- https://simgrammar.yohei.me/references.bib: bibliography
-- https://simgrammar.yohei.me/manifest.json: counts and hashes
+- https://sim.yohei.me/paper.md: the paper as markdown
+- https://sim.yohei.me/references.bib: bibliography
+- https://sim.yohei.me/manifest.json: counts and hashes
 
 ## Data
 - https://github.com/yoheinakajima/simgrammar/tree/main/dist/tables: csv per type, edges.csv, game_mechanic_matrix.csv

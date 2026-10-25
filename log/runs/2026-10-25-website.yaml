@@ -7,7 +7,7 @@ operator: yoheinakajima
 agent:
   model: claude-opus-5-5
   harness: Claude app (cloud workspace), orchestrator
-purpose: Publish the report as a website (simgrammar.yohei.me) with five interactive figures, styled with the Register design system.
+purpose: Publish the report as a website (sim.yohei.me) with five interactive figures, styled with the Register design system.
 method: >-
   Added scripts/web.py, which projects the paper, one page per record, an index per type, and a data page into
   dist/web as part of the deterministic build, and scripts/viz.py, which lays out five figures in Python from the

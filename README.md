@@ -21,7 +21,7 @@ Typed edges: **4244** · game→mechanic uses: **1952** · games span **1968–2
 
 | You want | Open |
 |---|---|
-| The website: paper with interactive figures, a page per record | **[simgrammar.yohei.me](https://simgrammar.yohei.me/)** · built into [`dist/web/`](dist/web/) by `scripts/web.py` |
+| The website: paper with interactive figures, a page per record | **[sim.yohei.me](https://sim.yohei.me/)** · built into [`dist/web/`](dist/web/) by `scripts/web.py` |
 | The report (paper form) | [`dist/paper/paper.md`](dist/paper/paper.md) · BibTeX: [`dist/paper/references.bib`](dist/paper/references.bib) |
 | A wiki you can click through | [`dist/wiki/index.md`](dist/wiki/index.md) |
 | Sortable / filterable tables | [`dist/tables/`](dist/tables/) (games, mechanics, techniques, opportunities, sources, edges, game×mechanic matrix) |
