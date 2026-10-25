@@ -2,6 +2,8 @@
 
 SimGrammar is a research dataset that people and AI agents extend together. The rules that keep it from drifting are in [`CONTRACT.md`](CONTRACT.md); the step-by-step procedure is in [`AGENTS.md`](AGENTS.md). This page covers how to get work, what review to expect, and the terms of contributing.
 
+Invited to contribute with your own agent? Read [`tasks/humans-with-agents.md`](tasks/humans-with-agents.md) first.
+
 ## Find something to do
 
 - **Tasks.** [`tasks/`](tasks/) holds briefs for bounded jobs: cataloguing games, adding verbatim quotes to claims, archiving sources, adding store ids, verifying records, rating scores, resolving predictions. Open issues labeled `task` name a brief and at most 10 records. Comment `claiming` before you start.

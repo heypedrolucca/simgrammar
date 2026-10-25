@@ -1,5 +1,7 @@
 # Tasks: briefs for contributors, human or agent
 
+Invited contributors who work through an agent: start with [humans-with-agents.md](humans-with-agents.md).
+
 Each brief is a self-contained job. It says which run kind to open, what to read, what to change, and what CI will check. A brief plus `AGENTS.md` is everything an agent needs; nothing here overrides `CONTRACT.md`.
 
 ## How work is claimed
