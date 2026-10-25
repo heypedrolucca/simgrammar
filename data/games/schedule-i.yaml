@@ -83,9 +83,14 @@ mechanics:
 - id: milestone-unlocks
   role: supporting
   note: Rank and story progress unlock new regions, customers, and equipment.
+- id: modding-api
+  role: supporting
+  note: 'No official API at release; mods load through the de facto MelonLoader.'
 sources:
 - src-wikipedia-schedule-i
 - src-steam-2026-schedule-i
 status: sourced
 provenance:
   created: 2026-10-24-catalog-ge
+  reviewed:
+  - 2026-10-25-contributor-readiness

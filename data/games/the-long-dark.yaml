@@ -68,6 +68,9 @@ mechanics:
   note: Manufactured supplies are finite, so long runs shift from looting to hunting and crafting.
 - id: direct-avatar
   role: supporting
+- id: modding-api
+  role: supporting
+  note: 'No official API; mods load through the de facto MelonLoader.'
 sources:
 - src-wikipedia-the-long-dark
 - src-steam-2026-the-long-dark
@@ -75,3 +78,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-catalog-gb
+  reviewed:
+  - 2026-10-25-contributor-readiness

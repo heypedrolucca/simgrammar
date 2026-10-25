@@ -19,7 +19,7 @@ agency_model:
 - direct-avatar
 - direct-unit
 - design-then-test
-time_model: real-time-pausable
+time_model: real-time
 sim_scale: interplanetary
 fidelity: stylized
 perspective: free-3d
@@ -77,3 +77,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-catalog-gd
+  reviewed:
+  - 2026-10-25-contributor-readiness

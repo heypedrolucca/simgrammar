@@ -19,7 +19,7 @@ from scipy.cluster.hierarchy import fcluster, linkage
 from scipy.spatial.distance import squareform
 from scipy.stats import spearmanr
 
-from lib import ROOT, read_yaml, vocab_terms
+from lib import CALIBRATION_SCALES, ROOT, calibration_agreement, independent, load_calibration, load_registry, read_yaml, vocab_terms
 
 MATURITY_ORDER = ["research", "prototype", "shipped-niche", "shipped-mainstream"]
 
@@ -94,6 +94,11 @@ def compute(ents: dict, edges: list, vocabs: dict) -> dict:
             "earliest_game": gl[0] if gl else None,
             "subgenre_spread": len({by_id[g].data.get("subgenre") for g in gl}),
         })
+
+    # prevalence rank: 1 = used by the most games; tied mechanics share the best rank (competition ranking)
+    for m in mechs:
+        p = derived[m.id]["prevalence"]
+        derived[m.id]["prevalence_rank"] = 1 + sum(1 for o in mechs if derived[o.id]["prevalence"] > p)
 
     # ---------------- technique exposure per mechanic
     comp = rub["composites"]["technique_exposure"]
@@ -225,7 +230,8 @@ def compute(ents: dict, edges: list, vocabs: dict) -> dict:
 
     # ---------------- clustering games by weighted mechanic sets (weighted Jaccard)
     cl = cfg["clustering"]
-    if N >= cl["k"] and mids:
+    st_cfg = cl["stability"]
+    if N >= st_cfg["k_max"] and mids:
         idx = {m: i for i, m in enumerate(mids)}
         gidx = {g.id: i for i, g in enumerate(games)}
         X = np.zeros((N, len(mids)))
@@ -243,13 +249,54 @@ def compute(ents: dict, edges: list, vocabs: dict) -> dict:
                 D[i, j] = D[j, i] = d
         shared.update({"game_ids": [g.id for g in games], "game_distance": D})
         Z = linkage(squareform(D, checks=False), method="average")
-        labels = fcluster(Z, t=cl["k"], criterion="maxclust")
+        # stability: re-cluster random subsamples (without replacement) and compare with the full solution.
+        # k is chosen by the rule stated in report/analysis.yaml, never by what the clusters look like.
+        rng = np.random.default_rng(st_cfg["seed"])
+        n_sub = int(round(st_cfg["fraction"] * N))
+        subs = [np.sort(rng.choice(N, n_sub, replace=False)) for _ in range(st_cfg["subsamples"])]
+        Zs = [linkage(squareform(D[np.ix_(s, s)], checks=False), method="average") for s in subs]
+        curve = []
+        for kk in range(st_cfg["k_min"], st_cfg["k_max"] + 1):
+            Lk = fcluster(Z, t=kk, criterion="maxclust")
+            aris = [_ari(Lk[s], fcluster(Zb, t=kk, criterion="maxclust")) for s, Zb in zip(subs, Zs)]
+            curve.append({"k": kk, "clusters": int(len(set(Lk))), "mean_ari": _r(float(np.mean(aris)), 3), "_mean": float(np.mean(aris)),
+                          "p10_ari": _r(float(np.percentile(aris, 10)), 3),
+                          "largest_cluster_share": _r(Counter(Lk.tolist()).most_common(1)[0][1] / N, 2)})
+        passing = [r for r in curve if r["_mean"] >= st_cfg["min_mean_ari"]]
+        k_rule = passing[0]["k"] if passing else max(curve, key=lambda r: (r["_mean"], -r["k"]))["k"]
+        k_chosen = int(cl["k"])
+        for r in curve:
+            r["selection"] = ", ".join(x for x, hit in (("configured", r["k"] == k_chosen), ("rule today", r["k"] == k_rule)) if hit)
+            del r["_mean"]
+        tables["cluster-stability"] = {"description": f"Agreement between the full clustering and re-clusterings of {st_cfg['subsamples']} random {int(st_cfg['fraction'] * 100)}% subsamples of games (adjusted Rand index), for each candidate k. The selection rule picks the smallest k whose mean ARI reaches {st_cfg['min_mean_ari']}; k is fixed in report/analysis.yaml from the last selection, and the validator warns (W107) when the rule would now pick a different k.",
+                                       "columns": ["k", "clusters", "mean_ari", "p10_ari", "largest_cluster_share", "selection"], "rows": curve}
+        stats["cluster_rule_k"] = k_rule
+        labels = fcluster(Z, t=k_chosen, criterion="maxclust")
+        co = np.zeros((N, N))
+        both = np.zeros((N, N))
+        jac = defaultdict(list)
+        for s, Zb in zip(subs, Zs):
+            lb = fcluster(Zb, t=k_chosen, criterion="maxclust")
+            co[np.ix_(s, s)] += (lb[:, None] == lb[None, :])
+            both[np.ix_(s, s)] += 1
+            groups = defaultdict(set)
+            for j, lab in enumerate(lb):
+                groups[int(lab)].add(int(s[j]))
+            for c in sorted(set(labels.tolist())):
+                A = {int(i) for i in s if labels[i] == c}
+                if A:
+                    jac[c].append(max(len(A & B) / len(A | B) for B in groups.values()))
+        C = np.where(both > 0, co / np.maximum(both, 1), 0.0)
+        np.fill_diagonal(C, 1.0)
+        cocluster = {"index": {g.id: i for i, g in enumerate(games)}, "value": lambda i, j: _r(float(C[i, j]), 3),
+                     "together": st_cfg["together"], "apart": st_cfg["apart"]}
+        clust_jac = {c: float(np.mean(v)) for c, v in jac.items()}
         clusters = defaultdict(list)
         for g, lab in zip(games, labels):
             clusters[int(lab)].append(g)
         crow = []
-        ordered = sorted(clusters.values(), key=lambda gs: (-len(gs), min(x.id for x in gs)))
-        for ci, members in enumerate(ordered, start=1):
+        ordered = sorted(clusters.items(), key=lambda kv: (-len(kv[1]), min(x.id for x in kv[1])))
+        for ci, (lab, members) in enumerate(ordered, start=1):
             cnt = Counter(mid for g in members for mid in gm[g.id])
             scored = []
             for mid, c in cnt.items():
@@ -263,16 +310,44 @@ def compute(ents: dict, edges: list, vocabs: dict) -> dict:
             for g in members:
                 derived[g.id]["cluster"] = f"C{ci:02d}"
             crow.append({"cluster": f"C{ci:02d}", "label": label, "size": len(members),
+                         "stability": _r(clust_jac.get(lab, 0.0), 2),
                          "dominant_subgenres": ", ".join(f"{sub_terms.get(s, {}).get('label', s)} ({n})" for s, n in subs),
                          "signature_mechanics": topm,
                          "members": [g.id for g in sorted(members, key=lambda g: (float(np.mean([D[gidx[g.id], gidx[o.id]] for o in members])), g.id))]})
-        tables["game-clusters"] = {"description": f"Games clustered by weighted Jaccard similarity of mechanic sets (average linkage, k={cl['k']}, core weight {cl['core_weight']}{', inverse-prevalence weighting so ubiquitous mechanics do not dominate' if cl.get('idf') else ''}). Signature mechanics maximize within-cluster share x log-lift. Members are ordered by centrality (mean distance to the rest of the cluster), so the first members are the most typical.",
-                                   "columns": ["cluster", "label", "size", "dominant_subgenres", "signature_mechanics", "members"], "rows": crow,
+        tables["game-clusters"] = {"description": f"Games clustered by weighted Jaccard similarity of mechanic sets (average linkage, k={k_chosen} chosen by subsample stability, core weight {cl['core_weight']}{', inverse-prevalence weighting so ubiquitous mechanics do not dominate' if cl.get('idf') else ''}). Stability is the mean Jaccard overlap between the cluster and its best match when {int(st_cfg['fraction'] * 100)}% subsamples are re-clustered (at least {st_cfg['stable_cluster']} counts as stable). Signature mechanics maximize within-cluster share x log-lift. Members are ordered by centrality (mean distance to the rest of the cluster), so the first members are the most typical.",
+                                   "columns": ["cluster", "label", "size", "stability", "dominant_subgenres", "signature_mechanics", "members"], "rows": crow,
                                    "link_columns": ["signature_mechanics", "members"], "max_links": 8}
         # how often clusters cut across subgenres
         cross = sum(1 for r in crow if len(set(by_id[g].data.get("subgenre") for g in r["members"])) > 1)
         stats["n_clusters"] = len(crow)
         stats["n_clusters_cross_subgenre"] = cross
+        stats["cluster_k"] = k_chosen
+        stats["cluster_mean_ari"] = next(r["mean_ari"] for r in curve if r["k"] == k_chosen)
+        stats["cluster_min_mean_ari"] = st_cfg["min_mean_ari"]
+        stats["cluster_subsamples"] = st_cfg["subsamples"]
+        stats["cluster_subsample_pct"] = int(round(st_cfg["fraction"] * 100))
+        stats["n_stable_clusters"] = sum(1 for r in crow if r["stability"] >= st_cfg["stable_cluster"])
+        stats["cluster_stable_jaccard"] = st_cfg["stable_cluster"]
+        stats["cocluster_together"] = st_cfg["together"]
+        stats["cocluster_apart"] = st_cfg["apart"]
+        # agreement with subgenre labels, against a permutation null (labels shuffled across games)
+        sub_lab = [g.data.get("subgenre") for g in games]
+        obs_ari, obs_nmi = _ari(labels, sub_lab), _nmi(labels, sub_lab)
+        prng = np.random.default_rng(st_cfg["seed"] + 1)
+        null_ari, null_nmi = [], []
+        arr = np.array(sub_lab, dtype=object)
+        for _ in range(st_cfg["permutations"]):
+            perm = arr[prng.permutation(N)]
+            null_ari.append(_ari(labels, perm))
+            null_nmi.append(_nmi(labels, perm))
+        P = st_cfg["permutations"]
+        stats["cluster_subgenre_ari"] = _r(obs_ari, 2)
+        stats["cluster_subgenre_nmi"] = _r(obs_nmi, 2)
+        stats["cluster_subgenre_null_nmi"] = _r(float(np.mean(null_nmi)), 2)
+        stats["p_cluster_subgenre_ari"] = _r((1 + sum(1 for x in null_ari if x >= obs_ari)) / (P + 1), 3)
+        stats["p_cluster_subgenre_nmi"] = _r((1 + sum(1 for x in null_nmi if x >= obs_nmi)) / (P + 1), 3)
+        stats["cluster_permutations"] = P
+        shared["cocluster"] = cocluster
 
     # ---------------- family x subgenre
     fam_ids = list(fam_terms)
@@ -315,6 +390,8 @@ def compute(ents: dict, edges: list, vocabs: dict) -> dict:
     if comp_by_fam:
         stats["top_compute_family"] = fam_terms[max(comp_by_fam, key=lambda f: (comp_by_fam[f], f))]["label"]
         stats["top_legibility_family"] = fam_terms[max(famrows, key=lambda r: (r["mean_legibility"], r["family"]))["family"]]["label"]
+    if famrows:
+        stats["most_used_family"] = fam_terms[max(famrows, key=lambda r: (r["uses"], r["family"]))["family"]]["label"]
     if famrows and famrows[0]["technique_exposure"] > 0:
         stats["top_exposed_family"] = fam_terms[famrows[0]["family"]]["label"]
         stats["least_exposed_family"] = fam_terms[famrows[-1]["family"]]["label"]
@@ -385,6 +462,49 @@ def compute(ents: dict, edges: list, vocabs: dict) -> dict:
     stats["n_predictions"] = len(opps)
     res = sorted(o.data["falsifiable_signal"]["resolve_by"] for o in opps)
     stats["first_prediction_resolves"] = res[0] if res else None
+    outcomes = Counter()
+    for o in opps:
+        r = o.data["falsifiable_signal"].get("resolution")
+        derived[o.id]["prediction_status"] = r["outcome"] if r else "open"
+        outcomes[r["outcome"] if r else "open"] += 1
+    for k in ["open"] + list(vocab_terms(vocabs, "prediction_outcome")):
+        stats[f"n_predictions_{k}"] = outcomes.get(k, 0)
+
+    # ---------------- raters: agreement between independent ratings, and calibration results
+    runs = {r.id: r for r in ents.get("run", [])}
+    pair_stats = defaultdict(lambda: {"scores": 0, "pairs": 0, "exact": 0, "within_one": 0})
+    n_ratings = 0
+    for t in ("mechanic", "game", "technique", "opportunity"):
+        for e in sorted(live.get(t, []), key=lambda e: e.id):
+            per = defaultdict(list)
+            for r in e.data.get("ratings") or []:
+                per[r["field"]].append(r)
+                n_ratings += 1
+            for fld, rs in sorted(per.items()):
+                ps = [(x, y) for i, x in enumerate(rs) for y in rs[i + 1:] if independent(runs.get(x["run"]), runs.get(y["run"]))]
+                if ps:
+                    ag = pair_stats[fld]
+                    ag["scores"] += 1
+                    ag["pairs"] += len(ps)
+                    ag["exact"] += sum(1 for x, y in ps if x["value"] == y["value"])
+                    ag["within_one"] += sum(1 for x, y in ps if abs(x["value"] - y["value"]) <= 1)
+    tables["rater-agreement"] = {"description": "Agreement between ratings from independent runs (different operator, and different model for agent runs), per scored field. Empty until a second rater scores records (tasks/rate-scores.md).",
+                                 "columns": ["field", "scores", "pairs", "exact", "within_one"],
+                                 "rows": [{"field": f, "scores": v["scores"], "pairs": v["pairs"], "exact": _r(v["exact"] / v["pairs"], 2), "within_one": _r(v["within_one"] / v["pairs"], 2)} for f, v in sorted(pair_stats.items())]}
+    stats["n_ratings"] = n_ratings
+    stats["n_scores_independently_rated"] = sum(v["scores"] for v in pair_stats.values())
+    cal = load_calibration(load_registry())
+    cal_rows = []
+    for r in sorted(runs.values(), key=lambda r: r.id):
+        c = r.data.get("calibration")
+        if c and cal:
+            ag = calibration_agreement(cal.get("mechanics") or {}, c.get("scores") or {})
+            cal_rows.append({"run": r.id, "model": (r.data.get("agent") or {}).get("model", ""), "operator": r.data.get("operator"),
+                         "scores": ag["n"], "exact": ag["exact"], "within_one": ag["within_one"], "kappa": ag["kappa_quadratic"]})
+    tables["calibration-results"] = {"description": f"Raters' blind scores on the calibration set ({cal.get('id') if cal else 'missing'}) compared with its frozen scores: exact and within-one agreement and quadratic-weighted kappa.",
+                                     "columns": ["run", "model", "operator", "scores", "exact", "within_one", "kappa"], "rows": cal_rows}
+    stats["n_calibrated_runs"] = len(cal_rows)
+    stats["n_calibration_mechanics"] = len((cal or {}).get("mechanics") or {})
 
     # ---------------- adoption over time
     by_decade = Counter()
@@ -422,7 +542,38 @@ def compute(ents: dict, edges: list, vocabs: dict) -> dict:
     import viz  # local import: viz renders figures from the structures computed above
     vizzes = viz.build(shared, live, by_id, derived, tables, stats, vocabs, cfg)
     return {"derived": {k: dict(sorted(v.items())) for k, v in sorted(derived.items())}, "stats": dict(sorted(stats.items())),
-            "tables": tables, "figures": figures, "vizzes": vizzes}
+            "tables": tables, "figures": figures, "vizzes": vizzes, "cocluster": shared.get("cocluster", {}),
+            "pair_count": shared.get("pair_count", {}), "mechanic_ids": {m.id for m in mechs}}
+
+
+def _contingency(a, b):
+    _, ai = np.unique(np.asarray(a, dtype=object).astype(str), return_inverse=True)
+    _, bi = np.unique(np.asarray(b, dtype=object).astype(str), return_inverse=True)
+    C = np.zeros((ai.max() + 1, bi.max() + 1))
+    np.add.at(C, (ai, bi), 1)
+    return C
+
+
+def _ari(a, b) -> float:
+    """Adjusted Rand index (Hubert and Arabie 1985) between two labelings of the same items."""
+    C = _contingency(a, b)
+    c2 = lambda x: x * (x - 1) / 2  # noqa: E731
+    s, sa, sb, n = c2(C).sum(), c2(C.sum(1)).sum(), c2(C.sum(0)).sum(), c2(C.sum())
+    exp = sa * sb / n if n else 0.0
+    mx = (sa + sb) / 2
+    return float((s - exp) / (mx - exp)) if mx != exp else 1.0
+
+
+def _nmi(a, b) -> float:
+    """Normalized mutual information, arithmetic-mean normalization."""
+    C = _contingency(a, b)
+    P = C / C.sum()
+    pa, pb = P.sum(1), P.sum(0)
+    nz = P > 0
+    mi = float((P[nz] * np.log(P[nz] / np.outer(pa, pb)[nz])).sum())
+    ha = float(-(pa[pa > 0] * np.log(pa[pa > 0])).sum())
+    hb = float(-(pb[pb > 0] * np.log(pb[pb > 0])).sum())
+    return mi / ((ha + hb) / 2) if ha + hb else 1.0
 
 
 # ======================================================================= SVG

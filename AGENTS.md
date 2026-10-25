@@ -11,7 +11,9 @@ pip install -r requirements.txt
 make check          # must be green before you start; if it is red, stop and report
 ```
 
-Read, in order: `CONTRACT.md` §2 (invariants), the schema for every type you will edit (`schema/<type>.schema.json`), and the vocab files those schemas reference. Do not rely on memory of a previous version of this repo.
+Read, in order: `CONTRACT.md` §2 (invariants), the brief for your task in `tasks/` if you have one, the schema for every type you will edit (`schema/<type>.schema.json`), and the vocab files those schemas reference. Do not rely on memory of a previous version of this repo.
+
+Work arrives as GitHub issues labeled `task`, each naming a brief and at most 10 records. Comment `claiming` on one issue; that issue becomes one run and one pull request (`tasks/README.md`).
 
 ## 1. Open a run
 
@@ -22,7 +24,9 @@ python scripts/new.py run <slug> --kind <kind> --actor agent --operator <github-
   --model <model-id> --harness "<tool you run in>" --purpose "<one sentence>"
 ```
 
-`--kind` says what the run may do: `taxonomy` (the only kind that may create mechanics), `catalog` (games), `technique`, `synthesis` (opportunities, report), `verification` (the only kind that may set `status: verified`), `maintenance`. The validator enforces this (E031).
+`--kind` says what the run may do: `taxonomy` (the only kind that may create mechanics), `catalog` (games), `technique`, `synthesis` (opportunities, report), `verification` (the only kind that may set `status: verified`, add independent `ratings`, or resolve a prediction), `maintenance`. The validator enforces this (E031, E038).
+
+`--operator` is the accountable human's GitHub handle and `--model` the exact model id. Independence is checked on both: a run that verifies, rates, or resolves someone's work needs a different operator, and a different model when both runs are agents (E035). A run that creates mechanics or adds mechanic ratings first records a blind calibration (`python scripts/calibrate.py sheet`, then `score --write-run <run-id>`; E036, `tasks/rate-scores.md`).
 
 Fill `method` (what you searched, read, or computed) and keep `proposals` for anything you wanted to do but this file does not allow. Every entity you create gets `provenance.created: <run-id>`. Every existing entity you re-check gets your run id appended to `provenance.reviewed`.
 
@@ -61,7 +65,13 @@ Names at least one mechanic in `involves`, has a `validation_experiment` a small
 | Situation | Rule |
 |---|---|
 | Categorical field | Use an existing term from the vocab file named in the schema (`x-vocab`). Missing term → proposal `vocab-term`, pick the closest existing term now. |
-| Ordinal score | Read the anchors in `vocab/rubrics.yaml`. Pick the anchor whose text matches. Between two, take the lower. Never adjust a score to make a ranking come out a certain way. |
+| Ordinal score | Read the anchors in `vocab/rubrics.yaml`. Pick the anchor whose text matches. Between two, take the lower. Never adjust a score to make a ranking come out a certain way. To disagree with an existing score, add a `ratings` entry (field, value, run, rationale) instead of overwriting; the stored value is the lower median of the ratings (E037). |
+| Claim | `text` says what the source supports; `quote` is the shortest verbatim passage from the first source that supports it, `locator` says where. CI fetches the source and fails if the quote is not there. |
+| Text about the dataset | A sentence in any record that states a finding about this catalog ("the most used", "rarely combined", "no technique links to") carries `assertions` that fail the build when the data changes (E032), e.g. `derived.tech-tree.prevalence_rank <= 5`, `cooccur.power-grid.weather <= 1`, `rank.whitespace.lifecycle-aging.production-chain <= 10`. |
+| `time_model`, `modding` | Two mechanics follow these fields exactly (E033): `real-time-pausable` games tag `variable-speed`; `scripting` and `total-conversion` games tag `modding-api`. Pick the true field term, then tag. |
+| `store_ids` | Steam app id, IGDB slug, Wikidata id, only for the exact edition the record describes (`tasks/store-ids.md`). |
+| Source `archived` | A Wayback snapshot URL of `url`, taken when you read it (`tasks/archive-sources.md`). |
+| Prediction `resolution` | Only in a verification run independent of the opportunity's creator: outcome, date, run, evidence, note (`tasks/resolve-prediction.md`). |
 | `summary` | One sentence, no markdown, no hype adjectives (revolutionary, groundbreaking, game-changing), no em-dashes. |
 | Long text | Specific and mechanical. Name the variables and the update rule. Cite numbers only if a source supports them. |
 | Game `mechanics` | 6–14 entries typical; fewer than 5 raises W103. `core` only for mechanics whose removal changes the game's identity; every core entry needs a `note` saying how this game implements it. |
@@ -76,13 +86,14 @@ Names at least one mechanic in `involves`, has a `validation_experiment` a small
 
 - No source → `status: asserted`. That is fine; the verification queue exists for this.
 - You cite a source that supports the factual fields → `status: sourced`.
-- You re-check someone else's sourced entity against its sources in a run of kind `verification` → append your run to `provenance.reviewed` and set `verified`. Never verify an entity your own run created; a review by any other kind of run does not count (E031).
+- You re-check someone else's sourced entity against its sources in a run of kind `verification` → append your run to `provenance.reviewed` and set `verified`. Never verify an entity your own run created; a review by any other kind of run does not count (E031). The verifying run needs a different operator, and a different model when both are agents (E035). An entity whose sources are all encyclopedias or wikis stays `sourced` (E034).
 - A source contradicts a sourced entity → `status: contested`, add a claim with `disputes`, cite both sides. Do not silently overwrite.
 
 ### Sources
 - Id: `src-<publisher-or-first-author-surname>-<year>-<short-slug>`, e.g. `src-park-2023-generative-agents`, `src-steam-2024-manor-lords`; Wikipedia articles use `src-wikipedia-<slug>` (no year). The schema enforces both forms (E004).
 - Check `data/sources/` before creating; one file per work. If it exists, cite it.
-- Prefer primary sources (paper, official blog, store page, developer postmortem) over aggregators. `accessed` is the date you read it.
+- Prefer primary sources (paper, official blog, store page, developer postmortem) over aggregators. `accessed` is the date you read it, and `archived` a Wayback snapshot of it.
+- Cite only what you opened and read. Never create a source record from memory or from a search snippet.
 - Every source must be cited by something (E011).
 
 ## 6. Writing the report
@@ -98,19 +109,21 @@ Names at least one mechanic in `involves`, has a `validation_experiment` a small
 | `{{figure:<name>}}` | an SVG from `dist/analysis/figures/` |
 | `{{viz:<name>}}` | an interactive figure from `scripts/viz.py`: a static SVG in `paper.md`, interactive on the website, always with a plain-text twin table |
 | `{{vocab:<vocab>:<term>}}` | a vocab label |
-| `{{assert:<ref> <op> <value\|ref>}}` | renders nothing; fails the build (E029) if false. Put one next to every sentence that interprets a ranking, sign, ordering, or grouping. `<ref>` is a stat (`rho_legibility_emergence_potential < 0`), an entity's derived field (`derived.rimworld.cluster == derived.the-sims.cluster`), a stored field (`field.genie-world-models.maturity == prototype`), or a row rank in a generated table (`rank.whitespace.lifecycle-aging.production-chain <= 10`; 9999 when absent) |
+| `{{assert:<ref> <op> <value\|ref>}}` | renders nothing; fails the build (E029) if false. Put one next to every sentence that interprets a ranking, sign, ordering, or grouping. `<ref>` is a stat (`rho_legibility_emergence_potential < 0`), an entity's derived field (`derived.rimworld.cluster == derived.dwarf-fortress.cluster`), a stored field (`field.genie-world-models.maturity == prototype`), a row rank in a generated table (`rank.whitespace.lifecycle-aging.production-chain <= 10`; 9999 when absent), a co-occurrence count (`cooccur.power-grid.weather <= 1`), or a co-clustering share (`cocluster.rimworld.the-sims < 0.8`). A cluster-membership assertion passes only if the pair co-clusters in at least `clustering.stability.together` of resampled clusterings (at most `apart` for `!=`), so assert only groupings that are stable |
 | `[[id]]`, `[[id\|text]]` | link to an entity |
 | `[@src-id]`, `[@src-a; @src-b]` | numbered citation |
 
-Never type a dataset count ("140 games") into prose (E021). When a sentence interprets data ("X is the most exposed family", "the correlation is negative"), pin it with an assertion so the build fails if a later data change makes the sentence false. If you need a new statistic, add it to `scripts/analyze.py` (deterministic) in the same PR. If you need a new table view, add it to `report/tables.yaml`.
+Never type a dataset count ("140 games") into prose (E021). When a sentence interprets data ("X is the most exposed family", "the correlation is negative"), pin it with an assertion so the build fails if a later data change makes the sentence false. If you need a new statistic, add it to `scripts/analyze.py` (deterministic) in the same PR. If you need a new table view, add it to `report/tables.yaml`. The number of game clusters (`clustering.k` in `report/analysis.yaml`) is set by its stated stability rule, never by what the clusters look like; W107 says when the rule would now pick another k.
 
 ### The website
 
-`scripts/web.py` projects everything into `dist/web/`: the paper, one page per record, an index per type, and a data page. It uses Register (`web/register.css`, vendored; its contract is `web/DESIGN.md`). Follow that contract when you change a page template: no new stylesheet or classes, lowercase mono labels, one accent, every component with a plain-text twin, and every page complete without JavaScript (`web/simgrammar.js` only adds interaction). Figures are laid out in Python, deterministically; the script never lays anything out. The domain lives in `report/meta.yaml` (`site.domain`) and is written to `dist/web/CNAME`. `.github/workflows/pages.yml` publishes `dist/web/` on every push to `main`.
+`scripts/web.py` projects everything into `dist/web/`: the paper, one page per record, an index per type, and a data page. It uses Register (`web/register.css`, vendored; its contract is `web/DESIGN.md`). Follow that contract when you change a page template: no new stylesheet or classes, lowercase mono labels, one accent, every component with a plain-text twin, and every page complete without JavaScript (`web/simgrammar.js` only adds interaction). Figures are laid out in Python, deterministically; the script never lays anything out. The domain lives in `report/meta.yaml` (`site.domain`) and is written to `dist/web/CNAME`. `.github/workflows/pages.yml` builds on every push to `main` and publishes `dist/web/` as the site with the other projections under `/dist/`.
 
 ## 7. Never
 
-- Edit `dist/` or anything between `<!-- BEGIN GENERATED -->` markers.
+- Edit anything between `<!-- BEGIN GENERATED -->` markers, or commit `dist/` (it is gitignored; CI builds it).
+- Cite a source you did not open, paraphrase inside a `quote`, or verify, rate, or resolve work from your own operator or model.
+- Put more than 10 records or 30 sources in one PR, or more than one run (E039).
 - Add a field, vocab term, edge type, or rubric anchor without an ADR (`decisions/`).
 - Change or reuse an id. Delete a merged entity (deprecate it).
 - Store an inverse edge or a derived number.
@@ -120,12 +133,12 @@ Never type a dataset count ("140 games") into prose (E021). When a sentence inte
 ## 8. Finish
 
 ```bash
-make build            # regenerate dist/ and GENERATED blocks from your edits
-make check            # validate + build --check; must be green
-git add -A && git commit -m "<type>(<scope>): <what> [run:<run-id>]"
+make build            # build dist/ locally (for reading) and refresh GENERATED blocks
+make check            # validate + report/record assertions + build --check; must be green
+git add -A && git commit -s -m "<type>(<scope>): <what> [run:<run-id>]"
 ```
 
-Commit types: `data`, `taxonomy`, `vocab`, `schema`, `report`, `build`, `docs`. One run per PR. The PR template asks for the run id, the rule codes you hit, and your proposals. Changes under `vocab/`, `schema/`, `scripts/`, `CONTRACT.md`, and `AGENTS.md` need maintainer review (`.github/CODEOWNERS`) because the validator cannot judge whether a contract change is justified; it can only enforce the contract as written.
+Rewrite the run's `method` before you commit: what you searched, opened, and computed, and what failed. `dist/` is gitignored, so a data PR contains records and one run file. Commit types: `data`, `taxonomy`, `vocab`, `schema`, `report`, `build`, `docs`. One run per PR, at most 10 records and 30 sources, every commit signed off (E039). CI also runs `make determinism` and, for the records you touched, checks claim quotes and store ids against the live web (`.github/workflows/sources.yml`). The PR template asks for the run id, the issue, the rule codes you hit, and your proposals. Paths in `.github/CODEOWNERS` (the contract and its code, the report and its analysis parameters, mechanics, opportunities, calibration) need maintainer review because the validator cannot judge whether such a change is justified; it can only enforce the contract as written.
 
 ## 9. Parallel agents
 

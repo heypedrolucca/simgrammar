@@ -9,8 +9,10 @@ Syntax (documented in AGENTS.md):
   {{viz:<name>}}              interactive figure from scripts/viz.py (static SVG in the paper, interactive on the site)
   {{vocab:<vocab>:<term>}}    a vocab term's label
   {{assert:<ref> <op> <value|ref>}}  renders nothing; fails E029 when false. <ref> is a stat name,
-                              derived.<id>.<field>, field.<id>.<path> (a stored field), or rank.<table>.<id>[.<id>] (1-based row of the first
-                              row containing every id; 9999 when absent)
+                              derived.<id>.<field>, field.<id>.<path> (a stored field), rank.<table>.<id>[.<id>] (1-based row of the first
+                              row containing every id; 9999 when absent), cooccur.<mechanic>.<mechanic> (games using both), or
+                              cocluster.<game>.<game> (share of subsamples clustering the two together). Cluster-membership
+                              assertions also need stable co-clustering (see evaluate_assertion).
   [[id]] / [[id|text]]        link to an entity
   [@src-id] / [@src-a; @src-b] citation
 """
@@ -61,6 +63,94 @@ class Context:
     def label(self, eid: str) -> str:
         e = self.by_id.get(eid)
         return e.data.get("name", eid) if e else eid
+
+
+ASSERT_RE = re.compile(r"^([a-z0-9_.-]+)\s*(==|!=|<=|>=|<|>)\s*(.+)$")
+CLUSTER_EQ_RE = re.compile(r"^derived\.([a-z0-9-]+)\.cluster$")
+
+
+def lookup_ref(ref: str, a: dict, by_id: dict):
+    """Resolve an assertion reference. Returns (found, value)."""
+    if ref in a["stats"]:
+        return True, a["stats"][ref]
+    if ref.startswith("derived."):
+        parts = ref.split(".", 2)
+        if len(parts) == 3:
+            dv = a["derived"].get(parts[1], {})
+            if parts[2] in dv:
+                return True, dv[parts[2]]
+        return False, None
+    if ref.startswith("field."):
+        parts = ref.split(".", 2)
+        ent = by_id.get(parts[1]) if len(parts) == 3 else None
+        if ent is not None and get_path(ent.data, parts[2]) is not None:
+            return True, get_path(ent.data, parts[2])
+        return False, None
+    if ref.startswith("cooccur."):
+        parts = ref.split(".")
+        mids = a.get("mechanic_ids") or set()
+        if len(parts) == 3 and parts[1] in mids and parts[2] in mids:
+            return True, (a.get("pair_count") or {}).get(tuple(sorted(parts[1:])), 0)
+        return False, None
+    if ref.startswith("cocluster."):
+        parts = ref.split(".")
+        co = a.get("cocluster") or {}
+        if len(parts) == 3 and parts[1] in co.get("index", {}) and parts[2] in co.get("index", {}):
+            i, j = co["index"][parts[1]], co["index"][parts[2]]
+            return True, co["value"](i, j)
+        return False, None
+    if ref.startswith("rank."):
+        parts = ref.split(".")
+        tbl = a["tables"].get(parts[1]) if len(parts) >= 3 else None
+        if tbl is None:
+            return False, None
+        ids = set(parts[2:])
+        for i, row in enumerate(tbl["rows"], start=1):
+            vals = set()
+            for v in row.values():
+                vals.update(v if isinstance(v, list) else [v])
+            if ids <= vals:
+                return True, i
+        return True, 9999
+    return False, None
+
+
+def evaluate_assertion(expr: str, a: dict, by_id: dict) -> tuple[str, str]:
+    """Evaluate `<ref> <op> <value|ref>`. Returns (status, message), status in ok | fail | malformed.
+
+    A cluster-membership assertion (derived.x.cluster ==/!= derived.y.cluster) additionally requires the pair's
+    co-clustering share across subsamples to clear the stability thresholds in report/analysis.yaml, so a grouping
+    that moves when a few games are added or removed cannot be asserted.
+    """
+    m2 = ASSERT_RE.match(expr.strip())
+    if not m2:
+        return "malformed", expr
+    name, op, raw = m2.group(1), m2.group(2), m2.group(3).strip().strip('"')
+    found, val = lookup_ref(name, a, by_id)
+    if not found:
+        return "malformed", f"unknown reference '{name}'"
+    rfound, rval = lookup_ref(raw, a, by_id)
+    shown = str(rval) if rfound else raw
+    try:
+        rhs = float(shown)
+        lhs = float(str(val).lstrip("<"))
+    except ValueError:
+        rhs, lhs = shown, str(val)
+    ok = {"==": lhs == rhs, "!=": lhs != rhs, "<": lhs < rhs, ">": lhs > rhs, "<=": lhs <= rhs, ">=": lhs >= rhs}[op]
+    if not ok:
+        return "fail", f"{name} {op} {raw} (actual: {val} vs {shown})"
+    la, lb = CLUSTER_EQ_RE.match(name), CLUSTER_EQ_RE.match(raw)
+    if la and lb and op in ("==", "!="):
+        co = a.get("cocluster") or {}
+        x, y = la.group(1), lb.group(1)
+        if x not in co.get("index", {}) or y not in co.get("index", {}):
+            return "malformed", f"no co-clustering for {x}, {y}"
+        share = co["value"](co["index"][x], co["index"][y])
+        if op == "==" and share < co["together"]:
+            return "fail", f"{x} and {y} share a cluster but co-cluster in only {share:.2f} of subsamples (needs >= {co['together']}); the grouping is not stable enough to assert"
+        if op == "!=" and share > co["apart"]:
+            return "fail", f"{x} and {y} are in different clusters but co-cluster in {share:.2f} of subsamples (needs <= {co['apart']}); the separation is not stable enough to assert"
+    return "ok", ""
 
 
 def _fmt(v):
@@ -215,53 +305,11 @@ def render(text: str, ctx: Context, mode: str = "paper") -> tuple[str, list[tupl
                 return m.group(0)
             return f"\n![{f['caption']}](figures/{arg}.svg)\n\n*Figure: {f['caption']}*\n"
         if kind == "assert":
-            m2 = re.match(r"^([a-z0-9_.-]+)\s*(==|!=|<=|>=|<|>)\s*(.+)$", arg)
-
-            def lookup(ref):
-                if ref in a["stats"]:
-                    return True, a["stats"][ref]
-                if ref.startswith("derived."):
-                    _, eid, fld = ref.split(".", 2)
-                    dv = a["derived"].get(eid, {})
-                    if fld in dv:
-                        return True, dv[fld]
-                if ref.startswith("field."):
-                    _, eid, fld = ref.split(".", 2)
-                    ent = ctx.by_id.get(eid)
-                    if ent is not None and get_path(ent.data, fld) is not None:
-                        return True, get_path(ent.data, fld)
-                    return False, None
-                if ref.startswith("rank."):
-                    parts = ref.split(".")
-                    tbl = a["tables"].get(parts[1]) if len(parts) >= 3 else None
-                    if tbl is None:
-                        return False, None
-                    ids = set(parts[2:])
-                    for i, row in enumerate(tbl["rows"], start=1):
-                        vals = set()
-                        for v in row.values():
-                            vals.update(v if isinstance(v, list) else [v])
-                        if ids <= vals:
-                            return True, i
-                    return True, 9999
-                return False, None
-
-            found, val = lookup(m2.group(1)) if m2 else (False, None)
-            if not found:
-                errors.append(("E019", f"malformed assertion or unknown stat {m.group(0)}"))
-                return ""
-            name, op, raw = m2.group(1), m2.group(2), m2.group(3).strip().strip('"')
-            rfound, rval = lookup(raw)
-            if rfound:
-                raw = str(rval)
-            try:
-                rhs = float(raw)
-                lhs = float(str(val).lstrip("<"))
-            except ValueError:
-                rhs, lhs = raw, str(val)
-            ok = {"==": lhs == rhs, "!=": lhs != rhs, "<": lhs < rhs, ">": lhs > rhs, "<=": lhs <= rhs, ">=": lhs >= rhs}[op]
-            if not ok:
-                errors.append(("E029", f"report assertion failed: {name} {op} {raw} (actual: {val}); the prose next to this assertion no longer matches the data"))
+            status, msg = evaluate_assertion(arg, a, ctx.by_id)
+            if status == "malformed":
+                errors.append(("E019", f"malformed assertion or unknown reference {m.group(0)}: {msg}"))
+            elif status == "fail":
+                errors.append(("E029", f"report assertion failed: {msg}; the prose next to this assertion no longer matches the data"))
             return ""
         if kind == "vocab":
             vname, _, term = arg.partition(":")

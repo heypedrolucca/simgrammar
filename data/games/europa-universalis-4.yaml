@@ -117,8 +117,13 @@ mechanics:
   role: supporting
   note: Land battles roll dice each phase of fire and shock, modified by general skill and terrain, and
     drain each army's strength and morale until one side retreats.
+- id: modding-api
+  role: supporting
+  note: 'Script and data files define events, countries, and rules; total conversions replace the setting.'
 sources:
 - src-wikipedia-europa-universalis-4
 status: sourced
 provenance:
   created: 2026-10-24-catalog-gi
+  reviewed:
+  - 2026-10-25-contributor-readiness

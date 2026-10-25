@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://simgrammar.dev/schema/1.0/source.schema.json",
+  "$id": "https://simgrammar.dev/schema/1.1/source.schema.json",
   "title": "Source",
   "description": "A citable source. Must have at least one locator (url, doi, arxiv, isbn). Ids start with `src-`. Must be cited by at least one entity.",
   "type": "object",
@@ -87,6 +87,11 @@
     },
     "accessed": {
       "$ref": "common.schema.json#/$defs/date"
+    },
+    "archived": {
+      "type": "string",
+      "pattern": "^https://web\\.archive\\.org/web/[0-9]{8,14}/https?://",
+      "description": "Wayback Machine snapshot of `url` taken when the source was read. scripts/check_sources.py checks quotes against it first."
     },
     "notes": {
       "type": "string",

@@ -101,6 +101,10 @@ mechanics:
   role: supporting
 - id: storage-capacity
   role: supporting
+- id: modding-api
+  role: supporting
+  note: 'XML definitions and C# assemblies, usually patched in with Harmony, distributed through Steam
+    Workshop.'
 influenced_by:
 - dwarf-fortress
 sources:
@@ -110,3 +114,4 @@ provenance:
   created: 2026-10-23-bootstrap
   reviewed:
   - 2026-10-24-review-fixes
+  - 2026-10-25-contributor-readiness

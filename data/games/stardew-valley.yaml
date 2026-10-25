@@ -101,6 +101,9 @@ mechanics:
   note: Rain waters crops and changes fish and villager routines.
 - id: free-placement
   role: supporting
+- id: modding-api
+  role: supporting
+  note: 'SMAPI, the de facto mod loader, runs C# mods and content packs.'
 influenced_by:
 - harvest-moon
 sources:
@@ -112,3 +115,4 @@ provenance:
   created: 2026-10-24-catalog-gc
   reviewed:
   - 2026-10-24-review-fixes
+  - 2026-10-25-contributor-readiness

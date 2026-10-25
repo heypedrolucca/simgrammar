@@ -19,10 +19,16 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from lib import (  # noqa: E402
+    CALIBRATION_SCALES,
     ID_RE,
     ROOT,
     Edge,
+    calibration_agreement,
     extract_edges,
+    independent,
+    load_calibration,
+    lower_median,
+    rubric_fields,
     load_entities,
     load_registry,
     load_schemas,
@@ -36,6 +42,22 @@ from rules import RULES  # noqa: E402
 
 TODAY = dt.date.today()
 ACYCLIC = ("requires", "specializes", "builds_on", "influenced_by")
+PREDICTION_WINDOW_START = "2026-10-24"  # ADR-0003: predictions count only features first shipped after this date
+# Entity text that states a finding about this dataset must carry `assertions` (E032).
+DATASET_FINDING = re.compile(
+    r"(white-space analysis|co-occurrence analysis|cluster(?:ing)? analysis|no technique in the (?:catalog|dataset)"
+    r"|most[- ](?:common|used|widely used|prevalent)\b[^.;:]{0,60}\b(?:catalog|dataset)"
+    r"|(?:common|rare|prevalent|frequent)\w*\s+in the (?:catalog|dataset)|most-used rule-system|most common mechanic)",
+    re.I,
+)
+TEXT_EXEMPT = ("claims", "key_results", "assertions", "ratings", "provenance", "sources", "aliases")
+
+
+def version_key(v: str) -> tuple:
+    return tuple(int(x) for x in v.split("."))
+
+
+
 
 
 class Findings:
@@ -84,9 +106,12 @@ def run(data_only: bool = False) -> Findings:
     sreg = schema_registry(schemas)
     check_vocabs(vocabs, F)
     cv = str(registry.get("contract_version"))
+    history = {str(k): str(v) for k, v in (registry.get("contract_history") or {}).items()}
     m = re.search(r"\*\*Version ([0-9]+\.[0-9]+)\*\*", (ROOT / "CONTRACT.md").read_text(encoding="utf-8"))
     if not m or m.group(1) != cv:
         F.add("E028", ROOT / "CONTRACT.md", f"header version {m.group(1) if m else 'missing'} != registry {cv}")
+    if cv not in history:
+        F.add("E028", ROOT / "schema" / "registry.yaml", f"contract_version {cv} has no contract_history entry")
     for fname, sch in schemas.items():
         if f"/schema/{cv}/" not in sch.get("$id", ""):
             F.add("E028", ROOT / "schema" / fname, f"$id does not carry contract version {cv}")
@@ -95,8 +120,8 @@ def run(data_only: bool = False) -> Findings:
         F.add("E001", p, msg)
     for r in ents.get("run", []):
         rv = r.data.get("contract_version")
-        if rv is not None and str(rv) != cv:
-            F.add("E028", r.path, f"run records contract_version {rv}, current is {cv}", "contract_version")
+        if rv is not None and (str(rv) not in history or version_key(str(rv)) > version_key(cv)):
+            F.add("E028", r.path, f"run records contract_version {rv}, which is not a listed version no newer than {cv}", "contract_version")
 
     edge_types = vocab_terms(vocabs, "edge_types")
     rubrics = vocabs["rubrics"]["scales"]
@@ -161,6 +186,21 @@ def run(data_only: bool = False) -> Findings:
                     F.add("E030", e.path, "markdown in " + fld, fld)
                 if HYPE.search(v):
                     F.add("E030", e.path, f"hype word '{HYPE.search(v).group(0)}' in {fld}", fld)
+
+    # ---- entity text that states dataset findings must be pinned (E032; the assertions themselves are checked in report_check)
+    for tname, lst in ents.items():
+        if tname in ("run", "source"):
+            continue
+        for e in lst:
+            if e.data.get("assertions"):
+                continue
+            for pth, s in strings(e.data):
+                if pth and pth[0] in TEXT_EXEMPT:
+                    continue
+                hit = DATASET_FINDING.search(s)
+                if hit:
+                    F.add("E032", e.path, f"text states a dataset finding ('{hit.group(0)}') but the entity has no `assertions`", "/".join(map(str, pth)))
+                    break
 
     # ---- schema, vocab, rubric, refs
     all_edges: list[Edge] = []
@@ -286,6 +326,7 @@ def run(data_only: bool = False) -> Findings:
                 F.add("E031", e.path, f"mechanic created by a '{created.data.get('kind')}' run; only taxonomy runs create mechanics", "provenance")
             if st == "verified":
                 ok = False
+                indep = False
                 for rid in prov.get("reviewed") or []:
                     r = runs.get(rid)
                     if r is None or rid == prov.get("created") or r.data.get("kind") != "verification":
@@ -293,8 +334,14 @@ def run(data_only: bool = False) -> Findings:
                     if created is not None and str(r.data.get("date")) < str(created.data.get("date")):
                         continue
                     ok = True
+                    indep = indep or independent(r, created)
                 if not ok:
                     F.add("E031", e.path, "status 'verified' requires a reviewed run of kind 'verification', distinct from and not earlier than the creating run", "provenance")
+                elif not indep:
+                    F.add("E035", e.path, "no verification run is independent of the creating run (different operator, and a different model when both are agents)", "provenance")
+                kinds = {by_id[s].data.get("kind") for s in srcs if s in by_id}
+                if srcs and kinds <= {"encyclopedia"}:
+                    F.add("E034", e.path, "status 'verified' rests only on encyclopedia or wiki sources; cite a primary source or keep 'sourced'", "sources")
             if st == "contested" and not any(c.get("disputes") for c in e.data.get("claims") or []):
                 F.add("E026", e.path, "contested entity needs a claim with `disputes`", "claims")
 
@@ -348,6 +395,121 @@ def run(data_only: bool = False) -> Findings:
         if mat == "experimental" and n >= 3:
             F.add("W104", m.path, f"maturity 'experimental' (one-off attempts) but used by {n} games", "maturity")
 
+    # ---- field-bound mechanics (E033): vocab terms that require or allow a mechanic
+    bound = defaultdict(lambda: {"requires": set(), "allows": set()})  # mechanic -> {(field, term)}
+    game_props = schemas[Path(registry["types"]["game"]["schema"]).name]["properties"]
+    for fld, sch in game_props.items():
+        vname = sch.get("x-vocab") if isinstance(sch, dict) else None
+        if not vname:
+            continue
+        for t in vocabs.get(vname, {}).get("terms", []):
+            for key, kind in (("requires_mechanic", "requires"), ("allows_mechanic", "allows")):
+                mid = t.get(key)
+                if mid is None:
+                    continue
+                if mid not in by_id or by_id[mid].type != "mechanic":
+                    F.add("E022", ROOT / "vocab" / f"{vname}.yaml", f"term '{t['id']}' {key} '{mid}', which is not a mechanic")
+                    continue
+                bound[mid][kind].add((fld, str(t["id"])))
+    for g in ents.get("game", []):
+        tagged = {m.get("id") for m in g.data.get("mechanics") or []}
+        for mid, spec in sorted(bound.items()):
+            vals = {(fld, str(g.data.get(fld))) for fld, _ in spec["requires"] | spec["allows"]}
+            needs = vals & spec["requires"]
+            may = vals & (spec["requires"] | spec["allows"])
+            if needs and mid not in tagged:
+                fld, term = sorted(needs)[0]
+                F.add("E033", g.path, f"{fld} '{term}' requires the '{mid}' mechanic", "mechanics")
+            if mid in tagged and not may:
+                allowed = ", ".join(f"{f}={t}" for f, t in sorted(spec["requires"] | spec["allows"]))
+                F.add("E033", g.path, f"tags '{mid}' but only games with {allowed} may", "mechanics")
+
+    # ---- ratings (E037)
+    rubric_by_type = {t: rubric_fields(schemas[Path(registry["types"][t]["schema"]).name]) for t in registry["types"]}
+    for tname, lst in ents.items():
+        for e in lst:
+            rs = e.data.get("ratings") or []
+            if not rs:
+                continue
+            fields = rubric_by_type.get(tname, {})
+            seen_rf = set()
+            per_field = defaultdict(list)
+            for i, r in enumerate(rs):
+                fld, val = r.get("field"), r.get("value")
+                if fld not in fields:
+                    F.add("E037", e.path, f"rating {i} names '{fld}', which is not a rubric-scored field of a {tname}", f"ratings/{i}")
+                    continue
+                if val not in (rubrics.get(fields[fld]) or {}).get("levels", {}):
+                    F.add("E037", e.path, f"rating {i} value {val} is not an anchor of '{fields[fld]}'", f"ratings/{i}")
+                if (r.get("run"), fld) in seen_rf:
+                    F.add("E037", e.path, f"run '{r.get('run')}' rates '{fld}' twice", f"ratings/{i}")
+                seen_rf.add((r.get("run"), fld))
+                per_field[fld].append(val)
+            for fld, vals in sorted(per_field.items()):
+                med = lower_median([v for v in vals if isinstance(v, int)])
+                if e.data.get(fld) != med:
+                    F.add("E037", e.path, f"'{fld}' stores {e.data.get(fld)} but the lower median of its {len(vals)} rating(s) is {med}", fld)
+
+    # ---- calibration (E036)
+    cal = load_calibration(registry)
+    contrib = registry.get("contribution") or {}
+    cal_path = ROOT / contrib.get("calibration_set", "calibration/mechanics.yaml")
+    gold = {}
+    if cal is None:
+        F.add("E036", cal_path, "calibration set file is missing")
+    else:
+        gold = cal.get("mechanics") or {}
+        for mid, sc in sorted(gold.items()):
+            mech = by_id.get(mid)
+            if mech is None or mech.type != "mechanic" or mech.data.get("deprecated"):
+                F.add("E036", cal_path, f"calibration mechanic '{mid}' is not a live mechanic")
+                continue
+            for scale in CALIBRATION_SCALES:
+                if sc.get(scale) != mech.data.get(scale):
+                    F.add("E036", mech.path, f"{scale} is {mech.data.get(scale)} but the calibration set froze {sc.get(scale)}; a score change on a set mechanic must update {cal_path.relative_to(ROOT)} in the same PR (maintainer review)", scale)
+    gate_date = history.get("1.1", "9999-12-31")
+    rating_runs = {r.get("run") for t in ("mechanic",) for e in ents.get(t, []) for r in e.data.get("ratings") or []}
+    creators = {e.data.get("provenance", {}).get("created") for e in ents.get("mechanic", [])}
+    for r in ents.get("run", []):
+        c = r.data.get("calibration")
+        if c:
+            if cal is not None and c.get("set") != cal.get("id"):
+                F.add("E036", r.path, f"calibration set '{c.get('set')}' is not the current set '{cal.get('id')}'", "calibration")
+            missing = [f"{mid}.{sc}" for mid in sorted(gold) for sc in CALIBRATION_SCALES if (c.get("scores") or {}).get(mid, {}).get(sc) is None]
+            extra = sorted(set(c.get("scores") or {}) - set(gold))
+            if missing:
+                F.add("E036", r.path, f"calibration is missing {len(missing)} score(s), first {missing[0]}", "calibration")
+            if extra:
+                F.add("E036", r.path, f"calibration scores mechanics outside the set: {', '.join(extra[:3])}", "calibration")
+        needs = (r.id in rating_runs or r.id in creators) and str(r.data.get("date")) >= gate_date
+        if needs:
+            if not c:
+                F.add("E036", r.path, "this run creates mechanics or writes mechanic ratings, so it needs a `calibration` block (python scripts/calibrate.py sheet)", "calibration")
+            else:
+                ag = calibration_agreement(gold, c.get("scores") or {})
+                thr = contrib.get("calibration_min_within_one", 0.8)
+                if ag["within_one"] is None or ag["within_one"] < thr:
+                    F.add("E036", r.path, f"calibration within-one agreement {ag['within_one']} is below {thr}; reread the rubric anchors and recalibrate", "calibration")
+
+    # ---- prediction resolution (E038) and overdue predictions (W106)
+    for o in ents.get("opportunity", []):
+        sig = o.data.get("falsifiable_signal") or {}
+        res = sig.get("resolution")
+        created = runs.get((o.data.get("provenance") or {}).get("created"))
+        if res:
+            rr = runs.get(res.get("run"))
+            if rr is not None and rr.data.get("kind") != "verification":
+                F.add("E038", o.path, f"resolution run '{res.get('run')}' is a {rr.data.get('kind')} run; resolutions come from verification runs", "falsifiable_signal/resolution")
+            if rr is not None and not independent(rr, created):
+                F.add("E035", o.path, "resolution run is not independent of the run that created the opportunity", "falsifiable_signal/resolution")
+            d = str(res.get("date", ""))
+            if d > TODAY.isoformat() or d < PREDICTION_WINDOW_START:
+                F.add("E038", o.path, f"resolution date {d} must fall between {PREDICTION_WINDOW_START} and today", "falsifiable_signal/resolution/date")
+            if res.get("outcome") != "withdrawn" and not res.get("evidence"):
+                F.add("E038", o.path, f"outcome '{res.get('outcome')}' needs `evidence` sources", "falsifiable_signal/resolution/evidence")
+        elif str(sig.get("resolve_by", "9999")) < TODAY.isoformat()[: len(str(sig.get("resolve_by", "9999")))]:
+            F.add("W106", o.path, f"prediction resolve_by {sig.get('resolve_by')} has passed without a resolution", "falsifiable_signal")
+
     # ---- dates
     for t in ents.get("technique", []):
         y = t.data.get("year")
@@ -375,6 +537,9 @@ def run(data_only: bool = False) -> Findings:
     asserted = sum(1 for t, lst in ents.items() if t not in ("run", "source") for e in lst if e.data.get("status") == "asserted")
     if asserted:
         F.add("W102", "", f"{asserted} asserted entities in the verification queue")
+    unarchived = sum(1 for src in ents.get("source", []) if src.data.get("url") and not src.data.get("archived"))
+    if unarchived:
+        F.add("W105", "", f"{unarchived} sources with a url have no `archived` Wayback snapshot (tasks/archive-sources.md)")
 
     if not data_only and not F.errors:
         import report_check  # noqa: E402  (imports analysis; only meaningful on valid data)

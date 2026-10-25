@@ -148,6 +148,9 @@ mechanics:
   role: supporting
 - id: storage-capacity
   role: supporting
+- id: modding-api
+  role: supporting
+  note: 'Raw text files define creatures, materials, and reactions; DFHack adds Lua and C++ scripting.'
 sources:
 - src-wikipedia-dwarf-fortress
 - src-adams-2015-df-simulation-principles
@@ -158,3 +161,4 @@ provenance:
   created: 2026-10-24-catalog-gb
   reviewed:
   - 2026-10-24-review-fixes
+  - 2026-10-25-contributor-readiness

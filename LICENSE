@@ -5,7 +5,7 @@ Code (scripts/, site/, .github/, Makefile):
   https://www.apache.org/licenses/LICENSE-2.0
 
 Data, vocabularies, schemas, report text, and generated projections
-(data/, vocab/, schema/, log/, report/, dist/, *.md):
+(data/, vocab/, schema/, log/, report/, calibration/, tasks/, generated dist/, *.md):
   SPDX-License-Identifier: CC-BY-4.0
   https://creativecommons.org/licenses/by/4.0/
 
@@ -14,3 +14,7 @@ for the version used.
 
 Game titles and trademarks named in the data belong to their owners and are referenced
 for identification and commentary only.
+
+Contributions are accepted under the same licenses (inbound = outbound): code under Apache-2.0,
+everything else under CC BY 4.0. Each commit is signed off under the Developer Certificate of
+Origin 1.1 (https://developercertificate.org/); see CONTRIBUTING.md.

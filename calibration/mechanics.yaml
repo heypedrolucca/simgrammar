@@ -1,0 +1,32 @@
+# Calibration set for mechanic rubric scores. Maintainer-owned (CODEOWNERS); changing it is a rubric change (ADR).
+# A rater scores these mechanics blind from their definitions before contributing scores (scripts/calibrate.py).
+# The frozen scores must equal the stored scores of each mechanic (E036), so any score change on a set mechanic
+# has to update this file in the same PR and therefore gets maintainer review.
+id: mechanics-v1
+frozen: '2026-10-25'
+selection: >-
+  Twenty mechanics, one per family, used by at least three catalog games and sourced, chosen greedily to cover as
+  many (scale, anchor) cells of the six mechanic scales as possible. The frozen scores are the single model rater's
+  2026-10-24 reading of the anchors; they anchor consistency between raters and are not ground truth.
+scales: [legibility, emergence_potential, authoring_cost, compute_cost, tuning_difficulty, ai_leverage]
+mechanics:
+  adaptive-threat-scaling: {legibility: 2, emergence_potential: 3, authoring_cost: 2, compute_cost: 1, tuning_difficulty: 4, ai_leverage: 3}
+  causal-tooltips: {legibility: 4, emergence_potential: 1, authoring_cost: 2, compute_cost: 1, tuning_difficulty: 1, ai_leverage: 3}
+  collection-goals: {legibility: 5, emergence_potential: 1, authoring_cost: 3, compute_cost: 1, tuning_difficulty: 2, ai_leverage: 2}
+  creature-care: {legibility: 4, emergence_potential: 2, authoring_cost: 4, compute_cost: 1, tuning_difficulty: 2, ai_leverage: 4}
+  day-night-cycle: {legibility: 5, emergence_potential: 2, authoring_cost: 2, compute_cost: 1, tuning_difficulty: 2, ai_leverage: 2}
+  dilemma-cards: {legibility: 4, emergence_potential: 2, authoring_cost: 5, compute_cost: 1, tuning_difficulty: 3, ai_leverage: 4}
+  fluid-gas-simulation: {legibility: 3, emergence_potential: 4, authoring_cost: 1, compute_cost: 4, tuning_difficulty: 3, ai_leverage: 4}
+  hauling-jobs: {legibility: 3, emergence_potential: 3, authoring_cost: 1, compute_cost: 3, tuning_difficulty: 3, ai_leverage: 2}
+  interest-groups: {legibility: 3, emergence_potential: 4, authoring_cost: 3, compute_cost: 2, tuning_difficulty: 4, ai_leverage: 4}
+  modding-api: {legibility: 3, emergence_potential: 3, authoring_cost: 2, compute_cost: 2, tuning_difficulty: 2, ai_leverage: 4}
+  modular-assembly: {legibility: 3, emergence_potential: 4, authoring_cost: 3, compute_cost: 3, tuning_difficulty: 4, ai_leverage: 4}
+  natural-language-interaction: {legibility: 2, emergence_potential: 4, authoring_cost: 3, compute_cost: 4, tuning_difficulty: 4, ai_leverage: 5}
+  natural-selection: {legibility: 2, emergence_potential: 5, authoring_cost: 1, compute_cost: 3, tuning_difficulty: 4, ai_leverage: 3}
+  procedural-checklists: {legibility: 3, emergence_potential: 2, authoring_cost: 4, compute_cost: 2, tuning_difficulty: 2, ai_leverage: 3}
+  procedural-terrain: {legibility: 4, emergence_potential: 3, authoring_cost: 2, compute_cost: 3, tuning_difficulty: 3, ai_leverage: 4}
+  raid-defense: {legibility: 4, emergence_potential: 4, authoring_cost: 3, compute_cost: 3, tuning_difficulty: 4, ai_leverage: 3}
+  resource-extraction: {legibility: 5, emergence_potential: 2, authoring_cost: 2, compute_cost: 2, tuning_difficulty: 2, ai_leverage: 1}
+  smart-objects: {legibility: 4, emergence_potential: 3, authoring_cost: 4, compute_cost: 2, tuning_difficulty: 3, ai_leverage: 3}
+  trade-routes: {legibility: 3, emergence_potential: 3, authoring_cost: 1, compute_cost: 2, tuning_difficulty: 3, ai_leverage: 2}
+  variable-speed: {legibility: 5, emergence_potential: 1, authoring_cost: 1, compute_cost: 1, tuning_difficulty: 1, ai_leverage: 2}

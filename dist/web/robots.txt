@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://sim.yohei.me/sitemap.xml

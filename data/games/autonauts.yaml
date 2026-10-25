@@ -31,7 +31,7 @@ failure_model: soft-recoverable
 narrative_mode: none
 multiplayer:
 - single
-modding: content
+modding: scripting
 production_tier: indie
 agent_count_order: '100'
 emergence: 2
@@ -115,3 +115,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-catalog-gh
+  reviewed:
+  - 2026-10-25-contributor-readiness

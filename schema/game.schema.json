@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://simgrammar.dev/schema/1.0/game.schema.json",
+  "$id": "https://simgrammar.dev/schema/1.1/game.schema.json",
   "title": "Game",
   "description": "A simulation game (or boundary case included for its mechanics). Owns `uses` edges to mechanics and `influenced_by` edges to earlier games.",
   "type": "object",
@@ -215,6 +215,35 @@
         "$ref": "common.schema.json#/$defs/id",
         "x-edge": "influenced_by"
       }
+    },
+    "store_ids": {
+      "type": "object",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "description": "External identifiers so other datasets (platforms, themes, sales) can join on this game. Checked against the store by scripts/check_sources.py.",
+      "properties": {
+        "steam": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Steam app id, from store.steampowered.com/app/<id>."
+        },
+        "igdb": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+          "description": "IGDB slug, from igdb.com/games/<slug>."
+        },
+        "wikidata": {
+          "type": "string",
+          "pattern": "^Q[1-9][0-9]*$",
+          "description": "Wikidata item id of the game."
+        }
+      }
+    },
+    "assertions": {
+      "$ref": "common.schema.json#/$defs/assertions"
+    },
+    "ratings": {
+      "$ref": "common.schema.json#/$defs/ratings"
     },
     "claims": {
       "$ref": "common.schema.json#/$defs/claims"

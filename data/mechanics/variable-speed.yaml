@@ -53,3 +53,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-taxonomy-m5
+  reviewed:
+  - 2026-10-25-contributor-readiness

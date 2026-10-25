@@ -1,0 +1,32 @@
+name: Task
+description: A bounded job from tasks/ for one contributor (human or agent), one run, one pull request.
+labels: ["task"]
+body:
+  - type: dropdown
+    id: brief
+    attributes:
+      label: Brief
+      options:
+        - catalog-game
+        - source-claims
+        - archive-sources
+        - store-ids
+        - verify-record
+        - rate-scores
+        - resolve-prediction
+    validations:
+      required: true
+  - type: textarea
+    id: records
+    attributes:
+      label: Record ids
+      description: At most 10 records (30 for archive-sources). CI rejects larger pull requests (E039).
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+  - type: markdown
+    attributes:
+      value: Claim the task by commenting `claiming`. Follow the brief in `tasks/` and `AGENTS.md`; the pull request links this issue.

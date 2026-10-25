@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://simgrammar.dev/schema/1.0/opportunity.schema.json",
+  "$id": "https://simgrammar.dev/schema/1.1/opportunity.schema.json",
   "title": "Opportunity",
   "description": "A synthesized design opportunity combining mechanics and techniques. Scores follow rubrics; the composite priority is computed in build and never stored.",
   "type": "object",
@@ -31,9 +31,24 @@
       "properties": {
         "prediction": { "type": "string", "minLength": 20, "maxLength": 500 },
         "resolve_by": { "$ref": "common.schema.json#/$defs/date" },
-        "criteria": { "type": "string", "minLength": 20, "maxLength": 500 }
+        "criteria": { "type": "string", "minLength": 20, "maxLength": 500 },
+        "resolution": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["outcome", "date", "run", "note"],
+          "description": "Set once, by a verification run independent of the run that created the opportunity (E038). Overdue predictions without one raise W106.",
+          "properties": {
+            "outcome": { "type": "string", "x-vocab": "prediction_outcome" },
+            "date": { "$ref": "common.schema.json#/$defs/date" },
+            "run": { "$ref": "common.schema.json#/$defs/run_ref" },
+            "evidence": { "$ref": "common.schema.json#/$defs/sources" },
+            "note": { "type": "string", "minLength": 20, "maxLength": 800, "description": "Which criterion was or was not met, by which title or study, checked how." }
+          }
+        }
       }
     },
+    "assertions": { "$ref": "common.schema.json#/$defs/assertions" },
+    "ratings": { "$ref": "common.schema.json#/$defs/ratings" },
     "claims": { "$ref": "common.schema.json#/$defs/claims" },
     "sources": { "$ref": "common.schema.json#/$defs/sources" },
     "status": { "$ref": "common.schema.json#/$defs/status" },

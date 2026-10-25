@@ -118,6 +118,10 @@ mechanics:
     that run until one side is routed.
 - id: variable-speed
   role: supporting
+- id: modding-api
+  role: supporting
+  note: 'Event, trigger, and effect scripts and game data files are moddable; total conversions replace the
+    setting.'
 sources:
 - src-wikipedia-crusader-kings-3
 - src-paradoxwikis-2026-ck3-event-modding
@@ -127,3 +131,4 @@ provenance:
   created: 2026-10-24-catalog-gi
   reviewed:
   - 2026-10-24-review-fixes
+  - 2026-10-25-contributor-readiness

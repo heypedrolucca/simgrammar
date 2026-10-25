@@ -106,6 +106,9 @@ mechanics:
   role: supporting
 - id: utility-action-selection
   role: supporting
+- id: modding-api
+  role: supporting
+  note: 'Data files and Lua scripts distributed through Steam Workshop.'
 influenced_by:
 - theme-hospital
 - dwarf-fortress
@@ -119,3 +122,4 @@ provenance:
   created: 2026-10-24-catalog-gb
   reviewed:
   - 2026-10-24-review-fixes
+  - 2026-10-25-contributor-readiness

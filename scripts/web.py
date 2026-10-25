@@ -27,7 +27,10 @@ WEB_SRC = ROOT / "web"
 NAV = [("paper", "Paper", ""), ("game", "Games", "game/"), ("mechanic", "Mechanics", "mechanic/"), ("technique", "Techniques", "technique/"),
        ("opportunity", "Opportunities", "opportunity/"), ("source", "Sources", "source/"), ("data", "Data", "data/")]
 STATE = {"asserted": "optional", "sourced": "waiting", "verified": "done", "contested": "blocked"}
-SKIP_FACTS = {"id", "type", "name", "aliases", "summary", "status", "provenance", "sources", "claims", "deprecated", "key_results", "falsifiable_signal"}
+SKIP_FACTS = {"id", "type", "name", "aliases", "summary", "status", "provenance", "sources", "claims", "deprecated", "key_results", "falsifiable_signal",
+              "assertions", "ratings", "store_ids", "archived"}
+OUTCOME_STATE = {"confirmed": "done", "refuted": "stop", "ambiguous": "blocked", "withdrawn": "superseded"}
+STORE_URL = {"steam": "https://store.steampowered.com/app/{}/", "igdb": "https://www.igdb.com/games/{}", "wikidata": "https://www.wikidata.org/wiki/{}"}
 LONG = {"game": ["core_loop", "design_notes"], "mechanic": ["definition", "player_experience"], "technique": ["mechanism"],
         "opportunity": ["thesis", "design_sketch", "validation_experiment"], "source": ["notes"]}
 LISTS = {"mechanic": ["design_levers", "failure_modes", "dynamics", "open_questions"], "technique": ["limitations"], "opportunity": ["key_risks"]}
@@ -83,6 +86,11 @@ class Web:
 
     def gh(self, path):
         return f'{self.site["repo"]}/blob/main/{path}'
+
+    @staticmethod
+    def dl(path, base):
+        """Generated projections are not committed; the Pages workflow publishes them under /dist/ beside the site."""
+        return f"{base}dist/{path}"
 
     def page(self, *, title, desc, body, depth, nav, path):
         base = "../" * depth
@@ -358,7 +366,7 @@ class Web:
             eyebrow.append('<span class="status" data-state="superseded">deprecated</span>')
         meta = self.entity_meta(e)
         twins = (f'<div class="twins"><b>this record as</b><a href="{esc(self.gh(self.registry["types"][t]["dir"] + "/" + e.id + ".yaml"))}">yaml source</a>'
-                 f'<a href="{esc(self.gh("dist/wiki/" + t + "/" + e.id + ".md"))}">markdown</a><a href="{esc(self.gh("dist/entities/" + plural + ".json"))}">json</a></div>')
+                 f'<a href="{esc(self.dl("wiki/" + t + "/" + e.id + ".md", base))}">markdown</a><a href="{esc(self.dl("entities/" + plural + ".json", base))}">json</a></div>')
         head = (f'<nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="{base}" data-internal>simgrammar</a></li><li><a href="../" data-internal>{esc(plural)}</a></li><li>{esc(e.id)}</li></ol></nav>'
                 f'<div class="page-header"><p class="eyebrow">{" ".join(eyebrow)}</p><h1>{esc(d.get("name", e.id))}</h1>'
                 + (f'<p class="dek">{esc(d["summary"])}</p>' if d.get("summary") else "") + meta + twins + "</div>")
@@ -375,8 +383,24 @@ class Web:
                 main.append(self.section(f.replace("_", " "), "<ul>" + "".join(f"<li>{esc(x)}</li>" for x in d[f]) + "</ul>"))
         if t == "opportunity" and d.get("falsifiable_signal"):
             fs = d["falsifiable_signal"]
+            res = fs.get("resolution")
+            outcome = res["outcome"] if res else "open"
+            res_html = ""
+            if res:
+                ev = ", ".join(self.link(x, base, x) for x in res.get("evidence") or [])
+                res_html = (f'<p class="scope">resolved {esc(res["date"])} in <a href="{esc(self.gh("log/runs/" + res["run"] + ".yaml"))}">{esc(res["run"])}</a>'
+                            + (f" · evidence {ev}" if ev else "") + f'</p><p>{esc(res["note"])}</p>')
             main.append(self.section("falsifiable prediction", f'<div class="register" data-kind="forecasts"><div class="row"><div class="id"><b>by {esc(fs["resolve_by"])}</b></div>'
-                                     f'<div><h3>{esc(fs["prediction"])}</h3><p>{esc(fs["criteria"])}</p></div><div class="end"><span class="status" data-state="waiting">open</span></div></div></div>'))
+                                     f'<div><h3>{esc(fs["prediction"])}</h3><p>{esc(fs["criteria"])}</p>{res_html}</div>'
+                                     f'<div class="end"><span class="status" data-state="{OUTCOME_STATE.get(outcome, "waiting")}">{esc(outcome)}</span></div></div></div>'))
+        if d.get("assertions"):
+            items = "".join(f"<li><code>{esc(x)}</code></li>" for x in d["assertions"])
+            main.append(self.section("checks against the data", f'<p class="small muted">The text above states findings about this dataset. The build fails (E032) if any of these stops holding.</p><ul>{items}</ul>',
+                                     f'{len(d["assertions"])} assertion{"s" if len(d["assertions"]) != 1 else ""}'))
+        if d.get("ratings"):
+            rrows = "".join(f'<div class="row"><div class="id">{esc(r["field"].replace("_", " "))}<small>{esc(r["value"])}</small></div><div><p>{esc(r["rationale"])}</p>'
+                            f'<p class="scope"><a href="{esc(self.gh("log/runs/" + r["run"] + ".yaml"))}">{esc(r["run"])}</a></p></div></div>' for r in d["ratings"])
+            main.append(self.section("ratings", f'<div class="register" data-kind="claims">{rrows}</div>', f'{len(d["ratings"])} from named runs; stored scores are their lower median'))
         main.append(self.relations(e, base))
         claims = (d.get("key_results") or []) + (d.get("claims") or [])
         if claims:
@@ -384,15 +408,17 @@ class Web:
             for i, c in enumerate(claims, start=1):
                 srcs = ", ".join(self.link(s, base, s) for s in c.get("sources", []))
                 disp = f'<p class="scope">disputed · {esc(c["disputes"])}</p>' if c.get("disputes") else ""
+                quote = (f'<blockquote><p>{esc(c["quote"])}</p></blockquote>' + (f'<p class="scope">{esc(c["locator"])}</p>' if c.get("locator") else "")) if c.get("quote") else ""
                 rows.append(f'<div class="row"><div class="id">c{i:02d}<small>{esc(c.get("confidence", ""))}</small></div><div><p>{esc(c["text"])}</p>'
-                            f'<p class="scope">{srcs}</p>{disp}</div></div>')
+                            f'{quote}<p class="scope">{srcs}</p>{disp}</div></div>')
             main.append(self.section("claims", f'<div class="register" data-kind="claims">{"".join(rows)}</div>', f"{len(claims)} with sources"))
         if t == "source":
             loc = d.get("url") or (f"https://doi.org/{d['doi']}" if d.get("doi") else None) or (f"https://arxiv.org/abs/{d['arxiv']}" if d.get("arxiv") else None)
             cited = der.get("incoming", {}).get("cited_by", [])
             main.append(self.section("cited by", self.list_links(cited, base) if cited else '<p class="muted">Cited in the report text.</p>', f"{len(cited)} records"))
             if loc:
-                main.insert(0, self.section("locator", f'<p><a href="{esc(loc)}">{esc(loc)}</a></p>'))
+                arch = f'<p class="scope">archived · <a href="{esc(d["archived"])}">wayback snapshot</a></p>' if d.get("archived") else ""
+                main.insert(0, self.section("locator", f'<p><a href="{esc(loc)}">{esc(loc)}</a></p>{arch}'))
         if d.get("sources"):
             rows = []
             for sid in d["sources"]:
@@ -456,12 +482,15 @@ class Web:
             elif isinstance(v, bool):
                 v = "yes" if v else "no"
             rows.append(f"<dt>{esc(k.replace('_', ' '))}</dt><dd>{esc(v)}</dd>")
+        for store, sid in sorted((d.get("store_ids") or {}).items()):
+            rows.append(f'<dt>{esc(store)}</dt><dd><a href="{esc(STORE_URL[store].format(sid))}">{esc(sid)}</a></dd>')
         out = []
         if rows:
             out.append(f'<h3>record</h3><dl class="receipt">{"".join(rows)}</dl>')
         if scores:
             sc = "".join(f"<dt>{esc(k.replace('_', ' '))}</dt><dd>{self.meter(v)}</dd>" for k, v in scores)
-            out.append(f'<h3 style="margin-top:24px">scores</h3><dl class="receipt">{sc}</dl><p class="small faint">rubric anchors in vocab/rubrics.yaml · single model rater</p>')
+            note = "single model rater" if not d.get("ratings") else f"lower median of {len(d['ratings'])} ratings"
+            out.append(f'<h3 style="margin-top:24px">scores</h3><dl class="receipt">{sc}</dl><p class="small faint">rubric anchors in vocab/rubrics.yaml · {note}</p>')
         der = {k: v for k, v in self.derived.get(e.id, {}).items() if isinstance(v, (int, float, str)) and v is not None}
         if der:
             dr = "".join(f"<dt>{esc(k.replace('_', ' '))}</dt><dd>{self.link(v, '../../') if isinstance(v, str) and v in self.by_id else esc(_fmt(v))}</dd>" for k, v in der.items())
@@ -563,8 +592,8 @@ class Web:
         }[t]
         body = (f'<nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="../" data-internal>simgrammar</a></li><li>{esc(plural)}</li></ol></nav>'
                 f'<div class="page-header"><p class="eyebrow"><span class="id">{esc(plural)}</span> <span>{len(rows)} records</span></p><h1>{esc(plural.capitalize())}</h1>'
-                f'<p class="dek">{esc(intro)}</p><div class="twins"><b>this list as</b><a href="{esc(self.gh("dist/tables/" + plural + ".csv"))}">csv</a>'
-                f'<a href="{esc(self.gh("dist/entities/" + plural + ".json"))}">json</a><a href="{esc(self.gh(self.registry["types"][t]["dir"]))}">yaml sources</a></div></div>'
+                f'<p class="dek">{esc(intro)}</p><div class="twins"><b>this list as</b><a href="{esc(self.dl("tables/" + plural + ".csv", "../"))}">csv</a>'
+                f'<a href="{esc(self.dl("entities/" + plural + ".json", "../"))}">json</a><a href="{esc(self.gh(self.registry["types"][t]["dir"]))}">yaml sources</a></div></div>'
                 f'<div class="controls" data-filter-controls hidden><label class="field"><span>filter</span><input type="search" data-filter placeholder="type to filter {esc(plural)}"></label></div>'
                 f'<div class="table-wrap"><table class="data" data-style="dense" data-sortable data-filterable><thead><tr>{th}</tr></thead><tbody>{"".join(trs)}</tbody></table></div>')
         return self.page(title=f"{plural.capitalize()} · simgrammar", desc=intro, body=body, depth=1, nav=t, path=f"{t}/")
@@ -572,20 +601,25 @@ class Web:
     # ------------------------------------------------------------------ data page
     def data_page(self):
         man = self.manifest
+        plurals = [self.registry["types"][t]["plural"] for t in self.registry["types"] if not self.registry["types"][t].get("meta")]
         files = [
-            ("dist/tables/*.csv", "one flat table per entity type, edges.csv, game_mechanic_matrix.csv", "tree/main/dist/tables"),
-            ("dist/entities/*.json", "full records with computed fields under _derived", "tree/main/dist/entities"),
-            ("dist/graph/", "nodes.jsonl, edges.jsonl, cytoscape.json, graph.graphml", "tree/main/dist/graph"),
-            ("dist/analysis/", "stats.json, every analysis table as csv, figures", "tree/main/dist/analysis"),
-            ("dist/wiki/", "one markdown page per record and vocabulary, with backlinks", "tree/main/dist/wiki"),
-            ("dist/paper/", "paper.md, references.bib, figures", "tree/main/dist/paper"),
-            ("dist/manifest.json", "per-record and dataset sha256, schema and vocab hashes", "blob/main/dist/manifest.json"),
+            ("dist/simgrammar-dist.zip", "everything below in one archive (assembled by the Pages workflow)", [("zip", "simgrammar-dist.zip")]),
+            ("dist/tables/", "one flat table per entity type, edges.csv, game_mechanic_matrix.csv",
+             [(n, f"tables/{n}.csv") for n in plurals + ["edges", "game_mechanic_matrix"]]),
+            ("dist/entities/", "full records with computed fields under _derived", [(n, f"entities/{n}.json") for n in plurals]),
+            ("dist/graph/", "nodes, edges, Cytoscape, GraphML", [("nodes", "graph/nodes.jsonl"), ("edges", "graph/edges.jsonl"), ("cytoscape", "graph/cytoscape.json"), ("graphml", "graph/graph.graphml")]),
+            ("dist/analysis/", "every statistic, and every analysis table as csv", [("stats", "analysis/stats.json"), ("clusters", "analysis/game-clusters.csv"), ("white space", "analysis/whitespace.csv"), ("verification queue", "analysis/verification-queue.csv")]),
+            ("dist/wiki/", "one markdown page per record and vocabulary, with backlinks", [("index", "wiki/index.md")]),
+            ("dist/paper/", "the paper as markdown with its bibliography", [("paper", "paper/paper.md"), ("bibtex", "paper/references.bib")]),
+            ("dist/manifest.json", "per-record and dataset sha256, schema and vocab hashes", [("manifest", "manifest.json")]),
         ]
+        def anchors(links):
+            return " ".join(f'<a href="{esc(self.dl(h, "../"))}">{esc(n)}</a>' for n, h in links)
         frows = "".join(f'<div class="row"><div class="id">{esc(p)}</div><div><p style="color:var(--ink)">{esc(dsc)}</p></div>'
-                        f'<div class="end"><a href="{esc(self.site["repo"] + "/" + href)}">open</a></div></div>' for p, dsc, href in files)
+                        f'<div class="end">{anchors(links)}</div></div>' for p, dsc, links in files)
         cmds = [("git clone " + self.site["repo"], "get the repository"), ("pip install -r requirements.txt", "pinned dependencies"),
-                ("make check", "validate every rule and confirm every projection is fresh"), ("python scripts/find.py production chain", "search before you create a record"),
-                ("python scripts/new.py run my-run --kind catalog", "open a run before you edit data"), ("make build", "regenerate dist/, including this site"),
+                ("make check", "validate every rule, every report and record assertion, and the generated docs"), ("python scripts/find.py production chain", "search before you create a record"),
+                ("python scripts/new.py run my-run --kind catalog", "open a run before you edit data"), ("make build", "build dist/ locally, including this site; CI builds and publishes it"),
                 ("make sqlite", "query everything with SQL")]
         crows = "".join(f'<div class="row"><div class="id"></div><div><code>{esc(c)}</code><span class="why">{esc(w)}</span></div></div>' for c, w in cmds)
         runs = sorted(self.ents.get("run", []), key=lambda r: (str(r.data.get("date")), r.id), reverse=True)
@@ -599,7 +633,7 @@ class Web:
                 f'<h1>Take the data, check it, add to it</h1><p class="dek">Every page on this site is generated from YAML records in the repository. '
                 f'The same records project into tables, a graph, a wiki, the paper, and this site, and a validator keeps them consistent.</p>'
                 f'<div class="twins"><b>start with</b><a href="{esc(self.gh("AGENTS.md"))}">AGENTS.md</a><a href="{esc(self.gh("CONTRACT.md"))}">CONTRACT.md</a><a href="../llms.txt" data-internal>llms.txt</a></div></div>'
-                + self.section("downloads", f'<div class="register" data-size="wide">{frows}</div>', "projections in dist/")
+                + self.section("downloads", f'<div class="register" data-size="wide">{frows}</div>', "generated projections, published beside this site")
                 + self.section("commands", f'<div class="register" data-kind="cmds">{crows}</div>', "from the repository root")
                 + self.section("research log", f'<div class="register" data-kind="log" data-style="timeline">{rrows}</div>', f"{len(runs)} runs, newest first")
                 + self.section("vocabularies", f'<div class="register" data-size="wide">{vrows}</div>', "closed; add terms through an ADR"))
@@ -610,8 +644,10 @@ class Web:
         lines = [f"# simgrammar · {m['title']}", "", f"> {m['subtitle']}. A versioned dataset of simulation game mechanics with provenance, and the paper projected from it.", "",
                  f"dataset sha256: {man['dataset_sha256']}", f"contract: {man['contract_version']} · paper v{m['version']} ({m['date']})", "",
                  "## Read", f"- {self.site['url']}paper.md: the paper as markdown", f"- {self.site['url']}references.bib: bibliography", f"- {self.site['url']}manifest.json: counts and hashes", "",
-                 "## Data", f"- {self.site['repo']}/tree/main/dist/tables: csv per type, edges.csv, game_mechanic_matrix.csv",
-                 f"- {self.site['repo']}/tree/main/dist/entities: full json records", f"- {self.site['repo']}/tree/main/dist/graph: jsonl, cytoscape, graphml", "",
+                 "## Data", f"- {self.site['url']}dist/simgrammar-dist.zip: every projection in one archive",
+                 f"- {self.site['url']}dist/tables/games.csv (and mechanics, techniques, opportunities, sources, edges, game_mechanic_matrix): csv tables",
+                 f"- {self.site['url']}dist/entities/games.json (and the other types): full json records",
+                 f"- {self.site['url']}dist/graph/nodes.jsonl, edges.jsonl: the graph", f"- {self.site['url']}data/: every download, the research log, the vocabularies", "",
                  "## Contribute", f"- {self.site['repo']}/blob/main/AGENTS.md: procedure for humans and agents", f"- {self.site['repo']}/blob/main/CONTRACT.md: invariants and validator rules", ""]
         return "\n".join(lines)
 

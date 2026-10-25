@@ -101,6 +101,9 @@ mechanics:
   role: supporting
 - id: utility-action-selection
   role: supporting
+- id: modding-api
+  role: supporting
+  note: 'No official API; tools such as SimPE edit package files and community hacks change behavior.'
 influenced_by:
 - the-sims
 sources:
@@ -111,3 +114,4 @@ provenance:
   created: 2026-10-24-catalog-gc
   reviewed:
   - 2026-10-24-review-fixes
+  - 2026-10-25-contributor-readiness

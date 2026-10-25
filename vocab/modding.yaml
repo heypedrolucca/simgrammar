@@ -1,15 +1,21 @@
 id: modding
-description: Depth of player modification supported or widely practiced.
+description: >-
+  Depth of player modification supported or widely practiced. `scripting` and `total-conversion` mean the game exposes a
+  modding surface (official, or a de facto loader most modders use), so those games must tag the `modding-api` mechanic;
+  `content` games may tag it when the content arrives through official data definitions (E033).
 terms:
   - id: none
     label: None
-    definition: No meaningful modding.
+    definition: No meaningful modding. Editing a printed or open source listing into a different program counts as a new work, not modding.
   - id: content
     label: Content
-    definition: New assets or data (buildings, items, skins) without new logic.
+    definition: New assets or data (buildings, items, skins, scenarios) without new logic.
+    allows_mechanic: modding-api
   - id: scripting
     label: Scripting
-    definition: Official or de facto scripting of new logic.
+    definition: New logic through an official scripting or code-loading surface, or a de facto loader most modders use.
+    requires_mechanic: modding-api
   - id: total-conversion
     label: Total conversion
-    definition: Mods routinely replace core systems or create new games.
+    definition: Mods routinely replace core systems or create new games through the same surfaces as `scripting`.
+    requires_mechanic: modding-api

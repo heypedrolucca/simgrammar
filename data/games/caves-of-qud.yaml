@@ -57,6 +57,9 @@ mechanics:
     role: supporting
   - id: faction-diplomacy
     role: supporting
+  - id: modding-api
+    role: supporting
+    note: 'XML data files and C# scripting mods, distributed through Steam Workshop.'
 claims:
   - text: Early access began 2015-07-15 and 1.0 released 2024-12-05, published by Kitfox Games.
     sources:
@@ -72,3 +75,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-catalog-additions
+  reviewed:
+  - 2026-10-25-contributor-readiness

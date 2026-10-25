@@ -103,6 +103,9 @@ mechanics:
   role: supporting
 - id: utility-action-selection
   role: supporting
+- id: modding-api
+  role: supporting
+  note: 'Script mods load as packages, with frameworks such as NRaas, alongside custom content.'
 influenced_by:
 - the-sims-2
 sources:
@@ -113,3 +116,4 @@ provenance:
   created: 2026-10-24-catalog-gc
   reviewed:
   - 2026-10-24-review-fixes
+  - 2026-10-25-contributor-readiness

@@ -1,6 +1,6 @@
 # SimGrammar Contract
 
-**Version 1.0** · Applies to everything under `data/`, `vocab/`, `schema/`, `log/`, `report/`.
+**Version 1.1** · Applies to everything under `data/`, `vocab/`, `schema/`, `log/`, `report/`.
 
 This file defines what the repository guarantees. Code in `scripts/` enforces it; the rule table below is generated from `scripts/rules.py`, so the documented rules and the enforced rules are the same list. If this file and the code disagree, the code is the bug.
 
@@ -19,7 +19,7 @@ Every other artifact (tables, graph files, wiki, paper, site) is a projection bu
 
 ## 2. Invariants
 
-**I1. One source of truth.** Canonical state is `data/**/*.yaml`, `vocab/*.yaml`, `schema/*`, `log/runs/*.yaml`, and `report/src/*.md`. `dist/` and every `<!-- BEGIN GENERATED -->` block are projections. Never edit them by hand; CI rebuilds and fails on any difference (E023).
+**I1. One source of truth.** Canonical state is `data/**/*.yaml`, `vocab/*.yaml`, `schema/*`, `log/runs/*.yaml`, `calibration/*.yaml`, and `report/src/*.md` with the analysis parameters in `report/*.yaml`. `dist/` and every `<!-- BEGIN GENERATED -->` block are projections. `dist/` is not committed: CI builds it and the Pages workflow publishes it with the site. GENERATED blocks are committed and checked against a fresh build (E023). Never edit either by hand.
 
 **I2. One entity, one file, one id.** File stem equals `id`. Ids are kebab-case and unique across all types (sources use the `src-` prefix). An id never changes after merge. To rename or merge, set `deprecated: {superseded_by, reason}` on the old entity and repoint edges (E014).
 
@@ -33,13 +33,13 @@ Every other artifact (tables, graph files, wiki, paper, site) is a projection bu
 
 **I7. Derived values are never stored.** Counts, prevalence, earliest appearance, clusters, exposure, priority, and backlinks are computed by `scripts/analyze.py`. A stored copy would drift; the schema has no field for them.
 
-**I8. Status is a claim about evidence.** `asserted` means unsourced. `sourced` requires citations. `verified` requires a run of kind `verification`, distinct from and not earlier than the creating run, listed in `provenance.reviewed`. No one verifies their own work. Only runs of kind `taxonomy` create mechanics (E031). Techniques always cite (E012).
+**I8. Status is a claim about evidence.** `asserted` means unsourced. `sourced` requires citations. `verified` requires a run of kind `verification`, distinct from and not earlier than the creating run, listed in `provenance.reviewed` (E031). That run has a different operator, and a different model when both runs are agent runs (E035), and the entity cites at least one source that is not an encyclopedia or wiki (E034). No one verifies their own work, and no model verifies its own output. Only runs of kind `taxonomy` create mechanics (E031). Techniques always cite (E012). A claim may carry a verbatim `quote` from its first source, which CI checks against the source (or its Wayback snapshot) whenever the record changes.
 
 **I9. Provenance is append-only.** Every entity names the run that created it. Run files are never rewritten after merge except for typos. Git history plus run records reconstruct how every fact entered the graph.
 
-**I10. Prose cannot outrun data.** Report text gets dataset numbers only through tokens (`{{count:game}}`, `{{stat:...}}`, `{{table:...}}`). Literal counts fail E021. Sentences that interpret data (a ranking, a sign, a cluster membership, a technique's maturity or determinism impact) carry `{{assert:...}}` tokens that fail the build when the data stops supporting them (E029). Every `[[id]]` link and `[@src-...]` citation must resolve.
+**I10. Prose cannot outrun data.** Report text gets dataset numbers only through tokens (`{{count:game}}`, `{{stat:...}}`, `{{table:...}}`). Literal counts fail E021. Sentences that interpret data (a ranking, a sign, a cluster membership, a technique's maturity or determinism impact) carry `{{assert:...}}` tokens that fail the build when the data stops supporting them (E029); a cluster-membership assertion also needs the grouping to be stable under resampling. Record text that states a finding about the dataset carries `assertions` checked the same way (E032). Every `[[id]]` link and `[@src-...]` citation must resolve.
 
-**I11. Builds are deterministic.** Same inputs, byte-identical outputs. No timestamps, no unordered iteration, no network calls in the build.
+**I11. Builds are deterministic.** Same inputs, byte-identical outputs. No timestamps, no unordered iteration, no network calls in the build. CI proves it on every push by building twice under different `PYTHONHASHSEED` values and diffing the trees (`make determinism`). Anything that needs the network (source and store-id checks) runs in its own workflow, outside the build.
 
 **I12. Admission tests are part of the contract.**
 
@@ -50,18 +50,24 @@ Every other artifact (tables, graph files, wiki, paper, site) is a projection bu
 
 **I13. Disagreement is data.** A disputed fact becomes `status: contested` with a claim whose `disputes` field cites the opposing source (E026). Do not overwrite another contributor's sourced claim without recording the dispute.
 
+**I14. Scores are ratings.** Each rubric score is one rater's reading of anchor text. A record may carry `ratings` from further raters, each naming its run and rationale; a field with ratings stores their lower median (E037). Raters who create mechanics or add mechanic ratings first pass a blind calibration against `calibration/mechanics.yaml` (E036). Agreement between independent raters is computed, never stored.
+
+**I15. Contributions are bounded.** A pull request carries one run, at most `contribution.max_records_per_pr` records and `max_sources_per_pr` sources (schema/registry.yaml), never deletes a merged record, never edits a merged run, and every commit is signed off (E039). Paths in `.github/CODEOWNERS` need maintainer review.
+
 ## 3. Change classes
 
 | Class | Examples | Requires |
 |---|---|---|
 | Data | add or edit games, mechanics, techniques, opportunities, sources | run record, `make check` green |
-| Prose | report/src edits | `make check` green (tokens, links, literal-count lint) |
+| Prose | report/src edits | `make check` green (tokens, links, literal-count lint, assertions); maintainer review |
+| Analysis | report/analysis.yaml, report/tables.yaml | maintainer review; changing `clustering.k` only by its stated selection rule, in a maintenance run |
+| Calibration | calibration/mechanics.yaml | ADR (it is a rubric change: it fixes how anchors are read) |
 | Vocabulary | add, rename, or redefine a term | ADR in `decisions/`, migrate affected entities in the same PR |
 | Rubric | change an anchor or composite weight | ADR, contract minor bump, note in CHANGELOG of which scores to revisit |
 | Schema | add or change a field or edge type | ADR, contract minor bump (breaking: major), `schema/registry.yaml` `contract_version` bump, migration script if data changes |
 | Rule | add or change a validator rule | ADR, edit `scripts/rules.py` and its implementation together |
 
-Contract version lives in `schema/registry.yaml` and in the header of this file; CI fails if they disagree.
+Contract version lives in `schema/registry.yaml` and in the header of this file; CI fails if they disagree. Every version is listed with its effective date in `contract_history`, and a run records the version it was written under, so a contract bump never rewrites run files (I9).
 
 ## 4. Edge types
 
@@ -94,7 +100,7 @@ Run `make check`. Every finding names a rule code; `--json` gives machine-readab
 | E002 | file-location | File stem equals `id`; file lives in the directory registered for its `type`. | Rename the file or move it; never change an id after merge (see E003). |
 | E003 | id-unique | Entity ids are kebab-case and globally unique across all entity types. | Pick a distinct id. Search first with `python scripts/find.py <term>`. |
 | E004 | schema | Entity validates against its JSON Schema (no extra fields, required fields present, lengths and types). | Match schema/<type>.schema.json. Unknown fields are never allowed; propose schema changes in the run's `proposals`. |
-| E005 | vocab | Every `x-vocab` field uses a term defined in vocab/<name>.yaml. | Use an existing term. To add one, open an ADR (decisions/) and add it in the same PR. |
+| E005 | vocab | Every `x-vocab` field uses a term defined in vocab/<name>.yaml. | Use the closest existing term now and file a `vocab-term` proposal in your run. Maintainers add terms by ADR (decisions/). |
 | E006 | ref-missing | Every reference (`x-edge`, `x-ref`) resolves to an existing entity or run. | Create the target first or fix the id. |
 | E007 | ref-type | Edge targets have the type declared in vocab/edge_types.yaml, and the edge is stored on its declared owner type. | Point the edge at an entity of the declared target type, and store it only on the declared owner type (vocab/edge_types.yaml); inverses are computed. |
 | E008 | self-edge | No entity has an edge to itself. | Remove the self-reference. |
@@ -114,16 +120,27 @@ Run `make check`. Every finding names a rule code; `--json` gives machine-readab
 | E030 | style | Names and summaries of non-source entities contain no em-dash, no markdown, and none of the banned hype words (revolutionary, groundbreaking, game-changing, unprecedented, cutting-edge, paradigm-shifting). | Rewrite plainly: commas or parentheses for asides, no emphasis markup, specific words instead of hype. |
 | E031 | run-kind | Mechanics are created only by runs of kind `taxonomy` or `bootstrap`; status `verified` requires a `reviewed` run of kind `verification`, distinct from the creating run and dated on or after it. | Record a new-mechanic proposal instead of creating one; to verify, open a verification run and re-check the entity against its sources. |
 | E022 | vocab-integrity | Vocab files have unique term ids, a definition per term; edge_types declare owner, target, inverse, symmetric. | Repair the vocab file. |
-| E023 | dist-fresh | dist/ and GENERATED blocks equal a fresh build, and every required GENERATED block is present (enforced by `python scripts/build.py --check`, not by validate.py). | Run `make build` and commit the result. Never hand-edit dist/ or GENERATED blocks. |
+| E023 | build | The build succeeds, every GENERATED block in README.md, CONTRACT.md, and AGENTS.md equals a fresh build, and every required block is present (`python scripts/build.py --check`). dist/ is not committed: CI builds it, checks that two builds under different hash seeds are byte-identical, and deploys it. | Run `make build` and commit any changed GENERATED blocks (they change only with contract, vocab, or rule edits). Never hand-edit GENERATED blocks. |
 | E024 | dates | `year_full_release` >= `year`; game years, technique years, and source dates (full date) are not in the future. | Correct the dates. |
 | E025 | influence-order | A game's `influenced_by` targets were released in or before its year. | Reverse or remove the edge. |
 | E026 | contested | `contested` entities carry at least one claim with `disputes` filled. | Record the dispute and its source. |
 | E027 | placeholder | No string in data/, log/, vocab/, or report/src contains a placeholder (TODO, TBD, FIXME, any case). | Fill every field `scripts/new.py` scaffolded. |
-| E028 | contract-version | The version in CONTRACT.md's header equals `contract_version` in schema/registry.yaml, every schema `$id` carries that version, and every run records that version. | Bump all three together. |
-| E029 | report-assertion | Every `{{assert:<ref> <op> <value or ref>}}` in report/src holds, where a ref is a stat, `derived.<id>.<field>`, `field.<id>.<path>`, or `rank.<table>.<id>[.<id>]`. Assertions pin interpretive prose (rankings, signs, orderings, groupings, entity fields) to the data it describes. | The data changed under the prose: rewrite the sentence next to the assertion, then update the assertion. |
+| E028 | contract-version | The version in CONTRACT.md's header equals `contract_version` in schema/registry.yaml, every schema `$id` carries that version, the version is listed in `contract_history`, and every run records a listed version no newer than the current one. | Bump the header, the registry (with a `contract_history` entry), and every schema `$id` together; new runs record the current version (scripts/new.py does this). |
+| E029 | report-assertion | Every `{{assert:<ref> <op> <value or ref>}}` in report/src holds, where a ref is a stat, `derived.<id>.<field>`, `field.<id>.<path>`, `rank.<table>.<id>[.<id>]`, or `cocluster.<id>.<id>` (share of subsamples in which two games cluster together). An assertion that two games share a cluster (`derived.a.cluster == derived.b.cluster`) also requires co-clustering at or above `clustering.stability.together`, and one that they differ requires it at or below `clustering.stability.apart` (report/analysis.yaml), so only stable groupings can be asserted. | The data changed under the prose, or the grouping is not stable: rewrite the sentence next to the assertion, then update the assertion. |
+| E032 | entity-assertion | Every entry in an entity's `assertions` holds (same references as E029). Entity text that states a finding about this dataset (phrases such as 'in the catalog', 'in the dataset', 'the white-space analysis', 'most common mechanic', 'most-used', 'no technique in the dataset') carries at least one assertion. | Correct the text to match the data, then pin it with an assertion such as `rank.top-mechanics.tech-tree <= 3`. |
+| E033 | field-bound-mechanic | A mechanic named by a vocab term's `requires_mechanic` or `allows_mechanic` is field-bound: a game whose field takes a requiring term tags it, and a game tags it only when its field takes a requiring or allowing term (time_model and variable-speed; modding and modding-api). | Tag the mechanic, or correct the game's field to the term that describes it. |
+| E034 | evidence-quality | Status `verified` needs at least one cited source whose kind is not `encyclopedia`; an entity backed only by Wikipedia or community wikis stays `sourced`. | Cite a primary source (paper, store page, documentation, postmortem, talk) or keep status `sourced`. |
+| E035 | independence | A run that verifies an entity or resolves a prediction has a different operator from the run that created it, and a different model when both runs are agent runs. | Have a different person, using a different model if an agent does the work, run the verification. |
+| E036 | calibration | calibration/mechanics.yaml lists live mechanics whose stored scores equal the frozen ones; a run's `calibration` scores every set mechanic on every scale with anchor levels; a run dated on or after 2026-10-25 that creates mechanics or writes mechanic ratings carries a calibration whose within-one agreement meets `contribution.calibration_min_within_one`. | Score the set blind with `python scripts/calibrate.py sheet`, record the result with `python scripts/calibrate.py score`, and recalibrate if agreement is below the threshold. A score change on a set mechanic must update the set file in the same PR. |
+| E037 | ratings | Each rating names a rubric-scored field of its entity type with an anchor value, one rating per run per field, from a run that exists; a field with ratings stores the lower median of them. | Fix the rating, or set the stored value to the lower median of the ratings. |
+| E038 | prediction-resolution | A prediction resolution comes from a run of kind `verification` independent of the opportunity's creator (E035), is dated on or before today and not before 2026-10-24, and cites evidence unless the outcome is `withdrawn`. | Resolve in a verification run by another operator, cite what settled it, or use `withdrawn` with a note. |
+| E039 | pr-scope | A pull request changes at most `contribution.max_records_per_pr` records and `max_sources_per_pr` sources, adds exactly one run file when it changes data, every changed record names that run in its provenance, no merged record is deleted, no merged run file is edited, and every non-merge commit is signed off (scripts/pr_scope.py, CI only; maintainer labels lift the limits). | Split the PR, one run per PR, deprecate instead of deleting, leave merged run files alone, and sign off commits with `git commit -s`. |
 | W101 | unused-vocab | Vocab terms not used by any entity (warning). | Fine early on; prune or document before 2.0. |
 | W103 | thin-decomposition | Games tagged with fewer than 5 mechanics (warning; AGENTS.md expects 6-14). | Tag every clearly present mechanic, or record why the game is thin in design_notes. |
 | W104 | maturity-dates | Mechanic maturity agrees with catalog dates: `classic` has a catalog use 20+ years before the newest game, `emerging` has none more than 10 years before it, `experimental` is used by fewer than 3 games (warning). | Change maturity to the anchor the evidence supports (take the lower one when between two), or tag the earlier games that use it. |
+| W105 | source-archive | Sources with a `url` and no `archived` Wayback snapshot (warning). | Save the page at web.archive.org and record the snapshot URL in `archived`. |
+| W106 | prediction-overdue | Predictions whose `resolve_by` date has passed without a `resolution` (warning). | Open a verification run and resolve it (tasks/resolve-prediction.md). |
+| W107 | cluster-k-drift | The cluster selection rule (smallest k whose mean subsample ARI reaches `clustering.stability.min_mean_ari`) would now pick a different k than the configured `clustering.k` (warning). | In a maintenance run, set `clustering.k` to the rule's k, rebuild, and rewrite the report prose whose cluster assertions fail. Never pick k by what the clusters look like. |
 | W102 | verification-queue | Count of `asserted` entities awaiting sources (info). | Pick one from dist/analysis/verification-queue.csv and source it. |
 <!-- END GENERATED: rules -->
 
@@ -147,7 +164,7 @@ Run `make check`. Every finding names a rule code; `--json` gives machine-readab
 | [`maturity`](vocab/maturity.yaml) | 4 | Adoption maturity of a mechanic across shipped games. |
 | [`mechanic_family`](vocab/mechanic_family.yaml) | 21 | Primary functional family of a mechanic. Exactly one per mechanic. Assign by the state the mechanic owns, not by the genre it appears in. |
 | [`mechanic_role`](vocab/mechanic_role.yaml) | 2 | Role a mechanic plays in a specific game (attribute of the game→mechanic `uses` edge). |
-| [`modding`](vocab/modding.yaml) | 4 | Depth of player modification supported or widely practiced. |
+| [`modding`](vocab/modding.yaml) | 4 | Depth of player modification supported or widely practiced. `scripting` and `total-conversion` mean the game exposes a modding surface (official, or a de facto loader most modders use), so those games must tag the `modding-api` mechanic; `content` games may tag it when the content arrives through official data definitions (E033). |
 | [`multiplayer`](vocab/multiplayer.yaml) | 5 | Supported social play modes. |
 | [`narrative_mode`](vocab/narrative_mode.yaml) | 5 | Where story comes from. |
 | [`opportunity_type`](vocab/opportunity_type.yaml) | 8 | Kind of opportunity. |
@@ -155,6 +172,7 @@ Run `make check`. Every finding names a rule code; `--json` gives machine-readab
 | [`platform`](vocab/platform.yaml) | 8 | Platform families a game shipped on at any point. |
 | [`player_interface`](vocab/player_interface.yaml) | 9 | How the player touches this mechanic. |
 | [`player_role`](vocab/player_role.yaml) | 13 | The fiction-level role the player occupies relative to the simulation. |
+| [`prediction_outcome`](vocab/prediction_outcome.yaml) | 4 | How an opportunity's falsifiable prediction resolved. Set in `falsifiable_signal.resolution` by an independent verification run (E038). |
 | [`production_tier`](vocab/production_tier.yaml) | 5 | Production context at release. |
 | [`risk`](vocab/risk.yaml) | 11 | Primary risks of using a technique in simulation games. |
 | [`runtime`](vocab/runtime.yaml) | 5 | Where in the lifecycle the technique runs. |
@@ -166,7 +184,7 @@ Run `make check`. Every finding names a rule code; `--json` gives machine-readab
 | [`substrate`](vocab/substrate.yaml) | 10 | Computational representation the mechanic is usually implemented on. A mechanic may have several. |
 | [`technique_category`](vocab/technique_category.yaml) | 17 | Research area of a technique or breakthrough. |
 | [`technique_maturity`](vocab/technique_maturity.yaml) | 4 | Deployment maturity of a technique in games specifically (not in general AI). |
-| [`time_model`](vocab/time_model.yaml) | 6 | Dominant relation between simulation time and player time. |
+| [`time_model`](vocab/time_model.yaml) | 6 | Dominant relation between simulation time and player time. `real-time-pausable` games must tag the `variable-speed` mechanic and only `real-time-pausable` and `run-on-demand` games may (E033). |
 | [`win_structure`](vocab/win_structure.yaml) | 7 | How play is bounded and evaluated. |
 <!-- END GENERATED: vocab-index -->
 

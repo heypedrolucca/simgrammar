@@ -42,11 +42,16 @@ falsifiable_signal:
   criteria: Developer documentation describing weather-dependent renewable output and storage in the grid
     system.
 sources: []
+assertions:
+- 'derived.power-grid.prevalence_share >= 0.08'
+- 'derived.weather.prevalence_share >= 0.08'
+- 'cooccur.power-grid.weather <= 1'
 status: asserted
 provenance:
   created: 2026-10-24-synthesis
   reviewed:
   - 2026-10-24-review-fixes
+  - 2026-10-25-contributor-readiness
 deprecated:
   superseded_by: learned-weather-layer
   reason: 'Cities: Skylines II already couples solar and wind output to weather with battery storage,

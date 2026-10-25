@@ -1,6 +1,7 @@
 name: check
 on:
   pull_request:
+    types: [opened, synchronize, reopened, labeled, unlabeled]
   push:
     branches: [main]
 jobs:
@@ -8,11 +9,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: "3.13"
       - run: pip install -r requirements.txt
-      - name: Validate (rules in CONTRACT.md section 5)
+      - name: Validate (rules in CONTRACT.md section 5, report and record assertions)
         run: python scripts/validate.py
-      - name: Projections are fresh, website included (E023)
+      - name: Build and GENERATED blocks (E023)
         run: python scripts/build.py --check
+      - name: Deterministic build (I11) - two hash seeds, byte-identical trees
+        run: make determinism
+      - name: Pull request scope (E039)
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_REF: ${{ github.base_ref }}
+          LABELS: ${{ join(github.event.pull_request.labels.*.name, ',') }}
+        run: python scripts/pr_scope.py --base "origin/$BASE_REF" --labels "$LABELS"

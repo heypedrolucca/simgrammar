@@ -107,6 +107,8 @@ mechanics:
     drill speed.
 - id: free-placement
   role: supporting
+- id: variable-speed
+  role: supporting
 influenced_by:
 - factorio
 claims:
@@ -132,3 +134,4 @@ provenance:
   created: 2026-10-24-catalog-gh
   reviewed:
   - 2026-10-24-review-fixes
+  - 2026-10-25-contributor-readiness

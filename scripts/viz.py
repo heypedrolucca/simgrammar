@@ -68,7 +68,7 @@ def spread(targets, gap, lo, hi):
 
 
 def legend(items):
-    """items: (label, kind, opacity). kind: square | dashed | slash | outline | line."""
+    """items: (label, kind, opacity). kind: square | dashed | slash | outline | outline-dashed | line."""
     out = []
     for label, kind, op in items:
         if kind == "square":
@@ -83,6 +83,8 @@ def legend(items):
             continue
         elif kind == "outline":
             st = f"background:{T['paper2']};border:1px solid {T['rule2']}"
+        elif kind == "outline-dashed":
+            st = f"background:{T['paper2']};border:1px dashed {T['rule2']}"
         else:
             st = f"background:{T['accent']}"
         out.append(f'<span><i style="{st}"></i>{esc(label)}</span>')
@@ -397,6 +399,7 @@ def design_map(shared, live, by_id, derived, tables, sub, cfg):
     k = int(vc.get("neighbors", 4))
     idx = {g: i for i, g in enumerate(ids)}
     clusters = tables["game-clusters"]["rows"]
+    stable = float(cfg.get("clustering", {}).get("stability", {}).get("stable_cluster", 0.75))
     C = len(clusters)
     members = [[idx[g] for g in r["members"]] for r in clusters]
     gcl_i = {}
@@ -480,7 +483,8 @@ def design_map(shared, live, by_id, derived, tables, sub, cfg):
                 pts.append((x + 12 * math.cos(a * math.pi / 12), y + 12 * math.sin(a * math.pi / 12)))
         hull = convex_hull(pts)
         d = "M" + "L".join(f"{f1(x)},{f1(y)}" for x, y in hull) + "Z"
-        body.append(f'<path d="{d}" data-cluster="{row["cluster"]}" style="fill:{T["paper2"]};stroke:{T["rule2"]};stroke-width:1;stroke-linejoin:round"/>')
+        dash = "" if row.get("stability", 1) >= stable else ";stroke-dasharray:3 2"
+        body.append(f'<path d="{d}" data-cluster="{row["cluster"]}" style="fill:{T["paper2"]};stroke:{T["rule2"]};stroke-width:1;stroke-linejoin:round{dash}"/>')
     body.append("</g>")
     body.append(f'<g data-layer="edges" style="stroke:{T["rule2"]};stroke-width:0.7">')
     for i, j in E:
@@ -513,12 +517,13 @@ def design_map(shared, live, by_id, derived, tables, sub, cfg):
         "subgenres": [[s, sub.get(s, {}).get("label", s), c] for s, c in sorted(subs.items(), key=lambda x: (-x[1], x[0]))],
         "clusters": {r["cluster"]: r["label"] for r in clusters},
     }
-    key = "".join(f'<dt data-key="{r["cluster"]}"><b>{esc(r["cluster"].lower())}</b> · {r["size"]}</dt><dd data-key="{r["cluster"]}">{esc(r["label"].lower())}</dd>' for r in clusters)
+    key = "".join(f'<dt data-key="{r["cluster"]}"><b>{esc(r["cluster"].lower())}</b> · {r["size"]}</dt><dd data-key="{r["cluster"]}">{esc(r["label"].lower())}'
+                  + ("" if r.get("stability", 1) >= stable else " <span class=\"faint\">· unstable</span>") + "</dd>" for r in clusters)
     aside = f'<dl class="receipt" data-style="bare" aria-label="Key to the islands">{key}</dl>'
     opts = "".join(f'<option value="{esc(s)}">{esc(lab)} · {c}</option>' for s, lab, c in data["subgenres"])
     controls = ('<div class="cluster" data-controls="design-map"><label class="field" style="min-width:240px"><span>highlight a subgenre</span>'
                 f'<select data-set="subgenre"><option value="">none</option>{opts}</select></label></div>')
-    trows = [{"cluster": r["cluster"], "label": r["label"], "size": r["size"], "dominant_subgenres": r["dominant_subgenres"], "members": r["members"]} for r in clusters]
+    trows = [{"cluster": r["cluster"], "label": r["label"], "size": r["size"], "stability": r.get("stability"), "dominant_subgenres": r["dominant_subgenres"], "members": r["members"]} for r in clusters]
     n_mixed = stats_cross(clusters, by_id)
     return {
         "title": "A map of the design space",
@@ -526,14 +531,15 @@ def design_map(shared, live, by_id, derived, tables, sub, cfg):
         "svg": "".join(body),
         "caption": f"One island per cluster ({n_mixed} of {C} mix subgenres). Inside an island, lines join games to their nearest neighbours by shared mechanics "
                    "(inverse-prevalence weighted Jaccard, the measure behind the clustering); bridges join islands whose games are each other's nearest neighbours, wider for more links. "
-                   "Islands sit near the islands they most resemble. Hover or tap a game to see its neighbours; highlight a subgenre to see it spread across islands.",
+                   f"Islands sit near the islands they most resemble. A dashed outline marks an island whose games regroup when subsets of the catalog are re-clustered (stability below {stable}). "
+                   "Hover or tap a game to see its neighbours; highlight a subgenre to see it spread across islands.",
         "source": "derived.cluster · report/analysis.yaml (clustering, viz.design_map)",
         "controls": controls,
-        "legend": legend([("game", "square", "1"), ("island (cluster)", "outline", "1"), ("highlighted: neighbours or subgenre", "accent", "1")]),
+        "legend": legend([("game", "square", "1"), ("island (cluster)", "outline", "1"), ("island not stable under resampling", "outline-dashed", "1"), ("highlighted: neighbours or subgenre", "accent", "1")]),
         "aside": aside,
         "min_width": 520,
         "data": data_script("design-map", data),
-        "twin": {"columns": ["cluster", "label", "size", "dominant_subgenres", "members"], "rows": trows, "link_columns": ["members"],
+        "twin": {"columns": ["cluster", "label", "size", "stability", "dominant_subgenres", "members"], "rows": trows, "link_columns": ["members"],
                  "note": "The clusters behind the islands, members in order of centrality."},
     }
 

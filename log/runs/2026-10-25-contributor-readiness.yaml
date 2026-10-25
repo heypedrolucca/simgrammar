@@ -1,0 +1,47 @@
+id: 2026-10-25-contributor-readiness
+type: run
+kind: maintenance
+date: '2026-10-25'
+actor: agent
+operator: yoheinakajima
+agent:
+  model: claude-opus-5-5
+  harness: Claude app (cloud workspace), orchestrator
+purpose: Prepare the repository for outside contributors, human and AI, by fixing the review's must-fix findings and adding guardrails (ADR-0004, contract 1.1).
+method: >-
+  Checked the review's findings against the data with scripts: cross-tabulated game time_model and modding fields
+  against the variable-speed and modding-api tags (3 and 29 mismatches), ranked mechanics by prevalence, and re-ran the
+  reviewer's leave-one-out cluster test. Read each mismatched game's record and decided per game whether the field or
+  the tag was wrong; added modding-api with a note naming the modding surface to 25 games, corrected modding for five
+  games and time_model for two, and added variable-speed to Mindustry. Corrected two false opportunity theses and one
+  overstated one (bottleneck-explainer said diagnosis was the main failure mode; the mechanic lists it as one of three),
+  then pinned five theses with assertions. Computed the subsample stability curve for k from 2 to 30 before writing the
+  selection rule, adopted the 0.75 threshold convention instead of an argmax because the curve is flat, applied it
+  (k = 23), and rewrote report sections 5.1 and 5.4, the abstract, the method limitations, and the agenda against
+  pairs that co-cluster in at least 80 percent of subsamples. Implemented the schema, vocabulary, rule, analysis,
+  build, workflow, and documentation changes listed in ADR-0004, tested every new rule against a scratch copy seeded
+  with violations, and built the site from a scratch copy using every new field to check the pages. Selected the
+  20-mechanic calibration set greedily for anchor coverage, one mechanic per family. check_sources.py was tested
+  offline only (quote normalization, fetch cache, name matching); this workspace cannot reach the sites it checks.
+  No store ids were added: none could be confirmed against the stores from here.
+scope:
+  - data/games (33 records; modding-api tags, modding and time_model fields), data/mechanics/modding-api.yaml, data/mechanics/variable-speed.yaml
+  - data/opportunities (scientists-not-tech-trees, living-workforce-factories, bottleneck-explainer, weather-coupled-grids, generated-recipe-graphs)
+  - schema/, vocab/modding.yaml, vocab/time_model.yaml, vocab/prediction_outcome.yaml, calibration/
+  - scripts/ (validate, rules, lib, analyze, report_render, report_check, build, web, viz, calibrate, check_sources, pr_scope)
+  - report/src (00, 02, 05, 11), report/analysis.yaml, report/tables.yaml
+  - .github/ (workflows, CODEOWNERS, issue forms, PR template), CONTRACT.md, AGENTS.md, README.md, CONTRIBUTING.md, CODE_OF_CONDUCT.md, LICENSE, CHANGELOG.md, tasks/
+contract_version: '1.1'
+proposals:
+  - kind: rule
+    target: W105
+    detail: Once the archive backlog is worked down, make a missing `archived` snapshot an error for sources created by runs dated after a cutoff, so new sources always arrive archived.
+  - kind: other
+    target: store_ids
+    detail: Backfill Steam and Wikidata ids for the catalog through tasks/store-ids.md, ten games per PR, so a separate platform and theme dataset can join on them.
+  - kind: rubric
+    target: calibration/mechanics.yaml
+    detail: The frozen calibration scores are one model's reading. Have a human maintainer score the set blind and settle disagreements before the first outside rater calibrates against it.
+  - kind: other
+    target: report/analysis.yaml
+    detail: Revisit the cluster selection rule when the catalog grows past about 250 games; a flat stability curve near the threshold means the selected k can move by several clusters with small data changes.

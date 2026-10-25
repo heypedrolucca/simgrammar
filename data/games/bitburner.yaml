@@ -26,7 +26,7 @@ failure_model: none
 narrative_mode: authored
 multiplayer:
 - single
-modding: scripting
+modding: none
 production_tier: hobbyist
 agent_count_order: none
 emergence: 2
@@ -109,3 +109,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-catalog-gh
+  reviewed:
+  - 2026-10-25-contributor-readiness

@@ -1,0 +1,24 @@
+name: Dispute
+description: Two credible sources disagree about a record, or a cited source no longer supports its claim.
+labels: ["dispute"]
+body:
+  - type: input
+    id: record
+    attributes:
+      label: Record id
+    validations:
+      required: true
+  - type: textarea
+    id: claim
+    attributes:
+      label: The claim in dispute
+      description: Quote the record's claim or field.
+    validations:
+      required: true
+  - type: textarea
+    id: sides
+    attributes:
+      label: Both sides
+      description: The source the record cites and the source that contradicts it, each with a quote. A dispute is recorded as `status contested` with a `disputes` note (CONTRACT I13); neither side is overwritten.
+    validations:
+      required: true

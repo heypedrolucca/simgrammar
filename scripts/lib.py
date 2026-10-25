@@ -268,6 +268,78 @@ def replace_generated_blocks(text: str, blocks: dict[str, str]) -> tuple[str, li
     return GEN_BLOCK_RE.sub(sub, text), unknown
 
 
+CALIBRATION_SCALES = ("legibility", "emergence_potential", "authoring_cost", "compute_cost", "tuning_difficulty", "ai_leverage")
+
+
+def load_calibration(registry: dict) -> dict | None:
+    rel = (registry.get("contribution") or {}).get("calibration_set")
+    p = ROOT / rel if rel else None
+    return read_yaml(p) if p and p.exists() else None
+
+
+def calibration_agreement(gold: dict, scores: dict) -> dict:
+    """Agreement of a rater's calibration scores with the frozen set.
+
+    gold and scores map mechanic id -> {scale: 1..5}. Returns n (pairs compared), exact and within_one shares, and
+    quadratic-weighted kappa (Cohen 1968) pooled across scales. Missing scores count as disagreements (distance 4).
+    """
+    pairs = []
+    for mid in sorted(gold):
+        for sc in CALIBRATION_SCALES:
+            g = gold[mid].get(sc)
+            if g is None:
+                continue
+            r = (scores.get(mid) or {}).get(sc)
+            pairs.append((g, r))
+    n = len(pairs)
+    if not n:
+        return {"n": 0, "exact": None, "within_one": None, "kappa_quadratic": None, "missing": 0}
+    missing = sum(1 for _, r in pairs if r is None)
+    exact = sum(1 for g, r in pairs if r == g) / n
+    within = sum(1 for g, r in pairs if r is not None and abs(r - g) <= 1) / n
+    full = [(g, r) for g, r in pairs if r is not None]
+    kappa = None
+    if full:
+        cats = range(1, 6)
+        obs = {(i, j): 0 for i in cats for j in cats}
+        for g, r in full:
+            obs[(g, r)] += 1
+        m = len(full)
+        pg = {i: sum(obs[(i, j)] for j in cats) / m for i in cats}
+        pr = {j: sum(obs[(i, j)] for i in cats) / m for j in cats}
+        w = {(i, j): ((i - j) ** 2) / 16 for i in cats for j in cats}
+        do = sum(w[k] * obs[k] / m for k in obs)
+        de = sum(w[(i, j)] * pg[i] * pr[j] for i in cats for j in cats)
+        kappa = 1 - do / de if de else None
+    rnd = lambda x: None if x is None else round(float(x), 3)  # noqa: E731
+    return {"n": n, "exact": rnd(exact), "within_one": rnd(within), "kappa_quadratic": rnd(kappa), "missing": missing}
+
+
+def independent(a, b) -> bool:
+    """Two runs (Entity objects) are independent when their operators differ and, if both are agent runs, their models
+    differ too. A missing model on an agent run cannot establish independence."""
+    if a is None or b is None:
+        return False
+    if str(a.data.get("operator", "")).strip().lower() == str(b.data.get("operator", "")).strip().lower():
+        return False
+    if a.data.get("actor") == "agent" and b.data.get("actor") == "agent":
+        ma = str((a.data.get("agent") or {}).get("model", "")).strip().lower()
+        mb = str((b.data.get("agent") or {}).get("model", "")).strip().lower()
+        if not ma or not mb or ma == mb:
+            return False
+    return True
+
+
+def rubric_fields(schema: dict) -> dict[str, str]:
+    """Top-level fields of an entity schema scored on a rubric scale: {field: scale}."""
+    return {k: v["x-rubric"] for k, v in schema.get("properties", {}).items() if isinstance(v, dict) and v.get("x-rubric")}
+
+
+def lower_median(values: list[int]) -> int:
+    vs = sorted(values)
+    return vs[(len(vs) - 1) // 2]
+
+
 def get_path(obj: dict, dotted: str) -> Any:
     cur: Any = obj
     for part in dotted.split("."):

@@ -26,7 +26,7 @@ failure_model: hard-restart
 narrative_mode: none
 multiplayer:
 - single
-modding: scripting
+modding: none
 production_tier: hobbyist
 agent_count_order: aggregate
 emergence: 2
@@ -73,3 +73,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-catalog-ga
+  reviewed:
+  - 2026-10-25-contributor-readiness

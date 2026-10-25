@@ -560,6 +560,8 @@ tables:
   - name
   - path: falsifiable_signal.prediction
     label: prediction
+  - path: _derived.prediction_status
+    label: status
   sort:
   - falsifiable_signal.resolve_by
   - name

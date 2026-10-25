@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://simgrammar.dev/schema/1.0/technique.schema.json",
+  "$id": "https://simgrammar.dev/schema/1.1/technique.schema.json",
   "title": "Technique",
   "description": "A mathematical, AI, ML, or LLM technique or breakthrough relevant to simulation games. Must cite at least one source. Owns affects/builds_on/deployed_in edges.",
   "type": "object",
@@ -39,6 +39,8 @@
     "builds_on": { "type": "array", "uniqueItems": true, "items": { "$ref": "common.schema.json#/$defs/id", "x-edge": "builds_on" } },
     "deployed_in": { "type": "array", "uniqueItems": true, "items": { "$ref": "common.schema.json#/$defs/id", "x-edge": "deployed_in" } },
     "limitations": { "$ref": "common.schema.json#/$defs/text_list", "minItems": 1 },
+    "assertions": { "$ref": "common.schema.json#/$defs/assertions" },
+    "ratings": { "$ref": "common.schema.json#/$defs/ratings" },
     "claims": { "$ref": "common.schema.json#/$defs/claims" },
     "sources": { "$ref": "common.schema.json#/$defs/sources", "minItems": 1 },
     "status": { "$ref": "common.schema.json#/$defs/status" },

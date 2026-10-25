@@ -1,9 +1,14 @@
 #!/usr/bin/env python3
 """Project data/ into every output format. Deterministic: same data -> byte-identical dist/.
 
-  python scripts/build.py           write dist/ and refresh GENERATED blocks
-  python scripts/build.py --check   exit 1 if anything would change (E023); used in CI
-  python scripts/build.py --sqlite  also write dist/simgrammar.sqlite (not committed)
+  python scripts/build.py              write dist/ and refresh GENERATED blocks in README.md, CONTRACT.md, AGENTS.md
+  python scripts/build.py --check      build in memory; exit 1 if a GENERATED block is stale (E023). Writes nothing.
+  python scripts/build.py --out DIR    write the projections to DIR instead of dist/ (CI builds twice under different
+                                       PYTHONHASHSEED values and diffs the two trees to prove determinism, I11)
+  python scripts/build.py --sqlite     also write dist/simgrammar.sqlite
+
+dist/ is not committed (ADR-0004). CI builds it on every push and the Pages workflow publishes dist/web as the site
+with the other projections under /dist/.
 
 Projections:
   dist/manifest.json                 counts, schema/vocab hashes, per-entity and dataset sha256
@@ -51,7 +56,7 @@ from web import build_web  # noqa: E402
 
 DIST = ROOT / "dist"
 GENERATED_DOCS = ["README.md", "CONTRACT.md", "AGENTS.md"]
-REQUIRED_BLOCKS = {"README.md": ["stats"], "CONTRACT.md": ["rules", "edge-types", "vocab-index", "rubric-index"]}
+REQUIRED_BLOCKS = {"CONTRACT.md": ["rules", "edge-types", "vocab-index", "rubric-index"]}
 
 
 def entity_record(e, derived):
@@ -111,7 +116,7 @@ def wiki_page(e, ctx: Context, vocabs, registry, schemas, edges_out, analysis) -
     # facts table: scalar and vocab fields
     facts = []
     for k, sch in props.items():
-        if k in ("id", "type", "name", "summary", "status", "provenance", "sources", "claims", "deprecated"):
+        if k in ("id", "type", "name", "summary", "status", "provenance", "sources", "claims", "deprecated", "assertions", "ratings", "store_ids"):
             continue
         v = d.get(k)
         if v is None:
@@ -140,13 +145,26 @@ def wiki_page(e, ctx: Context, vocabs, registry, schemas, edges_out, analysis) -
     # long text fields
     for k, sch in props.items():
         v = d.get(k)
-        if isinstance(v, str) and len(v) > 160:
+        if k in ("store_ids", "assertions", "ratings"):
+            if not v:
+                continue
+            if k == "store_ids" and isinstance(v, dict):
+                lines += ["## Store ids", ""] + [f"- {store}: `{sid}`" for store, sid in sorted(v.items())] + [""]
+            if k == "assertions" and v:
+                lines += ["## Checks against the data", "", "The build fails (E032) if any of these stops holding.", ""] + [f"- `{x}`" for x in v] + [""]
+            if k == "ratings" and v:
+                lines += ["## Ratings", ""] + [f"- {r['field']} = {r['value']} (run `{r['run']}`): {r['rationale']}" for r in v] + [""]
+        elif isinstance(v, str) and len(v) > 160:
             lines += [f"## {k.replace('_', ' ').title()}", "", v, ""]
         elif isinstance(v, list) and v and isinstance(v[0], str) and not (sch.get("items") or {}).get("x-vocab") and not (sch.get("items") or {}).get("x-edge") and "$ref" not in (sch.get("items") or {}):
             if len(" ".join(v)) > 160 or k in ("design_levers", "failure_modes", "dynamics", "limitations", "key_risks", "open_questions"):
                 lines += [f"## {k.replace('_', ' ').title()}", ""] + [f"- {x}" for x in v] + [""]
         elif k == "falsifiable_signal" and isinstance(v, dict):
-            lines += ["## Falsifiable signal", "", f"- **Prediction:** {v['prediction']}", f"- **Resolve by:** {v['resolve_by']}", f"- **Criteria:** {v['criteria']}", ""]
+            lines += ["## Falsifiable signal", "", f"- **Prediction:** {v['prediction']}", f"- **Resolve by:** {v['resolve_by']}", f"- **Criteria:** {v['criteria']}"]
+            r = v.get("resolution")
+            lines += [f"- **Outcome:** {r['outcome']} ({r['date']}, run `{r['run']}`){': ' + '; '.join(f'[[{x}]]' for x in r.get('evidence') or []) if r.get('evidence') else ''}. {r['note']}"] if r else ["- **Outcome:** open"]
+            lines.append("")
+
     # outgoing edges with attributes
     out = defaultdict(list)
     for ed in edges_out.get(e.id, []):
@@ -174,13 +192,16 @@ def wiki_page(e, ctx: Context, vocabs, registry, schemas, edges_out, analysis) -
         lines += ["## Claims", ""]
         for c in (d.get("key_results") or []) + (d.get("claims") or []):
             srcs = "; ".join(f"@{s}" for s in c["sources"])
-            lines.append(f"- {c['text']} *(confidence: {c['confidence']})* [{srcs}]" + (f" **Disputed:** {c['disputes']}" if c.get("disputes") else ""))
+            lines.append(f"- {c['text']} *(confidence: {c['confidence']})* [{srcs}]" + (f" Quote: \"{c['quote']}\"" + (f" ({c['locator']})" if c.get("locator") else "") if c.get("quote") else "")
+                         + (f" **Disputed:** {c['disputes']}" if c.get("disputes") else ""))
         lines.append("")
     if d.get("sources"):
         lines += ["## Sources", ""] + [f"- [[{s}]]" for s in d["sources"]] + [""]
     if e.type == "source":
         loc = d.get("url") or (f"https://doi.org/{d['doi']}" if d.get("doi") else None) or (f"https://arxiv.org/abs/{d['arxiv']}" if d.get("arxiv") else None)
         lines += ["## Citation", "", f"{', '.join(d.get('authors', []))} ({d.get('date')}). *{d['name']}*. {d.get('venue', '')} {loc or ''}", ""]
+        if d.get("archived"):
+            lines += [f"Archived: {d['archived']}", ""]
     prov = d.get("provenance", {})
     lines += ["---", f"Provenance: created in run `{prov.get('created')}`" + (f"; reviewed in {', '.join('`'+r+'`' for r in prov.get('reviewed', []))}" if prov.get("reviewed") else "") + ".", ""]
     text, _ = render("\n".join(lines), ctx, "wiki")
@@ -417,7 +438,7 @@ def build() -> tuple[dict[str, str], dict[str, str]]:
                 raise SystemExit(f"{name}: unknown GENERATED block(s): {unknown}")
             for req in REQUIRED_BLOCKS.get(name, []):
                 if f"<!-- BEGIN GENERATED: {req} -->" not in new or f"<!-- END GENERATED: {req} -->" not in new:
-                    raise SystemExit(f"E023 dist-fresh: {name} is missing the required GENERATED block '{req}'; restore the BEGIN/END markers")
+                    raise SystemExit(f"E023 build: {name} is missing the required GENERATED block '{req}'; restore the BEGIN/END markers")
             docs[name] = new
     return outs, docs
 
@@ -432,7 +453,7 @@ def write_sqlite(path: Path):
         con.execute(f"CREATE TABLE {spec['plural']} (id TEXT PRIMARY KEY, json TEXT)")
         con.executemany(f"INSERT INTO {spec['plural']} VALUES (?, ?)", [(e.id, json.dumps(e.data, ensure_ascii=False)) for e in ents.get(t, [])])
     import csv
-    with (DIST / "tables" / "edges.csv").open() as fh:
+    with (path.parent / "tables" / "edges.csv").open() as fh:
         rows = list(csv.DictReader(fh))
     con.execute("CREATE TABLE edges (source TEXT, source_type TEXT, type TEXT, target TEXT, target_type TEXT, role TEXT, effect TEXT, note TEXT)")
     con.executemany("INSERT INTO edges VALUES (?,?,?,?,?,?,?,?)", [tuple(r[k] for k in ["source", "source_type", "type", "target", "target_type", "role", "effect", "note"]) for r in rows])
@@ -444,6 +465,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--check", action="store_true")
     ap.add_argument("--sqlite", action="store_true")
+    ap.add_argument("--out", type=Path, default=DIST, help="output directory (default dist/)")
     args = ap.parse_args()
     F = validate.run(data_only=True)
     if F.errors:
@@ -451,35 +473,32 @@ def main():
             print(f"{f['rule']} {f['name']}: {f['file']}: {f['message']}")
         raise SystemExit("build aborted: fix validation errors first")
     outs, docs = build()
-    existing = {str(p.relative_to(DIST)) for p in DIST.rglob("*") if p.is_file() and p.suffix != ".sqlite"} if DIST.exists() else set()
-    stale = sorted(existing - set(outs))
-    changed = sorted(k for k, v in outs.items() if not (DIST / k).exists() or (DIST / k).read_text(encoding="utf-8") != v)
     doc_changed = sorted(k for k, v in docs.items() if (ROOT / k).read_text(encoding="utf-8") != v)
     if args.check:
-        if changed or stale or doc_changed:
-            for k in changed[:30]:
-                print(f"E023 dist-fresh: dist/{k} differs from a fresh build")
-            for k in stale[:30]:
-                print(f"E023 dist-fresh: dist/{k} is stale (no longer generated)")
+        if doc_changed:
             for k in doc_changed:
-                print(f"E023 dist-fresh: {k} GENERATED block out of date")
+                print(f"E023 build: {k} GENERATED block out of date; run `make build` and commit it")
             raise SystemExit(1)
-        print(f"build --check OK ({len(outs)} files)")
+        print(f"build --check OK ({len(outs)} files built in memory; GENERATED blocks fresh)")
         return
+    out = args.out.resolve()
+    existing = {str(p.relative_to(out)) for p in out.rglob("*") if p.is_file() and p.suffix != ".sqlite"} if out.exists() else set()
+    stale = sorted(existing - set(outs))
+    changed = sorted(k for k, v in outs.items() if not (out / k).exists() or (out / k).read_text(encoding="utf-8") != v)
     for k in stale:
-        (DIST / k).unlink()
+        (out / k).unlink()
     for k in changed:
-        p = DIST / k
+        p = out / k
         p.parent.mkdir(parents=True, exist_ok=True)
         p.write_text(outs[k], encoding="utf-8")
     for k in doc_changed:
         (ROOT / k).write_text(docs[k], encoding="utf-8")
-    for d in sorted(DIST.rglob("*"), reverse=True):
+    for d in sorted(out.rglob("*"), reverse=True):
         if d.is_dir() and not any(d.iterdir()):
             d.rmdir()
     if args.sqlite:
-        write_sqlite(DIST / "simgrammar.sqlite")
-    print(f"build OK: {len(changed)} written, {len(stale)} removed, {len(doc_changed)} docs refreshed, {len(outs)} total")
+        write_sqlite(out / "simgrammar.sqlite")
+    print(f"build OK: {len(changed)} written, {len(stale)} removed, {len(doc_changed)} docs refreshed, {len(outs)} total -> {out}")
 
 
 if __name__ == "__main__":

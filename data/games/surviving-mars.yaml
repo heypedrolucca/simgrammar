@@ -88,6 +88,9 @@ mechanics:
   role: supporting
 - id: free-placement
   role: supporting
+- id: modding-api
+  role: supporting
+  note: 'An official mod editor with Lua scripting.'
 sources:
 - src-wikipedia-surviving-mars
 status: sourced
@@ -95,3 +98,4 @@ provenance:
   created: 2026-10-24-catalog-ga
   reviewed:
   - 2026-10-24-review-fixes
+  - 2026-10-25-contributor-readiness

@@ -113,6 +113,10 @@ mechanics:
   role: supporting
   note: Fleet battles resolve from ship weapons, shields, armor, and hull values against each other, and
     ground combat compares army attack and health.
+- id: modding-api
+  role: supporting
+  note: 'Script and data files define species, events, and technologies; total conversions replace the
+    setting.'
 influenced_by:
 - europa-universalis-4
 sources:
@@ -122,3 +126,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-catalog-gi
+  reviewed:
+  - 2026-10-25-contributor-readiness

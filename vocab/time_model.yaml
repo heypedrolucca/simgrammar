@@ -1,12 +1,15 @@
 id: time_model
-description: Dominant relation between simulation time and player time.
+description: >-
+  Dominant relation between simulation time and player time. `real-time-pausable` games must tag the `variable-speed`
+  mechanic and only `real-time-pausable` and `run-on-demand` games may (E033).
 terms:
   - id: real-time
     label: Real-time
     definition: Simulation advances continuously at a fixed rate the player cannot pause in normal play.
   - id: real-time-pausable
     label: Real-time with pause
-    definition: Continuous time with pause and usually adjustable speed.
+    definition: Continuous time the player can pause to plan or give orders, usually with adjustable speed. A menu that freezes the game does not count.
+    requires_mechanic: variable-speed
   - id: turn-based
     label: Turn-based
     definition: Simulation advances in discrete player-triggered turns.
@@ -16,6 +19,7 @@ terms:
   - id: run-on-demand
     label: Run on demand
     definition: Player builds in a frozen state, then triggers a simulation run (design-then-test).
+    allows_mechanic: variable-speed
   - id: asynchronous-persistent
     label: Asynchronous persistent
     definition: Shared world advances on servers independent of any one player's session.

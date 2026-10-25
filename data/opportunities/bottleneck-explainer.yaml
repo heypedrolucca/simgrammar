@@ -4,8 +4,8 @@ name: Bottleneck explainer for production networks
 summary: Explain where and why a production network is starved or blocked by combining sensitivity analysis
   of the actual simulation with grounded language explanations.
 opportunity_type: legibility-layer
-thesis: 'No technique in the dataset is linked to production chains, yet the mechanic''s main documented
-  failure is diagnosis: starvation far upstream is hard to see, so players blame the wrong building. Differentiable
+thesis: 'No technique in the dataset is linked to production chains, yet one of the mechanic''s documented
+  failure modes is diagnosis: starvation far upstream is hard to see, so players blame the wrong building. Differentiable
   or finite-difference sensitivity of output to each machine, buffer, and route identifies the binding
   constraint exactly; a constrained language layer turns that into a short explanation with links to the
   machines involved. The same tool supports designers checking recipe balance.'
@@ -46,8 +46,11 @@ falsifiable_signal:
     1,000 Steam user reviews; patch notes or a developer blog state that it perturbs or re-runs the player's
     network to identify the limiting resource, machine, or link.
 sources: []
+assertions:
+- 'derived.production-chain.technique_count == 0'
 status: asserted
 provenance:
   created: 2026-10-24-synthesis
   reviewed:
   - 2026-10-24-review-fixes
+  - 2026-10-25-contributor-readiness

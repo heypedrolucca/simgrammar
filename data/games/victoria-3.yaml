@@ -112,6 +112,9 @@ mechanics:
     demands from the diplomatic play.
 - id: variable-speed
   role: supporting
+- id: modding-api
+  role: supporting
+  note: 'Script and data files define laws, events, and goods.'
 sources:
 - src-wikipedia-victoria-3
 - src-paradox-2021-vic3-interest-groups
@@ -124,3 +127,4 @@ provenance:
   created: 2026-10-24-catalog-gi
   reviewed:
   - 2026-10-24-review-fixes
+  - 2026-10-25-contributor-readiness

@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://simgrammar.dev/schema/1.0/common.schema.json",
+  "$id": "https://simgrammar.dev/schema/1.1/common.schema.json",
   "title": "Common definitions",
   "description": "Shared field definitions. Annotations: x-vocab names a vocab/*.yaml file; x-edge names an edge type in vocab/edge_types.yaml and marks the string as a reference; x-rubric names a scale in vocab/rubrics.yaml.",
   "$defs": {
@@ -57,10 +57,35 @@
         "text": { "type": "string", "minLength": 10, "maxLength": 800 },
         "sources": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/source_ref" }, "uniqueItems": true },
         "confidence": { "type": "string", "x-vocab": "confidence" },
+        "quote": { "type": "string", "minLength": 10, "maxLength": 400, "description": "Verbatim excerpt from the first listed source that supports the claim. scripts/check_sources.py fetches the source (its Wayback snapshot when set) and checks that the excerpt appears." },
+        "locator": { "type": "string", "minLength": 1, "maxLength": 120, "description": "Where in the source the quote is: page, section heading, or timestamp." },
         "disputes": { "type": "string", "maxLength": 800, "description": "Set only when status is contested: what is disputed." }
       }
     },
     "claims": { "type": "array", "items": { "$ref": "#/$defs/claim" } },
+    "assertion": {
+      "type": "string",
+      "pattern": "^[a-z0-9_.-]+\\s*(==|!=|<=|>=|<|>)\\s*\\S.*$",
+      "maxLength": 200,
+      "description": "A check on the dataset that the entity's text depends on, in report-assertion syntax: `<ref> <op> <value or ref>` where a ref is a stat, derived.<id>.<field>, field.<id>.<path>, rank.<table>.<id>[.<id>], or cocluster.<id>.<id>. Fails E032 when false."
+    },
+    "assertions": { "type": "array", "items": { "$ref": "#/$defs/assertion" }, "uniqueItems": true, "maxItems": 12 },
+    "rating": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["field", "value", "run", "rationale"],
+      "properties": {
+        "field": { "type": "string", "pattern": "^[a-z_]+$", "description": "Name of a rubric-scored field of this entity type." },
+        "value": { "$ref": "#/$defs/score" },
+        "run": { "$ref": "#/$defs/run_ref" },
+        "rationale": { "type": "string", "minLength": 10, "maxLength": 600, "description": "Which anchor text matched, and why the adjacent anchors did not." }
+      }
+    },
+    "ratings": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/rating" },
+      "description": "One entry per rater per scored field. When a field has ratings, its stored value must equal the lower median of them (E037)."
+    },
     "deprecated": {
       "type": "object",
       "additionalProperties": false,
@@ -70,6 +95,18 @@
         "reason": { "type": "string", "minLength": 5, "maxLength": 400 }
       }
     },
-    "score": { "type": "integer", "minimum": 1, "maximum": 5 }
+    "score": { "type": "integer", "minimum": 1, "maximum": 5 },
+    "scores_by_scale": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "legibility": { "$ref": "#/$defs/score", "x-rubric": "legibility" },
+        "emergence_potential": { "$ref": "#/$defs/score", "x-rubric": "emergence_potential" },
+        "authoring_cost": { "$ref": "#/$defs/score", "x-rubric": "authoring_cost" },
+        "compute_cost": { "$ref": "#/$defs/score", "x-rubric": "compute_cost" },
+        "tuning_difficulty": { "$ref": "#/$defs/score", "x-rubric": "tuning_difficulty" },
+        "ai_leverage": { "$ref": "#/$defs/score", "x-rubric": "ai_leverage" }
+      }
+    }
   }
 }

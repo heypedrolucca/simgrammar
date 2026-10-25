@@ -1,0 +1,24 @@
+name: Prediction resolution
+description: A falsifiable prediction can be resolved (its criteria are met, or its date passed).
+labels: ["task", "prediction"]
+body:
+  - type: input
+    id: opportunity
+    attributes:
+      label: Opportunity id
+    validations:
+      required: true
+  - type: dropdown
+    id: outcome
+    attributes:
+      label: Proposed outcome
+      options: [confirmed, refuted, ambiguous, withdrawn]
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Which title or study meets or fails which criterion, with links. Features count only if first shipped after 2026-10-24. See tasks/resolve-prediction.md.
+    validations:
+      required: true

@@ -1,5 +1,6 @@
 __pycache__/
 *.pyc
 .venv/
-dist/simgrammar.sqlite
 .DS_Store
+# Generated projections are built by CI and published with the site (ADR-0004). Run `make build` to get them locally.
+dist/

@@ -1,0 +1,36 @@
+# Checks evidence against the live web: claim quotes against their sources, store ids against the stores.
+# Network access makes it unsuitable for the deterministic build, so it runs here: on PRs for the records they touch
+# (failures block), and weekly for everything (a report, plus Wayback snapshot suggestions).
+name: sources
+on:
+  pull_request:
+    paths: ["data/**"]
+  schedule:
+    - cron: "17 6 * * 1"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  sources:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: pip install -r requirements.txt
+      - name: Changed records (blocking)
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: python scripts/check_sources.py --changed "origin/$BASE_REF"
+      - name: Everything (report)
+        if: github.event_name != 'pull_request'
+        run: python scripts/check_sources.py --all --suggest-archive | tee sources-report.txt
+      - if: github.event_name != 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: sources-report
+          path: sources-report.txt

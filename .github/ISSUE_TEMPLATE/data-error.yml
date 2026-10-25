@@ -1,0 +1,31 @@
+name: Data error
+description: A record states something false or out of date (a date, a developer, a mechanic tag, a technique's maturity).
+labels: ["data-error"]
+body:
+  - type: input
+    id: record
+    attributes:
+      label: Record id
+      description: The file stem, for example `rimworld` or `src-wube-2026-factorio-lua-api`.
+    validations:
+      required: true
+  - type: input
+    id: field
+    attributes:
+      label: Field
+      description: For example `year`, `mechanics`, `maturity`.
+    validations:
+      required: true
+  - type: textarea
+    id: wrong
+    attributes:
+      label: What is wrong, and what is right
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: A link and, if you can, the exact sentence that shows it. Primary sources (store page, developer post, paper) beat wikis.
+    validations:
+      required: true

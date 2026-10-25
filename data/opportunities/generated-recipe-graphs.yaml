@@ -45,8 +45,12 @@ falsifiable_signal:
     least 10,000 downloads on its official mod portal; the developer or mod author states that the shipped
     recipe graph was produced or substantially shaped by a generative tool.
 sources: []
+assertions:
+- 'derived.production-chain.prevalence_rank <= 10'
+- 'derived.tech-tree.prevalence_rank <= 10'
 status: asserted
 provenance:
   created: 2026-10-24-synthesis
   reviewed:
   - 2026-10-24-review-fixes
+  - 2026-10-25-contributor-readiness

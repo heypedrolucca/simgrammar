@@ -29,7 +29,7 @@ failure_model: none
 narrative_mode: none
 multiplayer:
 - single
-modding: scripting
+modding: none
 production_tier: academic
 agent_count_order: none
 emergence: 5
@@ -63,3 +63,4 @@ provenance:
   created: 2026-10-24-catalog-gd
   reviewed:
   - 2026-10-24-review-fixes
+  - 2026-10-25-contributor-readiness

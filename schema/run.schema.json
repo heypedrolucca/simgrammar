@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://simgrammar.dev/schema/1.0/run.schema.json",
+  "$id": "https://simgrammar.dev/schema/1.1/run.schema.json",
   "title": "Run",
   "description": "Provenance record for one research or editing pass. Append-only: once merged, a run file is never edited except to fix typos. Every entity's provenance points at runs.",
   "type": "object",
@@ -119,6 +119,20 @@
             "minLength": 10,
             "maxLength": 1200
           }
+        }
+      }
+    },
+    "calibration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["set", "scores"],
+      "description": "The rater's blind scores on the frozen calibration set (calibration/mechanics.yaml), made before reading the stored scores. The validator computes agreement; runs that create mechanics or add ratings need within-one agreement at or above the registry threshold (E036).",
+      "properties": {
+        "set": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+        "scores": {
+          "type": "object",
+          "propertyNames": { "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+          "additionalProperties": { "$ref": "common.schema.json#/$defs/scores_by_scale" }
         }
       }
     },

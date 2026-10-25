@@ -7,8 +7,8 @@ opportunity_type: new-genre
 thesis: 'The white-space analysis shows production chains and agent lifecycles are both common yet almost
   never combined: factory games are run by machines or faceless workers, and games with aging, family-forming
   agents rarely have deep production. Colony sims and Workers & Resources sit closest. A factory whose
-  throughput depends on a workforce with skills, schooling, households, and turnover couples the most-used
-  rule-system in the catalog to the most attachment-generating ones. Salience-gated language agents make
+  throughput depends on a workforce with skills, schooling, households, and turnover couples production chains,
+  among the ten most widely used mechanics in the catalog, to the systems that generate the most attachment. Salience-gated language agents make
   that workforce individually legible without per-tick cost.'
 design_sketch: Machines need operators with trained skills; skilled workers age and retire; children of
   workers attend schools the player builds; housing, food, and morale affect shift output. A bottleneck
@@ -51,8 +51,13 @@ falsifiable_signal:
     (aging, training, succession) in a factory or automation game, and it has at least 1,000 Steam user
     reviews by the resolve date.
 sources: []
+assertions:
+- 'rank.whitespace.lifecycle-aging.production-chain <= 10'
+- 'cooccur.lifecycle-aging.production-chain <= 1'
+- 'derived.production-chain.prevalence_rank <= 10'
 status: asserted
 provenance:
   created: 2026-10-24-synthesis
   reviewed:
   - 2026-10-24-review-fixes
+  - 2026-10-25-contributor-readiness

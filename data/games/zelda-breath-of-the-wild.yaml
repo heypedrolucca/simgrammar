@@ -22,7 +22,7 @@ sim_domain:
 player_role: inhabitant
 agency_model:
 - direct-avatar
-time_model: real-time-pausable
+time_model: real-time
 sim_scale: region
 fidelity: stylized
 perspective: third-person
@@ -90,3 +90,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-catalog-gg
+  reviewed:
+  - 2026-10-25-contributor-readiness

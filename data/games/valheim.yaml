@@ -92,6 +92,9 @@ mechanics:
   role: supporting
   note: On death the player's equipment and inventory stay in a tombstone at the death site, and skill
     levels drop, so the player must travel back to recover gear.
+- id: modding-api
+  role: supporting
+  note: 'No official API; mods load through the de facto BepInEx loader.'
 sources:
 - src-wikipedia-valheim
 - src-steam-2026-valheim
@@ -99,3 +102,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-catalog-gb
+  reviewed:
+  - 2026-10-25-contributor-readiness

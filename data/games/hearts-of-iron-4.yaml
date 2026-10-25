@@ -106,9 +106,15 @@ mechanics:
   role: supporting
   note: Divisions fight in hourly combat rounds comparing attacks against defense or breakthrough, draining
     organization and strength under terrain, weather, and supply modifiers.
+- id: modding-api
+  role: supporting
+  note: 'Script files define focus trees, events, and units; total conversions such as Kaiserreich rebuild the
+    scenario.'
 sources:
 - src-wikipedia-hearts-of-iron-4
 - src-paradoxwikis-2026-hoi4-supply
 status: sourced
 provenance:
   created: 2026-10-24-catalog-gi
+  reviewed:
+  - 2026-10-25-contributor-readiness

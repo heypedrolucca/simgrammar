@@ -1,8 +1,30 @@
-# Contract surfaces: the validator enforces the contract but cannot judge changes to it.
-/CONTRACT.md   @yoheinakajima
-/AGENTS.md     @yoheinakajima
-/vocab/        @yoheinakajima
-/schema/       @yoheinakajima
-/scripts/      @yoheinakajima
-/report/analysis.yaml @yoheinakajima
-/web/ @yoheinakajima
+# Contract surfaces and interpretation need a maintainer. The validator enforces the contract as written; it cannot
+# judge whether a change to the contract, the analysis, or the argument is justified. Enforced when branch protection
+# on main requires review from code owners (Settings > Branches).
+#
+# Everything not listed (games, techniques, sources, run files, tasks claimed through issues) can merge on green CI
+# plus any maintainer's approval, within the PR limits in schema/registry.yaml (E039).
+
+# contract
+/CONTRACT.md                 @yoheinakajima
+/AGENTS.md                   @yoheinakajima
+/CONTRIBUTING.md             @yoheinakajima
+/LICENSE                     @yoheinakajima
+/schema/                     @yoheinakajima
+/vocab/                      @yoheinakajima
+/decisions/                  @yoheinakajima
+/calibration/                @yoheinakajima
+/scripts/                    @yoheinakajima
+/requirements.txt            @yoheinakajima
+/Makefile                    @yoheinakajima
+/.github/                    @yoheinakajima
+
+# interpretation: the argument, its parameters, and the records the argument rests on
+/report/                     @yoheinakajima
+/data/mechanics/             @yoheinakajima
+/data/opportunities/         @yoheinakajima
+
+# presentation
+/web/                        @yoheinakajima
+/site/                       @yoheinakajima
+/tasks/                      @yoheinakajima

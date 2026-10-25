@@ -93,9 +93,14 @@ mechanics:
   role: supporting
   note: Each world is bounded by a meteor due in thirty days, so a server's run ends with stopping it
     or with impact, and servers are commonly wiped and restarted as fresh worlds.
+- id: modding-api
+  role: supporting
+  note: 'The official modkit lets servers add C# items, recipes, and rules.'
 sources:
 - src-wikipedia-eco-2018
 - src-steam-2018-eco
 status: sourced
 provenance:
   created: 2026-10-24-catalog-gi
+  reviewed:
+  - 2026-10-25-contributor-readiness

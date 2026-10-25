@@ -68,8 +68,13 @@ mechanics:
   note: Groups give residents shared chat and voice channels.
 - id: direct-avatar
   role: supporting
+- id: modding-api
+  role: supporting
+  note: 'The Linden Scripting Language attaches scripts to in-world objects.'
 sources:
 - src-wikipedia-second-life
 status: sourced
 provenance:
   created: 2026-10-24-catalog-gi
+  reviewed:
+  - 2026-10-25-contributor-readiness

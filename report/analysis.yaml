@@ -9,7 +9,21 @@ whitespace:
   exclude_families: [time-pacing]   # pacing controls are interface choices fixed by the time model, not design gaps
   top_n: 30
 clustering:
-  k: 16                    # number of game clusters (average linkage on weighted Jaccard distance); 16 is the smallest k at which city builders separate into the zoning lineage and the production-chain lineage
+  # k is not tuned. It is the smallest k in [k_min, k_max] whose mean subsample ARI reaches min_mean_ari, selected on
+  # 2026-10-25 and fixed here so a data PR does not reshuffle every cluster (ADR-0004). W107 warns when the rule would
+  # now pick another k; re-select only in a maintenance run, by the rule, and rewrite the prose it breaks.
+  k: 23
+  stability:
+    k_min: 2
+    k_max: 30
+    subsamples: 200        # re-clusterings of random subsamples, drawn without replacement
+    fraction: 0.8          # share of games in each subsample
+    seed: 20261025         # numpy default_rng seed; fixed so the build is deterministic
+    min_mean_ari: 0.75     # selection threshold on mean adjusted Rand index between full and subsample clusterings
+    stable_cluster: 0.75   # a cluster whose mean best-match Jaccard across subsamples reaches this is stable (Hennig 2007 convention)
+    together: 0.8          # an assertion that two games share a cluster needs co-clustering in at least this share of subsamples
+    apart: 0.2             # an assertion that two games differ needs co-clustering in at most this share
+    permutations: 999      # shuffles of subgenre labels for the ARI/NMI null
   core_weight: 2.0         # weight of core vs supporting mechanics in game vectors
   idf: true                # weight each mechanic by log(N / prevalence) so ubiquitous mechanics (pause, placement) do not dominate
   top_mechanics_per_cluster: 5

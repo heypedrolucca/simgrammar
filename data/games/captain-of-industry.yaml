@@ -130,6 +130,9 @@ mechanics:
   role: supporting
 - id: free-placement
   role: supporting
+- id: modding-api
+  role: supporting
+  note: 'Official C# mod support loads new content and code.'
 influenced_by: []
 claims:
 - text: Captain of Industry entered Steam Early Access on 2022-05-31 and was still in Early Access in
@@ -148,3 +151,4 @@ provenance:
   created: 2026-10-24-catalog-gh
   reviewed:
   - 2026-10-24-review-fixes
+  - 2026-10-25-contributor-readiness

@@ -118,6 +118,9 @@ mechanics:
     planets, with range and minimum-load sliders.
 - id: free-placement
   role: supporting
+- id: modding-api
+  role: supporting
+  note: 'No official API; mods load through the de facto BepInEx loader.'
 influenced_by:
 - stellaris
 claims:
@@ -142,3 +145,4 @@ provenance:
   created: 2026-10-24-catalog-gh
   reviewed:
   - 2026-10-24-review-fixes
+  - 2026-10-25-contributor-readiness

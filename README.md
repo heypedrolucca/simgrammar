@@ -4,63 +4,57 @@ An open, machine-readable atlas of simulation game mechanics: which games use wh
 
 The repository is the research. The report, wiki, tables, graph, and site are projections of the same YAML files, rebuilt and checked on every commit, so they cannot disagree with each other.
 
-<!-- BEGIN GENERATED: stats -->
-| Entity type | Count | Sourced or verified |
-|---|---:|---:|
-| games | 174 | 172 |
-| mechanics | 199 | 171 |
-| techniques | 45 | 45 |
-| opportunities | 42 | 0 |
-| sources | 644 | 644 |
-| runs (provenance log) | 28 | n/a |
-
-Typed edges: **4244** · game→mechanic uses: **1952** · games span **1968–2026**.
-<!-- END GENERATED: stats -->
+Live counts, downloads, and the research log: **[sim.yohei.me/data](https://sim.yohei.me/data/)**.
 
 ## Read it
 
 | You want | Open |
 |---|---|
-| The website: paper with interactive figures, a page per record | **[sim.yohei.me](https://sim.yohei.me/)** · built into [`dist/web/`](dist/web/) by `scripts/web.py` |
-| The report (paper form) | [`dist/paper/paper.md`](dist/paper/paper.md) · BibTeX: [`dist/paper/references.bib`](dist/paper/references.bib) |
-| A wiki you can click through | [`dist/wiki/index.md`](dist/wiki/index.md) |
-| Sortable / filterable tables | [`dist/tables/`](dist/tables/) (games, mechanics, techniques, opportunities, sources, edges, game×mechanic matrix) |
-| A graph | [`dist/graph/`](dist/graph/) (`nodes.jsonl`/`edges.jsonl`, Cytoscape JSON, GraphML for Gephi) |
-| Analysis outputs | [`dist/analysis/`](dist/analysis/) (stats, co-occurrence, white space, clusters, exposure, figures) |
-| An interactive explorer | [`site/index.html`](site/index.html) (serve the repo root; reads `dist/site/data.json`) |
-| SQL | `make sqlite` → `dist/simgrammar.sqlite` |
-| Integrity certificate | [`dist/manifest.json`](dist/manifest.json): per-entity and dataset SHA-256 |
+| The website: paper with interactive figures, a page per record | **[sim.yohei.me](https://sim.yohei.me/)** |
+| The report (paper form) | [paper.md](https://sim.yohei.me/dist/paper/paper.md) · BibTeX: [references.bib](https://sim.yohei.me/dist/paper/references.bib) |
+| Every projection in one download | [simgrammar-dist.zip](https://sim.yohei.me/dist/simgrammar-dist.zip): tables, full records, graph, analysis, wiki, paper, manifest |
+| Tables | [games.csv](https://sim.yohei.me/dist/tables/games.csv), [mechanics.csv](https://sim.yohei.me/dist/tables/mechanics.csv), [edges.csv](https://sim.yohei.me/dist/tables/edges.csv), and the rest on the [data page](https://sim.yohei.me/data/) |
+| A graph | [nodes.jsonl](https://sim.yohei.me/dist/graph/nodes.jsonl), [edges.jsonl](https://sim.yohei.me/dist/graph/edges.jsonl), Cytoscape JSON, GraphML for Gephi |
+| The data behind any page | `data/` (one YAML file per record) and `log/runs/` (who added what, how) |
+| Integrity certificate | [manifest.json](https://sim.yohei.me/dist/manifest.json): per-record and dataset SHA-256 |
+
+`dist/` is not committed. `make build` writes it locally (it also feeds the old explorer at `site/index.html`, served from the repository root, and `make sqlite`). CI builds it on every push, checks the build is deterministic, and publishes it with the site.
 
 ## Contribute
+
+Start with [`CONTRIBUTING.md`](CONTRIBUTING.md) and the briefs in [`tasks/`](tasks/). Open issues labeled `task` are ready to claim.
 
 ```bash
 pip install -r requirements.txt
 make hooks       # optional pre-commit check
-make check       # validate + verify projections are fresh
+make check       # validate every rule, the report and record assertions, and the GENERATED blocks
 ```
 
 1. Read [`CONTRACT.md`](CONTRACT.md) (invariants and enforced rules) and [`AGENTS.md`](AGENTS.md) (procedure; written for AI agents, works for humans).
-2. Open a run: `python scripts/new.py run <slug> --kind catalog --actor human --operator <you> --purpose "..."`.
+2. Claim an issue, then open a run of the kind its brief names: `python scripts/new.py run <slug> --kind catalog --actor human --operator <you> --purpose "..."`.
 3. Search first: `python scripts/find.py "<concept>"`.
-4. Scaffold: `python scripts/new.py mechanic <id> --run <run-id>`, fill every field, cite sources.
-5. `make build && make check`, commit, open a PR.
+4. Scaffold what your run kind may create, for example `python scripts/new.py game <id> --run <run-id>` in a catalog run. Mechanics are created only in taxonomy runs; elsewhere, record a `new-mechanic` proposal (`tasks/propose-mechanic.md`).
+5. `make build && make check`, commit with `git commit -s`, and open a PR that links the issue. A PR carries one run and at most 10 records.
 
-The quickest high-value contribution is sourcing an entity from the verification queue: [`dist/analysis/verification-queue.csv`](dist/analysis/verification-queue.csv).
+High-value first contributions: verbatim quotes for existing claims (`tasks/source-claims.md`), Wayback snapshots for sources (`tasks/archive-sources.md`), store ids for games (`tasks/store-ids.md`), and independent, calibrated ratings of mechanic scores (`tasks/rate-scores.md`). The [verification queue](https://sim.yohei.me/dist/analysis/verification-queue.csv) lists records still waiting for sources.
 
 ## Layout
 
 ```
 CONTRACT.md      invariants, change classes, generated rule table
 AGENTS.md        step-by-step procedure for agents and humans
-schema/          JSON Schemas (closed) + registry.yaml (types, dirs, contract version)
+CONTRIBUTING.md  how to get work, review, licensing of contributions
+tasks/           briefs for bounded contributor jobs
+schema/          JSON Schemas (closed) + registry.yaml (types, dirs, contract version and history, PR limits)
 vocab/           closed vocabularies, edge types, anchored rubrics
 data/            canonical entities, one YAML file each
 log/runs/        append-only provenance records
+calibration/     frozen calibration set for rubric raters
 decisions/       ADRs for vocab, rubric, schema, and rule changes
 report/src/      report prose with {{tokens}}, [[links]], [@citations]
 report/          tables.yaml (declarative table views), analysis.yaml (analysis parameters), meta.yaml
-scripts/         validate.py, build.py, analyze.py, new.py, find.py
-dist/            generated projections (committed; CI fails if stale)
+scripts/         validate.py, build.py, analyze.py, new.py, find.py, calibrate.py, check_sources.py, pr_scope.py
+dist/            generated projections (gitignored; built by CI and published with the site)
 site/            static explorer over dist/site/data.json
 web/             website assets: register.css (vendored, see web/DESIGN.md) and simgrammar.js
 ```

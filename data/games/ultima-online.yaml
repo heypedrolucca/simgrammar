@@ -75,8 +75,13 @@ mechanics:
   role: supporting
   note: The 2000 Renaissance expansion split the world into Trammel, where player-versus-player combat
     is consensual, and Felucca, where it is open.
+- id: modding-api
+  role: supporting
+  note: 'Player-run free shards on server emulators such as RunUO script new content in C#.'
 sources:
 - src-wikipedia-ultima-online
 status: sourced
 provenance:
   created: 2026-10-24-catalog-gi
+  reviewed:
+  - 2026-10-25-contributor-readiness

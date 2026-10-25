@@ -1,0 +1,15 @@
+id: prediction_outcome
+description: How an opportunity's falsifiable prediction resolved. Set in `falsifiable_signal.resolution` by an independent verification run (E038).
+terms:
+  - id: confirmed
+    label: Confirmed
+    definition: Every criterion was met inside the stated window, shown by the cited evidence.
+  - id: refuted
+    label: Refuted
+    definition: The resolve-by date passed and at least one criterion was not met.
+  - id: ambiguous
+    label: Ambiguous
+    definition: Evidence exists but a criterion cannot be checked as written; the note says which and why.
+  - id: withdrawn
+    label: Withdrawn
+    definition: The prediction was retracted before its resolve-by date because its premise no longer holds; the note says why. No evidence required.

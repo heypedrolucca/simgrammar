@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://simgrammar.dev/schema/1.0/mechanic.schema.json",
+  "$id": "https://simgrammar.dev/schema/1.1/mechanic.schema.json",
   "title": "Mechanic",
   "description": "An atomic, nameable, tunable, removable rule-system. Owns requires/specializes/synergy/tension edges. Never lists games or techniques (those edges are owned elsewhere).",
   "type": "object",
@@ -56,6 +56,8 @@
       }
     },
     "open_questions": { "$ref": "common.schema.json#/$defs/text_list" },
+    "assertions": { "$ref": "common.schema.json#/$defs/assertions" },
+    "ratings": { "$ref": "common.schema.json#/$defs/ratings" },
     "claims": { "$ref": "common.schema.json#/$defs/claims" },
     "sources": { "$ref": "common.schema.json#/$defs/sources" },
     "status": { "$ref": "common.schema.json#/$defs/status" },

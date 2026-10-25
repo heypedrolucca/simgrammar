@@ -105,6 +105,9 @@ mechanics:
   role: supporting
 - id: utility-action-selection
   role: supporting
+- id: modding-api
+  role: supporting
+  note: 'Python script mods and package files load from the Mods folder.'
 influenced_by:
 - the-sims-3
 sources:
@@ -115,3 +118,4 @@ provenance:
   created: 2026-10-24-catalog-gc
   reviewed:
   - 2026-10-24-review-fixes
+  - 2026-10-25-contributor-readiness

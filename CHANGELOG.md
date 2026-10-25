@@ -2,6 +2,18 @@
 
 Contract, schema, vocabulary, and rubric changes. Data changes are tracked by run records in `log/runs/` and by git history.
 
+## 1.1 (2026-10-25)
+
+ADR-0004, contributor readiness.
+
+- **Schema:** claim `quote` and `locator`; source `archived` (Wayback snapshot); `assertions` and `ratings` on games, mechanics, techniques, opportunities; game `store_ids` (steam, igdb, wikidata); opportunity `falsifiable_signal.resolution`; run `calibration` (raw blind scores).
+- **Vocabulary:** new `prediction_outcome`; `time_model` and `modding` terms declare `requires_mechanic` / `allows_mechanic`; `modding` and `real-time-pausable` definitions sharpened.
+- **Registry:** `contract_history` (E028 now accepts any listed version no newer than the current one) and `contribution` limits.
+- **Rules:** E032 entity-assertion, E033 field-bound-mechanic, E034 evidence-quality, E035 independence, E036 calibration, E037 ratings, E038 prediction-resolution, E039 pr-scope; W105 source-archive, W106 prediction-overdue, W107 cluster-k-drift. E023 now checks GENERATED blocks only (dist/ is not committed); E029 cluster assertions require stable co-clustering and accept `cooccur.` and `cocluster.` references; E005 hint corrected.
+- **Analysis:** cluster count from a stated stability rule (k = 23), cluster stability, co-clustering, ARI and NMI against subgenre with a permutation null, `prevalence_rank`, prediction status, rater agreement, calibration results.
+- **Build and CI:** dist/ gitignored; `build.py --out`; `make determinism` in CI; Pages workflow builds and publishes dist/ with the site; `sources` workflow (claim quotes, store ids, archive suggestions); PR scope check with DCO sign-off.
+- **Docs:** CONTRIBUTING.md, CODE_OF_CONDUCT.md, `tasks/` briefs, issue forms, calibration set, CODEOWNERS for report, analysis, mechanics, opportunities, calibration.
+
 ## 1.0 (2026-10-23)
 
 - Initial contract (CONTRACT.md), schemas for game, mechanic, technique, opportunity, source, run.

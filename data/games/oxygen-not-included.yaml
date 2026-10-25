@@ -128,6 +128,9 @@ mechanics:
   role: supporting
 - id: storage-capacity
   role: supporting
+- id: modding-api
+  role: supporting
+  note: 'Steam Workshop mods are C# assemblies patched in with Harmony.'
 influenced_by:
 - dwarf-fortress
 - prison-architect
@@ -145,3 +148,4 @@ provenance:
   created: 2026-10-24-catalog-gb
   reviewed:
   - 2026-10-24-review-fixes
+  - 2026-10-25-contributor-readiness

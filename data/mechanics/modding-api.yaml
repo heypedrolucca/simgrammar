@@ -5,7 +5,7 @@ aliases:
 - mod support
 - scripting API
 - data-driven modding
-summary: Official hooks for scripts and data definitions let players change and extend the simulation's content and rules.
+summary: Hooks for scripts and data definitions, official or through a de facto loader most modders use, let players change and extend the simulation's content and rules.
 family: multiplayer-persistence
 substrate:
 - player-authored-logic
@@ -55,3 +55,5 @@ sources:
 status: sourced
 provenance:
   created: 2026-10-24-taxonomy-m7
+  reviewed:
+  - 2026-10-25-contributor-readiness

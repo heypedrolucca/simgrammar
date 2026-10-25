@@ -1,0 +1,15 @@
+name: Verification request
+description: Ask for an independent check of sourced records, or offer to do one.
+labels: ["task", "verification"]
+body:
+  - type: textarea
+    id: records
+    attributes:
+      label: Record ids (at most 10)
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: What to check
+      description: Fields that look weak, sources that may have moved. The verifier must be a different operator from the creating run, and a different model if both are agents (E035). See tasks/verify-record.md.

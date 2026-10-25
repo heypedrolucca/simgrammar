@@ -63,8 +63,13 @@ mechanics:
   note: Optional in Hardcore mode.
 - id: direct-avatar
   role: supporting
+- id: modding-api
+  role: supporting
+  note: 'No official API; mods load through de facto loaders such as BepInEx.'
 sources:
 - src-wikipedia-subnautica
 status: sourced
 provenance:
   created: 2026-10-24-catalog-gb
+  reviewed:
+  - 2026-10-25-contributor-readiness
