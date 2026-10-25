@@ -1,0 +1,36 @@
+id: 2026-10-25-review-round
+type: run
+kind: maintenance
+date: '2026-10-25'
+actor: agent
+operator: yoheinakajima
+agent:
+  model: claude-opus-5-5
+  harness: Claude app (cloud workspace), orchestrator
+purpose: Fix what an independent review found in the contract 1.1 change (run 2026-10-25-contributor-readiness, commit a88eca7).
+method: >-
+  A separate agent reviewed the committed change cold and reproduced its findings by running code. Main finding: the
+  section 5.4 cluster assertions broke when most single games were removed, because subsamples were redrawn by
+  position whenever the catalog changed and pair margins were a few hundredths. Replaced positional draws with
+  membership fixed by a hash of (seed, subsample, game id), raised the draws to 1,000, reapplied the stated k rule
+  (k = 24), raised the pair thresholds to 0.9 and 0.1, made W107 fire only beyond a 0.02 tolerance, and rewrote
+  section 5.4 to assert only pairs at or above 0.97 or at or below 0.06, stating weaker links by comparison. Ran a
+  leave-one-out test over all games and an add-one test over seven games with the final assertions (results in
+  ADR-0004). Closed the bypasses the review demonstrated (backdated runs, ratings attributed to other runs,
+  rewritten provenance, cluster labels and unknown references in assertions, wikis relabelled as documentation,
+  snapshots of other urls, out-of-order resolution outcomes) and re-ran each bypass against a scratch copy to confirm
+  it now fails. Corrected prose the numbers did not support (sections 2.6, 5.1, 5.4, 8.2, 11), pinned one more
+  opportunity thesis the broadened lint caught, versioned the calibration set, and aligned the docs with the checks.
+scope:
+  - scripts/ (analyze, report_render, report_check, validate, lib, rules, pr_scope, check_sources, calibrate)
+  - report/src (02, 05, 08, 11), report/analysis.yaml, calibration/ (renamed to mechanics-v1.yaml), schema/registry.yaml
+  - data/opportunities/placement-that-tells-stories.yaml
+  - AGENTS.md, CONTRACT.md, CONTRIBUTING.md, CHANGELOG.md, tasks/, .github/workflows, decisions/ADR-0004
+contract_version: '1.1'
+proposals:
+  - kind: rule
+    target: E032
+    detail: The dataset-finding lint is satisfied by any one assertion on the record, even an unrelated one. Consider requiring that each assertion reference an entity the record involves, or that maintainers confirm the pairing in review.
+  - kind: other
+    target: identity
+    detail: Operator is bound to the PR author, but actor and model are self-declared. If agent contributions grow, require agent runs to come from a registered bot account per model so the model id is attested rather than claimed.

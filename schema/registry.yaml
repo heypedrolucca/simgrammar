@@ -11,7 +11,7 @@ contribution:
   max_sources_per_pr: 30        # source files added or changed in one PR
   bulk_label: bulk              # a maintainer-applied PR label that lifts both limits
   run_typo_label: run-typo      # a maintainer-applied PR label that allows editing a merged run file
-  calibration_set: calibration/mechanics.yaml
+  calibration_set: calibration/mechanics-v1.yaml   # the current set; retired sets stay in calibration/ so merged runs are judged against the set they name
   calibration_min_within_one: 0.8   # share of calibration scores within one anchor of the frozen set
 types:
   game:

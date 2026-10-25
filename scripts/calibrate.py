@@ -9,8 +9,13 @@ Before a run creates mechanics or adds mechanic `ratings`, its rater scores the 
   python scripts/calibrate.py score /tmp/sheet.yaml --write-run <run-id>   # record the scores in the run file
 
 The run file keeps the raw scores, never the agreement numbers; the validator and the build compute agreement from
-them, so a recorded calibration cannot drift from what it claims. Do the sheet before opening data/mechanics/: the
-check is only as blind as the rater makes it.
+them, so a recorded calibration cannot drift from what it claims.
+
+Limits, stated plainly: the reference scores are public (they equal the stored scores, which the validator requires),
+so nothing can force a rater to score blind, and a rater could rescore until it passes. The score command therefore
+reports only overall agreement, and a run records one calibration. What the gate establishes is that a rater who
+follows the procedure reads the anchors the way the set does; independence of verification (E035) and review do the
+rest.
 """
 from __future__ import annotations
 
@@ -62,9 +67,6 @@ def score(path: Path, write_run: str | None) -> int:
     thr = (reg.get("contribution") or {}).get("calibration_min_within_one", 0.8)
     print(f"set {cal['id']}: {ag['n']} scores, {ag['missing']} missing")
     print(f"exact {ag['exact']}  within-one {ag['within_one']}  quadratic kappa {ag['kappa_quadratic']}  (threshold within-one >= {thr})")
-    for s in CALIBRATION_SCALES:
-        one = calibration_agreement({m: {s: g[s]} for m, g in gold.items()}, scores)
-        print(f"  {s:20s} exact {one['exact']}  within-one {one['within_one']}")
     ok = ag["within_one"] is not None and ag["within_one"] >= thr and not ag["missing"]
     print("PASS" if ok else "BELOW THRESHOLD: reread the anchors where you disagreed and recalibrate")
     block = {"calibration": {"set": cal["id"], "scores": {m: {s: scores.get(m, {}).get(s) for s in CALIBRATION_SCALES} for m in sorted(gold)}}}

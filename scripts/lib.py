@@ -272,9 +272,50 @@ CALIBRATION_SCALES = ("legibility", "emergence_potential", "authoring_cost", "co
 
 
 def load_calibration(registry: dict) -> dict | None:
+    """The current calibration set (registry `contribution.calibration_set`)."""
     rel = (registry.get("contribution") or {}).get("calibration_set")
     p = ROOT / rel if rel else None
     return read_yaml(p) if p and p.exists() else None
+
+
+def load_calibration_sets() -> dict[str, dict]:
+    """Every calibration set in calibration/, by id. Retired sets stay so merged runs keep the set they were scored on."""
+    out = {}
+    for p in sorted((ROOT / "calibration").glob("*.yaml")):
+        d = read_yaml(p) or {}
+        if d.get("id"):
+            d["_path"] = p
+            out[str(d["id"])] = d
+    return out
+
+
+def normalize_model(m) -> str:
+    """Model ids compared without case, punctuation, or spacing: claude-opus-5.5 and Claude Opus 5-5 are the same model."""
+    return re.sub(r"[^a-z0-9]", "", str(m or "").lower())
+
+
+WIKI_HOST = re.compile(r"(^|\.)(wikipedia\.org|wikimedia\.org|fandom\.com|wikia\.(com|org)|wiki\.gg|wikidot\.com)$|wiki", re.I)
+
+
+def is_wiki_source(src: dict) -> bool:
+    """Encyclopedia kind, or a url whose host is a wiki farm or names a wiki, whatever kind the record claims (E034)."""
+    if src.get("kind") == "encyclopedia":
+        return True
+    url = str(src.get("url") or "")
+    host = re.sub(r"^https?://", "", url).split("/")[0].split(":")[0]
+    return bool(host and WIKI_HOST.search(host)) or "/wiki/" in url
+
+
+def archive_target(archived: str) -> str:
+    """The url inside a Wayback snapshot url."""
+    m = re.match(r"^https://web\.archive\.org/web/[0-9]{8,14}(?:[a-z_]{2,3})?/(.+)$", archived or "")
+    return m.group(1) if m else ""
+
+
+def same_url(a: str, b: str) -> bool:
+    def norm(u):
+        return re.sub(r"^https?://(www\.)?", "", (u or "").strip()).rstrip("/").lower()
+    return norm(a) == norm(b)
 
 
 def calibration_agreement(gold: dict, scores: dict) -> dict:
@@ -323,8 +364,8 @@ def independent(a, b) -> bool:
     if str(a.data.get("operator", "")).strip().lower() == str(b.data.get("operator", "")).strip().lower():
         return False
     if a.data.get("actor") == "agent" and b.data.get("actor") == "agent":
-        ma = str((a.data.get("agent") or {}).get("model", "")).strip().lower()
-        mb = str((b.data.get("agent") or {}).get("model", "")).strip().lower()
+        ma = normalize_model((a.data.get("agent") or {}).get("model"))
+        mb = normalize_model((b.data.get("agent") or {}).get("model"))
         if not ma or not mb or ma == mb:
             return False
     return True
@@ -335,9 +376,9 @@ def rubric_fields(schema: dict) -> dict[str, str]:
     return {k: v["x-rubric"] for k, v in schema.get("properties", {}).items() if isinstance(v, dict) and v.get("x-rubric")}
 
 
-def lower_median(values: list[int]) -> int:
-    vs = sorted(values)
-    return vs[(len(vs) - 1) // 2]
+def lower_median(values: list) -> int | None:
+    vs = sorted(v for v in values if isinstance(v, int) and not isinstance(v, bool))
+    return vs[(len(vs) - 1) // 2] if vs else None
 
 
 def get_path(obj: dict, dotted: str) -> Any:

@@ -16,7 +16,9 @@ What it checks:
                  0.6-0.85 warns, below 0.6 fails); store_ids.wikidata likewise against the item's English label. IGDB needs an API key and is
                  checked for format only (schema).
   archives       with --suggest-archive, prints the closest existing Wayback snapshot for sources lacking `archived`.
-Fetch failures (paywalls, bot walls, timeouts) are reported as warnings, never as failures: a human then checks.
+Fetch failures (paywalls, bot walls, timeouts), quotes missing only from a DOI or arXiv abstract page, and store ids
+that do not resolve are warnings, never failures: the reviewer checks those by hand. A quote missing from a page that
+holds the full text (the archived snapshot, a plain url, arXiv HTML) fails.
 """
 from __future__ import annotations
 
@@ -115,16 +117,24 @@ class Fetcher:
         return text, ctype, err
 
 
-def locator(src: dict) -> str | None:
+def candidates(src: dict) -> list[tuple[str, bool]]:
+    """Pages to search for a quote, with whether each holds the full text. An archived snapshot and a plain url do;
+    a DOI landing page or an arXiv abstract page usually does not, so arXiv's HTML full text is tried as well."""
+    out = []
     if src.get("archived"):
-        return src["archived"]
+        out.append((src["archived"], True))
     if src.get("url"):
-        return src["url"]
-    if src.get("doi"):
-        return f"https://doi.org/{src['doi']}"
+        out.append((src["url"], "doi.org/" not in src["url"] and "arxiv.org/abs/" not in src["url"]))
     if src.get("arxiv"):
-        return f"https://arxiv.org/abs/{src['arxiv']}"
-    return None
+        out += [(f"https://arxiv.org/html/{src['arxiv']}", True), (f"https://arxiv.org/abs/{src['arxiv']}", False)]
+    if src.get("doi"):
+        out.append((f"https://doi.org/{src['doi']}", False))
+    seen, uniq = set(), []
+    for u, full in out:
+        if u not in seen:
+            seen.add(u)
+            uniq.append((u, full))
+    return uniq
 
 
 def similar(a: str, b: str) -> float:
@@ -142,7 +152,8 @@ def judge(e, names, got, label, fails, warns) -> int:
     best = max(similar(n, got) for n in names)
     if best >= 0.85:
         return 1
-    msg = f"{e.id}: {label} is '{got}', not '{e.data.get('name')}' (similarity {best:.2f}); fix the id or add the store name to aliases"
+    msg = (f"{e.id}: {label} is '{got}', not '{e.data.get('name')}' (similarity {best:.2f}). If this is a different game or edition, "
+           "fix the id; only if the store lists this same game under another name, add that name to aliases")
     (fails if best < 0.6 else warns).append(msg)
     return 0
 
@@ -181,17 +192,28 @@ def main():
                 if not q:
                     continue
                 src = by_id.get((c.get("sources") or [None])[0])
-                url = locator(src.data) if src else None
-                if not url:
-                    warns.append(f"{e.id} {kind}[{i}]: first source has no fetchable locator")
+                urls = candidates(src.data) if src else []
+                if not urls:
+                    warns.append(f"{e.id} {kind}[{i}]: first source has no fetchable locator (ISBN only?); a reviewer checks the quote by hand")
                     continue
-                text, ctype, err = f.get(url)
-                if text is None:
-                    warns.append(f"{e.id} {kind}[{i}]: could not fetch {url} ({err}); check the quote by hand")
-                elif normalize(q) in page_text(text, ctype):
+                found, fetched, landing_only = False, [], True
+                for url, is_full_text in urls:
+                    text, ctype, err = f.get(url)
+                    if text is None:
+                        continue
+                    fetched.append(url)
+                    landing_only = landing_only and not is_full_text
+                    if normalize(q) in page_text(text, ctype):
+                        found = True
+                        break
+                if found:
                     oks += 1
+                elif not fetched:
+                    warns.append(f"{e.id} {kind}[{i}]: could not fetch {urls[0][0]}; a reviewer checks the quote by hand")
+                elif landing_only:
+                    warns.append(f"{e.id} {kind}[{i}]: quote not on the landing or abstract page {fetched[0]}; the full text may hold it, so a reviewer checks by hand")
                 else:
-                    fails.append(f"{e.id} {kind}[{i}]: quote not found in {url}: \"{q[:80]}\"")
+                    fails.append(f"{e.id} {kind}[{i}]: quote not found in {', '.join(fetched)}: \"{q[:80]}\"")
         ids = e.data.get("store_ids") or {}
         names = [e.data.get("name", "")] + list(e.data.get("aliases") or [])
         if "steam" in ids:

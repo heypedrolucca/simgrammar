@@ -33,7 +33,7 @@ jobs:
           mkdir -p _site/dist
           cp -r dist/web/. _site/
           cp -r dist/tables dist/entities dist/graph dist/analysis dist/wiki dist/paper dist/site dist/manifest.json _site/dist/
-          (cd dist && zip -qrX ../_site/dist/simgrammar-dist.zip tables entities graph analysis wiki paper manifest.json)
+          (cd dist && zip -qrX ../_site/dist/simgrammar-dist.zip tables entities graph analysis wiki paper site manifest.json)
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

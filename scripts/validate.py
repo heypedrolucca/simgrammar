@@ -25,8 +25,13 @@ from lib import (  # noqa: E402
     Edge,
     calibration_agreement,
     extract_edges,
+    archive_target,
     independent,
+    is_wiki_source,
     load_calibration,
+    load_calibration_sets,
+    normalize_model,
+    same_url,
     lower_median,
     rubric_fields,
     load_entities,
@@ -45,9 +50,12 @@ ACYCLIC = ("requires", "specializes", "builds_on", "influenced_by")
 PREDICTION_WINDOW_START = "2026-10-24"  # ADR-0003: predictions count only features first shipped after this date
 # Entity text that states a finding about this dataset must carry `assertions` (E032).
 DATASET_FINDING = re.compile(
-    r"(white-space analysis|co-occurrence analysis|cluster(?:ing)? analysis|no technique in the (?:catalog|dataset)"
-    r"|most[- ](?:common|used|widely used|prevalent)\b[^.;:]{0,60}\b(?:catalog|dataset)"
-    r"|(?:common|rare|prevalent|frequent)\w*\s+in the (?:catalog|dataset)|most-used rule-system|most common mechanic)",
+    r"(white-space analysis|co-occurrence analysis|cluster(?:ing)? analysis|whitespace table|co-occurrence table"
+    r"|\b(?:in|across|from|of) (?:the|this|our) (?:catalog|catalogue|dataset|data set|corpus)\b"
+    r"|\bthe (?:catalog|catalogue|dataset)(?:'s)? (?:shows|has|contains|lacks|includes)"
+    r"|\bmost[- ](?:common|used|widely[- ]used|prevalent|frequent|popular)\b"
+    r"|\b(?:least|rarely|seldom|never|almost never|hardly ever) (?:used|combined|coupled|paired|appear|co-occur)"
+    r"|\bno technique (?:in|links|is linked|targets)|\bmore (?:\w+ ){0,3}than any other)",
     re.I,
 )
 TEXT_EXEMPT = ("claims", "key_results", "assertions", "ratings", "provenance", "sources", "aliases")
@@ -119,9 +127,16 @@ def run(data_only: bool = False) -> Findings:
     for p, msg in parse_errors:
         F.add("E001", p, msg)
     for r in ents.get("run", []):
-        rv = r.data.get("contract_version")
-        if rv is not None and (str(rv) not in history or version_key(str(rv)) > version_key(cv)):
+        rv = str(r.data.get("contract_version") or "1.0")
+        rdate = str(r.data.get("date", ""))
+        if rv not in history or version_key(rv) > version_key(cv):
             F.add("E028", r.path, f"run records contract_version {rv}, which is not a listed version no newer than {cv}", "contract_version")
+            continue
+        if history[rv] > rdate:
+            F.add("E028", r.path, f"run is dated {rdate}, before contract {rv} took effect ({history[rv]})", "date")
+        in_force = [v for v, d in history.items() if d < rdate]
+        if in_force and version_key(rv) < max(version_key(v) for v in in_force):
+            F.add("E028", r.path, f"run dated {rdate} records contract {rv}, older than the version in force that day; record the current version", "contract_version")
 
     edge_types = vocab_terms(vocabs, "edge_types")
     rubrics = vocabs["rubrics"]["scales"]
@@ -339,9 +354,9 @@ def run(data_only: bool = False) -> Findings:
                     F.add("E031", e.path, "status 'verified' requires a reviewed run of kind 'verification', distinct from and not earlier than the creating run", "provenance")
                 elif not indep:
                     F.add("E035", e.path, "no verification run is independent of the creating run (different operator, and a different model when both are agents)", "provenance")
-                kinds = {by_id[s].data.get("kind") for s in srcs if s in by_id}
-                if srcs and kinds <= {"encyclopedia"}:
-                    F.add("E034", e.path, "status 'verified' rests only on encyclopedia or wiki sources; cite a primary source or keep 'sourced'", "sources")
+                cited = [by_id[x].data for x in srcs if x in by_id]
+                if cited and all(is_wiki_source(c) for c in cited):
+                    F.add("E034", e.path, "status 'verified' rests only on encyclopedia or wiki sources (by kind or by url); cite a primary source or keep 'sourced'", "sources")
             if st == "contested" and not any(c.get("disputes") for c in e.data.get("claims") or []):
                 F.add("E026", e.path, "contested entity needs a claim with `disputes`", "claims")
 
@@ -424,7 +439,7 @@ def run(data_only: bool = False) -> Findings:
                 allowed = ", ".join(f"{f}={t}" for f, t in sorted(spec["requires"] | spec["allows"]))
                 F.add("E033", g.path, f"tags '{mid}' but only games with {allowed} may", "mechanics")
 
-    # ---- ratings (E037)
+    # ---- ratings (E037; independence of raters is E035)
     rubric_by_type = {t: rubric_fields(schemas[Path(registry["types"][t]["schema"]).name]) for t in registry["types"]}
     for tname, lst in ents.items():
         for e in lst:
@@ -432,7 +447,8 @@ def run(data_only: bool = False) -> Findings:
             if not rs:
                 continue
             fields = rubric_by_type.get(tname, {})
-            seen_rf = set()
+            created_id = (e.data.get("provenance") or {}).get("created")
+            creator = runs.get(created_id)
             per_field = defaultdict(list)
             for i, r in enumerate(rs):
                 fld, val = r.get("field"), r.get("value")
@@ -440,26 +456,39 @@ def run(data_only: bool = False) -> Findings:
                     F.add("E037", e.path, f"rating {i} names '{fld}', which is not a rubric-scored field of a {tname}", f"ratings/{i}")
                     continue
                 if val not in (rubrics.get(fields[fld]) or {}).get("levels", {}):
-                    F.add("E037", e.path, f"rating {i} value {val} is not an anchor of '{fields[fld]}'", f"ratings/{i}")
-                if (r.get("run"), fld) in seen_rf:
-                    F.add("E037", e.path, f"run '{r.get('run')}' rates '{fld}' twice", f"ratings/{i}")
-                seen_rf.add((r.get("run"), fld))
-                per_field[fld].append(val)
-            for fld, vals in sorted(per_field.items()):
-                med = lower_median([v for v in vals if isinstance(v, int)])
-                if e.data.get(fld) != med:
-                    F.add("E037", e.path, f"'{fld}' stores {e.data.get(fld)} but the lower median of its {len(vals)} rating(s) is {med}", fld)
+                    F.add("E037", e.path, f"rating {i} value {val!r} is not an anchor of '{fields[fld]}'", f"ratings/{i}")
+                per_field[fld].append((i, r))
+            for fld, entries in sorted(per_field.items()):
+                if created_id not in [r.get("run") for _, r in entries]:
+                    F.add("E037", e.path, f"ratings of '{fld}' must include the original score, as a rating from the creating run '{created_id}'", "ratings")
+                raters = {}
+                for i, r in entries:
+                    rr = runs.get(r.get("run"))
+                    if rr is None:
+                        continue  # E013 reports it
+                    who = (str(rr.data.get("operator", "")).strip().lower(), normalize_model((rr.data.get("agent") or {}).get("model")) if rr.data.get("actor") == "agent" else "")
+                    if who in raters:
+                        F.add("E037", e.path, f"'{fld}' has two ratings from the same operator and model (runs {raters[who]} and {rr.id}); one rater, one rating", f"ratings/{i}")
+                    raters.setdefault(who, rr.id)
+                    if rr.id == created_id:
+                        continue
+                    if rr.data.get("kind") != "verification":
+                        F.add("E037", e.path, f"rating {i} comes from a {rr.data.get('kind')} run; only the creating run and verification runs rate", f"ratings/{i}")
+                    if not independent(rr, creator):
+                        F.add("E035", e.path, f"rating {i} comes from a run that is not independent of the creating run", f"ratings/{i}")
+                med = lower_median([r.get("value") for _, r in entries])
+                if med is not None and e.data.get(fld) != med:
+                    F.add("E037", e.path, f"'{fld}' stores {e.data.get(fld)} but the lower median of its {len(entries)} rating(s) is {med}", fld)
 
-    # ---- calibration (E036)
+    # ---- calibration (E036): frozen scores of the current set, and each run judged against the set it names
     cal = load_calibration(registry)
+    sets = load_calibration_sets()
     contrib = registry.get("contribution") or {}
-    cal_path = ROOT / contrib.get("calibration_set", "calibration/mechanics.yaml")
-    gold = {}
+    cal_path = ROOT / contrib.get("calibration_set", "calibration/mechanics-v1.yaml")
     if cal is None:
-        F.add("E036", cal_path, "calibration set file is missing")
+        F.add("E036", cal_path, "current calibration set file is missing")
     else:
-        gold = cal.get("mechanics") or {}
-        for mid, sc in sorted(gold.items()):
+        for mid, sc in sorted((cal.get("mechanics") or {}).items()):
             mech = by_id.get(mid)
             if mech is None or mech.type != "mechanic" or mech.data.get("deprecated"):
                 F.add("E036", cal_path, f"calibration mechanic '{mid}' is not a live mechanic")
@@ -467,29 +496,31 @@ def run(data_only: bool = False) -> Findings:
             for scale in CALIBRATION_SCALES:
                 if sc.get(scale) != mech.data.get(scale):
                     F.add("E036", mech.path, f"{scale} is {mech.data.get(scale)} but the calibration set froze {sc.get(scale)}; a score change on a set mechanic must update {cal_path.relative_to(ROOT)} in the same PR (maintainer review)", scale)
-    gate_date = history.get("1.1", "9999-12-31")
-    rating_runs = {r.get("run") for t in ("mechanic",) for e in ents.get(t, []) for r in e.data.get("ratings") or []}
-    creators = {e.data.get("provenance", {}).get("created") for e in ents.get("mechanic", [])}
+    rating_runs = {r.get("run") for e in ents.get("mechanic", []) for r in e.data.get("ratings") or [] if r.get("run") != (e.data.get("provenance") or {}).get("created")}
+    creators = {(e.data.get("provenance") or {}).get("created") for e in ents.get("mechanic", [])}
+    thr = contrib.get("calibration_min_within_one", 0.8)
     for r in ents.get("run", []):
         c = r.data.get("calibration")
+        named = sets.get(str((c or {}).get("set")))
         if c:
-            if cal is not None and c.get("set") != cal.get("id"):
-                F.add("E036", r.path, f"calibration set '{c.get('set')}' is not the current set '{cal.get('id')}'", "calibration")
-            missing = [f"{mid}.{sc}" for mid in sorted(gold) for sc in CALIBRATION_SCALES if (c.get("scores") or {}).get(mid, {}).get(sc) is None]
-            extra = sorted(set(c.get("scores") or {}) - set(gold))
-            if missing:
-                F.add("E036", r.path, f"calibration is missing {len(missing)} score(s), first {missing[0]}", "calibration")
-            if extra:
-                F.add("E036", r.path, f"calibration scores mechanics outside the set: {', '.join(extra[:3])}", "calibration")
-        needs = (r.id in rating_runs or r.id in creators) and str(r.data.get("date")) >= gate_date
-        if needs:
-            if not c:
-                F.add("E036", r.path, "this run creates mechanics or writes mechanic ratings, so it needs a `calibration` block (python scripts/calibrate.py sheet)", "calibration")
+            if named is None:
+                F.add("E036", r.path, f"calibration names set '{c.get('set')}', which is not in calibration/", "calibration")
             else:
-                ag = calibration_agreement(gold, c.get("scores") or {})
-                thr = contrib.get("calibration_min_within_one", 0.8)
+                gold = named.get("mechanics") or {}
+                missing = [f"{mid}.{sc}" for mid in sorted(gold) for sc in CALIBRATION_SCALES if (c.get("scores") or {}).get(mid, {}).get(sc) is None]
+                extra = sorted(set(c.get("scores") or {}) - set(gold))
+                if missing:
+                    F.add("E036", r.path, f"calibration is missing {len(missing)} score(s), first {missing[0]}", "calibration")
+                if extra:
+                    F.add("E036", r.path, f"calibration scores mechanics outside the set: {', '.join(extra[:3])}", "calibration")
+        gated = version_key(str(r.data.get("contract_version") or "1.0")) >= (1, 1)
+        if gated and (r.id in rating_runs or r.id in creators):
+            if not c or named is None:
+                F.add("E036", r.path, "this run creates mechanics or writes mechanic ratings, so it needs a `calibration` block against a set in calibration/ (python scripts/calibrate.py sheet)", "calibration")
+            else:
+                ag = calibration_agreement(named.get("mechanics") or {}, c.get("scores") or {})
                 if ag["within_one"] is None or ag["within_one"] < thr:
-                    F.add("E036", r.path, f"calibration within-one agreement {ag['within_one']} is below {thr}; reread the rubric anchors and recalibrate", "calibration")
+                    F.add("E036", r.path, f"calibration within-one agreement {ag['within_one']} is below {thr}; reread the rubric anchors and recalibrate in a new run", "calibration")
 
     # ---- prediction resolution (E038) and overdue predictions (W106)
     for o in ents.get("opportunity", []):
@@ -507,8 +538,21 @@ def run(data_only: bool = False) -> Findings:
                 F.add("E038", o.path, f"resolution date {d} must fall between {PREDICTION_WINDOW_START} and today", "falsifiable_signal/resolution/date")
             if res.get("outcome") != "withdrawn" and not res.get("evidence"):
                 F.add("E038", o.path, f"outcome '{res.get('outcome')}' needs `evidence` sources", "falsifiable_signal/resolution/evidence")
+            rb = str(sig.get("resolve_by", ""))
+            if res.get("outcome") == "refuted" and d[: len(rb)] < rb:
+                F.add("E038", o.path, f"'refuted' needs the resolve-by date ({rb}) to have passed; before it, a prediction can still come true", "falsifiable_signal/resolution/outcome")
+            if res.get("outcome") == "withdrawn" and d[: len(rb)] >= rb:
+                F.add("E038", o.path, f"'withdrawn' is only for retracting before the resolve-by date ({rb}); after it, resolve as confirmed, refuted, or ambiguous", "falsifiable_signal/resolution/outcome")
         elif str(sig.get("resolve_by", "9999")) < TODAY.isoformat()[: len(str(sig.get("resolve_by", "9999")))]:
             F.add("W106", o.path, f"prediction resolve_by {sig.get('resolve_by')} has passed without a resolution", "falsifiable_signal")
+
+    # ---- archived snapshots must be of the source's own url (E034)
+    for src in ents.get("source", []):
+        arch = src.data.get("archived")
+        if arch:
+            target = archive_target(arch)
+            if not src.data.get("url") or not same_url(target, src.data.get("url")):
+                F.add("E034", src.path, f"`archived` is a snapshot of '{target}', not of this source's url", "archived")
 
     # ---- dates
     for t in ents.get("technique", []):

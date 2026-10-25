@@ -24,9 +24,9 @@ python scripts/new.py run <slug> --kind <kind> --actor agent --operator <github-
   --model <model-id> --harness "<tool you run in>" --purpose "<one sentence>"
 ```
 
-`--kind` says what the run may do: `taxonomy` (the only kind that may create mechanics), `catalog` (games), `technique`, `synthesis` (opportunities, report), `verification` (the only kind that may set `status: verified`, add independent `ratings`, or resolve a prediction), `maintenance`. The validator enforces this (E031, E038).
+`--kind` says what the run may do: `taxonomy` (the only kind that may create mechanics), `catalog` (games), `technique`, `synthesis` (opportunities, report), `verification` (the only kind that may set `status: verified`, add `ratings` to someone else's record, or resolve a prediction), `maintenance`. The validator enforces this (E031, E037, E038).
 
-`--operator` is the accountable human's GitHub handle and `--model` the exact model id. Independence is checked on both: a run that verifies, rates, or resolves someone's work needs a different operator, and a different model when both runs are agents (E035). A run that creates mechanics or adds mechanic ratings first records a blind calibration (`python scripts/calibrate.py sheet`, then `score --write-run <run-id>`; E036, `tasks/rate-scores.md`).
+`--operator` is the accountable human's GitHub handle, and must be the account that opens the PR (E039); `--model` is the exact model id. Record both truthfully: the checks below compare them, and they cannot detect a false entry. Independence is checked on both: a run that verifies, rates, or resolves someone's work needs a different operator, and a different model when both runs are agents (E035). A run that creates mechanics or adds mechanic ratings first records a blind calibration (`python scripts/calibrate.py sheet`, then `score --write-run <run-id>`; E036, `tasks/rate-scores.md`).
 
 Fill `method` (what you searched, read, or computed) and keep `proposals` for anything you wanted to do but this file does not allow. Every entity you create gets `provenance.created: <run-id>`. Every existing entity you re-check gets your run id appended to `provenance.reviewed`.
 
@@ -65,8 +65,8 @@ Names at least one mechanic in `involves`, has a `validation_experiment` a small
 | Situation | Rule |
 |---|---|
 | Categorical field | Use an existing term from the vocab file named in the schema (`x-vocab`). Missing term → proposal `vocab-term`, pick the closest existing term now. |
-| Ordinal score | Read the anchors in `vocab/rubrics.yaml`. Pick the anchor whose text matches. Between two, take the lower. Never adjust a score to make a ranking come out a certain way. To disagree with an existing score, add a `ratings` entry (field, value, run, rationale) instead of overwriting; the stored value is the lower median of the ratings (E037). |
-| Claim | `text` says what the source supports; `quote` is the shortest verbatim passage from the first source that supports it, `locator` says where. CI fetches the source and fails if the quote is not there. |
+| Ordinal score | Read the anchors in `vocab/rubrics.yaml`. Pick the anchor whose text matches. Between two, take the lower. Never adjust a score to make a ranking come out a certain way. To disagree with an existing score, do not overwrite it: in a verification run, record the original score as a rating from the creating run (unchanged), add your own rating (field, value, run, rationale), and store the lower median (E037). |
+| Claim | `text` says what the source supports; `quote` is the shortest verbatim passage from the first source that supports it, `locator` says where. Every new claim carries a quote (E039). CI fetches the source and fails when a page holding the full text lacks the quote; when it can only reach an abstract or landing page, it warns and the reviewer checks. |
 | Text about the dataset | A sentence in any record that states a finding about this catalog ("the most used", "rarely combined", "no technique links to") carries `assertions` that fail the build when the data changes (E032), e.g. `derived.tech-tree.prevalence_rank <= 5`, `cooccur.power-grid.weather <= 1`, `rank.whitespace.lifecycle-aging.production-chain <= 10`. |
 | `time_model`, `modding` | Two mechanics follow these fields exactly (E033): `real-time-pausable` games tag `variable-speed`; `scripting` and `total-conversion` games tag `modding-api`. Pick the true field term, then tag. |
 | `store_ids` | Steam app id, IGDB slug, Wikidata id, only for the exact edition the record describes (`tasks/store-ids.md`). |
@@ -109,7 +109,7 @@ Names at least one mechanic in `involves`, has a `validation_experiment` a small
 | `{{figure:<name>}}` | an SVG from `dist/analysis/figures/` |
 | `{{viz:<name>}}` | an interactive figure from `scripts/viz.py`: a static SVG in `paper.md`, interactive on the website, always with a plain-text twin table |
 | `{{vocab:<vocab>:<term>}}` | a vocab label |
-| `{{assert:<ref> <op> <value\|ref>}}` | renders nothing; fails the build (E029) if false. Put one next to every sentence that interprets a ranking, sign, ordering, or grouping. `<ref>` is a stat (`rho_legibility_emergence_potential < 0`), an entity's derived field (`derived.rimworld.cluster == derived.dwarf-fortress.cluster`), a stored field (`field.genie-world-models.maturity == prototype`), a row rank in a generated table (`rank.whitespace.lifecycle-aging.production-chain <= 10`; 9999 when absent), a co-occurrence count (`cooccur.power-grid.weather <= 1`), or a co-clustering share (`cocluster.rimworld.the-sims < 0.8`). A cluster-membership assertion passes only if the pair co-clusters in at least `clustering.stability.together` of resampled clusterings (at most `apart` for `!=`), so assert only groupings that are stable |
+| `{{assert:<ref> <op> <value\|ref>}}` | renders nothing; fails the build (E029) if false. Put one next to every sentence that interprets a ranking, sign, ordering, or grouping. `<ref>` is a stat (`rho_legibility_emergence_potential < 0`), an entity's derived field (`derived.rimworld.cluster == derived.dwarf-fortress.cluster`), a stored field (`field.genie-world-models.maturity == prototype`), a row rank in a generated table (`rank.whitespace.lifecycle-aging.production-chain <= 10`; 9999 when no row holds all the ids, an error when the table never mentions one), a co-occurrence count (`cooccur.power-grid.weather <= 1`), or a co-clustering share (`cocluster.rimworld.the-sims < 0.8`). A cluster-membership assertion passes only if the pair co-clusters in at least `clustering.stability.together` of resampled clusterings (at most `apart` for `!=`), so assert only groupings that are stable, and describe weaker links by comparison (`cocluster.a.b < cocluster.a.c`). Cluster labels (`C03`) and ranks in the cluster tables change with k and are rejected |
 | `[[id]]`, `[[id\|text]]` | link to an entity |
 | `[@src-id]`, `[@src-a; @src-b]` | numbered citation |
 
@@ -123,6 +123,7 @@ Never type a dataset count ("140 games") into prose (E021). When a sentence inte
 
 - Edit anything between `<!-- BEGIN GENERATED -->` markers, or commit `dist/` (it is gitignored; CI builds it).
 - Cite a source you did not open, paraphrase inside a `quote`, or verify, rate, or resolve work from your own operator or model.
+- Change an existing record's `provenance.created`, drop a `reviewed` entry, or attribute a rating to any run but your own (E039).
 - Put more than 10 records or 30 sources in one PR, or more than one run (E039).
 - Add a field, vocab term, edge type, or rubric anchor without an ADR (`decisions/`).
 - Change or reuse an id. Delete a merged entity (deprecate it).

@@ -9,6 +9,7 @@ Never stores anything back into data/. Same inputs -> byte-identical outputs.
 """
 from __future__ import annotations
 
+import hashlib
 import math
 from collections import Counter, defaultdict
 from itertools import combinations
@@ -249,43 +250,55 @@ def compute(ents: dict, edges: list, vocabs: dict) -> dict:
                 D[i, j] = D[j, i] = d
         shared.update({"game_ids": [g.id for g in games], "game_distance": D})
         Z = linkage(squareform(D, checks=False), method="average")
-        # stability: re-cluster random subsamples (without replacement) and compare with the full solution.
-        # k is chosen by the rule stated in report/analysis.yaml, never by what the clusters look like.
-        rng = np.random.default_rng(st_cfg["seed"])
-        n_sub = int(round(st_cfg["fraction"] * N))
-        subs = [np.sort(rng.choice(N, n_sub, replace=False)) for _ in range(st_cfg["subsamples"])]
-        Zs = [linkage(squareform(D[np.ix_(s, s)], checks=False), method="average") for s in subs]
+        # stability: re-cluster subsamples and compare with the full solution. Each game joins subsample b when a seeded
+        # hash of (b, game id) falls below `fraction`, so adding or removing one game leaves every other game's
+        # memberships unchanged and does not redraw the subsamples. k is chosen by the rule stated in
+        # report/analysis.yaml, never by what the clusters look like.
+        B, frac, seed = int(st_cfg["subsamples"]), float(st_cfg["fraction"]), st_cfg["seed"]
+        gids = [g.id for g in games]
+        subs = []
+        for b in range(B):
+            u = np.array([int(hashlib.sha256(f"{seed}:{b}:{gid}".encode()).hexdigest()[:12], 16) / 16 ** 12 for gid in gids])
+            subs.append(np.flatnonzero(u < frac))
+        Zs = [linkage(squareform(D[np.ix_(sb, sb)], checks=False), method="average") for sb in subs]
         curve = []
         for kk in range(st_cfg["k_min"], st_cfg["k_max"] + 1):
             Lk = fcluster(Z, t=kk, criterion="maxclust")
-            aris = [_ari(Lk[s], fcluster(Zb, t=kk, criterion="maxclust")) for s, Zb in zip(subs, Zs)]
-            curve.append({"k": kk, "clusters": int(len(set(Lk))), "mean_ari": _r(float(np.mean(aris)), 3), "_mean": float(np.mean(aris)),
-                          "p10_ari": _r(float(np.percentile(aris, 10)), 3),
+            aris = [_ari_int(Lk[sb], fcluster(Zb, t=kk, criterion="maxclust")) for sb, Zb in zip(subs, Zs)]
+            curve.append({"k": kk, "clusters": int(len(set(Lk.tolist()))), "mean_ari": _r(float(np.mean(aris)), 4), "_mean": float(np.mean(aris)),
+                          "p10_ari": _r(float(np.percentile(aris, 10)), 4),
                           "largest_cluster_share": _r(Counter(Lk.tolist()).most_common(1)[0][1] / N, 2)})
-        passing = [r for r in curve if r["_mean"] >= st_cfg["min_mean_ari"]]
+        thr, tol = float(st_cfg["min_mean_ari"]), float(st_cfg.get("drift_tolerance", 0.0))
+        passing = [r for r in curve if r["_mean"] >= thr]
         k_rule = passing[0]["k"] if passing else max(curve, key=lambda r: (r["_mean"], -r["k"]))["k"]
         k_chosen = int(cl["k"])
+        mean_at = {r["k"]: r["_mean"] for r in curve}
+        # drift only when the evidence is clear: the configured k has fallen well below the threshold, or a smaller k
+        # now clears it by the same margin. Differences inside the margin are resampling noise, not a reason to move k.
+        drift = (k_chosen in mean_at and mean_at[k_chosen] < thr - tol) or any(r["_mean"] >= thr + tol for r in curve if r["k"] < k_chosen)
         for r in curve:
             r["selection"] = ", ".join(x for x, hit in (("configured", r["k"] == k_chosen), ("rule today", r["k"] == k_rule)) if hit)
             del r["_mean"]
-        tables["cluster-stability"] = {"description": f"Agreement between the full clustering and re-clusterings of {st_cfg['subsamples']} random {int(st_cfg['fraction'] * 100)}% subsamples of games (adjusted Rand index), for each candidate k. The selection rule picks the smallest k whose mean ARI reaches {st_cfg['min_mean_ari']}; k is fixed in report/analysis.yaml from the last selection, and the validator warns (W107) when the rule would now pick a different k.",
+        tables["cluster-stability"] = {"description": f"Agreement between the full clustering and re-clusterings of {B} subsamples, each holding about {int(frac * 100)}% of games (adjusted Rand index), for each candidate k. The selection rule picks the smallest k whose mean ARI reaches {thr}; k is fixed in report/analysis.yaml from the last selection, and the validator warns (W107) only when the configured k falls more than {tol} below the threshold or a smaller k clears it by more than {tol}.",
                                        "columns": ["k", "clusters", "mean_ari", "p10_ari", "largest_cluster_share", "selection"], "rows": curve}
         stats["cluster_rule_k"] = k_rule
+        stats["cluster_k_drift"] = 1 if drift else 0
         labels = fcluster(Z, t=k_chosen, criterion="maxclust")
         co = np.zeros((N, N))
         both = np.zeros((N, N))
         jac = defaultdict(list)
-        for s, Zb in zip(subs, Zs):
+        for sb, Zb in zip(subs, Zs):
             lb = fcluster(Zb, t=k_chosen, criterion="maxclust")
-            co[np.ix_(s, s)] += (lb[:, None] == lb[None, :])
-            both[np.ix_(s, s)] += 1
-            groups = defaultdict(set)
-            for j, lab in enumerate(lb):
-                groups[int(lab)].add(int(s[j]))
-            for c in sorted(set(labels.tolist())):
-                A = {int(i) for i in s if labels[i] == c}
-                if A:
-                    jac[c].append(max(len(A & B) / len(A | B) for B in groups.values()))
+            co[np.ix_(sb, sb)] += (lb[:, None] == lb[None, :])
+            both[np.ix_(sb, sb)] += 1
+            # cluster-wise Jaccard (Hennig 2007): each full cluster against its best-matching subsample cluster
+            la = labels[sb]
+            ct = np.zeros((int(labels.max()) + 1, int(lb.max()) + 1))
+            np.add.at(ct, (la, lb), 1)
+            rows_, cols_ = ct.sum(1), ct.sum(0)
+            for c in range(1, ct.shape[0]):
+                if rows_[c] > 0:
+                    jac[c].append(float(np.max(ct[c] / (rows_[c] + cols_ - ct[c]))))
         C = np.where(both > 0, co / np.maximum(both, 1), 0.0)
         np.fill_diagonal(C, 1.0)
         cocluster = {"index": {g.id: i for i, g in enumerate(games)}, "value": lambda i, j: _r(float(C[i, j]), 3),
@@ -323,6 +336,7 @@ def compute(ents: dict, edges: list, vocabs: dict) -> dict:
         stats["n_clusters_cross_subgenre"] = cross
         stats["cluster_k"] = k_chosen
         stats["cluster_mean_ari"] = next(r["mean_ari"] for r in curve if r["k"] == k_chosen)
+        stats["cluster_drift_tolerance"] = tol
         stats["cluster_min_mean_ari"] = st_cfg["min_mean_ari"]
         stats["cluster_subsamples"] = st_cfg["subsamples"]
         stats["cluster_subsample_pct"] = int(round(st_cfg["fraction"] * 100))
@@ -333,7 +347,7 @@ def compute(ents: dict, edges: list, vocabs: dict) -> dict:
         # agreement with subgenre labels, against a permutation null (labels shuffled across games)
         sub_lab = [g.data.get("subgenre") for g in games]
         obs_ari, obs_nmi = _ari(labels, sub_lab), _nmi(labels, sub_lab)
-        prng = np.random.default_rng(st_cfg["seed"] + 1)
+        prng = np.random.default_rng(st_cfg.get("permutations_seed", st_cfg["seed"] + 1))
         null_ari, null_nmi = [], []
         arr = np.array(sub_lab, dtype=object)
         for _ in range(st_cfg["permutations"]):
@@ -386,6 +400,10 @@ def compute(ents: dict, edges: list, vocabs: dict) -> dict:
     famrows.sort(key=lambda r: (-r["technique_exposure"], r["family"]))
     tables["family-summary"] = {"description": "Per mechanic family: size, total game uses, mean rubric scores, summed technique exposure (maturity x effect weights from vocab/rubrics.yaml), and exposure per mechanic. Sorted by summed exposure.",
                                 "columns": ["family", "mechanics", "uses", "mean_legibility", "mean_emergence", "mean_authoring_cost", "mean_ai_leverage", "technique_exposure", "mean_exposure"], "rows": famrows}
+    mean_rows = sorted(({"family": r["family"], "mechanics": r["mechanics"], "mean_exposure": r["mean_exposure"], "technique_exposure": r["technique_exposure"]} for r in famrows),
+                       key=lambda r: (-r["mean_exposure"], r["family"]))
+    tables["family-mean-exposure"] = {"description": "Mechanic families ordered by technique exposure per mechanic (summed exposure divided by the family's mechanics), so large families do not lead by size alone.",
+                                      "columns": ["family", "mechanics", "mean_exposure", "technique_exposure"], "rows": mean_rows}
     comp_by_fam = {f: np.mean([m.data["compute_cost"] for m in mechs if m.data["family"] == f]) for f in fam_ids if any(m.data["family"] == f for m in mechs)}
     if comp_by_fam:
         stats["top_compute_family"] = fam_terms[max(comp_by_fam, key=lambda f: (comp_by_fam[f], f))]["label"]
@@ -557,6 +575,19 @@ def _contingency(a, b):
 def _ari(a, b) -> float:
     """Adjusted Rand index (Hubert and Arabie 1985) between two labelings of the same items."""
     C = _contingency(a, b)
+    c2 = lambda x: x * (x - 1) / 2  # noqa: E731
+    s, sa, sb, n = c2(C).sum(), c2(C.sum(1)).sum(), c2(C.sum(0)).sum(), c2(C.sum())
+    exp = sa * sb / n if n else 0.0
+    mx = (sa + sb) / 2
+    return float((s - exp) / (mx - exp)) if mx != exp else 1.0
+
+
+def _ari_int(a, b) -> float:
+    """Adjusted Rand index for two integer labelings (fcluster output); same value as _ari, faster."""
+    a = np.asarray(a) - np.min(a)
+    b = np.asarray(b) - np.min(b)
+    nb = int(b.max()) + 1
+    C = np.bincount(a * nb + b, minlength=(int(a.max()) + 1) * nb).reshape(-1, nb).astype(float)
     c2 = lambda x: x * (x - 1) / 2  # noqa: E731
     s, sa, sb, n = c2(C).sum(), c2(C.sum(1)).sum(), c2(C.sum(0)).sum(), c2(C.sum())
     exp = sa * sb / n if n else 0.0

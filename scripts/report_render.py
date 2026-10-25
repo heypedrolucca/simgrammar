@@ -102,17 +102,32 @@ def lookup_ref(ref: str, a: dict, by_id: dict):
     if ref.startswith("rank."):
         parts = ref.split(".")
         tbl = a["tables"].get(parts[1]) if len(parts) >= 3 else None
-        if tbl is None:
+        if tbl is None or parts[1] in UNRANKABLE:
             return False, None
         ids = set(parts[2:])
-        for i, row in enumerate(tbl["rows"], start=1):
+        row_vals = []
+        for row in tbl["rows"]:
             vals = set()
             for v in row.values():
-                vals.update(v if isinstance(v, list) else [v])
+                vals.update(map(str, v) if isinstance(v, list) else [str(v)])
+            row_vals.append(vals)
+        mentioned = set().union(*row_vals) if row_vals else set()
+        if not ids <= mentioned:
+            return False, None  # an id the table never mentions is a typo, not a rank of 9999
+        for i, vals in enumerate(row_vals, start=1):
             if ids <= vals:
                 return True, i
         return True, 9999
     return False, None
+
+
+REF_PREFIXES = ("derived.", "field.", "rank.", "cocluster.", "cooccur.")
+# Tables whose row order or labels follow cluster numbering: ranks in them change with k, not with the data's meaning.
+UNRANKABLE = {"game-clusters", "cluster-stability"}
+
+
+def looks_like_ref(raw: str) -> bool:
+    return raw.startswith(REF_PREFIXES) or bool(re.fullmatch(r"[a-z][a-z0-9]*(_[a-z0-9]+)+", raw))
 
 
 def evaluate_assertion(expr: str, a: dict, by_id: dict) -> tuple[str, str]:
@@ -130,6 +145,13 @@ def evaluate_assertion(expr: str, a: dict, by_id: dict) -> tuple[str, str]:
     if not found:
         return "malformed", f"unknown reference '{name}'"
     rfound, rval = lookup_ref(raw, a, by_id)
+    if not rfound and looks_like_ref(raw):
+        return "malformed", f"unknown reference '{raw}' on the right-hand side"
+    la, lb = CLUSTER_EQ_RE.match(name), CLUSTER_EQ_RE.match(raw)
+    if bool(la) != bool(lb):
+        return "malformed", "a cluster label changes whenever k does; compare two games' clusters (derived.a.cluster == derived.b.cluster) or use cocluster.a.b"
+    if la and lb and op not in ("==", "!="):
+        return "malformed", "cluster labels can only be compared with == or !="
     shown = str(rval) if rfound else raw
     try:
         rhs = float(shown)
@@ -139,8 +161,7 @@ def evaluate_assertion(expr: str, a: dict, by_id: dict) -> tuple[str, str]:
     ok = {"==": lhs == rhs, "!=": lhs != rhs, "<": lhs < rhs, ">": lhs > rhs, "<=": lhs <= rhs, ">=": lhs >= rhs}[op]
     if not ok:
         return "fail", f"{name} {op} {raw} (actual: {val} vs {shown})"
-    la, lb = CLUSTER_EQ_RE.match(name), CLUSTER_EQ_RE.match(raw)
-    if la and lb and op in ("==", "!="):
+    if la and lb:
         co = a.get("cocluster") or {}
         x, y = la.group(1), lb.group(1)
         if x not in co.get("index", {}) or y not in co.get("index", {}):

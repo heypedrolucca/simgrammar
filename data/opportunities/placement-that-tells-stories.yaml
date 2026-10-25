@@ -45,8 +45,13 @@ falsifiable_signal:
     page or developer material lists events triggered by player placement decisions that affect specific
     named inhabitants.
 sources: []
+assertions:
+- 'rank.whitespace.free-placement.triggered-event-chains <= 5'
+- 'cooccur.free-placement.triggered-event-chains <= 1'
+- 'derived.triggered-event-chains.prevalence_share >= 0.08'
 status: asserted
 provenance:
   created: 2026-10-24-synthesis
   reviewed:
   - 2026-10-24-review-fixes
+  - 2026-10-25-review-round

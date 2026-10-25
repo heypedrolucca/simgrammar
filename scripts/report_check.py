@@ -33,5 +33,5 @@ def check(F) -> None:
                 if status != "ok":
                     F.add("E032", e.path, f"assertion '{expr}' {'is malformed' if status == 'malformed' else 'failed'}: {msg}; the entity's text no longer matches the data", f"assertions/{i}")
     st = analysis["stats"]
-    if st.get("cluster_rule_k") is not None and st.get("cluster_rule_k") != st.get("cluster_k"):
-        F.add("W107", ROOT / "report" / "analysis.yaml", f"the stability rule now picks k={st['cluster_rule_k']}; clustering.k is {st['cluster_k']}", "clustering.k")
+    if st.get("cluster_k_drift"):
+        F.add("W107", ROOT / "report" / "analysis.yaml", f"the stability rule now clearly favours k={st['cluster_rule_k']} over the configured k={st['cluster_k']} (beyond the {st.get('cluster_drift_tolerance')} tolerance)", "clustering.k")

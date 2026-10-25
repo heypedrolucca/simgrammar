@@ -26,4 +26,5 @@ jobs:
         env:
           BASE_REF: ${{ github.base_ref }}
           LABELS: ${{ join(github.event.pull_request.labels.*.name, ',') }}
-        run: python scripts/pr_scope.py --base "origin/$BASE_REF" --labels "$LABELS"
+          AUTHOR: ${{ github.event.pull_request.user.login }}
+        run: python scripts/pr_scope.py --base "origin/$BASE_REF" --labels "$LABELS" --author "$AUTHOR"

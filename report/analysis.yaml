@@ -12,17 +12,19 @@ clustering:
   # k is not tuned. It is the smallest k in [k_min, k_max] whose mean subsample ARI reaches min_mean_ari, selected on
   # 2026-10-25 and fixed here so a data PR does not reshuffle every cluster (ADR-0004). W107 warns when the rule would
   # now pick another k; re-select only in a maintenance run, by the rule, and rewrite the prose it breaks.
-  k: 23
+  k: 24
   stability:
     k_min: 2
     k_max: 30
-    subsamples: 200        # re-clusterings of random subsamples, drawn without replacement
-    fraction: 0.8          # share of games in each subsample
-    seed: 20261025         # numpy default_rng seed; fixed so the build is deterministic
-    min_mean_ari: 0.75     # selection threshold on mean adjusted Rand index between full and subsample clusterings
+    subsamples: 1000       # re-clusterings of subsamples
+    fraction: 0.8          # each game joins a subsample when sha256(seed:b:id) < fraction, so adding a game redraws nothing else
+    seed: 20261025         # fixed so the build is deterministic
+    min_mean_ari: 0.75     # selection threshold on mean adjusted Rand index between full and subsample clusterings (a convention adopted here; Hennig's 0.75 is for cluster-wise Jaccard)
+    drift_tolerance: 0.02  # W107 fires only when the configured k misses the threshold, or a smaller k clears it, by more than this
     stable_cluster: 0.75   # a cluster whose mean best-match Jaccard across subsamples reaches this is stable (Hennig 2007 convention)
-    together: 0.8          # an assertion that two games share a cluster needs co-clustering in at least this share of subsamples
-    apart: 0.2             # an assertion that two games differ needs co-clustering in at most this share
+    together: 0.9          # an assertion that two games share a cluster needs co-clustering in at least this share of subsamples
+    apart: 0.1             # an assertion that two games differ needs co-clustering in at most this share
+    permutations_seed: 20261026
     permutations: 999      # shuffles of subgenre labels for the ARI/NMI null
   core_weight: 2.0         # weight of core vs supporting mechanics in game vectors
   idf: true                # weight each mechanic by log(N / prevalence) so ubiquitous mechanics (pause, placement) do not dominate

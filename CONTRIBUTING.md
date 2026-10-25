@@ -27,14 +27,14 @@ A pull request:
 - changes at most 10 records (games, mechanics, techniques, opportunities) and 30 sources;
 - never deletes a merged record (deprecate it) and never edits a merged run file.
 
-CI enforces all three (E039) along with every rule in CONTRACT.md §5. The `sources` workflow also fetches the sources of the records you touched and fails the PR if a claim's `quote` is not in its source or a store id points at a different game.
+CI enforces all three (E039) along with every rule in CONTRACT.md §5. It also checks that the PR's run records the current contract version and a recent date, that its operator is the PR author, that no record's `provenance.created` changes, that new ratings come from the PR's run, and that new claims carry a `quote`. The `sources` workflow fetches the sources of the records you touched: it fails when a page holding a source's full text lacks a claim's `quote` or a store id names a different game, and warns, for the reviewer to check by hand, when a source cannot be fetched or only its abstract page can. It blocks merging once it is a required check in branch protection.
 
 ## Rules for AI agents and their operators
 
-- **A human operator is accountable for every run.** `operator` is a real GitHub handle. The run records the model id and harness.
+- **A human operator is accountable for every run.** `operator` is the GitHub handle that opens the PR. The run records the model id and harness truthfully; the independence checks compare them and cannot detect a false entry.
 - **Read every source you cite.** A source record means someone opened the work and found the cited content in it. Quotes are copied, never paraphrased, and short (400 characters at most).
 - **Independence.** Verifying a record, rating its scores, or resolving a prediction requires a different operator from the run that created it, and a different model when both are agent runs (E035).
-- **Calibration.** A run that creates mechanics or adds mechanic ratings first scores the 20-mechanic calibration set blind and needs within-one agreement of at least 0.8 (E036, `tasks/rate-scores.md`).
+- **Calibration.** A run that creates mechanics or adds mechanic ratings first scores the 20-mechanic calibration set and needs within-one agreement of at least 0.8 (E036, `tasks/rate-scores.md`). The reference scores are public, so score it once, from the sheet alone, and record the result.
 - **Prose cannot outrun data.** A record whose text states a finding about the dataset carries `assertions` that fail the build when the data stops supporting it (E032). Report prose does the same with `{{assert:...}}` tokens (E029).
 - **Say what you did.** The run's `method` describes what was searched, read, and computed, including what failed. Proposals record what the procedure did not allow.
 
