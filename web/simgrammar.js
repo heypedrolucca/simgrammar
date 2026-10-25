@@ -34,11 +34,13 @@
     var r = $("[data-readout]", fig);
     if (!r) return;
     r.textContent = "";
+    var line = el("span");  // one flex item, so the line wraps like a sentence on narrow screens
     parts.forEach(function (p, i) {
-      if (i) r.appendChild(document.createTextNode(" · "));
-      if (typeof p === "string") r.appendChild(document.createTextNode(p));
-      else r.appendChild(p);
+      if (i) line.appendChild(document.createTextNode(" · "));
+      if (typeof p === "string") line.appendChild(document.createTextNode(p));
+      else line.appendChild(p);
     });
+    r.appendChild(line);
   }
   function bold(s) { return el("b", null, s); }
   function pressed(group, value) {
@@ -138,7 +140,13 @@
       var p = svgPoint(svg, e);
       show(find(data.rowY[mode.rows], p.y), find(data.colX[mode.cols], p.x));
     });
-    svg.addEventListener("click", function (e) { var p = svgPoint(svg, e); pinned = !pinned; if (!pinned) show(find(data.rowY[mode.rows], p.y), find(data.colX[mode.cols], p.x)); });
+    svg.addEventListener("click", function (e) {
+      var p = svgPoint(svg, e);
+      if (e.target.closest && e.target.closest("a")) return;
+      pinned = false;
+      show(find(data.rowY[mode.rows], p.y), find(data.colX[mode.cols], p.x));
+      pinned = true;  // a tap or click pins the cell; the next one moves the pin
+    });
     $$("[data-controls=matrix] .segmented", fig).forEach(function (g) {
       g.addEventListener("click", function (e) {
         var b = e.target.closest("button"); if (!b) return;
@@ -147,7 +155,7 @@
         apply();
       });
     });
-    readout(fig, ["hover a square to read it; click to pin"]);
+    readout(fig, ["hover or tap a square to read it; a click or tap pins it"]);
   }
 
   /* ---------------------------------------------------------------- figure: strata */
@@ -189,7 +197,11 @@
       t.addEventListener("pointerenter", function () { var g = data.games[t.getAttribute("data-game")]; readout(fig, [link("game", t.getAttribute("data-game"), g[0]), String(g[1])]); });
     });
     if (range) range.addEventListener("input", function () { setYear(+range.value); });
-    readout(fig, ["hover the layers or drag the year to read what each year added"]);
+    svg.addEventListener("click", function (e) {
+      var p = svgPoint(svg, e);
+      if (p.x >= data.left && p.x <= data.right) setYear(data.y0 + Math.floor((p.x - data.left) / span * n));
+    });
+    readout(fig, ["hover or tap the layers, or drag the year, to read what each year added"]);
   }
 
   /* ---------------------------------------------------------------- figure: design map */
@@ -201,8 +213,8 @@
     var subLabel = {};
     data.subgenres.forEach(function (s) { subLabel[s[0]] = s[1]; });
     var pinned = false, current = -1, selected = "";
-    function nearest(p) {
-      var best = -1, bd = 22 * 22;
+    function nearest(p, r) {
+      var best = -1, bd = (r || 22) * (r || 22);
       for (var i = 0; i < nodes.length; i++) {
         var dx = nodes[i].x - p.x, dy = nodes[i].y - p.y, d = dx * dx + dy * dy;
         if (d < bd) { bd = d; best = i; }
@@ -212,17 +224,17 @@
     function show(i) {
       current = i;
       while (links.firstChild) links.removeChild(links.firstChild);
-      if (i < 0) { hl.setAttribute("display", "none"); if (!selected) readout(fig, ["hover a game to see its nearest neighbours; click to pin"]); return; }
+      if (i < 0) { hl.setAttribute("display", "none"); if (!selected) readout(fig, ["hover or tap a game to see its nearest neighbours"]); return; }
       var n = nodes[i];
       hl.setAttribute("display", "inline"); hl.setAttribute("x", n.x - 6); hl.setAttribute("y", n.y - 6);
       n.n.forEach(function (j) { links.appendChild(svgEl("line", { x1: n.x, y1: n.y, x2: nodes[j].x, y2: nodes[j].y })); });
-      var nb = el("span");
+      var nb = el("span", null, "nearest: ");
       n.n.forEach(function (j, k) { if (k) nb.appendChild(document.createTextNode(", ")); nb.appendChild(link("game", nodes[j].id, nodes[j].name)); });
-      readout(fig, [link("game", n.id, n.name), String(n.year), (subLabel[n.sub] || n.sub).toLowerCase(), (n.cluster || "").toLowerCase() + " " + (data.clusters[n.cluster] || "").toLowerCase(), "nearest: ", nb]);
+      readout(fig, [link("game", n.id, n.name), String(n.year), (subLabel[n.sub] || n.sub).toLowerCase(), (n.cluster || "").toLowerCase() + " " + (data.clusters[n.cluster] || "").toLowerCase(), nb]);
     }
     svg.addEventListener("pointermove", function (e) { if (!pinned) show(nearest(svgPoint(svg, e))); });
     svg.addEventListener("pointerleave", function () { if (!pinned) show(-1); });
-    svg.addEventListener("click", function (e) { var i = nearest(svgPoint(svg, e)); pinned = i >= 0 && !(pinned && i === current); show(i); });
+    svg.addEventListener("click", function (e) { var i = nearest(svgPoint(svg, e), 40); pinned = i >= 0 && !(pinned && i === current); show(i); });
     var sel = $("[data-set=subgenre]", fig);
     if (sel) sel.addEventListener("change", function () {
       selected = sel.value;
@@ -234,18 +246,20 @@
         r.setAttribute("fill-opacity", on ? "1" : "0.18");
         if (selected && on) counts[n.cluster] = (counts[n.cluster] || 0) + 1;
       });
-      if (!selected) { readout(fig, ["hover a game to see its nearest neighbours; click to pin"]); return; }
+      if (!selected) { readout(fig, ["hover or tap a game to see its nearest neighbours"]); return; }
       var ks = Object.keys(counts).sort(function (a, b) { return counts[b] - counts[a] || (a < b ? -1 : 1); });
       var total = ks.reduce(function (s, k) { return s + counts[k]; }, 0);
       readout(fig, [bold((subLabel[selected] || selected).toLowerCase()), total + " games across " + ks.length + (ks.length === 1 ? " island" : " islands"),
         ks.map(function (k) { return k.toLowerCase() + " " + counts[k]; }).join(", ")]);
     });
-    $$("[data-key]", svg).forEach(function (g) {
+    $$("[data-key]", fig).forEach(function (g) {
       var island = $("path[data-cluster='" + g.getAttribute("data-key") + "']", svg);
-      g.addEventListener("pointerenter", function () { if (island) island.style.stroke = "var(--accent)"; });
-      g.addEventListener("pointerleave", function () { if (island) island.style.stroke = ""; });
+      var on = function () { if (island) { island.style.stroke = "var(--accent)"; island.style.strokeWidth = "2"; } };
+      var off = function () { if (island) { island.style.stroke = ""; island.style.strokeWidth = ""; } };
+      g.addEventListener("pointerenter", on); g.addEventListener("pointerleave", off);
+      g.addEventListener("click", function () { on(); setTimeout(off, 1600); });
     });
-    readout(fig, ["hover a game to see its nearest neighbours; click to pin"]);
+    readout(fig, ["hover or tap a game to see its nearest neighbours"]);
   }
 
   /* ---------------------------------------------------------------- figure: vacant lots */
@@ -276,7 +290,7 @@
         lots.forEach(function (r) { var v = data.pairs[r.getAttribute("data-k")]; r.style.opacity = only && !v[3] ? "0.12" : ""; });
       });
     });
-    readout(fig, ["hover a lot to read the pair; click to pin"]);
+    readout(fig, ["hover or tap a lot to read the pair"]);
   }
 
   /* ---------------------------------------------------------------- figure: technique flows */
@@ -316,7 +330,7 @@
           mode === "edges" ? r.getAttribute("data-v") + " edges" : "exposure " + r.getAttribute("data-v2")]);
       }
     });
-    svg.addEventListener("pointerleave", function () { highlight(null); readout(fig, ["hover a technique, an effect, or a family"]); });
+    svg.addEventListener("pointerleave", function () { highlight(null); readout(fig, ["hover or tap a technique, an effect, or a family"]); });
     $$("[data-controls=technique-flows] .segmented", fig).forEach(function (g) {
       g.addEventListener("click", function (e) {
         var b = e.target.closest("button"); if (!b) return;
@@ -331,7 +345,7 @@
         });
       });
     });
-    readout(fig, ["hover a technique, an effect, or a family"]);
+    readout(fig, ["hover or tap a technique, an effect, or a family"]);
   }
 
   var FIGS = { "matrix": matrix, "strata": strata, "design-map": designMap, "vacant-lots": vacantLots, "technique-flows": flows };

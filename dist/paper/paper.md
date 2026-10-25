@@ -633,7 +633,7 @@ The average catalog game uses 11.2 mechanics (median 11). The most widely used i
 
 ![Every use: the catalog as a grid](figures/viz-matrix.svg)
 
-*Figure: Every use: the catalog as a grid. Each square is one game using one mechanic: 582 core uses (dark) and 1370 supporting uses (light). Rows are grouped into the clusters of §5.4 and columns into mechanic families. Hover to read a cell; reorder rows by release year or columns by first use. Interactive version: https://simgrammar.yohei.me/#fig-matrix*
+*Figure: Every use: the catalog as a grid. Each square is one game using one mechanic: 582 core uses (dark) and 1370 supporting uses (light). Rows are grouped into the clusters of §5.4 and columns into mechanic families. Hover or tap to read a cell; reorder rows by release year or columns by first use. Interactive version: https://simgrammar.yohei.me/#fig-matrix*
 
 
 
@@ -663,7 +663,7 @@ The average catalog game uses 11.2 mechanics (median 11). The most widely used i
 
 ![The vocabulary, year by year](figures/viz-strata.svg)
 
-*Figure: The vocabulary, year by year. Cumulative mechanics by the year of their first catalog game, one layer per family, oldest families at the bottom. Labels mark the years that added the most mechanics and the game that introduced most of them. Drag the year control or hover the chart to read what each year added. Interactive version: https://simgrammar.yohei.me/#fig-strata*
+*Figure: The vocabulary, year by year. Cumulative mechanics by the year of their first catalog game, one layer per family, oldest families at the bottom. Labels mark the years that added the most mechanics and the game that introduced most of them. Drag the year control, or hover or tap the chart, to read what each year added. Interactive version: https://simgrammar.yohei.me/#fig-strata*
 
 
 68 percent of mechanics appear in at least one catalog game released by 2000, and 59 percent first appear in the 1980s or 1990s (1990s the largest decade). The early vocabulary came from a short list of titles: [SimCity](../wiki/game/simcity-1989.md) (zoning, land value, overlays, disasters), [Populous](../wiki/game/populous.md) (terraforming as a god power), [Railroad Tycoon](../wiki/game/railroad-tycoon.md) and [Transport Tycoon](../wiki/game/transport-tycoon.md) (route scheduling and competitors), [Theme Park](../wiki/game/theme-park.md) and [Theme Hospital](../wiki/game/theme-hospital.md) (crowds with preferences, queues, diagnosis), [Creatures](../wiki/game/creatures.md) (learning creatures and genetics), and [The Sims](../wiki/game/the-sims.md) (smart objects).
@@ -777,7 +777,7 @@ Clustering games by the mechanics they use, ignoring their subgenre labels, prod
 
 ![A map of the design space](figures/viz-design-map.svg)
 
-*Figure: A map of the design space. One island per cluster (14 of 16 mix subgenres). Inside an island, lines join games to their nearest neighbours by shared mechanics (inverse-prevalence weighted Jaccard, the measure behind the clustering); bridges join islands whose games are each other's nearest neighbours, wider for more links. Islands sit near the islands they most resemble. Hover a game to see its neighbours; highlight a subgenre to see it spread across islands. Interactive version: https://simgrammar.yohei.me/#fig-design-map*
+*Figure: A map of the design space. One island per cluster (14 of 16 mix subgenres). Inside an island, lines join games to their nearest neighbours by shared mechanics (inverse-prevalence weighted Jaccard, the measure behind the clustering); bridges join islands whose games are each other's nearest neighbours, wider for more links. Islands sit near the islands they most resemble. Hover or tap a game to see its neighbours; highlight a subgenre to see it spread across islands. Interactive version: https://simgrammar.yohei.me/#fig-design-map*
 
 
 
@@ -1064,7 +1064,7 @@ Technique exposure weights each `affects` edge by the technique's maturity in ga
 
 ![Where the techniques land](figures/viz-technique-flows.svg)
 
-*Figure: Where the techniques land. Each ribbon follows one technique's edges to one mechanic family, through the kind of change it makes. Darker ribbons come from techniques that have shipped in games. Hover a technique, an effect, or a family to isolate its ribbons; switch the width to weight each edge by maturity and effect, the exposure measure of §8.2. Families with no ribbon: operation & procedure. Interactive version: https://simgrammar.yohei.me/#fig-technique-flows*
+*Figure: Where the techniques land. Each ribbon follows one technique's edges to one mechanic family, through the kind of change it makes. Darker ribbons come from techniques that have shipped in games. Hover or tap a technique, an effect, or a family to isolate its ribbons; switch the width to weight each edge by maturity and effect, the exposure measure of §8.2. Families with no ribbon: operation & procedure. Interactive version: https://simgrammar.yohei.me/#fig-technique-flows*
 
 
 

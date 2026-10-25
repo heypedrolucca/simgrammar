@@ -226,10 +226,11 @@ def matrix(shared, live, by_id, derived, tables, fam):
         "head": f"{len(row_ids)} games × {len(col_ids)} mechanics · {len(cells)} uses",
         "svg": "".join(body),
         "caption": f"Each square is one game using one mechanic: {n_core} core uses (dark) and {len(cells) - n_core} supporting uses (light). "
-                   "Rows are grouped into the clusters of §5.4 and columns into mechanic families. Hover to read a cell; reorder rows by release year or columns by first use.",
+                   "Rows are grouped into the clusters of §5.4 and columns into mechanic families. Hover or tap to read a cell; reorder rows by release year or columns by first use.",
         "source": "dist/tables/game_mechanic_matrix.csv · clusters from dist/analysis/game-clusters.csv",
         "controls": controls,
         "legend": legend([("core use", "square", "1"), ("supporting use", "square", "0.32")]),
+        "min_width": 760,
         "data": data_script("matrix", data),
         "twin": {"columns": ["game", "year", "cluster", "core", "supporting"], "rows": trows, "link_columns": ["game", "core"],
                  "note": "Every game with its cluster, core mechanics, and number of supporting mechanics. The full grid is game_mechanic_matrix.csv."},
@@ -335,10 +336,11 @@ def strata(shared, live, by_id, derived, fam):
         "head": f"{n} mechanics · {y0} to {y1}",
         "svg": "".join(body),
         "caption": "Cumulative mechanics by the year of their first catalog game, one layer per family, oldest families at the bottom. "
-                   "Labels mark the years that added the most mechanics and the game that introduced most of them. Drag the year control or hover the chart to read what each year added.",
+                   "Labels mark the years that added the most mechanics and the game that introduced most of them. Drag the year control, or hover or tap the chart, to read what each year added.",
         "source": "derived.earliest_year per mechanic · dist/entities/mechanics.json",
         "controls": controls,
         "legend": "",
+        "min_width": 680,
         "data": data_script("strata", data),
         "twin": {"columns": ["year", "mechanic", "family", "first_game"], "rows": trows, "link_columns": ["mechanic", "first_game"],
                  "note": "Every mechanic in order of first appearance in the catalog. First appearance is a lower bound on true origin."},
@@ -441,12 +443,13 @@ def design_map(shared, live, by_id, derived, tables, sub, cfg):
         rmax = float(np.sqrt((p ** 2).sum(-1)).max()) or 1
         p = p / rmax * (radii[c] - 0.45 * unit)
         pos[ms] = cpos[c] + p
-    W, H, pad, MW = 880, 600, 24, 590
+    W, Hmax, pad, MW = 600, 640, 24, 600
     allp = np.vstack([pos, cpos + np.array(radii)[:, None], cpos - np.array(radii)[:, None]])
     mn, mx = allp.min(0), allp.max(0)
-    sc = min((MW - 2 * pad) / (mx[0] - mn[0]), (H - 2 * pad - 16) / (mx[1] - mn[1]))
+    sc = min((MW - 2 * pad) / (mx[0] - mn[0]), (Hmax - 2 * pad - 16) / (mx[1] - mn[1]))
+    H = int(math.ceil((mx[1] - mn[1]) * sc + 2 * pad + 30))  # crop to the islands so narrow screens waste no height
     ox = (MW - (mx[0] - mn[0]) * sc) / 2
-    oy = (H - 16 - (mx[1] - mn[1]) * sc) / 2 + 14
+    oy = pad + 16
     tx = lambda p: (round((p[0] - mn[0]) * sc + ox, 1), round((p[1] - mn[1]) * sc + oy, 1))
     xy = [tx(p) for p in pos]
     cxy = [tx(p) for p in cpos]
@@ -500,22 +503,6 @@ def design_map(shared, live, by_id, derived, tables, sub, cfg):
         body.append(f'<text x="{f1(lx)}" y="{f1(ly)}" text-anchor="middle" data-cluster="{row["cluster"]}" style="fill:{T["ink"]};font-size:9px;font-weight:600;{halo}">'
                     f'{esc(row["cluster"].lower())}</text>')
     body.append("</g>")
-    # key: one row per island, like the key of a map
-    kx = MW + 16
-    body.append(f'<line x1="{kx - 8}" y1="{pad}" x2="{kx - 8}" y2="{H - pad}" style="stroke:{T["rule"]}"/>')
-    body.append(text(kx, pad + 4, "key", 9, "faint"))
-    rowh = (H - 2 * pad - 14) / len(clusters)
-    for c, row in enumerate(clusters):
-        y = pad + 22 + c * rowh
-        ex = ", ".join(by_id[g].data["name"] for g in row["members"][:2])
-        ex = ex if len(ex) <= 44 else ex[:43].rstrip() + "…"
-        sig = row["label"].lower()
-        room = int((W - kx) / (9 * CW)) - len(f'{row["cluster"]} {row["size"]} ')
-        sig = sig if len(sig) <= room else sig[:room - 1].rstrip() + "…"
-        body.append(f'<g data-key="{row["cluster"]}"><rect x="{kx - 4}" y="{f1(y - 10)}" width="{W - kx}" height="{f1(rowh)}" style="fill:{T["paper"]}"/>'
-                    f'<text x="{kx}" y="{f1(y)}" style="fill:{T["ink"]};font-size:9px"><tspan style="font-weight:600">{esc(row["cluster"].lower())}</tspan> '
-                    f'<tspan style="fill:{T["faint"]}">{row["size"]}</tspan> {esc(sig)}</text>'
-                    f'<text x="{kx + 34}" y="{f1(y + 11)}" style="fill:{T["faint"]};font-size:8.5px">{esc(ex)}</text></g>')
     body.append(f'<rect data-hl="node" x="0" y="0" width="12" height="12" style="fill:none;stroke:{T["accent"]};stroke-width:1.5" display="none"/>')
     body.append("</svg>")
     gcl = {gid: derived[gid].get("cluster") for gid in ids}
@@ -526,6 +513,8 @@ def design_map(shared, live, by_id, derived, tables, sub, cfg):
         "subgenres": [[s, sub.get(s, {}).get("label", s), c] for s, c in sorted(subs.items(), key=lambda x: (-x[1], x[0]))],
         "clusters": {r["cluster"]: r["label"] for r in clusters},
     }
+    key = "".join(f'<dt data-key="{r["cluster"]}"><b>{esc(r["cluster"].lower())}</b> · {r["size"]}</dt><dd data-key="{r["cluster"]}">{esc(r["label"].lower())}</dd>' for r in clusters)
+    aside = f'<dl class="receipt" data-style="bare" aria-label="Key to the islands">{key}</dl>'
     opts = "".join(f'<option value="{esc(s)}">{esc(lab)} · {c}</option>' for s, lab, c in data["subgenres"])
     controls = ('<div class="cluster" data-controls="design-map"><label class="field" style="min-width:240px"><span>highlight a subgenre</span>'
                 f'<select data-set="subgenre"><option value="">none</option>{opts}</select></label></div>')
@@ -537,10 +526,12 @@ def design_map(shared, live, by_id, derived, tables, sub, cfg):
         "svg": "".join(body),
         "caption": f"One island per cluster ({n_mixed} of {C} mix subgenres). Inside an island, lines join games to their nearest neighbours by shared mechanics "
                    "(inverse-prevalence weighted Jaccard, the measure behind the clustering); bridges join islands whose games are each other's nearest neighbours, wider for more links. "
-                   "Islands sit near the islands they most resemble. Hover a game to see its neighbours; highlight a subgenre to see it spread across islands.",
+                   "Islands sit near the islands they most resemble. Hover or tap a game to see its neighbours; highlight a subgenre to see it spread across islands.",
         "source": "derived.cluster · report/analysis.yaml (clustering, viz.design_map)",
         "controls": controls,
         "legend": legend([("game", "square", "1"), ("island (cluster)", "outline", "1"), ("highlighted: neighbours or subgenre", "accent", "1")]),
+        "aside": aside,
+        "min_width": 520,
         "data": data_script("design-map", data),
         "twin": {"columns": ["cluster", "label", "size", "dominant_subgenres", "members"], "rows": trows, "link_columns": ["members"],
                  "note": "The clusters behind the islands, members in order of centrality."},
@@ -656,6 +647,7 @@ def vacant_lots(shared, live, by_id, derived, tables, fam, cfg):
         "source": "dist/analysis/whitespace.csv · dist/analysis/cooccurrence-all.csv · report/analysis.yaml (whitespace)",
         "controls": controls,
         "legend": leg,
+        "min_width": 640,
         "data": data_script("vacant-lots", data),
         "twin": {"table": "whitespace", "note": "The white-space pairs ranked by gap. All built pairs with their lift are in cooccurrence-all.csv."},
     }
@@ -815,11 +807,12 @@ def technique_flows(live, by_id, derived, vocabs, fam):
         "head": f"{len(t_ids)} techniques · {int(sum(modes['edges'].values()))} affects edges · {len(f_ids)} families",
         "svg": "".join(body),
         "caption": "Each ribbon follows one technique's edges to one mechanic family, through the kind of change it makes. Darker ribbons come from techniques that have shipped in games. "
-                   "Hover a technique, an effect, or a family to isolate its ribbons; switch the width to weight each edge by maturity and effect, the exposure measure of §8.2."
+                   "Hover or tap a technique, an effect, or a family to isolate its ribbons; switch the width to weight each edge by maturity and effect, the exposure measure of §8.2."
                    + (f" Families with no ribbon: {', '.join(zero)}." if zero else ""),
         "source": "affects edges in data/techniques/*.yaml · weights vocab/rubrics.yaml (technique_exposure)",
         "controls": controls,
         "legend": leg,
+        "min_width": 760,
         "data": data_script("technique-flows", data),
         "twin": {"columns": ["technique", "maturity", "effect", "family", "edges"], "rows": trows, "link_columns": ["technique"],
                  "note": "Every ribbon: technique, kind of effect, mechanic family, and the number of affects edges it carries."},

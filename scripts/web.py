@@ -206,14 +206,27 @@ class Web:
     def figure_static(self, name, n):
         f = self.analysis["figures"][name]
         svg = re.sub(r"^<svg ([^>]*?)width='\d+' height='\d+' style=\"", "<svg class=\"plot\" \\1style=\"width:100%;max-width:none;height:auto;", f["svg"], count=1)
-        return (f'<figure class="chart" id="fig-{name}"><div class="chart-head"><span><b>figure {n}</b></span><span>{esc(name)}</span></div>'
-                f'<div class="chart-body">{svg}</div><figcaption class="chart-caption">{esc(f["caption"])} '
+        svg = svg.replace("width:100%;max-width:none;", "width:100%;max-width:none;min-width:480px;", 1)
+        title = {"legibility-vs-emergence": "Legibility against emergence potential", "exposure-by-family": "Technique exposure by family",
+                 "mechanic-accumulation": "Mechanics by first appearance"}.get(name, name)
+        return (f'<figure class="chart" id="fig-{name}"><div class="chart-head"><span><b>figure {n}</b> · {esc(title)}</span><span>{esc(name)}.svg</span></div>'
+                f'<div class="chart-body"><div class="table-wrap" style="border-top:0">{svg}</div></div><figcaption class="chart-caption">{esc(f["caption"])} '
                 f'<span class="run">source · dist/analysis/figures/{esc(name)}.svg · dataset {self.short}</span></figcaption></figure>')
 
     @staticmethod
     def fluid(svg):
         """Inline SVGs scale to the column: drop the fixed width and height the standalone file keeps."""
         return re.sub(r'^(<svg[^>]*?) width="\d+" height="\d+"', r"\1", svg, count=1).replace("max-width:100%;height:auto", "width:100%;max-width:none;height:auto", 1)
+
+    def scroller(self, v):
+        """On wide screens the figure fills the column. Below its minimum width it keeps readable text and scrolls
+        sideways inside .table-wrap, the one scroll container Register allows."""
+        svg = self.fluid(v["svg"]).replace("width:100%;max-width:none;", f"width:100%;max-width:none;min-width:{v.get('min_width', 0)}px;", 1)
+        hint = '<p class="small faint show-sm">swipe sideways to see the whole figure; the table below holds every value</p>'
+        wrap = f'<div class="table-wrap" style="border-top:0">{svg}</div>'
+        if v.get("aside"):
+            return f'<div class="split"><div style="min-width:0">{wrap}{hint}</div><div style="min-width:0">{v["aside"]}</div></div>'
+        return wrap + hint
 
     def figure_viz(self, name, n, base):
         v = self.analysis["vizzes"][name]
@@ -229,7 +242,7 @@ class Web:
         return (f'<figure class="chart" id="fig-{name}" data-viz="{name}" aria-describedby="cap-{name}">'
                 f'<div class="chart-head"><span><b>figure {n}</b> · {esc(v["title"])}</span><span>{esc(v["head"])}</span></div>'
                 f'<div class="controls" data-viz-controls hidden>{v["controls"]}</div>'
-                f'<div class="chart-body">{self.fluid(v["svg"])}</div>{v.get("legend", "")}'
+                f'<div class="chart-body">{self.scroller(v)}</div>{v.get("legend", "")}'
                 f'<p class="live" data-readout aria-live="polite" hidden></p>'
                 f'<p class="chart-caption" id="cap-{name}">{esc(v["caption"])} <span class="run">source · {esc(v["source"])} · dataset {self.short}</span></p>'
                 f'<details class="disclosure"><summary>plain-text twin · {nrows} rows</summary><p class="small muted">{esc(tw["note"])}</p>{twin}</details>'
@@ -304,8 +317,9 @@ class Web:
 <div class="numbers">{nums}</div>
 <p class="small faint">source · dist/analysis/stats.json · dataset {self.short} · every number on this page is rendered from the dataset at build time</p>"""
         main = f"""<div class="sidebar">
-<aside class="hide-md"><nav class="toc sticky" aria-label="Contents"><span class="toc-head">contents</span>{tocs}</nav></aside>
+<aside class="hide-md sticky"><nav class="toc" aria-label="Contents"><span class="toc-head">contents</span>{tocs}</nav></aside>
 <article class="prose" style="min-width:0">
+<details class="disclosure show-md" data-toc-mobile><summary>contents · {len(toc)} sections</summary><nav class="toc" aria-label="Contents">{tocs}</nav></details>
 {body}
 <section class="section" id="references"><div class="section-line"><h2>references <span>· {len(refs)} cited in the text</span></h2><a href="source/" data-internal>all {counts['source']} sources</a></div>
 <div class="register" data-kind="refs">{''.join(refs)}</div></section>
