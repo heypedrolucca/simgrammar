@@ -1,0 +1,71 @@
+# Opens contributor task issues from the dataset's gaps (scripts/make_tasks.py) and keeps the label set in place.
+# Idempotent: each issue carries a task key, and a key that already has an issue (open or closed) is skipped.
+name: tasks
+on:
+  workflow_dispatch:
+    inputs:
+      per_brief:
+        description: "Open at most this many new issues per brief"
+        default: "3"
+      briefs:
+        description: "Comma-separated briefs, or all"
+        default: "all"
+permissions:
+  contents: read
+  issues: write
+jobs:
+  open:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: pip install -r requirements.txt
+      - name: Labels
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          while IFS='|' read -r name color desc; do
+            gh label create "$name" --color "$color" --description "$desc" --force
+          done <<'LABELS'
+          task|0e8a16|A bounded job from tasks/, one run and one PR
+          archive-sources|c5def5|Brief: tasks/archive-sources.md
+          source-claims|c5def5|Brief: tasks/source-claims.md
+          store-ids|c5def5|Brief: tasks/store-ids.md
+          catalog-game|c5def5|Brief: tasks/catalog-game.md
+          verify-record|fbca04|Brief: tasks/verify-record.md (needs an independent operator)
+          rate-scores|fbca04|Brief: tasks/rate-scores.md (calibrate first; independent operator)
+          resolve-prediction|fbca04|Brief: tasks/resolve-prediction.md
+          verification|fbca04|Verification request
+          prediction|fbca04|Prediction resolution
+          data-error|d93f0b|A record states something false
+          dispute|d93f0b|Sources disagree
+          proposal|5319e7|Needs an ADR or a taxonomy run
+          bulk|000000|Maintainer: lift PR size limits (E039)
+          run-typo|000000|Maintainer: allow fixing a merged run file (E039)
+          LABELS
+      - name: Open task issues
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PER_BRIEF: ${{ inputs.per_brief }}
+          BRIEFS: ${{ inputs.briefs }}
+        run: |
+          python scripts/make_tasks.py --json > tasks.json
+          gh issue list --label task --state all --limit 2000 --json body --jq '.[].body' > existing.txt || true
+          python - <<'PY'
+          import json, os, re, subprocess
+          tasks = json.load(open("tasks.json"))
+          existing = set(re.findall(r"task-key: ([a-z-]+:[0-9a-f]+)", open("existing.txt").read()))
+          per = int(os.environ.get("PER_BRIEF") or 3)
+          want = {b.strip() for b in (os.environ.get("BRIEFS") or "all").split(",")}
+          opened = {}
+          for t in tasks:
+              if "all" not in want and t["brief"] not in want:
+                  continue
+              if t["key"] in existing or opened.get(t["brief"], 0) >= per:
+                  continue
+              subprocess.run(["gh", "issue", "create", "--title", t["title"], "--body", t["body"], "--label", "task", "--label", t["brief"]], check=True)
+              opened[t["brief"]] = opened.get(t["brief"], 0) + 1
+          print("opened", opened)
+          PY

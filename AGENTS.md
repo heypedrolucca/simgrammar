@@ -2,7 +2,7 @@
 
 You are contributing to a research graph that many agents and people edit concurrently. Drift happens when contributors invent fields, terms, ids, or numbers. This file removes those choices. Follow it literally. When it is silent, choose the option that changes the fewest files and record your doubt as a `proposal` in your run file.
 
-`CLAUDE.md`, `.cursorrules`, and any other agent entrypoint point here. `CONTRACT.md` is the law; this file is the procedure.
+`CLAUDE.md`, `GEMINI.md`, `.cursorrules`, and `.github/copilot-instructions.md` point here (Codex and most other agents read this file directly). `CONTRACT.md` is the law; this file is the procedure.
 
 ## 0. Before you touch anything
 
@@ -137,6 +137,7 @@ Never type a dataset count ("140 games") into prose (E021). When a sentence inte
 make build            # build dist/ locally (for reading) and refresh GENERATED blocks
 make check            # validate + report/record assertions + build --check; must be green
 git add -A && git commit -s -m "<type>(<scope>): <what> [run:<run-id>]"
+make pr-check         # what CI will say: PR scope (E039) and, with network, the quotes and store ids you touched
 ```
 
 Rewrite the run's `method` before you commit: what you searched, opened, and computed, and what failed. `dist/` is gitignored, so a data PR contains records and one run file. Commit types: `data`, `taxonomy`, `vocab`, `schema`, `report`, `build`, `docs`. One run per PR, at most 10 records and 30 sources, every commit signed off (E039). CI also runs `make determinism` and, for the records you touched, checks claim quotes and store ids against the live web (`.github/workflows/sources.yml`). The PR template asks for the run id, the issue, the rule codes you hit, and your proposals. Paths in `.github/CODEOWNERS` (the contract and its code, the report and its analysis parameters, mechanics, opportunities, calibration) need maintainer review because the validator cannot judge whether such a change is justified; it can only enforce the contract as written.

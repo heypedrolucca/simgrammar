@@ -1,0 +1,1 @@
+Read and follow AGENTS.md. CONTRACT.md is the law it enforces; tasks/README.md says how work is claimed. Run `make check` before and after every change, and `make pr-check` before opening a pull request.

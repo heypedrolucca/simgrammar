@@ -1,0 +1,33 @@
+# Games proposed for the catalog, chosen to widen its sampling (mobile, Japanese and Chinese simulation traditions,
+# transport and settlement sims) per the limitation in report section 2.6. A candidate is a suggestion, not a ruling:
+# the contributor applies the game inclusion test in AGENTS.md section 3 and may decline a candidate in the run's notes.
+# scripts/make_tasks.py turns unclaimed candidates into catalog-game task issues, three per issue.
+candidates:
+  - {name: Pocket City, why: mobile city builder}
+  - {name: Fallout Shelter, why: mobile vault management with dweller needs and breeding}
+  - {name: Game Dev Story, why: Kairosoft mobile management lineage}
+  - {name: Neko Atsume, why: mobile real-time-clock collection sim}
+  - {name: Hay Day, why: mobile farming and production chains}
+  - {name: Tokimeki Memorial, why: Japanese stat-raising dating sim lineage}
+  - {name: Doko Demo Issho, why: Japanese virtual pet with language learning}
+  - {name: A-Train 9, why: Japanese railway and city development sim}
+  - {name: Monster Rancher, why: Japanese creature raising with breeding}
+  - {name: Rune Factory 4, why: farming life sim with relationships}
+  - {name: Chinese Parents, why: Chinese child-raising life sim}
+  - {name: Amazing Cultivation Simulator, why: Chinese colony sim with cultivation systems}
+  - {name: Tale of Immortal, why: Chinese open-world cultivation sim with NPC relationships}
+  - {name: Transport Fever 2, why: transport and logistics sim}
+  - {name: OpenTTD, why: open-source transport sim with deep modding}
+  - {name: NIMBY Rails, why: real-world map railway sim}
+  - {name: Cities in Motion 2, why: public transport sim}
+  - {name: Dorfromantik, why: tile-placement settlement puzzle with adjacency scoring}
+  - {name: Ixion, why: space-station city builder with stability and hull integrity}
+  - {name: The Planet Crafter, why: terraforming survival with planetary stats}
+  - {name: Ostranauts, why: ship and crew sim with detailed social and system simulation}
+  - {name: Rain World, why: ecosystem of agents with emergent predator and prey behaviour}
+  - {name: Dungeon Keeper, why: dungeon management with creature needs}
+  - {name: Evil Genius, why: lair management with minions and heat}
+  - {name: Startopia, why: space-station management with alien needs}
+  - {name: Two Point Campus, why: education management with student relationships}
+  - {name: SimCopter, why: embodied city exploration on a SimCity simulation}
+  - {name: Mount & Blade II Bannerlord, why: sandbox with faction economy and warfare}

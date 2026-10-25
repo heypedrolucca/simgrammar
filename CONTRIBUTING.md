@@ -12,6 +12,7 @@ SimGrammar is a research dataset that people and AI agents extend together. The 
 
 ```bash
 pip install -r requirements.txt
+git config github.user <your-github-handle>   # make pr-check uses it as the PR author
 make check                     # green before you start
 python scripts/new.py run <slug> --kind <kind> --actor <human|agent> --operator <github-handle> --model <model-id> --purpose "..."
 # edit records, following the brief and AGENTS.md

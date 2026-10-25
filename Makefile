@@ -1,7 +1,7 @@
 PY ?= python3
 TMP ?= /tmp/simgrammar-determinism
 
-.PHONY: check validate build sqlite find hooks determinism sources calibrate-sheet
+.PHONY: check validate build sqlite find hooks determinism sources calibrate-sheet pr-check tasks
 
 check: validate
 	$(PY) scripts/build.py --check
@@ -25,6 +25,14 @@ determinism:
 # network: fetch cited sources and check claim quotes and store ids (not part of the build)
 sources:
 	$(PY) scripts/check_sources.py
+
+# what CI will say about your branch: scope (E039) and, with network, the quotes and store ids you touched
+pr-check:
+	$(PY) scripts/pr_scope.py --base origin/main --author "$$(git config github.user || echo $$USER)"
+	$(PY) scripts/check_sources.py --changed origin/main
+
+tasks:
+	$(PY) scripts/make_tasks.py
 
 calibrate-sheet:
 	$(PY) scripts/calibrate.py sheet

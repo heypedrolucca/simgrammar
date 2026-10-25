@@ -2,9 +2,10 @@
 # Network access makes it unsuitable for the deterministic build, so it runs here: on PRs for the records they touch
 # (failures block), and weekly for everything (a report, plus Wayback snapshot suggestions).
 name: sources
+# Runs on every pull request (not only those touching data/) so it can be a required check without blocking PRs
+# that change docs or code; with no changed records it passes at once.
 on:
   pull_request:
-    paths: ["data/**"]
   schedule:
     - cron: "17 6 * * 1"
   workflow_dispatch:
