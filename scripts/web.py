@@ -5,7 +5,7 @@ Pages:
   <type>/index.html                  one index per entity type (sortable table)
   <type>/<id>/index.html             one page per entity
   data/index.html                    downloads, provenance log, contract
-  paper.md, references.bib, manifest.json, figures/*.svg, llms.txt, CNAME, 404.html, assets/*
+  paper.md, references.bib, manifest.json, figures/*.svg, llms.txt, CNAME, robots.txt, sitemap.xml, 404.html, assets/*
 
 Everything here is a deterministic function of data/, report/, vocab/, schema/, and web/.
 Pages work without JavaScript; assets/simgrammar.js only adds interaction.
@@ -640,6 +640,11 @@ def build_web(ents, edges, analysis, vocabs, registry, schemas, ctx, manifest, m
     for name, svg in figure_svgs.items():
         outs[f"web/figures/{name}.svg"] = svg
     outs["web/CNAME"] = meta["site"]["domain"] + "\n"
+    root = meta["site"]["url"]
+    pages = sorted(k[len("web/"):-len("index.html")] for k in outs if k.startswith("web/") and k.endswith("index.html"))
+    outs["web/sitemap.xml"] = ('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+                               + "".join(f"  <url><loc>{esc(root + p)}</loc></url>\n" for p in pages) + "</urlset>\n")
+    outs["web/robots.txt"] = f"User-agent: *\nAllow: /\nSitemap: {root}sitemap.xml\n"
     outs["web/.nojekyll"] = ""
     for f in ("register.css", "simgrammar.js"):
         outs[f"web/assets/{f}"] = (WEB_SRC / f).read_text(encoding="utf-8")
