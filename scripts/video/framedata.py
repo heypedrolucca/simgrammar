@@ -148,7 +148,7 @@ def in_play(t):
     return bool(set(t.get('runtime') or []) & {'server-realtime', 'client-realtime'})
 
 
-TERM_ICON = {'maturity': 'maturity-', 'determinism_impact': 'determinism-', 'status': 'status-', 'effect': 'effect-'}
+TERM_ICON = {'maturity': 'maturity-', 'determinism_impact': 'determinism-', 'status': 'status-', 'effect': 'effect-', 'risks': 'risk-', 'horizon': 'horizon-'}
 VOCAB_OF = {'maturity': 'technique_maturity', 'determinism_impact': 'determinism_impact', 'status': 'status', 'effect': 'effect',
             'risks': 'risk', 'horizon': 'horizon', 'opportunity_type': 'opportunity_type', 'runtime': 'runtime'}
 

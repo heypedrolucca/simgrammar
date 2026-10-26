@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <polygon points="10,5 44,5 38,14 4,14" fill="#c8c8c2" stroke="#171717" stroke-width="2"/>
+  <line x1="18.5" y1="5" x2="12.5" y2="14" stroke="#55554f" stroke-width="1"/>
+  <line x1="27" y1="5" x2="21" y2="14" stroke="#55554f" stroke-width="1"/>
+  <line x1="35.5" y1="5" x2="29.5" y2="14" stroke="#55554f" stroke-width="1"/>
+  <line x1="7" y1="9.5" x2="41" y2="9.5" stroke="#55554f" stroke-width="1"/>
+  <polygon points="10,19 44,19 38,28 4,28" fill="#8c8c86" stroke="#171717" stroke-width="2"/>
+  <line x1="18.5" y1="19" x2="12.5" y2="28" stroke="#55554f" stroke-width="1"/>
+  <line x1="27" y1="19" x2="21" y2="28" stroke="#55554f" stroke-width="1"/>
+  <line x1="35.5" y1="19" x2="29.5" y2="28" stroke="#55554f" stroke-width="1"/>
+  <line x1="7" y1="23.5" x2="41" y2="23.5" stroke="#55554f" stroke-width="1"/>
+  <polygon points="10,33 44,33 38,42 4,42" fill="#55554f" stroke="#171717" stroke-width="2"/>
+  <line x1="18.5" y1="33" x2="12.5" y2="42" stroke="#171717" stroke-width="1"/>
+  <line x1="27" y1="33" x2="21" y2="42" stroke="#171717" stroke-width="1"/>
+  <line x1="35.5" y1="33" x2="29.5" y2="42" stroke="#171717" stroke-width="1"/>
+  <line x1="7" y1="37.5" x2="41" y2="37.5" stroke="#171717" stroke-width="1"/>
+  <line x1="31" y1="14.5" x2="31" y2="18.5" stroke="#171717" stroke-width="2"/>
+  <line x1="35" y1="14.5" x2="35" y2="18.5" stroke="#171717" stroke-width="2"/>
+  <line x1="31" y1="16.5" x2="35" y2="16.5" stroke="#171717" stroke-width="1"/>
+  <line x1="31" y1="28.5" x2="31" y2="32.5" stroke="#171717" stroke-width="2"/>
+  <line x1="35" y1="28.5" x2="35" y2="32.5" stroke="#171717" stroke-width="2"/>
+  <line x1="31" y1="30.5" x2="35" y2="30.5" stroke="#171717" stroke-width="1"/>
+  <polygon points="30.5,9 35.5,9 34.5,13 29.5,13" fill="#171717"/>
+  <polygon points="30.5,23 35.5,23 34.5,27 29.5,27" fill="#171717"/>
+</svg>

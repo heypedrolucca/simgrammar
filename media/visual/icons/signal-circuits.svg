@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <polyline points="6,16 13,16 13,20 18,20" fill="none" stroke="#171717" stroke-width="2"/>
+  <polyline points="6,34 13,34 13,30 18,30" fill="none" stroke="#171717" stroke-width="2"/>
+  <circle cx="5" cy="16" r="2.5" fill="#55554f" stroke="#171717" stroke-width="2"/>
+  <circle cx="5" cy="34" r="2.5" fill="#fafaf7" stroke="#171717" stroke-width="2"/>
+  <polygon points="18,15 25,15 25,15 27.5,15.5 30,16.5 32,18 33.5,20 34.5,22.5 35,25 34.5,27.5 33.5,30 32,32 30,33.5 27.5,34.5 25,35 18,35" fill="#c8c8c2" stroke="#171717" stroke-width="2"/>
+  <polyline points="35,25 40,25 40,21" fill="none" stroke="#171717" stroke-width="2"/>
+  <rect x="37.5" y="19.5" width="5" height="3" fill="#55554f" stroke="#171717" stroke-width="1"/>
+  <circle cx="40" cy="13.5" r="5.5" fill="#fafaf7" stroke="#171717" stroke-width="2"/>
+  <polyline points="38,17 38,13 40,11 42,13 42,17" fill="none" stroke="#55554f" stroke-width="1"/>
+  <line x1="40" y1="5.5" x2="40" y2="3.5" stroke="#171717" stroke-width="1"/>
+  <line x1="33.5" y1="9" x2="32" y2="7.5" stroke="#171717" stroke-width="1"/>
+  <line x1="46.5" y1="9" x2="48" y2="7.5" stroke="#171717" stroke-width="1"/>
+</svg>

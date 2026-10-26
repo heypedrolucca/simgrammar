@@ -170,6 +170,48 @@ icons:
   - {id: war-score-peace, kind: mechanic}
   - {id: wear-breakdown, kind: mechanic}
   - {id: zoning, kind: mechanic}
+  # mechanics (phase 4)
+  - {id: adjacency-scoring, kind: mechanic}
+  - {id: agent-skills, kind: mechanic}
+  - {id: animal-husbandry, kind: mechanic}
+  - {id: care-dependent-development, kind: mechanic}
+  - {id: career-ladder, kind: mechanic}
+  - {id: citizen-satisfaction, kind: mechanic}
+  - {id: crisis-countdown, kind: mechanic}
+  - {id: customer-value-choice, kind: mechanic}
+  - {id: daily-schedules, kind: mechanic}
+  - {id: design-performance-rating, kind: mechanic}
+  - {id: designation-orders, kind: mechanic}
+  - {id: diagnose-repair, kind: mechanic}
+  - {id: diagnosis-treatment, kind: mechanic}
+  - {id: direct-avatar, kind: mechanic}
+  - {id: faction-diplomacy, kind: mechanic}
+  - {id: fire-spread, kind: mechanic}
+  - {id: god-powers, kind: mechanic}
+  - {id: hauling-jobs, kind: mechanic}
+  - {id: material-interactions, kind: mechanic}
+  - {id: megaproject-sink, kind: mechanic}
+  - {id: persistent-world, kind: mechanic}
+  - {id: policy-toggles, kind: mechanic}
+  - {id: political-capital, kind: mechanic}
+  - {id: population-strata, kind: mechanic}
+  - {id: rail-signaling, kind: mechanic}
+  - {id: romance-family, kind: mechanic}
+  - {id: room-recognition, kind: mechanic}
+  - {id: service-coverage, kind: mechanic}
+  - {id: service-queues, kind: mechanic}
+  - {id: signal-circuits, kind: mechanic}
+  - {id: soft-body-deformation, kind: mechanic}
+  - {id: stability-unrest, kind: mechanic}
+  - {id: storage-capacity, kind: mechanic}
+  - {id: surface-work-tools, kind: mechanic}
+  - {id: taxation, kind: mechanic}
+  - {id: terraforming, kind: mechanic}
+  - {id: terrain-deformation, kind: mechanic}
+  - {id: territorial-control, kind: mechanic}
+  - {id: track-laying, kind: mechanic}
+  - {id: vehicle-dynamics, kind: mechanic}
+  - {id: vertical-layers, kind: mechanic}
   # families (phase 3)
   - {id: agents-behavior, kind: family}
   - {id: biology-health, kind: family}
@@ -293,3 +335,20 @@ icons:
   - {id: status-asserted, kind: term, label: Asserted, aliases: [asserted]}
   - {id: status-sourced, kind: term, label: Sourced, aliases: [sourced]}
   - {id: status-verified, kind: term, label: Verified, aliases: [verified]}
+  # terms (phase 4): opportunity horizons (vocab/horizon.yaml), technique risks (vocab/risk.yaml), the fourth record status
+  - {id: horizon-now, kind: term, label: Now}
+  - {id: horizon-1-2y, kind: term, label: 1-2 years, aliases: [one to two years]}
+  - {id: horizon-3-5y, kind: term, label: 3-5 years, aliases: [three to five]}
+  - {id: horizon-5y-plus, kind: term, label: 5+ years}
+  - {id: risk-compute-cost, kind: term, label: Compute cost, aliases: [compute cost]}
+  - {id: risk-consistency, kind: term, label: Consistency / hallucination, aliases: [consistency, hallucination]}
+  - {id: risk-content-safety, kind: term, label: Content safety, aliases: [content safety]}
+  - {id: risk-controllability, kind: term, label: Controllability}
+  - {id: risk-determinism, kind: term, label: Determinism}
+  - {id: risk-evaluation, kind: term, label: Evaluation difficulty, aliases: [evaluation]}
+  - {id: risk-ip-provenance, kind: term, label: IP / provenance, aliases: [provenance]}
+  - {id: risk-labor, kind: term, label: Labor displacement, aliases: [labor]}
+  - {id: risk-latency, kind: term, label: Latency}
+  - {id: risk-legibility, kind: term, label: Legibility}
+  - {id: risk-player-trust, kind: term, label: Player trust / reception, aliases: [player trust]}
+  - {id: status-contested, kind: term, label: Contested, aliases: [contested]}

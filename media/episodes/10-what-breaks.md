@@ -92,7 +92,7 @@ Target runtime about 11 minutes: about 1,120 words of narration at 135 words a m
 
 **Picture.** The risk table from the dataset builds as a bar chart, longest bar at the top.
 
-**Frame.** count kind=tally of=technique field=risks current=controllability
+**Frame.** count kind=tally of=technique field=risks current=risk-controllability
 
 **Voice.** The risk the dataset records most often across its techniques is {{stat:top_technique_risk}}: the designer can't reliably make the technique do what the design needs.{{assert:top_technique_risk == controllability}} It's on {{stat:n_technique_risk_controllability}} of them. Language-model game masters tend to go along with requests a human game master would refuse [@src-gallotta-2024-llms-games-survey]. Close behind comes evaluation: when a system can produce endless variations, nobody can check them all.{{assert:n_technique_risk_evaluation >= 15}} Automated playtests can say a generated event is valid and balanced. They can't say it's any good.
 
