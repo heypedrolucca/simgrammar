@@ -167,6 +167,130 @@ def compute(ents: dict, edges: list, vocabs: dict) -> dict:
         stats["rare_max_games"] = rare_max
         stats["n_games_with_rare_core"] = rare_core
         stats["pct_games_with_rare_core"] = _r(100 * rare_core / max(N, 1), 0)
+        # book chapters 7-8: what the shipped techniques reach, how often they replace a mechanic, and who explains
+        shipped = [t for t in techs if str(t.data.get("maturity", "")).startswith("shipped")]
+        sh_mechs = {a["id"] for t in shipped for a in t.data.get("affects", []) if a["id"] in derived}
+        stats["n_technique_shipped"] = len(shipped)
+        stats["n_technique_shipped_breaks"] = sum(1 for t in shipped if t.data.get("determinism_impact") == "breaks")
+        stats["n_mechanics_touched_by_shipped"] = len(sh_mechs)
+        stats["pct_uses_touched_by_shipped"] = _r(100 * sum(derived[m]["prevalence"] for m in sh_mechs) / max(stats["n_uses_edges"], 1), 0)
+        stats["n_replaces_substrate_shipped"] = sum(1 for t in shipped for a in t.data.get("affects", []) if a["effect"] == "replaces-substrate")
+        explainers = [t for t in techs if any(a["effect"] == "explains" for a in t.data.get("affects", []))]
+        stats["n_explains_techniques"] = len(explainers)
+        stats["n_effect_explains_shipped"] = sum(1 for t in shipped for a in t.data.get("affects", []) if a["effect"] == "explains")
+        # book chapter 3: how much of the vocabulary the games released by 2000 show, against random sets of the same
+        # number of games trimmed to the same sizes (so a shared vocabulary is not mistaken for early invention), and how
+        # much of what later games use was already there. Seeded and sorted so the build stays deterministic.
+        used_by_game = {g.id: sorted({u["id"] for u in g.data.get("mechanics", []) if u["id"] in derived}) for g in games}
+        early_ids = [g.id for g in games if isinstance(year.get(g.id), int) and year[g.id] <= 2000]
+        early_seen = set().union(*[set(used_by_game[x]) for x in early_ids]) if early_ids else set()
+        stats["n_games_by_2000"] = len(early_ids)
+        stats["pct_games_by_2000"] = _r(100 * len(early_ids) / max(N, 1), 0)
+        stats["n_mechanics_seen_by_2000"] = len(early_seen)
+        if early_ids:
+            import random as _random
+            rng = _random.Random(20261026)
+            sizes = [len(used_by_game[x]) for x in early_ids]
+            pool = sorted(used_by_game)
+            null = []
+            for _ in range(2000):
+                pick = rng.sample(pool, len(early_ids))
+                rng.shuffle(sizes)
+                seen = set()
+                for gid, k in zip(pick, sizes):
+                    ms = used_by_game[gid]
+                    seen.update(rng.sample(ms, min(k, len(ms))))
+                null.append(len(seen))
+            stats["n_mechanics_seen_null_mean"] = _r(float(np.mean(null)), 0)
+            stats["pct_mechanics_seen_null_mean"] = _r(100 * float(np.mean(null)) / max(len(mechs), 1), 0)
+            stats["p_mechanics_seen_by_2000"] = _r(sum(1 for v in null if v >= len(early_seen)) / len(null), 2)
+        old_mechs = {m.id for m in mechs if (derived[m.id].get("earliest_year") or 9999) <= 2000}
+        late_ids = [g.id for g in games if isinstance(year.get(g.id), int) and year[g.id] >= 2010]
+        late_uses = sum(len(used_by_game[x]) for x in late_ids)
+        stats["n_games_since_2010"] = len(late_ids)
+        stats["n_games_since_2010_only_pre2001"] = sum(1 for x in late_ids if used_by_game[x] and set(used_by_game[x]) <= old_mechs)
+        stats["pct_uses_since_2010_on_pre2001"] = _r(100 * sum(1 for x in late_ids for mid in used_by_game[x] if mid in old_mechs) / max(late_uses, 1), 0)
+        for dec in range(1960, 2030, 10):
+            stats[f"n_mechanics_first_{dec}s"] = sum(1 for m in mechs if (derived[m.id].get("earliest_year") or 0) // 10 * 10 == dec)
+        intro = Counter(derived[m.id]["earliest_game"] for m in mechs if derived[m.id].get("earliest_game"))
+        for g in games:
+            derived[g.id]["introduced_count"] = intro.get(g.id, 0)
+        if intro:
+            top_g, top_n = min(intro.items(), key=lambda kv: (-kv[1], kv[0]))
+            stats["top_introducer"] = by_id[top_g].data["name"]
+            stats["top_introducer_count"] = top_n
+        # book chapters 5-6: legibility and tuning difficulty by emergence level, and how many mechanics sit at the top of
+        # the compute and authoring scales (all rubric scores are one model rater's, chapter 5 says so)
+        e1 = [m for m in mechs if m.data.get("emergence_potential") == 1]
+        e4 = [m for m in mechs if (m.data.get("emergence_potential") or 0) >= 4]
+        mean_of = lambda ms, f: _r(float(np.mean([m.data[f] for m in ms])), 1) if ms else None  # noqa: E731
+        stats["n_mechanics_emergence_1"] = len(e1)
+        stats["n_mechanics_emergence_4plus"] = len(e4)
+        stats["mean_legibility_emergence_1"] = mean_of(e1, "legibility")
+        stats["mean_legibility_emergence_4plus"] = mean_of(e4, "legibility")
+        stats["mean_tuning_emergence_1"] = mean_of(e1, "tuning_difficulty")
+        stats["mean_tuning_emergence_4plus"] = mean_of(e4, "tuning_difficulty")
+        stats["n_mechanics_legibility_2_or_less"] = sum(1 for m in mechs if (m.data.get("legibility") or 5) <= 2)
+        stats["n_mechanics_compute_4plus"] = sum(1 for m in mechs if (m.data.get("compute_cost") or 0) >= 4)
+        stats["n_mechanics_authoring_4plus"] = sum(1 for m in mechs if (m.data.get("authoring_cost") or 0) >= 4)
+        a4 = [m for m in mechs if (m.data.get("authoring_cost") or 0) >= 4]
+        a12 = [m for m in mechs if (m.data.get("authoring_cost") or 0) <= 2]
+        stats["mean_ai_leverage_authoring_4plus"] = mean_of(a4, "ai_leverage")
+        stats["mean_ai_leverage_authoring_2_or_less"] = mean_of(a12, "ai_leverage")
+        fam_n = Counter(m.data.get("family") for m in mechs)
+        for f, n in fam_n.items():
+            stats["n_mechanics_family_" + str(f).replace("-", "_")] = n
+        big = max(games, key=lambda g: (derived[g.id]["mechanic_count"], g.id)) if games else None
+        if big is not None:
+            stats["max_mechanics_per_game"] = derived[big.id]["mechanic_count"]
+            stats["most_mechanics_game"] = big.data["name"]
+        # book chapters 10-13: opportunity horizons, technique risks, prediction dates, evidence status, runs
+        hz = Counter(o.data.get("horizon") for o in opps)
+        for term in ("now", "1-2y", "3-5y"):
+            stats["n_opportunity_horizon_" + term.replace("-", "_")] = hz.get(term, 0)
+        breaking = {t.id for t in techs if t.data.get("determinism_impact") == "breaks"}
+        stats["n_opportunity_applies_breaking"] = sum(1 for o in opps if set(o.data.get("applies") or []) & breaking)
+        rk = Counter(r for t in techs for r in (t.data.get("risks") or []))
+        for term in vocab_terms(vocabs, "risk"):
+            stats["n_technique_risk_" + term.replace("-", "_")] = rk.get(term, 0)
+        stats["top_technique_risk"] = max(rk.items(), key=lambda kv: (kv[1], kv[0]))[0] if rk else ""
+        rb = sorted(o.data["falsifiable_signal"]["resolve_by"] for o in opps)
+        stats["last_prediction_resolves"] = rb[-1] if rb else None
+        stats["n_predictions_first_date"] = sum(1 for d in rb if d == rb[0]) if rb else 0
+        stats["n_predictions_by_2027"] = sum(1 for d in rb if d <= "2027-12-31")
+        stats["n_predictions_by_2028"] = sum(1 for d in rb if d <= "2028-12-31")
+        st_live = Counter(e.data.get("status") for lst in live.values() for e in lst)
+        stats["n_verified"] = st_live.get("verified", 0)
+        stats["n_contested"] = st_live.get("contested", 0)
+        all_runs = ents.get("run", [])
+        stats["n_runs"] = len(all_runs)
+        stats["n_runs_verification"] = sum(1 for r in all_runs if r.data.get("kind") == "verification")
+        # book chapter 2: feedback polarity of mechanics, the game with the most mechanics, and where each large
+        # subgenre spends its mechanic uses (top three families by share)
+        fb = Counter(m.data.get("feedback") for m in mechs)
+        for k in ("balancing", "reinforcing", "both", "none"):
+            stats[f"n_mechanics_feedback_{k}"] = fb.get(k, 0)
+        most = max(games, key=lambda g: (derived[g.id]["mechanic_count"], g.id)) if games else None
+        stats["max_mechanics_per_game"] = derived[most.id]["mechanic_count"] if most else None
+        stats["game_most_mechanics"] = most.id if most else ""
+        smin = (cfg.get("book") or {}).get("subgenre_min_games", 6)
+        spend = []
+        for sg, members in sorted(Counter(g.data.get("subgenre") for g in games).items(), key=lambda kv: (-kv[1], kv[0])):
+            if members < smin:
+                continue
+            fc = Counter(by_id[u["id"]].data.get("family") for g in games if g.data.get("subgenre") == sg
+                         for u in g.data.get("mechanics", []) if u["id"] in by_id)
+            tot = sum(fc.values()) or 1
+            top3 = sorted(fc.items(), key=lambda kv: (-kv[1], kv[0]))[:3]
+            key = str(sg).replace("-", "_")
+            stats[f"top_family_{key}"] = top3[0][0] if top3 else ""
+            stats[f"top_family_pct_{key}"] = round(100 * top3[0][1] / tot) if top3 else 0
+            row = {"subgenre": sub_terms.get(sg, {}).get("label", sg), "games": members}
+            for i, (f, n) in enumerate(top3, start=1):
+                row[f"family_{i}"] = f"{fam_terms.get(f, {}).get('label', f)} ({round(100 * n / tot)}%)"
+            spend.append(row)
+        tables["subgenre-spend"] = {"description": f"For each subgenre with at least {smin} catalog games, the three mechanic families that take the largest share of its games' mechanic uses.",
+                                    "columns": ["subgenre", "games", "family_1", "family_2", "family_3"], "rows": spend}
 
     # ---------------- correlations across mechanics (Spearman)
     def corr(a, b):

@@ -1,119 +1,103 @@
 # Episode 1. Every simulation game is made of the same parts
 
-Target runtime about 11 minutes: about 1,260 words of narration at 135 words a minute, plus a beat of picture-only footage per scene. Covers book chapters 1 and 2. Footage: RimWorld, SimCity (1989), Factorio, all captured by us; publisher video policies are tracked in `media/rights.yaml` and must be checked before release. Every number below is filled in from the dataset when the script is built, and the sentences that interpret numbers carry the same checks as the book.
+Target runtime about 12 minutes: about 1,500 words of narration at 135 words a minute, plus a beat of picture-only footage per scene. Covers book chapters 1 and 2. Footage: RimWorld, Dwarf Fortress, SimCity (1989), Factorio, Oxygen Not Included, The Sims, Frostpunk, all captured by us; a still of Façade. Publisher video policies are tracked in `media/rights.yaml` and must be checked before release. Every number below is filled in from the dataset when the script is built, and the sentences that interpret numbers carry the same checks as the book.
 
-## 1. Cold open (0:00 to 1:01)
+## 1. Cold open (0:00 to 0:51)
 
-**Picture.** RimWorld, late afternoon on a small colony. A letter slides in: raiders to the east. Three colonists in three places: hauling, sleeping, cooking. The game pauses. While paused, the player drafts two colonists, walks them to sandbags, wakes the third, assigns a rifle. Unpause. The fight begins and we cut away on the first shot.
+**Picture.** RimWorld, a small colony at dusk. A raid letter. A short fight at the door; one colonist falls. Cut to three days later: the cook drops her work and walks out into the fields. The player clicks her. The needs tab fills the screen, every mood effect a line with a number and a timer.
 
-**Voice.** This is the most important button in RimWorld, and nobody talks about it. The raid is coming, my colonists are scattered, and I stop time. Not to escape. To think. While the world is frozen, I give every order I need, and then I let it run.
+**Voice.** Three days after the raid, the cook walks off the job. Click on her and RimWorld tells you why, line by line. Her son died in the fight: minus twenty, for thirty days. The fine meal that was holding her up has worn off. Her mood has been under the break line since the funeral, and today the game rolled the dice [@src-rimworldwiki-2026-thoughts; @src-rimworldwiki-2026-mental-break].
 
-**Voice.** That button has a name. So does the storyteller that sent the raid, the needs that put one colonist to sleep, and the mood that might make another walk off the job in the middle of the fight. RimWorld is a stack of named parts. So is every other simulation game. This series is about the parts.
+**Voice.** Nobody scripted that. Five separate rules made it happen, and every simulation game is built out of rules like them.
 
-## 2. Title (1:01 to 1:11)
+## 2. Title (0:51 to 1:01)
 
 **Picture.** Title card over the game-by-mechanic grid, out of focus.
 
 **On screen.** Every simulation game is made of the same parts. Episode 1.
 
-## 3. What a mechanic is (1:11 to 2:48)
+## 3. RimWorld, in parts (1:01 to 2:31)
 
-**Picture.** RimWorld's mechanics peel off the paused screen as labelled cards and stack in two piles: core and supporting.
+**Picture.** The paused colony. RimWorld's core mechanics peel off the screen as labelled cards: storyteller, needs, mood breaks, memories, work priorities, injuries by body part, threat that grows with wealth.
 
-**Voice.** In the dataset behind this series, RimWorld breaks into {{derived:rimworld.mechanic_count}} mechanics. A mechanic is a rule-system that owns one kind of state and one rule for changing it. Of those, {{derived:rimworld.core_count}} are core: take any one away and it is a different game.{{assert:derived.rimworld.core_count == 7}}
+**Voice.** We've broken {{stat:n_game}} simulation games into their parts. RimWorld comes apart into {{derived:rimworld.mechanic_count}} of them, and {{derived:rimworld.core_count}} are core, meaning it would be a different game without them.{{assert:derived.rimworld.core_count == 7}}
 
-**On screen.** Storyteller. Needs that decay. Mood breaks. Memories and thoughts. Work priorities. Bodies made of parts. Threat that grows with wealth.
+**Voice.** The storyteller picks the raid, and spends a threat budget that grows with your wealth. Needs run down and feed mood. Every mood effect is written into memory with a value and an expiry. Mood below a threshold rolls for a breakdown. Bodies are trees of parts that bleed and scar. You rank the jobs, and colonists pick their own work.
 
-**Voice.** A storyteller picks what happens and when. Needs run down and feed each colonist's mood. Push mood too low and a colonist breaks. Every mood effect is itemized, so you can read why it happened. You rank jobs; colonists choose. Injuries land on body parts. And the richer the colony gets, the bigger the raids.
+**Picture.** Four stamps land on the storyteller card.
 
-**Voice.** The rest are supporting: crops, rooms, traits, fire, permanent death, and, near the bottom, the pause button.
+**On screen.** Nameable. One job. Tunable. Removable.
 
-**Picture.** Four stamps land on the pause card in turn.
+**Voice.** A part only counts if it passes four tests. Another designer would recognize it. It does one job. It has levers. And a game could drop it and still run. The storyteller passes: Left 4 Dead's director is the same idea, its levers are the event list and the length of the quiet stretches, and Dwarf Fortress runs without one [@src-booth-2009-ai-systems-l4d].
 
-**On screen.** Nameable. Atomic. Tunable. Removable.
+## 4. Rare parts (2:31 to 3:51)
 
-**Voice.** To count as a mechanic, a part has to pass four tests. Another designer would recognize it. It does one job. It has levers you can turn. And a game could drop it and still run. The pause button passes all four. Its levers are how many speeds there are, whether you can give orders while paused, which events pause the game for you, and who controls speed in multiplayer.
+**Picture.** Each core card flies to its column in the grid. Most columns are thin.
 
-## 4. The grid (2:48 to 3:56)
+**Voice.** Now count how many other games use each part. The storyteller is in {{derived:storyteller-director.prevalence}} catalog games. Mood breaks in {{derived:mood-breakdown.prevalence}}. Injuries by body part in {{derived:injury-body-model.prevalence}}.{{assert:derived.storyteller-director.prevalence <= 5}}{{assert:derived.mood-breakdown.prevalence <= 10}}{{assert:derived.injury-body-model.prevalence <= 10}} Only needs that decay are common, shared by {{derived:needs-decay.prevalence}} games going back to Little Computer People in 1985.{{assert:derived.needs-decay.prevalence > 20}}{{assert:derived.needs-decay.earliest_game == little-computer-people}}
 
-**Picture.** The game-by-mechanic grid fills in row by row, oldest game at the top. A counter in the corner ticks up years.
+**Picture.** Arrows from three columns back to one row: Dwarf Fortress, 2006. Then a still of Façade: two characters at a dinner party.
 
-**Voice.** Now do that for every simulation game you can find. The dataset decomposes {{stat:n_game}} games, from {{stat:year_min}} to {{stat:year_max}}, into a shared vocabulary of {{stat:n_mechanic}} mechanics. Each row is a game. Each column is a mechanic. Each mark is one game using one mechanic, dark where it is core.
+**Voice.** Three of those rare parts first show up in the catalog in one game, Dwarf Fortress, in 2006: mood breaks, bodies made of parts, and danger that grows with wealth.{{assert:derived.mood-breakdown.earliest_game == dwarf-fortress}}{{assert:derived.injury-body-model.earliest_game == dwarf-fortress}}{{assert:derived.adaptive-threat-scaling.earliest_game == dwarf-fortress}} The earliest storyteller in the catalog comes from Façade, a 2005 interactive drama where a drama manager steers an argument between a married couple toward one of three endings.{{assert:derived.storyteller-director.earliest_game == facade}}
+
+## 5. The grid (3:51 to 4:51)
+
+**Picture.** The game-by-mechanic grid fills in row by row, oldest game at the top, a year counter ticking in the corner.
+
+**Voice.** Do that for every game and you get this. {{stat:n_game}} games, from {{stat:year_min}} to {{stat:year_max}}, broken into a shared vocabulary of {{stat:n_mechanic}} mechanics. Each row is a game. Each column is a mechanic. A dark mark means the part is core.
 
 **On screen.** {{stat:n_game}} games. {{stat:n_mechanic}} mechanics. {{stat:n_uses_edges}} uses.
 
-**Voice.** The average game uses {{stat:mean_mechanics_per_game}} mechanics. Almost every mechanic shows up in more than one game: only {{stat:n_mechanics_single_game}} belong to a single title.{{assert:n_mechanics_single_game <= 5}} When a rule-system exists, it exists because several designers found it worth building.
+**Voice.** The average game uses about {{stat:mean_mechanics_per_game}} parts. Only {{stat:n_mechanics_single_game}} mechanics belong to a single game, so almost everything in the vocabulary was worth building more than once.{{assert:n_mechanics_single_game <= 5}}
 
-**Voice.** Read a row and you see one game's recipe. Read a column and you see a mechanic's career: where it started, and where it spread. A few columns are nearly full. Most are nearly empty.
+## 6. The most common parts (4:51 to 6:01)
 
-## 5. The most common part (3:56 to 5:26)
+**Picture.** The grid narrows to its fullest columns. Five light up in turn, each over a two-second clip: a paused raid, a building dropped on a lot, a mod list, a research screen, a scenario goal. Then a sixth: ore riding a belt into a furnace.
 
-**Picture.** One column lights up: filled in nearly half the rows, more than any other column in the grid.
+**Voice.** The five most common parts are the pause button, placing buildings, mod support, a tech tree, and scenario goals.{{assert:derived.variable-speed.prevalence_rank == 1}}{{assert:derived.free-placement.prevalence_rank == 2}}{{assert:derived.modding-api.prevalence_rank == 3}}{{assert:derived.tech-tree.prevalence_rank <= 5}}{{assert:derived.scenario-objectives.prevalence_rank <= 5}} None of them simulates anything. They handle the player: when the world runs, where things go, who can change the rules. Production chains come sixth, the first part on the list that models something in the world.{{assert:derived.production-chain.prevalence_rank == 6}}
 
-**Voice.** The fullest column is not a market or a factory or a model of crowds. It is the pause button. It appears in {{stat:most_prevalent_mechanic_share_pct}} percent of the catalog.{{assert:derived.variable-speed.prevalence_rank == 1}}{{assert:most_prevalent_mechanic_share_pct >= 40}}
+**Voice.** The pause button is in {{stat:most_prevalent_mechanic_share_pct}} percent of catalog games, and core in exactly one: Universe Sandbox, where running a solar system faster can change how it ends.{{assert:derived.variable-speed.core_count == 1}}
 
-**Picture.** A short bar chart builds from the grid: the six most used mechanics.
+## 7. Where identity lives (6:01 to 7:01)
 
-**Voice.** Next come free placement of buildings and objects, and support for mods.{{assert:derived.free-placement.prevalence_rank == 2}}{{assert:derived.modding-api.prevalence_rank == 3}} Only then do the mechanics that simulate something take over: tech trees, scenario goals, production chains.{{assert:derived.tech-tree.prevalence_rank <= 5}}{{assert:derived.production-chain.prevalence_rank <= 6}} The parts simulation games share most are not about the world being simulated. They are about the player living with it: when it runs, where things go, and who gets to change the rules.
+**Picture.** Two histograms build side by side: the parts games call core, and the parts they call supporting, by how many games use each.
 
-**Picture.** The pause column again, almost all light marks, one dark one.
+**Voice.** RimWorld's pattern holds across the catalog. The parts a game calls core are used by a median of {{stat:median_prevalence_core_uses}} catalog games. The parts it calls supporting, by {{stat:median_prevalence_supporting_uses}}.{{assert:median_prevalence_core_uses < median_prevalence_supporting_uses}} And {{stat:pct_games_with_rare_core}} percent of games have at least one core part that no more than {{stat:rare_max_games}} games share.{{assert:pct_games_with_rare_core >= 75}}
 
-**Voice.** And the pause is almost never the point. It is core in {{derived:variable-speed.core_count}} of the {{derived:variable-speed.prevalence}} games that have it.{{assert:derived.variable-speed.core_count <= 2}} Nearly universal, almost never central. That is what infrastructure looks like.
+## 8. Six jobs (7:01 to 9:38)
 
-**Voice.** It also has costs. Fast-forward runs every other system faster, so when late-game speed stutters, you are watching the simulation hit the limit of the machine. In multiplayer, someone has to decide how fast time goes. The smallest button in the game exposes the cost of everything else.
+**Picture.** SimCity, 1989. A block of houses stalls next to an industrial strip. The crime map washes over it, then land value.
 
-## 6. Rare parts make the game (5:26 to 6:52)
+**Voice.** The parts also sort by the job they do. In SimCity, crime in each cell is a formula: 128, minus land value, plus density, minus police [@src-hopkins-2008-micropolis]. The maps hold the city's state. The formulas change it. Pollution dragging down land value connects one system to another. Zoning brings in what you want. The overlays show you what is going on. And disasters and the yearly budget decide when you have to pay attention.
 
-**Picture.** Back to RimWorld's core cards. Each one flies to its column in the grid, and each column is thin.
+**On screen.** Substrate. Dynamics. Coupling. Control. Legibility. Pacing and stakes.
 
-**Voice.** If the common parts make a game playable, the rare ones make it itself. RimWorld's storyteller appears in {{derived:storyteller-director.prevalence}} catalog games.{{assert:derived.storyteller-director.prevalence <= 5}} Work priorities in {{derived:work-priorities.prevalence}}. The injury model in {{derived:injury-body-model.prevalence}}. Mood breaks in {{derived:mood-breakdown.prevalence}}.{{assert:derived.work-priorities.prevalence <= 10}}{{assert:derived.injury-body-model.prevalence <= 10}}{{assert:derived.mood-breakdown.prevalence <= 10}} The one exception is needs that decay, which {{derived:needs-decay.prevalence}} games share, going back to Little Computer People in 1985.{{assert:derived.needs-decay.prevalence > 20}}{{assert:derived.needs-decay.earliest_game == little-computer-people}}
+**Picture.** Factorio: a factory grows; a pollution cloud spreads chunk by chunk; biters leave their nests.
 
-**Picture.** Arrows from three of RimWorld's columns back to a single row: Dwarf Fortress, 2006.
+**Voice.** Factorio runs two loops against each other. Production feeds itself: more machines, more research, more machines. Pollution pushes back. It spreads from chunk to chunk, the nests that soak it up send attacks, and the enemies evolve as your total pollution climbs [@src-factoriowiki-2026-pollution; @src-factoriowiki-2026-enemies].
 
-**Voice.** In the catalog, three of those rare parts first appear in the same game: Dwarf Fortress. Tabletop and mech games tracked damage by body location long before, but Dwarf Fortress is where the three arrived together in a colony sim.{{assert:derived.mood-breakdown.earliest_game == dwarf-fortress}}{{assert:derived.injury-body-model.earliest_game == dwarf-fortress}}{{assert:derived.adaptive-threat-scaling.earliest_game == dwarf-fortress}} Mood breaks, bodies made of parts, and danger that grows with your wealth. RimWorld did not copy a genre. It took three specific rule-systems and wired them to a storyteller.
+**Picture.** Oxygen Not Included: a temperature overlay; heat creeps out of a generator room into the base.
 
-**Voice.** That is the pattern this series keeps coming back to. A game's identity lives in a few uncommon parts and how they connect. Its playability lives in many common ones that players expect and rarely notice.
+**Voice.** Oxygen Not Included couples almost everything through one rule. Every tile holds an element with a mass and a temperature, and every fifth of a second it trades heat with its neighbours [@src-oxygennotincludedwiki-2026-thermal-conductivity]. Insulation, boiling, and overheating machines all fall out of that.
 
-## 7. Six jobs every simulation does (6:52 to 9:13)
+**Picture.** The Sims: a Sim heads to the fridge on its own; the bills sit unpaid until the player clicks.
 
-**Picture.** A stacked diagram of six layers builds from the bottom: substrate, dynamics, coupling, control, legibility, pacing.
+**Voice.** The Sims chooses where your control stops. Sims feed themselves, but paying bills and finding a job need you [@src-wikipedia-the-sims]. And Frostpunk shows the last job, pacing: the temperature falls on a schedule toward a storm you know is coming [@src-wikipedia-frostpunk].
 
-**Voice.** The mechanics also sort into jobs. Every simulation game has to do six things. It has to hold some state: that is the substrate. It has to change that state: dynamics. Its systems have to touch: coupling. The player has to get intent in: control. The player has to see what is going on: legibility. And the game has to decide when the player looks and what a mistake costs: pacing and stakes.
+## 9. Where genres spend (9:38 to 11:03)
 
-**Picture.** SimCity, 1989. Zoned blocks, power lines, then the land value overlay washing over the map.
+**Picture.** A table builds row by row: each subgenre, and the three families of parts it uses most.
 
-**Voice.** SimCity, from 1989, puts its weight on substrate and legibility. Its city is a set of coarse maps, land value, crime, pollution, traffic, recomputed in passes, plus demand for homes, shops, and industry. Its signature move is letting you see those maps. The overlays are not decoration. They are how a player understands a system that is too big to watch.
+**Voice.** Count where each genre spends its parts and the genres separate. Life sims put about a third into agents and behavior.{{assert:top_family_life_sim == agents-behavior}}{{assert:top_family_pct_life_sim >= 30}} Factory games lead with production.{{assert:top_family_factory_automation == resources-production}} Programming games lead with control.{{assert:top_family_programming_sim == control-automation}} Vehicle sims lead with careers and missions, ahead of the physics.{{assert:top_family_vehicle_sim == progression-goals}} And the AI-native games, the ones built on language models, lead with social relations.{{assert:top_family_ai_native == social-relations}}
 
-**Picture.** Factorio. A smelting column feeding belts into assemblers; the camera rides a belt into the factory.
+**Voice.** Most combinations of these parts have never been tried. Of the {{stat:n_possible_pairs}} possible pairs of mechanics, {{stat:pair_coverage_pct}} percent have ever shared a game.{{assert:pair_coverage_pct < 50}} Later episodes go looking in the gaps.
 
-**Voice.** Factorio puts its weight on dynamics and coupling. Ore becomes plates, plates become gears, gears become machines, and every one of those steps is a physical thing on a belt you have to route. Its pollution draws attacks, and the attacks grow as you do. That last part should sound familiar. It is the same mechanic as RimWorld's raids, which grow with the colony's wealth, in a game from a different genre.
+## 10. Close (11:03 to 11:53)
 
-**On screen.** Same part, two genres: threat that grows with success.
+**Picture.** A blank grid row with a cursor over it.
 
-**Picture.** RimWorld again, the needs tab open on one colonist, thoughts listed with timers.
-
-**Voice.** And RimWorld puts its weight on agents, coupling, and pacing. One colonist eats, sleeps, grieves, and fights, so everything touches everything through that colonist. The storyteller decides when you will be tested. The pause decides when you get to think.
-
-**Picture.** The six-layer stack again, with three bars beside it showing where each game invests.
-
-**Voice.** A compact description of any simulation game is where it invests across these six layers. City builders, factory games, colony sims, flight sims: they differ less in the parts they can choose from than in where they spend.
-
-## 8. What has not been built (9:13 to 10:19)
-
-**Picture.** The grid rearranges into a triangle of every possible pair of mechanics. Most cells are empty.
-
-**Voice.** Here is the last thing the grid shows. {{stat:n_mechanic}} mechanics allow {{stat:n_possible_pairs}} possible pairs. Only {{stat:pair_coverage_pct}} percent of them appear together in even one game in the catalog.{{assert:pair_coverage_pct < 50}} Most combinations of known parts have never been tried.
-
-**Voice.** Some of those gaps make no sense. A flight simulator has no use for free building placement. But some are open lots in a built-up neighbourhood, and later episodes walk through them. Names also sharpen the question everyone is asking about AI: not whether it will change games, but which parts. A language model that writes dialogue changes a different column from a learned physics model. Most of the research is landing on columns that few games use.{{assert:n_top10_prevalent_zero_exposure >= 5}}
-
-## 9. Close (10:19 to 11:29)
-
-**Picture.** A blank grid row with the viewer's cursor over it.
-
-**Voice.** Here is the exercise. Take a simulation game you love and list its parts. Mark the ones it could not live without. Then look up how many other games use each one. I would bet the parts you think of as its signature are rarer than you guess, and the parts you never noticed are among the most common in the field.
-
-**Voice.** And then take away the pause button and ask what breaks first. Usually it is the player.
+**Voice.** Try it on a game you love. List its parts, mark the ones it couldn't live without, and look up how many other games use each one. The ones that make it special will probably be rare.
 
 **On screen.** The dataset, the paper, and every source: sim.yohei.me.
 
-**Voice.** Everything in this video comes from an open dataset. Every number on screen is computed from it, and every claim is checked against it each time it is built. Next episode: most of the vocabulary of simulation games was written before 2000.{{assert:pct_mechanics_seen_by_2000 >= 50}} What happened after?
+**Voice.** Everything in this video comes from an open dataset, and every number on screen is checked against it each time it's built. Next episode: most of these parts already existed by the year 2000.{{assert:pct_mechanics_seen_by_2000 >= 60}}
