@@ -16,7 +16,10 @@ def clean(s):
     return re.sub(r"\s+", " ", s).strip()
 
 def parse(path):
-    txt = open(path, encoding='utf-8').read().split("\n## Sources")[0]
+    return parse_text(open(path, encoding='utf-8').read(), os.path.basename(path))
+
+def parse_text(txt, name):
+    txt = txt.split("\n## Sources")[0]
     title = re.search(r"^# (.+)$", txt, re.M).group(1)
     scenes, cur = [], None
     for line in txt.splitlines():
@@ -32,7 +35,7 @@ def parse(path):
         for kind, lab in (("picture", "**Picture.**"), ("voice", "**Voice.**"), ("onscreen", "**On screen.**"), ("frame", "**Frame.**")):
             if line.startswith(lab):
                 cur["blocks"].append({"kind": kind, "text": clean(line[len(lab):])})
-    return {"file": os.path.basename(path), "title": title, "scenes": scenes}
+    return {"file": name, "title": title, "scenes": scenes}
 
 def film_wording(path=None):
     """{(episode, scene): [voice paragraphs]} from the film script's "Film wording" section."""

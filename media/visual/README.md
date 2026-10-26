@@ -6,10 +6,11 @@ The pictures in the video series are built from the icons here and the frame tem
 
 1. Pick the id.
    - A mechanic, mechanic family, subgenre, or technique category uses the dataset's id.
+   - A vocab term a frame tallies takes its field's prefix: `status-`, `maturity-`, `determinism-`, `effect-`, `risk-`, or `horizon-` and the term id, labelled as in `vocab/` (`TERM_ICON` in `scripts/video/framedata.py`).
    - Anything else is a noun with its own kebab-case id, and that id cannot be a dataset id.
 2. Draw `icons/<id>.svg` in the subset below. Open it in a browser to check it: the colours preview as flat greys.
 3. Add an entry to `vocab.yaml`. A noun needs a label. Add aliases for the other words the narration uses for the subject, so the frame's highlight can follow it.
-4. Run `make build` and look at `dist/visual/sheet.html`, which shows every icon in ink and in the accent. Then run `make check`: E041 reports anything outside the subset.
+4. Run `make build` and look at `dist/visual/sheet.html`, which shows every icon in ink and in the accent. Then run `make check`: E041 reports anything outside the subset, and E042 any element a frame would draw without an icon, including the parts and terms it takes from the data.
 
 ## The subset
 

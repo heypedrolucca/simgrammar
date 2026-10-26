@@ -6,6 +6,9 @@ E040 frame-line   every **Frame.** line in media scripts parses, sits under a Pi
 E041 visual-icon  every vocab.yaml entry has a valid icon file in the SVG subset and every icon file has an entry; ids are
                   unique and of a known kind; dataset-kind ids exist; no id, label, or alias is a game's id, name, or alias.
 W108 visual-coverage  mechanics, families, subgenres, and technique categories with no icon yet (warning until phase 4).
+E042 frame-icon   every element a Frame line draws, once resolved against the build as the renderer resolves it (a game's
+                  parts, a tally's vocab terms, a subject's subgenre), has an icon; templates.js draws one without as a
+                  blank tile. Run by scripts/build.py through frame_icons(), since it needs the built entities and stats.
 """
 from __future__ import annotations
 
@@ -253,3 +256,61 @@ def check(F, ents: dict, vocabs: dict) -> None:
                             bad(f"the number {n} is not in the text of what it cites (from={cited or 'nothing'})")
                     if "at" in args and args["at"] not in voice:
                         bad(f"at=\"{args['at']}\" is not in this scene's narration")
+
+
+def blank_tiles(f: dict) -> list[str]:
+    """What a resolved frame (scripts/video/framedata.py) would draw with no icon: templates.js ic() draws an element whose
+    icon is empty, an anatomy subject that is missing, or a game side with no emblem as a blank type tile."""
+    found: list[str] = []
+
+    def walk(x):
+        if isinstance(x, dict):
+            if "icon" in x and not x["icon"]:
+                found.append(str(x.get("id") or x.get("family") or x.get("label") or "an element"))
+            for v in x.values():
+                walk(v)
+        elif isinstance(x, list):
+            for v in x:
+                walk(v)
+
+    walk({k: v for k, v in f.items() if not (f.get("t") == "moment" and k == "subject")})   # a moment strip does not draw its subject
+    if f.get("t") == "anatomy" and not f.get("subject"):
+        found.append(f"the subject of {f.get('name')} (its subgenre emblem)")
+    for side in ("a", "b"):
+        g = f.get(side)
+        if isinstance(g, dict) and "emblem" in g and not g["emblem"]:
+            found.append(f"the subgenre emblem of {g.get('name')}")
+    return list(dict.fromkeys(found))
+
+
+def frame_icons(outs: dict) -> list[str]:
+    """E042: resolve every Frame line in the built scripts as the renderer does and list each element with no icon.
+
+    outs is scripts/build.py's in-memory output (rendered scripts, entities, stats, visual/icons.json), so the check
+    needs no dist/ on disk and sees exactly the data the next render will draw from.
+    """
+    import sys
+
+    video = str(ROOT / "scripts" / "video")
+    if video not in sys.path:
+        sys.path.append(video)
+    import framedata
+    from parse import parse_text
+
+    framedata.use_build(outs)
+    out = []
+    for key in sorted(k for k in outs if k.startswith(tuple(d + "/" for d in SCRIPT_DIRS)) and k.endswith(".md")):
+        for sc in parse_text(outs[key], key)["scenes"]:
+            onscreen = " ".join(b["text"] for b in sc["blocks"] if b["kind"] == "onscreen")
+            for b in sc["blocks"]:
+                if b["kind"] != "frame":
+                    continue
+                where = f"{key} scene {sc['n']}, Frame '{b['text'][:48]}{'...' if len(b['text']) > 48 else ''}'"
+                try:
+                    f = framedata.resolve(b["text"], onscreen, None)
+                except Exception as err:  # a frame the renderer could not draw at all
+                    out.append(f"{where}: does not resolve ({type(err).__name__}: {err})")
+                    continue
+                for what in blank_tiles(f):
+                    out.append(f"{where}: draws '{what}' with no icon, as a blank tile; draw media/visual/icons/<id>.svg and list it in media/visual/vocab.yaml")
+    return out

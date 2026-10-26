@@ -2,7 +2,7 @@
 
 - Status: accepted
 - Date: 2026-10-26
-- Contract version: 1.2 (new rules E040, E041, W108 and invariant I16)
+- Contract version: 1.2 (new rules E040, E041, E042, W108 and invariant I16)
 - Runs: `2026-10-26-visual-vocabulary`
 
 ## Context
@@ -108,7 +108,8 @@ Moment frames say "drawn from the narration, not game footage". A frame that dra
 
 - **E040 frame-line.** Every Frame line parses and follows a Picture line in its scene. Its ids resolve, its `at=` phrase is in the scene's narration, and it states no number missing from the record text it cites.
 - **E041 visual-icon.** Every vocab.yaml entry has a valid icon file in the subset, and every icon file has an entry. Dataset-kind ids exist, noun and term ids do not reuse dataset ids, and no id, label, or alias names a game.
-- **W108 visual-coverage.** Counts the mechanics, families, subgenres, and technique categories with no icon yet. It becomes an error when phase 4 closes.
+- **E042 frame-icon.** Every element a Frame line draws has an icon, once the frame is resolved against the build as the renderer resolves it: the parts of a game it takes apart, the vocab terms of a tally, the subgenre emblem of a game it shows. E040 reads only the ids a line names, and the renderer drew an element with no icon as a blank type tile, so the build stops instead. `scripts/build.py` runs it, since it needs the built entities and stats.
+- **W108 visual-coverage.** Counts the mechanics, families, subgenres, and technique categories with no icon yet. It stays a warning for icons no frame draws; E042 covers the ones a frame does.
 
 ### Licences
 
@@ -122,5 +123,6 @@ Moment frames say "drawn from the narration, not game footage". A frame that dra
 - **Other videos.** They render as before, with cards, figures, and the grid, until their scripts gain Frame lines. Their labels are now lowercase and their fonts local, so every video changes slightly in look.
 - **Phase 3.** Every episode, short, and the film's own scenes carry Frame lines. Pictures that show the catalog grid or a paper figure keep it.
 - **Dense layouts.** A frame with many elements draws them smaller, down to 42 dpx, and keeps 3 px and 4 px per dpx. Past about twelve parts, anatomy lists the parts as a grid beside the game.
-- **Upkeep.** A Frame line goes stale when its scene changes. E040 catches broken ids, phrases, and numbers. A layout that no longer fits the narration is caught only by review.
+- **Upkeep.** A Frame line goes stale when its scene changes. E040 catches broken ids, phrases, and numbers, and E042 a data change that puts an element with no icon into a frame. A layout that no longer fits the narration is caught only by review.
+- **Blank tiles.** The phase-3 renders drew 57 elements with no icon as blank tiles, about 1,240 times across the 25 videos: mechanics a frame took from a game's parts, the risk and horizon terms of two tallies, and the contested status. Phase 4 drew them and added E042.
 - **Name lint.** The rights lint compares names and cannot judge a drawing. A generic drawing can still recall a game, so each icon's review stays a human check.

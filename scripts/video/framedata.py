@@ -4,7 +4,7 @@ Every number a frame shows is read here from dist/entities, dist/analysis, the r
 carries a source line saying where. Labels the script gives (a panel caption, "Zone growth") are prose and are linted
 with the script. The grammar is scripts/visual/frames.py; scripts/visual/check.py validates the same lines (E040).
 """
-import csv, json, os, re, sys, hashlib
+import csv, io, json, os, re, sys, hashlib
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.normpath(os.path.join(HERE, '..', '..'))
 sys.path.insert(0, os.path.join(ROOT, 'scripts'))
@@ -14,14 +14,29 @@ import numpy as np  # noqa: E402
 
 DIST = os.path.join(ROOT, 'dist')
 _cache = {}
+_built = {}
 MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
+
+def use_build(outs):
+    """Read dist/ files from a build's in-memory outputs instead of the disk (scripts/build.py runs E042 before writing)."""
+    _built.clear()
+    _built.update(outs)
+    _cache.clear()
+
+
+def dist_text(rel):
+    v = _built.get(rel)
+    if v is None:
+        return open(os.path.join(DIST, rel), encoding='utf-8').read()
+    return v.decode('utf-8') if isinstance(v, bytes) else v
 
 
 def data():
     if 'd' not in _cache:
-        live = lambda n: {x['id']: x for x in json.load(open(os.path.join(DIST, 'entities', n), encoding='utf-8')) if not x.get('deprecated')}
+        live = lambda n: {x['id']: x for x in json.loads(dist_text('entities/' + n)) if not x.get('deprecated')}
         voc = lambda n: {str(t['id']): t for t in yaml.safe_load(open(os.path.join(ROOT, 'vocab', n + '.yaml'), encoding='utf-8'))['terms']}
-        clusters = {r['cluster']: r for r in csv.DictReader(open(os.path.join(DIST, 'analysis', 'game-clusters.csv'), encoding='utf-8'))}
+        clusters = {r['cluster']: r for r in csv.DictReader(io.StringIO(dist_text('analysis/game-clusters.csv')))}
         runs = {}
         for fn in sorted(os.listdir(os.path.join(ROOT, 'log', 'runs'))):
             if fn.endswith('.yaml'):
@@ -29,9 +44,9 @@ def data():
                 runs[r['id']] = r
         _cache['d'] = {
             'G': live('games.json'), 'M': live('mechanics.json'), 'T': live('techniques.json'), 'B': live('opportunities.json'),
-            'S': {x['id']: x for x in json.load(open(os.path.join(DIST, 'entities', 'sources.json'), encoding='utf-8'))},
-            'stats': json.load(open(os.path.join(DIST, 'analysis', 'stats.json'), encoding='utf-8')),
-            'icons': json.load(open(os.path.join(DIST, 'visual', 'icons.json'), encoding='utf-8')),
+            'S': {x['id']: x for x in json.loads(dist_text('entities/sources.json'))},
+            'stats': json.loads(dist_text('analysis/stats.json')),
+            'icons': json.loads(dist_text('visual/icons.json')),
             'rubrics': yaml.safe_load(open(os.path.join(ROOT, 'vocab', 'rubrics.yaml'), encoding='utf-8')),
             'family': voc('mechanic_family'), 'subgenre': voc('subgenre'), 'category': voc('technique_category'),
             'vocab': {n: voc(n) for n in ('technique_maturity', 'determinism_impact', 'effect', 'status', 'risk', 'horizon', 'opportunity_type', 'runtime')},

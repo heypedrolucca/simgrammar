@@ -464,6 +464,12 @@ def build() -> tuple[dict[str, str | bytes], dict[str, str]]:
     from visual import icons as visual_icons
     outs.update(visual_icons.outputs())
 
+    # ---- every element a Frame line draws has an icon (E042): the frames resolve against this build, as the renderer's do
+    from visual import check as visual_check
+    blank = visual_check.frame_icons(outs)
+    if blank:
+        raise SystemExit("\n".join(f"E042 frame-icon: {m}" for m in blank) + f"\nbuild aborted: {len(blank)} Frame element(s) would draw as a blank tile")
+
     docs = {}
     blocks = generated_blocks(ents, analysis, vocabs, registry)
     for name in GENERATED_DOCS:
