@@ -22,42 +22,63 @@ const { chromium } = require('playwright'); const fs = require('fs'); const path
   // stills taken out of the start of the state's own duration, so the cut points and the total length do not move.
   const STEP = 1 / 30, MOTION = !process.env.SIMGRAMMAR_NO_MOTION;   // SIMGRAMMAR_NO_MOTION=1: final stills only, for previews
   let prev = null, prevState = null, n = 0; const list = [];
-  const shot = async (dur) => {
+  const shot = async (dur, exact = true) => {
     await p.waitForFunction(() => [...document.images].every(im => im.complete));
     const broken = await p.evaluate(() => [...document.images].filter(im => !im.naturalWidth).map(im => im.src));
     if (broken.length) throw new Error('missing images: ' + broken.slice(0, 3).join(', '));
     const f = path.join(outDir, `s${String(n).padStart(5, '0')}.png`);
-    await p.screenshot({ path: f }); list.push({ f, dur }); n++;
+    await p.screenshot({ path: f }); list.push({ f, dur, exact, state: merged_i }); n++;
   };
-  const merged = [];
+  const merged = []; let merged_i = 0;
   for (const s of states) {
     const sig = JSON.stringify({ ...s, dur: 0 });
     if (merged.length && sig === merged[merged.length - 1].sig) { merged[merged.length - 1].s.dur += s.dur; continue; }
     merged.push({ sig, s: { ...s } });
   }
-  let steps = 0;
-  for (const { s } of merged) {
+  // A build that does not fit in its first state carries on into the next states that show the same frame (only the
+  // caption, chip, or highlight changes), each taking its steps out of its own duration.
+  let steps = 0, pend = null;
+  for (const [mi, { s }] of merged.entries()) {
+    merged_i = mi;
     let mode = null;
+    const sig = s.frame ? JSON.stringify(s.frame) : null;
     if (s.frame) {
       const pf = prevState && prevState.frame;
-      if (!pf) mode = 'build';
-      else if (JSON.stringify(pf) !== JSON.stringify(s.frame)) mode = pf.t === s.frame.t ? 'xfade' : 'build';
+      if (pend && pend.sig === sig) mode = 'continue';
+      else if (!pf) mode = 'build';
+      else if (JSON.stringify(pf) !== sig) mode = pf.t === s.frame.t ? 'xfade' : 'build';
       else if (JSON.stringify(prevState.current) !== JSON.stringify(s.current)) mode = 'xfade';
     }
-    const maxK = Math.floor((s.dur - 0.25) / STEP);
+    if (mode !== 'continue') pend = null;
     if (mode === 'xfade') await p.evaluate(() => keepOld());
     await p.evaluate(x => show(x), s);
-    let K = 0;
-    if (MOTION && mode && maxK >= 3) {
+    let K = 0, hold = false;
+    if (MOTION && (mode === 'build' || mode === 'continue')) {
       await p.waitForFunction(() => [...document.images].every(im => im.complete));
-      K = await p.evaluate(([m, k]) => transPrep(m, k), [mode, maxK]);
-      for (let k = 0; k < K; k++) { await p.evaluate(k => transStep(k), k); await shot(STEP); }
+      const total = await p.evaluate(() => transPrep('build', 1e9));
+      const k0 = mode === 'continue' ? pend.k : 0;
+      const n = Math.max(0, Math.min(total - k0, Math.floor(s.dur / STEP) - 1));
+      for (let k = k0; k < k0 + n; k++) { await p.evaluate(k => transStep(k), k); await shot(STEP); }
+      K = n;
+      if (k0 + n < total) { pend = { sig, k: k0 + n }; hold = true; if (!n) await p.evaluate(k => transStep(k), Math.max(k0 - 1, -1)); }
+      else pend = null;
+    } else if (MOTION && mode === 'xfade') {
+      const maxK = Math.floor((s.dur - 0.25) / STEP);
+      if (maxK >= 3) {
+        await p.waitForFunction(() => [...document.images].every(im => im.complete));
+        K = await p.evaluate(([m, k]) => transPrep(m, k), [mode, maxK]);
+        for (let k = 0; k < K; k++) { await p.evaluate(k => transStep(k), k); await shot(STEP); }
+      }
     }
-    await p.evaluate(() => transEnd());
-    await shot(K ? s.dur - K * STEP : s.dur);
+    if (!hold) await p.evaluate(() => transEnd());
+    // the state's final still: its duration is exact when motion steps came out of it
+    await shot(K ? s.dur - K * STEP : s.dur, !!K);
+    list[list.length - 1].final = true;
+    if (hold) await p.evaluate(() => { const o = document.getElementById("frame-old"); if (o) o.remove(); });
     steps += K; prevState = s;
   }
-  let txt = ''; for (const x of list) txt += `file '${x.f}'\nduration ${(x.dur === STEP ? x.dur : Math.max(x.dur, 0.04)).toFixed(6)}\n`;
+  let txt = ''; for (const x of list) txt += `file '${x.f}'\nduration ${(x.exact ? x.dur : Math.max(x.dur, 0.04)).toFixed(6)}\n`;
+  fs.writeFileSync(path.join(outDir, 'stills.json'), JSON.stringify(list.map(x => ({ f: path.basename(x.f), dur: +x.dur.toFixed(6), state: x.state, final: !!x.final }))));
   txt += `file '${list[list.length - 1].f}'\n`;
   fs.writeFileSync(path.join(outDir, 'concat.txt'), txt);
   console.log('stills', n, 'motion steps', steps, 'seconds', list.reduce((a, x) => a + x.dur, 0).toFixed(1));
