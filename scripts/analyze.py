@@ -178,6 +178,7 @@ def compute(ents: dict, edges: list, vocabs: dict) -> dict:
         explainers = [t for t in techs if any(a["effect"] == "explains" for a in t.data.get("affects", []))]
         stats["n_explains_techniques"] = len(explainers)
         stats["n_effect_explains_shipped"] = sum(1 for t in shipped for a in t.data.get("affects", []) if a["effect"] == "explains")
+        stats["n_technique_since_2023"] = sum(1 for t in techs if isinstance(t.data.get("year"), int) and t.data["year"] >= 2023)
         # book chapter 8: per family, how many mechanics it holds and how many no technique in the set affects
         for fam in sorted({m.data.get("family") for m in mechs if m.data.get("family")}):
             fm = [m for m in mechs if m.data.get("family") == fam]
@@ -250,6 +251,7 @@ def compute(ents: dict, edges: list, vocabs: dict) -> dict:
         stats["mean_tuning_emergence_1"] = mean_of(e1, "tuning_difficulty")
         stats["mean_tuning_emergence_4plus"] = mean_of(e4, "tuning_difficulty")
         stats["n_mechanics_legibility_2_or_less"] = sum(1 for m in mechs if (m.data.get("legibility") or 5) <= 2)
+        stats["n_mechanics_legibility_2_or_less_emergence_3plus"] = sum(1 for m in mechs if (m.data.get("legibility") or 5) <= 2 and (m.data.get("emergence_potential") or 0) >= 3)
         stats["n_mechanics_compute_4plus"] = sum(1 for m in mechs if (m.data.get("compute_cost") or 0) >= 4)
         stats["n_mechanics_authoring_4plus"] = sum(1 for m in mechs if (m.data.get("authoring_cost") or 0) >= 4)
         a4 = [m for m in mechs if (m.data.get("authoring_cost") or 0) >= 4]
@@ -284,6 +286,8 @@ def compute(ents: dict, edges: list, vocabs: dict) -> dict:
         all_runs = ents.get("run", [])
         stats["n_runs"] = len(all_runs)
         stats["n_runs_verification"] = sum(1 for r in all_runs if r.data.get("kind") == "verification")
+        stats["n_runs_agent"] = sum(1 for r in all_runs if r.data.get("actor") == "agent")
+        stats["n_run_operators"] = len({str(r.data.get("operator", "")).strip().lower() for r in all_runs})
         # book chapter 2: feedback polarity of mechanics, the game with the most mechanics, and where each large
         # subgenre spends its mechanic uses (top three families by share)
         fb = Counter(m.data.get("feedback") for m in mechs)

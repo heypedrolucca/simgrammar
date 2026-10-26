@@ -1,0 +1,66 @@
+# Chapter 9. Vacant lots
+
+You lay a road along the river in [[cities-skylines|Cities: Skylines]] and paint residential zones beside it. Houses go up, families move in, and within a few in-game years the district is full. You add a school, a clinic, and a bus line. Each citizen picks the fastest route to work, and the jams appear exactly where your road plan was weakest.
+
+Decades later something odd happens. Hearses start backing up across the district, and houses with a body inside show a warning icon. The people who moved in together have grown old together, and the cohort is dying at once; the record calls it "an initial cohort moving in together" that "can age into a wave of deaths that overloads hearses." The game presents this as a service problem: build more deathcare. Nothing in it registers as a story about the people involved. None of the game's {{derived:cities-skylines.mechanic_count}} mechanics fires an event because of what you built or where you built it, and there is no mechanism for one.
+
+That absence is common. Building placement appears in {{derived:free-placement.prevalence}} catalog games, and triggered event chains, the mechanism that lets Crusader Kings III follow a rival's illness with a succession dispute and then a war, appear in {{derived:triggered-event-chains.prevalence}}. If the two were spread across games independently, several games would have both. One does: [[surviving-mars|Surviving Mars]], whose Mysteries lay authored storylines such as plagues, rival corporations, AI revolts, and alien contact over a colony the player builds by hand.{{assert:cooccur.free-placement.triggered-event-chains == 1}}{{assert:rank.whitespace.free-placement.triggered-event-chains == 1}} Even there, the stories are about the colony as a whole, and the record does not tie any of them to where a building stands.
+
+This chapter is about pairs like that: mechanics that are each common, belong to different parts of the design, and almost never share a game.
+
+## Packages
+
+Start with the opposite case, pairs that turn up together far more often than chance predicts. The dataset measures this as lift: how often two mechanics share a game, divided by how often they would if each were spread across the catalog independently. Pairs that share fewer than three games are left out, so that a single unusual game cannot make a pair look strong.
+
+{{table:cooccurrence-top}}
+
+The strongest pairs are packages inherited from one lineage. Sports management carries a trio: an engine that resolves matches from player attributes, a board whose confidence in the manager rises and falls with results, and contract negotiation.{{assert:rank.cooccurrence-top.attribute-match-engine.board-confidence <= 10}} Grand strategy carries war score, territorial control, and religious and cultural conversion.{{assert:rank.cooccurrence-top.culture-religion-conversion.war-score-peace <= 10}} The SimCity core of land value, demand, and traffic travels as a unit through the city builders.{{assert:rank.cooccurrence-top.land-value.traffic-congestion <= 15}} The Sims pairs aspirations with smart objects, the objects that advertise what they offer to the characters nearby,{{assert:rank.cooccurrence-top.aspiration-wants.smart-objects <= 10}} and virtual pets pair care with learning.{{assert:rank.cooccurrence-top.creature-care.creature-learning <= 15}}
+
+A package is a set of mechanics that solve one problem together, and the problem explains the pairing. In SimCity, land value is computed per block from distance to the centre, nearby trees and water, pollution, and crime, and traffic writes pollution into the same map; a road plan therefore changes what the land is worth, and the player reads both from overlays. Take the land value away and traffic becomes a nuisance with no economic consequence. Take traffic away and land value loses its main source of change. Designers in the lineage keep both because each makes the other matter.
+
+Packages also show how slowly the vocabulary recombines. A designer who starts a city builder inherits zoning, demand, land value, and traffic; one who starts a grand strategy game inherits war score and conversion. Chapter 3 showed that most mechanics existed by 2000. Chapter 4 showed that games cluster into families by the mechanics they use. Packages are why: the families are held together by mechanics that rarely travel alone.
+
+## Lots no one has built
+
+Chapter 1 reported how few of the possible pairs of mechanics have ever shared a game. Most of the empty pairs are uninteresting, because at least one of the two mechanics is rare. The white-space analysis keeps only the pairs where the emptiness means something. Both mechanics must appear in at least {{stat:whitespace_min_games}} catalog games. They must come from different families, since two mechanics from the same family are often alternatives. Neither may be a time-and-pacing control, because those follow from a game's time model, not from a design choice. The pair must not be recorded as being in design tension: the dataset holds {{count:edge:tension}} such edges, such as building assistance that favours organic shapes against strict structural rules that punish them. And the two must share at most one game. {{stat:n_whitespace_pairs}} pairs pass.{{assert:n_whitespace_pairs >= 100}}
+
+The figure lays out every pair of common mechanics as a plan of lots. Built lots are pairs that share games; darker ones share more than chance predicts. Dashed lots are white space.
+
+{{viz:vacant-lots}}
+
+The ranking uses the gap between how often a pair would share games by chance and how often it does.
+
+{{table:whitespace}}
+
+The chance figure carries an assumption worth stating. Expected co-occurrence treats each mechanic as spread across games independently of how many mechanics each game has. Games with many mechanics make every pair more likely, so a pair whose mechanics sit mostly in small games can look emptier than it is. A null model that preserved each game's size would shorten the list, and the dataset has not built one yet. The threshold is a choice too: {{stat:whitespace_min_games}} games was 8 percent of the catalog when it was fixed, and the analysis file records that it should be revisited once the catalog passes about 250 games. Read the table as a list of candidates, ranked by a simple measure.
+
+## Five lots
+
+**Placement and events.** The top lot is the one this chapter opened with. City builders give the player detailed control over where things go and almost never tell a story about it; event-driven games tell stories and rarely give the player a map to build on. A tavern next to the temple, or a mill whose pond floods a farmer's field, could fire an event about the specific people it affects, with choices whose effects are typed and bounded. The dataset records that idea as an opportunity, and chapter 10 ranks it.
+
+**Skill and placement.** The second lot pairs embodied skill control, the hand-flying and driving of flight and racing sims, with building placement.{{assert:rank.whitespace.embodied-skill-control.free-placement <= 3}}{{assert:cooccur.embodied-skill-control.free-placement == 0}} This is the clearest example of a lot that may be empty for a reason. The games with embodied skill are flight sims, driving sims, and a handful of physics sandboxes, and most of them have no use for placing buildings. Some vacant lots are vacant because nobody wants to live there.
+
+**Workers who age, in factories.** Lifecycle and aging, in which agents are born, grow through life stages, and die, appears in {{derived:lifecycle-aging.prevalence}} games, and production chains in {{derived:production-chain.prevalence}}. No catalog game has both.{{assert:cooccur.lifecycle-aging.production-chain == 0}}{{assert:rank.whitespace.lifecycle-aging.production-chain <= 5}} Factory games are run by machines or faceless workers. Games with aging populations, from Banished to Cities: Skylines, run food and goods economies without modelled production chains. The closest cases are industrial colony builders. In [[captain-of-industry|Captain of Industry]], residents need housing, food, power, healthcare, and household goods, and their satisfaction produces the currency that buys edicts and expansion. In [[workers-and-resources|Workers & Resources: Soviet Republic]], more than thirty commodities move by truck, rail, conveyor, and pipe through staffed plants. In both, the workers do not age, train, and retire. A factory whose throughput depends on a workforce with skills, households, and turnover would make a bottleneck as likely to be a missing mentor as a missing machine.
+
+**Shared designs, in production games.** Content sharing, where player creations are uploaded, browsed, rated, and imported into other players' games, appears in {{derived:content-sharing.prevalence}} games, almost all of them sandboxes, life sims, and builders of physical contraptions.{{assert:cooccur.content-sharing.production-chain == 1}}{{assert:rank.whitespace.content-sharing.production-chain <= 10}} The one production game with it is [[spacechem|SpaceChem]], whose solutions are plotted on global histograms of other players' results and whose ResearchNet let players share puzzles. [[factorio|Factorio]] players do exchange layouts: selected areas save to blueprints, books, and a personal library, and exchange strings are shared online. The dataset records that as blueprints. What no production game in the catalog has is the browsable, rated catalog that Spore built for creatures or that Steam Workshop provides for Cities: Skylines, a place where a factory layout is published, remixed, and ranked.
+
+**Research by people.** Tech trees appear in {{derived:tech-tree.prevalence}} games and relationship values in {{derived:relationship-values.prevalence}}; they share one, [[crusader-kings-3|Crusader Kings III]].{{assert:cooccur.relationship-values.tech-tree == 1}}{{assert:rank.whitespace.relationship-values.tech-tree <= 10}} In most games research is a currency spent on a graph. In colony and life sims, relationships between named characters drive much of what happens. A research system run by a few named scientists with skills, collaborations, and grudges would turn progression into a social system, and its breakthroughs into events with names attached.
+
+The rest of the table repeats the pattern. Permanent death and scenario objectives never share a game:{{assert:cooccur.permadeath.scenario-objectives == 0}} the games with permadeath are colony sims, survival games, and virtual pets, and the games with scenario objectives are tycoon, management, and vehicle games, which keep the people in them anonymous or let them come back. Budgets and crops never share a game either:{{assert:cooccur.budget-treasury.crop-cultivation == 0}} farming games track money as a wallet rather than a treasury, and city and management games buy their food. Each empty pair is two lineages that have not met.
+
+## What makes a lot worth building
+
+A vacant lot is a hypothesis, and the dataset is a sample. The catalog favours games that are well documented in English, and a game outside it may already combine any of these pairs. That is the cheapest way to close a lot: find the game, add it to the catalog with its sources, and the build recomputes the table. If the pair stops qualifying, every sentence in this chapter that depends on it fails its assertion and has to be rewritten.
+
+A lot is worth building when the two mechanics feed each other. In the SimCity package, traffic changes land value and land value draws more traffic. Placement and events would feed each other if the events changed what the player builds next. Aging and production would if the workforce's age structure set the factory's throughput years later, the same demographic echo that fills Cities: Skylines' hearses, with a production consequence. A pair where neither mechanic changes the other's state is two games sharing a menu.
+
+Most of the white-space pairs involve at least one mechanic from the economic families, which chapter 8 found are also the ones AI techniques have touched least.{{assert:rank.whitespace.lifecycle-aging.production-chain <= 5}}{{assert:rank.family-mean-exposure.resources-production >= 16}} The two observations come from different data, the co-occurrence of mechanics in games and the edges from techniques to mechanics, and they point at the same part of the vocabulary.
+
+## Exercise: survey a lot
+
+1. Pick two mechanics, each used by at least {{stat:whitespace_min_games}} catalog games, from different families.
+2. Look up how many games use both. If it is zero or one, list the games on each side and note what kind of games they are.
+3. Decide whether the lot is empty because the mechanics conflict, because the lineages never met, or because the catalog is missing a game. If it is the third, find the game.
+4. If it is the second, sketch the smallest design in which each mechanic changes the other's state, and say what a player would do differently because of it.
+
+Chapter 10 takes the white space, the techniques of chapters 7 and 8, and the ceilings of chapter 6, and turns them into {{count:opportunity}} bets, each with an experiment a small team could run and a prediction with a date on it.
