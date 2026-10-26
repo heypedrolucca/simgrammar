@@ -17,11 +17,11 @@ ADR-0004, contributor readiness.
 
 ## 1.1 additions (2026-10-25, AI contributor pilot)
 
-Fixes from the friction logs of four pilot agents that worked task issues end to end.
+Fixes from the friction logs of the pilot agents that worked task issues end to end.
 
 - **Schema:** `archived` also accepts the Wayback `id_` form (original bytes, for raw files and PDFs).
 - **Tooling:** `check_sources.py --ids` scopes a check to the ids a task lists, and `--suggest-archive` prints each snapshot's date beside `accessed`. `pr_scope.py` checks the run file of a run-only PR and rejects a PR that adds a run and changes nothing. `make pr-check` stops if `git config github.user` is unset instead of comparing against `$USER`. `new.py run` prints the run id and says why `make check` is red until `method` is written. `check_sources.py` prints NOTHING CHECKED when every fetch failed, so an offline pass is not mistaken for a real one. Task issues for checkable briefs carry the exact `check_sources.py --ids` command.
-- **Docs:** the archive brief says which snapshot to use (dates, raw files, paywalls), what to do without network access to archive.org, and that only sources actually archived are marked reviewed; the store-ids brief gives edition rules (later paid edition of the same game, series records, renamed developers), a fallback when Wikidata and IGDB cannot be opened, and marks only changed games reviewed; AGENTS.md says a run that changes nothing is reported on the issue, not opened as a PR; the issue size rule names the 30-source limit; CONTRIBUTING.md says the sign-off is the operator's attestation.
+- **Docs:** the archive brief says which snapshot to use (dates, raw files, paywalls), what to do without network access to archive.org, and that only sources actually archived are marked reviewed; the store-ids brief gives edition rules (later paid edition of the same game, series records, renamed developers), a fallback when Wikidata and IGDB cannot be opened, and marks only changed games reviewed; the source-claims brief runs as `maintenance` (quoting is not verification and needs no independence) and covers claims that overreach, bundle facts, state an absence, or cite a repository root, copies of DOI-only papers, locator forms, and agent fetch tools that return only fragments; AGENTS.md says a run that changes nothing is reported on the issue, not opened as a PR; the issue size rule names the 30-source limit; CONTRIBUTING.md says the sign-off is the operator's attestation.
 
 ## 1.0 (2026-10-23)
 

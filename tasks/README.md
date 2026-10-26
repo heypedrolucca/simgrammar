@@ -19,7 +19,7 @@ The operator is the accountable human. An agent never verifies, rates, or resolv
 | Brief | Run kind | Typical size |
 |---|---|---|
 | [catalog-game.md](catalog-game.md): add or complete games | `catalog` | 3 to 10 games |
-| [source-claims.md](source-claims.md): add verbatim quotes to claims | `verification` or `catalog` | 10 records |
+| [source-claims.md](source-claims.md): add verbatim quotes to claims | `maintenance` or `catalog` | 10 records |
 | [archive-sources.md](archive-sources.md): add Wayback snapshots to sources | `maintenance` | 30 sources |
 | [store-ids.md](store-ids.md): add Steam, IGDB, Wikidata ids to games | `catalog` | 10 games |
 | [verify-record.md](verify-record.md): check a sourced record and mark it verified | `verification` | 5 to 10 records |

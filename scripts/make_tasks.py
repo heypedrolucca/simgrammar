@@ -23,7 +23,7 @@ from lib import ROOT, is_wiki_source, load_calibration, load_entities, load_regi
 REPO = "https://github.com/yoheinakajima/simgrammar"
 BRIEFS = {
     "archive-sources": ("maintenance", 25, "Archive {n} sources on the Wayback Machine"),
-    "source-claims": ("verification", 8, "Add verbatim quotes to the claims of {n} records"),
+    "source-claims": ("maintenance", 8, "Add verbatim quotes to the claims of {n} records"),
     "store-ids": ("catalog", 10, "Add store ids to {n} games"),
     "catalog-game": ("catalog", 3, "Catalogue {n} candidate games"),
     "verify-record": ("verification", 6, "Verify {n} sourced records (independent operator)"),
@@ -32,7 +32,7 @@ BRIEFS = {
 }
 DONE = {
     "archive-sources": "every listed source you could archive has an `archived` snapshot of its own url (E034) and names your run in `provenance.reviewed`; any you could not are named in your run's `method`; `make check` and `make pr-check` are green",
-    "source-claims": "every claim on the listed records has a verbatim `quote` (and `locator`) from its first source, the `sources` workflow finds each quote or flags it for review, `make check` is green",
+    "source-claims": "every claim on the listed records has a verbatim `quote` and `locator` from its first source, or is named in your run's `method` with the reason; the `sources` workflow finds each quote or flags it for review; `make check` and `make pr-check` are green",
     "store-ids": "each listed game has every store id you could confirm (games without one are named in your run's `method`), the `sources` workflow resolves them to the right game, `make check` and `make pr-check` are green",
     "catalog-game": "each candidate is catalogued to the depth of data/games/rimworld.yaml, or declined in your run's notes with the admission test it fails; every new claim carries a quote",
     "verify-record": "each record is `verified` or `contested` (with a `disputes` claim), your run is independent of the creating run (E035), `make check` is green",
