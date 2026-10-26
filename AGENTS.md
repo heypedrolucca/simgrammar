@@ -122,6 +122,10 @@ Never type a dataset count ("140 games") into prose (E021). When a sentence inte
 
 `scripts/web.py` projects everything into `dist/web/`: the paper, one page per record, an index per type, and a data page. It uses Register (`web/register.css`, vendored; its contract is `web/DESIGN.md`). Follow that contract when you change a page template: no new stylesheet or classes, lowercase mono labels, one accent, every component with a plain-text twin, and every page complete without JavaScript (`web/simgrammar.js` only adds interaction). Figures are laid out in Python, deterministically; the script never lays anything out. The domain lives in `report/meta.yaml` (`site.domain`) and is written to `dist/web/CNAME`. `.github/workflows/pages.yml` builds on every push to `main` and publishes `dist/web/` as the site with the other projections under `/dist/`.
 
+### The videos
+
+`scripts/video` renders the episodes, shorts, and film from the scripts in `media/`. A `**Frame.**` line under a Picture line chooses the frame that shows it, from the icons in `media/visual/` (ADR-0006, `media/visual/README.md`). A Frame's numbers come from the dataset at render time; a formula constant or simulation parameter it states must appear in the record text it cites (E040). Draw a missing icon in the SVG subset before a Frame names it (E041). Icons draw generic subjects only, and nothing in a frame copies a game's art, logo, cover, characters, or UI.
+
 ## 7. Never
 
 - Edit anything between `<!-- BEGIN GENERATED -->` markers, or commit `dist/` (it is gitignored; CI builds it).

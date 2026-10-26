@@ -21,6 +21,7 @@ Projections:
   dist/book/, dist/media/episodes/   book chapters (book/src) and episode scripts (media/episodes), rendered
   dist/site/data.json                compact bundle for site/index.html
   dist/web/                          the website: paper with interactive figures, a page per record (scripts/web.py)
+  dist/visual/                       the video icons from media/visual, dithered (scripts/visual, ADR-0006)
 """
 from __future__ import annotations
 
@@ -278,7 +279,7 @@ def generated_blocks(ents, analysis, vocabs, registry) -> dict[str, str]:
     return blocks
 
 
-def build() -> tuple[dict[str, str], dict[str, str]]:
+def build() -> tuple[dict[str, str | bytes], dict[str, str]]:
     registry = load_registry()
     vocabs = load_vocabs()
     schemas = load_schemas()
@@ -459,6 +460,10 @@ def build() -> tuple[dict[str, str], dict[str, str]]:
     figs = {k[len("paper/figures/"):-4]: v for k, v in outs.items() if k.startswith("paper/figures/")}
     outs.update(build_web(ents, edges, analysis, vocabs, registry, schemas, ctx, manifest, meta, paper, outs["paper/references.bib"], figs))
 
+    # ---- visual vocabulary (dist/visual): icons for the video frames, PNG bytes (ADR-0006)
+    from visual import icons as visual_icons
+    outs.update(visual_icons.outputs())
+
     docs = {}
     blocks = generated_blocks(ents, analysis, vocabs, registry)
     for name in GENERATED_DOCS:
@@ -515,13 +520,20 @@ def main():
     out = args.out.resolve()
     existing = {str(p.relative_to(out)) for p in out.rglob("*") if p.is_file() and p.suffix != ".sqlite"} if out.exists() else set()
     stale = sorted(existing - set(outs))
-    changed = sorted(k for k, v in outs.items() if not (out / k).exists() or (out / k).read_text(encoding="utf-8") != v)
+    def same(k, v):
+        p = out / k
+        return p.exists() and (p.read_bytes() == v if isinstance(v, bytes) else p.read_text(encoding="utf-8") == v)
+
+    changed = sorted(k for k, v in outs.items() if not same(k, v))
     for k in stale:
         (out / k).unlink()
     for k in changed:
         p = out / k
         p.parent.mkdir(parents=True, exist_ok=True)
-        p.write_text(outs[k], encoding="utf-8")
+        if isinstance(outs[k], bytes):
+            p.write_bytes(outs[k])
+        else:
+            p.write_text(outs[k], encoding="utf-8")
     for k in doc_changed:
         (ROOT / k).write_text(docs[k], encoding="utf-8")
     for d in sorted(out.rglob("*"), reverse=True):

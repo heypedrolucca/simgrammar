@@ -1,0 +1,91 @@
+# The visual vocabulary (ADR-0006): one entry per icon in media/visual/icons/<id>.svg.
+#
+# kind says what the id names. mechanic, family, subgenre, and technique-category ids are the dataset's own ids, and
+# their labels come from the record or vocab term. noun and term entries are drawn subjects the scripts mention that
+# are not records (a refrigerator, a raid); they carry a label, and aliases the renderer matches in narration to move
+# a frame's highlight. Every subject is generic: no game's art, logo, cover, character, or UI (E041 checks the names).
+# run is the run that drew the icon; an entry without one was drawn by the file-level run.
+run: 2026-10-26-visual-vocabulary
+icons:
+  # mechanics
+  - {id: adaptive-threat-scaling, kind: mechanic}
+  - {id: conveyor-transport, kind: mechanic}
+  - {id: crime-policing, kind: mechanic}
+  - {id: crop-cultivation, kind: mechanic}
+  - {id: decoration-beauty, kind: mechanic}
+  - {id: free-placement, kind: mechanic}
+  - {id: heat-transfer, kind: mechanic}
+  - {id: injury-body-model, kind: mechanic}
+  - {id: land-value, kind: mechanic}
+  - {id: memories-thoughts, kind: mechanic}
+  - {id: modding-api, kind: mechanic}
+  - {id: mood-breakdown, kind: mechanic}
+  - {id: needs-decay, kind: mechanic}
+  - {id: pollution-spread, kind: mechanic}
+  - {id: power-grid, kind: mechanic}
+  - {id: production-chain, kind: mechanic}
+  - {id: raid-defense, kind: mechanic}
+  - {id: scenario-objectives, kind: mechanic}
+  - {id: smart-objects, kind: mechanic}
+  - {id: storyteller-director, kind: mechanic}
+  - {id: tech-tree, kind: mechanic}
+  - {id: triggered-event-chains, kind: mechanic}
+  - {id: variable-speed, kind: mechanic}
+  - {id: weather, kind: mechanic}
+  - {id: work-priorities, kind: mechanic}
+  # family and subgenres
+  - {id: resources-production, kind: family}
+  - {id: city-builder, kind: subgenre}
+  - {id: colony-sim, kind: subgenre}
+  - {id: factory-automation, kind: subgenre}
+  - {id: life-sim, kind: subgenre}
+  # nouns
+  - {id: assembler, kind: noun, label: Assembler, aliases: [assembler, assemblers, machines]}
+  - {id: bed, kind: noun, label: Bed, aliases: [bed]}
+  - {id: bills, kind: noun, label: Bills, aliases: [bills, paying bills]}
+  - {id: box, kind: noun, label: Expansion, aliases: [expansions, expansion]}
+  - {id: briefcase, kind: noun, label: Job, aliases: [a job, finding a job, job hunting]}
+  - {id: calendar, kind: noun, label: Calendar, aliases: [calendar, schedule, on a schedule]}
+  - {id: car, kind: noun, label: Car, aliases: [car, cars]}
+  - {id: check-fail, kind: noun, label: Failed check, aliases: [fails, failed]}
+  - {id: check-pass, kind: noun, label: Passed check, aliases: [passes, passed]}
+  - {id: chronicle, kind: noun, label: Chronicle, aliases: [chronicle, history]}
+  - {id: clock, kind: noun, label: Clock, aliases: [clock, timer]}
+  - {id: coins, kind: noun, label: Wealth, aliases: [wealth, money]}
+  - {id: cooking, kind: noun, label: Cooking, aliases: [cooking, starts cooking]}
+  - {id: crowd, kind: noun, label: Crowd, aliases: [crowd, guests, visitors]}
+  - {id: cursor, kind: noun, label: Click, aliases: [clicks, click]}
+  - {id: dataset-record, kind: noun, label: Record, aliases: [record, the record]}
+  - {id: enemy-nest, kind: noun, label: Nests, aliases: [nests, nest, enemies]}
+  - {id: event-log, kind: noun, label: Event log, aliases: [log, event log]}
+  - {id: factory, kind: noun, label: Industry, aliases: [industry, industrial, factory]}
+  - {id: furnace, kind: noun, label: Furnace, aliases: [furnace, furnaces]}
+  - {id: gear, kind: noun, label: Gears, aliases: [gears, gear]}
+  - {id: grave, kind: noun, label: A death, aliases: [died, funeral, falls]}
+  - {id: house, kind: noun, label: Homes, aliases: [houses, homes, growth]}
+  - {id: hunger, kind: noun, label: Hunger, aliases: [hunger, hungry]}
+  - {id: language-model, kind: noun, label: Language model, aliases: [language model, language models]}
+  - {id: map-overlay, kind: noun, label: Map overlay, aliases: [overlays, overlay, the maps]}
+  - {id: menu, kind: noun, label: Actions, aliases: [menu, new action, actions]}
+  - {id: monitor, kind: noun, label: Screen, aliases: [screen, monitor]}
+  - {id: ore, kind: noun, label: Ore, aliases: [ore]}
+  - {id: person, kind: noun, label: Person, aliases: [colonist, colonists, Sim, Sims, the cook]}
+  - {id: person-walking, kind: noun, label: Walking away, aliases: [walks off, walks]}
+  - {id: plate, kind: noun, label: Plates, aliases: [plates]}
+  - {id: police, kind: noun, label: Police, aliases: [police]}
+  - {id: question, kind: noun, label: Why, aliases: [why]}
+  - {id: raid, kind: noun, label: Raid, aliases: [raid, raids, raiders, attacks]}
+  - {id: refrigerator, kind: noun, label: Refrigerator, aliases: [refrigerator, fridge]}
+  - {id: rendered-frame, kind: noun, label: Frame, aliases: [frames, frame]}
+  - {id: replay, kind: noun, label: Replay, aliases: [replay, replays]}
+  - {id: save-file, kind: noun, label: Save file, aliases: [save file, saves]}
+  - {id: science-flask, kind: noun, label: Research, aliases: [research, science]}
+  - {id: seed, kind: noun, label: Seed, aliases: [seed]}
+  - {id: ship, kind: noun, label: Ship, aliases: [ship, ships]}
+  - {id: snowstorm, kind: noun, label: Storm, aliases: [storm]}
+  - {id: stool, kind: noun, label: Plain furniture, aliases: [stools, plain]}
+  - {id: television, kind: noun, label: Television, aliases: [television, TV]}
+  - {id: thermometer, kind: noun, label: Temperature, aliases: [temperature]}
+  - {id: tile-cell, kind: noun, label: Tile, aliases: [tile, tiles, cell, cells]}
+  - {id: toilet, kind: noun, label: Toilet, aliases: [toilet, bladder]}
+  - {id: water, kind: noun, label: Water, aliases: [water, flood]}

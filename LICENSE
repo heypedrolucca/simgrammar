@@ -4,10 +4,13 @@ Code (scripts/, site/, .github/, Makefile):
   SPDX-License-Identifier: Apache-2.0
   https://www.apache.org/licenses/LICENSE-2.0
 
-Data, vocabularies, schemas, report text, and generated projections
-(data/, vocab/, schema/, log/, report/, calibration/, tasks/, generated dist/, *.md):
+Data, vocabularies, schemas, report text, the visual vocabulary, and generated projections
+(data/, vocab/, schema/, log/, report/, calibration/, tasks/, media/visual/, generated dist/, *.md):
   SPDX-License-Identifier: CC-BY-4.0
   https://creativecommons.org/licenses/by/4.0/
+
+Fonts (media/fonts/): IBM Plex Sans and IBM Plex Mono, copyright IBM Corp., under the
+SIL Open Font License 1.1 (media/fonts/OFL.txt), not the licenses above.
 
 Attribution: "SimGrammar contributors", with the dataset_sha256 from dist/manifest.json
 for the version used.
