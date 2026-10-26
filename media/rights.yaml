@@ -1,8 +1,70 @@
 # Rights register for footage and images used in media/ (checked before any release).
 # status: unchecked | allowed | allowed-with-conditions | not-allowed. Record the policy url and the date it was read.
+# used_in: e = episode, s = short (e03 = episode 3, s004 = short 4). Stills and diagrams count; mock-ups of features a game lacks must be labelled on screen.
 titles:
-  - {game: rimworld, status: unchecked, policy_url: "", checked: ""}
-  - {game: simcity-1989, status: unchecked, policy_url: "", checked: ""}
-  - {game: factorio, status: unchecked, policy_url: "", checked: ""}
-  - {game: cities-skylines, status: unchecked, policy_url: "", checked: ""}
-  - {game: rollercoaster-tycoon, status: unchecked, policy_url: "", checked: ""}
+  - {game: a-tale-in-the-desert, status: unchecked, policy_url: "", checked: "", used_in: [e02]}
+  - {game: against-the-storm, status: unchecked, policy_url: "", checked: "", used_in: [e08]}
+  - {game: ai-dungeon, status: unchecked, policy_url: "", checked: "", used_in: [e02, e03, e06]}
+  - {game: anno-1800, status: unchecked, policy_url: "", checked: "", used_in: [e03]}
+  - {game: banished, status: unchecked, policy_url: "", checked: "", used_in: [e08]}
+  - {game: beamng-drive, status: unchecked, policy_url: "", checked: "", used_in: [e02]}
+  - {game: besiege, status: unchecked, policy_url: "", checked: "", used_in: [e03, e08]}
+  - {game: black-and-white, status: unchecked, policy_url: "", checked: "", used_in: [e03]}
+  - {game: captain-of-industry, status: unchecked, policy_url: "", checked: "", used_in: [e08]}
+  - {game: cities-skylines, status: unchecked, policy_url: "", checked: "", used_in: [e04, e08, s001, s008]}
+  - {game: creatures, status: unchecked, policy_url: "", checked: "", used_in: [e03, e05]}
+  - {game: crusader-kings-3, status: unchecked, policy_url: "", checked: "", used_in: [e05, e07, e08]}
+  - {game: democracy-4, status: unchecked, policy_url: "", checked: "", used_in: [e09]}
+  - {game: dwarf-fortress, status: unchecked, policy_url: "", checked: "", used_in: [e01, e02, e04, e05, e07]}
+  - {game: elite, status: unchecked, policy_url: "", checked: "", used_in: [e02, e03]}
+  - {game: elite-dangerous, status: unchecked, policy_url: "", checked: "", used_in: [e03]}
+  - {game: europa-universalis-4, status: unchecked, policy_url: "", checked: "", used_in: [e03]}
+  - {game: eve-online, status: unchecked, policy_url: "", checked: "", used_in: [e02, e04]}
+  - {game: facade, status: unchecked, policy_url: "", checked: "", used_in: [e01, e05]}
+  - {game: factorio, status: unchecked, policy_url: "", checked: "", used_in: [e01, e02, e03, e05, e07, e08, e09, e10, s001, s007]}
+  - {game: farming-simulator-25, status: unchecked, policy_url: "", checked: "", used_in: [e03]}
+  - {game: football-manager, status: unchecked, policy_url: "", checked: "", used_in: [e08]}
+  - {game: frostpunk, status: unchecked, policy_url: "", checked: "", used_in: [e01, e03]}
+  - {game: frostpunk-2, status: unchecked, policy_url: "", checked: "", used_in: [e03]}
+  - {game: game-of-life, status: unchecked, policy_url: "", checked: "", used_in: [e03, e04]}
+  - {game: gran-turismo-7, status: unchecked, policy_url: "", checked: "", used_in: [e06]}
+  - {game: hamurabi, status: unchecked, policy_url: "", checked: "", used_in: [e02, e03, s002]}
+  - {game: harvest-moon, status: unchecked, policy_url: "", checked: "", used_in: [e02, s002]}
+  - {game: infinite-craft, status: unchecked, policy_url: "", checked: "", used_in: [e06, e07, e10]}
+  - {game: inzoi, status: unchecked, policy_url: "", checked: "", used_in: [e03, e06, e07]}
+  - {game: iracing, status: unchecked, policy_url: "", checked: "", used_in: [e03]}
+  - {game: job-simulator, status: unchecked, policy_url: "", checked: "", used_in: [e03]}
+  - {game: kenshi, status: unchecked, policy_url: "", checked: "", used_in: [e08]}
+  - {game: kerbal-space-program, status: unchecked, policy_url: "", checked: "", used_in: [e08]}
+  - {game: little-computer-people, status: unchecked, policy_url: "", checked: "", used_in: [e02]}
+  - {game: microsoft-flight-simulator-2020, status: unchecked, policy_url: "", checked: "", used_in: [e06, s006]}
+  - {game: minecraft, status: unchecked, policy_url: "", checked: "", used_in: [e02]}
+  - {game: mule, status: unchecked, policy_url: "", checked: "", used_in: [e02, e03]}
+  - {game: noita, status: unchecked, policy_url: "", checked: "", used_in: [e05]}
+  - {game: offworld-trading-company, status: unchecked, policy_url: "", checked: "", used_in: [e03]}
+  - {game: oregon-trail, status: unchecked, policy_url: "", checked: "", used_in: [e02]}
+  - {game: oxygen-not-included, status: unchecked, policy_url: "", checked: "", used_in: [e01, e04]}
+  - {game: papers-please, status: unchecked, policy_url: "", checked: "", used_in: [e02, e03, s003]}
+  - {game: princess-maker-2, status: unchecked, policy_url: "", checked: "", used_in: [e03, s002, s003]}
+  - {game: prison-architect, status: unchecked, policy_url: "", checked: "", used_in: [e08]}
+  - {game: reigns, status: unchecked, policy_url: "", checked: "", used_in: [e05]}
+  - {game: rimworld, status: unchecked, policy_url: "", checked: "", used_in: [e01, e03, e04, e05, e07, e09, s001, s004]}
+  - {game: rollercoaster-tycoon, status: unchecked, policy_url: "", checked: "", used_in: [e04, e05, s001]}
+  - {game: simcity-1989, status: unchecked, policy_url: "", checked: "", used_in: [e01, e02, e04, e08]}
+  - {game: simcity-2013, status: unchecked, policy_url: "", checked: "", used_in: [e05]}
+  - {game: spacechem, status: unchecked, policy_url: "", checked: "", used_in: [e08]}
+  - {game: spore, status: unchecked, policy_url: "", checked: "", used_in: [e08]}
+  - {game: stardew-valley, status: unchecked, policy_url: "", checked: "", used_in: [e02, s002]}
+  - {game: stellaris, status: unchecked, policy_url: "", checked: "", used_in: [e08]}
+  - {game: suck-up, status: unchecked, policy_url: "", checked: "", used_in: [e06]}
+  - {game: surviving-mars, status: unchecked, policy_url: "", checked: "", used_in: [e08, s008]}
+  - {game: the-sims, status: unchecked, policy_url: "", checked: "", used_in: [e01, e03, e05, e07, s003, s005]}
+  - {game: theme-hospital, status: unchecked, policy_url: "", checked: "", used_in: [e03]}
+  - {game: theme-park, status: unchecked, policy_url: "", checked: "", used_in: [e02]}
+  - {game: townscaper, status: unchecked, policy_url: "", checked: "", used_in: [e06, e10]}
+  - {game: tropico-6, status: unchecked, policy_url: "", checked: "", used_in: [e03]}
+  - {game: utopia, status: unchecked, policy_url: "", checked: "", used_in: [e12]}
+  - {game: victoria-3, status: unchecked, policy_url: "", checked: "", used_in: [e04, e07]}
+  - {game: where-winds-meet, status: unchecked, policy_url: "", checked: "", used_in: [e06]}
+  - {game: whispers-from-the-star, status: unchecked, policy_url: "", checked: "", used_in: [e06]}
+  - {game: workers-and-resources, status: unchecked, policy_url: "", checked: "", used_in: [e08]}

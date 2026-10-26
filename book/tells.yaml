@@ -1,5 +1,5 @@
 # Phrases and structures that make prose read as machine-written (book/STYLE.md). Checked by scripts/style_check.py
-# on book/src, media/episodes, media/shorts, and media/mega.md. Patterns are Python regular expressions, matched
+# on book/src, media/episodes, media/shorts, and media/mega. Patterns are Python regular expressions, matched
 # case-insensitively against each line after tokens, links, and citations are reduced to plain text.
 # A line ending in <!-- tells-ok: <id> --> is exempt from that one pattern (for a literal use the writer has checked).
 # severity: error fails make check; warn prints only.

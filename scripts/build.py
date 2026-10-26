@@ -392,7 +392,7 @@ def build() -> tuple[dict[str, str], dict[str, str]]:
 
     # ---- book chapters and episode scripts: same tokens and checks as the paper, one file per chapter or episode
     PAPER_TO_BOOK = {"§5.2": "chapter 3", "§5.4": "chapter 4", "§5.5": "chapter 9", "§5.6": "chapter 5", "§8.2": "chapter 8"}
-    for d, out_dir in (("book/src", "book"), ("media/episodes", "media/episodes"), ("media/shorts", "media/shorts")):
+    for d, out_dir in (("book/src", "book"), ("media/episodes", "media/episodes"), ("media/shorts", "media/shorts"), ("media/mega", "media/mega")):
         for p in sorted((ROOT / d).glob("*.md")):
             ctx.citations = []
             txt, _ = render(p.read_text(encoding="utf-8"), ctx, "paper")

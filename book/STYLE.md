@@ -1,6 +1,6 @@
 # House style for the book and the videos
 
-Applies to `book/src/`, `media/episodes/`, `media/shorts/`, and `media/mega.md`. The mechanical part is enforced by `scripts/style_check.py` (run by `make check` and CI) from the list in `book/tells.yaml`; the rest is for the writer and the reviewer.
+Applies to `book/src/`, `media/episodes/`, `media/shorts/`, and `media/mega/`. The mechanical part is enforced by `scripts/style_check.py` (run by `make check` and CI) from the list in `book/tells.yaml`; the rest is for the writer and the reviewer.
 
 ## What to write
 
