@@ -575,7 +575,8 @@ tables:
   filter:
     family: resources-production
   columns:
-  - name
+  - path: name
+    label: mechanic
   - summary
   - path: _derived.prevalence
     label: games
@@ -589,7 +590,8 @@ tables:
   filter:
     family: logistics-networks
   columns:
-  - name
+  - path: name
+    label: mechanic
   - summary
   - path: _derived.prevalence
     label: games
@@ -603,7 +605,8 @@ tables:
   filter:
     family: economy-finance
   columns:
-  - name
+  - path: name
+    label: mechanic
   - summary
   - path: _derived.prevalence
     label: games
@@ -617,7 +620,8 @@ tables:
   filter:
     family: agents-behavior
   columns:
-  - name
+  - path: name
+    label: mechanic
   - summary
   - path: _derived.prevalence
     label: games
@@ -631,7 +635,8 @@ tables:
   filter:
     family: social-relations
   columns:
-  - name
+  - path: name
+    label: mechanic
   - summary
   - path: _derived.prevalence
     label: games
@@ -645,7 +650,8 @@ tables:
   filter:
     family: population-lineage
   columns:
-  - name
+  - path: name
+    label: mechanic
   - summary
   - path: _derived.prevalence
     label: games
@@ -659,7 +665,8 @@ tables:
   filter:
     family: governance-policy
   columns:
-  - name
+  - path: name
+    label: mechanic
   - summary
   - path: _derived.prevalence
     label: games
@@ -673,7 +680,8 @@ tables:
   filter:
     family: space-construction
   columns:
-  - name
+  - path: name
+    label: mechanic
   - summary
   - path: _derived.prevalence
     label: games
@@ -687,7 +695,8 @@ tables:
   filter:
     family: physics-materials
   columns:
-  - name
+  - path: name
+    label: mechanic
   - summary
   - path: _derived.prevalence
     label: games
@@ -701,7 +710,8 @@ tables:
   filter:
     family: environment-ecology
   columns:
-  - name
+  - path: name
+    label: mechanic
   - summary
   - path: _derived.prevalence
     label: games
@@ -715,7 +725,8 @@ tables:
   filter:
     family: biology-health
   columns:
-  - name
+  - path: name
+    label: mechanic
   - summary
   - path: _derived.prevalence
     label: games
@@ -729,7 +740,8 @@ tables:
   filter:
     family: time-pacing
   columns:
-  - name
+  - path: name
+    label: mechanic
   - summary
   - path: _derived.prevalence
     label: games
@@ -743,7 +755,8 @@ tables:
   filter:
     family: information-legibility
   columns:
-  - name
+  - path: name
+    label: mechanic
   - summary
   - path: _derived.prevalence
     label: games
@@ -757,7 +770,8 @@ tables:
   filter:
     family: control-automation
   columns:
-  - name
+  - path: name
+    label: mechanic
   - summary
   - path: _derived.prevalence
     label: games
@@ -771,7 +785,8 @@ tables:
   filter:
     family: progression-goals
   columns:
-  - name
+  - path: name
+    label: mechanic
   - summary
   - path: _derived.prevalence
     label: games
@@ -785,7 +800,8 @@ tables:
   filter:
     family: risk-failure
   columns:
-  - name
+  - path: name
+    label: mechanic
   - summary
   - path: _derived.prevalence
     label: games
@@ -799,7 +815,8 @@ tables:
   filter:
     family: narrative-generation
   columns:
-  - name
+  - path: name
+    label: mechanic
   - summary
   - path: _derived.prevalence
     label: games
@@ -813,7 +830,8 @@ tables:
   filter:
     family: world-generation
   columns:
-  - name
+  - path: name
+    label: mechanic
   - summary
   - path: _derived.prevalence
     label: games
@@ -827,7 +845,8 @@ tables:
   filter:
     family: multiplayer-persistence
   columns:
-  - name
+  - path: name
+    label: mechanic
   - summary
   - path: _derived.prevalence
     label: games
@@ -841,7 +860,8 @@ tables:
   filter:
     family: conflict-defense
   columns:
-  - name
+  - path: name
+    label: mechanic
   - summary
   - path: _derived.prevalence
     label: games
@@ -855,7 +875,8 @@ tables:
   filter:
     family: operation-procedure
   columns:
-  - name
+  - path: name
+    label: mechanic
   - summary
   - path: _derived.prevalence
     label: games
@@ -867,7 +888,8 @@ tables:
   kind: rows
   entity: game
   columns:
-  - name
+  - path: name
+    label: game
   - year
   - developer
   - subgenre
