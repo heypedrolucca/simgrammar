@@ -1,6 +1,6 @@
 # Episode 6. What AI shipped
 
-Target runtime about 14 minutes: about 1,400 words of narration at 135 words a minute, plus a beat of picture-only footage per scene. Covers book chapter 7. Footage: Suck Up!, AI Dungeon, Microsoft Flight Simulator (2020), inZOI, Where Winds Meet, Whispers from the Star, Gran Turismo 7, Townscaper, Infinite Craft, all captured by us; stills and published clips from the GameNGen, Genie 3, and WHAMM announcements, used as short quotations with credit. Publisher video policies are tracked in `media/rights.yaml` and must be checked before release. Every number below is filled in from the dataset when the script is built, and the sentences that interpret numbers carry the same checks as the book.
+Target runtime about 14 minutes: about 1,400 words of narration at 135 words a minute, plus a beat of picture-only footage per scene. Covers book chapter 7. Footage: Suck Up!, AI Dungeon, Microsoft Flight Simulator (2020), inZOI, Where Winds Meet, Whispers from the Star, Townscaper, Infinite Craft, all captured by us; stills and published clips from the GameNGen, Genie 3, and WHAMM announcements, used as short quotations with credit. Publisher video policies are tracked in `media/rights.yaml` and must be checked before release. Every number below is filled in from the dataset when the script is built, and the sentences that interpret numbers carry the same checks as the book.
 
 ## 1. Cold open (0:00 to 0:36)
 
@@ -56,7 +56,7 @@ Target runtime about 14 minutes: about 1,400 words of narration at 135 words a m
 
 ## 8. Opponents (7:16 to 8:34)
 
-**Picture.** Gran Turismo 7. A GT Sophy car takes the inside line into a hairpin and holds it. Menu shots: Race Together, then Quick Race with Sophy as a permanent rival.
+**Picture.** A drawn top-down hairpin, labelled as a graphic: a car marked GT Sophy takes the inside line and holds it while a second car runs wide. Then two dated cards: February 2023, a limited event; November 2023, a permanent rival. No Gran Turismo 7 footage: Sony's licence bars broadcasting it without written consent (`media/rights.yaml`).
 
 **Voice.** The oldest shipped technique in the set plays opponents. Monte Carlo tree search, from 2006, plans by playing many quick games forward from the current position; Total War: Rome II used it for campaign decisions [@src-kocsis-2006-uct; @src-wikipedia-monte-carlo-tree-search]. Gran Turismo Sophy learned to drive with deep reinforcement learning on many copies of the Gran Turismo simulator, with a reward that encodes racing's sportsmanship rules, and in 2022 it beat four of the world's best Gran Turismo drivers head to head [@src-wurman-2022-gt-sophy]. It reached players as a limited event in February 2023 [@src-polyphony-2023-gt-sophy-race-together] and became a permanent rival that November [@src-polyphony-2023-gt-sophy-2].{{assert:field.deep-rl-npc-policies.maturity == shipped-niche}} It drives the same tire and suspension model you do. Before it shipped, the strong driver had to be made fair, tunable to your level, and small enough to run every frame, and it reached more cars one content update at a time.
 

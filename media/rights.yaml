@@ -3,7 +3,7 @@
 # date it was read, or for an unchecked title the date a search found nothing usable; note says what the policy
 # allows or why the title is still unchecked. Policies were read once, on 2026-10-25, by a research agent; two
 # (Factorio, RimWorld) were re-read by hand. Read each again before footage is captured for release.
-# Before a monetized release: drop or replace Gran Turismo 7 (not-allowed); Elite Dangerous and Tropico 6 allow
+# Before a monetized release: Gran Turismo 7 is not allowed, so episode 6 uses a graphic in its place; Elite Dangerous and Tropico 6 allow
 # non-commercial use only, so ask Frontier and Kalypso first; Paradox titles exclude Gold FM (Cities: Skylines) and
 # the Sabaton soundtrack (Europa Universalis IV), so mute or replace in-game music; Microsoft, Mojang and CCP require
 # their disclaimer wording in the description; iRacing requires its watermark. The 37 unchecked titles need a
@@ -36,7 +36,7 @@ titles:
   - {game: frostpunk, status: unchecked, policy_url: "", checked: "2026-10-25", note: "No video policy found; a 2015 Steam forum post points to an 11 bit studios monetization page that searches could not locate.", used_in: [e01, e03]}
   - {game: frostpunk-2, status: unchecked, policy_url: "", checked: "2026-10-25", note: "No video policy found from 11 bit studios.", used_in: [e03]}
   - {game: game-of-life, status: unchecked, policy_url: "", checked: "2026-10-25", note: "A 1970 mathematical rule set by John Conway with no publisher or policy; footage rights depend on the software implementation shown.", used_in: [e03, e04]}
-  - {game: gran-turismo-7, status: not-allowed, policy_url: "https://www.playstation.com/legal/software-eula/", checked: "2026-10-25", note: "Sony's software EULA limits use to private non-commercial play and bars public broadcast without written consent except through console share features; no Sony video policy grants monetization.", used_in: [e06]}
+  - {game: gran-turismo-7, status: not-allowed, policy_url: "https://www.playstation.com/legal/software-eula/", checked: "2026-10-25", note: "Sony's software EULA limits use to private non-commercial play and bars public broadcast without written consent except through console share features; no Sony video policy grants monetization. Episode 6 now shows a drawn graphic instead.", used_in: []}
   - {game: hamurabi, status: unchecked, policy_url: "", checked: "2026-10-25", note: "No policy; Doug Dyment wrote it at DEC in 1968 and David Ahl's BASIC port circulated in his books, and no rights holder was found.", used_in: [e02, e03, s002]}
   - {game: harvest-moon, status: unchecked, policy_url: "", checked: "2026-10-25", note: "No English policy found; series rights sit with Marvelous (successor to Victor Interactive), while Natsume holds the Harvest Moon name in North America.", used_in: [e02, s002]}
   - {game: infinite-craft, status: unchecked, policy_url: "", checked: "2026-10-25", note: "No video or usage policy found for neal.fun.", used_in: [e06, e07, e10]}
