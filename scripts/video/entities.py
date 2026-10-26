@@ -3,6 +3,8 @@ import json, os, re
 D = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'dist', 'entities') + os.sep
 SUBG = lambda s: (s or '').replace('-', ' ')
 STOP_GAMES = {'foundation', 'eco'}
+# Record aliases too broad for narration: "AI research" is not a tech tree, "shares a family" not equity buyouts.
+STOP_ALIASES = {'research', 'shares', 'supply', 'reports', 'event log', 'letters', 'graphs', 'logistics'}
 
 
 EXTRA = {  # informal names the narration uses -> (kind, id)
@@ -25,8 +27,8 @@ EXTRA = {  # informal names the narration uses -> (kind, id)
 }
 
 def load():
-    G = json.load(open(D + 'games.json')); M = json.load(open(D + 'mechanics.json'))
-    T = json.load(open(D + 'techniques.json')); O = json.load(open(D + 'opportunities.json'))
+    live = lambda name: [x for x in json.load(open(D + name)) if not x.get('deprecated')]  # deprecated records stay in the data, not on screen
+    G = live('games.json'); M = live('mechanics.json'); T = live('techniques.json'); O = live('opportunities.json')
     mech = {m['id']: m for m in M}
     order = sorted(M, key=lambda m: (-m['_derived'].get('prevalence', 0), m['id']))
     col = {m['id']: i for i, m in enumerate(order)}
@@ -56,10 +58,10 @@ def load():
             if nm.lower() in STOP_GAMES or len(nm) < 4: continue
             pats.append((nm, False, 'game', g['id']))
     for t in T:
-        for nm in [t['name']] + list(t.get('aliases') or []):
+        for nm in [t['name']] + [a for a in (t.get('aliases') or []) if a.lower() not in STOP_ALIASES]:
             if len(nm) >= 5: pats.append((nm, False, 'technique', t['id']))
     for m in M:
-        for nm in [m['name']] + list(m.get('aliases') or []):
+        for nm in [m['name']] + [a for a in (m.get('aliases') or []) if a.lower() not in STOP_ALIASES]:
             if len(nm) >= 6: pats.append((nm, True, 'mechanic', m['id']))
     for nm,(kind,i) in EXTRA.items(): pats.append((nm, kind != 'game', kind, i))
     pats.sort(key=lambda p: -len(p[0]))
