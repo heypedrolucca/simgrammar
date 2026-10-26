@@ -6,6 +6,8 @@ Target runtime about 12 minutes: about 1,210 words of narration at 135 words a m
 
 **Picture.** Dwarf Fortress, side view of a fortress three levels deep. A miner cuts the last tile of a tunnel to the river. Water spills down the tunnel, fills a cistern, and keeps coming: down a stairwell, across the dining hall, into a row of bedrooms. Depth numbers flicker on the flooded tiles, one to seven.
 
+**Frame.** toysim sim=flow from=dwarf-fortress:fluid-gas-simulation levels=7
+
 **Voice.** The plan was a cistern under the dining hall: dig to the river, build a floodgate, then cut the last tile. The miner cut the last tile first. Water in Dwarf Fortress moves tile by tile, one to seven levels deep, downhill through every opening it can find. By the time you wall off the tunnel, the bedrooms are full and several dwarves have drowned in their beds.
 
 ## 2. Title (0:45 to 0:55)
@@ -18,17 +20,23 @@ Target runtime about 12 minutes: about 1,210 words of narration at 135 words a m
 
 **Picture.** The water pumped out, dwarves back at work. A dwarf's portrait with a meter beside it that the game never shows, labelled "stress (hidden)". The meter creeps up. Months pass on a calendar in the corner. The metalsmith throws a tantrum and smashes a table while the other dwarves watch.
 
+**Frame.** chain nodes="grave:Grief,stress-accumulation:Stress the game never shows,mood-breakdown:A tantrum,memories-thoughts:New unhappy memories" verbs="adds to,past a threshold,for everyone who watches" loops=R from=dwarf-fortress
+
 **Voice.** The fortress looks fine afterward. What you can't see is a number each survivor carries: a stress value that runs from minus a million to plus a million. Grief adds to it, scaled by personality, and strong memories keep adding to it whenever they come back. Past ten thousand, twenty-five thousand, and fifty thousand, dwarves start throwing tantrums, falling into depression, and wandering off [@src-dfwiki-2026-stress].
 
 **Voice.** Months later the metalsmith smashes a table in the dining hall, and everyone who watches gets a new unhappy memory. One of them lost a brother in the flood. By spring the fortress can't feed itself.
 
 **Picture.** A later game in the same world. Legends mode: the fortress listed as a site, the flood among its events. An adventurer walks into the dry, empty hall.
 
+**Frame.** chain nodes="water:Water flows downhill,grave:Grief,stress-accumulation:Stress,mood-breakdown:Tantrums" verbs="drowns,adds,past a threshold,spread it" loops=R from=dwarf-fortress
+
 **Voice.** Every link in that chain is simple. Water flows downhill. Grief adds stress. Tantrums spread it. The chain is hard to see because it runs through months of game time and a number the game never puts on screen. 
 
 ## 4. Two scores (2:12 to 3:34)
 
 **Picture.** Two five-step scales slide in, each step labelled with its anchor text: legibility and emergence potential. Three mechanic cards drop onto them: stress, simulated history, the pause button.
+
+**Frame.** scale ids=stress-accumulation,history-generation,variable-speed fields=legibility,emergence_potential
 
 **Voice.** The dataset behind this series scores every mechanic on six scales. Two matter here. Legibility asks how easily a player builds an accurate picture of the mechanic from play. A 2 means you need a wiki. A 5 means it's clear at a glance. Emergence potential asks how much unscripted variety the mechanic produces when it's connected to others. A 4 means it often sets off chains of consequences across systems.
 
@@ -56,15 +64,23 @@ Target runtime about 12 minutes: about 1,210 words of narration at 135 words a m
 
 **Picture.** Conway's Game of Life in a simulator. The rule written across the top: born with 3 neighbors, survives with 2 or 3. A five-cell R-pentomino starts to grow and doesn't stop; a generation counter climbs past a thousand.
 
+**Frame.** toysim sim=life from=game-of-life:turn-structure gens=1103
+
 **Voice.** Conway's Game of Life has one rule, and it fits on a line. A dead cell with three live neighbors comes alive. A live cell with two or three survives. That's all of it, and you still can't read a pattern's future from it. This five-cell shape keeps changing for 1,103 generations before it settles.
 
 **Picture.** EVE Online: a market window with a price history chart, then a fleet battle, wrecks drifting.
+
+**Frame.** chain nodes="player-driven-market:Players make and sell nearly every ship,ship:Fleets fight,loss-on-death:Destroyed ships are gone for good" verbs="buy,lose" loops=R from=eve-online
 
 **Voice.** EVE Online is the same at the scale of a society. Players make nearly every ship, destroyed ships are gone for good, and every price history is public. The rules of one trade are simple. The economy those trades add up to was complicated enough that the developer hired an economist in 2007 to watch it.
 
 ## 7. Harder to balance (5:34 to 6:32)
 
 **Picture.** RimWorld. A colony with gold statues and fine furniture; a raid letter; an enormous raid. Then the raid points formula builds on screen term by term.
+
+**Frame.** formula result="adaptive-threat-scaling:Raid points" terms="(coins:Wealth points,+person:Colonist points),×dial:Threat scale,×dial:Starting factor,×dial:Adaptation factor" from=rimworld:adaptive-threat-scaling
+
+**Frame.** scale at="The mechanic scores 2 for legibility" ids=adaptive-threat-scaling fields=legibility,tuning_difficulty
 
 **Voice.** Mechanics that produce more of it are rated harder to balance, and that's the strongest relationship among all six scales.{{assert:rho_emergence_potential_tuning_difficulty > 0.5}}
 
@@ -76,15 +92,23 @@ Target runtime about 12 minutes: about 1,210 words of narration at 135 words a m
 
 **Picture.** Oxygen Not Included. A base in normal view, then the oxygen overlay washes over it: pockets of carbon dioxide where the duplicants are about to walk. Then the temperature overlay.
 
+**Frame.** compare a="Without overlays" a_items="tile-cell:Tinted tiles" b="With an overlay" b_items="map-overlay:One field recoloured" from=oxygen-not-included:data-overlays
+
 **Voice.** Legibility also falls as compute cost rises.{{assert:rho_legibility_compute_cost < 0}} The expensive mechanics tend to be fields and crowds, and you can't watch a field the way you watch one colonist. In Oxygen Not Included every tile of the asteroid holds one element with a mass and a temperature, and gases spread and sort themselves cell by cell. Without overlays, all of that is tinted tiles.
 
 **Picture.** SimCity (1989), the traffic map: a heat map of density, no cars anywhere. Cut to Cities: Skylines, a jam forming at one intersection, cars stacked in one lane while the lane beside it is empty.
+
+**Frame.** compare a="SimCity, 1989" a_items="map-overlay:A traffic number on the map" b="Cities: Skylines" b_items="car:Every vehicle simulated" from=cities-skylines:traffic-congestion
+
+**Frame.** scale at="Traffic congestion scores 2" field=traffic-congestion.legibility
 
 **Voice.** The original SimCity has no cars. A zone looking for a destination takes a random walk of up to 30 steps along the roads, and each success adds to a traffic number on the map [@src-hopkins-2008-micropolis]. Cities: Skylines simulates every vehicle, so you can watch a jam form. Players could see the jams and still not understand them. Cars crowd into one lane while the next one sits empty, and stuck cars disappear by default, which hides the real problem. Traffic congestion scores 2 for legibility.{{assert:field.traffic-congestion.legibility == 2}}
 
 ## 9. Mechanics that own nothing (7:53 to 9:35)
 
 **Picture.** A montage of interface: SimCity's land value map, a Victoria 3 tooltip opening a second tooltip inside it, a RollerCoaster Tycoon guest window with a thought reading that a ride was too intense, Dwarf Fortress Legends scrolling.
+
+**Frame.** count kind=tiles family=information-legibility lit=none dates
 
 **Voice.** Designers answered with a family of mechanics that simulate nothing. They read state other mechanics own, and they show it. The dataset has {{stat:n_mechanics_family_information_legibility}} of them, and they're old. Hamurabi's steward reported the harvest in 1968. Lemonade Stand gave you a weather report every morning in 1973.{{assert:derived.advisors.earliest_game == hamurabi}}{{assert:derived.forecasting.earliest_game == lemonade-stand}}
 
@@ -96,6 +120,10 @@ Target runtime about 12 minutes: about 1,210 words of narration at 135 words a m
 
 **Picture.** Split screen: Dwarf Fortress on the left, RimWorld on the right. The same event on each side: a character breaking down. On the left, a dwarf storming about with no explanation on screen. On the right, a mood bar with its thresholds and a list of thoughts.
 
+**Frame.** compare games=dwarf-fortress,rimworld show=own
+
+**Frame.** compare at="Oxygen Not Included puts much of its depth" a="Oxygen Not Included" a_items="heat-transfer:One rule for heat,map-overlay:Overlays to read it" b="Victoria 3" b_items="causal-tooltips:The explanation inside the numbers"
+
 **Voice.** Dwarf Fortress was built to break each system into parts and base each one on something real [@src-adams-2015-df-simulation-principles]. It has more mechanics than any other game in the catalog, {{stat:max_mechanics_per_game}}.{{assert:most_mechanics_game == Dwarf Fortress}} The stress numbers at the start of this episode come from the community wiki, because the game doesn't show them. RimWorld took several of the same systems and chose them for how readable their results are. Its stress is a mood bar with visible break lines, and every thought has a number and a timer.
 
 **Voice.** Oxygen Not Included puts much of its depth in one rule for heat, applied to every cell, and gives you overlays to read the result. Victoria 3 puts its explanation inside the numbers.
@@ -103,6 +131,8 @@ Target runtime about 12 minutes: about 1,210 words of narration at 135 words a m
 ## 11. Close (10:42 to 11:38)
 
 **Picture.** A blank sheet with a chain of boxes, each labelled "visible", "findable", or "hidden".
+
+**Frame.** chain nodes="eye-open:Visible,magnifier:Findable,eye-closed:Hidden"
 
 **Voice.** Try this with a disaster from your own games. Write the chain from the first event to the collapse, one link per line, and mark each link visible, findable, or hidden. For the first hidden link, design the overlay, tooltip, or alert that would have shown it.
 

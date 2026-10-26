@@ -14,6 +14,8 @@ Vertical, about 55 seconds, about 100 words of narration. One finding, from the 
 
 **Picture.** A re-enactment, labelled as one: several terminal windows, each an agent cataloguing a different slice of games. Their records scroll by: storytellers, production chains, mood breaks. No pause buttons.
 
+**Frame.** mockup kind=terminal title="agents cataloguing in parallel" lines="+ storyteller director|+ production chains|+ mood and breakdowns|no pause buttons, no building placement, no tech trees"
+
 **Voice.** The first catalog was built by AI agents working in parallel. Each one recorded the parts that made a game distinctive and skipped the obvious ones: the pause button, placing buildings, tech trees. An outside review caught it.
 
 ## 0:30 to 0:50. After the fix

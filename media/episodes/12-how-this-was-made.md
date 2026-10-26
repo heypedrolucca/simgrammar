@@ -6,6 +6,8 @@ Target runtime about 11 minutes: about 1,190 words of narration at 135 words a m
 
 **Picture.** A re-enactment of the run's terminal, labelled as one. An agent adds three game records, Pocket City, Fallout Shelter, Game Dev Story, and runs the dataset's checks. The data checks pass. Then a red line: a report assertion failed. The cursor stops on it.
 
+**Frame.** mockup kind=terminal title="the run's terminal" lines="+ data/games/pocket-city.yaml|+ data/games/fallout-shelter.yaml|+ data/games/game-dev-story.yaml|$ make check|data checks pass|E029 a report assertion failed"
+
 **Voice.** This is an AI agent adding three mobile games to the dataset behind this series. The records are fine. The checks fail anyway, on a sentence in the paper about vehicle control and building placement, two mechanics none of these games combines. Adding data broke a claim the data hadn't stopped supporting.
 
 ## 2. Title (0:38 to 0:48)
@@ -28,11 +30,15 @@ Target runtime about 11 minutes: about 1,190 words of narration at 135 words a m
 
 **Picture.** A folder tree: one YAML file per game, mechanic, technique, opportunity, and source, and a folder of run records. Arrows lead from the folder to the paper, the website, the book, and this script.
 
+**Frame.** chain fan nodes="folder:A folder of plain-text records,dataset-record:The paper,monitor:The website,chronicle:The book,microphone:This script" verbs="builds,builds,builds,builds"
+
 **On screen.** {{count:game}} games. {{count:mechanic}} mechanics. {{count:technique}} techniques. {{count:opportunity}} bets. {{count:source}} sources.
 
 **Voice.** The whole dataset is a folder of plain-text records. Everything else is built from it on every change: the paper, the website, the book, and the script for this episode. Nothing computed is stored. A mechanic's prevalence, a game's cluster, a bet's priority: each is worked out again on every build, because a stored copy would drift.
 
 **Picture.** A sentence from episode 1 on screen, with its hidden tokens revealed beneath it: a stat, two ranks, an assertion.
+
+**Frame.** record script=episodes/01-same-parts.md find="None of them simulates anything"
 
 **Voice.** Sentences are the hard part, because they interpret numbers. So every number in this series is a token the build fills in, and every sentence that interprets one carries a check. When episode 1 said the five most common parts don't simulate anything, the build checked all five ranks. If the data stops agreeing, the build fails until somebody rewrites the line.
 
@@ -54,15 +60,23 @@ Target runtime about 11 minutes: about 1,190 words of narration at 135 words a m
 
 **Picture.** A run record on screen: id, kind, date, actor, operator, model, purpose, and a long method paragraph that includes what failed.
 
+**Frame.** record run=2026-10-25-catalog-game-pilot
+
 **Voice.** Every change to the dataset belongs to a run, and every run leaves a record: who operated it, whether a person or an agent did the work, which model, what it was for, and what it actually did, including what didn't work. Runs are never rewritten. A record names the run that created it and every run that reviewed it, so the history of any fact can be traced back. A single pull request carries one run, changes a limited number of records, never deletes one, and is signed off by the person responsible for it.
 
 **Picture.** Two build folders side by side, every file name matching, a diff tool reporting no differences.
+
+**Frame.** compare a="A build" a_items="folder:The same records" b="A second build, other settings" b_items="folder:The same files,check-pass:No differences"
 
 **Voice.** The build is deterministic. The same records produce the same files, byte for byte, and the checks prove it on every change by building twice under different settings and comparing. That's how an edition of the book or a version of this script can name the exact version of the data it came from.
 
 ## 7. Evidence, and who checks it (7:15 to 8:39)
 
 **Picture.** A record's status field cycling through asserted, sourced, verified. Then a still of Utopia on the Intellivision, with two dates beside it: 1981 and 1982.
+
+**Frame.** count kind=tally of=record field=status
+
+**Frame.** record at="Utopia, the Intellivision city builder" game=utopia
 
 **Voice.** Every record has a status, and the status is a claim about evidence. Asserted means no source yet. Sourced means it cites one. Verified means someone other than its creator checked it. When sources disagree, the record keeps both. Utopia, the Intellivision city builder, is dated 1982 by Wikipedia and 1981 by Guinness World Records, and its record says so and marks itself contested [@src-wikipedia-utopia; @src-guinness-2026-first-city-building-game].
 
@@ -73,6 +87,8 @@ Target runtime about 11 minutes: about 1,190 words of narration at 135 words a m
 ## 8. What the checks can't see (8:39 to 9:40)
 
 **Picture.** A quote highlighted on a web page, a green check beside it. Then the same quote next to the claim it supports, with a question mark between them.
+
+**Frame.** chain nodes="dataset-record:A quote in a record,check-pass:Found on the page,question:Whether it supports the claim is unchecked" verbs="fetched and found,but"
 
 **Voice.** The checks have limits. The project fetches each source and confirms a quote is really on the page; the first time it ran on agent-written records, it found 26 of 32 quotes, warned on 5, and failed 1, which turned out to be on the page after all. It can't confirm the quote supports the claim. The run log records which model an agent used, but the model is self-declared. The assertions keep sentences in line with the data and say nothing about whether the data matches the world. And the catalog leans toward games documented in English, which no check can see past.
 
