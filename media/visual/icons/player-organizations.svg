@@ -1,37 +1,25 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
-  <polygon points="8,6 40,6 40,20 24,15 8,20" fill="#8c8c86" stroke="#171717" stroke-width="2"/>
-  <polygon points="11,8.5 37,8.5 37,16 24,12 11,16" fill="none" stroke="#c8c8c2" stroke-width="1"/>
   <line x1="4" y1="6" x2="44" y2="6" stroke="#171717" stroke-width="2"/>
-  <circle cx="4.5" cy="6" r="1.5" fill="#171717"/>
-  <circle cx="43.5" cy="6" r="1.5" fill="#171717"/>
-  <circle cx="18" cy="23" r="3" fill="#8c8c86" stroke="#171717" stroke-width="2"/>
-  <rect x="15" y="28" width="6" height="6.5" rx="1" fill="#55554f" stroke="#171717" stroke-width="2"/>
-  <rect x="13" y="28.5" width="1" height="5.5" fill="#55554f" stroke="#171717" stroke-width="1"/>
-  <rect x="22" y="28.5" width="1" height="5.5" fill="#55554f" stroke="#171717" stroke-width="1"/>
-  <rect x="15.5" y="34.5" width="2" height="5.5" fill="#55554f" stroke="#171717" stroke-width="1"/>
-  <rect x="18.5" y="34.5" width="2" height="5.5" fill="#55554f" stroke="#171717" stroke-width="1"/>
-  <circle cx="30" cy="23" r="3" fill="#8c8c86" stroke="#171717" stroke-width="2"/>
-  <rect x="27" y="28" width="6" height="6.5" rx="1" fill="#55554f" stroke="#171717" stroke-width="2"/>
-  <rect x="25" y="28.5" width="1" height="5.5" fill="#55554f" stroke="#171717" stroke-width="1"/>
-  <rect x="34" y="28.5" width="1" height="5.5" fill="#55554f" stroke="#171717" stroke-width="1"/>
-  <rect x="27.5" y="34.5" width="2" height="5.5" fill="#55554f" stroke="#171717" stroke-width="1"/>
-  <rect x="30.5" y="34.5" width="2" height="5.5" fill="#55554f" stroke="#171717" stroke-width="1"/>
-  <circle cx="12" cy="26" r="3" fill="#fafaf7" stroke="#171717" stroke-width="2"/>
-  <rect x="9" y="31" width="6" height="7" rx="1" fill="#c8c8c2" stroke="#171717" stroke-width="2"/>
-  <rect x="6.5" y="31.5" width="1.5" height="6" fill="#55554f" stroke="#171717" stroke-width="1"/>
-  <rect x="16" y="31.5" width="1.5" height="6" fill="#55554f" stroke="#171717" stroke-width="1"/>
-  <rect x="9" y="38" width="2.5" height="6" fill="#55554f" stroke="#171717" stroke-width="1"/>
-  <rect x="12.5" y="38" width="2.5" height="6" fill="#55554f" stroke="#171717" stroke-width="1"/>
-  <circle cx="24" cy="26" r="3" fill="#fafaf7" stroke="#171717" stroke-width="2"/>
-  <rect x="21" y="31" width="6" height="7" rx="1" fill="#8c8c86" stroke="#171717" stroke-width="2"/>
-  <rect x="18.5" y="31.5" width="1.5" height="6" fill="#55554f" stroke="#171717" stroke-width="1"/>
-  <rect x="28" y="31.5" width="1.5" height="6" fill="#55554f" stroke="#171717" stroke-width="1"/>
-  <rect x="21" y="38" width="2.5" height="6" fill="#55554f" stroke="#171717" stroke-width="1"/>
-  <rect x="24.5" y="38" width="2.5" height="6" fill="#55554f" stroke="#171717" stroke-width="1"/>
-  <circle cx="36" cy="26" r="3" fill="#fafaf7" stroke="#171717" stroke-width="2"/>
-  <rect x="33" y="31" width="6" height="7" rx="1" fill="#c8c8c2" stroke="#171717" stroke-width="2"/>
-  <rect x="30.5" y="31.5" width="1.5" height="6" fill="#55554f" stroke="#171717" stroke-width="1"/>
-  <rect x="40" y="31.5" width="1.5" height="6" fill="#55554f" stroke="#171717" stroke-width="1"/>
-  <rect x="33" y="38" width="2.5" height="6" fill="#55554f" stroke="#171717" stroke-width="1"/>
-  <rect x="36.5" y="38" width="2.5" height="6" fill="#55554f" stroke="#171717" stroke-width="1"/>
+  <circle cx="4" cy="6" r="1.5" fill="#171717"/>
+  <circle cx="44" cy="6" r="1.5" fill="#171717"/>
+  <polygon points="9,7 39,7 39,17 24,21 9,17" fill="#c8c8c2" stroke="#171717" stroke-width="2"/>
+  <polygon points="19,10 29,10 29,14 24,16.5 19,14" fill="#55554f"/>
+  <circle cx="9" cy="27" r="3" fill="#fafaf7" stroke="#171717" stroke-width="2"/>
+  <rect x="5.5" y="31.5" width="7" height="7.5" rx="1" fill="#c8c8c2" stroke="#171717" stroke-width="2"/>
+  <rect x="3" y="32" width="1.5" height="6.5" fill="#55554f" stroke="#171717" stroke-width="1"/>
+  <rect x="13.5" y="32" width="1.5" height="6.5" fill="#55554f" stroke="#171717" stroke-width="1"/>
+  <rect x="6" y="39" width="2.5" height="6.5" fill="#55554f" stroke="#171717" stroke-width="1"/>
+  <rect x="9.5" y="39" width="2.5" height="6.5" fill="#55554f" stroke="#171717" stroke-width="1"/>
+  <circle cx="39" cy="27" r="3" fill="#fafaf7" stroke="#171717" stroke-width="2"/>
+  <rect x="35.5" y="31.5" width="7" height="7.5" rx="1" fill="#c8c8c2" stroke="#171717" stroke-width="2"/>
+  <rect x="33" y="32" width="1.5" height="6.5" fill="#55554f" stroke="#171717" stroke-width="1"/>
+  <rect x="43.5" y="32" width="1.5" height="6.5" fill="#55554f" stroke="#171717" stroke-width="1"/>
+  <rect x="36" y="39" width="2.5" height="6.5" fill="#55554f" stroke="#171717" stroke-width="1"/>
+  <rect x="39.5" y="39" width="2.5" height="6.5" fill="#55554f" stroke="#171717" stroke-width="1"/>
+  <circle cx="24" cy="25" r="3" fill="#c8c8c2" stroke="#171717" stroke-width="2"/>
+  <rect x="20" y="28.5" width="7.5" height="8" rx="1" fill="#55554f" stroke="#171717" stroke-width="2"/>
+  <rect x="17.5" y="29" width="1.5" height="7" fill="#55554f" stroke="#171717" stroke-width="1"/>
+  <rect x="29" y="29" width="1.5" height="7" fill="#55554f" stroke="#171717" stroke-width="1"/>
+  <rect x="20.5" y="37" width="3" height="7" fill="#55554f" stroke="#171717" stroke-width="1"/>
+  <rect x="24.5" y="37" width="3" height="7" fill="#55554f" stroke="#171717" stroke-width="1"/>
 </svg>
