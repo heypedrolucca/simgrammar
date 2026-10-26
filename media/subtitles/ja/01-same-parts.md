@@ -1,6 +1,6 @@
 # Episode 1 subtitles: Japanese
 
-Japanese subtitles for `media/episodes/01-same-parts.md`. Each `##` heading is a scene number in that script, and each line under it is one subtitle cue; a line in ［brackets］ translates on-screen text. Numbers are tokens, filled from the dataset like the script's. The build times the cues across each scene's narration at 135 words a minute and writes `dist/media/subtitles/ja/01-same-parts.srt`; retime against the recorded voice before release.
+Japanese subtitles for `media/episodes/01-same-parts.md`. Each `##` heading is a scene number in that script, and each line under it is one subtitle cue; a line in ［brackets］ translates on-screen text. Numbers are tokens, filled from the dataset like the script's. The build times the cues across each scene's narration at 135 words a minute and writes `dist/media/subtitles/ja/01-same-parts.srt`; retime against the recorded voice before release. Game titles: games developed in Japan use their Japanese titles (牧場物語, プリンセスメーカー2); all others stay in English.
 
 ## 1
 

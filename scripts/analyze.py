@@ -224,6 +224,28 @@ def compute(ents: dict, edges: list, vocabs: dict) -> dict:
         for mid in ("budget-treasury", "storage-capacity", "goods-consumption", "needs-decay", "crop-cultivation"):
             stats[f"n_city_builder_uses_{mid.replace('-', '_')}"] = sum(1 for x in city_ids if mid in used_by_game[x])
         stats["n_city_builders"] = len(city_ids)
+        # prototypes that are world models, and whether any other prototype replaces how a mechanic works (chapter 7)
+        protos = [t for t in techs if t.data.get("maturity") == "prototype"]
+        stats["n_technique_prototype_world_model"] = sum(1 for t in protos if t.data.get("category") == "generative-world-model")
+        stats["n_technique_prototype_other_replaces_substrate"] = sum(
+            1 for t in protos if t.data.get("category") != "generative-world-model"
+            and any(a.get("effect") == "replaces-substrate" for a in t.data.get("affects") or []))
+        stats["n_technique_prototype_horizon_now"] = sum(1 for t in protos if t.data.get("horizon") == "now")
+        # research edges into the environment family and how many come from weather models; research techniques that
+        # tune the economic core (chapter 8)
+        fam_of = {m.id: m.data.get("family") for m in mechs}
+        research = [t for t in techs if t.data.get("maturity") == "research"]
+        env_edges = [t.id for t in research for a in t.data.get("affects") or [] if fam_of.get(a["id"]) == "environment-ecology"]
+        stats["n_research_edges_environment_ecology"] = len(env_edges)
+        stats["n_research_edges_environment_ecology_weather"] = sum(1 for x in env_edges if x == "ml-weather-models")
+        econ_core = {"resources-production", "logistics-networks", "economy-finance", "population-lineage"}
+        stats["n_research_techniques_tune_economic_core"] = sum(
+            1 for t in research if any(a.get("effect") == "tunes" and fam_of.get(a["id"]) in econ_core for a in t.data.get("affects") or []))
+        # how the games with permadeath or hand crafting end: share that are open sandboxes or survival runs (chapter 9)
+        pc = [g for g in games if {"permadeath", "hand-crafting"} & set(used_by_game[g.id])]
+        stats["n_games_permadeath_or_crafting"] = len(pc)
+        stats["pct_permadeath_or_crafting_open_runs"] = (
+            round(100 * sum(1 for g in pc if g.data.get("win_structure") in ("open-sandbox", "survival-duration")) / len(pc)) if pc else 0)
         # book expansion: chapters 10-13
         # where techniques run (chapter 11), prediction criteria (chapter 12), and the run log (chapter 13)
         for where in ("server-realtime", "client-realtime"):
@@ -279,6 +301,10 @@ def compute(ents: dict, edges: list, vocabs: dict) -> dict:
         stats["n_player_roles"] = len(role_n)
         for r_, n in role_n.items():
             stats[f"n_games_role_{str(r_).replace('-', '_')}"] = n
+        agency_n = Counter(a for g in games for a in (g.data.get("agency_model") if isinstance(g.data.get("agency_model"), list)
+                                                      else [g.data.get("agency_model")]) if a)
+        for a, n in agency_n.items():
+            stats[f"n_games_agency_{str(a).replace('-', '_')}"] = n
         narr_n = Counter(g.data.get("narrative_mode") for g in games)
         for nm, n in narr_n.items():
             stats[f"n_games_narrative_{str(nm).replace('-', '_')}"] = n
@@ -365,6 +391,9 @@ def compute(ents: dict, edges: list, vocabs: dict) -> dict:
         hz = Counter(o.data.get("horizon") for o in opps)
         for term in ("now", "1-2y", "3-5y"):
             stats["n_opportunity_horizon_" + term.replace("-", "_")] = hz.get(term, 0)
+        otype = Counter(o.data.get("opportunity_type") for o in opps)
+        for term in vocab_terms(vocabs, "opportunity_type"):
+            stats["n_opportunity_type_" + term.replace("-", "_")] = otype.get(term, 0)
         breaking = {t.id for t in techs if t.data.get("determinism_impact") == "breaks"}
         stats["n_opportunity_applies_breaking"] = sum(1 for o in opps if set(o.data.get("applies") or []) & breaking)
         rk = Counter(r for t in techs for r in (t.data.get("risks") or []))
