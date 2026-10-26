@@ -86,4 +86,4 @@ Take the game you decomposed in chapter 1.
 3. For the layer with the most, name one coupling: a place where a mechanic there reads or writes another mechanic's state.
 4. For the thinnest layer, add one mechanic from another game in the catalog and describe what changes for the player.
 
-Most of the mechanics in this chapter are old. SimCity's maps date from 1989, Tamagotchi's clock from 1996, and The Sims' objects that advertise what they offer from 2000. Chapter 3 dates every mechanic in the vocabulary by the first catalog game that uses it, and finds that most of the vocabulary existed by 2000.{{assert:pct_mechanics_seen_by_2000 >= 60}}
+Most of the mechanics in this chapter are old. SimCity's maps date from 1989, Tamagotchi's clock from 1996, and The Sims' objects that advertise what they offer from 2000. Chapter 3 dates every mechanic in the vocabulary by the first catalog game that uses it, and tests how much of the old vocabulary was invented early and how much is simply shared.

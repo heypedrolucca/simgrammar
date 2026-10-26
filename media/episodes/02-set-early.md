@@ -76,6 +76,10 @@ Target runtime about 12 minutes: about 1,600 words of narration at 135 words a m
 
 **Voice.** Little Computer People, from 1985, introduced needs that decay, personality traits, and typing requests in plain English to a character who decides, depending on his mood, whether to do what you ask.{{assert:derived.needs-decay.earliest_game == little-computer-people}}{{assert:derived.natural-language-interaction.earliest_game == little-computer-people}} Each disk's serial number seeded a different resident.
 
+**Picture.** Theme Park, 1994: a crowd of visitors, each with a thought bubble; one walks past a ride with a long queue toward a shop.
+
+**Voice.** Theme Park, from 1994, gave every visitor a record of about 200 bytes and let each one choose what to do next by scoring the options against its needs. The catalog dates that architecture, utility action selection, to Theme Park, six years before The Sims made it famous.{{assert:derived.utility-action-selection.earliest_game == theme-park}} You could also change the recipe as well as the price: more sugar in the ice cream cost more, and brought customers back.
+
 ## 8. After 2000 (0:00 to 0:00)
 
 **Picture.** A Tale in the Desert: a crowd of player avatars around a voting monument. Then EVE Online's market screen, columns of buy and sell orders.

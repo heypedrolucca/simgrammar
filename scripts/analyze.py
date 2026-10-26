@@ -288,6 +288,7 @@ def compute(ents: dict, edges: list, vocabs: dict) -> dict:
         stats["n_runs_verification"] = sum(1 for r in all_runs if r.data.get("kind") == "verification")
         stats["n_runs_agent"] = sum(1 for r in all_runs if r.data.get("actor") == "agent")
         stats["n_run_operators"] = len({str(r.data.get("operator", "")).strip().lower() for r in all_runs})
+        stats["n_opportunity_asserted"] = sum(1 for o in opps if o.data.get("status") == "asserted")
         # book chapter 2: feedback polarity of mechanics, the game with the most mechanics, and where each large
         # subgenre spends its mechanic uses (top three families by share)
         fb = Counter(m.data.get("feedback") for m in mechs)

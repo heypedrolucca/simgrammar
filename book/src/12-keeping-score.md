@@ -18,7 +18,7 @@ All {{stat:n_predictions}} predictions are open today.{{assert:n_predictions_ope
 
 {{table:predictions}}
 
-They come due over four years. {{stat:n_predictions_by_2027}} resolve by the end of 2027, {{stat:n_predictions_by_2028}} by the end of 2028, and the last on {{stat:last_prediction_resolves}}.{{assert:n_predictions_by_2027 < n_predictions_by_2028}}{{assert:last_prediction_resolves == 2030-12-31}} The early dates belong to bets whose techniques already work. The late ones belong to the long shots of chapter 10, such as a game rendered by a generative model from a symbolic state, or a mechanic credited to automated discovery.
+They come due over four years. {{stat:n_predictions_by_2027}} resolve by the end of 2027, {{stat:n_predictions_by_2028}} by the end of 2028, and the last on {{stat:last_prediction_resolves}}.{{assert:n_predictions_by_2027 < n_predictions_by_2028}}{{assert:last_prediction_resolves == 2030-12-31}} Most of the early dates belong to bets the dataset rates as buildable now. The late ones belong to the long shots of chapter 10, such as a game rendered by a generative model from a symbolic state, or a mechanic credited to automated discovery.
 
 ## Reading criteria literally
 

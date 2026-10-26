@@ -60,7 +60,7 @@ Target runtime about 12 minutes: about 1,200 words of narration at 135 words a m
 
 **Voice.** Most simulation games are bought once and played for a very long time, and a feature that calls a model every few seconds turns each of those hours into a cost. The 25-agent town behind the generative agents paper cost thousands of dollars in model credits [@src-park-2023-generative-agents]. When Google opened its Genie 3 world model to subscribers, each world was capped at sixty seconds because of limited compute [@src-techcrunch-2026-project-genie].
 
-**Voice.** At the other end, a two-billion-parameter character model can be squeezed into about one and a half gigabytes of graphics memory, beside the game's own rendering [@src-sreenivas-2024-minitron; @src-nvidia-2025-ace-companions]. Running it on the player's machine moves the cost to their hardware, though NVIDIA's in-game inference kit still asks for at least an RTX 30-series card with eight gigabytes [@src-nvidia-2026-nvigi-core]. In between, caching helps: replaying stored plans cut a later version of that 25-agent town to under half the tokens [@src-yu-2024-affordable-generative-agents].
+**Voice.** At the other end, a two-billion-parameter character model can be squeezed into about one and a half gigabytes of graphics memory, beside the game's own rendering [@src-sreenivas-2024-minitron; @src-nvidia-2025-ace-companions]. Running it on the player's machine moves the cost to their hardware, though NVIDIA's in-game inference kit still asks for at least an RTX 30-series card with eight gigabytes [@src-nvidia-2026-nvigi-core]. In between, caching helps: a later study cut the tokens for that same 25-agent town to under half by replaying stored plans [@src-yu-2024-affordable-generative-agents].
 
 ## 8. Steering and checking (0:00 to 0:00)
 
@@ -86,6 +86,6 @@ Target runtime about 12 minutes: about 1,200 words of narration at 135 words a m
 
 **Picture.** The two monitors from the cold open, in step, the match continuing.
 
-**Voice.** The event-log bet carries its own prediction: an engine, a middleware vendor, or an open-source project ships a replay layer built for games with generative parts by the end of 2028.{{assert:field.event-sourced-sim-runtime.falsifiable_signal.resolve_by == 2028-12-31}} Until then, the safest AI features in a simulation game are the ones you could switch off without changing a single saved number. The next episode is about how predictions like that one get checked, and who's allowed to check them.
+**Voice.** The event-log bet carries its own prediction: an engine, a middleware vendor, or an open-source project ships a replay layer built for games with generative parts by the end of 2028.{{assert:field.event-sourced-sim-runtime.falsifiable_signal.resolve_by == 2028-12-31}} Until then, the techniques that leave the simulation reproducible, upscaling, cached rules, deterministic generators, are the ones already shipping.{{assert:field.llm-rule-adjudication.maturity == shipped-niche}}{{assert:field.wave-function-collapse.maturity == shipped-niche}} The next episode is about how predictions like that one get checked, and who's allowed to check them.
 
 **On screen.** Every technique and its risks: sim.yohei.me

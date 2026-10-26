@@ -76,7 +76,7 @@ Target runtime about 12 minutes: about 1,250 words of narration at 135 words a m
 
 **Voice.** Look at the top of the table together and the same design keeps coming back. None of the leading bets asks a learned model to become the simulation. The state stays symbolic and deterministic, and models work around it. They read it and explain it. They propose changes that a validator accepts or rejects. They decorate it, writing the line a character says without deciding whether she lives. And every call goes into the log.
 
-**Voice.** That pattern comes straight out of earlier episodes. What has shipped mostly stays at the edge of game state. And the economic core of these games, production, logistics, money, has almost nothing pointed at it. Bets that keep the core symbolic can ship on techniques that already work.
+**Voice.** That pattern comes straight out of earlier episodes. What has shipped mostly stays at the edge of game state. And the economic core of these games, production, logistics, money, has almost nothing pointed at it.{{assert:n_technique_shipped_mainstream <= 2}}{{assert:rank.family-mean-exposure.resources-production >= 16}}{{assert:rank.family-mean-exposure.logistics-networks >= 16}} Bets that keep the core symbolic can ship on techniques that already work.
 
 ## 10. Long shots (0:00 to 0:00)
 

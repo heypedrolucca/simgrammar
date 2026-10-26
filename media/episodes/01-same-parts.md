@@ -100,4 +100,4 @@ Target runtime about 12 minutes: about 1,500 words of narration at 135 words a m
 
 **On screen.** The dataset, the paper, and every source: sim.yohei.me.
 
-**Voice.** Everything in this video comes from an open dataset, and every number on screen is checked against it each time it's built. Next episode: most of these parts already existed by the year 2000.{{assert:pct_mechanics_seen_by_2000 >= 60}}
+**Voice.** Everything in this video comes from an open dataset, and every number on screen is checked against it each time it's built. Next episode: where these parts came from, and how few games invented most of them.
