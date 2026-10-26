@@ -7,26 +7,30 @@ operator: yoheinakajima
 agent:
   model: claude-opus-5-5
   harness: Claude app (cloud workspace)
-purpose: 'Draw the video series'' pictures from one dithered visual vocabulary: icons as code in media/visual, Frame lines in the scripts,
-  frame templates in the renderer, and the checks on them; first cut on episode 1 and shorts 1, 4, 5 and 7.'
-method: 'Surveyed the 228 Picture lines of the episodes, shorts, and film and sorted them into frame templates (the plan Yohei approved
-  on 2026-10-26). Wrote ADR-0006 and contract 1.2: rules E040 (Frame lines), E041 (icons), W108 (coverage) and invariant I16, implemented
-  in scripts/visual/check.py and called from validate.py. Drew 79 icons as a checked SVG subset (scripts/visual/raster.py) and built
-  them into dist/visual through an 8x8 Bayer dither (dither.py) at 3 and 4 px per dither pixel; build.py now writes binary outputs and
-  Pillow is pinned. Wrote the Frame grammar (frames.py), the resolver that reads every frame number from dist/entities, stats.json,
-  or rubrics.yaml (scripts/video/framedata.py), ten templates (templates.js), and two deterministic toy simulations of record rules
-  (toysim.py: Oxygen Not Included''s tile heat exchange, Factorio''s chunk diffusion with the record''s 2% above 15). render.html now
-  loads IBM Plex from media/fonts (SIL OFL 1.1) instead of Google Fonts, which the workspace proxy refused during this run, uses lowercase
-  mono labels, and shows a one-line chip while a frame is up; render.js stops on a missing face or image. Added Frame lines to episode
-  1 and shorts 1, 4, 5, and 7 and re-rendered those five videos with the recorded takes: a timing fingerprint taken before any change
-  (per-scene state durations and the narration track''s sha256) matches after it for all five. Failed or left: the first preview showed
-  the scene loop dropped by an edit (fixed); signs on loop arrows and same-year timeline items needed layout fixes; motion (dissolves,
-  drawn arrows, counters) is phase 3; the other eleven episodes, eight shorts, and the film still show cards until their scripts gain
-  Frame lines.'
+purpose: 'Draw the video series'' pictures from one dithered visual vocabulary: icons as code in media/visual, Frame lines in the scripts, frame
+  templates in the renderer, and the checks on them; first cut on episode 1 and shorts 1, 4, 5 and 7, then every episode, short, and the film.'
+method: 'Phase 1-2: surveyed the 228 Picture lines and sorted them into frame templates (plan approved 2026-10-26); wrote ADR-0006 and contract
+  1.2 (E040 Frame lines, E041 icons, W108 coverage, invariant I16, in scripts/visual/check.py); drew 79 icons as a checked SVG subset, dithered
+  into dist/visual by an 8x8 Bayer matrix at 3 and 4 px per dither pixel (Pillow pinned); wrote the Frame grammar, a resolver that reads every
+  number from dist/entities, stats.json, or vocab, the templates, and toy simulations of record rules; vendored IBM Plex (the proxy refused Google
+  Fonts) and made render.js stop on a missing face or image; added Frame lines to episode 1 and shorts 1, 4, 5 and 7. Phase 3: listed the 197
+  icons the drafted frames needed, split them into three batches with a brief and a lint tool; three agents drew them in parallel and the merge
+  added narration aliases and redrew seven icons the review flagged. Frames now draw icons at 42 to 144 dpx from the vector and snap them to the
+  8-dpx grid; 9:16 layouts fit the stage. Motion: Bayer-dissolve builds, arrows drawn tail to head, integer counters, cross-dissolved highlights,
+  as 1/30 s stills taken from each state''s own duration. Eleven templates with variants (two-game compares, venns, tallies, figures from sources,
+  due dates, records of bets, techniques and runs, mock-ups and labelled stand-ins, toy simulations of water, Life, falling sand and wave-function
+  collapse); E040 now checks every number a Frame line states against the record or source its from= names. Wrote Frame lines for every remaining
+  episode, short, and the film''s own scenes, and rendered all 25 videos with the recorded takes: each keeps the batch render''s narration track
+  byte for byte and its length (the film 5034.2 s), and per-scene durations match the pre-change baseline within 1 ms of rounding. Failed or left:
+  a phase-2 edit dropped the scene loop (fixed); the first phase-3 render skipped most builds because a frame''s first state is shorter than its
+  build, so builds now carry on across the states that keep the frame and the renders were restarted; two caption-card scenes still
+  showed cards until they got frames; the icon lint''s overlap test matched any box-shaped subject and now compares full ink only; list labels
+  cannot hold commas; 94 mechanics have no icon yet (W108, phase 4); pr-check against origin/main reports E039 for the book-draft run this branch
+  carries from book/full-draft-signed (against that base it passes).'
 scope:
 - decisions/ADR-0006-visual-vocabulary.md, CONTRACT.md, CHANGELOG.md, AGENTS.md, LICENSE, schema (contract 1.2), requirements.txt
 - scripts/visual (raster, dither, icons, frames, toysim, check), scripts/build.py, scripts/rules.py, scripts/validate.py, scripts/style_check.py
 - scripts/video (framedata.py, templates.js, render.html, render.js, timeline.py, parse.py, assemble.py)
-- media/visual (vocab.yaml, icons, README.md), media/fonts, media/episodes/01-same-parts.md, media/shorts 001, 004, 005, 007
+- media/visual (vocab.yaml, 276 icons, README.md), media/fonts, media/episodes (all 12), media/shorts (all 12), media/mega/the-film.md
 contract_version: '1.2'
 proposals: []
