@@ -1,6 +1,6 @@
 # Episode 1. Every simulation game is made of the same parts
 
-Target runtime about 11 minutes: about 1,230 words of narration at 135 words a minute, plus a beat of picture-only footage per scene. Covers book chapters 1 and 2. Footage: RimWorld, SimCity (1989), Factorio, all captured by us; publisher video policies are tracked in `media/rights.yaml` and must be checked before release. Every number below is filled in from the dataset when the script is built, and the sentences that interpret numbers carry the same checks as the book.
+Target runtime about 11 minutes: about 1,260 words of narration at 135 words a minute, plus a beat of picture-only footage per scene. Covers book chapters 1 and 2. Footage: RimWorld, SimCity (1989), Factorio, all captured by us; publisher video policies are tracked in `media/rights.yaml` and must be checked before release. Every number below is filled in from the dataset when the script is built, and the sentences that interpret numbers carry the same checks as the book.
 
 ## 1. Cold open (0:00 to 1:01)
 
@@ -46,7 +46,7 @@ Target runtime about 11 minutes: about 1,230 words of narration at 135 words a m
 
 **Voice.** Read a row and you see one game's recipe. Read a column and you see a mechanic's career: where it started, and where it spread. A few columns are nearly full. Most are nearly empty.
 
-## 5. The most common part (3:56 to 5:27)
+## 5. The most common part (3:56 to 5:26)
 
 **Picture.** One column lights up across the whole grid. The camera pulls back to show it running nearly top to bottom.
 
@@ -62,7 +62,7 @@ Target runtime about 11 minutes: about 1,230 words of narration at 135 words a m
 
 **Voice.** It also has costs. Fast-forward runs every other system faster, so when late-game speed stutters, you are watching the simulation hit the limit of the machine. In multiplayer, someone has to decide how fast time goes. The smallest button in the game exposes the cost of everything else.
 
-## 6. Rare parts make the game (5:27 to 6:41)
+## 6. Rare parts make the game (5:26 to 6:52)
 
 **Picture.** Back to RimWorld's core cards. Each one flies to its column in the grid, and each column is thin.
 
@@ -74,7 +74,7 @@ Target runtime about 11 minutes: about 1,230 words of narration at 135 words a m
 
 **Voice.** That is the pattern this series keeps coming back to. A game's identity lives in a few uncommon parts and how they connect. Its playability lives in many common ones that players expect and rarely notice.
 
-## 7. Six jobs every simulation does (6:41 to 9:02)
+## 7. Six jobs every simulation does (6:52 to 9:13)
 
 **Picture.** A stacked diagram of six layers builds from the bottom: substrate, dynamics, coupling, control, legibility, pacing.
 
@@ -98,7 +98,7 @@ Target runtime about 11 minutes: about 1,230 words of narration at 135 words a m
 
 **Voice.** A compact description of any simulation game is where it invests across these six layers. City builders, factory games, colony sims, flight sims: they differ less in the parts they can choose from than in where they spend.
 
-## 8. What has not been built (9:02 to 10:07)
+## 8. What has not been built (9:13 to 10:19)
 
 **Picture.** The grid rearranges into a triangle of every possible pair of mechanics. Most cells are empty.
 
@@ -106,7 +106,7 @@ Target runtime about 11 minutes: about 1,230 words of narration at 135 words a m
 
 **Voice.** Some of those gaps make no sense. A flight simulator has no use for free building placement. But some are open lots in a built-up neighbourhood, and later episodes walk through them. Names also sharpen the question everyone is asking about AI: not whether it will change games, but which parts. A language model that writes dialogue changes a different column from a learned physics model. Most of the research is landing on columns that few games use.{{assert:n_top10_prevalent_zero_exposure >= 5}}
 
-## 9. Close (10:07 to 11:17)
+## 9. Close (10:19 to 11:29)
 
 **Picture.** A blank grid row with the viewer's cursor over it.
 
