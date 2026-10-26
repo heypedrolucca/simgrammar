@@ -15,6 +15,14 @@ ADR-0004, contributor readiness.
 - **Docs:** CONTRIBUTING.md, CODE_OF_CONDUCT.md, `tasks/` briefs, issue forms, versioned calibration sets (`calibration/mechanics-v1.yaml`), CODEOWNERS for report, analysis, mechanics, opportunities, calibration.
 - **After independent review (same release):** subsamples assigned by hash so adding a game redraws nothing; pair thresholds 0.9/0.1; tolerant W107; assertion references hardened (unknown right-hand refs, cluster labels, misspelled rank ids); E028 run dates checked against contract history; E034 judges wikis by url and binds snapshots to their url; E035 normalizes model ids; E037 requires the creator's score, verification raters, one rating per rater; E038 date rules for refuted and withdrawn; E039 binds operator to PR author and protects provenance, rating attribution, and quotes on new claims; `check_sources.py` searches full text before failing.
 
+## 1.1 additions (2026-10-25, book and video pilot)
+
+Phase 1 of the book and video plan (run `2026-10-25-book-pilot`).
+
+- **Prose:** `book/src/` (preface and chapter 1), `media/episodes/` (episode 1 script), and `media/shorts/` (the first 60-second short) are rendered to `dist/book` and `dist/media` and checked like the paper: tokens, links, citations, literal counts, assertions, placeholders.
+- **Tokens and stats:** `{{derived:<id>.<field>}}` prints a per-record value (a game's mechanic count, a mechanic's prevalence); the analysis adds games per time model and the most common time model.
+- **Rights:** `media/rights.yaml` registers each game whose footage a video uses, with its video policy and the date it was checked.
+
 ## 1.1 additions (2026-10-25, AI contributor pilot)
 
 Fixes from the friction logs of the pilot agents that worked task issues end to end (ADR-0005, run `2026-10-25-ai-pilot`).
