@@ -20,14 +20,14 @@ Before inviting outside contributors, four agents each took one task end to end:
    - runs that change nothing.
 
    `reviewed` was appended to records that were looked at but not re-checked.
-4. **Agent web tools.** In the pilot sandbox, agents could not reach archive.org, Wikidata, or IGDB. The shell had no network. The fetch tool returned short verbatim fragments, so long quotes were stitched together. CI then found 26 of 32 quotes in the first pilot PR, warned on 5 unreachable pages, and failed 1. That one quote is on the rendered page but was not found in the page CI fetched.
+4. **Agent web tools.** In the pilot sandbox, agents could not reach archive.org, Wikidata, or IGDB. The shell had no network. The fetch tool returned short verbatim fragments, so long quotes were stitched together. CI then found 26 of 32 quotes in the first pilot PR, warned on 5 unreachable pages, and failed 1. That one quote is on the rendered page, and a rerun of the same check found it, so the first fetch got a variant page.
 
 ## Decision
 
 1. **Count threshold.** The white-space table admits mechanics used by at least a fixed number of games (`whitespace.min_prevalence_games: 14`, which was 8% of the catalog when fixed). Adding games can no longer drop a mechanic from the table. §5.5 cites the threshold with a stat token. Today's table is byte-identical. With the three pilot games added, and with up to 20 further duplicated games, every report assertion holds; under the old share rule the pilot games alone failed one.
 2. **A row that leaves a table is a failed assertion, not a typo.** A `rank.` reference whose ids are all real records but are no longer in the table returns 9999. It fails as E029 with a message naming the cause. An id that is neither in the table nor a record is still a malformed reference (E019).
 3. **Checks say when they checked nothing.**
-   - `check_sources.py` prints NOTHING CHECKED when every fetch failed. A failed quote reports how far it matched and what the page has instead. Wikipedia-style footnote markers are ignored on both sides. `--ids` scopes a check to a task's records.
+   - `check_sources.py` prints NOTHING CHECKED when every fetch failed. A quote missing from a full-text page is fetched once more before it fails. A failed quote reports how far it matched and what the page has instead. Wikipedia-style footnote markers are ignored on both sides. `--ids` scopes a check to a task's records.
    - `pr_scope.py` checks the run file of a run-only PR and rejects a PR that adds a run and changes nothing.
    - `make pr-check` requires `git config github.user`.
 4. **Briefs rewritten from the friction logs.**
@@ -43,4 +43,4 @@ Before inviting outside contributors, four agents each took one task end to end:
 - A fixed count drifts the other way: as the catalog grows, 14 games becomes a smaller share and "common" loosens. Revisit when the catalog passes about 250 games, as with the cluster k.
 - Report assertions can still fail on a genuine change: a pair that starts co-occurring, or a rank overtaken by a pair with a larger gap. That is their purpose. Contributors open such PRs with the error quoted, and the report is maintainer-owned (CODEOWNERS).
 - Tasks that need archive.org, Wikidata, or IGDB suit invited humans, or agents running locally with network access. `tasks/humans-with-agents.md` says so.
-- The one quote that failed in CI needs a reviewer to compare the fetched page with the rendered one. The new FAIL message is meant to make that comparison quick.
+- A site that keeps serving CI a different page from the one readers see will still fail a correct quote. The FAIL message shows what CI received, so a reviewer can tell that case from a wrong quote; archiving the source, which CI checks first, removes it.

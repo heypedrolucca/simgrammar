@@ -18,8 +18,8 @@ method: >-
   old rule failed with the pilot games alone. Made rank references to rows that left a table fail as E029 with the
   cause. Opened the store-ids and source-claims pilot PRs. CI resolved all eight Steam ids. It found 26 of 32 quotes,
   warned on five unreachable or DOI-only pages, and failed one. That failing AlphaEvolve quote is present in the
-  rendered page and its raw HTML in a browser, so the CI fetch is the suspect; FAIL messages now say where a quote
-  stops matching. Spot-checked two warned quotes in a browser: the OpenAI structured-outputs quote is on the page,
+  rendered page and its raw HTML in a browser, and a rerun of the check found it; the check now refetches once before
+  failing a quote, and FAIL messages say where a quote stops matching. Spot-checked two warned quotes in a browser: the OpenAI structured-outputs quote is on the page,
   and the cited Sony AI article url now returns 404. Rewrote four briefs, AGENTS.md, CONTRIBUTING.md, and the task
   generator from the friction logs.
 scope:

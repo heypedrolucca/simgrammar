@@ -114,10 +114,10 @@ class Fetcher:
         if cache:
             cache.mkdir(parents=True, exist_ok=True)
 
-    def get(self, url: str) -> tuple[str | None, str, str]:
-        """Return (text or None, content_type, error)."""
+    def get(self, url: str, fresh: bool = False) -> tuple[str | None, str, str]:
+        """Return (text or None, content_type, error). fresh=True skips the cache (a second look before failing)."""
         key = hashlib.sha256(url.encode()).hexdigest()[:24]
-        if self.cache and (self.cache / f"{key}.json").exists():
+        if self.cache and not fresh and (self.cache / f"{key}.json").exists():
             c = json.loads((self.cache / f"{key}.json").read_text(encoding="utf-8"))
             return c["text"], c["type"], c.get("error", "")
         text, ctype, err = None, "", ""
@@ -238,6 +238,15 @@ def main():
                         found = True
                         break
                     why = why or divergence(q, body)
+                if not found and fetched and not landing_only:
+                    # Sites sometimes serve a variant page (consent wall, A/B copy) to one request; look again once
+                    # before failing, so a transient page does not block a PR.
+                    time.sleep(3)
+                    for url in fetched:
+                        text, ctype, err = f.get(url, fresh=True)
+                        if text is not None and normalize(q) in page_text(text, ctype):
+                            found = True
+                            break
                 if found:
                     oks += 1
                 elif not fetched:
