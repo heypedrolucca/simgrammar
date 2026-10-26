@@ -133,8 +133,6 @@ def tones(path: Path, size: int | None = None) -> np.ndarray:
     """
     n, shapes = parse(path)
     m = size or n
-    if (m * SS * 2) % n:
-        raise IconError(f"cannot draw a {n}-dpx icon at {m} dpx")
     im = Image.new("L", (m * SS, m * SS), 0)
     d = ImageDraw.Draw(im)
     k = m * SS / n

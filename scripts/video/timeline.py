@@ -55,7 +55,11 @@ def scene_plan(E, key, sc, dur_audio, LEAD=LEAD, TAIL=TAIL, SILENT=SILENT):
         at = framedata.FR.parse(text)[1].get('at')
         if at:
             j = full.find(at)
-            if j < 0: raise ValueError(f"{key} scene {sc['n']}: Frame at=\"{at}\" is not in the narration")
+            if j < 0:   # a scene the film re-voices: take the phrase's place in the episode's wording, in proportion
+                orig = '\n\n'.join(b.get('orig', b['text']) for b in blocks if b['kind'] == 'voice')
+                j0 = orig.find(at)
+                if j0 < 0: raise ValueError(f"{key} scene {sc['n']}: Frame at=\"{at}\" is not in the narration")
+                j = round(j0 / max(len(orig), 1) * C)
             tf = max(tpos(j), t_first)
         else:
             tf = t_first

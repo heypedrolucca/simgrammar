@@ -137,6 +137,12 @@ def check(F, ents: dict, vocabs: dict) -> None:
 
     # ---- E040: Frame lines
     rubric_fields = set((vocabs.get("rubrics") or {}).get("scales", {}))
+    techs = {e.id: e.data for e in ents.get("technique", []) if not e.data.get("deprecated")}
+    bets = {e.id: e.data for e in ents.get("opportunity", []) if not e.data.get("deprecated")}
+    sources = {e.id: e.data for e in ents.get("source", [])}
+    run_data = {e.id: e.data for e in ents.get("run", [])}
+    TALLY = {"technique": {"maturity", "determinism_impact", "risks", "runtime", "category"}, "opportunity": {"horizon", "opportunity_type"},
+             "record": {"status"}, "link": {"effect"}}
     for d in SCRIPT_DIRS:
         for path in sorted((ROOT / d).glob("*.md")):
             for sc in scenes(path):
@@ -155,41 +161,95 @@ def check(F, ents: dict, vocabs: dict) -> None:
                         F.add("E040", path, f"line {line}: {err}")
                         continue
                     bad = lambda msg: F.add("E040", path, f"line {line}: {msg}")
-                    refs = FR.icon_refs(t, args)
-                    if t == "anatomy" and args.get("game") in games and args.get("parts", "core") in ("core", "all"):
-                        refs += [u["id"] for u in games[args["game"]].get("mechanics", []) if args.get("parts", "core") == "all" or u.get("role") == "core"]
-                    for ref in refs:
-                        if ref not in icons:
-                            bad(f"'{ref}' has no icon in media/visual/vocab.yaml")
-                    if "game" in args and args["game"] not in games:
-                        bad(f"no live game '{args['game']}'")
+                    # elements: an icon, or a live mechanic or technique (drawn as its category icon or a type tile until it has one)
+                    for ref in FR.icon_refs(t, args):
+                        if ref not in icons and ref not in mechs and ref not in techs:
+                            bad(f"'{ref}' has no icon in media/visual/vocab.yaml and is no live mechanic or technique")
+                    for k in ("game",):
+                        if k in args and args[k] not in games:
+                            bad(f"no live game '{args[k]}'")
+                    if "games" in args:
+                        gs = [i for i, _ in FR.items(args["games"])]
+                        if len(gs) != 2:
+                            bad("games= names two games")
+                        for g in gs:
+                            if g not in games:
+                                bad(f"no live game '{g}'")
                     if t == "chain" and "from" in args and args["from"] not in games:
                         bad(f"no live game '{args['from']}'")
-                    for k in ("ids",):
-                        if k in args:
-                            for i, _ in FR.items(args[k]):
+                    if t in ("timeline", "scale") and "ids" in args or (t == "count" and args.get("kind") in ("bars",)):
+                        for i, _ in FR.items(args.get("ids", "")):
+                            if i not in mechs:
+                                bad(f"no live mechanic '{i}'")
+                    if t == "count" and args.get("kind") == "venn":
+                        for k in ("a", "b"):
+                            if args[k] not in mechs:
+                                bad(f"no live mechanic '{args[k]}' ({k}=)")
+                    if t == "count" and args.get("kind") == "packages":
+                        for r in FR.rows(args["rows"]):
+                            for i, _ in r:
                                 if i not in mechs:
-                                    bad(f"no live mechanic '{i}'")
-                    if "mechanic" in args and args["mechanic"] not in mechs:
-                        bad(f"no live mechanic '{args['mechanic']}'")
+                                    bad(f"no live mechanic '{i}' in rows=")
+                    for k in ("a_ids", "b_ids"):
+                        for i, _ in FR.items(args.get(k, "")):
+                            if i not in techs:
+                                bad(f"no live technique '{i}' ({k}=)")
+                    for k in ("mechanic", "id"):
+                        if k in args and args[k] not in mechs:
+                            bad(f"no live mechanic '{args[k]}'")
+                    if "technique" in args and args["technique"] not in techs:
+                        bad(f"no live technique '{args['technique']}'")
+                    for b in ([args["bet"]] if "bet" in args else []) + [i for i, _ in FR.items(args.get("bets", ""))]:
+                        if b not in bets:
+                            bad(f"no live bet (opportunity) '{b}'")
+                    if "run" in args and args["run"] not in runs:
+                        bad(f"no run '{args['run']}' in log/runs/")
                     if "family" in args and args["family"] not in terms.get("mechanic_family", set()):
                         bad(f"'{args['family']}' is not a mechanic_family term")
-                    if "field" in args:
+                    if t == "scale" and "field" in args:
                         mid, _, fld = args["field"].partition(".")
                         if mid not in mechs or fld not in rubric_fields or fld not in mechs.get(mid, {}):
                             bad(f"'{args['field']}' is not a rubric-scored field of a live mechanic")
-                    gid = mid = ""
+                    if t == "scale" and "fields" in args:
+                        for fld, _ in FR.items(args["fields"]):
+                            if fld not in rubric_fields:
+                                bad(f"'{fld}' is not a rubric scale")
+                    if t == "count" and args.get("kind") == "tally" and args["field"] not in TALLY.get(args["of"], set()):
+                        bad(f"tally of={args['of']} counts one of {', '.join(sorted(TALLY.get(args['of'], set())))}, not '{args['field']}'")
+                    if t == "timeline" and args.get("kind") == "due" and "date" in args:
+                        dues = {str((b.get("falsifiable_signal") or {}).get("resolve_by")) for b in bets.values()}
+                        if args["date"] not in dues:
+                            bad(f"no bet resolves on {args['date']}")
+                    if t == "script" or "script" in args:
+                        sp = ROOT / "media" / args["script"]
+                        if not sp.exists():
+                            bad(f"no script media/{args['script']}")
+                        elif args.get("find", "") not in sp.read_text(encoding="utf-8"):
+                            bad(f"find=\"{args.get('find')}\" is not in media/{args['script']}")
+                    # numbers: each must be in the text of what `from` names
+                    text_, cited = "", args.get("from", "")
                     if "from" in args and t != "chain":
-                        gid, _, mid = args["from"].partition(":")
-                        if gid not in games:
-                            bad(f"no live game '{gid}' in from={args['from']}")
-                        elif mid and mid not in [u.get("id") for u in games[gid].get("mechanics", [])]:
-                            bad(f"'{gid}' does not use '{mid}' (from={args['from']})")
-                    nums = FR.constants(t, args)
-                    if nums:
-                        text_ = record_text(games.get(gid), mechs.get(mid), gid, mid)
-                        for n in nums:
-                            if not re.search(r"(?<![0-9.])" + re.escape(n) + r"(?![0-9])", text_):
-                                bad(f"the number {n} is not in the record text it cites ({args.get('from')})")
+                        srcs = [x for x, _ in FR.items(cited)] if t == "count" and args.get("kind") == "figures" else [cited]
+                        for src in srcs:
+                            gid, _, mid = src.partition(":")
+                            if gid in games:
+                                if mid and mid not in [u.get("id") for u in games[gid].get("mechanics", [])]:
+                                    bad(f"'{gid}' does not use '{mid}' (from={src})")
+                                text_ += " " + record_text(games.get(gid), mechs.get(mid), gid, mid)
+                            elif gid in techs and not mid:
+                                tq = techs[gid]
+                                text_ += " " + " ".join(str(x) for x in [tq.get("name"), tq.get("summary"), tq.get("mechanism")] + list(tq.get("limitations") or []) + [k.get("quote", "") for k in tq.get("key_results") or []])
+                            elif gid in mechs and not mid:
+                                text_ += " " + record_text(None, mechs[gid], "", gid)
+                            elif gid in sources and not mid:
+                                sd = sources[gid]
+                                text_ += " " + " ".join(str(sd.get(k) or "") for k in ("name", "date", "notes", "venue"))
+                            elif gid in bets and not mid:
+                                text_ += " " + str(bets[gid])
+                            else:
+                                bad(f"from={src} names no live game, mechanic, technique, bet, or source")
+                    for n in FR.constants(t, args):
+                        if not FR.has_number(n, text_):
+                            bad(f"the number {n} is not in the text of what it cites (from={cited or 'nothing'})")
                     if "at" in args and args["at"] not in voice:
                         bad(f"at=\"{args['at']}\" is not in this scene's narration")

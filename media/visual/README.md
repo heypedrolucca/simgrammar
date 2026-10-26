@@ -45,4 +45,4 @@ A `**Frame.**` line under a Picture line chooses the frame. For example:
 
     **Frame.** chain nodes="factory,pollution-spread,land-value,house:Zone growth" signs=+,-,+ verbs=writes,lowers,raises from=simcity-1989
 
-The grammar and the ten templates are in `scripts/visual/frames.py`, and `make check` validates every line (E040). A frame's numbers come from the dataset, never from the Frame line. The one exception is a formula constant or a toy simulation parameter, and it must appear in the record text the line cites with `from=`.
+The grammar and the eleven templates are in `scripts/visual/frames.py`, and `make check` validates every line (E040). A frame's numbers come from the dataset, never from the Frame line. The exception is a number the line states, such as a formula constant, a toy simulation parameter, or a survey figure, and it must appear in the text of the record or source the line cites with `from=`. A label inside a list cannot contain a comma. Anything drawn to look like a screen goes in a `mockup` frame, which always carries its label.

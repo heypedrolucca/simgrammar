@@ -71,9 +71,9 @@ def sized(out_dir: Path) -> Path:
         src = VISUAL / "icons" / f"{e['id']}.svg"
         h = hashlib.sha256(src.read_bytes()).hexdigest()
         new[e["id"]] = h
-        if old.get(e["id"]) == h and (out_dir / f"{e['id']}.{SIZES[-1]}@4x.png").exists() and (out_dir / f"{e['id']}.72@4x.png").exists():
-            continue
         native = raster.parse(src)[0]
+        if old.get(e["id"]) == h and all((out_dir / f"{e['id']}.{n}@4x.png").exists() for n in SIZES if n != native):
+            continue
         for n in SIZES:
             if n == native:
                 continue

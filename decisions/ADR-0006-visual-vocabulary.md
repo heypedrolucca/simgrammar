@@ -59,7 +59,17 @@ The first set has 79 icons:
 
 A `**Frame.**` line under a Picture line names a frame template and its arguments. The grammar is `scripts/visual/frames.py`.
 
-There are ten templates: anatomy, chain, compare, count, timeline, formula, scale, record, moment, and toysim. Anatomy covers a game's parts, a hub of objects, and a blank row. Count draws bars, tiles, or the core and supporting histograms.
+There are eleven templates: anatomy, chain, compare, count, timeline, formula, scale, record, moment, toysim, and mockup. Each has variants:
+
+- **anatomy**: a game's parts (core, all, the parts it was first to use, or a list), a hub of objects, or a blank row.
+- **chain**: a causal chain in one or two rows, with signs and loops, or a fan from one node.
+- **compare**: two drawn columns, or two games with their families, shared parts, or own core parts.
+- **count**: bars, tiles, histograms, a Venn of two mechanics, a set, units, figures from a source, a tally of a vocab field, piles, a spread over years, one stat, a ranked table, or packages of mechanics.
+- **timeline**: first appearances, the gap to a second game, the bets due on a date or by year, or techniques by year.
+- **formula**: terms, groups, and constants with units, or a composite from `vocab/rubrics.yaml`.
+- **scale**: one rubric scale, or rulers that place several mechanics.
+- **record**: a mechanic, bet, technique, run, or game record; several bets; a line of a script's source; or a card of lines.
+- **mockup**: a window, terminal, document, or stand-in, always labelled mock-up, re-enactment, or stand-in.
 
 A Picture may carry several Frame lines. Each one after the first has `at="..."`, the narration words where it takes over.
 
@@ -70,16 +80,19 @@ Picture ids in `scripts/video/figmap.py` count only Picture, Voice, and On scree
 `scripts/video/framedata.py` reads every number a frame shows from one of these sources:
 
 - `dist/entities`;
-- `dist/analysis/stats.json`;
-- `vocab/rubrics.yaml`.
+- `dist/analysis/stats.json` and the cluster table;
+- the run records in `log/runs/`;
+- `vocab/`.
 
 Every frame carries a source line.
 
-A formula constant or a toy simulation parameter must appear in the record text that the Frame's `from=` names. Crime is 128 − land value + density − police in SimCity's record, and Factorio diffuses 2 % above 15 units in its own. Labels the script gives, such as "Zone growth" or a panel caption, are prose and are linted with the script.
+A number the Frame line itself states must appear in the text that its `from=` names: a game's record and its note on the mechanic, a mechanic, a technique, a bet, or a source. That covers formula constants, toy simulation parameters, unit counts, survey figures, and numbers in a mock-up. Crime is 128 − land value + density − police in SimCity's record, and Generative Agents' gossip reached 13 of 25 agents in its own. Labels the script gives, such as "Zone growth" or a panel caption, are prose and are linted with the script.
 
 ### Renderer
 
 - **Templates.** `scripts/video/templates.js` draws the templates. While a frame is up, the highlight follows the narration through the frame's own elements only.
+- **Sizes and the grid.** A frame draws its icons at 42 to 144 dpx. The renderer redraws the vector at that size into its cache, so the dither grain stays one dpx, and moves each layout unit so its sprite sits on the page's 8-dpx grid. 9:16 layouts fit their sizes to the stage height.
+- **Motion.** A new frame builds in by Bayer dissolve, unit by unit. Arrows draw from tail to head, counters tick in integers, and a moved highlight cross-dissolves. The steps are 1/30 s stills taken from the start of each state's own duration, so the cut points and the narration do not move.
 - **Chip.** The main entity shows as one line under the frame. Scenes with no Frame line keep the cards.
 - **Fonts.** IBM Plex is vendored in `media/fonts/` under the SIL Open Font License 1.1. `render.js` stops if a face fails to load.
 - **Labels.** Labels are lowercase mono, as Register requires.
@@ -107,7 +120,7 @@ Moment frames say "drawn from the narration, not game footage". A frame that dra
 
 - **First cut.** Episode 1 and shorts 1, 4, 5, and 7 are re-rendered with frames. Narration and scene lengths are unchanged: the same takes, the same state durations, the same audio track.
 - **Other videos.** They render as before, with cards, figures, and the grid, until their scripts gain Frame lines. Their labels are now lowercase and their fonts local, so every video changes slightly in look.
-- **Motion.** Frames change between stills; there is no motion yet. A Bayer dissolve, arrows that draw, and counters that tick are phase 3.
-- **Dense layouts.** These hold at the approved scales: up to seven parts at 16:9, and four parts or five bars at 9:16. A frame with more elements needs a smaller icon size, which would break the 4 px rule at 9:16.
+- **Phase 3.** Every episode, short, and the film's own scenes carry Frame lines. Pictures that show the catalog grid or a paper figure keep it.
+- **Dense layouts.** A frame with many elements draws them smaller, down to 42 dpx, and keeps 3 px and 4 px per dpx. Past about twelve parts, anatomy lists the parts as a grid beside the game.
 - **Upkeep.** A Frame line goes stale when its scene changes. E040 catches broken ids, phrases, and numbers. A layout that no longer fits the narration is caught only by review.
 - **Name lint.** The rights lint compares names and cannot judge a drawing. A generic drawing can still recall a game, so each icon's review stays a human check.

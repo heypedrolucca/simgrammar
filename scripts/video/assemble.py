@@ -49,7 +49,7 @@ def reword(key, sc, over):
         vb = [b for b in s['blocks'] if b['kind'] == 'voice']
         if len(vb) != len(over[s['n']]):
             raise ValueError(f"{key} scene {s['n']}: film wording has {len(over[s['n']])} Voice lines, the episode has {len(vb)}")
-        for b, text in zip(vb, over[s['n']]): b['text'] = text
+        for b, text in zip(vb, over[s['n']]): b['orig'], b['text'] = b['text'], text
     return sc
 
 def segment_script(seg, states, chunks, vertical):
