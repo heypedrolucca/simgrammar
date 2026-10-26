@@ -1,4 +1,4 @@
-# Chapter 3. Set early
+# Chapter 3. Old parts
 
 Your steward reports once a year. The city has so many people, the harvest yielded so many bushels an acre, the rats ate so many, and land is trading at a price somewhere between 17 and 26 bushels an acre. Then he waits for three numbers. How many acres to buy or sell. How many bushels to feed the people. How many acres to plant. Grain is food, seed, and money at the same time, so every bushel you hand out to keep people alive is a bushel you cannot plant or spend on land. You type your answers and the year resolves. A plague may halve the population. If 45 percent of the people starve in a single year, you are thrown out of office and the game ends.
 

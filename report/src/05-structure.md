@@ -20,6 +20,8 @@ The average catalog game uses {{stat:mean_mechanics_per_game}} mechanics (median
 
 {{table:mechanics-since-2010}}
 
+The share seen by 2000 needs a baseline, because a few dozen games of any period already show much of the vocabulary. The build draws 2,000 random sets of {{stat:n_games_by_2000}} catalog games from every period, trims each drawn game to the size of one of the early games, and counts the mechanics each set covers. A random set covers {{stat:n_mechanics_seen_null_mean}} mechanics on average against {{stat:n_mechanics_seen_by_2000}} for the games released by 2000, and matches or beats them in a share of {{stat:p_mechanics_seen_by_2000}} of draws.{{assert:p_mechanics_seen_by_2000 > 0.05}}{{assert:n_mechanics_seen_by_2000 > n_mechanics_seen_null_mean}} The early games cover slightly more than chance would give them, and the difference is too small to read as a period of invention. Two narrower patterns survive: introductions concentrate in a few titles in every decade (above), and later games reuse old parts. Games released since 2010 draw {{stat:pct_uses_since_2010_on_pre2001}} percent of their mechanic uses from mechanics seen by 2000, and {{stat:n_games_since_2010_only_pre2001}} of the {{stat:n_games_since_2010}} use nothing newer.{{assert:pct_uses_since_2010_on_pre2001 >= 75}} Part of that is arithmetic, since old mechanics have had longer to spread.
+
 The dataset is a sample, so these are lower bounds on origin dates, and the pattern partly reflects which early games are canonical.
 
 ### 5.3 Which mechanics travel together
