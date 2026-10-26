@@ -16,6 +16,8 @@ Most records were created by runs operated by the maintainer. The independence r
 
 You can also take any other task (catalogue games, quote claims, archive sources, add store ids).
 
+**Pick your agent's model with independence in mind.** Most records were created by agent runs using `claude-opus-5-5`. When both runs are agents, E035 requires a different model as well as a different operator, so to verify, rate, or resolve those records use an agent on another model (a different Claude model, GPT, Gemini, or another family), or do the check yourself as `--actor human`. A record you verify must also carry a verbatim quote on every claim (E034), which is usually the bulk of the work.
+
 ## Setup, about 15 minutes
 
 ```bash

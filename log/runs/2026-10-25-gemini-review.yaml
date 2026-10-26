@@ -6,27 +6,26 @@ actor: agent
 operator: yoheinakajima
 agent:
   model: claude-opus-5-5
-  harness: Claude app (cloud workspace), orchestrator; reviewer gemini-3.1-pro-preview via the Gemini API (gemini-pro-latest)
-purpose: Have a model from another lab review the paper and the contribution system cold, verify each finding, and act on the ones that hold.
+  harness: Claude app (cloud workspace), orchestrator; reviewers gemini-3.1-pro-preview (Gemini API), meta/muse-spark-1.3 and openai/gpt-5.3-codex (OpenRouter)
+purpose: Have models from three other labs review the paper, the contribution rules, and the PR-scope code cold, verify each finding, and act on the ones that hold (ADR-0006).
 method: >-
-  Sent gemini-3.1-pro-preview three prompts with the rendered paper, report/analysis.yaml, and the governance documents
-  (CONTRACT, AGENTS, CONTRIBUTING, tasks/README, humans-with-agents, ADR-0004, ADR-0005), fetched from the public
-  repository: a referee review of the paper (6 findings), a red-team review of the contribution rules (15 findings),
-  and content proposals (12 games, 6 mechanics, 6 techniques). Checked every finding against the data before acting.
-  Paper: the k sentence in section 5.4 read as contradicting its table, because the three games merged earlier today
-  moved the rule's pick from 24 to 19 (k = 19 rose from 0.736 to 0.760 mean ARI, inside the 0.02 tolerance, so W107
-  stays silent); rewrote it to state both the configured k and the rule's current pick. Section 8.2 said the family
-  concentration was not an artifact of family size, but per mechanic world generation is second and agents and
-  physics fall to sixth and fifth; rewrote and pinned with rank assertions. Added to section 5.6 that the p-values
-  describe one rater, and to section 5.5 that the independence null ignores game size. Tested and rejected the
-  claim that the leverage gap hinges on the single most exposed mechanic: dropping it leaves the top 25 unchanged;
-  a percentile-rank gap was tried and dropped because heavy ties at zero exposure reorder the list for no gain.
-  Rejected the geometric-mean objection (a documented composite rule) and the bootstrap-kind inconsistency (the seed
-  run). Contribution rules: verification runs now count only from the owner, members, or invited collaborators;
-  a deprecation keeps the record's content; agents commit without sign-off and the operator signs off after reading
-  the diff; check_sources.py stops after three straight network failures and flags source domains the dataset has
-  never cited; the E010 ordering rule names plain character order. Calibration blindness and self-declared model ids
-  are known limits recorded in ADR-0004 and were left as they are. Added seven suggested games to the candidates.
+  Sent three outside models the public repository's paper, analysis parameters, governance documents, and scope-check
+  scripts, then checked every finding against the data or code before acting. gemini-3.1-pro-preview (paper and rules):
+  section 5.4 read as contradicting its table because today's three new games moved the rule's pick from 24 to 19 inside
+  the 0.02 tolerance (now states both); section 8.2's family-size claim was false per mechanic (rewritten, pinned);
+  p-value and null-model caveats added; verification runs only from invited authors; deprecations keep content; the
+  operator signs off after reading the diff; offline fast-exit and new-domain notices in check_sources; seven candidate
+  games. Tested and rejected: the leverage gap's dependence on the top mechanic (top 25 unchanged without it).
+  meta/muse-spark-1.3 (same prompts): causal abstract wording for single-rater correlations (reworded), the 2000
+  boundary (now in or before 2000), tension edges uncounted (counted), verification that leaves no trace (E034 now needs
+  a quote on every claim of a verified record), rewording a sourced claim without evidence (now an E039 error), an
+  undefined re-check (defined), invitees blocked by the different-model rule (documented). Rejected: that the contract
+  lets code win (it says the code is the bug). openai/gpt-5.3-codex (scripts): a PR could credit a merged run with a
+  review it never did (a PR now appends only its own run), run-only PRs passed if they touched another file (need an
+  invited author), the sign-off check matched text anywhere (now a trailer line, case-insensitive), repeated claim text
+  escaped the quote rule (counted), content types matched case-sensitively, and the E021 and E029 texts disagreed with
+  the code (texts corrected; a two-word E021 gap flagged a rubric value, so the one-word gap stays). Each new scope rule
+  was unit-tested on constructed before-and-after records.
 scope:
   - report/src/05-structure.md, report/src/08-impact.md
   - scripts/pr_scope.py, scripts/check_sources.py, .github/workflows/check.yml

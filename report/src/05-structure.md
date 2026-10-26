@@ -12,7 +12,7 @@ The average catalog game uses {{stat:mean_mechanics_per_game}} mechanics (median
 
 {{viz:strata}}
 
-{{assert:pct_mechanics_seen_by_2000 >= 60}}{{stat:pct_mechanics_seen_by_2000}} percent of mechanics appear in at least one catalog game released by 2000, and {{stat:pct_mechanics_first_seen_1980_1999}} percent first appear in the 1980s or 1990s ({{stat:peak_origin_decade}} the largest decade).{{assert:peak_origin_decade == "1990s"}} The early vocabulary came from a short list of titles: [[simcity-1989]] (zoning, land value, overlays, disasters), [[populous]] (terraforming as a god power), [[railroad-tycoon]] and [[transport-tycoon]] (route scheduling and competitors), [[theme-park]] and [[theme-hospital]] (crowds with preferences, queues, diagnosis), [[creatures]] (learning creatures and genetics), and [[the-sims]] (smart objects).
+{{assert:pct_mechanics_seen_by_2000 >= 60}}{{stat:pct_mechanics_seen_by_2000}} percent of mechanics appear in at least one catalog game released in or before 2000, and {{stat:pct_mechanics_first_seen_1980_1999}} percent first appear in the 1980s or 1990s ({{stat:peak_origin_decade}} the largest decade).{{assert:peak_origin_decade == "1990s"}} The early vocabulary came from a short list of titles: [[simcity-1989]] (zoning, land value, overlays, disasters), [[populous]] (terraforming as a god power), [[railroad-tycoon]] and [[transport-tycoon]] (route scheduling and competitors), [[theme-park]] and [[theme-hospital]] (crowds with preferences, queues, diagnosis), [[creatures]] (learning creatures and genetics), and [[the-sims]] (smart objects).
 
 {{table:mechanic-origins-by-decade}}
 
@@ -63,7 +63,7 @@ These families match the layer profiles in §4.1: minds and managed crowds inves
 
 ### 5.5 White space
 
-Some mechanics are individually common but rarely combined. The table lists pairs where each mechanic appears in at least {{stat:whitespace_min_games}} games, the two belong to different families, neither is a time-and-pacing control, they are not recorded as being in design tension, and they co-occur at most once. Expected co-occurrence assumes the two mechanics are spread independently of how many mechanics a game has. Games with many mechanics make every pair more likely, so a pair whose mechanics sit mostly in small games can look emptier than it is; a null model that preserves each game's size would tighten the list. The figure lays every pair of common mechanics out as a plan of built and vacant lots.
+Some mechanics are individually common but rarely combined. The table lists pairs where each mechanic appears in at least {{stat:whitespace_min_games}} games, the two belong to different families, neither is a time-and-pacing control, they are not recorded as being in design tension ({{count:edge:tension}} recorded tension edges), and they co-occur at most once. Expected co-occurrence assumes the two mechanics are spread independently of how many mechanics a game has. Games with many mechanics make every pair more likely, so a pair whose mechanics sit mostly in small games can look emptier than it is; a null model that preserves each game's size would tighten the list. The figure lays every pair of common mechanics out as a plan of built and vacant lots.
 
 {{viz:vacant-lots}}
 

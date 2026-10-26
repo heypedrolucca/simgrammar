@@ -109,7 +109,7 @@ def divergence(quote: str, text: str) -> str:
 
 
 def page_text(raw: str, content_type: str = "") -> str:
-    if "html" in content_type or raw.lstrip()[:1] == "<":
+    if "html" in (content_type or "").lower() or raw.lstrip("\ufeff \t\r\n")[:1] == "<":
         p = _Text()
         p.feed(raw)
         # Inline tags join without a space ("Studios</a>, with"). Some layouts butt inline blocks together with no
