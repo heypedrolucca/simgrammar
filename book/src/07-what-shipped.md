@@ -62,7 +62,7 @@ Two tools shipped on the developer's side. Agent-based playtesting predicts diff
 
 ## What writes into the simulation
 
-Sort the shipped techniques by whether they change authoritative game state, the state that saves, replays, and multiplayer depend on, and the list is short. A cached model output can become a rule, as in [[infinite-craft|Infinite Craft]], where the first answer to a new combination is stored and served to every later player; chapter 8 opens there.{{assert:field.llm-rule-adjudication.maturity == shipped-niche}} Language-model characters choose actions in inZOI and a few AI-native titles. Search and learned policies drive opponents. Everything else in the shipped group changes what the player sees and hears, or does its work before release.
+Sort the shipped techniques by whether they change authoritative game state, the state that saves, replays, and multiplayer depend on, and the list is short. A cached model output can become a rule, as in [[infinite-craft|Infinite Craft]], where the first answer to a new combination is stored and served to every later player; chapter 8 opens there.{{assert:field.llm-rule-adjudication.maturity == shipped-niche}} Language-model characters help choose actions in inZOI and a few AI-native titles. Search and learned policies drive opponents. Everything else in the shipped group changes what the player sees and hears, or does its work before release.
 
 The {{stat:n_technique_shipped}} shipped techniques affect {{stat:n_mechanics_touched_by_shipped}} mechanics, and those mechanics account for {{stat:pct_uses_touched_by_shipped}} percent of the uses in the catalog.{{assert:pct_uses_touched_by_shipped < 50}} Of the {{stat:n_effect_replaces_substrate}} edges in which a technique would replace how a mechanic works, {{stat:n_replaces_substrate_shipped}} come from techniques that have shipped.
 
@@ -74,7 +74,7 @@ A world model holds the game's state as pixels. Position, health, and the layout
 
 Among the shipped techniques, {{stat:n_technique_shipped_breaks}} break it: generative agents, language-model game masters, and realtime voice.{{assert:n_technique_shipped_breaks == 3}}
 
-The fix for the other two kinds is the move Infinite Craft makes with its cache: record each model output, and a replay reads the record instead of asking the model again.
+The fix is the move Infinite Craft makes with its cache: record each model output, and a replay reads the record instead of asking the model again.
 
 ## How it was received
 

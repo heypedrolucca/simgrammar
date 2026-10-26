@@ -1,6 +1,6 @@
 # Chapter 12. Keeping score
 
-On {{stat:first_prediction_resolves}}, {{stat:n_predictions_first_date}} of the dataset's predictions come due on the same day.{{assert:n_predictions_first_date >= 5}} One of them belongs to the top-ranked bet from chapter 10, the why-query. It reads, in full: a widely played simulation or strategy game will let players ask in natural language why something happened in their own game and answer from game state.
+On {{stat:first_prediction_resolves}}, {{stat:n_predictions_first_date}} of the dataset's predictions come due.{{assert:n_predictions_first_date >= 5}} One of them belongs to the top-ranked bet from chapter 10, the why-query. It reads, in full: a widely played simulation or strategy game will let players ask in natural language why something happened in their own game and answer from game state.
 
 Suppose you are the person who checks it. The prediction's criteria tell you exactly what to look for, and they are narrower than the sentence. The feature must have first shipped after 24 October 2026, so a game that already had one before the dataset was published does not count. The title must have at least 10,000 Steam user reviews, counted on the resolve date. And the release notes or the store page must describe free-text causal questions answered from the player's own save state, which rules out a chatbot that answers from a wiki or general help text.{{assert:field.causal-why-query.falsifiable_signal.resolve_by == first_prediction_resolves}}
 

@@ -25,7 +25,7 @@ method: >-
   in the chapters and scripts against the records without editing. They found 26 book and about 60 script lines
   that drifted from or went beyond a record (for example inZOI's model described as replacing need scoring, Project
   Sid's thousand agents, DLSS 5's launch blamed for its reveal's reception, Game of Life said to have no turns), and
-  pictures that could pass for game UI; all were rewritten to the record or labelled as graphics. Wrote the film's
+  pictures that could pass for game UI; all were rewritten to the record or labelled as graphics. A second read while publishing the chapters fixed dangling references to parts and a glossary the book does not have, and a few more claims the records do not support. Wrote the film's
   assembly, chapter times, opening, and two bridges as checked prose in media/mega, and listed all 66 titles the
   scripts show in media/rights.yaml (all unchecked). Short 1's scratch narration was generated with ElevenLabs; the
   takes stay in the operator's ElevenLabs flow because the workspace cannot download them. Episode timings come from
