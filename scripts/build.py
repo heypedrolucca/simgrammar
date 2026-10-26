@@ -392,7 +392,8 @@ def build() -> tuple[dict[str, str], dict[str, str]]:
 
     # ---- book chapters and episode scripts: same tokens and checks as the paper, one file per chapter or episode
     PAPER_TO_BOOK = {"§5.2": "chapter 3", "§5.4": "chapter 4", "§5.5": "chapter 9", "§5.6": "chapter 5", "§8.2": "chapter 8"}
-    for d, out_dir in (("book/src", "book"), ("media/episodes", "media/episodes"), ("media/shorts", "media/shorts"), ("media/mega", "media/mega")):
+    for d, out_dir in (("book/src", "book"), ("media/episodes", "media/episodes"), ("media/shorts", "media/shorts"), ("media/mega", "media/mega"),
+                       ("media/subtitles/ja", "media/subtitles/ja")):
         for p in sorted((ROOT / d).glob("*.md")):
             ctx.citations = []
             txt, _ = render(p.read_text(encoding="utf-8"), ctx, "paper")
@@ -409,6 +410,13 @@ def build() -> tuple[dict[str, str], dict[str, str]]:
                 txt = txt.replace("](../wiki/", "](../../wiki/")
             body = txt.strip() + "\n" + (("\n## Sources\n\n" + "\n".join(notes) + "\n") if notes else "")
             outs[f"{out_dir}/{p.name}"] = body + "\n*Dataset {DATASET}.*\n"
+
+    # ---- subtitles: cues rendered above, timed from the matching episode's scene timings
+    import subtitles
+    for k in sorted(k for k in outs if k.startswith("media/subtitles/") and k.endswith(".md")):
+        script = outs.get("media/episodes/" + k.rsplit("/", 1)[1])
+        if script:
+            outs[k[:-3] + ".srt"] = subtitles.srt(script, outs[k])
 
     # ---- manifest (dataset certificate)
     ent_hashes = {}
