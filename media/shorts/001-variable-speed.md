@@ -1,6 +1,6 @@
 # One mechanic in 60 seconds: Pause and speed control
 
-Vertical, 60 seconds, about 150 words. Drawn from the record `data/mechanics/variable-speed.yaml`, which is in the calibration set. The animatic uses a scratch AI voice, disclosed on screen; the release uses the host's voice.
+Vertical, 60 seconds, about 120 words of narration. Drawn from the record `data/mechanics/variable-speed.yaml`, which is in the calibration set. The animatic uses a scratch AI voice, disclosed on screen; the release uses the host's voice.
 
 ## 0:00 to 0:08. Hook
 

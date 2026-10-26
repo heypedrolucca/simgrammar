@@ -414,7 +414,7 @@ def build() -> tuple[dict[str, str], dict[str, str]]:
             ent_hashes[e.id] = sha256(canonical_json(e.data))
     dataset = sha256(canonical_json(sorted(ent_hashes.items())))
     paper = paper.replace("{DATASET}", dataset)
-    for k in [k for k in outs if k.startswith(("book/", "media/episodes/"))]:
+    for k in [k for k in outs if k.startswith(("book/", "media/"))]:
         outs[k] = outs[k].replace("{DATASET}", dataset[:12])
     outs["paper/paper.md"] = paper
     manifest = {
