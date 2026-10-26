@@ -7,7 +7,8 @@
 Each scene becomes stills (headless Chromium via Playwright, scripts/video/render.html) held for the length of its
 narration take; the takes are read from dist/video/audio (or $SIMGRAMMAR_AUDIO) and normalized to -16 LUFS.
 Pictures show only the project's own graphics: entity cards from dist/entities, the catalog grid, and paper figures.
-A scene with no take on disk is timed at 135 words a minute and left silent. Needs ffmpeg and node with playwright."""
+A scene with no take on disk is timed at 135 words a minute and left silent (scripts/video/narration.py missing lists them).
+The film swaps in the Film wording from media/mega/the-film.md for the episode scenes it re-voices. Needs ffmpeg and node with playwright."""
 import json, os, subprocess, sys, re, wave
 import numpy as np
 sys.path.insert(0, os.path.dirname(__file__))
@@ -17,7 +18,7 @@ DIST = os.path.normpath(os.path.join(HERE, '..', '..', 'dist'))
 V = os.path.join(DIST, 'video')
 AUD = os.environ.get('SIMGRAMMAR_AUDIO', V + '/audio')
 SR = 44100
-from parse import parse_all
+from parse import parse_all, film_wording
 from entities import load, grid
 S = parse_all()
 os.makedirs(V, exist_ok=True)
@@ -35,13 +36,31 @@ def silence(sec): return np.zeros(int(round(sec * SR)), dtype=np.int16)
 def title_of(key):
     t = S[key]['title']; return t.split('. ', 1)[1] if '. ' in t else t
 
+def film_take(key, n):
+    """Narration key for an episode scene re-voiced in the film: mega/the-film.md#ep10.4."""
+    return f"{FILM}#ep{os.path.basename(key)[:2]}.{n}"
+
+def reword(key, sc, over):
+    """Copy of a parsed script with the film's wording swapped into the listed scenes, paragraph for paragraph."""
+    sc = json.loads(json.dumps(sc))
+    for s in sc['scenes']:
+        if s['n'] not in over: continue
+        vb = [b for b in s['blocks'] if b['kind'] == 'voice']
+        if len(vb) != len(over[s['n']]):
+            raise ValueError(f"{key} scene {s['n']}: film wording has {len(over[s['n']])} Voice lines, the episode has {len(vb)}")
+        for b, text in zip(vb, over[s['n']]): b['text'] = text
+    return sc
+
 def segment_script(seg, states, chunks, vertical):
-    key = seg['key']; sc = S[key]
+    key = seg['key']; over = seg.get('over') or {}
+    sc = reword(key, S[key], over) if over else S[key]
     durs, pcms = {}, {}
     for s in sc['scenes']:
         k = f"{key}#{s['n']}"
-        if any(b['kind'] == 'voice' for b in s['blocks']) and os.path.exists(afile(k)):
-            pcms[k] = pcm(afile(k)); durs[k] = len(pcms[k]) / SR
+        src = film_take(key, s['n']) if s['n'] in over else k
+        if any(b['kind'] == 'voice' for b in s['blocks']):
+            if os.path.exists(afile(src)): pcms[k] = pcm(afile(src)); durs[k] = len(pcms[k]) / SR
+            else: print(f"no take for {src}; timed at 135 words a minute and left silent", file=sys.stderr)
     st, au = build(key, sc, durs, header=seg['header'], drop_title=seg.get('drop_title'), drop_last=seg.get('drop_last'), only=seg.get('only'))
     states += st
     for a in au:
@@ -99,10 +118,12 @@ FILM_TITLE = 'Every Simulation Game Is Built From the Same Parts'
 
 def film(eps):
     segs = [{'type': 'script', 'key': FILM, 'header': FILM_TITLE, 'only': [1]}]
+    W = film_wording()
     def chapter(n):
         k = eps[n - 1]
+        over = {s: v for (e, s), v in W.items() if e == n}
         return [{'type': 'slate', 'header': FILM_TITLE, 'title': f"{n}. {title_of(k)}", 'dur': 3.0},
-                {'type': 'script', 'key': k, 'header': f"{FILM_TITLE} · {n}. {title_of(k)}", 'drop_title': True, 'drop_last': n != 12}]
+                {'type': 'script', 'key': k, 'header': f"{FILM_TITLE} · {n}. {title_of(k)}", 'drop_title': True, 'drop_last': n != 12, 'over': over}]
     for n in range(1, 6): segs += chapter(n)
     segs += [{'type': 'slate', 'header': FILM_TITLE, 'title': 'The machines arrive', 'dur': 3.0}, {'type': 'script', 'key': FILM, 'header': FILM_TITLE, 'only': [2]}]
     for n in range(6, 9): segs += chapter(n)

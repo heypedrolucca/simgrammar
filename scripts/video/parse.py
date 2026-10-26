@@ -5,6 +5,7 @@ ROOT = os.path.join(HERE, '..', '..', 'dist', 'media')
 OUT = os.path.join(HERE, '..', '..', 'dist', 'video')
 SCENE = re.compile(r"^## (\d+)\. (.+?)(?: \((.+?)\))?\s*$")
 SHORT = re.compile(r"^## (\d+:\d\d) to (\d+:\d\d)\. (.+?)\s*$")
+WORDING = re.compile(r"^### Episode (\d+), scene (\d+)")
 
 def clean(s):
     s = re.sub(r"<!--.*?-->", "", s)
@@ -32,6 +33,18 @@ def parse(path):
             if line.startswith(lab):
                 cur["blocks"].append({"kind": kind, "text": clean(line[len(lab):])})
     return {"file": os.path.basename(path), "title": title, "scenes": scenes}
+
+def film_wording(path=None):
+    """{(episode, scene): [voice paragraphs]} from the film script's "Film wording" section."""
+    txt = open(path or os.path.join(ROOT, "mega", "the-film.md"), encoding="utf-8").read()
+    if "\n## Film wording" not in txt: return {}
+    body = txt.split("\n## Film wording", 1)[1].split("\n## ", 1)[0]
+    out, cur = {}, None
+    for line in body.splitlines():
+        m = WORDING.match(line)
+        if m: cur = (int(m.group(1)), int(m.group(2))); out[cur] = []; continue
+        if cur and line.startswith("**Voice.**"): out[cur].append(clean(line[len("**Voice.**"):]))
+    return out
 
 def parse_all():
     out = {}
