@@ -1,13 +1,17 @@
 PY ?= python3
 TMP ?= /tmp/simgrammar-determinism
 
-.PHONY: check validate build sqlite find hooks determinism sources calibrate-sheet pr-check tasks
+.PHONY: check validate style build sqlite find hooks determinism sources calibrate-sheet pr-check tasks
 
-check: validate
+check: validate style
 	$(PY) scripts/build.py --check
 
 validate:
 	$(PY) scripts/validate.py
+
+# house style for the book and the videos (book/STYLE.md, book/tells.yaml)
+style:
+	$(PY) scripts/style_check.py
 
 build:
 	$(PY) scripts/build.py

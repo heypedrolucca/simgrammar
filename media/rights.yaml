@@ -4,3 +4,5 @@ titles:
   - {game: rimworld, status: unchecked, policy_url: "", checked: ""}
   - {game: simcity-1989, status: unchecked, policy_url: "", checked: ""}
   - {game: factorio, status: unchecked, policy_url: "", checked: ""}
+  - {game: cities-skylines, status: unchecked, policy_url: "", checked: ""}
+  - {game: rollercoaster-tycoon, status: unchecked, policy_url: "", checked: ""}

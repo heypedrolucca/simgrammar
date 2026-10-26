@@ -1,0 +1,95 @@
+# Phrases and structures that make prose read as machine-written (book/STYLE.md). Checked by scripts/style_check.py
+# on book/src, media/episodes, media/shorts, and media/mega.md. Patterns are Python regular expressions, matched
+# case-insensitively against each line after tokens, links, and citations are reduced to plain text.
+# A line ending in <!-- tells-ok: <id> --> is exempt from that one pattern (for a literal use the writer has checked).
+# severity: error fails make check; warn prints only.
+
+words:
+  - {id: delve, pattern: '\bdelv(e|es|ed|ing)\b', why: stock word}
+  - {id: tapestry, pattern: '\btapestr(y|ies)\b', why: stock word}
+  - {id: testament, pattern: '\btestament\b', why: stock word}
+  - {id: realm, pattern: '\brealms?\b', why: stock word}
+  - {id: landscape, pattern: '\blandscapes?\b', why: figurative landscape; name the thing (the set, the field, the techniques)}
+  - {id: navigate, pattern: '\bnavigat(e|es|ed|ing)\b', why: figurative navigate}
+  - {id: harness, pattern: '\bharness(es|ed|ing)?\b', why: stock verb}
+  - {id: leverage-verb, pattern: '(?<!AI )\bleverag(e[sd]?|ing)\b(?! score)', why: leverage as a verb; say use}
+  - {id: seamless, pattern: '\bseamless(ly)?\b', why: stock word}
+  - {id: robust, pattern: '\brobust(ly|ness)?\b', why: stock word}
+  - {id: crucial, pattern: '\bcrucial(ly)?\b', why: stock intensifier}
+  - {id: pivotal, pattern: '\bpivotal\b', why: stock intensifier}
+  - {id: vital, pattern: '\bvital(ly)?\b', why: stock intensifier}
+  - {id: intricate, pattern: '\bintricate(ly)?\b', why: stock word}
+  - {id: nuanced, pattern: '\bnuanced?\b', why: stock word}
+  - {id: multifaceted, pattern: '\bmultifaceted\b', why: stock word}
+  - {id: myriad, pattern: '\b(myriad|plethora)\b', why: stock word}
+  - {id: showcase, pattern: '\bshowcas(e|es|ed|ing)\b', why: stock verb}
+  - {id: underscore, pattern: '\bunderscor(e|es|ed|ing)\b', why: stock verb}
+  - {id: foster, pattern: '\bfoster(s|ed|ing)?\b', why: stock verb}
+  - {id: elevate, pattern: '\belevat(e|es|ed|ing)\b', why: stock verb}
+  - {id: empower, pattern: '\bempower(s|ed|ing|ment)?\b', why: stock verb}
+  - {id: embark, pattern: '\bembark(s|ed|ing)?\b', why: stock verb}
+  - {id: journey, pattern: '\bjourneys?\b', why: figurative journey}
+  - {id: ever-evolving, pattern: '\bever-(evolving|changing|growing)\b', why: stock phrase}
+  - {id: hype, pattern: '\b(game-chang(er|ing)|game changer|cutting-edge|groundbreaking|revolutionary|transformative|unprecedented|paradigm)\b', why: hype}
+  - {id: synergy, pattern: '\b(synerg(y|ies|istic)|holistic(ally)?)\b', why: stock word}
+  - {id: meticulous, pattern: '\bmeticulous(ly)?\b', why: stock word}
+  - {id: bustling, pattern: '\b(bustling|vibrant)\b', why: stock adjective}
+  - {id: profound, pattern: '\bprofound(ly)?\b', why: stock intensifier}
+  - {id: compelling, pattern: '\b(compelling|captivating)\b', why: stock adjective}
+  - {id: quietly, pattern: '\bquietly\b', why: stock adverb for an unnoticed effect; say what happens}
+  - {id: honest, pattern: '\bhonest(ly)?\b', why: honest said of a thing or a result}
+  - {id: deceptively, pattern: '\bdeceptively\b', why: stock adverb}
+  - {id: sentence-adverb, pattern: '\b(notably|importantly|interestingly|remarkably|crucially|undeniably|arguably)\b', why: sentence adverb that announces significance}
+  - {id: hedge-adverb, pattern: '\b(ultimately|essentially|fundamentally|basically|truly|incredibly)\b', why: filler adverb}
+  - {id: elegant, pattern: '\belegant(ly)?\b', why: stock praise}
+  - {id: shines, pattern: '\bshine[sd]?\b', why: figurative shine}
+  - {id: lens, pattern: '\blens(es)?\b', why: figurative lens}
+  - {id: ecosystem, pattern: '\becosystems?\b', why: figurative ecosystem}
+  - {id: stark, pattern: '\b(stark(ly)?|sheer)\b', why: stock intensifier}
+  - {id: delicate, pattern: '\b(delicate|balancing act)\b', why: stock phrase}
+  - {id: magic, pattern: '\bmagic(al|ally)?\b', why: figurative magic}
+  - {id: woven, pattern: '\b(weav(e|es|ing)|woven|fabric)\b', why: figurative weaving}
+  - {id: orchestrate, pattern: '\b(orchestrat\w*|symphon\w*)\b', why: figurative orchestration}
+  - {id: cornerstone, pattern: '\b(cornerstone|linchpin|bedrock|north star|beacon|hallmark)s?\b', why: stock metaphor}
+  - {id: reimagine, pattern: '\b(re-?imagin\w*|redefin\w*)\b', why: stock verb}
+
+phrases:
+  - {id: at-its-core, pattern: '\b(at its core|at the heart of|at their core)\b', why: stock phrase}
+  - {id: in-the-world-of, pattern: '\b(in the world of|in today''s|in a world where)\b', why: stock opener}
+  - {id: when-it-comes-to, pattern: '\bwhen it comes to\b', why: stock phrase}
+  - {id: worth-noting, pattern: '\b(worth noting|it should be noted|needless to say|it is important to|it''s important to)\b', why: announces instead of saying}
+  - {id: summary-opener, pattern: '\b(in conclusion|to sum up|in short|in essence|put simply|simply put|in other words|at the end of the day)\b', why: summary filler}
+  - {id: lets, pattern: '\blet''s\b|\blet us\b', why: lets-look-at narration}
+  - {id: dive, pattern: '\b(dive into|deep dive|deep-dive|unpack(s|ed|ing)?|buckle up)\b', why: stock phrase}
+  - {id: heres, pattern: '\b(here''s the thing|here''s why|here''s what|here is the thing|here is why|here is what)\b', why: setup}
+  - {id: surprise-setup, pattern: '\b(might surprise you|may surprise you|you might be surprised|spoiler)\b', why: setup}
+  - {id: turns-out, pattern: '\b(it turns out|turns out)\b', why: reveal setup}
+  - {id: comes-in, pattern: '\b(this|that|which) is where\b', why: this-is-where transition}
+  - {id: enter, pattern: '(^|[.!?]\s+)Enter [A-Z]', why: enter-X transition}
+  - {id: imagine, pattern: '\b(imagine a|imagine you|picture this|what if i told you|have you ever|ever wondered)\b', why: audience setup}
+  - {id: masterclass, pattern: '\b(masterclass|speaks volumes|nothing short of|a far cry)\b', why: stock phrase}
+  - {id: serves-as, pattern: '\b(serves as|stands as|acts as a reminder|a reminder that|a lesson in)\b', why: stock phrase}
+  - {id: key-role, pattern: '\bplays? an? (key|crucial|vital|central|pivotal|important|major) role\b', why: stock phrase}
+  - {id: nobody-talks, pattern: '\b(nobody|no one) (talks|thinks|notices) about\b', why: clickbait}
+  - {id: the-real, pattern: '\bthe real (question|story|reason|answer|lesson|secret)\b', why: setup}
+  - {id: answer-is, pattern: '\bthe (short|honest|simple|real) answer\b', why: setup}
+  - {id: secret-sauce, pattern: '\b(secret sauce|hidden gem|makes? (it|them) tick)\b', why: stock phrase}
+  - {id: double-edged, pattern: '\bdouble-edged\b', why: stock metaphor}
+  - {id: the-point, pattern: '\b(that is|that''s|this is|is) (the whole|exactly the|the) point\b', why: aphorism}
+  - {id: not-about, pattern: '\b(it''s|it is|this is|this isn''t|it isn''t) not about\b|\bisn''t about\b', why: contrast frame}
+  - {id: moving-forward, pattern: '\b(moving forward|going forward|a new era|the future of)\b', why: stock phrase}
+  - {id: so-what, pattern: '\bso what\?', why: rhetorical question}
+  - {id: looks-like, pattern: '\b(that|this) is what [^.,;]{1,40} looks like\b', why: aphorism}
+  - {id: keeps-returning, pattern: '\b(keeps? (coming back|returning) to|we will return to|more on that later)\b', why: signposting}
+
+structures:
+  - {id: not-but, pattern: '\bnot (just |only |merely |simply )?[^,.;:!?]{1,50}, but\b', why: 'contrast frame "not X, but Y"; state the positive claim'}
+  - {id: not-just, pattern: '\b(not just|not merely|not only|isn''t just|aren''t just|more than just|is not simply|not simply)\b', why: contrast frame}
+  - {id: is-not-it-is, pattern: '\b(is|are|was|were) not\b[^.!?]{0,90}[.!?]\s+(It|They|This|That|He|She)\s+(is|are|was|were)\b', why: 'contrast frame "X is not A. It is B."'}
+  - {id: isnt-its, pattern: '\b(isn''t|aren''t|wasn''t|weren''t)\b[^.!?]{0,90}[.!?]\s+(It''s|They''re|It is|They are|That''s)\b', why: 'contrast frame "isn''t A. It''s B."'}
+  - {id: fragment-not, pattern: '(^|[.!?]\s+)Not (to |a |an |the |because |for |with |in )?[\w'' ,-]{1,40}[.!?]\s+[A-Z]', why: 'fragment pair "Not X. Y."'}
+  - {id: rhetorical-qa, pattern: '\b(the|its|his|her|their|our|my) (result|answer|catch|twist|problem|reason|verdict|kicker|lesson|secret|cost|difference)\?', why: rhetorical question and answer}
+  - {id: did-not-it, pattern: '\b(did|does|do) not\b[^.!?]{0,90}[.!?]\s+(It|They|He|She)\s+\w+', why: 'contrast frame "did not A. It B."', severity: warn}
+  - {id: em-dash, pattern: '—|\s--\s', why: em dash}
+  - {id: list-scaffold, pattern: '\b(first|second|third), (the |a |an )?\w+[^.]*\.[^\n]*\b(second|third|finally), ', why: 'First, ... Second, ... scaffolding in a paragraph; use a list or connect the ideas', severity: warn}
+  - {id: three-things, pattern: '\b(three|four|five) (things|reasons|lessons|ways|takeaways)\b', why: announced count of points, severity: warn}

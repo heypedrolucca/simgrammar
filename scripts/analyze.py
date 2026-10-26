@@ -154,6 +154,19 @@ def compute(ents: dict, edges: list, vocabs: dict) -> dict:
         stats["most_prevalent_mechanic_share_pct"] = _r(100 * derived[top.id]["prevalence"] / max(N, 1), 0)
         stats["n_mechanics_single_game"] = sum(1 for m in mechs if derived[m.id]["prevalence"] == 1)
         stats["n_mechanics_unused"] = sum(1 for m in mechs if derived[m.id]["prevalence"] == 0)
+        # book chapter 1: the parts a game marks as core are rarer across the catalog than the parts it marks as supporting
+        core_p, sup_p, rare_core = [], [], 0
+        rare_max = (cfg.get("book") or {}).get("rare_max_games", 10)
+        for g in games:
+            ps = {u["id"]: (u.get("role"), derived[u["id"]]["prevalence"]) for u in g.data.get("mechanics", []) if u["id"] in derived}
+            core_p += [p for r, p in ps.values() if r == "core"]
+            sup_p += [p for r, p in ps.values() if r != "core"]
+            rare_core += any(r == "core" and p <= rare_max for r, p in ps.values())
+        stats["median_prevalence_core_uses"] = _r(float(np.median(core_p)), 1) if core_p else None
+        stats["median_prevalence_supporting_uses"] = _r(float(np.median(sup_p)), 1) if sup_p else None
+        stats["rare_max_games"] = rare_max
+        stats["n_games_with_rare_core"] = rare_core
+        stats["pct_games_with_rare_core"] = _r(100 * rare_core / max(N, 1), 0)
 
     # ---------------- correlations across mechanics (Spearman)
     def corr(a, b):

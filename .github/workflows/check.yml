@@ -17,6 +17,8 @@ jobs:
       - run: pip install -r requirements.txt
       - name: Validate (rules in CONTRACT.md section 5, report and record assertions)
         run: python scripts/validate.py
+      - name: House style for the book and the videos (book/STYLE.md)
+        run: python scripts/style_check.py
       - name: Build and GENERATED blocks (E023)
         run: python scripts/build.py --check
       - name: Deterministic build (I11) - two hash seeds, byte-identical trees
