@@ -38,7 +38,7 @@ Do the same for every game in the catalog. The dataset decomposes {{stat:n_game}
 
 Almost every mechanic recurs. Only {{stat:n_mechanics_single_game}} of the {{stat:n_mechanic}} appear in a single title,{{assert:n_mechanics_single_game <= 5}} so a mechanic in this vocabulary is something several designers found worth building.
 
-The figure draws every use at once. Each row is a game, ordered by year; each column is a mechanic, grouped by family; each mark is a game using a mechanic, filled where the mechanic is core.
+The figure draws every use at once. Each row is a game and each column a mechanic; each mark is a game using a mechanic, filled where the mechanic is core.
 
 {{viz:matrix}}
 

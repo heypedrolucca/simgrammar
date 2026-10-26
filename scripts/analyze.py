@@ -178,6 +178,12 @@ def compute(ents: dict, edges: list, vocabs: dict) -> dict:
         explainers = [t for t in techs if any(a["effect"] == "explains" for a in t.data.get("affects", []))]
         stats["n_explains_techniques"] = len(explainers)
         stats["n_effect_explains_shipped"] = sum(1 for t in shipped for a in t.data.get("affects", []) if a["effect"] == "explains")
+        # book chapter 8: per family, how many mechanics it holds and how many no technique in the set affects
+        for fam in sorted({m.data.get("family") for m in mechs if m.data.get("family")}):
+            fm = [m for m in mechs if m.data.get("family") == fam]
+            key = str(fam).replace("-", "_")
+            stats[f"n_family_mechanics_{key}"] = len(fm)
+            stats[f"n_family_zero_exposure_{key}"] = sum(1 for m in fm if exposure.get(m.id, 0.0) == 0)
         # book chapter 3: how much of the vocabulary the games released by 2000 show, against random sets of the same
         # number of games trimmed to the same sizes (so a shared vocabulary is not mistaken for early invention), and how
         # much of what later games use was already there. Seeded and sorted so the build stays deterministic.
@@ -219,6 +225,19 @@ def compute(ents: dict, edges: list, vocabs: dict) -> dict:
             top_g, top_n = min(intro.items(), key=lambda kv: (-kv[1], kv[0]))
             stats["top_introducer"] = by_id[top_g].data["name"]
             stats["top_introducer_count"] = top_n
+        # book chapter 3: a mechanic's career, its second catalog game and the year it reached its fifth
+        career = defaultdict(list)
+        for g in games:
+            if isinstance(year.get(g.id), int):
+                for mid in used_by_game[g.id]:
+                    career[mid].append((year[g.id], g.id))
+        for m in mechs:
+            us = sorted(career.get(m.id, []))
+            derived[m.id]["second_game"] = us[1][1] if len(us) > 1 else None
+            derived[m.id]["second_year"] = us[1][0] if len(us) > 1 else None
+            derived[m.id]["year_fifth_game"] = us[4][0] if len(us) > 4 else None
+        for dec in range(1960, 2030, 10):
+            stats[f"n_games_{dec}s"] = sum(1 for g in games if isinstance(year.get(g.id), int) and year[g.id] // 10 * 10 == dec)
         # book chapters 5-6: legibility and tuning difficulty by emergence level, and how many mechanics sit at the top of
         # the compute and authoring scales (all rubric scores are one model rater's, chapter 5 says so)
         e1 = [m for m in mechs if m.data.get("emergence_potential") == 1]

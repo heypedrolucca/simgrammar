@@ -391,6 +391,7 @@ def build() -> tuple[dict[str, str], dict[str, str]]:
     outs["paper/references.bib"] = "\n".join(bibtex(s) for s in srcs)
 
     # ---- book chapters and episode scripts: same tokens and checks as the paper, one file per chapter or episode
+    PAPER_TO_BOOK = {"§5.2": "chapter 3", "§5.4": "chapter 4", "§5.5": "chapter 9", "§5.6": "chapter 5", "§8.2": "chapter 8"}
     for d, out_dir in (("book/src", "book"), ("media/episodes", "media/episodes"), ("media/shorts", "media/shorts")):
         for p in sorted((ROOT / d).glob("*.md")):
             ctx.citations = []
@@ -402,6 +403,8 @@ def build() -> tuple[dict[str, str], dict[str, str]]:
                 notes.append(f"<a id=\"ref-{sid}\"></a>[{i}] {', '.join(s.get('authors', [])[:6])}{' et al.' if len(s.get('authors', [])) > 6 else ''} ({s['date']}). *{s['name']}*. {s.get('venue', '')} {loc}  ")
             up = "../" if out_dir == "book" else "../../"
             txt = txt.replace("](figures/", f"]({up}paper/figures/")
+            for sec, chap in PAPER_TO_BOOK.items():  # figure captions written for the paper cite its sections
+                txt = txt.replace(sec, chap)
             if out_dir != "book":
                 txt = txt.replace("](../wiki/", "](../../wiki/")
             body = txt.strip() + "\n" + (("\n## Sources\n\n" + "\n".join(notes) + "\n") if notes else "")

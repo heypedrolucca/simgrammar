@@ -79,6 +79,7 @@ phrases:
   - {id: not-about, pattern: '\b(it''s|it is|this is|this isn''t|it isn''t) not about\b|\bisn''t about\b', why: contrast frame}
   - {id: moving-forward, pattern: '\b(moving forward|going forward|a new era|the future of)\b', why: stock phrase}
   - {id: so-what, pattern: '\bso what\?', why: rhetorical question}
+  - {id: what-matters, pattern: '\b(what matters (is|here|most)|the key (is|here)|the catch is|the trick is|the point is)\b', why: announces instead of saying}
   - {id: looks-like, pattern: '\b(that|this) is what [^.,;]{1,40} looks like\b', why: aphorism}
   - {id: keeps-returning, pattern: '\b(keeps? (coming back|returning) to|we will return to|more on that later)\b', why: signposting}
 
@@ -90,6 +91,7 @@ structures:
   - {id: fragment-not, pattern: '(^|[.!?]\s+)Not (to |a |an |the |because |for |with |in )?[\w'' ,-]{1,40}[.!?]\s+[A-Z]', why: 'fragment pair "Not X. Y."'}
   - {id: rhetorical-qa, pattern: '\b(the|its|his|her|their|our|my) (result|answer|catch|twist|problem|reason|verdict|kicker|lesson|secret|cost|difference)\?', why: rhetorical question and answer}
   - {id: did-not-it, pattern: '\b(did|does|do) not\b[^.!?]{0,90}[.!?]\s+(It|They|He|She)\s+\w+', why: 'contrast frame "did not A. It B."', severity: warn}
+  - {id: comma-not, pattern: '[a-z]{3,}, not (a |an |the )?[a-z]+( [a-z]+)?[.;]', why: 'trailing contrast ", not Y."', severity: warn}
   - {id: em-dash, pattern: '—|\s--\s', why: em dash}
   - {id: list-scaffold, pattern: '\b(first|second|third), (the |a |an )?\w+[^.]*\.[^\n]*\b(second|third|finally), ', why: 'First, ... Second, ... scaffolding in a paragraph; use a list or connect the ideas', severity: warn}
   - {id: three-things, pattern: '\b(three|four|five) (things|reasons|lessons|ways|takeaways)\b', why: announced count of points, severity: warn}
