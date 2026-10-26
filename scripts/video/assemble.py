@@ -6,7 +6,8 @@
 
 Each scene becomes stills (headless Chromium via Playwright, scripts/video/render.html) held for the length of its
 narration take; the takes are read from video-out/audio (or $SIMGRAMMAR_AUDIO) and normalized to -16 LUFS.
-Pictures show only the project's own graphics: entity cards from dist/entities, the catalog grid, and paper figures.
+Pictures show only the project's own graphics: frames chosen by the scripts' **Frame.** lines and drawn from the icons in
+dist/visual (ADR-0006), and, for pictures with no Frame line, entity cards from dist/entities, the catalog grid, and paper figures.
 A scene with no take on disk is timed at 135 words a minute and left silent (scripts/video/narration.py missing lists them).
 The film swaps in the Film wording from media/mega/the-film.md for the episode scenes it re-voices. Needs ffmpeg and node with playwright."""
 import json, os, subprocess, sys, re, wave

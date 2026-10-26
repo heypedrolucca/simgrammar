@@ -1,4 +1,4 @@
-"""Parse rendered scripts (dist/media) into scenes with ordered blocks: picture, voice, onscreen."""
+"""Parse rendered scripts (dist/media) into scenes with ordered blocks: picture, voice, onscreen, frame (ADR-0006)."""
 import re, json, glob, os
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.join(HERE, '..', '..', 'dist', 'media')
@@ -29,7 +29,7 @@ def parse(path):
             cur = {"n": int(m.group(1)), "title": m.group(2), "time": m.group(3) or "", "blocks": []}
             scenes.append(cur); continue
         if cur is None: continue
-        for kind, lab in (("picture", "**Picture.**"), ("voice", "**Voice.**"), ("onscreen", "**On screen.**")):
+        for kind, lab in (("picture", "**Picture.**"), ("voice", "**Voice.**"), ("onscreen", "**On screen.**"), ("frame", "**Frame.**")):
             if line.startswith(lab):
                 cur["blocks"].append({"kind": kind, "text": clean(line[len(lab):])})
     return {"file": os.path.basename(path), "title": title, "scenes": scenes}
