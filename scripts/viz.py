@@ -107,6 +107,13 @@ def build(shared, live, by_id, derived, tables, stats, vocabs, cfg) -> dict:
     out["design-map"] = design_map(shared, live, by_id, derived, tables, sub, cfg)
     out["vacant-lots"] = vacant_lots(shared, live, by_id, derived, tables, fam, cfg)
     out["technique-flows"] = technique_flows(live, by_id, derived, vocabs, fam)
+    out["layer-profile"] = layer_profile(tables, fam, sub, cfg)
+    out["constraint-profile"] = constraint_profile(live, fam)
+    out["technique-landscape"] = technique_landscape(live, vocabs)
+    out["determinism-runtime"] = determinism_runtime(live, vocabs)
+    out["opportunity-priorities"] = opportunity_priorities(live, tables)
+    out["prediction-timeline"] = prediction_timeline(live)
+    out["pipeline"] = pipeline(live, stats)
     return out
 
 
@@ -823,3 +830,294 @@ def technique_flows(live, by_id, derived, vocabs, fam):
         "twin": {"columns": ["technique", "maturity", "effect", "family", "edges"], "rows": trows, "link_columns": ["technique"],
                  "note": "Every ribbon: technique, kind of effect, mechanic family, and the number of affects edges it carries."},
     }
+
+
+# ======================================================================= book figures (chapters 2, 6, 7, 10, 11, 12, 13)
+# Static figures: every value is printed or carried in a <title> tooltip, so they need no site script.
+
+def short(name: str, n: int = 40) -> str:
+    s = name.split(" (")[0]
+    return s if len(s) <= n else s[: n - 1].rstrip() + "…"
+
+
+def _plain(title, head, svg, caption, source, twin, min_width=640, legend_html=""):
+    return {"title": title, "head": head, "svg": svg, "caption": caption, "source": source, "controls": "", "legend": legend_html,
+            "min_width": min_width, "data": "", "twin": twin}
+
+
+def _key(items):
+    """items: (label, svg-mark) pairs for a legend row."""
+    return '<div class="legend">' + "".join(f'<span><svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true">{mark}</svg>{esc(lab)}</span>'
+                                             for lab, mark in items) + "</div>"
+
+
+DET_MARK = {
+    "preserves": lambda x, y: f'<circle cx="{f1(x)}" cy="{f1(y)}" r="3.2" style="fill:{T["ink"]}"/>',
+    "mitigable": lambda x, y: f'<circle cx="{f1(x)}" cy="{f1(y)}" r="3" style="fill:{T["paper"]};stroke:{T["accent"]};stroke-width:1.3"/>',
+    "breaks": lambda x, y: f'<rect x="{f1(x - 3)}" y="{f1(y - 3)}" width="6" height="6" style="fill:{T["stop"]}"/>',
+}
+DET_LABEL = {"preserves": "preserves reproducibility", "mitigable": "reproducible if seeded, cached, or logged", "breaks": "breaks reproducibility"}
+
+
+def layer_profile(tables, fam, sub, cfg):
+    smin = (cfg.get("book") or {}).get("subgenre_min_games", 6)
+    t = tables["family-by-subgenre"]
+    rows = sorted((r for r in t["rows"] if r["games"] >= smin), key=lambda r: (-r["games"], r["subgenre"]))
+    fams = [f for f in fam]
+    overall = {f: float(np.mean([r.get(f, 0) or 0 for r in rows])) for f in fams}
+    fams = sorted(fams, key=lambda f: (-overall[f], fams.index(f)))
+    fams = [f for f in fams if max((r.get(f, 0) or 0) for r in rows) > 0]
+    vmax = max((r.get(f, 0) or 0) for r in rows for f in fams)
+    LBL, TOP, CW_, RH = 190, 150, 31, 24
+    W = LBL + CW_ * len(fams) + 150
+    H = TOP + RH * len(rows) + 30
+    body = [svg_open("layer-profile", W, H, "Where each subgenre spends its mechanics",
+                     "Grid of subgenres by mechanic family; shading is the share of the subgenre's mechanic uses in that family.")]
+    for j, f in enumerate(fams):
+        x = LBL + j * CW_ + CW_ / 2
+        body.append(f'<text transform="translate({f1(x + 3)},{TOP - 8}) rotate(-50)" style="fill:{T["muted"]};font-size:9px">{esc(fam[f]["label"].lower())}</text>')
+    for i, r in enumerate(rows):
+        y = TOP + i * RH
+        lab = sub.get(r["subgenre"], {}).get("label", r["subgenre"])
+        body.append(text(LBL - 10, y + RH / 2 + 3, f"{lab.lower()} · {r['games']}", 9, "ink2", "end"))
+        for j, f in enumerate(fams):
+            v = r.get(f, 0) or 0
+            x = LBL + j * CW_
+            op = 0.04 + 0.86 * (v / vmax) if v > 0 else 0
+            tip = f"{lab}: {fam[f]['label']} {round(100 * v)}% of mechanic uses"
+            body.append(f'<rect x="{f1(x + 1)}" y="{f1(y + 1)}" width="{CW_ - 2}" height="{RH - 2}" data-subgenre="{r["subgenre"]}" data-family="{f}" '
+                        f'style="fill:{T["ink"]};fill-opacity:{op:.3f};stroke:{T["rule"]};stroke-width:0.5"><title>{esc(tip)}</title></rect>')
+            if v >= 0.10:
+                fill = "paper" if v / vmax > 0.55 else "ink"
+                body.append(text(x + CW_ / 2, y + RH / 2 + 3, round(100 * v), 9, fill, "middle"))
+    body.append(text(LBL, H - 10, "printed: share of uses, in percent, where 10 or more", 9, "faint"))
+    body.append("</svg>")
+    return _plain("Where each subgenre spends its mechanics", f"{len(rows)} subgenres · {len(fams)} families", "".join(body),
+                  f"Share of each subgenre's mechanic uses that falls in each mechanic family, for subgenres with at least {smin} catalog games. "
+                  "Darker cells take a larger share; shares of 10 percent or more are printed. Families are ordered by their average share.",
+                  "tables family-by-subgenre · dist/analysis/family-by-subgenre.csv",
+                  {"table": "subgenre-spend", "note": "The three families that take the largest share of each subgenre's mechanic uses. Every share is in family-by-subgenre.csv."},
+                  min_width=720)
+
+
+def constraint_profile(live, fam):
+    mechs = [m for m in sorted(live["mechanic"], key=lambda m: m.id) if not m.data.get("deprecated")]
+    scores = [("authoring_cost", "authoring cost", "higher costs more to author"), ("compute_cost", "compute cost", "higher costs more to run"),
+              ("tuning_difficulty", "tuning difficulty", "higher is harder to balance"), ("legibility", "legibility", "higher is easier to read")]
+    fams = [f for f in fam if any(m.data["family"] == f for m in mechs)]
+    means = {f: {s: float(np.mean([m.data[s] for m in mechs if m.data["family"] == f])) for s, _, _ in scores} for f in fams}
+    count = {f: sum(1 for m in mechs if m.data["family"] == f) for f in fams}
+    fams = sorted(fams, key=lambda f: (-means[f]["compute_cost"] - means[f]["authoring_cost"], f))
+    LBL, TOP, PW, GAP, RH = 200, 52, 146, 26, 19
+    W = LBL + len(scores) * (PW + GAP) + 10
+    H = TOP + RH * len(fams) + 24
+    body = [svg_open("constraint-profile", W, H, "Ceiling scores by family",
+                     "Mean rubric score of each family's mechanics on authoring cost, compute cost, tuning difficulty, and legibility, on a 1 to 5 scale.")]
+    for k, (s, lab, note) in enumerate(scores):
+        x0 = LBL + k * (PW + GAP)
+        sx = lambda v, x0=x0: x0 + (v - 1) / 4 * PW
+        body.append(text(x0, 18, lab, 9, "ink2", weight="600"))
+        body.append(text(x0, 31, note, 8, "faint"))
+        for v in range(1, 6):
+            body.append(f'<line x1="{f1(sx(v))}" y1="{TOP - 8}" x2="{f1(sx(v))}" y2="{H - 22}" style="stroke:{T["rule"]};stroke-width:{0.9 if v == 3 else 0.5}"/>')
+            body.append(text(sx(v), H - 10, v, 8, "faint", "middle"))
+        for i, f in enumerate(fams):
+            y = TOP + i * RH + RH / 2
+            v = means[f][s]
+            body.append(f'<line x1="{f1(sx(1))}" y1="{f1(y)}" x2="{f1(sx(v))}" y2="{f1(y)}" style="stroke:{T["rule2"]};stroke-width:1"/>')
+            hot = (s != "legibility" and v >= 3) or (s == "legibility" and v < 3.3)
+            body.append(f'<circle cx="{f1(sx(v))}" cy="{f1(y)}" r="3.6" style="fill:{T["accent"] if hot else T["ink"]}">'
+                        f'<title>{esc(fam[f]["label"])}: mean {lab} {v:.1f} over {count[f]} mechanics</title></circle>')
+    for i, f in enumerate(fams):
+        y = TOP + i * RH + RH / 2
+        body.append(text(LBL - 10, y + 3, f'{fam[f]["label"].lower()} · {count[f]}', 9, "ink2", "end"))
+    body.append("</svg>")
+    trows = [{"family": fam[f]["label"], "mechanics": count[f], **{s: round(means[f][s], 2) for s, _, _ in scores}} for f in fams]
+    return _plain("Ceiling scores by family", f"{len(fams)} families · {len(mechs)} mechanics", "".join(body),
+                  "Mean rubric score of each family's mechanics on four of the five ceilings; determinism is a property of techniques and has its own figure in chapter 11. "
+                  "Blue marks a family at 3 or above on a cost, or below 3.3 on legibility. Families are ordered by combined compute and authoring cost. All scores come from one model rater.",
+                  "mechanic rubric scores · dist/entities/mechanics.json",
+                  {"columns": ["family", "mechanics"] + [s for s, _, _ in scores], "rows": trows, "link_columns": [],
+                   "note": "Mean score per family, 1 to 5, from one model rater."}, min_width=720)
+
+
+def technique_landscape(live, vocabs):
+    techs = [t for t in sorted(live["technique"], key=lambda t: t.id) if not t.data.get("deprecated")]
+    mat_label = vocab_terms(vocabs, "technique_maturity")
+    order = ["research", "prototype", "shipped"]
+    grp = lambda t: "shipped" if t.data["maturity"].startswith("shipped") else t.data["maturity"]
+    cols = {m: sorted((t for t in techs if grp(t) == m), key=lambda t: (t.data.get("year") or 0, t.id)) for m in order}
+    mat_label = {**mat_label, "shipped": {"label": "Shipped in games"}}
+    CWID, TOP, RH = 296, 46, 15
+    W = CWID * len(order) + 10
+    H = TOP + RH * max(len(v) for v in cols.values()) + 16
+    body = [svg_open("technique-landscape", W, H, "Techniques by maturity in games",
+                     "Every technique in the dataset listed under how far it has got in games, oldest result first, marked by its effect on reproducibility.")]
+    for k, m in enumerate(order):
+        x0 = 8 + k * CWID
+        body.append(text(x0, 18, f'{mat_label.get(m, {}).get("label", m).lower()} · {len(cols[m])}', 9, "ink2", weight="600"))
+        body.append(f'<line x1="{x0}" y1="26" x2="{x0 + CWID - 14}" y2="26" style="stroke:{T["rule2"]}"/>')
+        for i, t in enumerate(cols[m]):
+            y = TOP + i * RH
+            det = t.data.get("determinism_impact", "preserves")
+            body.append(DET_MARK[det](x0 + 4, y - 3))
+            body.append(f'<text x="{x0 + 12}" y="{y}" style="fill:{T["ink2"] if m.startswith("shipped") else T["muted"]};font-size:8.5px">'
+                        f'<title>{esc(t.data["name"])} ({t.data.get("year")}, {t.data["maturity"]}): {DET_LABEL[det]}</title>{esc(t.data.get("year"))} {esc(short(t.data["name"], 44))}'
+                        f'{" · norm" if t.data["maturity"] == "shipped-mainstream" else ""}</text>')
+    body.append("</svg>")
+    trows = [{"technique": t.id, "year": t.data.get("year"), "maturity": t.data["maturity"], "determinism": t.data.get("determinism_impact")} for m in order for t in cols[m]]
+    n_ship = len(cols["shipped"])
+    key = _key([(DET_LABEL[d], DET_MARK[d](5, 5)) for d in ("preserves", "mitigable", "breaks")])
+    return _plain("Techniques by maturity in games", f"{len(techs)} techniques · {n_ship} shipped", "".join(body),
+                  "Every technique in the dataset under how far it has got in games, each with the year of the result the dataset cites, oldest first; the one shipped technique that is a norm across studios is marked. "
+                  "The mark shows what the technique does to reproducibility when it runs.",
+                  "technique records · dist/entities/techniques.json", {"columns": ["technique", "year", "maturity", "determinism"], "rows": trows,
+                                                                        "link_columns": ["technique"], "note": "Every technique with its maturity in games and its effect on reproducibility."},
+                  min_width=860, legend_html=key)
+
+
+def determinism_runtime(live, vocabs):
+    rt = {"server-realtime", "client-realtime"}
+    techs = [t for t in sorted(live["technique"], key=lambda t: t.id) if not t.data.get("deprecated") and set(t.data.get("runtime", [])) & rt]
+    mat_rank = {"shipped-mainstream": 0, "shipped-niche": 1, "prototype": 2, "research": 3}
+    order = ["preserves", "mitigable", "breaks"]
+    cols = {d: sorted((t for t in techs if t.data.get("determinism_impact") == d), key=lambda t: (mat_rank[t.data["maturity"]], t.id)) for d in order}
+    CWID, TOP, RH = 290, 46, 15
+    W = CWID * 3 + 10
+    H = TOP + RH * max(len(v) for v in cols.values()) + 16
+    body = [svg_open("determinism-runtime", W, H, "What runtime techniques do to reproducibility",
+                     "Techniques that can run during play, grouped by their effect on reproducibility; shipped ones first and in dark text.")]
+    for k, d in enumerate(order):
+        x0 = 8 + k * CWID
+        body.append(DET_MARK[d](x0 + 4, 15))
+        body.append(text(x0 + 12, 18, f"{DET_LABEL[d]} · {len(cols[d])}", 9, "ink2", weight="600"))
+        body.append(f'<line x1="{x0}" y1="26" x2="{x0 + CWID - 14}" y2="26" style="stroke:{T["rule2"]}"/>')
+        for i, t in enumerate(cols[d]):
+            y = TOP + i * RH
+            shipped = t.data["maturity"].startswith("shipped")
+            tag = "shipped" if shipped else t.data["maturity"]
+            body.append(f'<text x="{x0}" y="{y}" style="fill:{T["ink"] if shipped else T["muted"]};font-size:8.5px{";font-weight:600" if shipped else ""}">'
+                        f'<title>{esc(t.data["name"])}: {tag}</title>{esc(short(t.data["name"], 44))}</text>')
+    body.append("</svg>")
+    trows = [{"technique": t.id, "determinism": d, "maturity": t.data["maturity"]} for d in order for t in cols[d]]
+    return _plain("What runtime techniques do to reproducibility", f"{len(techs)} techniques that run during play", "".join(body),
+                  "Techniques that can run during play, on a server or the player's device, grouped by what they do to reproducibility. "
+                  "Within each group, shipped techniques come first and are set in dark text.",
+                  "technique records · runtime and determinism_impact", {"columns": ["technique", "determinism", "maturity"], "rows": trows, "link_columns": ["technique"],
+                                                                        "note": "Runtime techniques by effect on reproducibility and maturity."}, min_width=860)
+
+
+def opportunity_priorities(live, tables):
+    rows = {r["opportunity"]: r for r in tables["opportunities-ranked"]["rows"]}
+    opps = [o for o in sorted(live["opportunity"], key=lambda o: o.id) if not o.data.get("deprecated") and o.id in rows]
+    cells = defaultdict(list)
+    for o in opps:
+        cells[(o.data["impact"], o.data["feasibility"])].append(o)
+    imps = sorted({k[0] for k in cells}, reverse=True)
+    feas = sorted({k[1] for k in cells})
+    for k in cells:
+        cells[k].sort(key=lambda o: (-rows[o.id]["priority"], o.id))
+    LBL, TOP, CWID, RH = 60, 40, 205, 13
+    hts = {i: max(len(cells.get((i, f), [])) for f in feas) for i in imps}
+    W = LBL + CWID * len(feas) + 10
+    H = TOP + sum(hts[i] * RH + 22 for i in imps) + 30
+    top8 = sorted(opps, key=lambda o: (-rows[o.id]["priority"], o.id))[:8]
+    body = [svg_open("opportunity-priorities", W, H, "Where the bets sit on impact and feasibility",
+                     "Opportunities placed by their impact and feasibility scores; each cell lists its opportunities with their novelty score.")]
+    for j, f in enumerate(feas):
+        body.append(text(LBL + j * CWID + CWID / 2, TOP - 14, f"feasibility {f}", 9, "ink2", "middle", "600"))
+    y = TOP
+    for i in imps:
+        h = hts[i] * RH + 22
+        body.append(text(LBL - 10, y + 14, f"impact {i}", 9, "ink2", "end", "600"))
+        for j, f in enumerate(feas):
+            x = LBL + j * CWID
+            body.append(f'<rect x="{x + 2}" y="{y}" width="{CWID - 4}" height="{h - 4}" style="fill:{T["paper2"]};stroke:{T["rule"]};stroke-width:0.6"/>')
+            for k, o in enumerate(cells.get((i, f), [])):
+                lead = o in top8
+                body.append(f'<text x="{x + 8}" y="{f1(y + 14 + k * RH)}" style="fill:{T["accent"] if lead else T["ink2"]};font-size:8.5px{";font-weight:600" if lead else ""}">'
+                            f'<title>{esc(o.data["name"])}: priority {rows[o.id]["priority"]}, novelty {o.data["novelty"]}, horizon {o.data["horizon"]}</title>'
+                            f'{o.data["novelty"]} {esc(short(o.data["name"], 33))}</text>')
+        y += h
+    body.append(text(LBL, H - 10, "number before each name: novelty score · blue: the eight highest priorities", 9, "faint"))
+    body.append("</svg>")
+    return _plain("Where the bets sit on impact and feasibility", f"{len(opps)} opportunities", "".join(body),
+                  "Each opportunity placed by its impact and feasibility scores, with its novelty score before its name. "
+                  "Blue names are the eight highest priorities, the weighted geometric mean of the three scores. Scores come from one rater's reading of anchor text.",
+                  "tables opportunities-ranked · dist/analysis/opportunities-ranked.csv",
+                  {"table": "opportunities-ranked", "note": "Every opportunity with its scores and composite priority."}, min_width=860)
+
+
+def prediction_timeline(live):
+    opps = [o for o in sorted(live["opportunity"], key=lambda o: o.id) if not o.data.get("deprecated")]
+    by = defaultdict(list)
+    for o in opps:
+        by[str(o.data["falsifiable_signal"]["resolve_by"])].append(o)
+    dates = sorted(by)
+    for d in dates:
+        by[d].sort(key=lambda o: o.data["name"])
+    CWID, TOP, RH, PER = 292, 52, 14, 3
+    W = CWID * PER + 10
+    bands = [dates[i:i + PER] for i in range(0, len(dates), PER)]
+    band_h = [TOP + RH * max(len(by[d]) for d in b) + 10 for b in bands]
+    H = sum(band_h) + 10
+    body = [svg_open("prediction-timeline", W, H, "When the predictions come due",
+                     "Every opportunity's prediction placed under its resolve-by date.")]
+    y0 = 0
+    for b, bh in zip(bands, band_h):
+        for k, d in enumerate(b):
+            x0 = 8 + k * CWID
+            body.append(text(x0, y0 + 18, d, 9, "ink2", weight="600"))
+            body.append(text(x0, y0 + 31, f"{len(by[d])} due", 8, "faint"))
+            body.append(f'<line x1="{x0}" y1="{y0 + 38}" x2="{x0 + CWID - 14}" y2="{y0 + 38}" style="stroke:{T["rule2"]}"/>')
+            for i, o in enumerate(by[d]):
+                out = (o.data.get("falsifiable_signal", {}).get("resolution") or {}).get("outcome", "open")
+                body.append(f'<text x="{x0}" y="{y0 + TOP + i * RH}" style="fill:{T["ink2"]};font-size:8.5px"><title>{esc(o.data["name"])}: '
+                            f'{esc(o.data["falsifiable_signal"]["prediction"])} ({out})</title>{esc(short(o.data["name"], 46))}</text>')
+        y0 += bh
+    body.append("</svg>")
+    trows = [{"resolve_by": d, "opportunity": o.id} for d in dates for o in by[d]]
+    return _plain("When the predictions come due", f"{len(opps)} predictions · {dates[0]} to {dates[-1]}", "".join(body),
+                  "Every opportunity's prediction under the date by which it must be resolved. None has been resolved yet; a resolution needs a run by a different operator and model from the one that wrote the bet.",
+                  "opportunity records · falsifiable_signal.resolve_by", {"columns": ["resolve_by", "opportunity"], "rows": trows, "link_columns": ["opportunity"],
+                                                                         "note": "Each prediction's resolve-by date."}, min_width=860)
+
+
+def pipeline(live, stats):
+    n = {t: sum(1 for e in live.get(t, []) if not e.data.get("deprecated")) for t in ("game", "mechanic", "technique", "opportunity", "source")}
+    W, H = 880, 300
+    body = [svg_open("pipeline", W, H, "From records to every product",
+                     "Records in plain text pass the validator, feed the analysis, and render into the paper, the site, the wiki, the book, and the video scripts; assertions in the prose are checked on every build.")]
+
+    def box(x, y, w, h, title, sub, strong=False):
+        st = f"fill:{T['paper2']};stroke:{T['ink'] if strong else T['rule2']};stroke-width:{1.2 if strong else 0.8}"
+        return (f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="3" style="{st}"/>' + text(x + 10, y + 18, title, 10, "ink", weight="600")
+                + "".join(text(x + 10, y + 32 + 12 * i, s, 8.5, "muted") for i, s in enumerate(sub)))
+
+    def arrow(x1, y1, x2, y2):
+        return (f'<path d="M{x1},{y1} L{x2},{y2}" style="fill:none;stroke:{T["ink2"]};stroke-width:1"/>'
+                f'<path d="M{x2},{y2} l-6,-3 l0,6 z" transform="rotate({f1(math.degrees(math.atan2(y2 - y1, x2 - x1)))} {x2} {y2})" style="fill:{T["ink2"]}"/>')
+
+    body.append(box(10, 40, 180, 110, "records", [f"{n['game']} games", f"{n['mechanic']} mechanics", f"{n['technique']} techniques",
+                                                    f"{n['opportunity']} opportunities", f"{n['source']} sources"], True))
+    body.append(box(10, 175, 180, 70, "run log", ["who operated each change", "model, harness, method", "append-only"]))
+    body.append(box(240, 40, 170, 95, "validator", ["schemas and vocabularies", "provenance and independence", "sources and quotes", "fails the build"]))
+    body.append(box(460, 40, 170, 95, "analysis", ["prevalence, clusters", "white space, exposure", "priorities, figures", "deterministic"]))
+    body.append(box(460, 175, 170, 70, "assertions", ["every interpretive sentence", "checked against the data", "fails the build"], True))
+    outs = ["paper", "site and wiki", "book", "episode scripts", "shorts and film"]
+    for i, o in enumerate(outs):
+        y = 22 + i * 52
+        body.append(box(690, y, 180, 40, o, []))
+        body.append(arrow(632, 88, 686, y + 20))
+    body.append(arrow(192, 88, 236, 88))
+    body.append(arrow(412, 88, 456, 88))
+    body.append(arrow(100, 172, 100, 154))
+    body.append(arrow(545, 172, 545, 139))
+    body.append(text(240, 280, "every edition names the dataset version it was built from", 9, "faint"))
+    body.append("</svg>")
+    trows = [{"stage": "records", "what": ", ".join(f"{v} {k}s" for k, v in n.items())}, {"stage": "validator", "what": "schemas, vocabularies, provenance, sources"},
+             {"stage": "analysis", "what": "derived values, tables, figures"}, {"stage": "assertions", "what": "prose checked against the data on every build"},
+             {"stage": "outputs", "what": ", ".join(outs)}]
+    return _plain("From records to every product", "one dataset · five products", "".join(body),
+                  "Records pass the validator and feed one deterministic analysis; the paper, the site, the wiki, the book, and the scripts all render from it, and every interpretive sentence in them carries an assertion the build checks.",
+                  "scripts/build.py · CONTRACT.md", {"columns": ["stage", "what"], "rows": trows, "link_columns": [], "note": "The stages of the build."}, min_width=760)

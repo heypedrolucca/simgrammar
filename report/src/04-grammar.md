@@ -13,6 +13,8 @@ Decomposing the catalog suggests that every simulation game is assembled from si
 
 A compact description of a simulation game is its investment profile across these layers. City builders invest in substrate (fields and networks) and legibility (overlays); colony sims in agents, coupling, and pacing (storytellers); vehicle sims in continuous substrate and direct control; programming games in control alone, with nearly no hidden state. The clustering in §5 recovers these profiles from the data without being told the subgenres.
 
+{{viz:layer-profile}}
+
 ### 4.2 The families, one at a time
 
 Each family below is described by the state it owns, its canonical mechanics, how it characteristically fails, and what it couples to. Tables list every mechanic in the family with how many catalog games use it and its rubric scores; each mechanic's full analysis (definition, levers, failure modes, dynamics, open questions) is on its wiki page.

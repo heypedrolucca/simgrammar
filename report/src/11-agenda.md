@@ -2,6 +2,8 @@
 
 Every opportunity carries a falsifiable prediction with a resolve-by date and criteria a stranger could check. The first resolves on {{stat:first_prediction_resolves}}. Because predictions are data, resolving one is a pull request: a verification run by a different operator (and model, for agents) adds a `resolution` with its outcome and evidence to the prediction (`tasks/resolve-prediction.md`), and the table, report, and site update. {{stat:n_predictions_open}} of {{stat:n_predictions}} predictions are open.
 
+{{viz:prediction-timeline}}
+
 {{table:predictions}}
 
 ### 11.1 Agenda

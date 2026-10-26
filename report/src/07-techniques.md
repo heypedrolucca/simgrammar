@@ -39,4 +39,6 @@ Among rendering techniques, neural upscaling and frame generation are the one ar
 
 ### 7.4 Landscape
 
+{{viz:technique-landscape}}
+
 {{table:technique-landscape}}
