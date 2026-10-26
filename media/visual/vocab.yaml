@@ -172,46 +172,99 @@ icons:
   - {id: zoning, kind: mechanic}
   # mechanics (phase 4)
   - {id: adjacency-scoring, kind: mechanic}
+  - {id: advertising-awareness, kind: mechanic}
   - {id: agent-skills, kind: mechanic}
   - {id: animal-husbandry, kind: mechanic}
+  - {id: aspiration-wants, kind: mechanic}
+  - {id: async-shared-region, kind: mechanic}
+  - {id: autonomy-levels, kind: mechanic}
+  - {id: byproducts-waste, kind: mechanic}
   - {id: care-dependent-development, kind: mechanic}
   - {id: career-ladder, kind: mechanic}
   - {id: citizen-satisfaction, kind: mechanic}
+  - {id: combination-discovery, kind: mechanic}
+  - {id: comparative-histograms, kind: mechanic}
+  - {id: corruption-leakage, kind: mechanic}
   - {id: crisis-countdown, kind: mechanic}
   - {id: customer-value-choice, kind: mechanic}
   - {id: daily-schedules, kind: mechanic}
+  - {id: dated-tech-timeline, kind: mechanic}
+  - {id: day-night-cycle, kind: mechanic}
+  - {id: delegation-to-ai, kind: mechanic}
+  - {id: delivery-time-payment, kind: mechanic}
+  - {id: deposit-depletion, kind: mechanic}
   - {id: design-performance-rating, kind: mechanic}
   - {id: designation-orders, kind: mechanic}
   - {id: diagnose-repair, kind: mechanic}
   - {id: diagnosis-treatment, kind: mechanic}
   - {id: direct-avatar, kind: mechanic}
+  - {id: education-workforce, kind: mechanic}
+  - {id: execution-budget, kind: mechanic}
   - {id: faction-diplomacy, kind: mechanic}
   - {id: fire-spread, kind: mechanic}
+  - {id: flight-aerodynamics, kind: mechanic}
+  - {id: fluid-pipe-network, kind: mechanic}
+  - {id: food-web, kind: mechanic}
+  - {id: forecasting, kind: mechanic}
   - {id: god-powers, kind: mechanic}
+  - {id: habitat-suitability, kind: mechanic}
+  - {id: hand-crafting, kind: mechanic}
   - {id: hauling-jobs, kind: mechanic}
+  - {id: hydrology, kind: mechanic}
+  - {id: machine-boosting, kind: mechanic}
   - {id: material-interactions, kind: mechanic}
   - {id: megaproject-sink, kind: mechanic}
+  - {id: military-operations, kind: mechanic}
+  - {id: natural-selection, kind: mechanic}
+  - {id: offscreen-life-progression, kind: mechanic}
+  - {id: opinion-modifiers, kind: mechanic}
+  - {id: orbital-mechanics, kind: mechanic}
+  - {id: periodic-ticks, kind: mechanic}
   - {id: persistent-world, kind: mechanic}
+  - {id: planetary-climate, kind: mechanic}
+  - {id: player-programming, kind: mechanic}
+  - {id: policy-influence-network, kind: mechanic}
   - {id: policy-toggles, kind: mechanic}
   - {id: political-capital, kind: mechanic}
   - {id: population-strata, kind: mechanic}
+  - {id: power-allocation, kind: mechanic}
+  - {id: procedural-build-assist, kind: mechanic}
+  - {id: procedural-checklists, kind: mechanic}
+  - {id: product-development, kind: mechanic}
+  - {id: programming-by-demonstration, kind: mechanic}
+  - {id: projectile-ballistics, kind: mechanic}
+  - {id: public-transit, kind: mechanic}
+  - {id: pvp-security-zones, kind: mechanic}
+  - {id: quality-tiers, kind: mechanic}
   - {id: rail-signaling, kind: mechanic}
+  - {id: real-time-clock, kind: mechanic}
+  - {id: real-world-data-feeds, kind: mechanic}
+  - {id: renewable-regrowth, kind: mechanic}
+  - {id: road-network, kind: mechanic}
   - {id: romance-family, kind: mechanic}
   - {id: room-recognition, kind: mechanic}
+  - {id: scouting-knowledge, kind: mechanic}
   - {id: service-coverage, kind: mechanic}
   - {id: service-queues, kind: mechanic}
   - {id: signal-circuits, kind: mechanic}
   - {id: soft-body-deformation, kind: mechanic}
   - {id: stability-unrest, kind: mechanic}
+  - {id: stat-combat-resolution, kind: mechanic}
+  - {id: stimulus-attraction, kind: mechanic}
   - {id: storage-capacity, kind: mechanic}
+  - {id: subsystem-damage, kind: mechanic}
   - {id: surface-work-tools, kind: mechanic}
   - {id: taxation, kind: mechanic}
   - {id: terraforming, kind: mechanic}
   - {id: terrain-deformation, kind: mechanic}
   - {id: territorial-control, kind: mechanic}
   - {id: track-laying, kind: mechanic}
+  - {id: travel-mode-choice, kind: mechanic}
   - {id: vehicle-dynamics, kind: mechanic}
   - {id: vertical-layers, kind: mechanic}
+  - {id: villager-requests, kind: mechanic}
+  - {id: voxel-destruction, kind: mechanic}
+  - {id: walker-service-delivery, kind: mechanic}
   # families (phase 3)
   - {id: agents-behavior, kind: family}
   - {id: biology-health, kind: family}
