@@ -1,12 +1,12 @@
 # Episode 2. Where the parts came from
 
-Target runtime about 12 minutes: about 1,280 words of narration at 135 words a minute, plus a beat of picture-only footage per scene. Covers book chapter 3. Footage: Hamurabi (a period BASIC listing run in an emulator), SimCity (1989), M.U.L.E., Little Computer People, Dwarf Fortress, Factorio, The Oregon Trail, Minecraft, Stardew Valley, Harvest Moon; publisher video policies are tracked in `media/rights.yaml` and must be checked before release. Every number below is filled in from the dataset when the script is built, and the sentences that interpret numbers carry the same checks as the book.
+Target runtime about 12 minutes: about 1,270 words of narration at 135 words a minute, plus a beat of picture-only footage per scene. Covers book chapter 3. Footage: Hamurabi (a period BASIC listing run in an emulator), SimCity (1989), M.U.L.E., Little Computer People, Dwarf Fortress, Factorio, The Oregon Trail, Minecraft, Stardew Valley, Harvest Moon; publisher video policies are tracked in `media/rights.yaml` and must be checked before release. Every number below is filled in from the dataset when the script is built, and the sentences that interpret numbers carry the same checks as the book.
 
 ## 1. Cold open (0:00 to 0:40)
 
-**Picture.** A green text terminal. A steward's yearly report scrolls up: people starved, people arrived, bushels per acre, bushels eaten by rats, the price of land. A cursor blinks after a question about how many acres to plant.
+**Picture.** A teletype printing on paper. A steward's yearly report scrolls up: people starved, people arrived, bushels per acre, bushels eaten by rats, the price of land. A cursor blinks after a question about how many acres to plant.
 
-**Voice.** In 1968 a city game fit on a teletype. Once a year your steward reports, and you answer with three numbers: land to buy, grain to feed people, acres to plant. Grain is food, seed, and money at once. Feed too little and people starve. Starve too many in one year and you lose the throne.
+**Voice.** In 1968 a city game ran on a minicomputer. Once a year your steward reports, and you answer with three numbers: land to buy, grain to feed people, acres to plant. Grain is food, seed, and money at once. Feed too little and people starve. Starve too many in one year and you lose the throne.
 
 **Picture.** The player types an answer. The next report says a plague has struck and half the people are dead. Hard cut to black.
 
@@ -16,25 +16,25 @@ Target runtime about 12 minutes: about 1,280 words of narration at 135 words a m
 
 **On screen.** Where the parts came from. Episode 2.
 
-## 3. Hamurabi in parts (0:50 to 1:22)
+## 3. Hamurabi in parts (0:50 to 1:21)
 
 **Picture.** Hamurabi's six mechanics peel off the terminal as labelled cards: crops, random disasters, consumption, turns, spoilage, an advisor.
 
-**Voice.** That game is Hamurabi. The dataset behind this series lists {{derived:hamurabi.mechanic_count}} mechanics in it, and all of them are still in use. Crops that return a random yield turn up in {{derived:crop-cultivation.prevalence}} games in the catalog, including Stardew Valley.{{assert:derived.crop-cultivation.earliest_game == hamurabi}}{{assert:derived.crop-cultivation.prevalence >= 20}}
+**Voice.** That game is Hamurabi. The dataset behind this series lists {{derived:hamurabi.mechanic_count}} mechanics in it, and all of them are still in use. Crop growing turns up in {{derived:crop-cultivation.prevalence}} games in the catalog, including Stardew Valley.{{assert:derived.crop-cultivation.earliest_game == hamurabi}}{{assert:derived.crop-cultivation.prevalence >= 20}}
 
-## 4. A date is a lower bound (1:22 to 2:57)
+## 4. A date is a lower bound (1:21 to 2:52)
 
 **Picture.** A timeline. Each mechanic card drops onto the year of its first catalog game. Then a second, faded track appears above the first, labelled "outside the catalog": a mainframe program, a book cover, two board games, a Minecraft mod.
 
 **Voice.** The dataset dates a mechanic by the first game in the catalog that uses it. That is a floor. Hamurabi itself was written from a description of an older program, The Sumerian Game, from 1964, which the catalog does not hold.
 
-**Voice.** Plenty of the rest came from outside games altogether. SimCity took its model of urban growth from Jay Forrester's book Urban Dynamics. Civilization took its technology tree from a board game, and Railroad Tycoon started from another board game, 1830. The Sims borrowed its idea of a house from an architecture book, A Pattern Language. Factorio began as a reaction to two Minecraft mods that added pipes and machines.
+**Voice.** Plenty of the rest came from outside games altogether. SimCity took its model of urban growth from Jay Forrester's book Urban Dynamics. Civilization took its technology tree from a board game, and Railroad Tycoon started from another board game, 1830. The Sims borrowed its idea of a house from an architecture book, A Pattern Language. Factorio grew out of two Minecraft mods that added pipes and machines.
 
-**Voice.** The edges of the catalog produce odd firsts. The earliest catalog game with a pause button, and with free placement, is Conway's Game of Life, from 1970, because seeding cells and choosing how fast generations run are those two mechanics at their barest.{{assert:derived.variable-speed.earliest_game == game-of-life}}{{assert:derived.free-placement.earliest_game == game-of-life}} Europa Universalis IV gets the credit for dynasties and religious conversion, and it is the fourth game in its series. The catalog holds none of the first three.{{assert:derived.dynasty-succession.earliest_game == europa-universalis-4}}
+**Voice.** The edges of the catalog produce odd firsts. The earliest catalog game with a pause button, and with free placement, is Conway's Game of Life, from 1970, because seeding cells and choosing how fast generations run are those two mechanics at their barest.{{assert:derived.variable-speed.earliest_game == game-of-life}}{{assert:derived.free-placement.earliest_game == game-of-life}} Europa Universalis IV gets the credit for dynasties and religious conversion, and the catalog holds no earlier Europa Universalis game.{{assert:derived.dynasty-succession.earliest_game == europa-universalis-4}}
 
 **On screen.** "First appears" means first appears in a game this catalog holds.
 
-## 5. Most of it by 2000 (2:57 to 3:41)
+## 5. Most of it by 2000 (2:52 to 3:36)
 
 **Picture.** The stacked chart builds year by year, one coloured layer per family, oldest families at the bottom. Two years spike: 1989 and 2013.
 
@@ -44,7 +44,7 @@ Target runtime about 12 minutes: about 1,280 words of narration at 135 words a m
 
 **On screen.** {{stat:pct_mechanics_seen_by_2000}}% of the vocabulary by 2000. {{stat:pct_games_by_2000}}% of the games.
 
-## 6. Testing the story (3:41 to 4:49)
+## 6. Testing the story (3:36 to 4:44)
 
 **Picture.** Thirty-seven cards shuffle out of the full catalog at random, then shrink to the sizes of the early games. A counter tallies the mechanics they cover. The shuffle repeats, fast, and a histogram of counts builds up. A marker shows where the real early games land.
 
@@ -54,7 +54,7 @@ Target runtime about 12 minutes: about 1,280 words of narration at 135 words a m
 
 **Voice.** So most of that headline number comes from how widely the parts are shared. A few dozen games from any period show most of the vocabulary. What survives the test is narrower: new parts come from a handful of games in every decade, and later games are built mostly from parts that already existed.
 
-## 7. The founding games (4:49 to 7:08)
+## 7. The founding games (4:44 to 7:03)
 
 **Picture.** SimCity, 1989. The land value overlay washes over the map, then crime, then pollution. A line of the Micropolis source code fades in over the crime map.
 
@@ -76,11 +76,11 @@ Target runtime about 12 minutes: about 1,280 words of narration at 135 words a m
 
 **Voice.** Theme Park, from 1994, gave every visitor a record of about 200 bytes and let each one choose what to do next by scoring the options against its needs. The catalog dates that architecture, utility action selection, to Theme Park, six years before The Sims made it famous.{{assert:derived.utility-action-selection.earliest_game == theme-park}} You could also change the recipe as well as the price: more sugar in the ice cream cost more, and brought customers back.
 
-## 8. After 2000 (7:08 to 9:04)
+## 8. After 2000 (7:03 to 8:59)
 
 **Picture.** A Tale in the Desert: a crowd of player avatars around a voting monument. Then EVE Online's market screen, columns of buy and sell orders.
 
-**Voice.** The 2000s added {{stat:n_mechanics_first_2000s}} mechanics, many from online worlds where the other players are part of the simulation. In A Tale in the Desert, from 2003, players write laws and vote on them. EVE Online's market, from the same year, is run entirely by players.{{assert:derived.player-legislation.earliest_game == a-tale-in-the-desert}}{{assert:derived.player-driven-market.earliest_game == eve-online}}
+**Voice.** The 2000s added {{stat:n_mechanics_first_2000s}} mechanics, several from online worlds where the other players are part of the simulation. In A Tale in the Desert, from 2003, players write laws and vote on them. EVE Online's market, from the same year, is almost entirely player-made.{{assert:derived.player-legislation.earliest_game == a-tale-in-the-desert}}{{assert:derived.player-driven-market.earliest_game == eve-online}}
 
 **Picture.** Dwarf Fortress. A miner breaches a cavern wall; water pours tile by tile down a corridor and fills a workshop level by level.
 
@@ -94,7 +94,7 @@ Target runtime about 12 minutes: about 1,280 words of narration at 135 words a m
 
 **Voice.** Belts spread fast for a recent part. They reached a fifth catalog game in {{derived:conveyor-transport.year_fifth_game}}, and {{derived:conveyor-transport.prevalence}} games use them today.{{assert:derived.conveyor-transport.prevalence >= 5}}
 
-## 9. Parts that waited (9:04 to 10:11)
+## 9. Parts that waited (8:59 to 10:06)
 
 **Picture.** The Oregon Trail: a supply screen with food, clothing, and medicine counters ticking down. Match cut to Minecraft's hunger bar draining.
 
@@ -102,19 +102,19 @@ Target runtime about 12 minutes: about 1,280 words of narration at 135 words a m
 
 **Voice.** Crops waited from Hamurabi to Harvest Moon, in {{derived:crop-cultivation.second_year}}.{{assert:derived.crop-cultivation.second_game == harvest-moon}} RimWorld's work grid, colonists down one side and jobs across the top, first shows up as a minor part of SimAnt in 1991, where you balance an ant colony's workers, soldiers, and breeders. The next catalog game with it is Kenshi, in {{derived:work-priorities.second_year}}.{{assert:derived.work-priorities.earliest_game == simant}}{{assert:derived.work-priorities.second_game == kenshi}} Some of those gaps come from the catalog being thin before 1990. Some are real: a part sat in a few games until a later design gave it a central job.
 
-## 10. Built from older parts (10:11 to 11:19)
+## 10. Built from older parts (10:06 to 11:15)
 
 **Picture.** Stardew Valley, a spring morning: the energy bar full, a field of parsnips, a villager's heart meter. Each part gets a small date tag as it appears: 1968, 1993, 1996, 1996, 1997.
 
 **Voice.** Games released since 2010 draw {{stat:pct_uses_since_2010_on_pre2001}} percent of their mechanics from parts that existed in the catalog by 2000.{{assert:pct_uses_since_2010_on_pre2001 >= 75}} Stardew Valley introduced none. Its designer built it in response to Harvest Moon, the catalog's first game with seasons and with relationships to villagers.{{assert:derived.stardew-valley.introduced_count == 0}}{{assert:derived.seasons.earliest_game == harvest-moon}}
 
-**Voice.** What he changed was the tuning. Friendship is 250 points a heart, and each heart drains two points a day if you stay away. A day ends when your energy or the clock runs out.
+**Voice.** Stardew sets its own numbers. Friendship is 250 points a heart, and you lose two points on each day you don't talk to a villager. A day ends when your energy or the clock runs out.
 
 **Picture.** Factorio's core parts lay out as date tags: 1982, 1983, 1989, 1991, 1998, 2006, and one tag reading 2013 on the conveyor belt.
 
-**Voice.** Factorio has the same history, plus one new part. Its extraction, production chains, power grid, pollution, tech tree, raids, and escalating enemies all predate it in the catalog. The conveyor belt is the exception, and the game is built around it.{{assert:derived.factorio.introduced_count >= 1}}{{assert:derived.adaptive-threat-scaling.earliest_game == dwarf-fortress}}{{assert:derived.tech-tree.earliest_game == civilization}}
+**Voice.** Factorio's core has the same history, plus one new part. Its extraction, production chains, power grid, pollution, tech tree, raids, and escalating enemies all predate it in the catalog. The conveyor belt is the exception, and the game is built around it.{{assert:derived.conveyor-transport.earliest_game == factorio}}{{assert:derived.adaptive-threat-scaling.earliest_game == dwarf-fortress}}{{assert:derived.tech-tree.earliest_game == civilization}}
 
-## 11. Close (11:19 to 12:08)
+## 11. Close (11:15 to 12:04)
 
 **Picture.** A blank list with a year column beside it.
 

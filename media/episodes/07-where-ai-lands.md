@@ -28,13 +28,13 @@ Target runtime about 12 minutes: about 1,270 words of narration at 135 words a m
 
 **Voice.** The techniques in the dataset are recent. {{stat:n_technique_since_2023}} of the {{count:technique}} are dated 2023 or later, and the biggest single group is world models, the systems that generate a playable scene frame by frame.{{assert:n_technique_since_2023 > 20}} The set was built by looking for dated results that change a named game mechanic, so it probably leans toward fields that publish constantly and say so when they apply to games. A scheduling method from operations research that could balance a game's economy only gets in once someone applies it to a game and writes it down.
 
-## 5. Seven kinds of change (3:00 to 4:08)
+## 5. Seven kinds of change (3:00 to 4:09)
 
 **Picture.** Seven quick clips, each labelled with one effect: a Zoi crossing a room on a model's decision, "replaces"; a GT Sophy car on the limit, "deepens"; a teammate following a spoken order, "enables"; a scene appearing from a typed prompt, "cuts authoring"; a tooltip, "explains"; a bot running a test level, "tunes"; a flight sim at a higher frame rate, "accelerates."
 
-**Voice.** Every technique in the dataset is linked to each mechanic it changes, and every link says how. It can replace how a mechanic works, the way inZOI's small model replaces the formula that picks a Zoi's next action. It can deepen a mechanic, the way GT Sophy drives the same physics you do at a champion's level. It can enable a new version, like a teammate who takes spoken orders. It can cut the cost of making content, explain a mechanic to the player, tune it, or run it faster. Across {{stat:n_affects_edges}} links, the most common is deepening. The rarest is explaining: {{stat:n_effect_explains}} links, from {{stat:n_explains_techniques}} techniques, and only {{stat:n_effect_explains_shipped}} of those links comes from something that has shipped.{{assert:top_effect == Deepens}}{{assert:rarest_effect == Explains}}{{assert:n_effect_explains_shipped == 1}}
+**Voice.** Every technique in the dataset is linked to each mechanic it changes, and every link says how. It can replace how a mechanic works, the way inZOI's small model reads a Zoi's needs and surroundings to help pick its next action. It can deepen a mechanic, the way GT Sophy drives the same physics you do at a champion's level. It can enable a new version, like a teammate who takes spoken orders. It can cut the cost of making content, explain a mechanic to the player, tune it, or run it faster. Across {{stat:n_affects_edges}} links, the most common is deepening. The rarest is explaining: {{stat:n_effect_explains}} links, from {{stat:n_explains_techniques}} techniques, and only {{stat:n_effect_explains_shipped}} of those links comes from something that has shipped.{{assert:top_effect == Deepens}}{{assert:rarest_effect == Explains}}{{assert:n_effect_explains_shipped == 1}}
 
-## 6. Explanation by hand (4:08 to 5:20)
+## 6. Explanation by hand (4:09 to 5:21)
 
 **Picture.** RimWorld's needs tab, every thought listed with a number and a timer. Victoria 3: a tooltip, then a tooltip inside the tooltip, then another. Dwarf Fortress: a dwarf throwing a tantrum, with nothing on screen saying why.
 
@@ -42,13 +42,13 @@ Target runtime about 12 minutes: about 1,270 words of narration at 135 words a m
 
 **Voice.** A model that reads the simulation's own modifier lists and event log could give any game the Paradox treatment, as long as it reports what the simulation computed instead of guessing. The technique that does this is still a prototype.{{assert:field.llm-explanation-of-state.maturity == prototype}}
 
-## 7. Counting exposure (5:20 to 6:11)
+## 7. Counting exposure (5:21 to 6:12)
 
 **Picture.** The technique-flows figure builds: techniques on the left, effects in the middle, mechanic families on the right, ribbons running between them. Four families on the right collect most of the ribbons.
 
 **Voice.** Add the links up, counting a shipped technique for more than a paper, and you get a measure of where the field is pointed. The dataset calls it exposure. In total, it piles up in four families: narrative, agents, control, and physics.{{assert:top_exposed_family == Narrative & generation}}{{assert:rank.family-summary.agents-behavior <= 4}}{{assert:rank.family-summary.control-automation <= 4}}{{assert:rank.family-summary.physics-materials <= 4}} Those are the places where content is expensive to write, like events and dialogue, or behavior is expensive to compute, like bodies and crowds. Divide by how many mechanics each family holds and narrative still leads, with world generation second.{{assert:top_mean_exposed_family == Narrative & generation}}{{assert:rank.family-mean-exposure.world-generation <= 2}}
 
-## 8. The most exposed mechanics (6:11 to 7:14)
+## 8. The most exposed mechanics (6:12 to 7:15)
 
 **Picture.** A ranked list builds: generative content, procedural terrain, utility action selection. Beside each, a small bar of how many catalog games use it. The first bar is tiny.
 
@@ -56,15 +56,15 @@ Target runtime about 12 minutes: about 1,270 words of narration at 135 words a m
 
 **Voice.** Procedural terrain comes next. Satellite reconstruction rebuilt the planet for Microsoft Flight Simulator, learned generators would replace hand-tuned noise, and world models make a scene from a sentence and forget it a minute later.{{assert:rank.most-exposed-mechanics.procedural-terrain <= 2}} Its neighbour in the same family, simulated history, has nothing pointed at it at all. Third is the scoring that picks a character's next action, which runs the characters of {{derived:utility-action-selection.prevalence}} catalog games, from Theme Park in 1994 to RimWorld.{{assert:rank.most-exposed-mechanics.utility-action-selection == 3}}{{assert:derived.utility-action-selection.earliest_game == theme-park}}
 
-## 9. What they'd change (7:14 to 8:40)
+## 9. What they'd change (7:15 to 8:44)
 
-**Picture.** Crusader Kings III: an event window about a rival's illness, then a second event weeks later about a succession dispute. The Sims: a Sim choosing between a fridge, a bed, and a TV, each with a score floating above it.
+**Picture.** Crusader Kings III: an event window about a rival's illness, then a second event weeks later about a succession dispute. The Sims: a Sim choosing between a fridge, a bed, and a TV, each with a diagram score drawn above it.
 
 **Voice.** Crusader Kings III's stories come from authored event templates that fire when conditions hold and schedule a follow-up weeks later. A language-model game master would write the next event for the exact state of your game instead.{{assert:field.llm-game-master.maturity == shipped-niche}} Authored chains repeat once you've seen them all. Generated ones agree to things a human game master would refuse, and invent quests that don't exist [@src-gallotta-2024-llms-games-survey].
 
-**Voice.** Most simulated characters pick their next action by giving each option a score from their needs and taking the best. Language-model characters replace the score with a prompt, and inZOI ships a small version of that. In control, menus give way to speech: a teammate that takes spoken orders mid-match, research agents that play commercial games through the screen and explain what they intend to do [@src-deepmind-2025-sima-2-blog], and agents that write and keep their own library of skills [@src-wang-2023-voyager].{{assert:field.generalist-game-agents.maturity == research}} In physics, nearly every proposal replaces the engine with video prediction, and nothing in that line has shipped.{{assert:field.open-interactive-video-models.maturity == prototype}}
+**Voice.** Many simulated characters pick their next action by giving each option a score from their needs and taking the best. Language-model characters replace the score with a prompt, and inZOI ships a small model that helps make that choice. In control, menus give way to speech: a teammate that takes spoken orders mid-match, research agents that play commercial games through the screen and explain what they intend to do [@src-deepmind-2025-sima-2-blog], and agents that write and keep their own library of skills [@src-wang-2023-voyager].{{assert:field.generalist-game-agents.maturity == research}} In physics, the proposals that would replace the engine outright are video and world models, and none of them has shipped.{{assert:field.open-interactive-video-models.maturity == prototype}}
 
-## 10. The economic core (8:40 to 10:34)
+## 10. The economic core (8:44 to 10:34)
 
 **Picture.** Factorio. A long production line; one furnace far upstream sits idle while the player inspects an assembler at the end of the line. The family-exposure bars rearranged per mechanic, resources and logistics at the bottom.
 
@@ -72,7 +72,7 @@ Target runtime about 12 minutes: about 1,270 words of narration at 135 words a m
 
 **Voice.** Now look at the families most simulation games are built from. Resources and production is the most used family in the catalog, and of its {{stat:n_family_mechanics_resources_production}} mechanics, {{stat:n_family_zero_exposure_resources_production}} have no technique in the dataset pointed at them.{{assert:most_used_family == Resources & production}}{{assert:n_family_zero_exposure_resources_production >= 10}} Production chains, extraction, storage, crops: nothing.{{assert:derived.production-chain.technique_exposure == 0}} Economy and finance has {{stat:n_family_zero_exposure_economy_finance}} of its {{stat:n_family_mechanics_economy_finance}} mechanics untouched, and the one shipped technique that reaches it is tree search, for rival firms. Every link into logistics comes from research. Per mechanic, the economic families sit near the bottom of the table, and checklists and repair sit at zero.{{assert:rank.family-mean-exposure.resources-production >= 16}}{{assert:rank.family-mean-exposure.logistics-networks >= 16}}{{assert:least_exposed_family == Operation & procedure}}
 
-**Voice.** The production chain's own record lists the problems a technique could take on. A single optimal ratio, once solved, turns play into copying calculator output. And starvation far upstream is hard to diagnose, so players blame the wrong building. The first is a design problem that search could expose before release. The second is an explanation problem. Both are things the field already has tools for: bots that playtest a build shipped years ago.{{assert:field.automated-playtesting.maturity == shipped-niche}} The simulation already knows which furnace is idle, and why. Victoria 3 has the same issue with prices. It sets each good's price from the buy and sell orders in each market, and the market mechanic's record lists boom-and-bust cycles that players read as random. The game computes the cause every day and never shows it.
+**Voice.** The production chain's own record lists the problems a technique could take on. A single optimal ratio, once solved, turns play into copying calculator output. And without flow statistics, starvation far upstream is hard to diagnose, so players blame the wrong building. The first is a design problem that search could expose before release. The second is an explanation problem. Both are things the field already has tools for: bots that playtest a build shipped years ago.{{assert:field.automated-playtesting.maturity == shipped-niche}} Victoria 3 shows the second problem with prices. It sets each good's price from the buy and sell orders in each market, and its tooltips break a price into modifiers, yet the market mechanic's record lists boom-and-bust cycles that players still read as random.
 
 ## 11. Judgment against evidence (10:34 to 11:49)
 

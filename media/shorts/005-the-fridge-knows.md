@@ -12,7 +12,7 @@ Vertical, about 55 seconds, about 100 words of narration. One finding, from The 
 
 ## 0:05 to 0:24. How
 
-**Picture.** Labels pop off each object in the house: refrigerator, Hunger; bed, Energy. Lines run from the Sim to each label, thickest to the one she needs most.
+**Picture.** Diagram labels pop off each object in the house: refrigerator, Hunger; bed, Energy. Lines run from the Sim to each label, thickest to the one she needs most.
 
 **Voice.** Every object advertises what it offers. The refrigerator advertises Hunger, the bed Energy. A Sim weighs the offers in reach against what it needs and picks one, and the object brings the script and the animation [@src-forbus-2001-programming-objects-sims].
 
@@ -20,7 +20,7 @@ Vertical, about 55 seconds, about 100 words of narration. One finding, from The 
 
 **Picture.** New objects pour into the Buy mode catalog, each one bringing a new action into the Sim's menu.
 
-**Voice.** Each expansion taught Sims new things by selling them new objects, without changing the Sims at all.
+**Voice.** Expansions taught Sims new things largely by selling them new objects.
 
 ## 0:38 to 0:52. The cost
 

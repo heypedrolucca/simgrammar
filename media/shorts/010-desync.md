@@ -4,7 +4,7 @@ Vertical, about 55 seconds, about 100 words of narration. One finding, from the 
 
 ## 0:00 to 0:06. The finding
 
-**Picture.** Two monitors showing the same strategy map. The right one carries a label: faster PC.
+**Picture.** An animated diagram, labelled as one: two monitors showing the same strategy map. The right one carries a label: faster PC.
 
 **On screen.** A faster PC can end the match.
 

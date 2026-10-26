@@ -82,10 +82,10 @@ Target runtime about 11 minutes: about 1,120 words of narration at 135 words a m
 
 **Voice.** A second tool limits what the model can write in the first place: constrained decoding only lets it produce output that fits a schema, so every action it proposes is one the engine can carry out. A hosted version followed a complex schema every time in testing, against under forty percent for an older model without it [@src-openai-2024-structured-outputs]. Strict formats cost some reasoning accuracy [@src-tam-2024-let-me-speak-freely], and the dataset hasn't found a shipped game that documents using it.{{assert:field.constrained-decoding.maturity == research}}
 
-## 11. Close (10:13 to 10:58)
+## 11. Close (10:13 to 10:57)
 
 **Picture.** The two monitors from the cold open, in step, the match continuing.
 
-**Voice.** The event-log bet carries its own prediction: an engine, a middleware vendor, or an open-source project ships a replay layer built for games with generative parts by the end of 2028.{{assert:field.event-sourced-sim-runtime.falsifiable_signal.resolve_by == 2028-12-31}} Until then, the techniques that leave the simulation reproducible, upscaling, cached rules, deterministic generators, are the ones already shipping.{{assert:field.llm-rule-adjudication.maturity == shipped-niche}}{{assert:field.wave-function-collapse.maturity == shipped-niche}} The next episode is about how predictions like that one get checked, and who's allowed to check them.
+**Voice.** The event-log bet carries its own prediction: an engine, a middleware vendor, or an open-source project ships a replay layer built for games with generative parts by the end of 2028.{{assert:field.event-sourced-sim-runtime.falsifiable_signal.resolve_by == 2028-12-31}} Until then, the techniques that leave the simulation reproducible, upscaling, cached rules, deterministic generators, are already shipping.{{assert:field.llm-rule-adjudication.maturity == shipped-niche}}{{assert:field.wave-function-collapse.maturity == shipped-niche}} The next episode is about how predictions like that one get checked, and who's allowed to check them.
 
 **On screen.** Every technique and its risks: sim.yohei.me

@@ -4,7 +4,7 @@ Vertical, about 55 seconds, about 100 words of narration. One finding, from the 
 
 ## 0:00 to 0:06. The finding
 
-**Picture.** The catalog grid with its three fullest columns blank.
+**Picture.** The catalog grid with the pause, placement, and tech-tree columns blank.
 
 **On screen.** The most common parts almost went uncounted.
 
@@ -12,7 +12,7 @@ Vertical, about 55 seconds, about 100 words of narration. One finding, from the 
 
 ## 0:06 to 0:30. What happened
 
-**Picture.** Several terminal windows, each an agent cataloguing a different slice of games. Their records scroll by: storytellers, production chains, mood breaks. No pause buttons.
+**Picture.** A re-enactment, labelled as one: several terminal windows, each an agent cataloguing a different slice of games. Their records scroll by: storytellers, production chains, mood breaks. No pause buttons.
 
 **Voice.** The first catalog was built by AI agents working in parallel. Each one recorded the parts that made a game distinctive and skipped the obvious ones: the pause button, placing buildings, tech trees. An outside review caught it.
 

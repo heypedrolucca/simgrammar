@@ -1,6 +1,6 @@
 # Episode 4. Why deep systems are hard to read
 
-Target runtime about 12 minutes: about 1,230 words of narration at 135 words a minute, plus a beat of picture-only footage per scene. Covers book chapter 5. Footage: Dwarf Fortress, RimWorld, Oxygen Not Included, Cities: Skylines, SimCity (1989) through Micropolis, Victoria 3, RollerCoaster Tycoon, EVE Online, all captured by us; Conway's Game of Life in an open-source simulator. Publisher video policies are tracked in `media/rights.yaml` and must be checked before release. Every number below is filled in from the dataset when the script is built, and the sentences that interpret numbers carry the same checks as the book.
+Target runtime about 12 minutes: about 1,210 words of narration at 135 words a minute, plus a beat of picture-only footage per scene. Covers book chapter 5. Footage: Dwarf Fortress, RimWorld, Oxygen Not Included, Cities: Skylines, SimCity (1989) through Micropolis, Victoria 3, RollerCoaster Tycoon, EVE Online, all captured by us; Conway's Game of Life in an open-source simulator. Publisher video policies are tracked in `media/rights.yaml` and must be checked before release. Every number below is filled in from the dataset when the script is built, and the sentences that interpret numbers carry the same checks as the book.
 
 ## 1. Cold open (0:00 to 0:45)
 
@@ -16,7 +16,7 @@ Target runtime about 12 minutes: about 1,230 words of narration at 135 words a m
 
 ## 3. The chain you cannot see (0:55 to 2:12)
 
-**Picture.** The water pumped out, dwarves back at work. A dwarf's portrait with a meter beside it that the game never shows, labelled "stress (hidden)". The meter creeps up. Months pass on a calendar in the corner. The metalsmith throws a tantrum and smashes a table; small thought bubbles pop over the dwarves watching.
+**Picture.** The water pumped out, dwarves back at work. A dwarf's portrait with a meter beside it that the game never shows, labelled "stress (hidden)". The meter creeps up. Months pass on a calendar in the corner. The metalsmith throws a tantrum and smashes a table while the other dwarves watch.
 
 **Voice.** The fortress looks fine afterward. What you can't see is a number each survivor carries: a stress value that runs from minus a million to plus a million. Grief adds to it, scaled by personality, and strong memories keep adding to it whenever they come back. Past ten thousand, twenty-five thousand, and fifty thousand, dwarves start throwing tantrums, falling into depression, and wandering off [@src-dfwiki-2026-stress].
 
@@ -92,20 +92,20 @@ Target runtime about 12 minutes: about 1,230 words of narration at 135 words a m
 
 **Voice.** Each of these fails in its own way. A color ramp that rescales itself makes a small problem look as red as a big one. Tooltips grow into walls of numbers late in a game. An inspection panel that shows what a character wants but not how it decided still leaves its behavior looking random.
 
-## 10. Choosing a point (9:35 to 10:43)
+## 10. Choosing a point (9:35 to 10:42)
 
 **Picture.** Split screen: Dwarf Fortress on the left, RimWorld on the right. The same event on each side: a character breaking down. On the left, a dwarf storming about with no explanation on screen. On the right, a mood bar with its thresholds and a list of thoughts.
 
 **Voice.** Dwarf Fortress was built to break each system into parts and base each one on something real [@src-adams-2015-df-simulation-principles]. It has more mechanics than any other game in the catalog, {{stat:max_mechanics_per_game}}.{{assert:most_mechanics_game == Dwarf Fortress}} The stress numbers at the start of this episode come from the community wiki, because the game doesn't show them. RimWorld took several of the same systems and chose them for how readable their results are. Its stress is a mood bar with visible break lines, and every thought has a number and a timer.
 
-**Voice.** Oxygen Not Included puts its depth in one rule for heat, applied to every cell, and gives you an overlay for each field that rule produces. Victoria 3 puts its explanation inside the numbers.
+**Voice.** Oxygen Not Included puts much of its depth in one rule for heat, applied to every cell, and gives you overlays to read the result. Victoria 3 puts its explanation inside the numbers.
 
-## 11. Close (10:43 to 11:48)
+## 11. Close (10:42 to 11:38)
 
 **Picture.** A blank sheet with a chain of boxes, each labelled "visible", "findable", or "hidden".
 
 **Voice.** Try this with a disaster from your own games. Write the chain from the first event to the collapse, one link per line, and mark each link visible, findable, or hidden. For the first hidden link, design the overlay, tooltip, or alert that would have shown it.
 
-**Voice.** Legibility has the widest gap of any limit on simulation design between the techniques that exist and what games use. Explaining a game from its own logs needs tools that already exist, and explanation is still the rarest thing any AI technique in this dataset does to a mechanic.{{assert:rarest_effect == Explains}} Next episode: the five ceilings that have shaped simulation games, starting with a refrigerator in The Sims.
+**Voice.** Explaining a game from its own logs needs tools that already exist, and explanation is still the rarest thing any AI technique in this dataset does to a mechanic.{{assert:rarest_effect == Explains}} Next episode: the five ceilings that have shaped simulation games, starting with a refrigerator in The Sims.
 
 **On screen.** The dataset, the paper, and every source: sim.yohei.me

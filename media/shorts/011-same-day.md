@@ -14,7 +14,7 @@ Vertical, about 55 seconds, about 100 words of narration. One finding, from the 
 
 **Picture.** The first card fills the frame. Its criteria highlight clause by clause.
 
-**Voice.** Every bet in our dataset carries one, written so a stranger could check it. Take the first: a widely played game lets you ask why something happened in your own save. It only counts if it shipped after October 2026, in a game with ten thousand Steam reviews, answering from your save and not from a manual.{{assert:field.causal-why-query.falsifiable_signal.resolve_by == first_prediction_resolves}}
+**Voice.** Every bet in our dataset carries one, written so a stranger could check it. Take the first: a widely played game lets you ask why something happened in your own save. It only counts if it shipped after October 24, 2026, in a game with ten thousand Steam reviews, answering from your save and not from a manual.{{assert:field.causal-why-query.falsifiable_signal.resolve_by == first_prediction_resolves}}
 
 ## 0:36 to 0:50. Who checks
 

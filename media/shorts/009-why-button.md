@@ -22,7 +22,7 @@ Vertical, about 55 seconds, about 100 words of narration. One finding, from the 
 
 **On screen.** Due {{stat:first_prediction_resolves}}.
 
-**Voice.** The bet has a deadline. If no game with at least ten thousand Steam reviews ships it by {{stat:first_prediction_resolves}}, it loses.{{assert:field.causal-why-query.falsifiable_signal.resolve_by == first_prediction_resolves}}
+**Voice.** The bet has a deadline. If no game with at least ten thousand Steam reviews ships it by {{stat:first_prediction_resolves}}, answering free-text questions from the player's own save, it loses.{{assert:field.causal-why-query.falsifiable_signal.resolve_by == first_prediction_resolves}}
 
 ## 0:50 to 0:55. End card
 

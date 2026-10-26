@@ -20,13 +20,13 @@ Vertical, about 50 seconds, about 100 words of narration. One finding, from the 
 
 **Picture.** Side by side: the border shift clock and the month's three slots; the family ledger and the annual income; a scripted visitor and a festival announcement.
 
-**Voice.** Both give you time in fixed slots: a shift at the border, three slots a month for your daughter. Both keep money tight. Both send authored events at you on a schedule.
+**Voice.** Both give you time in fixed slots: a shift at the border, three slots a month for your daughter. Both keep money tight. Both keep sending authored events at you.
 
 ## 0:38 to 0:48. Not where you'd file it
 
 **Picture.** The Sims' family in a kitchen slides in, then slides off the island.
 
-**Voice.** Princess Maker 2 is sold as a life sim, and it lands far from The Sims.{{assert:derived.princess-maker-2.cluster != derived.the-sims.cluster}}
+**Voice.** Princess Maker 2 is filed as a life sim, and it lands far from The Sims.{{assert:derived.princess-maker-2.cluster != derived.the-sims.cluster}}
 
 ## 0:48 to 0:52. End card
 

@@ -4,7 +4,7 @@ Vertical, about 55 seconds, about 100 words of narration. One finding, from RimW
 
 ## 0:00 to 0:05. The finding
 
-**Picture.** RimWorld. A gold statue is placed in the dining room, and the colony wealth number in the corner ticks up.
+**Picture.** RimWorld. A gold statue is placed in the dining room.
 
 **On screen.** Nicer colony, bigger raids.
 

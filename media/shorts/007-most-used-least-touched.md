@@ -8,7 +8,7 @@ Vertical, about 55 seconds, about 100 words of narration. One finding, from tech
 
 **On screen.** Resources and production: {{stat:n_family_zero_exposure_resources_production}} of {{stat:n_family_mechanics_resources_production}} mechanics with no AI technique.
 
-**Voice.** The kind of mechanic simulation games use most is the kind AI research has touched least.{{assert:most_used_family == Resources & production}}{{assert:rank.family-mean-exposure.resources-production >= 16}}
+**Voice.** The kind of mechanic simulation games use most is among the kinds AI research has touched least.{{assert:most_used_family == Resources & production}}{{assert:rank.family-mean-exposure.resources-production >= 16}}
 
 ## 0:05 to 0:22. The number
 
@@ -20,7 +20,7 @@ Vertical, about 55 seconds, about 100 words of narration. One finding, from tech
 
 **Picture.** The player clicks the assembler at the end of the stalled line. Far upstream, off screen, one furnace sits idle. A slow pan finds it.
 
-**Voice.** A furnace starves far upstream, and the player blames the building in front of them. The simulation knows exactly which furnace is idle, and why. It never tells the player.
+**Voice.** A furnace starves far upstream, and the player blames the building in front of them. The record for production chains lists that as a known failure in games without flow statistics.
 
 ## 0:40 to 0:52. Where the research went
 

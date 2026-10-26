@@ -16,7 +16,7 @@ Target runtime about 12 minutes: about 1,260 words of narration at 135 words a m
 
 ## 3. Behavior that lives in objects (0:39 to 2:36)
 
-**Picture.** The kitchen again, with labels popping off each object: refrigerator, Hunger; bed, Energy; toilet, Bladder 0 to 70. Lines run from the Sim to each label, thicker for the ones she needs most.
+**Picture.** The kitchen again, with diagram labels popping off each object: refrigerator, Hunger; bed, Energy; toilet, Bladder 0 to 70. Lines run from the Sim to each label, thicker for the ones she needs most.
 
 **Voice.** In The Sims, a Sim carries no knowledge of how to use anything. Each object advertises what it offers. A refrigerator advertises Hunger, a bed advertises Energy. When a Sim decides what to do, she collects the advertisements of everything she can reach, weighs them by what she needs and how far she'd have to walk, and picks one. The object supplies the rest: the script she runs and the animations she plays [@src-forbus-2001-programming-objects-sims].
 
@@ -38,27 +38,27 @@ Target runtime about 12 minutes: about 1,260 words of narration at 135 words a m
 
 **Voice.** The rater who scored every mechanic also judged how open each one is to AI, and the two judgments line up. The mechanics that cost the most to author are the ones rated most open to generative models.{{assert:rho_authoring_cost_ai_leverage > 0.2}}{{assert:mean_ai_leverage_authoring_4plus > mean_ai_leverage_authoring_2_or_less}} It's one rater, so that's a consistent reading, not a finding twice confirmed.
 
-## 5. Ticks per second (4:24 to 6:06)
+## 5. Ticks per second (4:24 to 6:05)
 
-**Picture.** RimWorld late in a long game: a large colony, the speed set to fastest. A small overlay reads the speed the game is actually managing; it falls below the speed on the button.
+**Picture.** RimWorld late in a long game: a large colony, the speed set to fastest. A graphic overlay, added in the edit, reads the speed the game is actually managing; it falls below the speed on the button.
 
 **Voice.** Every real-time simulation advances its whole world many times a second while drawing the screen. When fast-forward can't keep up late in a game, you're seeing every other system's cost at once: paths recomputed after you edit the map, heat moving between thousands of cells, a sky full of logistics robots in a big factory. The records list each of those as a failure mode.
 
 **Picture.** Noita: a pool of oil catches fire, steam bursts out of a flooded chamber, a ceiling of sand collapses. Every pixel moves.
 
-**Voice.** The most expensive mechanics in the dataset are mostly physical: falling sand, fluids and gases, destruction down to the voxel.{{assert:top_compute_family == Physics & materials}}{{assert:n_mechanics_compute_4plus >= 5}} They're also among the rarest. Falling-sand materials, where every pixel is a material with its own rules, appear in {{derived:falling-sand-materials.prevalence}} catalog games. Noita is one of them, and it's a 2D game.{{assert:derived.falling-sand-materials.prevalence <= 2}}
+**Voice.** Physics and materials is the costliest family to compute: falling sand, fluids and gases, destruction down to the voxel.{{assert:top_compute_family == Physics & materials}}{{assert:n_mechanics_compute_4plus >= 5}} They're also among the rarest. Falling-sand materials, where every pixel is a material with its own rules, appear in {{derived:falling-sand-materials.prevalence}} catalog games. Noita is one of them, and it's a 2D game.{{assert:derived.falling-sand-materials.prevalence <= 2}}
 
 **Picture.** SimCity (2013): agents carrying water and workers along the roads of a small city that stops at the edge of a tight boundary.
 
 **Voice.** The ceiling explains city builders too. Most simulate their people as totals with a few visible faces. When SimCity in 2013 switched to agents that carry workers, water, and goods between buildings, its cities were smaller than earlier games' by design. Dwarf Fortress moves some of its cost to before you start: it can simulate thousands of years of a world's history while generating it, which takes a long time and leaves you with a very large save.
 
-## 6. What a player can follow (6:06 to 6:45)
+## 6. What a player can follow (6:05 to 6:44)
 
 **Picture.** Callback: Dwarf Fortress's flooded dining hall, then RimWorld's list of thoughts.
 
 **Voice.** The third ceiling was the last episode. On the dataset's scores, the mechanics that produce the most variety are the hardest to read, so every system a game connects to the others needs a way to be understood: an overlay, a tooltip, an inspection panel. Each one costs design time and screen space.{{assert:rho_legibility_emergence_potential < -0.2}}
 
-## 7. Same inputs, same world (6:45 to 8:05)
+## 7. Same inputs, same world (6:44 to 8:04)
 
 **Picture.** Factorio: a belt of iron plates, items moving in exact single file. The camera pulls back to two players' screens side by side, the same factory, the same item at the same spot on the same belt.
 
@@ -66,11 +66,11 @@ Target runtime about 12 minutes: about 1,260 words of narration at 135 words a m
 
 **Voice.** That requirement has kept learned models out of the parts of games that decide what happens. The dataset sorts every AI technique that can run during play by what it does to reproducibility. Some break it outright. More can be made reproducible by fixing a seed, caching an answer, or logging what the model said. Episode 10 is about what happens when they meet a game that depends on it.{{assert:n_technique_runtime_breaks < n_technique_runtime_mitigable}}
 
-## 8. Minds made of formulas (8:05 to 10:08)
+## 8. Minds made of formulas (8:04 to 10:07)
 
 **Picture.** RollerCoaster Tycoon: hundreds of guests on the paths. One is clicked; a thought reads that a ride is too intense. Then RimWorld: one colonist's thought list, long and specific.
 
-**Voice.** The fifth ceiling is believability. Most simulated people choose by scoring their options against their needs and picking the best. It's cheap and readable, and it fails in recognizable ways: two options score the same and a character flips between them, or one need drowns out everything else. Designers worked within it in a few ways. RollerCoaster Tycoon made many shallow guests, each with some money, a taste for intensity, a tolerance for nausea, and a stream of one-line thoughts [@src-openrct2-2026-guest-behaviour]. RimWorld and Dwarf Fortress made a few deep characters with long memories and bodies that remember every wound.
+**Voice.** The fifth ceiling is believability. Many simulated people choose by scoring their options against their needs and picking the best. It's cheap and readable, and it fails in recognizable ways: two options score the same and a character flips between them, or one need drowns out everything else. Designers worked within it in a few ways. RollerCoaster Tycoon made many shallow guests, each with some money, a taste for intensity, a tolerance for nausea, and a stream of one-line thoughts [@src-openrct2-2026-guest-behaviour]. RimWorld and Dwarf Fortress made a few deep characters with long memories and bodies that remember every wound.
 
 **Picture.** Creatures (1996): a Norn being tickled, then slapped; a diagram of its brain, chemistry, and genome.
 
@@ -78,15 +78,15 @@ Target runtime about 12 minutes: about 1,260 words of narration at 135 words a m
 
 **Picture.** Figures from the Generative Agents paper: the small town, agents' speech bubbles, a diagram of word spreading from one agent to many.
 
-**Voice.** In 2023 a research team put 25 language-model agents in a town modeled on The Sims. Each kept a written memory, reflected on it, and planned its day. Told that one of them wanted to throw a Valentine's Day party, the town spread the news by talking: over two game days, 13 of the 25 heard and five came. Running it cost thousands of dollars in API credits [@src-park-2023-generative-agents]. Those agents are far more believable than a Sim. Every choice they make costs money while you play, and none of them can be replayed from the inputs.
+**Voice.** In 2023 a research team put 25 language-model agents in a town modeled on The Sims. Each kept a written memory, reflected on it, and planned its day. Told that one of them wanted to throw a Valentine's Day party, the town spread the news by talking: over two game days, 13 of the 25 heard and five came. Running it cost thousands of dollars in API credits [@src-park-2023-generative-agents]. They held conversations no Sim can hold. Every choice they make costs money while you play, and none of them can be replayed from the inputs.
 
-## 9. Lifting one ceiling spends another (10:08 to 10:47)
+## 9. Lifting one ceiling spends another (10:07 to 10:46)
 
 **Picture.** The five ceiling tiles again. As each example is named, one tile lifts and another lowers.
 
 **Voice.** Smart objects let The Sims add behavior without touching its people, and every behavior became something to author. Individual cars let Cities: Skylines show you a jam, and cost compute and a traffic model players couldn't read. Generative Agents bought conversation with inference and reproducibility. Infinite Craft kept determinism by caching every answer.
 
-## 10. Close (10:47 to 11:45)
+## 10. Close (10:46 to 11:44)
 
 **Picture.** A board with the five ceilings as columns and recent techniques as cards being pinned under them. Most cards pile up under authoring and rendering; one card, neural upscaling, is marked shipped everywhere.
 

@@ -8,13 +8,13 @@ Vertical, about 50 seconds, about 100 words of narration. One finding, from the 
 
 **On screen.** Every part of Stardew Valley is older than it.
 
-**Voice.** Every part of Stardew Valley comes from an earlier game.{{assert:derived.stardew-valley.introduced_count == 0}}
+**Voice.** Every part of Stardew Valley appears in an earlier game in our catalog.{{assert:derived.stardew-valley.introduced_count == 0}}
 
 ## 0:06 to 0:24. Where each part comes from
 
 **Picture.** Each tag expands into a clip of its source: Hamurabi's green text report; Princess Maker 2's month split into three slots; Harvest Moon's seasonal calendar.
 
-**Voice.** Its crops go back to Hamurabi, a text game from 1968. Its daily energy budget comes from Princess Maker 2, in 1993. Seasons and friendships with villagers first appear in Harvest Moon, in 1996, the game Stardew was built in response to.{{assert:derived.crop-cultivation.earliest_game == hamurabi}}{{assert:derived.daily-action-budget.earliest_game == princess-maker-2}}{{assert:derived.seasons.earliest_game == harvest-moon}}{{assert:derived.relationship-values.earliest_game == harvest-moon}}
+**Voice.** Crops first appear in Hamurabi, a text game from 1968. A daily action budget first appears in Princess Maker 2, in 1993. Seasons and friendships with villagers first appear in Harvest Moon, in 1996, the game Stardew was built in response to.{{assert:derived.crop-cultivation.earliest_game == hamurabi}}{{assert:derived.daily-action-budget.earliest_game == princess-maker-2}}{{assert:derived.seasons.earliest_game == harvest-moon}}{{assert:derived.relationship-values.earliest_game == harvest-moon}}
 
 ## 0:24 to 0:36. The rule
 
@@ -28,7 +28,7 @@ Vertical, about 50 seconds, about 100 words of narration. One finding, from the 
 
 **Picture.** Stardew Valley's friendship screen; a heart meter fills to one heart, then drains a little each day the player stays away.
 
-**Voice.** What Stardew changed was the numbers: 250 friendship points a heart, and two points lost for each day you stay away.
+**Voice.** Stardew sets its own numbers: 250 friendship points a heart, and two lost on each day you don't talk to someone.
 
 ## 0:48 to 0:52. End card
 

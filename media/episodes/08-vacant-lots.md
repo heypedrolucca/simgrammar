@@ -4,9 +4,9 @@ Target runtime about 12 minutes: about 1,250 words of narration at 135 words a m
 
 ## 1. Cold open (0:00 to 0:37)
 
-**Picture.** Cities: Skylines. A tidy riverside district, built all at once. Time-lapse: decades pass. Hearses queue down the main road; skull icons float over house after house.
+**Picture.** Cities: Skylines. A tidy riverside district, built all at once. Time-lapse: decades pass. Hearses queue down the main road, house after house.
 
-**Voice.** Everyone in this district moved in the same year. So they grew old the same year, and now they're dying the same week, faster than the hearses can collect them. Cities: Skylines shows you a deathcare problem. It has no way to show you a story about any of them.
+**Voice.** Everyone in this district moved in the same year. So they grew old together, and now a wave of deaths is coming faster than the hearses can collect them. Cities: Skylines shows you a deathcare problem. It has no way to show you a story about any of them.
 
 ## 2. Title (0:37 to 0:47)
 
@@ -14,17 +14,17 @@ Target runtime about 12 minutes: about 1,250 words of narration at 135 words a m
 
 **On screen.** Vacant lots. Episode 8.
 
-## 3. The missing story (0:47 to 2:12)
+## 3. The missing story (0:47 to 2:08)
 
 **Picture.** Two columns of game covers. On the left, games with building placement; it's long. On the right, games with triggered event chains; it's short. One cover slides into the middle: Surviving Mars.
 
 **On screen.** Building placement: {{derived:free-placement.prevalence}} games. Event chains: {{derived:triggered-event-chains.prevalence}} games. Both: 1.
 
-**Voice.** Placing buildings is in {{derived:free-placement.prevalence}} catalog games. Event chains, the machinery that lets Crusader Kings III follow a rival's illness with a succession crisis and then a war, are in {{derived:triggered-event-chains.prevalence}}. If the two were spread across games at random, several games would have both. One does: Surviving Mars, whose Mysteries lay authored storylines like plagues and AI revolts over a colony you build by hand.{{assert:cooccur.free-placement.triggered-event-chains == 1}}{{assert:rank.whitespace.free-placement.triggered-event-chains == 1}} Even there, the stories are about the colony as a whole, and nothing ties them to where a building stands. Picture the other version: a tavern built next to the temple, or a mill whose pond floods a farmer's field, firing a short event about the people it affects, with a choice and a consequence the game keeps track of. Frostpunk, Manor Lords, and Islanders each do a piece of it.
+**Voice.** Placing buildings is in {{derived:free-placement.prevalence}} catalog games. Event chains, the machinery that lets Crusader Kings III follow a rival's illness with a succession crisis and then a war, are in {{derived:triggered-event-chains.prevalence}}. If the two were spread across games at random, several games would have both. One does: Surviving Mars, whose Mysteries lay authored storylines like plagues and AI revolts over a colony you lay out yourself.{{assert:cooccur.free-placement.triggered-event-chains == 1}}{{assert:rank.whitespace.free-placement.triggered-event-chains == 1}} Even there, the Mysteries are layered on top of the colony. Picture the other version: a tavern built next to the temple, or a mill whose pond floods a farmer's field, firing a short event about the people it affects, with a choice and a consequence the game keeps track of. Frostpunk, Manor Lords, and Islanders each do a piece of it.
 
 **Voice.** Call those vacant lots: two mechanics, each common, from different corners of the design, that almost never share a game.
 
-## 4. Packages (2:12 to 3:31)
+## 4. Packages (2:08 to 3:27)
 
 **Picture.** SimCity (1989). The land value overlay, then the traffic overlay, toggled back and forth over the same streets. Cut to Football Manager: a match engine highlight, then a board confidence screen.
 
@@ -32,7 +32,7 @@ Target runtime about 12 minutes: about 1,250 words of narration at 135 words a m
 
 **Voice.** In a package, each part changes the other's state. In SimCity, a block's value falls with pollution and crime and distance from the centre, and traffic writes pollution into the same map. So your road plan changes what the land is worth, and the land decides where the city grows next. Take either one away and the other loses its point.
 
-## 5. The lots (3:31 to 5:17)
+## 5. The lots (3:27 to 5:13)
 
 **Picture.** The vacant-lots figure builds: mechanic names down a staircase, lots filling in where rows meet columns. Dark lots, dashed lots, a few slashed ones.
 
@@ -42,41 +42,41 @@ Target runtime about 12 minutes: about 1,250 words of narration at 135 words a m
 
 **Voice.** The chance baseline has a known weakness. It treats each mechanic as spread across games regardless of how many mechanics a game has, so pairs whose mechanics live in small games can look emptier than they are. A stricter baseline would shorten the list. Treat it as a list of candidates.
 
-## 6. Workers who grow old (5:17 to 6:25)
+## 6. Workers who grow old (5:13 to 6:21)
 
 **Picture.** Banished: a village in winter, a family's house, a child who grows into a worker across a time-lapse. Then Captain of Industry and Workers & Resources: trucks, conveyors, smelters, and no faces.
 
-**Voice.** Aging lives in {{derived:lifecycle-aging.prevalence}} games. Production chains live in {{derived:production-chain.prevalence}}. No catalog game has both.{{assert:cooccur.lifecycle-aging.production-chain == 0}} Banished comes closest from one side: every worker was born in the town, ages, and dies, so a decision you made years ago shows up as a labour shortage today. But its families gather, farm, and stockpile without anything the dataset records as a production chain. From the other side, Captain of Industry and Workers & Resources run deep industrial economies whose workers never age or retire.
+**Voice.** Aging lives in {{derived:lifecycle-aging.prevalence}} games. Production chains live in {{derived:production-chain.prevalence}}. No catalog game has both.{{assert:cooccur.lifecycle-aging.production-chain == 0}} Banished comes closest from one side: every worker is born, ages, and dies, so a decision you made years ago shows up as a labour shortage today. But its families gather, farm, and stockpile without anything the dataset records as a production chain. From the other side, Captain of Industry and Workers & Resources run deep industrial economies, and neither record lists workers who age or retire.
 
 **Voice.** Put them together and a factory's bottleneck could be a missing mentor as easily as a missing machine. The demographic wave that fills Cities: Skylines with hearses would show up, years later, as a production line running short-handed.
 
-## 7. Shared designs (6:25 to 7:27)
+## 7. Shared designs (6:21 to 7:24)
 
 **Picture.** SpaceChem: a solution finishes, and three histograms rise showing where it ranks against everyone else's. Factorio: a player copies a blueprint string out of the game. Spore: a creature browser, thousands of player-made animals.
 
-**Voice.** Content sharing, where players upload what they build and others browse, rate, and import it, is in {{derived:content-sharing.prevalence}} games, mostly sandboxes, life sims, and contraption builders. The one production game with it is SpaceChem, which plots your solution against everyone else's.{{assert:cooccur.content-sharing.production-chain == 1}} Factorio players do trade layouts, as blueprint strings pasted between games, and the dataset files that under blueprints. What no production game has built is the shared catalog that Spore made for creatures: a place where a factory layout is published, remixed, and ranked. Part of a lot's emptiness can come from where the vocabulary draws its lines, and this is one of those cases.
+**Voice.** Content sharing, where players upload what they build and others browse, rate, and import it, is in {{derived:content-sharing.prevalence}} games, mostly sandboxes, life sims, contraption builders, and management games. The one production game with it is SpaceChem, whose ResearchNet distributed puzzles that players made.{{assert:cooccur.content-sharing.production-chain == 1}} Factorio players do trade layouts, as blueprint strings pasted between games, and the dataset files that under blueprints. What no production game has built is the shared catalog that Spore made for creatures: a place where a factory layout is published, remixed, and ranked. Part of a lot's emptiness can come from where the vocabulary draws its lines, and this is one of those cases.
 
-## 8. Research by people (7:27 to 8:25)
+## 8. Research by people (7:24 to 8:22)
 
 **Picture.** Crusader Kings III: a court screen full of faces and opinions. Stellaris: three research cards, each with a scientist's portrait and traits.
 
 **Voice.** Tech trees are in {{derived:tech-tree.prevalence}} games. Relationships between named characters are in {{derived:relationship-values.prevalence}}. They share exactly one, Crusader Kings III.{{assert:cooccur.relationship-values.tech-tree == 1}} Stellaris gets partway: its research cards are weighted by the traits of the scientist leading each field. Game Dev Tycoon hires designers and programmers with their own stats, but its research points come from a separate pool. Everywhere else, research is a currency you spend on a graph. Run it through a few named scientists who collaborate, compete, and hold grudges, who publish, poach each other, and defect to rivals, and breakthroughs become events with names attached.
 
-## 9. Lots already built (8:25 to 9:35)
+## 9. Lots already built (8:22 to 9:32)
 
 **Picture.** Prison Architect: a guard walks past a generator room; a shared prison downloads; an Escape Mode prisoner slips out. Kenshi: a squad member with a missing arm hauls ore. Against the Storm: a new map unfolds for a new settlement.
 
 **Voice.** Some games already stand on lots nobody else has built. Prison Architect is the only catalog game that hires staff one by one and also wires a power grid, and the only one that pairs a budget with shared player creations: you can download someone's prison and try to break out of it.{{assert:cooccur.staff-hiring.power-grid == 1}}{{assert:cooccur.budget-treasury.content-sharing == 1}} Kenshi is the only one where production chains meet permanent death.{{assert:cooccur.permadeath.production-chain == 1}} Against the Storm is the only one that sets scenario goals on generated maps: each settlement is a new map, won by filling a reputation gauge before the Queen's patience runs out.{{assert:cooccur.procedural-terrain.scenario-objectives == 1}} A lot with one building on it still counts as vacant here, and it might be the more useful kind, because somebody has already shown it can stand.
 
-## 10. Lots that might stay empty (9:35 to 10:42)
+## 10. Lots that might stay empty (9:32 to 10:40)
 
 **Picture.** Kerbal Space Program: a rocket assembled part by part in the hangar, then flown by hand off the pad.
 
-**Voice.** Hands-on skill, like flying and driving, and placing buildings share no game at all.{{assert:cooccur.embodied-skill-control.free-placement == 0}} Most flight and racing sims have no use for a town. The lot next door is built: Kerbal Space Program and Besiege have you assemble a machine from parts and then fly or drive it yourself.{{assert:cooccur.modular-assembly.embodied-skill-control >= 3}} What nobody has made is the version where you build the place, the track or the airfield, and then drive it.
+**Voice.** Hands-on skill, like flying and driving, and placing buildings share no game at all.{{assert:cooccur.embodied-skill-control.free-placement == 0}} Most flight and racing sims have no use for a town. The lot next door is built: Kerbal Space Program and Besiege have you assemble a machine from parts and then fly or drive it yourself.{{assert:cooccur.modular-assembly.embodied-skill-control >= 3}} What no catalog game does is the version where you build the place, the track or the airfield, and then drive it.
 
-**Voice.** Other empty pairs are two lineages that haven't met. Permanent death lives in colony sims, survival games, and virtual pets; scenario goals live in tycoon, management, and puzzle games; the two never share a game.{{assert:cooccur.permadeath.scenario-objectives == 0}} A city treasury and growing crops never share one either.{{assert:cooccur.budget-treasury.crop-cultivation == 0}}
+**Voice.** Other empty pairs are two lineages that haven't met. Permanent death lives mostly in colony sims, survival games, and virtual pets; scenario goals live mostly in city builders, tycoons, and vehicle sims; the two never share a game.{{assert:cooccur.permadeath.scenario-objectives == 0}} A city treasury and growing crops never share one either.{{assert:cooccur.budget-treasury.crop-cultivation == 0}}
 
-## 11. How a lot closes (10:42 to 11:45)
+## 11. How a lot closes (10:40 to 11:43)
 
 **Picture.** A pull request on screen adding one game record. The build reruns; a sentence in the book turns red; it's rewritten. <!-- tells-ok: signpost -->
 
@@ -84,7 +84,7 @@ Target runtime about 12 minutes: about 1,250 words of narration at 135 words a m
 
 **Voice.** And a lot is worth building when the two mechanics change each other. Traffic and land value do, in SimCity. Placement and events would, if the events changed what you build next. Aging and production would, if the age of the workforce set the factory's output years later. 
 
-## 12. Close (11:45 to 12:12)
+## 12. Close (11:43 to 12:10)
 
 **Picture.** The vacant-lots plan again, a handful of dashed lots outlined in colour.
 

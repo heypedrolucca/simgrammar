@@ -1,6 +1,6 @@
 # Episode 3. Families across genres
 
-Target runtime about 12 minutes: about 1,270 words of narration at 135 words a minute, plus a beat of picture-only footage per scene. Covers book chapter 4. Footage: Factorio, Anno 1800, Papers, Please, Princess Maker 2, Job Simulator, Besiege, Farming Simulator 25, iRacing, Black & White, Creatures, inZOI, AI Dungeon, Elite, Elite Dangerous, M.U.L.E., Offworld Trading Company, Frostpunk, Frostpunk 2; publisher video policies are tracked in `media/rights.yaml` and must be checked before release. Every number below is filled in from the dataset when the script is built, and the sentences that interpret numbers carry the same checks as the book.
+Target runtime about 12 minutes: about 1,280 words of narration at 135 words a minute, plus a beat of picture-only footage per scene. Covers book chapter 4. Footage: Factorio, Anno 1800, Papers, Please, Princess Maker 2, Job Simulator, Besiege, Farming Simulator 25, iRacing, Black & White, Creatures, inZOI, AI Dungeon, Elite, Elite Dangerous, M.U.L.E., Offworld Trading Company, Frostpunk, Frostpunk 2; publisher video policies are tracked in `media/rights.yaml` and must be checked before release. Every number below is filled in from the dataset when the script is built, and the sentences that interpret numbers carry the same checks as the book.
 
 ## 1. Cold open (0:00 to 0:45)
 
@@ -18,17 +18,17 @@ Target runtime about 12 minutes: about 1,270 words of narration at 135 words a m
 
 **On screen.** Families across genres. Episode 3.
 
-## 3. Same chain, different games (0:55 to 1:54)
+## 3. Same chain, different games (0:55 to 1:53)
 
 **Picture.** Factorio's mechanics on the left as cards, Anno's on the right. Six cards slide to the middle: production chains, storage, building placement, blueprints, vehicle routes, a late-game megaproject.
 
-**Voice.** Factorio and Anno 1800 share six mechanics, and most of them are common. Production chains appear in {{derived:production-chain.prevalence}} catalog games, building placement in {{derived:free-placement.prevalence}}.{{assert:derived.production-chain.prevalence >= 30}}{{assert:derived.free-placement.prevalence >= 60}}
+**Voice.** Factorio and Anno 1800 share six mechanics. The two most common are production chains, in {{derived:production-chain.prevalence}} catalog games, and building placement, in {{derived:free-placement.prevalence}}.{{assert:derived.production-chain.prevalence >= 30}}{{assert:derived.free-placement.prevalence >= 60}}
 
 **Picture.** The cards left on each side light up: belts, power grid, pollution, evolving enemies, circuits on the left; population tiers, consumption per house, trade between islands, rival companies on the right.
 
 **Voice.** The parts each game has alone are rarer, and they decide what it feels like. Factorio is about throughput: belts, power, pollution, and enemies that evolve with the pollution you make. Anno is about demand: five tiers of residents whose needs decide whether their houses advance, and goods shipped between islands to meet them. Each tier also staffs its own factories, so when workers move up to artisans, a workers' chain loses its labour.
 
-## 4. How the families are drawn (1:54 to 2:56)
+## 4. How the families are drawn (1:53 to 2:55)
 
 **Picture.** Every game in the catalog becomes a bundle of cards. Common cards, like the pause button, shrink almost to nothing; rare cards grow. Bundles with similar large cards drift together into clumps.
 
@@ -36,7 +36,7 @@ Target runtime about 12 minutes: about 1,270 words of narration at 135 words a m
 
 **Voice.** Factorio lands with Satisfactory, shapez 2, Dyson Sphere Program, and Captain of Industry. Anno 1800 lands with Manor Lords, Banished, Caesar III, and Pharaoh.{{assert:derived.satisfactory.cluster == derived.factorio.cluster}}{{assert:derived.captain-of-industry.cluster == derived.factorio.cluster}}{{assert:derived.manor-lords.cluster == derived.anno-1800.cluster}}{{assert:derived.caesar-3.cluster == derived.anno-1800.cluster}}
 
-## 5. How many families (2:56 to 4:11)
+## 5. How many families (2:55 to 4:10)
 
 **Picture.** The catalog drops a fifth of its games at random, re-clusters, and compares the result with the full clustering. A score ticks up and down. The process repeats, fast, a thousand times. A curve of average agreement against the number of clusters draws itself, nearly flat on the right.
 
@@ -46,15 +46,15 @@ Target runtime about 12 minutes: about 1,270 words of narration at 135 words a m
 
 **On screen.** Together: ≥ {{stat:cocluster_together}} of subsamples. Apart: ≤ {{stat:cocluster_apart}}.
 
-## 6. Odd couples (4:11 to 7:03)
+## 6. Odd couples (4:10 to 7:04)
 
 **Picture.** Split screen. Left: Papers, Please, a passport under a lamp, a rulebook page, a clock. Right: Princess Maker 2, a month's calendar split into three slots, a daughter's attribute chart.
 
-**Voice.** Papers, Please is about checking passports at a border. Princess Maker 2, from 1993, is about raising a daughter from ten to eighteen. They share a family.{{assert:derived.princess-maker-2.cluster == derived.papers-please.cluster}} In both, time comes in fixed slots, money is tight, and authored events arrive on a schedule. At the border you are paid per correct decision, mistakes arrive as citations by fax, and the wages go to rent, food, and heat for your family. A shift at the border and a month of your daughter's life are the same kind of budget.
+**Voice.** Papers, Please is about checking passports at a border. Princess Maker 2, from 1993, is about raising a daughter from ten to eighteen. They share a family.{{assert:derived.princess-maker-2.cluster == derived.papers-please.cluster}} In both, time comes in fixed slots, money is tight, and authored events keep arriving. At the border you are paid per correct decision, mistakes arrive as citations by fax, and the wages go to rent, food, and heat for your family. A shift at the border and a month of your daughter's life are the same kind of budget.
 
 **Picture.** Job Simulator in VR: a hand throws a stapler across an office cubicle. Cut to Besiege: a wooden siege engine flips itself over.
 
-**Voice.** Job Simulator belongs with Besiege and The Incredible Machine, because nearly every object in reach is a physics object you can grab, throw, or combine. The other job sims, PowerWash Simulator and House Flipper, stand apart in a family of their own, built on tools and contracts.{{assert:derived.job-simulator.cluster == derived.besiege.cluster}}{{assert:derived.job-simulator.cluster != derived.powerwash-simulator.cluster}}
+**Voice.** Job Simulator belongs with Besiege and The Incredible Machine, because nearly every object in reach is a physics object you can grab, throw, or combine. Two other job sims, PowerWash Simulator and House Flipper, stand apart in a family of their own, built on tools and contracts.{{assert:derived.job-simulator.cluster == derived.besiege.cluster}}{{assert:derived.job-simulator.cluster != derived.powerwash-simulator.cluster}}
 
 **Picture.** Farming Simulator 25: a combine harvester working a field in a straight GPS line. Cut to iRacing: a car in a pit lane.
 
@@ -66,7 +66,7 @@ Target runtime about 12 minutes: about 1,270 words of narration at 135 words a m
 
 **Picture.** Europa Universalis IV's map in political colours. Cut to Tropico 6: El Presidente on a balcony, a faction approval panel.
 
-**Voice.** Tropico 6 is sold as a city builder, and it stands apart from SimCity. Its family is the rulers: Europa Universalis IV, Civilization, and Stellaris, held together by stability, policy choices, and interest groups.{{assert:derived.tropico-6.cluster == derived.europa-universalis-4.cluster}}{{assert:derived.civilization.cluster == derived.europa-universalis-4.cluster}}{{assert:derived.tropico-6.cluster != derived.simcity-1989.cluster}}
+**Voice.** Tropico 6 is filed as a city builder, and it stands apart from SimCity. Its family is the rulers: Europa Universalis IV, Civilization, and Stellaris, held together by stability, policy choices, and interest groups.{{assert:derived.tropico-6.cluster == derived.europa-universalis-4.cluster}}{{assert:derived.civilization.cluster == derived.europa-universalis-4.cluster}}{{assert:derived.tropico-6.cluster != derived.simcity-1989.cluster}}
 
 **Picture.** Theme Hospital: a corridor of patients with thought bubbles; a hiring screen of doctors.
 
@@ -78,9 +78,9 @@ Target runtime about 12 minutes: about 1,270 words of narration at 135 words a m
 
 **Picture.** inZOI: a character in a kitchen with a thought line written in plain sentences. Cut to AI Dungeon: a column of generated story text.
 
-**Voice.** And inZOI runs language-model characters, but its other parts are The Sims 4's, so it sits with The Sims and apart from AI Dungeon and Infinite Craft.{{assert:derived.inzoi.cluster == derived.the-sims-4.cluster}}{{assert:derived.inzoi.cluster != derived.ai-dungeon.cluster}}
+**Voice.** And inZOI lets typed prompts steer its characters through an on-device model, but its needs-driven core is Sims-style, so it sits with The Sims and apart from AI Dungeon and Infinite Craft.{{assert:derived.inzoi.cluster == derived.the-sims-4.cluster}}{{assert:derived.inzoi.cluster != derived.ai-dungeon.cluster}}
 
-## 7. Series and descendants (7:03 to 8:11)
+## 7. Series and descendants (7:04 to 8:12)
 
 **Picture.** Elite, 1984, a wireframe ship. Dissolve to Elite Dangerous, 2014, the same docking manoeuvre in full colour.
 
@@ -90,7 +90,7 @@ Target runtime about 12 minutes: about 1,270 words of narration at 135 words a m
 
 **Voice.** The method also finds descendants with different names. Offworld Trading Company, from 2015, shares a family with M.U.L.E., from 1983, in every resampling.{{assert:cocluster.mule.offworld-trading-company >= 0.9}} Its designer names M.U.L.E. and Railroad Tycoon as inspirations. Prices move with every purchase and sale, and you win by buying up your rivals' shares, a mechanic the catalog first records in Railroad Tycoon.{{assert:derived.equity-buyouts.earliest_game == railroad-tycoon}} Those old trading games keep a weaker tie to the factory games. Factorio shares a cluster with Railroad Tycoon in about half the resamplings, and with Satisfactory in all of them.{{assert:cocluster.factorio.railroad-tycoon > 0.3}}{{assert:cocluster.factorio.railroad-tycoon < 0.7}}{{assert:cocluster.factorio.railroad-tycoon < cocluster.factorio.satisfactory}}
 
-## 8. The sequel that moved (8:11 to 9:18)
+## 8. The sequel that moved (8:12 to 9:19)
 
 **Picture.** Frostpunk: a radial city around a glowing generator, temperature dropping on a gauge, the Book of Laws open on child labour.
 
@@ -100,7 +100,7 @@ Target runtime about 12 minutes: about 1,270 words of narration at 135 words a m
 
 **Voice.** Frostpunk 2 builds districts instead of buildings and passes laws through a council of a hundred delegates. Most laws need 51 votes. Broken promises anger factions, and faction tension can end in civil war. The developer describes social survival as a bigger threat than the cold. Its parts put it with Tropico 6 and Europa Universalis IV, and it shares a cluster with the first game in fewer than half of the resamplings.{{assert:derived.frostpunk-2.cluster == derived.tropico-6.cluster}}{{assert:cocluster.frostpunk.frostpunk-2 < 0.5}}
 
-## 9. How much genre explains (9:18 to 10:13)
+## 9. How much genre explains (9:19 to 10:14)
 
 **Picture.** The design map with each game coloured by its store genre. Most islands are mostly one colour; many have a second and third.
 
@@ -108,13 +108,13 @@ Target runtime about 12 minutes: about 1,270 words of narration at 135 words a m
 
 **Voice.** A game's family says what it is built from, and that is the part a designer can borrow.
 
-## 10. Limits (10:13 to 11:09)
+## 10. Limits (10:14 to 11:15)
 
 **Picture.** The Game of Life's glider crawling across a grid, next to Hamurabi's text report.
 
-**Voice.** Games with very few mechanics look alike by what they lack: the Game of Life has no turns and still clusters with Hamurabi and The Oregon Trail.{{assert:cocluster.hamurabi.game-of-life >= 0.9}}{{assert:derived.game-of-life.mechanic_count <= 3}} Some clusters fall apart under resampling: the one that holds Frostpunk, Plague Inc., Timberborn, and FTL changes from subset to subset, and only Frostpunk and Against the Storm stay together.{{assert:cocluster.frostpunk.against-the-storm >= 0.9}} The clustering also sees which parts a game uses and ignores how they are tuned, and every decomposition so far was written by one model rater. A second rater is the next test of these families.
+**Voice.** Games with very few mechanics look alike by what they lack: the Game of Life has only {{derived:game-of-life.mechanic_count}} mechanics, one of them the turn structure it shares with Hamurabi and The Oregon Trail, so it clusters with them.{{assert:cocluster.hamurabi.game-of-life >= 0.9}}{{assert:derived.game-of-life.mechanic_count <= 3}} Some clusters fall apart under resampling: the one that holds Frostpunk, Plague Inc., Timberborn, and FTL changes from subset to subset, and only Frostpunk and Against the Storm stay together.{{assert:cocluster.frostpunk.against-the-storm >= 0.9}} The clustering also sees which parts a game uses and ignores how they are tuned, and every decomposition so far was written by one model rater. A second rater is the next test of these families.
 
-## 11. Close (11:09 to 12:03)
+## 11. Close (11:15 to 12:09)
 
 **Picture.** A blank card bundle for the viewer's game, with its rare parts circled.
 

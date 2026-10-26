@@ -1,6 +1,6 @@
 # Episode 1. Every simulation game is made of the same parts
 
-Target runtime about 9 minutes: about 890 words of narration at 135 words a minute, plus a beat of picture-only footage per scene. Covers book chapters 1 and 2. Footage: RimWorld, Dwarf Fortress, SimCity (1989), Factorio, Oxygen Not Included, The Sims, Frostpunk, all captured by us; a still of Façade. Publisher video policies are tracked in `media/rights.yaml` and must be checked before release. Every number below is filled in from the dataset when the script is built, and the sentences that interpret numbers carry the same checks as the book.
+Target runtime about 9 minutes: about 880 words of narration at 135 words a minute, plus a beat of picture-only footage per scene. Covers book chapters 1 and 2. Footage: RimWorld, Dwarf Fortress, SimCity (1989), Factorio, Oxygen Not Included, The Sims, Frostpunk, all captured by us; a still of Façade. Publisher video policies are tracked in `media/rights.yaml` and must be checked before release. Every number below is filled in from the dataset when the script is built, and the sentences that interpret numbers carry the same checks as the book.
 
 ## 1. Cold open (0:00 to 0:52)
 
@@ -78,21 +78,21 @@ Target runtime about 9 minutes: about 890 words of narration at 135 words a minu
 
 **Picture.** Oxygen Not Included: a temperature overlay; heat creeps out of a generator room into the base.
 
-**Voice.** Oxygen Not Included couples almost everything through one rule. Every tile holds an element with a mass and a temperature, and every fifth of a second it trades heat with its neighbours [@src-oxygennotincludedwiki-2026-thermal-conductivity]. Insulation, boiling, and overheating machines all fall out of that.
+**Voice.** Oxygen Not Included runs its heat through one rule. Every tile holds an element with a mass and a temperature, and every fifth of a second it trades heat with its neighbours [@src-oxygennotincludedwiki-2026-thermal-conductivity]. Insulation, boiling, and overheating machines all fall out of that.
 
 **Picture.** The Sims: a Sim heads to the fridge on its own; the bills sit unpaid until the player clicks.
 
 **Voice.** The Sims chooses where your control stops. Sims feed themselves, but paying bills and finding a job need you [@src-wikipedia-the-sims]. Frostpunk shows pacing: the temperature falls on a schedule toward a storm you know is coming [@src-wikipedia-frostpunk].
 
-## 9. Where genres spend (7:19 to 8:12)
+## 9. Where genres spend (7:19 to 8:09)
 
 **Picture.** A table builds row by row: each subgenre, and the three families of parts it uses most.
 
-**Voice.** Count where each genre spends its parts and the genres separate. Life sims put about a third into agents and behavior.{{assert:top_family_life_sim == agents-behavior}}{{assert:top_family_pct_life_sim >= 30}} Factory games lead with production.{{assert:top_family_factory_automation == resources-production}} Programming games lead with control.{{assert:top_family_programming_sim == control-automation}} Vehicle sims lead with careers and missions, ahead of the physics.{{assert:top_family_vehicle_sim == progression-goals}} And the AI-native games, the ones built on language models, lead with social relations.{{assert:top_family_ai_native == social-relations}}
+**Voice.** Count where each genre spends its parts and the genres separate. Life sims put about a third into agents and behavior.{{assert:top_family_life_sim == agents-behavior}}{{assert:top_family_pct_life_sim >= 30}} Factory games lead with production.{{assert:top_family_factory_automation == resources-production}} Programming games lead with control.{{assert:top_family_programming_sim == control-automation}} Vehicle sims lead with careers and missions, ahead of the physics.{{assert:top_family_vehicle_sim == progression-goals}} And the AI-native games, the ones built on learned models, lead with social relations.{{assert:top_family_ai_native == social-relations}}
 
-**Voice.** Most combinations of these parts have never been tried. Of the {{stat:n_possible_pairs}} possible pairs of mechanics, {{stat:pair_coverage_pct}} percent have ever shared a game.{{assert:pair_coverage_pct < 50}} Later episodes go looking in the gaps.
+**Voice.** Of the {{stat:n_possible_pairs}} possible pairs of mechanics, {{stat:pair_coverage_pct}} percent have ever shared a catalog game.{{assert:pair_coverage_pct < 50}} Later episodes go looking in the gaps.
 
-## 10. Close (8:12 to 9:00)
+## 10. Close (8:09 to 8:57)
 
 **Picture.** A blank grid row with a cursor over it.
 

@@ -15,6 +15,16 @@ ADR-0004, contributor readiness.
 - **Docs:** CONTRIBUTING.md, CODE_OF_CONDUCT.md, `tasks/` briefs, issue forms, versioned calibration sets (`calibration/mechanics-v1.yaml`), CODEOWNERS for report, analysis, mechanics, opportunities, calibration.
 - **After independent review (same release):** subsamples assigned by hash so adding a game redraws nothing; pair thresholds 0.9/0.1; tolerant W107; assertion references hardened (unknown right-hand refs, cluster labels, misspelled rank ids); E028 run dates checked against contract history; E034 judges wikis by url and binds snapshots to their url; E035 normalizes model ids; E037 requires the creator's score, verification raters, one rating per rater; E038 date rules for refuted and withdrawn; E039 binds operator to PR author and protects provenance, rating attribution, and quotes on new claims; `check_sources.py` searches full text before failing.
 
+## 1.1 additions (2026-10-25, book and series draft)
+
+The whole book and series drafted (run `2026-10-25-book-draft`). No contract rule changed.
+
+- **Prose:** thirteen chapters and a preface in `book/src/`, twelve episode scripts in `media/episodes/`, twelve shorts in `media/shorts/`, and the film's assembly and new pieces in `media/mega/` (rendered to `dist/media/mega`). Chapter 1 is now "Same parts" and short 1 leads with one finding; the shorts line is one finding per short, not one mechanic.
+- **House style:** `book/STYLE.md` and `book/tells.yaml`, enforced by `scripts/style_check.py` in `make check` and CI. It fails the build on stock phrases, contrast frames, signposting, setup sentences, and narration that ends on a question.
+- **Analysis:** stats and derived fields the book cites, among them core against supporting prevalence, a chance test for the share of mechanics seen by 2000 (`p_mechanics_seen_by_2000`), per-decade origins, family counts, technique risk counts, prediction dates, run and evidence counts, and a `subgenre-spend` table. Figure captions written for the paper have their section numbers mapped to chapters in book and media output.
+- **Rights:** `media/rights.yaml` lists every title the scripts show, with the episodes and shorts that use it.
+- **Fact-check:** two agent reads of every chapter and script against the records. Sentences that drifted from a record were rewritten to match it, and pictures that could pass for game UI are labelled as graphics or re-enactments.
+
 ## 1.1 additions (2026-10-25, book and video pilot)
 
 Phase 1 of the book and video plan (run `2026-10-25-book-pilot`).
