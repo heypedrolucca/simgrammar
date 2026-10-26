@@ -15,6 +15,14 @@ ADR-0004, contributor readiness.
 - **Docs:** CONTRIBUTING.md, CODE_OF_CONDUCT.md, `tasks/` briefs, issue forms, versioned calibration sets (`calibration/mechanics-v1.yaml`), CODEOWNERS for report, analysis, mechanics, opportunities, calibration.
 - **After independent review (same release):** subsamples assigned by hash so adding a game redraws nothing; pair thresholds 0.9/0.1; tolerant W107; assertion references hardened (unknown right-hand refs, cluster labels, misspelled rank ids); E028 run dates checked against contract history; E034 judges wikis by url and binds snapshots to their url; E035 normalizes model ids; E037 requires the creator's score, verification raters, one rating per rater; E038 date rules for refuted and withdrawn; E039 binds operator to PR author and protects provenance, rating attribution, and quotes on new claims; `check_sources.py` searches full text before failing.
 
+## 1.1 additions (2026-10-25, AI contributor pilot)
+
+Fixes from the friction logs of four pilot agents that worked task issues end to end.
+
+- **Schema:** `archived` also accepts the Wayback `id_` form (original bytes, for raw files and PDFs).
+- **Tooling:** `check_sources.py --ids` scopes a check to the ids a task lists, and `--suggest-archive` prints each snapshot's date beside `accessed`. `pr_scope.py` checks the run file of a run-only PR and rejects a PR that adds a run and changes nothing. `make pr-check` stops if `git config github.user` is unset instead of comparing against `$USER`. `new.py run` prints the run id and says why `make check` is red until `method` is written. `check_sources.py` prints NOTHING CHECKED when every fetch failed, so an offline pass is not mistaken for a real one. Task issues for checkable briefs carry the exact `check_sources.py --ids` command.
+- **Docs:** the archive brief says which snapshot to use (dates, raw files, paywalls), what to do without network access to archive.org, and that only sources actually archived are marked reviewed; the store-ids brief gives edition rules (later paid edition of the same game, series records, renamed developers), a fallback when Wikidata and IGDB cannot be opened, and marks only changed games reviewed; AGENTS.md says a run that changes nothing is reported on the issue, not opened as a PR; the issue size rule names the 30-source limit; CONTRIBUTING.md says the sign-off is the operator's attestation.
+
 ## 1.0 (2026-10-23)
 
 - Initial contract (CONTRACT.md), schemas for game, mechanic, technique, opportunity, source, run.

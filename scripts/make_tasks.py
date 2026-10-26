@@ -31,9 +31,9 @@ BRIEFS = {
     "resolve-prediction": ("verification", 1, "Resolve an overdue prediction"),
 }
 DONE = {
-    "archive-sources": "every listed source has an `archived` snapshot of its own url (E034), each source names your run in `provenance.reviewed`, `make check` is green",
+    "archive-sources": "every listed source you could archive has an `archived` snapshot of its own url (E034) and names your run in `provenance.reviewed`; any you could not are named in your run's `method`; `make check` and `make pr-check` are green",
     "source-claims": "every claim on the listed records has a verbatim `quote` (and `locator`) from its first source, the `sources` workflow finds each quote or flags it for review, `make check` is green",
-    "store-ids": "each listed game has every store id you could confirm, the `sources` workflow resolves them to the right game, `make check` is green",
+    "store-ids": "each listed game has every store id you could confirm (games without one are named in your run's `method`), the `sources` workflow resolves them to the right game, `make check` and `make pr-check` are green",
     "catalog-game": "each candidate is catalogued to the depth of data/games/rimworld.yaml, or declined in your run's notes with the admission test it fails; every new claim carries a quote",
     "verify-record": "each record is `verified` or `contested` (with a `disputes` claim), your run is independent of the creating run (E035), `make check` is green",
     "rate-scores": "your run carries a passing calibration (E036), each listed mechanic has your rating per scale with a rationale, the original score is recorded, stored values are lower medians (E037)",
@@ -48,8 +48,11 @@ def batches(items, size):
 def task(brief, ids, paths, notes=""):
     kind, _, title = BRIEFS[brief]
     key = f"{brief}:{hashlib.sha256(','.join(ids).encode()).hexdigest()[:10]}"
-    lines = [f"<!-- task-key: {key} -->", f"**Brief:** [tasks/{brief}.md]({REPO}/blob/main/tasks/{brief}.md) · **Run kind:** `{kind}`", "", "**Records**", ""]
+    lines = [f"<!-- task-key: {key} -->", f"**Brief:** [tasks/{brief}.md]({REPO}/blob/main/tasks/{brief}.md) · **Run kind:** `{kind}`", "", "**Sources**" if brief == "archive-sources" else "**Records**", ""]
     lines += [f"- `{i}` ({p})" for i, p in zip(ids, paths)]
+    if brief in ("archive-sources", "source-claims", "store-ids"):
+        flag = " --suggest-archive" if brief == "archive-sources" else ""
+        lines += ["", "**Check these with:** `python scripts/check_sources.py --ids " + ",".join(ids) + flag + "`"]
     lines += ["", f"**Done when:** {DONE[brief]}."]
     if notes:
         lines += ["", f"**Notes:** {notes}"]

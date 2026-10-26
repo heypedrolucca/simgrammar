@@ -5,7 +5,7 @@
                                                           quote that is not in its source or a store id whose store
                                                           name does not match the game
   python scripts/check_sources.py --all                   scheduled: everything; reports and exits 0
-  python scripts/check_sources.py --all --suggest-archive also look up a Wayback snapshot for sources without `archived`
+  python scripts/check_sources.py --ids src-a,src-b --suggest-archive  look up a Wayback snapshot for sources without `archived`
   python scripts/check_sources.py --cache DIR             read and write fetched pages in DIR (offline reruns, tests)
 
 What it checks:
@@ -89,6 +89,7 @@ def page_text(raw: str, content_type: str = "") -> str:
 class Fetcher:
     def __init__(self, cache: Path | None):
         self.cache = cache
+        self.tried, self.failed = 0, 0
         if cache:
             cache.mkdir(parents=True, exist_ok=True)
 
@@ -112,6 +113,8 @@ class Fetcher:
             except (urllib.error.URLError, TimeoutError, ValueError, OSError) as exc:
                 err = f"{type(exc).__name__}: {exc}"[:200]
                 time.sleep(2)
+        self.tried += 1
+        self.failed += text is None and not ctype
         if self.cache:
             (self.cache / f"{key}.json").write_text(json.dumps({"url": url, "text": text, "type": ctype, "error": err}), encoding="utf-8")
         return text, ctype, err
@@ -168,6 +171,7 @@ def main():
     g = ap.add_mutually_exclusive_group(required=True)
     g.add_argument("--changed", metavar="BASE")
     g.add_argument("--all", action="store_true")
+    g.add_argument("--ids", metavar="ID,ID,...", help="only these record or source ids (comma-separated), e.g. the ids a task issue lists")
     ap.add_argument("--cache", type=Path)
     ap.add_argument("--suggest-archive", action="store_true")
     args = ap.parse_args()
@@ -175,6 +179,11 @@ def main():
     ents, _ = load_entities(reg)
     by_id = {e.id: e for t, lst in ents.items() if t != "run" for e in lst}
     scope = None
+    if args.ids:
+        scope = {x.strip() for x in args.ids.split(",") if x.strip()}
+        unknown = sorted(scope - set(by_id))
+        if unknown:
+            raise SystemExit(f"unknown ids: {', '.join(unknown)}")
     if args.changed:
         paths = changed_paths(args.changed)
         scope = {e.id for e in by_id.values() if str(e.path.relative_to(ROOT)) in paths}
@@ -242,13 +251,20 @@ def main():
                 snap = json.loads(text)["archived_snapshots"]["closest"]["url"] if text else None
             except (KeyError, TypeError, ValueError):
                 snap = None
-            print(f"ARCHIVE {e.id}: " + (f"archived: {snap.replace('http://', 'https://', 1)}" if snap else "no snapshot; save one at https://web.archive.org/save/" + e.data["url"]))
+            # the API answers with http:// snapshot urls; the schema wants https://
+            snap = snap.replace("http://", "https://", 1) if snap else None
+            stamp = re.match(r"^https://web\.archive\.org/web/([0-9]{8})", snap or "")
+            when = f" (snapshot {stamp.group(1)[:4]}-{stamp.group(1)[4:6]}-{stamp.group(1)[6:]}, accessed {e.data.get('accessed', '?')})" if stamp else ""
+            print(f"ARCHIVE {e.id}: " + (f"archived: {snap}{when}" if snap else "no snapshot; save one at https://web.archive.org/save/" + e.data["url"]))
 
     for w in warns:
         print("WARN", w)
     for x in fails:
         print("FAIL", x)
     print(f"\n{oks} checked OK, {len(warns)} warning(s), {len(fails)} failure(s).")
+    if f.tried and f.failed == f.tried:
+        print(f"NOTHING CHECKED: all {f.tried} fetches failed (no network, or a proxy refused them). This result verifies nothing; "
+              "the `sources` workflow on the pull request runs the real check.")
     sys.exit(1 if (fails and args.changed) else 0)
 
 

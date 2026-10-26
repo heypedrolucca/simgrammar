@@ -28,7 +28,8 @@ sources:
 
 # what CI will say about your branch: scope (E039) and, with network, the quotes and store ids you touched
 pr-check:
-	$(PY) scripts/pr_scope.py --base origin/main --author "$$(git config github.user || echo $$USER)"
+	@git config github.user >/dev/null || { echo "set your GitHub handle first: git config github.user <handle> (the PR check compares it with the run's operator)"; exit 2; }
+	$(PY) scripts/pr_scope.py --base origin/main --author "$$(git config github.user)"
 	$(PY) scripts/check_sources.py --changed origin/main
 
 tasks:

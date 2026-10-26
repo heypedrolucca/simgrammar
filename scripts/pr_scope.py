@@ -133,6 +133,11 @@ def check(rows: list[tuple[str, str]], labels: set[str], registry: dict, base: s
     for status, path in records:
         if status == "D":
             errs.append(f"{path}: a merged record was deleted; set `deprecated: {{superseded_by, reason}}` instead (I2).")
+    if runs_added and not records and not sources:
+        if all(Path(path).parent.as_posix() == "log/runs" for _, path in rows):
+            errs.append("this PR adds a run but changes no records or sources; if the run found nothing to change, comment on the issue instead of opening a PR.")
+        for _, path in runs_added:
+            errs += run_checks(path, read_yaml(ROOT / path) or {}, registry, author, today or dt.date.today())
     if records or sources:
         if len(runs_added) != 1:
             errs.append(f"a PR that changes data adds exactly one run file under log/runs/; this one adds {len(runs_added)}.")

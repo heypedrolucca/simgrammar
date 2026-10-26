@@ -6,7 +6,7 @@ Each brief is a self-contained job. It says which run kind to open, what to read
 
 ## How work is claimed
 
-1. Pick an open issue labeled `task` (or open one with the **Task** form). It names a brief and at most 10 record ids.
+1. Pick an open issue labeled `task` (or open one with the **Task** form). It names a brief and the records it covers: at most 10 records, or up to 30 sources for `archive-sources` (sources count separately).
 2. Comment `claiming` on the issue. One issue, one claimant, one run, one pull request.
 3. Open the run with the kind the brief names: `python scripts/new.py run <slug> --kind <kind> --actor agent --operator <your-github-handle> --model <model-id> --harness "<tool>" --purpose "<one sentence>"`.
 4. Do the work, then `make build && make check`. Commit as `<type>(<scope>): <what> [run:<run-id>]` and open a PR that links the issue.

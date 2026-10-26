@@ -21,6 +21,7 @@ You can also take any other task (catalogue games, quote claims, archive sources
 git clone https://github.com/yoheinakajima/simgrammar && cd simgrammar
 pip install -r requirements.txt
 git config github.user <your-github-handle>
+make hooks                                   # runs the validator before every commit
 make check                                   # green before you start
 ```
 

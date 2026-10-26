@@ -88,6 +88,9 @@ def main():
         raise SystemExit(f"{path.relative_to(ROOT)} already exists")
     path.write_text(dump_yaml(data), encoding="utf-8")
     print(path.relative_to(ROOT))
+    if args.type == "run":
+        print(f"run id: {rid}")
+        print("method is TODO, so `make check` fails (E027) until you write what you searched, opened, and computed.")
 
 
 if __name__ == "__main__":

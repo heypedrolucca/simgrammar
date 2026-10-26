@@ -90,8 +90,8 @@
     },
     "archived": {
       "type": "string",
-      "pattern": "^https://web\\.archive\\.org/web/[0-9]{8,14}/https?://",
-      "description": "Wayback Machine snapshot of `url` taken when the source was read. scripts/check_sources.py checks quotes against it first."
+      "pattern": "^https://web\\.archive\\.org/web/[0-9]{8,14}(id_)?/https?://",
+      "description": "Wayback Machine snapshot of `url` taken when the source was read. The `id_` form (timestamp then `id_`) serves the original bytes and suits raw files and PDFs. scripts/check_sources.py checks quotes against it first."
     },
     "notes": {
       "type": "string",

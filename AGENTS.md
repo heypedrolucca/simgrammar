@@ -8,6 +8,7 @@ You are contributing to a research graph that many agents and people edit concur
 
 ```bash
 pip install -r requirements.txt
+make hooks          # optional: validate before every commit
 make check          # must be green before you start; if it is red, stop and report
 ```
 
@@ -28,7 +29,9 @@ python scripts/new.py run <slug> --kind <kind> --actor agent --operator <github-
 
 `--operator` is the accountable human's GitHub handle, and must be the account that opens the PR (E039); `--model` is the exact model id. Record both truthfully: the checks below compare them, and they cannot detect a false entry. Independence is checked on both: a run that verifies, rates, or resolves someone's work needs a different operator, and a different model when both runs are agents (E035). A run that creates mechanics or adds mechanic ratings first records a blind calibration (`python scripts/calibrate.py sheet`, then `score --write-run <run-id>`; E036, `tasks/rate-scores.md`).
 
-Fill `method` (what you searched, read, or computed) and keep `proposals` for anything you wanted to do but this file does not allow. Every entity you create gets `provenance.created: <run-id>`. Every existing entity you re-check gets your run id appended to `provenance.reviewed`.
+The command prints the run id (the date plus your slug). The new file's `method` is `TODO`, so `make check` stays red (E027) until you write it; that is expected, and the check before you start is the one that must be green. Fill `method` (what you searched, read, or computed, and what failed) and keep `proposals` for anything you wanted to do but this file does not allow. Every entity you create gets `provenance.created: <run-id>`. Every existing entity you actually re-check gets your run id appended to `provenance.reviewed`; one you looked at but did not re-check (a snapshot you could not reach, a page you could not open) does not, and your `method` names it instead.
+
+If the run ends up changing no records or sources (every lookup was blocked, say), do not open a pull request: comment on the issue with what you tried and what failed, and leave the run file uncommitted.
 
 ## 2. Search before you create
 
