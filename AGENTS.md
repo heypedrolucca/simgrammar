@@ -79,7 +79,7 @@ Names at least one mechanic in `involves`, has a `validation_experiment` a small
 | Long text | Specific and mechanical. Name the variables and the update rule. Cite numbers only if a source supports them. |
 | Game `mechanics` | 6–14 entries typical; fewer than 5 raises W103. `core` only for mechanics whose removal changes the game's identity; every core entry needs a `note` saying how this game implements it. |
 | `influenced_by` | Only documented or widely acknowledged lineage. Earlier games only (E025). |
-| Mechanic relations | `requires` for hard dependencies; `specializes` for narrower forms; `synergy`/`tension` stored only on the id that sorts first alphabetically (E010). Never list games or techniques on a mechanic. |
+| Mechanic relations | `requires` for hard dependencies; `specializes` for narrower forms; `synergy`/`tension` stored only on the id that sorts first in plain character order, hyphens included, as Python sorts strings (E010). Never list games or techniques on a mechanic. |
 | Technique `affects` | One entry per mechanic actually changed; `effect` from `vocab/effect.yaml`; note says what changes. |
 | `deployed_in` | Only games in `data/games/` where the technique is used (shipped or public demo). |
 | Dates | `YYYY`, `YYYY-MM`, or `YYYY-MM-DD` at the precision you know. |
@@ -143,13 +143,13 @@ Never type a dataset count ("140 games") into prose (E021). When a sentence inte
 ```bash
 make build            # build dist/ locally (for reading) and refresh GENERATED blocks; it does not validate
 make check            # validate + report/record assertions + build --check; must be green
-git add -A && git commit -s -m "<type>(<scope>): <what> [run:<run-id>]"
+git add -A && git commit -m "<type>(<scope>): <what> [run:<run-id>]"   # agents: no -s (see below)
 make pr-check         # what CI will say: PR scope (E039) and, with network, the quotes and store ids you touched
 ```
 
 `python scripts/validate.py --warnings` lists the warnings `make check` only counts. If your data change fails a report or record assertion you did not write (E029, E032), a finding moved: do not edit `report/` or records outside your task. Open the PR with the error quoted, and a maintainer rewrites the sentence.
 
-Rewrite the run's `method` before you commit: what you searched, opened, and computed, and what failed. `dist/` is gitignored, so a data PR contains records and one run file. Commit types: `data`, `taxonomy`, `vocab`, `schema`, `report`, `build`, `docs`. One run per PR, at most 10 records and 30 sources, every commit signed off (E039). CI also runs `make determinism` and, for the records you touched, checks claim quotes and store ids against the live web (`.github/workflows/sources.yml`). The PR template asks for the run id, the issue, the rule codes you hit, and your proposals. Paths in `.github/CODEOWNERS` (the contract and its code, the report and its analysis parameters, mechanics, opportunities, calibration) need maintainer review because the validator cannot judge whether such a change is justified; it can only enforce the contract as written.
+Rewrite the run's `method` before you commit: what you searched, opened, and computed, and what failed. `dist/` is gitignored, so a data PR contains records and one run file. Commit types: `data`, `taxonomy`, `vocab`, `schema`, `report`, `build`, `docs`. One run per PR, at most 10 records and at most 30 sources, every commit signed off (E039). An agent does not sign off: the sign-off is the operator's attestation (Developer Certificate of Origin), so the operator reads the diff and then signs every commit with `git rebase --signoff origin/main` before pushing. A human working without an agent uses `git commit -s`. CI also runs `make determinism` and, for the records you touched, checks claim quotes and store ids against the live web (`.github/workflows/sources.yml`). The PR template asks for the run id, the issue, the rule codes you hit, and your proposals. Paths in `.github/CODEOWNERS` (the contract and its code, the report and its analysis parameters, mechanics, opportunities, calibration) need maintainer review because the validator cannot judge whether such a change is justified; it can only enforce the contract as written.
 
 ## 9. Parallel agents
 

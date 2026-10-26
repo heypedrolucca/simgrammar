@@ -39,13 +39,13 @@ You are contributing to SimGrammar on my behalf. I am <your-github-handle>, the 
 exact model id and harness in the run. Read CLAUDE.md (or AGENTS.md) and follow it. Task: issue #<n>,
 <paste the issue body>. Open one run of the kind the issue names, do only what the issue lists,
 quote every claim you add verbatim from a source you actually opened, run `make check` and
-`make pr-check`, and commit on a branch named task/<brief>-<your-handle> with `git commit -s`.
+`make pr-check`, and commit on a branch named task/<brief>-<your-handle> with plain `git commit` (no -s; I sign off).
 Then stop and give me: the files you changed, every source you opened, and anything you could not verify.
 ```
 
 ## Before you open the pull request
 
-You sign off every commit (`git commit -s`), which certifies the Developer Certificate of Origin for the work. Check these five things yourself; they are the ones CI cannot fully check.
+Your sign-off certifies the Developer Certificate of Origin for the work, so it comes after you have read the diff: check these five things yourself (they are the ones CI cannot fully check), then run `git rebase --signoff origin/main` and push.
 
 1. **The diff is what the issue asked for.** No unrelated records, at most 10 records and 30 sources.
 2. **Open two or three of the cited sources yourself.** Confirm each says what the claim says. CI checks that quotes appear in their sources; it cannot check that a quote supports the claim.

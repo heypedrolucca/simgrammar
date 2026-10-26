@@ -1,0 +1,69 @@
+id: 2026-10-25-gemini-review
+type: run
+kind: maintenance
+date: '2026-10-25'
+actor: agent
+operator: yoheinakajima
+agent:
+  model: claude-opus-5-5
+  harness: Claude app (cloud workspace), orchestrator; reviewer gemini-3.1-pro-preview via the Gemini API (gemini-pro-latest)
+purpose: Have a model from another lab review the paper and the contribution system cold, verify each finding, and act on the ones that hold.
+method: >-
+  Sent gemini-3.1-pro-preview three prompts with the rendered paper, report/analysis.yaml, and the governance documents
+  (CONTRACT, AGENTS, CONTRIBUTING, tasks/README, humans-with-agents, ADR-0004, ADR-0005), fetched from the public
+  repository: a referee review of the paper (6 findings), a red-team review of the contribution rules (15 findings),
+  and content proposals (12 games, 6 mechanics, 6 techniques). Checked every finding against the data before acting.
+  Paper: the k sentence in section 5.4 read as contradicting its table, because the three games merged earlier today
+  moved the rule's pick from 24 to 19 (k = 19 rose from 0.736 to 0.760 mean ARI, inside the 0.02 tolerance, so W107
+  stays silent); rewrote it to state both the configured k and the rule's current pick. Section 8.2 said the family
+  concentration was not an artifact of family size, but per mechanic world generation is second and agents and
+  physics fall to sixth and fifth; rewrote and pinned with rank assertions. Added to section 5.6 that the p-values
+  describe one rater, and to section 5.5 that the independence null ignores game size. Tested and rejected the
+  claim that the leverage gap hinges on the single most exposed mechanic: dropping it leaves the top 25 unchanged;
+  a percentile-rank gap was tried and dropped because heavy ties at zero exposure reorder the list for no gain.
+  Rejected the geometric-mean objection (a documented composite rule) and the bootstrap-kind inconsistency (the seed
+  run). Contribution rules: verification runs now count only from the owner, members, or invited collaborators;
+  a deprecation keeps the record's content; agents commit without sign-off and the operator signs off after reading
+  the diff; check_sources.py stops after three straight network failures and flags source domains the dataset has
+  never cited; the E010 ordering rule names plain character order. Calibration blindness and self-declared model ids
+  are known limits recorded in ADR-0004 and were left as they are. Added seven suggested games to the candidates.
+scope:
+  - report/src/05-structure.md, report/src/08-impact.md
+  - scripts/pr_scope.py, scripts/check_sources.py, .github/workflows/check.yml
+  - CONTRACT.md (E039 text), AGENTS.md, CONTRIBUTING.md, tasks/humans-with-agents.md, .github/PULL_REQUEST_TEMPLATE.md, tasks/candidates.yaml
+contract_version: '1.1'
+proposals:
+  - kind: other
+    target: report/analysis.yaml
+    detail: >-
+      Replace the white-space independence null with one that preserves each game's mechanic count (expected
+      co-occurrence summed over games, with each game's chance of holding a mechanic proportional to its size), then
+      re-pin section 5.5. Raised by the Gemini review; the current table can overstate gaps between mechanics that live
+      in small games.
+  - kind: new-mechanic
+    target: bounty-driven-task-allocation
+    detail: >-
+      Gemini review: players post rewards that autonomous agents weigh against their own goals instead of receiving
+      orders (Majesty; partial in RimWorld). Check against unit-commands and designation-orders before a taxonomy run.
+  - kind: new-mechanic
+    target: noise-propagation
+    detail: >-
+      Gemini review: sound as a spatial field that decays with distance and walls and affects agents or land value
+      (Cities: Skylines, Oxygen Not Included). Check against pollution-spread, which may already cover it.
+  - kind: new-mechanic
+    target: physical-carry-capacity
+    detail: >-
+      Gemini review: carrying limited by weight and volume of the agent's body or vehicle (Project Zomboid, Kenshi).
+      Check against storage-buffers and hauling-jobs.
+  - kind: new-mechanic
+    target: fluid-chemistry
+    detail: >-
+      Gemini review: fluids or gases that react when mixed, producing new substances, heat, or explosions (Noita, Oxygen
+      Not Included). Check against fluid-gas-simulation and material-interactions.
+  - kind: other
+    target: data/techniques
+    detail: >-
+      Gemini review suggested techniques the set lacks: LLM-written reward functions for RL agents (Eureka, Ma et al.,
+      2023), single-image 3D reconstruction fast enough for runtime use (InstantMesh, Xu et al., 2024), and open audio
+      generation for reactive sound (Stable Audio Open, Stability AI, 2024). Citations are the model's own and unverified;
+      a technique run confirms each against its paper before adding it.

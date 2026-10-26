@@ -18,4 +18,4 @@
 - [ ] I did not verify, rate, or resolve work from my own operator or model
 - [ ] I searched with `scripts/find.py` before creating records
 - [ ] Proposals I could not act on are in the run file
-- [ ] Commits are signed off (`git commit -s`)
+- [ ] I read the diff, then signed off every commit (`git rebase --signoff origin/main`, or `git commit -s` without an agent)

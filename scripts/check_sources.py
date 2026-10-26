@@ -122,7 +122,7 @@ def page_text(raw: str, content_type: str = "") -> str:
 class Fetcher:
     def __init__(self, cache: Path | None):
         self.cache = cache
-        self.tried, self.failed = 0, 0
+        self.tried, self.failed, self.offline = 0, 0, False
         if cache:
             cache.mkdir(parents=True, exist_ok=True)
 
@@ -132,6 +132,10 @@ class Fetcher:
         if self.cache and not fresh and (self.cache / f"{key}.json").exists():
             c = json.loads((self.cache / f"{key}.json").read_text(encoding="utf-8"))
             return c["text"], c["type"], c.get("error", "")
+        if self.offline:
+            self.tried += 1
+            self.failed += 1
+            return None, "", "offline (earlier fetches all failed)"
         text, ctype, err = None, "", ""
         for attempt in range(2):
             try:
@@ -148,6 +152,8 @@ class Fetcher:
                 time.sleep(2)
         self.tried += 1
         self.failed += text is None and not ctype
+        if self.tried >= 3 and self.failed == self.tried:
+            self.offline = True  # three straight network failures and no success: no network here; skip the rest
         if self.cache:
             (self.cache / f"{key}.json").write_text(json.dumps({"url": url, "text": text, "type": ctype, "error": err}), encoding="utf-8")
         return text, ctype, err
@@ -224,6 +230,14 @@ def main():
         scope |= {e.id for e in by_id.values() for c in (e.data.get("claims") or []) + (e.data.get("key_results") or []) if set(c.get("sources", [])) & scope}
     f = Fetcher(args.cache)
     fails, warns, oks = [], [], 0
+    if args.changed:
+        host = lambda u: urllib.parse.urlsplit(u or "").hostname or ""  # noqa: E731
+        changed_src = {e.id for e in by_id.values() if e.type == "source" and str(e.path.relative_to(ROOT)) in paths}
+        known = {host(e.data.get("url")).removeprefix("www.") for e in by_id.values() if e.type == "source" and e.id not in changed_src}
+        for sid in sorted(changed_src):
+            h = host(by_id[sid].data.get("url")).removeprefix("www.")
+            if h and h not in known:
+                warns.append(f"{sid}: first source from {h}; a reviewer confirms the site is what the source says it is (publisher, author, date)")
 
     for e in sorted(by_id.values(), key=lambda e: e.id):
         if scope is not None and e.id not in scope:

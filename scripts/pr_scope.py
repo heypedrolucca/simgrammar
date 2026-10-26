@@ -66,6 +66,10 @@ def record_changes(path: str, old: dict | None, new: dict, rid: str) -> list[str
         lost = [x for x in po.get("reviewed") or [] if x not in (pn.get("reviewed") or [])]
         if lost:
             errs.append(f"{path}: provenance.reviewed lost {lost}; the list is append-only (I9).")
+        if new.get("deprecated") and not old.get("deprecated"):
+            changed = sorted(k for k in set(old) | set(new) if k not in ("deprecated", "provenance") and old.get(k) != new.get(k))
+            if changed:
+                errs.append(f"{path}: a record being deprecated keeps its content; this PR also changes {changed}. Deprecate in one PR, edit (if at all) in another (I2).")
     created = (new.get("provenance") or {}).get("created")
     old_ratings = [r for r in (old or {}).get("ratings") or []]
     for r in new.get("ratings") or []:
@@ -103,8 +107,12 @@ def run_checks(path: str, run: dict, registry: dict, author: str | None, today: 
     return errs
 
 
+# GitHub author_association values that mean the PR author was invited to the repository (or owns it).
+TRUSTED_ASSOCIATIONS = {"OWNER", "MEMBER", "COLLABORATOR"}
+
+
 def check(rows: list[tuple[str, str]], labels: set[str], registry: dict, base: str | None = None, author: str | None = None,
-          today: dt.date | None = None) -> list[str]:
+          today: dt.date | None = None, association: str | None = None) -> list[str]:
     contrib = registry.get("contribution") or {}
     dirs = {spec["dir"]: t for t, spec in registry["types"].items()}
     records, sources, runs_added, runs_touched = [], [], [], []
@@ -143,7 +151,11 @@ def check(rows: list[tuple[str, str]], labels: set[str], registry: dict, base: s
             errs.append(f"a PR that changes data adds exactly one run file under log/runs/; this one adds {len(runs_added)}.")
         else:
             rid = Path(runs_added[0][1]).stem
-            errs += run_checks(runs_added[0][1], read_yaml(ROOT / runs_added[0][1]) or {}, registry, author, today or dt.date.today())
+            run = read_yaml(ROOT / runs_added[0][1]) or {}
+            errs += run_checks(runs_added[0][1], run, registry, author, today or dt.date.today())
+            if run.get("kind") == "verification" and association and association.upper() not in TRUSTED_ASSOCIATIONS:
+                errs.append(f"{runs_added[0][1]}: verification runs (verifying, rating, resolving) count only from invited contributors, because "
+                            f"independence (E035) rests on who the operator is; this PR's author is '{association}'. Open a Verification request issue instead.")
             for status, path in records + sources:
                 if status == "D":
                     continue
@@ -161,9 +173,11 @@ def main():
     ap.add_argument("--base", default="origin/main")
     ap.add_argument("--labels", default="", help="comma-separated PR labels")
     ap.add_argument("--author", default="", help="GitHub login of the PR author; the new run's operator must match")
+    ap.add_argument("--association", default="", help="GitHub author_association of the PR author (OWNER, MEMBER, COLLABORATOR, ...)")
     args = ap.parse_args()
     labels = {x.strip() for x in args.labels.split(",") if x.strip()}
-    errs = check(changed_files(args.base), labels, load_registry(), base=args.base, author=args.author or None)
+    errs = check(changed_files(args.base), labels, load_registry(), base=args.base, author=args.author or None,
+                 association=args.association or None)
     errs += [f"commit {c} is not signed off; amend with `git commit -s` (Developer Certificate of Origin, CONTRIBUTING.md)" for c in unsigned_commits(args.base)]
     for e in errs:
         print(f"E039 {RULES['E039']['name']}: {e}")

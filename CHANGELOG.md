@@ -47,6 +47,15 @@ Phase 1 of the book and video plan (run `2026-10-25-book-pilot`).
 - **Tokens and stats:** `{{derived:<id>.<field>}}` prints a per-record value (a game's mechanic count, a mechanic's prevalence); the analysis adds games per time model and the most common time model.
 - **Rights:** `media/rights.yaml` registers each game whose footage a video uses, with its video policy and the date it was checked.
 
+## 1.1 additions (2026-10-25, Gemini review)
+
+An outside model (gemini-3.1-pro-preview) reviewed the paper and the contribution rules cold; each finding was checked against the data before acting (run `2026-10-25-gemini-review`).
+
+- **Report:** §5.4 states both the configured k and the rule's current pick (adding three games moved it from 24 to 19, inside the drift tolerance); §8.2 no longer says the family concentration is independent of family size (per mechanic, world generation is second); §5.6 says the p-values describe one rater; §5.5 says the independence null ignores game size.
+- **Rules:** E039 counts a `verification` run only from the owner, members, or invited collaborators; a deprecation keeps the record's content. Agents commit without sign-off and the operator signs off after reading the diff (`git rebase --signoff origin/main`).
+- **Tooling:** `check_sources.py` stops after three straight network failures and flags source domains the dataset has never cited.
+- **Tasks:** seven suggested games added to `tasks/candidates.yaml`; four mechanic proposals and three technique leads recorded in the run.
+
 ## 1.1 additions (2026-10-25, AI contributor pilot)
 
 Fixes from the friction logs of the pilot agents that worked task issues end to end (ADR-0005, run `2026-10-25-ai-pilot`).
