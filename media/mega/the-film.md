@@ -21,6 +21,12 @@ One long cut of the twelve episodes, released with the book's first edition so t
 
 The film re-voices these episode scenes so their cross-references name the film's chapters. Each entry is the scene's narration as the film speaks it, and replaces that scene's Voice lines in the film only. When an episode scene below changes, change its entry here too.
 
+### Episode 1, scene 9: Where genres spend
+
+**Voice.** Count where each genre spends its parts and the genres separate. Life sims put about a third into agents and behavior.{{assert:top_family_life_sim == agents-behavior}}{{assert:top_family_pct_life_sim >= 30}} Factory games lead with production.{{assert:top_family_factory_automation == resources-production}} Programming games lead with control.{{assert:top_family_programming_sim == control-automation}} Vehicle sims lead with careers and missions, ahead of the physics.{{assert:top_family_vehicle_sim == progression-goals}} And the AI-native games, the ones built on learned models, lead with social relations.{{assert:top_family_ai_native == social-relations}}
+
+**Voice.** Of the {{stat:n_possible_pairs}} possible pairs of mechanics, {{stat:pair_coverage_pct}} percent have ever shared a catalog game.{{assert:pair_coverage_pct < 50}} Later chapters go looking in the gaps.
+
 ### Episode 4, scene 4: Two scores
 
 **Voice.** The dataset behind this series scores every mechanic on six scales. Two matter here. Legibility asks how easily a player builds an accurate picture of the mechanic from play. A 2 means you need a wiki. A 5 means it's clear at a glance. Emergence potential asks how much unscripted variety the mechanic produces when it's connected to others. A 4 means it often sets off chains of consequences across systems.

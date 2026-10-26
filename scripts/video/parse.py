@@ -2,7 +2,7 @@
 import re, json, glob, os
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.join(HERE, '..', '..', 'dist', 'media')
-OUT = os.path.join(HERE, '..', '..', 'dist', 'video')
+OUT = os.environ.get('SIMGRAMMAR_VIDEO_OUT', os.path.join(HERE, '..', '..', 'video-out'))
 SCENE = re.compile(r"^## (\d+)\. (.+?)(?: \((.+?)\))?\s*$")
 SHORT = re.compile(r"^## (\d+:\d\d) to (\d+:\d\d)\. (.+?)\s*$")
 WORDING = re.compile(r"^### Episode (\d+), scene (\d+)")

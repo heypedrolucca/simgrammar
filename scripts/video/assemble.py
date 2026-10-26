@@ -2,10 +2,10 @@
 
     make build                                   # dist/media (scripts with figures resolved) and dist/paper/figures
     python scripts/video/assemble.py ep1         # or short1 .. short12, film, all
-    -> dist/video/final/<name>.mp4
+    -> video-out/final/<name>.mp4   (video-out/ is gitignored; make build prunes anything it did not write in dist/)
 
 Each scene becomes stills (headless Chromium via Playwright, scripts/video/render.html) held for the length of its
-narration take; the takes are read from dist/video/audio (or $SIMGRAMMAR_AUDIO) and normalized to -16 LUFS.
+narration take; the takes are read from video-out/audio (or $SIMGRAMMAR_AUDIO) and normalized to -16 LUFS.
 Pictures show only the project's own graphics: entity cards from dist/entities, the catalog grid, and paper figures.
 A scene with no take on disk is timed at 135 words a minute and left silent (scripts/video/narration.py missing lists them).
 The film swaps in the Film wording from media/mega/the-film.md for the episode scenes it re-voices. Needs ffmpeg and node with playwright."""
@@ -15,7 +15,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 from timeline import build
 HERE = os.path.dirname(os.path.abspath(__file__))
 DIST = os.path.normpath(os.path.join(HERE, '..', '..', 'dist'))
-V = os.path.join(DIST, 'video')
+V = os.environ.get('SIMGRAMMAR_VIDEO_OUT', os.path.normpath(os.path.join(HERE, '..', '..', 'video-out')))
 AUD = os.environ.get('SIMGRAMMAR_AUDIO', V + '/audio')
 SR = 44100
 from parse import parse_all, film_wording

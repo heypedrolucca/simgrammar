@@ -1,6 +1,6 @@
 """Narration jobs: the text each take must speak, keyed as in media/narration.yaml.
 
-    python scripts/video/narration.py missing     # jobs with no take in dist/video/audio, as JSON
+    python scripts/video/narration.py missing     # jobs with no take in video-out/audio, as JSON
     python scripts/video/narration.py all         # every job
 
 Episodes and the film's own scenes get one take per scene with a Voice line; scenes the film re-voices
@@ -36,7 +36,7 @@ def jobs():
     return out
 
 if __name__ == "__main__":
-    audio = os.environ.get("SIMGRAMMAR_AUDIO", os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "dist", "video", "audio"))
+    audio = os.environ.get("SIMGRAMMAR_AUDIO", os.path.join(os.environ.get("SIMGRAMMAR_VIDEO_OUT", os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "video-out")), "audio"))
     J = jobs()
     if sys.argv[1:] == ["missing"]: J = [j for j in J if not os.path.exists(os.path.join(audio, j["file"]))]
     json.dump(J, sys.stdout, ensure_ascii=False, indent=1)

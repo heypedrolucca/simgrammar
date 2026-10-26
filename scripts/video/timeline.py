@@ -107,7 +107,7 @@ def build(key, script, durs=None, header=None, drop_title=False, drop_last=False
     return states, audio
 
 if __name__ == '__main__':
-    S = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'dist', 'video', 'scripts.json')))
+    S = json.load(open(os.path.join(os.environ.get('SIMGRAMMAR_VIDEO_OUT', os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'video-out')), 'scripts.json')))
     k = 'episodes/01-same-parts.md'
     st, au = build(k, S[k])
     print(len(st), round(sum(s['dur'] for s in st), 1))
