@@ -1,4 +1,4 @@
-# Short 7. Most used, least touched
+# Short 7. Most used, barely touched
 
 Vertical, about 55 seconds, about 100 words of narration. One finding, from technique exposure by family (chapter 8, episode 7). Any scratch voice is synthetic and disclosed on screen; the release uses the host's voice. Footage: Factorio (`media/rights.yaml`).
 

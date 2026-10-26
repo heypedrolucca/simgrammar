@@ -46,11 +46,11 @@ Recompute these from the episode timings when an episode changes; the times belo
 
 **Picture.** The grid's five fullest columns light up, then RimWorld's row with its core columns, each nearly empty.
 
-**Voice.** The five parts that turn up most often in those games model nothing in the world: a pause button, building placement, mod support, a tech tree, and scenario goals.{{assert:derived.variable-speed.prevalence_rank == 1}}{{assert:derived.free-placement.prevalence_rank == 2}}{{assert:derived.modding-api.prevalence_rank == 3}}{{assert:derived.tech-tree.prevalence_rank <= 5}}{{assert:derived.scenario-objectives.prevalence_rank <= 5}} The parts a game is known for are usually rare.{{assert:pct_games_with_rare_core >= 75}}
+**Voice.** The five parts that turn up most often in those games model nothing in the world: a pause button, building placement, mod support, a tech tree, and scenario goals.{{assert:derived.variable-speed.prevalence_rank == 1}}{{assert:derived.free-placement.prevalence_rank == 2}}{{assert:derived.modding-api.prevalence_rank == 3}}{{assert:derived.tech-tree.prevalence_rank <= 5}}{{assert:derived.scenario-objectives.prevalence_rank <= 5}} And most games count at least one rare part among their core.{{assert:pct_games_with_rare_core >= 75}}
 
 **Picture.** The technique-flow ribbons draw in from the right and land on a handful of columns; most of the grid stays unlit.
 
-**Voice.** Research on AI in games lands on a few of those columns. {{stat:n_mechanics_zero_exposure}} mechanics, carrying {{stat:pct_uses_on_zero_exposure}} percent of every use in the catalog, have no technique in the dataset aimed at them, and the production chains and budgets that most simulation games run on are among them.{{assert:pct_uses_on_zero_exposure >= 40}}{{assert:derived.production-chain.technique_exposure == 0}}{{assert:derived.budget-treasury.technique_exposure == 0}}
+**Voice.** Research on AI in games lands on a few of those columns. {{stat:n_mechanics_zero_exposure}} mechanics, carrying {{stat:pct_uses_on_zero_exposure}} percent of every use in the catalog, have no technique in the dataset aimed at them, production chains and budgets among them.{{assert:pct_uses_on_zero_exposure >= 40}}{{assert:derived.production-chain.technique_exposure == 0}}{{assert:derived.budget-treasury.technique_exposure == 0}}
 
 **Picture.** A calendar strip scrolls forward; dates light up one by one, the first group bunched on a single day.
 
@@ -66,11 +66,11 @@ Recompute these from the episode timings when an episode changes; the times belo
 
 **Picture.** The determinism line darkens as a cluster of dots pushes down on it from above.
 
-**Voice.** Determinism is the ceiling they mostly push the other way. Of the techniques that can run during play, {{stat:n_technique_runtime_breaks}} break reproducibility outright.{{assert:n_technique_runtime_breaks >= 5}}
+**Voice.** Determinism is the ceiling some of them push the other way. Of the techniques that can run during play, {{stat:n_technique_runtime_breaks}} break reproducibility outright.{{assert:n_technique_runtime_breaks >= 5}}
 
 **On screen.** {{count:technique}} techniques. Shipped in a game: {{stat:n_technique_shipped}}. A norm in shipped games: {{stat:n_technique_shipped_mainstream}}.
 
-**Voice.** {{stat:n_technique_shipped}} have shipped in at least one game, and one has become a norm.{{assert:n_technique_shipped_mainstream == 1}} In 2019 a text adventure put a language model where the rules engine should be.
+**Voice.** {{stat:n_technique_shipped}} have shipped in at least one game, and one has become a norm.{{assert:n_technique_shipped_mainstream == 1}} In 2019 a text adventure ran its whole world on a language model.
 
 ## 3. Bridge: from gaps to bets (between episodes 8 and 9, about 1:15)
 
