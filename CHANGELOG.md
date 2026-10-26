@@ -27,6 +27,7 @@ The whole book and series drafted (run `2026-10-25-book-draft`). No contract rul
 - **Paper:** the abstract's second finding and section 5.2 now report the chance test: random sets of the same number of games cover nearly as many mechanics as the games released by 2000 (p = 0.11), so the paper claims reuse, not an early-set vocabulary.
 - **Rights:** `media/rights.yaml` lists every title the scripts show, with each publisher's video policy as read on 2026-10-25: 5 allowed, 23 allowed with conditions, 1 not allowed (Gran Turismo 7, now shown as a labelled graphic), 37 with no usable policy.
 - **Fact-check:** fresh agents read every chapter and script against the records, twice for the first draft and once for the expansion. Sentences that drifted from or went beyond a record were rewritten to match it, repeated facts were reduced to one home chapter, and pictures that could pass for game UI are labelled as graphics or re-enactments.
+- **Narration and video:** `media/narration.yaml` registers the ElevenLabs take that voices each scene (136 takes, about 91 minutes). `scripts/video/assemble.py` renders the twelve episodes, twelve vertical shorts, and the film into `dist/video/final/` from the built scripts and those takes. Pictures use only the project's own graphics: entity cards from `dist/entities`, the catalog grid, and the paper's figures. Footage and cover art are left for an editor and `media/rights.yaml`.
 
 ## 1.1 additions (2026-10-25, book and video pilot)
 

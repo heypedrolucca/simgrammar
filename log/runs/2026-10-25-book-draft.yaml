@@ -25,8 +25,12 @@ method: 'Wrote book/STYLE.md and book/tells.yaml (stock words, setup phrases, co
   in the paper and the book, dates written out for prose and narration, and Japanese subtitle sources for all twelve episodes,
   timed into SRT by the build (games developed in Japan keep their Japanese titles). A research agent read each publisher''s
   video policy for the 66 titles in media/rights.yaml (5 allowed, 23 with conditions, 1 not allowed, 37 unchecked); episode
-  6 now shows GT Sophy as a labelled graphic because Sony''s licence bars broadcast. Scratch narration for all 12 shorts was
-  generated with ElevenLabs and stays in the operator''s ElevenLabs flows, since the workspace cannot download it. The chapters
+  6 now shows GT Sophy as a labelled graphic because Sony''s licence bars broadcast. Narration for every episode scene, the film''s three
+  new scenes, and the 12 shorts was generated with ElevenLabs (voice Marcus, eleven_v4, two takes each); media/narration.yaml
+  records the take used for each. The takes were fetched through the operator''s browser, since the workspace network
+  cannot reach the storage host. scripts/video renders the episodes, shorts, and film from the scripts and those takes
+  using only the project''s own graphics (entity cards, the catalog grid, paper figures); no gameplay footage or cover art.
+  Recorded narration runs at about 178 words a minute, so the episodes come to about 5 to 9 minutes each. The chapters
   run about 47,000 words, about 64,000 with the glossary, catalog, and source lists; the episodes run about 2 hours 20 minutes
   at 135 words a minute.'
 scope:

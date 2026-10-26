@@ -1,0 +1,108 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--paper:#fafaf7;--ink:#171717;--ink2:#3d3d38;--muted:#696961;--faint:#a3a39a;--rule:#dcdcd4;--accent:#0550ae;--warm:#a35a12;--cell:#d3d3ca;--track:#ededE6;
+--sans:"IBM Plex Sans",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1920px;height:1080px;overflow:hidden;background:var(--paper);color:var(--ink);font-family:var(--sans)}
+body.v{width:1080px;height:1920px}
+#hd{position:absolute;left:80px;right:80px;top:44px;display:flex;justify-content:space-between;gap:40px;font:500 21px var(--mono);color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+#hd .r{color:var(--ink2);text-align:right}
+#main{position:absolute;left:80px;right:80px;top:118px;height:720px;display:flex;flex-direction:column;gap:28px}
+#os{font:600 50px/1.15 var(--sans);letter-spacing:-.01em;color:var(--ink);text-wrap:balance}
+#os:empty{display:none}
+#stage{flex:1;min-height:0;display:flex;gap:36px;align-items:stretch}
+#fig{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid var(--rule);padding:18px}
+#fig img{width:100%;height:100%;object-fit:contain}
+#fig canvas{width:100%;height:100%}
+.card{flex:1 1 0;min-width:0;max-width:1000px;border:1px solid var(--rule);background:#fff;padding:34px 34px 30px;display:flex;flex-direction:column;gap:14px;opacity:.55}
+.card.on{opacity:1;border:2px solid var(--accent);padding:33px 33px 29px}
+.kind{font:500 19px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.nm{font:600 46px/1.08 var(--sans);letter-spacing:-.015em}
+.meta{font:400 22px/1.35 var(--mono);color:var(--muted)}
+.big{font:600 92px/1 var(--sans);letter-spacing:-.03em}
+.big small{font:500 26px var(--mono);color:var(--muted);letter-spacing:0;margin-left:10px}
+.bar{height:16px;background:var(--track);position:relative}.bar i{position:absolute;left:0;top:0;bottom:0;background:var(--accent)}
+.code{display:flex;height:58px;align-items:stretch;gap:0;background:var(--track)}
+.code b{flex:1}
+.lst{font:400 23px/1.5 var(--sans);color:var(--ink2)}.lst span{font:400 20px var(--mono);color:var(--muted)}
+.sum{font:400 25px/1.4 var(--sans);color:var(--ink2);display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
+.n2 .sum{-webkit-line-clamp:3}.n3 .sum{display:none}
+.lab{font:500 17px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--faint);margin-top:auto}
+.lad{display:flex;flex-direction:column;gap:8px;margin-top:6px}.lad div{font:500 21px var(--mono);color:var(--faint);padding-left:22px;position:relative}
+.lad div::before{content:"";position:absolute;left:0;top:9px;width:11px;height:11px;border:2px solid var(--faint);border-radius:50%}
+.lad div.on{color:var(--ink)}.lad div.on::before{background:var(--accent);border-color:var(--accent)}
+.dots{display:flex;flex-direction:column;gap:10px;font:500 21px var(--mono);color:var(--muted)}.dots span{color:var(--accent);letter-spacing:.2em}
+#slate{flex:1;display:flex;flex-direction:column;justify-content:center;gap:22px;position:relative}
+#slate .t{font:600 76px/1.06 var(--sans);letter-spacing:-.025em;max-width:1500px;text-wrap:balance;position:relative}
+#slate .s{font:500 26px var(--mono);color:var(--accent);letter-spacing:.06em;text-transform:uppercase;position:relative}
+#slate img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;filter:blur(7px);opacity:.22}
+#cap{position:absolute;left:80px;right:80px;top:878px;border-top:1px solid var(--rule);padding-top:26px;font:500 40px/1.28 var(--sans);color:var(--ink);text-wrap:pretty;max-height:150px;overflow:hidden}
+#ft{position:absolute;right:80px;bottom:26px;font:400 16px var(--mono);color:var(--faint)}
+body.v #hd{top:60px;flex-direction:column;gap:8px}
+body.v #main{top:200px;height:1300px}
+body.v #stage{flex-direction:column;gap:26px}
+body.v .card{padding:28px 30px}
+body.v .nm{font-size:42px}
+body.v #os{font-size:54px}
+body.v #slate .t{font-size:72px}
+body.v #cap{top:1560px;font-size:44px;max-height:240px}
+</style></head><body>
+<div id="hd"><div class="l"></div><div class="r"></div></div>
+<div id="main"><div id="os"></div><div id="stage"></div></div>
+<div id="cap"></div><div id="ft"></div>
+<script>
+const MAT = ["research","prototype","shipped niche","shipped mainstream"];
+const esc = s => String(s ?? "").replace(/[&<>]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+let NCOL = 199, NGAME = 177, MAXN = 83, FIGDIR = "";
+function code(row){ const on = new Map(row.map(([c,k]) => [c,k])); let h = ""; for (let i = 0; i < NCOL; i++){ const k = on.get(i); h += `<b style="background:${k === undefined ? "transparent" : k ? "var(--ink)" : "var(--cell)"}"></b>`; } return `<div class="code">${h}</div>`; }
+function card(c, on){
+  let h = "";
+  if (c.kind === "game") h = `<div class="kind">Game</div><div class="nm">${esc(c.name)}</div><div class="meta">${esc(c.year)} · ${esc(c.dev)}<br>${esc(c.sub)}</div>${code(c.row)}<div class="meta">${c.n} mechanics · ${c.core} core</div><div class="sum">${esc(c.summary)}</div>` + (c.rare.length ? `<div class="lab" style="margin-top:6px">rarest core parts</div><div class="lst">${c.rare.map(([n,k]) => `${esc(n)} <span>· ${k} ${k === 1 ? "game" : "games"}</span>`).join("<br>")}</div>` : "");
+  else if (c.kind === "mechanic") h = `<div class="kind">Mechanic · ${esc(c.family)}</div><div class="nm">${esc(c.name)}</div><div class="big">${c.n}<small>of ${NGAME} games</small></div><div class="bar"><i style="width:${Math.max(1.5, 100 * c.n / MAXN)}%"></i></div><div class="meta">first seen ${esc(c.year)}${c.first ? " · " + esc(c.first) : ""}</div><div class="sum">${esc(c.summary)}</div>`;
+  else if (c.kind === "technique") h = `<div class="kind">AI technique${c.year ? " · " + esc(c.year) : ""}</div><div class="nm" style="font-size:38px">${esc(c.name)}</div><div class="sum">${esc(c.summary)}</div><div class="lad">${MAT.map(m => `<div class="${m === c.maturity ? "on" : ""}">${m}</div>`).join("")}</div><div class="meta" style="margin-top:auto">reproducibility: ${esc(c.det)}</div>`;
+  else if (c.kind === "bet") h = `<div class="kind">Bet · rank ${c.rank} of ${c.n}</div><div class="nm" style="font-size:40px">${esc(c.name)}</div><div class="sum">${esc(c.summary)}</div><div class="dots"><div>impact <span>${"●".repeat(c.impact)}${"○".repeat(5 - c.impact)}</span></div><div>feasibility <span>${"●".repeat(c.feas)}${"○".repeat(5 - c.feas)}</span></div><div>novelty <span>${"●".repeat(c.nov)}${"○".repeat(5 - c.nov)}</span></div></div><div class="meta" style="margin-top:auto">horizon ${esc(c.horizon)}</div>`;
+  return `<div class="card${on ? " on" : ""}">${h}</div>`;
+}
+let GRID = null;  // {rows:[[col,core]...] per game oldest first, names:[], years:[], top:[col names]}
+function drawGrid(spec){
+  const cv = document.getElementById("gc"), r = cv.getBoundingClientRect(), dpr = 1;
+  cv.width = r.width * dpr; cv.height = r.height * dpr; const cx = cv.getContext("2d");
+  const L = 70, T = 30, Wd = cv.width - L - 20, Hd = cv.height - T - 40, nr = GRID.rows.length, cw = Wd / NCOL, ch = Hd / nr;
+  const lit = new Set(), litRow = new Set(); const [_, arg] = spec.split(":");
+  if (arg && arg.startsWith("top")) for (let i = 0; i < +arg.slice(3); i++) lit.add(i);
+  if (arg && arg.startsWith("row=")) litRow.add(GRID.ids.indexOf(arg.slice(4)));
+  cx.fillStyle = "#fff"; cx.fillRect(0, 0, cv.width, cv.height);
+  for (let g = 0; g < nr; g++) for (const [c, core] of GRID.rows[g]) {
+    cx.fillStyle = lit.has(c) || litRow.has(g) ? "#0550ae" : core ? "#171717" : "#8f8f86";
+    cx.globalAlpha = (lit.size || litRow.size) && !(lit.has(c) || litRow.has(g)) ? .35 : 1;
+    cx.fillRect(L + c * cw, T + g * ch, Math.max(cw - .6, 1), Math.max(ch - .4, 1));
+  }
+  cx.globalAlpha = 1; cx.fillStyle = "#696961"; cx.font = "500 16px IBM Plex Mono, monospace"; cx.textAlign = "right";
+  for (const y of [1970, 1990, 2000, 2010, 2020]) { const g = GRID.years.findIndex(v => v >= y); if (g >= 0) cx.fillText(String(y), L - 10, T + g * ch + 6); }
+  cx.textAlign = "left"; cx.fillText("mechanics, most used first →   dark: core part   grey: supporting" + (lit.size ? "   blue: the " + lit.size + " most used" : ""), L, cv.height - 12);
+  cx.textAlign = "right"; cx.fillText(`${nr} games, oldest first ↓`, cv.width - 20, cv.height - 12);
+}
+function show(s){
+  document.querySelector("#hd .l").textContent = s.header;
+  document.querySelector("#hd .r").textContent = s.slate ? "" : s.scene;
+  const os = document.getElementById("os"), st = document.getElementById("stage");
+  if (s.slate || (!s.fig && !s.cards.length)) {
+    os.textContent = "";
+    const title = s.onscreen || s.scene;
+    st.innerHTML = `<div id="slate">${s.fig ? (s.fig.startsWith("grid") ? `<canvas id="gc" style="position:absolute;inset:0;width:100%;height:100%;filter:blur(6px);opacity:.25"></canvas>` : `<img src="${FIGDIR}/${s.fig}.svg">`) : ""}<div class="t">${esc(title)}</div>${s.sub ? `<div class="s">${esc(s.sub)}</div>` : ""}</div>`;
+  } else if (s.fig && s.fig.startsWith("grid")) {
+    os.textContent = s.onscreen || "";
+    st.className = ""; st.innerHTML = `<div id="fig"><canvas id="gc"></canvas></div>`; drawGrid(s.fig);
+  } else if (s.fig) {
+    os.textContent = s.onscreen || "";
+    st.className = ""; st.innerHTML = `<div id="fig"><img src="${FIGDIR}/${s.fig}.svg"></div>`;
+  } else {
+    os.textContent = s.onscreen || "";
+    st.className = "n" + s.cards.length; st.innerHTML = s.cards.map(c => card(c, c.cid === s.active)).join("");
+  }
+  if (s.fig && s.fig.startsWith("grid") && (s.slate || (!s.cards.length))) { try { drawGrid(s.fig); } catch (e) {} }
+  document.getElementById("cap").textContent = s.caption || "";
+  document.getElementById("ft").textContent = s.foot || "";
+}
+</script></body></html>
