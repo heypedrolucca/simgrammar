@@ -109,25 +109,25 @@ The film re-voices these episode scenes so their cross-references name the film'
 
 ## YouTube chapters
 
-Recompute these from the episode timings when an episode changes; the times below are from this draft.
+Recompute these from the render when an episode or its narration changes: `scripts/video/assemble.py film` writes the slate times to `video-out/out/the-film/states.json`. The times below are from the render with the recorded narration; the film runs 1:23:54.
 
 | Start | Chapter |
 |---|---|
 | 0:00 | Opening |
-| 2:00 | 1. Every simulation game is made of the same parts |
-| 10:02 | 2. Where the parts came from |
-| 21:11 | 3. Families across genres |
-| 32:10 | 4. Why deep systems are hard to read |
-| 42:43 | 5. The five ceilings |
-| 53:20 | Bridge: the machines arrive |
-| 54:50 | 6. What AI shipped |
-| 1:07:38 | 7. Where AI lands |
-| 1:19:17 | 8. Vacant lots |
-| 1:30:52 | Bridge: from gaps to bets |
-| 1:32:07 | 9. Bets worth making |
-| 1:43:28 | 10. What breaks |
-| 1:53:31 | 11. Keeping score |
-| 2:04:11 | 12. How this was made |
+| 0:54 | 1. Every simulation game is made of the same parts |
+| 5:52 | 2. Where the parts came from |
+| 13:28 | 3. Families across genres |
+| 20:40 | 4. Why deep systems are hard to read |
+| 27:07 | 5. The five ceilings |
+| 33:55 | Bridge: the machines arrive |
+| 34:40 | 6. What AI shipped |
+| 42:32 | 7. Where AI lands |
+| 49:48 | 8. Vacant lots |
+| 57:05 | Bridge: from gaps to bets |
+| 57:37 | 9. Bets worth making |
+| 1:04:28 | 10. What breaks |
+| 1:10:41 | 11. Keeping score |
+| 1:17:09 | 12. How this was made |
 
 ## 1. Opening (0:00 to 2:00)
 
