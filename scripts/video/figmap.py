@@ -21,14 +21,12 @@ CARDS = {
  "09.6.0": [("bet", "branch-preview-forecasts")], "11.3.0": [("bet", "causal-why-query")],
 }
 
-# shorts: picture id "s<NNN>.<scene>.<block>"
+# shorts: picture id "s<NNN>.<scene>.<block>". Wide figures are unreadable in a vertical frame, so shorts use cards instead.
 FIG.update({
  "s001.1.0": "grid:top5", "s001.3.0": "grid:top6",
  "s002.3.0": "viz-strata", "s003.2.0": "viz-design-map", "s004.4.0": "legibility-vs-emergence",
- "s006.3.0": "viz-determinism-runtime", "s007.2.0": "exposure-by-family", "s007.4.0": "exposure-by-family",
- "s008.1.0": "viz-vacant-lots", "s009.1.0": "viz-opportunity-priorities", "s009.3.0": "viz-prediction-timeline",
- "s010.3.0": "viz-determinism-runtime", "s011.1.0": "viz-prediction-timeline",
- "s012.1.0": "grid", "s012.2.0": "viz-pipeline", "s012.3.0": "grid:top5",
+ "s007.2.0": "exposure-by-family", "s007.4.0": "exposure-by-family",
+ "s012.1.0": "grid", "s012.2.0": "grid", "s012.3.0": "grid:top5",
 })
 CARDS.update({
  "s001.4.0": [("game", "rimworld"), ("mechanic", "storyteller-director")],
@@ -42,7 +40,10 @@ CARDS.update({
  "s006.4.0": [("technique", "genie-world-models")],
  "s007.1.0": [("game", "factorio"), ("mechanic", "production-chain")], "s007.3.0": [("mechanic", "production-chain")],
  "s008.2.0": [("game", "cities-skylines")], "s008.3.0": [("game", "surviving-mars"), ("mechanic", "triggered-event-chains")],
- "s009.2.0": [("bet", "causal-why-query")],
+ "s006.3.0": [("technique", "neural-rendering-shaders")],
+ "s008.1.0": [("mechanic", "free-placement"), ("mechanic", "triggered-event-chains")],
+ "s009.1.0": [("bet", "causal-why-query")], "s009.2.0": [("bet", "causal-why-query")], "s009.3.0": [("bet", "causal-why-query")],
+ "s010.3.0": [("technique", "llm-game-master"), ("technique", "monte-carlo-tree-search")],
  "s010.1.0": [("technique", "monte-carlo-tree-search")], "s010.2.0": [("technique", "monte-carlo-tree-search")],
  "s011.2.0": [("bet", "causal-why-query")], "s011.3.0": [("bet", "causal-why-query")],
 })
