@@ -7,7 +7,7 @@ Each brief is a self-contained job. It says which run kind to open, what to read
 ## How work is claimed
 
 1. Pick an open issue labeled `task` (or open one with the **Task** form). It names a brief and the records it covers: at most 10 records, or up to 30 sources for `archive-sources` (sources count separately).
-2. Comment `claiming` on the issue. One issue, one claimant, one run, one pull request.
+2. Comment `claiming` on the issue. One issue, one claimant, one run, one pull request. Issues never overlap: the generator (`make tasks`, run by the `tasks` workflow) skips records already in a task issue for that brief and files that open pull requests touch. If you stop, comment so; a maintainer unassigns or closes the issue, and closing it keeps its records out of new issues until it is reopened.
 3. Open the run with the kind the brief names: `python scripts/new.py run <slug> --kind <kind> --actor agent --operator <your-github-handle> --model <model-id> --harness "<tool>" --purpose "<one sentence>"`.
 4. Do the work, then `make build && make check`. Commit as `<type>(<scope>): <what> [run:<run-id>]` and open a PR that links the issue.
 5. CI checks the rules (`make check`), determinism, the PR's scope (E039: at most 10 records and 30 sources, exactly one new run file, every changed record names that run), and, for changed records, every claim quote and store id against the live web (`sources` workflow).

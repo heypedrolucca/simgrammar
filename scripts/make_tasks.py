@@ -14,6 +14,7 @@ import argparse
 import datetime as dt
 import hashlib
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -60,38 +61,55 @@ def task(brief, ids, paths, notes=""):
     return {"key": key, "brief": brief, "title": title.format(n=len(ids)), "records": ids, "body": "\n".join(lines)}
 
 
-def build_tasks(today: dt.date) -> list[dict]:
+def slug(name: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
+
+
+def build_tasks(today: dt.date, exclude: set[str] | None = None) -> list[dict]:
+    """exclude holds "<brief>:<id>" (already in a task issue for that brief) and "path:<file>" (touched by an open PR)."""
+    exclude = exclude or set()
     reg = load_registry()
     ents, _ = load_entities(reg)
     rel = lambda e: str(e.path.relative_to(ROOT))  # noqa: E731
+    pr_paths = {x[5:] for x in exclude if x.startswith("path:")}
+
+    def keep(brief, items, ident=lambda e: e.id, path=None):
+        path = path or (lambda e: rel(e))
+        return [e for e in items if f"{brief}:{ident(e)}" not in exclude and path(e) not in pr_paths]
     by_id = {e.id: e for t, lst in ents.items() if t != "run" for e in lst}
     out = []
     srcs = sorted((s for s in ents["source"] if s.data.get("url") and not s.data.get("archived")), key=lambda s: (is_wiki_source(s.data), s.id))
+    srcs = keep("archive-sources", srcs)
     for b in batches(srcs, BRIEFS["archive-sources"][1]):
         out.append(task("archive-sources", [s.id for s in b], [rel(s) for s in b], "Primary sources come first; wikis last."))
     order = {"technique": 0, "game": 1, "mechanic": 2, "opportunity": 3}
     unq = sorted((e for t in order for e in ents.get(t, []) if any(not c.get("quote") for c in (e.data.get("claims") or []) + (e.data.get("key_results") or []))),
                  key=lambda e: (order[e.type], e.id))
+    unq = keep("source-claims", unq)
     for b in batches(unq, BRIEFS["source-claims"][1]):
         out.append(task("source-claims", [e.id for e in b], [rel(e) for e in b]))
     steam = sorted((g for g in ents["game"] if not g.data.get("store_ids") and "pc" in (g.data.get("platforms") or []) and (g.data.get("year") or 0) >= 2003),
                    key=lambda g: (-(g.data.get("influence") or 0), g.id))
+    steam = keep("store-ids", steam)
     for b in batches(steam, BRIEFS["store-ids"][1]):
         out.append(task("store-ids", [g.id for g in b], [rel(g) for g in b], "PC games released since Steam opened, most influential first."))
     cands = (read_yaml(ROOT / "tasks" / "candidates.yaml") or {}).get("candidates") or []
     names = {(e.data.get("name") or "").lower() for e in ents["game"]} | {a.lower() for e in ents["game"] for a in e.data.get("aliases") or []}
     open_c = [c for c in cands if c["name"].lower() not in names]
+    open_c = keep("catalog-game", open_c, ident=lambda c: c["name"], path=lambda c: f"data/games/{slug(c['name'])}.yaml")
     for b in batches(open_c, BRIEFS["catalog-game"][1]):
         out.append(task("catalog-game", [c["name"] for c in b], [c["why"] for c in b], "Candidates from tasks/candidates.yaml; apply the inclusion test before cataloguing."))
     ver = sorted((e for t in ("technique", "game", "mechanic") for e in ents.get(t, []) if e.data.get("status") == "sourced"
                   and any(not is_wiki_source(by_id[s].data) for s in e.data.get("sources") or [] if s in by_id)), key=lambda e: (order[e.type], e.id))
+    ver = keep("verify-record", ver)
     for b in batches(ver, BRIEFS["verify-record"][1]):
         out.append(task("verify-record", [e.id for e in b], [rel(e) for e in b], "Needs an operator other than the record's creator (most records were created by yoheinakajima's runs)."))
     cal = set(((load_calibration(reg) or {}).get("mechanics") or {}))
     mech = sorted((m for m in ents["mechanic"] if m.id not in cal and not m.data.get("deprecated")), key=lambda m: m.id)
+    mech = keep("rate-scores", mech)
     for b in batches(mech, BRIEFS["rate-scores"][1]):
         out.append(task("rate-scores", [m.id for m in b], [rel(m) for m in b], "Calibrate first (tasks/rate-scores.md); calibration-set mechanics are excluded."))
-    for o in sorted(ents["opportunity"], key=lambda e: e.id):
+    for o in keep("resolve-prediction", sorted(ents["opportunity"], key=lambda e: e.id)):
         sig = o.data.get("falsifiable_signal") or {}
         rb = str(sig.get("resolve_by", "9999"))
         if not sig.get("resolution") and rb < today.isoformat()[: len(rb)]:
@@ -104,8 +122,11 @@ def main():
     ap.add_argument("--json", action="store_true")
     ap.add_argument("--brief", choices=sorted(BRIEFS))
     ap.add_argument("--limit", type=int, default=0, help="at most this many tasks per brief")
+    ap.add_argument("--exclude", type=Path, help="file of lines '<brief>:<id>' (records already in a task issue) and "
+                                                  "'path:<file>' (files touched by open PRs); those records get no new task")
     args = ap.parse_args()
-    tasks = build_tasks(dt.date.today())
+    exclude = {ln.strip() for ln in args.exclude.read_text(encoding="utf-8").splitlines() if ln.strip()} if args.exclude else set()
+    tasks = build_tasks(dt.date.today(), exclude)
     if args.brief:
         tasks = [t for t in tasks if t["brief"] == args.brief]
     if args.limit:

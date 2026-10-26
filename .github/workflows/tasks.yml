@@ -1,5 +1,7 @@
 # Opens contributor task issues from the dataset's gaps (scripts/make_tasks.py) and keeps the label set in place.
-# Idempotent: each issue carries a task key, and a key that already has an issue (open or closed) is skipped.
+# Idempotent and non-overlapping: a record already listed in a task issue for the same brief (open or closed) and
+# a file touched by an open pull request get no new task, so two contributors are never handed the same record.
+# Reopen a closed issue to put its records back in play.
 name: tasks
 on:
   workflow_dispatch:
@@ -13,6 +15,7 @@ on:
 permissions:
   contents: read
   issues: write
+  pull-requests: read
 jobs:
   open:
     runs-on: ubuntu-latest
@@ -51,12 +54,27 @@ jobs:
           PER_BRIEF: ${{ inputs.per_brief }}
           BRIEFS: ${{ inputs.briefs }}
         run: |
-          python scripts/make_tasks.py --json > tasks.json
-          gh issue list --label task --state all --limit 2000 --json body --jq '.[].body' > existing.txt || true
+          gh issue list --label task --state all --limit 2000 --json body > existing.json
+          gh api --paginate "repos/$GITHUB_REPOSITORY/pulls?state=open&per_page=100" --jq '.[].number' > open-prs.txt
+          python - <<'PY'
+          import json, re, subprocess
+          out = set()
+          for issue in json.load(open("existing.json")):
+              m = re.search(r"task-key: ([a-z-]+):", issue["body"] or "")
+              if m:
+                  out |= {f"{m.group(1)}:{i}" for i in re.findall(r"^- `([^`]+)`", issue["body"], re.M)}
+          for n in open("open-prs.txt").read().split():
+              files = subprocess.run(["gh", "api", "--paginate", f"repos/{__import__('os').environ['GITHUB_REPOSITORY']}/pulls/{n}/files?per_page=100", "--jq", ".[].filename"],
+                                     capture_output=True, text=True, check=True).stdout.split()
+              out |= {f"path:{f}" for f in files}
+          open("exclude.txt", "w").write("\n".join(sorted(out)))
+          print(len(out), "exclusions")
+          PY
+          python scripts/make_tasks.py --json --exclude exclude.txt > tasks.json
           python - <<'PY'
           import json, os, re, subprocess
           tasks = json.load(open("tasks.json"))
-          existing = set(re.findall(r"task-key: ([a-z-]+:[0-9a-f]+)", open("existing.txt").read()))
+          existing = set(re.findall(r"task-key: ([a-z-]+:[0-9a-f]+)", " ".join(i["body"] or "" for i in json.load(open("existing.json")))))
           per = int(os.environ.get("PER_BRIEF") or 3)
           want = {b.strip() for b in (os.environ.get("BRIEFS") or "all").split(",")}
           opened = {}
