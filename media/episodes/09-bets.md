@@ -1,6 +1,6 @@
 # Episode 9. Bets worth making
 
-Target runtime about 12 minutes: about 1,250 words of narration at 135 words a minute, plus a beat of picture-only footage per scene. Covers book chapter 10. Footage: Factorio, RimWorld, Dwarf Fortress, Democracy 4, all captured by us; the bottleneck view, the why-query, the branch preview, and the language-modding workshop are mock-ups built on captured footage and labelled as mock-ups on screen. Publisher video policies are tracked in `media/rights.yaml` and must be checked before release. Every number below is filled in from the dataset when the script is built, and the sentences that interpret numbers carry the same checks as the book.
+Target runtime about 12 minutes: about 1,250 words of narration at 135 words a minute, plus a beat of picture-only footage per scene. Covers book chapter 10. Footage: Factorio, RimWorld, Democracy 4, all captured by us; the bottleneck view, the why-query, the branch preview, and the language-modding workshop are mock-ups built on captured footage and labelled as mock-ups on screen. Publisher video policies are tracked in `media/rights.yaml` and must be checked before release. Every number below is filled in from the dataset when the script is built, and the sentences that interpret numbers carry the same checks as the book.
 
 ## 1. Cold open (0:00 to 0:00)
 
