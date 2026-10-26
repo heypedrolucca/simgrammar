@@ -125,12 +125,20 @@ def parse(path: Path) -> tuple[int, list[dict]]:
     return n, shapes
 
 
-def tones(path: Path) -> np.ndarray:
-    """Tone-index array, one value per dpx: 0 clear, 1-4 ink, 5-8 accent, 9 knockout."""
+def tones(path: Path, size: int | None = None) -> np.ndarray:
+    """Tone-index array, one value per dpx: 0 clear, 1-4 ink, 5-8 accent, 9 knockout.
+
+    size draws the icon at that many dpx instead of its own (72 or 96 for a 48 icon): the geometry and strokes scale
+    with it, and the dither grain stays one dpx, so a bigger icon keeps the frame's grid.
+    """
     n, shapes = parse(path)
-    im = Image.new("L", (n * SS, n * SS), 0)
+    m = size or n
+    if (m * SS * 2) % n:
+        raise IconError(f"cannot draw a {n}-dpx icon at {m} dpx")
+    im = Image.new("L", (m * SS, m * SS), 0)
     d = ImageDraw.Draw(im)
-    S = lambda v: v * SS
+    k = m * SS / n
+    S = lambda v: int(round(v * k))
     for s in shapes:
         t, f, st = s["tag"], s["fill"], s["stroke"]
         w = s.get("w", 0)
@@ -160,4 +168,4 @@ def tones(path: Path) -> np.ndarray:
                 d.polygon(pts, fill=f)
             if st is not None:
                 d.line(pts + ([pts[0]] if t == "polygon" else []), fill=st, width=S(w), joint="curve")
-    return np.array(im.resize((n, n), Image.NEAREST))
+    return np.array(im.resize((m, m), Image.NEAREST))

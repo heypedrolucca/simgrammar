@@ -101,6 +101,8 @@ def make(name, segments, vertical=False):
         w.setnchannels(1); w.setsampwidth(2); w.setframerate(SR); w.writeframes(audio.tobytes())
     for f in os.listdir(out):
         if f.startswith('s') and f.endswith('.png'): os.remove(os.path.join(out, f))
+    from visual import icons as visual_icons
+    visual_icons.sized(os.path.join(V, 'visual', 'icons'))   # the larger icon draws the frames use (ADR-0006)
     subprocess.run(['node', os.path.join(HERE, 'render.js'), out + '/states.json', out, os.path.join(DIST, 'paper', 'figures'), V + '/grid.json'] + (['v'] if vertical else []), check=True)
     mp4 = os.path.join(V, 'final', name + '.mp4'); os.makedirs(os.path.dirname(mp4), exist_ok=True)
     subprocess.run(['ffmpeg', '-y', '-v', 'error', '-f', 'concat', '-safe', '0', '-i', out + '/concat.txt', '-i', out + '/narration.wav',

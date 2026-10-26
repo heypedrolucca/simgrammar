@@ -15,6 +15,7 @@ from . import dither, raster
 ROOT = Path(__file__).resolve().parents[2]
 VISUAL = ROOT / "media" / "visual"
 SCALES = (3, 4)
+SIZES = (42, 48, 72, 96, 120, 144)   # the video's draw sizes (42 is the compact size for crowded 9:16 frames)
 
 
 def load_vocab(path: Path | None = None) -> dict:
@@ -51,3 +52,35 @@ def outputs() -> dict[str, bytes | str]:
                                  "margin-right:6px}figcaption{margin-top:6px}h2{font-weight:500;font-size:16px;margin:28px 0 12px}</style>"
                                  f"<h1 style='font-weight:500;font-size:18px'>visual vocabulary · {len(meta)} icons · ink and accent at 3 px per dpx</h1>" + "".join(rows) + "\n")
     return outs
+
+
+def sized(out_dir: Path) -> Path:
+    """Write every icon at each of SIZES but its own into out_dir (the video renderer's cache, not dist): <id>[.accent].<dpx>@<px>x.png.
+
+    The vector is redrawn at the bigger size (raster.tones size=), so the dither grain stays one dpx. A manifest of source
+    hashes skips icons that have not changed since the last call.
+    """
+    import hashlib
+
+    out_dir = Path(out_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    man = out_dir / "manifest.json"
+    old = json.loads(man.read_text()) if man.exists() else {}
+    new = {}
+    for e in load_vocab().get("icons") or []:
+        src = VISUAL / "icons" / f"{e['id']}.svg"
+        h = hashlib.sha256(src.read_bytes()).hexdigest()
+        new[e["id"]] = h
+        if old.get(e["id"]) == h and (out_dir / f"{e['id']}.{SIZES[-1]}@4x.png").exists() and (out_dir / f"{e['id']}.72@4x.png").exists():
+            continue
+        native = raster.parse(src)[0]
+        for n in SIZES:
+            if n == native:
+                continue
+            t = raster.tones(src, n)
+            for accent in (False, True):
+                a = dither.rgba(t, accent=accent)
+                for s in SCALES:
+                    (out_dir / f"{e['id']}{'.accent' if accent else ''}.{n}@{s}x.png").write_bytes(dither.png(a, s))
+    man.write_text(json.dumps(new, indent=0, sort_keys=True))
+    return out_dir
