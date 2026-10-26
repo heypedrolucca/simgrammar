@@ -58,13 +58,13 @@ Naming parts lets you compare games that look nothing alike. RimWorld and [[the-
 
 Names also show what has not been tried. A vocabulary of {{stat:n_mechanic}} mechanics allows {{stat:n_possible_pairs}} possible pairs, and only {{stat:pair_coverage_pct}} percent of those pairs occur together in even one catalog game.{{assert:pair_coverage_pct < 50}} Some combinations are empty because they make no sense; a flight simulator has no use for building placement. Others are empty because nobody has built them, and chapter 9 walks through the ones where both mechanics are common.
 
-And names make questions about AI answerable. A language model that writes dialogue changes a different column of the grid from a learned physics model or a planner that routes a city's traffic. Part II traces each technique in the dataset to the mechanics it affects. Of the ten most widely used mechanics, {{stat:n_top10_prevalent_zero_exposure}} have no technique in the dataset pointed at them.{{assert:n_top10_prevalent_zero_exposure >= 5}}
+And names make questions about AI answerable. A language model that writes dialogue changes a different column of the grid from a learned physics model or a planner that routes a city's traffic. Chapters 7 and 8 trace each technique in the dataset to the mechanics it affects. Of the ten most widely used mechanics, {{stat:n_top10_prevalent_zero_exposure}} have no technique in the dataset pointed at them.{{assert:n_top10_prevalent_zero_exposure >= 5}}
 
 ## Exercise: decompose a game
 
 Pick a simulation game you know well. It does not have to be in the catalog.
 
-1. List its mechanics, using the catalog's names where they fit (the glossary at the back of the book, or the dataset online). Ten to fifteen is typical.
+1. List its mechanics, using the catalog's names where they fit (the mechanic list at sim.yohei.me). Ten to fifteen is typical.
 2. Mark the core ones, the mechanics without which it would be a different game. Most games have only a few.
 3. For each core mechanic, guess how many catalog games use it, then look it up. The parts you think of as the game's signature are probably rarer than you guessed, and the parts you never think about are probably among the most common.
 4. Remove one core mechanic and describe the game that is left. Then add one rare mechanic from another game's core and describe that game.
