@@ -78,6 +78,23 @@ def normalize(text: str) -> str:
     return re.sub(r"\s+", " ", text).strip().lower()
 
 
+def divergence(quote: str, text: str) -> str:
+    """Where a quote stops matching: the longest prefix of the normalized quote found in the page, and what the page
+    has after it. Tells a reviewer whether a word differs or the page is a different one altogether."""
+    q = normalize(quote)
+    lo, hi = 0, len(q)
+    while lo < hi:  # longest prefix present
+        mid = (lo + hi + 1) // 2
+        if q[:mid] in text:
+            lo = mid
+        else:
+            hi = mid - 1
+    if lo < 12:
+        return f"no part of the quote's opening is on the page ({len(text)} characters of text fetched; begins \"{text[:80]}\")"
+    at = text.find(q[:lo]) + lo
+    return f"matches for {lo} of {len(q)} characters, up to \"...{q[max(0, lo - 30):lo]}\"; the page continues \"{text[at:at + 40]}\""
+
+
 def page_text(raw: str, content_type: str = "") -> str:
     if "html" in content_type or raw.lstrip()[:1] == "<":
         p = _Text()
@@ -205,16 +222,18 @@ def main():
                 if not urls:
                     warns.append(f"{e.id} {kind}[{i}]: first source has no fetchable locator (ISBN only?); a reviewer checks the quote by hand")
                     continue
-                found, fetched, landing_only = False, [], True
+                found, fetched, landing_only, why = False, [], True, ""
                 for url, is_full_text in urls:
                     text, ctype, err = f.get(url)
                     if text is None:
                         continue
                     fetched.append(url)
                     landing_only = landing_only and not is_full_text
-                    if normalize(q) in page_text(text, ctype):
+                    body = page_text(text, ctype)
+                    if normalize(q) in body:
                         found = True
                         break
+                    why = why or divergence(q, body)
                 if found:
                     oks += 1
                 elif not fetched:
@@ -222,7 +241,7 @@ def main():
                 elif landing_only:
                     warns.append(f"{e.id} {kind}[{i}]: quote not on the landing or abstract page {fetched[0]}; the full text may hold it, so a reviewer checks by hand")
                 else:
-                    fails.append(f"{e.id} {kind}[{i}]: quote not found in {', '.join(fetched)}: \"{q[:80]}\"")
+                    fails.append(f"{e.id} {kind}[{i}]: quote not found in {', '.join(fetched)}: \"{q[:80]}\"; {why}")
         ids = e.data.get("store_ids") or {}
         names = [e.data.get("name", "")] + list(e.data.get("aliases") or [])
         if "steam" in ids:
