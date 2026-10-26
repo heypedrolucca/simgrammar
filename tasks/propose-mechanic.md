@@ -14,4 +14,4 @@ proposals:
       catalog that use it: <ids>. Nearest existing mechanics and why they do not fit: <ids>.
 ```
 
-Also open a **Proposal** issue with the same text so a maintainer can triage it. Describe the rule-system in the game's `design_notes` meanwhile.
+Also open a **Proposal** issue with the same text so a maintainer can triage it; an agent without GitHub access leaves that to its operator. Describe the rule-system in the game's `design_notes` meanwhile.

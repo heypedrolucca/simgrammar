@@ -112,7 +112,7 @@ Names at least one mechanic in `involves`, has a `validation_experiment` a small
 | `{{figure:<name>}}` | an SVG from `dist/analysis/figures/` |
 | `{{viz:<name>}}` | an interactive figure from `scripts/viz.py`: a static SVG in `paper.md`, interactive on the website, always with a plain-text twin table |
 | `{{vocab:<vocab>:<term>}}` | a vocab label |
-| `{{assert:<ref> <op> <value\|ref>}}` | renders nothing; fails the build (E029) if false. Put one next to every sentence that interprets a ranking, sign, ordering, or grouping. `<ref>` is a stat (`rho_legibility_emergence_potential < 0`), an entity's derived field (`derived.rimworld.cluster == derived.dwarf-fortress.cluster`), a stored field (`field.genie-world-models.maturity == prototype`), a row rank in a generated table (`rank.whitespace.lifecycle-aging.production-chain <= 10`; 9999 when no row holds all the ids, an error when the table never mentions one), a co-occurrence count (`cooccur.power-grid.weather <= 1`), or a co-clustering share (`cocluster.rimworld.the-sims < 0.8`). A cluster-membership assertion passes only if the pair co-clusters in at least `clustering.stability.together` of resampled clusterings (at most `apart` for `!=`), so assert only groupings that are stable, and describe weaker links by comparison (`cocluster.a.b < cocluster.a.c`). Cluster labels (`C03`) and ranks in the cluster tables change with k and are rejected |
+| `{{assert:<ref> <op> <value\|ref>}}` | renders nothing; fails the build (E029) if false. Put one next to every sentence that interprets a ranking, sign, ordering, or grouping. `<ref>` is a stat (`rho_legibility_emergence_potential < 0`), an entity's derived field (`derived.rimworld.cluster == derived.dwarf-fortress.cluster`), a stored field (`field.genie-world-models.maturity == prototype`), a row rank in a generated table (`rank.whitespace.lifecycle-aging.production-chain <= 10`; 9999 when no row holds all the ids, including a row that has left the table, and an error when an id is neither in the table nor a record), a co-occurrence count (`cooccur.power-grid.weather <= 1`), or a co-clustering share (`cocluster.rimworld.the-sims < 0.8`). A cluster-membership assertion passes only if the pair co-clusters in at least `clustering.stability.together` of resampled clusterings (at most `apart` for `!=`), so assert only groupings that are stable, and describe weaker links by comparison (`cocluster.a.b < cocluster.a.c`). Cluster labels (`C03`) and ranks in the cluster tables change with k and are rejected |
 | `[[id]]`, `[[id\|text]]` | link to an entity |
 | `[@src-id]`, `[@src-a; @src-b]` | numbered citation |
 
@@ -137,11 +137,13 @@ Never type a dataset count ("140 games") into prose (E021). When a sentence inte
 ## 8. Finish
 
 ```bash
-make build            # build dist/ locally (for reading) and refresh GENERATED blocks
+make build            # build dist/ locally (for reading) and refresh GENERATED blocks; it does not validate
 make check            # validate + report/record assertions + build --check; must be green
 git add -A && git commit -s -m "<type>(<scope>): <what> [run:<run-id>]"
 make pr-check         # what CI will say: PR scope (E039) and, with network, the quotes and store ids you touched
 ```
+
+`python scripts/validate.py --warnings` lists the warnings `make check` only counts. If your data change fails a report or record assertion you did not write (E029, E032), a finding moved: do not edit `report/` or records outside your task. Open the PR with the error quoted, and a maintainer rewrites the sentence.
 
 Rewrite the run's `method` before you commit: what you searched, opened, and computed, and what failed. `dist/` is gitignored, so a data PR contains records and one run file. Commit types: `data`, `taxonomy`, `vocab`, `schema`, `report`, `build`, `docs`. One run per PR, at most 10 records and 30 sources, every commit signed off (E039). CI also runs `make determinism` and, for the records you touched, checks claim quotes and store ids against the live web (`.github/workflows/sources.yml`). The PR template asks for the run id, the issue, the rule codes you hit, and your proposals. Paths in `.github/CODEOWNERS` (the contract and its code, the report and its analysis parameters, mechanics, opportunities, calibration) need maintainer review because the validator cannot judge whether such a change is justified; it can only enforce the contract as written.
 

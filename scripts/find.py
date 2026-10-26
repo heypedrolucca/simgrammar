@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import argparse
 import difflib
+import signal
 import sys
 from pathlib import Path
 
@@ -16,6 +17,8 @@ from lib import load_entities  # noqa: E402
 
 
 def main():
+    if hasattr(signal, "SIGPIPE"):
+        signal.signal(signal.SIGPIPE, signal.SIG_DFL)  # piping to head should not raise BrokenPipeError
     ap = argparse.ArgumentParser()
     ap.add_argument("query", nargs="?", default="")
     ap.add_argument("--list", metavar="TYPE", help="print a compact index of every entity of TYPE (id | group | summary)")

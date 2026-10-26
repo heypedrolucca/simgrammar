@@ -18,7 +18,7 @@ from lib import ID_RE, ROOT, dump_yaml, load_registry  # noqa: E402
 
 TEMPLATES = {
     "game": {
-        "name": "TODO", "summary": "TODO one sentence", "year": "TODO", "developer": "TODO", "platforms": ["pc"],
+        "name": "TODO", "summary": "TODO one sentence", "year": "TODO", "developer": "TODO", "platforms": ["TODO"],
         "subgenre": "TODO", "sim_domain": ["TODO"], "player_role": "TODO", "agency_model": ["TODO"], "time_model": "TODO",
         "sim_scale": "TODO", "fidelity": "TODO", "perspective": "TODO", "win_structure": "TODO", "failure_model": "TODO",
         "narrative_mode": "TODO", "multiplayer": ["TODO"], "modding": "TODO", "production_tier": "TODO", "agent_count_order": "TODO",

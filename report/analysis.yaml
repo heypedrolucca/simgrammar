@@ -3,7 +3,10 @@ cooccurrence:
   min_support: 3          # pair must co-occur in at least this many games to be ranked by lift
   top_n: 30
 whitespace:
-  min_prevalence_share: 0.08   # both mechanics used by at least this share of games
+  # Both mechanics used by at least this many games. A count, not a share of the catalog: with a share, adding games
+  # with neither mechanic pushed one under the bar, so a catalog PR could break §5.5 without changing any finding
+  # (AI contributor pilot, 2026-10-25). 14 was 8% of the catalog when fixed; revisit past about 250 games.
+  min_prevalence_games: 14
   max_observed: 1              # pair co-occurs at most this many times
   exclude_same_family: true
   exclude_families: [time-pacing]   # pacing controls are interface choices fixed by the time model, not design gaps

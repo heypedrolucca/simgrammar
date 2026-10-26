@@ -206,7 +206,7 @@ def compute(ents: dict, edges: list, vocabs: dict) -> dict:
 
     # ---------------- white space: common mechanics that rarely meet
     ws = cfg["whitespace"]
-    thr = ws["min_prevalence_share"] * N
+    thr = ws["min_prevalence_games"]
     common = [m for m in mids if prev[m] >= thr]
     wrows = []
     for a, b in combinations(sorted(common), 2):
@@ -224,10 +224,11 @@ def compute(ents: dict, edges: list, vocabs: dict) -> dict:
                       "observed": obs, "expected": _r(expected, 2), "gap": _r(expected - obs, 2)})
     wrows.sort(key=lambda r: (-r["gap"], r["mechanic_a"], r["mechanic_b"]))
     shared.update({"common": common, "whitespace_all": wrows})
-    tables["whitespace"] = {"description": f"Pairs of common mechanics (each in >= {int(ws['min_prevalence_share']*100)}% of games, different families, not marked as tension{', excluding ' + ', '.join(fam_terms[f]['label'] for f in ws.get('exclude_families', [])) if ws.get('exclude_families') else ''}) that co-occur at most {ws['max_observed']} time(s). Gap = expected - observed co-occurrence under independence.",
+    tables["whitespace"] = {"description": f"Pairs of common mechanics (each in >= {ws['min_prevalence_games']} games, different families, not marked as tension{', excluding ' + ', '.join(fam_terms[f]['label'] for f in ws.get('exclude_families', [])) if ws.get('exclude_families') else ''}) that co-occur at most {ws['max_observed']} time(s). Gap = expected - observed co-occurrence under independence.",
                             "columns": ["mechanic_a", "mechanic_b", "family_a", "family_b", "observed", "expected", "gap"], "rows": wrows[: ws["top_n"]], "link_columns": ["mechanic_a", "mechanic_b"]}
     stats["n_whitespace_pairs"] = len(wrows)
     stats["n_common_mechanics"] = len(common)
+    stats["whitespace_min_games"] = ws["min_prevalence_games"]
 
     # ---------------- clustering games by weighted mechanic sets (weighted Jaccard)
     cl = cfg["clustering"]

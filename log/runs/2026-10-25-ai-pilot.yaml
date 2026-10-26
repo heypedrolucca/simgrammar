@@ -1,0 +1,40 @@
+id: 2026-10-25-ai-pilot
+type: run
+kind: maintenance
+date: '2026-10-25'
+actor: agent
+operator: yoheinakajima
+agent:
+  model: claude-opus-5-5
+  harness: Claude app (cloud workspace), orchestrator
+purpose: Run four AI agents through the contributor flow end to end and fix what their friction logs found (ADR-0005).
+method: >-
+  Spawned four agents in separate git worktrees, each given one task built by scripts/make_tasks.py (archive-sources,
+  source-claims, store-ids, catalog-game) and only the repository docs. Each reported its diff, check output, and a
+  friction log. Reproduced the main finding: with the catalog pilot's three games, the section 5.5 assertion on
+  embodied-skill-control and free-placement failed because the mechanic fell under the 8 percent bar. Replaced the share with
+  a fixed count equal to the old bar at 174 games, confirmed the white-space table is byte-identical, and stress-tested by
+  adding the three pilot games plus 5, 10, and 20 duplicated games in scratch copies: no assertion failed, whereas the
+  old rule failed with the pilot games alone. Made rank references to rows that left a table fail as E029 with the
+  cause. Opened the store-ids and source-claims pilot PRs. CI resolved all eight Steam ids. It found 26 of 32 quotes,
+  warned on five unreachable or DOI-only pages, and failed one. That failing AlphaEvolve quote is present in the
+  rendered page and its raw HTML in a browser, so the CI fetch is the suspect; FAIL messages now say where a quote
+  stops matching. Spot-checked two warned quotes in a browser: the OpenAI structured-outputs quote is on the page,
+  and the cited Sony AI article url now returns 404. Rewrote four briefs, AGENTS.md, CONTRIBUTING.md, and the task
+  generator from the friction logs.
+scope:
+  - report/analysis.yaml, report/src/05-structure.md, scripts (analyze, viz, report_render, check_sources, pr_scope, make_tasks, new, find)
+  - schema/source.schema.json (archived id_ form)
+  - AGENTS.md, CONTRIBUTING.md, CHANGELOG.md, Makefile, tasks/, decisions/ADR-0005
+contract_version: '1.1'
+proposals:
+  - kind: other
+    target: data/sources/src-sony-2025-gt-sophy-2-1
+    detail: >-
+      The Sony AI article cited by deep-rl-npc-policies returns 404 in a browser (with and without the trailing slash).
+      Find the moved article or a snapshot, and archive it, before that key result's quote is accepted.
+  - kind: other
+    target: report/analysis.yaml
+    detail: >-
+      Revisit whitespace.min_prevalence_games together with the cluster k when the catalog passes about 250 games; a fixed
+      count loosens what "common" means as the catalog grows.

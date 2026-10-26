@@ -646,7 +646,7 @@ def vacant_lots(shared, live, by_id, derived, tables, fam, cfg):
         "title": "Built and vacant lots",
         "head": f"{n} common mechanics · {n * (n - 1) // 2} pairs · {n_vac} vacant",
         "svg": "".join(body),
-        "caption": f"Every pair of the {n} mechanics used by at least {int(ws['min_prevalence_share'] * 100)} percent of games, laid out like a plan: each lot is a pair, "
+        "caption": f"Every pair of the {n} mechanics used by at least {ws['min_prevalence_games']} games, laid out like a plan: each lot is a pair, "
                    "darker lots are built more often than chance would predict, dashed lots are white space (different families, no recorded tension, "
                    f"co-occurring at most {ws['max_observed']} time), and slashed lots are pairs recorded as being in design tension. "
                    "Numbers mark the ten largest gaps in the white-space table. Names sit on the diagonal: read a lot by following its row and its column back to the staircase.",

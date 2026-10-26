@@ -112,8 +112,8 @@ def lookup_ref(ref: str, a: dict, by_id: dict):
                 vals.update(map(str, v) if isinstance(v, list) else [str(v)])
             row_vals.append(vals)
         mentioned = set().union(*row_vals) if row_vals else set()
-        if not ids <= mentioned:
-            return False, None  # an id the table never mentions is a typo, not a rank of 9999
+        if not ids <= mentioned and not all(i in by_id for i in ids):
+            return False, None  # an id that is neither in the table nor a record is a typo, not a rank of 9999
         for i, vals in enumerate(row_vals, start=1):
             if ids <= vals:
                 return True, i
@@ -160,6 +160,10 @@ def evaluate_assertion(expr: str, a: dict, by_id: dict) -> tuple[str, str]:
         rhs, lhs = shown, str(val)
     ok = {"==": lhs == rhs, "!=": lhs != rhs, "<": lhs < rhs, ">": lhs > rhs, "<=": lhs <= rhs, ">=": lhs >= rhs}[op]
     if not ok:
+        if name.startswith("rank.") and val == 9999:
+            return "fail", (f"{name} {op} {raw}: the row is not in the table. Rows leave a table when the data crosses its "
+                            "threshold or pushes them past its top rows (the table's description gives both); rewrite the "
+                            "sentence or pin it to a reference that states the finding directly, such as cooccur.a.b")
         return "fail", f"{name} {op} {raw} (actual: {val} vs {shown})"
     if la and lb:
         co = a.get("cocluster") or {}

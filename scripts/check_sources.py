@@ -41,6 +41,9 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from lib import ROOT, load_entities, load_registry  # noqa: E402
 
+# Wikipedia-style footnote markers ([12], [a], [citation needed], [note 3]) sit inline in page text; a quote that
+# spans one should match with or without it.
+FOOTNOTE = re.compile(r"\[(?:\d{1,3}|[a-z]|note \d{1,3}|citation needed|clarification needed|when\?|who\?|according to whom\?)\]", re.I)
 UA = "SimGrammar-source-check/1.1 (+https://github.com/yoheinakajima/simgrammar)"
 QUOTES = {"\u2018": "'", "\u2019": "'", "\u201a": "'", "\u201b": "'", "\u201c": '"', "\u201d": '"', "\u201e": '"',
           "\u2013": "-", "\u2014": "-", "\u2212": "-", "\u00a0": " ", "\u00ad": "", "\u2026": "...",
@@ -75,6 +78,7 @@ def normalize(text: str) -> str:
     for a, b in QUOTES.items():
         text = text.replace(a, b)
     text = unicodedata.normalize("NFKC", text)
+    text = FOOTNOTE.sub("", text)
     return re.sub(r"\s+", " ", text).strip().lower()
 
 

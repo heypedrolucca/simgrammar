@@ -61,7 +61,7 @@ These families match the layer profiles in §4.1: minds and managed crowds inves
 
 ### 5.5 White space
 
-Some mechanics are individually common but rarely combined. The table lists pairs where each mechanic appears in at least eight percent of games, the two belong to different families, neither is a time-and-pacing control, they are not recorded as being in design tension, and they co-occur at most once. The figure lays every pair of common mechanics out as a plan of built and vacant lots.
+Some mechanics are individually common but rarely combined. The table lists pairs where each mechanic appears in at least {{stat:whitespace_min_games}} games, the two belong to different families, neither is a time-and-pacing control, they are not recorded as being in design tension, and they co-occur at most once. The figure lays every pair of common mechanics out as a plan of built and vacant lots.
 
 {{viz:vacant-lots}}
 
