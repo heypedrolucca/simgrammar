@@ -235,6 +235,7 @@ body.v .f-gname{font-size:52px}
 .f-si{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;max-width:420px}
 .f-set.grp .f-sitems{justify-content:flex-start;gap:24px 48px}.f-set.grp .f-si{flex-direction:row;text-align:left;max-width:520px}
 .f-set.grp .f-srow{border-top:1px dashed #bdbdb4;padding-top:10px}
+.f-set.tight{gap:14px}.f-set.tight .f-srow{gap:4px}
 .f-set.v .f-sitems{flex-direction:column;align-items:stretch;gap:20px}.f-set.v .f-si{flex-direction:row;text-align:left;max-width:none;gap:22px}
 /* units */
 .f-units{display:flex;align-items:center;justify-content:center;gap:70px;height:100%}
@@ -265,6 +266,7 @@ body.v .f-gname{font-size:52px}
 .f-pcard{display:flex;align-items:center;gap:14px;border:1px solid var(--rule);background:#fff;padding:10px 12px}
 .f-pcard.on{border:2px solid var(--accent)}
 .f-piles.v{flex-direction:column}
+.f-piles.tight .f-pile{gap:8px}.f-piles.tight .f-pcards{gap:8px}.f-piles.tight .f-pcard{padding:6px 10px}.f-piles.three .f-pcards{grid-template-columns:1fr 1fr 1fr}
 /* spread */
 .f-spread{display:flex;flex-direction:column;gap:20px;height:100%}
 .f-ssvg text{font:400 21px var(--mono);fill:#696961}.f-ssvg text.acc{fill:#0550ae}.f-ssvg text.big{font:600 34px var(--sans);fill:#171717}
@@ -453,6 +455,16 @@ function drawGrid(spec){
 // ---- the 8-dpx grid and motion (ADR-0006; render.js drives the steps)
 const BAYER8 = [[0,32,8,40,2,34,10,42],[48,16,56,24,50,18,58,26],[12,44,4,36,14,46,6,38],[60,28,52,20,62,30,54,22],
   [3,35,11,43,1,33,9,41],[51,19,59,27,49,17,57,25],[15,47,7,39,13,45,5,37],[63,31,55,23,61,29,53,21]];
+// a frame whose content runs past the stage (into the header, chip, or caption): templates that read f.fit draw it a size step smaller
+function overStage(st){
+  const s = st.getBoundingClientRect();
+  let lo = Infinity, hi = -Infinity;
+  for (const e of st.querySelectorAll("#frame .f-u, #frame .f-lab, #frame .f-mono, #frame .f-name, #frame img")) {
+    const b = e.getBoundingClientRect();
+    if (b.width && b.height) { lo = Math.min(lo, b.top); hi = Math.max(hi, b.bottom); }
+  }
+  return lo < s.top - 4 || hi > s.bottom + 4;
+}
 // move each layout unit so its first sprite sits on the 8-dpx grid of the page: the dither of neighbouring sprites lines up
 function snap(root){
   const g = G();
@@ -564,8 +576,11 @@ function show(s){
     os.textContent = usesOs ? "" : (s.onscreen || "");
     st.className = ""; st.innerHTML = "";
     const r = st.getBoundingClientRect();
-    st.innerHTML = `<div id="frame">${frameHTML(s.frame, s.current, Math.round(r.width), Math.round(r.height))}</div>`;
-    snap(document.getElementById("frame"));
+    for (let fit = 0; fit <= 2; fit++) {
+      st.innerHTML = `<div id="frame">${frameHTML(fit ? { ...s.frame, fit } : s.frame, s.current, Math.round(r.width), Math.round(r.height))}</div>`;
+      snap(document.getElementById("frame"));
+      if (!overStage(st)) break;
+    }
     // the frame's main entity; failing that, the narration's active card when it is one of the frame's own elements
     const act = s.cards.find(c => c.cid === s.active && (s.frame.elements || []).includes(c.id));
     document.getElementById("chip").textContent = s.frame.chip || (act ? chipOf(act) : "");

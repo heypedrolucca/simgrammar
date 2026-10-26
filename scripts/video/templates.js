@@ -231,7 +231,7 @@ T.toysim = (f, cur, W, H) => `<div class="f-toysim${VERT() ? " v" : ""}"><div cl
 // two games: their families, the parts they share, or the core parts each has alone
 T.games = (f, cur, W, H) => {
   const v = VERT();
-  const side = (g) => `<div class="f-gside f-u">${ic(g.emblem || { label: g.name }, false, v ? (f.show === "family" ? 72 : 48) : 96)}<div class="f-gname">${esc(g.name)}</div><div class="f-mono">${esc(g.meta)}</div><div class="f-mono ink f-gfam">family: ${esc(g.family.toLowerCase())}</div></div>`;
+  const side = (g) => `<div class="f-gside f-u">${ic(g.emblem || { label: g.name }, false, v ? (f.show === "family" ? 72 : 48) : [96, 72, 48][f.fit || 0])}<div class="f-gname">${esc(g.name)}</div><div class="f-mono">${esc(g.meta)}</div><div class="f-mono ink f-gfam">family: ${esc(g.family.toLowerCase())}</div></div>`;
   const plist = (ps, max) => ps.slice(0, max).map(p => `<div class="f-pt f-u">${ic(p, isOn(cur, p.id), 42)}<div><div class="f-lab sm${isOn(cur, p.id) ? " acc" : ""}">${esc(p.label)}</div><div class="f-mono">${games(p.n, f.N)}</div></div></div>`).join("") + (ps.length > max ? `<div class="f-mono">and ${ps.length - max} more</div>` : "") + (ps.length ? "" : `<div class="f-mono">none</div>`);
   const rel = `<div class="f-grel${f.same ? " same" : ""}">${f.same ? "same family" : "different families"}</div>`;
   if (f.show === "shared") {
@@ -257,9 +257,10 @@ T.venn = (f, cur, W, H) => {
 
 T.set = (f, cur, W, H) => {
   const v = VERT(), n = Math.max(...f.rows.map(r => r.length)), tot = f.rows.reduce((a, r) => a + r.length, 0);
-  const d = v ? (tot <= 3 ? 72 : tot <= 6 ? 48 : 42) : (n <= 3 && f.rows.length === 1 ? 96 : n <= 4 && f.rows.length <= 2 ? 72 : 48);
+  const d0 = v ? (tot <= 3 ? 72 : tot <= 6 ? 48 : 42) : (n <= 3 && f.rows.length === 1 ? 96 : n <= 4 && f.rows.length <= 2 ? 72 : 48);
+  const d = f.fit ? [96, 72, 48, 42][Math.min(3, [96, 72, 48, 42].indexOf(d0) + f.fit)] : d0;   // f.fit: render.html found it taller than the stage
   const item = e => { const on = isOn(cur, e.id); return `<div class="f-si f-u">${ic(e, on, d)}<div><div class="f-lab${on ? " acc" : ""}">${esc(e.label)}</div>${f.dates && e.year ? `<div class="f-mono${on ? " acc" : ""}">${e.year}${e.first ? " · " + esc(e.first) : ""}</div>` : ""}</div></div>`; };
-  return `<div class="f-set${v ? " v" : ""}${f.rows.length > 1 ? " grp" : ""}${v && tot > 5 ? " two" : ""}">${f.rows.map((r, k) => `<div class="f-srow">${f.groups[k] ? `<div class="f-mono ink f-sg">${esc(f.groups[k])}</div>` : ""}<div class="f-sitems">${r.map(item).join("")}</div></div>`).join("")}</div>`;
+  return `<div class="f-set${v ? " v" : ""}${f.rows.length > 1 ? " grp" : ""}${v && tot > 5 ? " two" : ""}${f.fit ? " tight" : ""}">${f.rows.map((r, k) => `<div class="f-srow">${f.groups[k] ? `<div class="f-mono ink f-sg">${esc(f.groups[k])}</div>` : ""}<div class="f-sitems">${r.map(item).join("")}</div></div>`).join("")}</div>`;
 };
 
 T.units = (f, cur, W, H) => {
@@ -286,8 +287,8 @@ T.tally = (f, cur, W, H) => {
 
 T.piles = (f, cur, W, H) => {
   const v = VERT();
-  const pile = (p) => `<div class="f-pile"><div class="f-ctitle f-u">${esc(p.title)}</div><div class="f-mono ink">${p.items.length} techniques</div><div class="f-pcards">${p.items.map(e => { const on = isOn(cur, e.id); return `<div class="f-pcard f-u${on ? " on" : ""}">${v ? "" : ic(e, on, 42)}<div><div class="f-lab sm${on ? " acc" : ""}">${esc(e.label)}</div><div class="f-mono">${esc(e.mat)}</div></div></div>`; }).join("")}</div></div>`;
-  return `<div class="f-piles${v ? " v" : ""}">${pile(f.a)}<div class="f-vrule"></div>${pile(f.b)}</div>`;
+  const pile = (p) => `<div class="f-pile"><div class="f-ctitle f-u">${esc(p.title)}</div><div class="f-mono ink">${p.items.length} techniques</div><div class="f-pcards">${p.items.map(e => { const on = isOn(cur, e.id); return `<div class="f-pcard f-u${on ? " on" : ""}">${v || f.fit > 1 ? "" : ic(e, on, 42)}<div><div class="f-lab sm${on ? " acc" : ""}">${esc(e.label)}</div><div class="f-mono">${esc(e.mat)}</div></div></div>`; }).join("")}</div></div>`;
+  return `<div class="f-piles${v ? " v" : ""}${f.fit ? " tight" : ""}${f.fit > 1 ? " three" : ""}">${pile(f.a)}<div class="f-vrule"></div>${pile(f.b)}</div>`;
 };
 
 T.spread = (f, cur, W, H) => {
