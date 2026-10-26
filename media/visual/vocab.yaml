@@ -89,3 +89,207 @@ icons:
   - {id: tile-cell, kind: noun, label: Tile, aliases: [tile, tiles, cell, cells]}
   - {id: toilet, kind: noun, label: Toilet, aliases: [toilet, bladder]}
   - {id: water, kind: noun, label: Water, aliases: [water, flood]}
+  # mechanics (phase 3)
+  - {id: advisors, kind: mechanic}
+  - {id: agent-inspection, kind: mechanic}
+  - {id: agent-pathfinding, kind: mechanic}
+  - {id: alerts-feed, kind: mechanic}
+  - {id: attribute-match-engine, kind: mechanic}
+  - {id: auctions, kind: mechanic}
+  - {id: blueprints, kind: mechanic}
+  - {id: board-confidence, kind: mechanic}
+  - {id: budget-treasury, kind: mechanic}
+  - {id: causal-tooltips, kind: mechanic}
+  - {id: collection-goals, kind: mechanic}
+  - {id: contagion, kind: mechanic}
+  - {id: content-sharing, kind: mechanic}
+  - {id: contracts-orders, kind: mechanic}
+  - {id: creature-care, kind: mechanic}
+  - {id: creature-learning, kind: mechanic}
+  - {id: crowd-preferences, kind: mechanic}
+  - {id: culture-religion-conversion, kind: mechanic}
+  - {id: daily-action-budget, kind: mechanic}
+  - {id: data-overlays, kind: mechanic}
+  - {id: dilemma-cards, kind: mechanic}
+  - {id: dynasty-succession, kind: mechanic}
+  - {id: elections, kind: mechanic}
+  - {id: embodied-skill-control, kind: mechanic}
+  - {id: equity-buyouts, kind: mechanic}
+  - {id: falling-sand-materials, kind: mechanic}
+  - {id: fluid-gas-simulation, kind: mechanic}
+  - {id: fog-of-war, kind: mechanic}
+  - {id: generative-content, kind: mechanic}
+  - {id: goods-consumption, kind: mechanic}
+  - {id: gossip-propagation, kind: mechanic}
+  - {id: history-chronicle, kind: mechanic}
+  - {id: history-generation, kind: mechanic}
+  - {id: immigration-attractiveness, kind: mechanic}
+  - {id: interest-groups, kind: mechanic}
+  - {id: labor-market, kind: mechanic}
+  - {id: lifecycle-aging, kind: mechanic}
+  - {id: loans-debt, kind: mechanic}
+  - {id: loss-on-death, kind: mechanic}
+  - {id: milestone-unlocks, kind: mechanic}
+  - {id: modular-assembly, kind: mechanic}
+  - {id: natural-language-interaction, kind: mechanic}
+  - {id: negotiation, kind: mechanic}
+  - {id: permadeath, kind: mechanic}
+  - {id: personality-traits, kind: mechanic}
+  - {id: player-driven-market, kind: mechanic}
+  - {id: player-legislation, kind: mechanic}
+  - {id: player-organizations, kind: mechanic}
+  - {id: procedural-characters, kind: mechanic}
+  - {id: procedural-terrain, kind: mechanic}
+  - {id: random-disasters, kind: mechanic}
+  - {id: rci-demand, kind: mechanic}
+  - {id: relationship-values, kind: mechanic}
+  - {id: reputation, kind: mechanic}
+  - {id: request-provider-logistics, kind: mechanic}
+  - {id: resource-extraction, kind: mechanic}
+  - {id: rigid-body-physics, kind: mechanic}
+  - {id: rival-firms, kind: mechanic}
+  - {id: rule-checking-inspection, kind: mechanic}
+  - {id: seasonal-world-reset, kind: mechanic}
+  - {id: seasons, kind: mechanic}
+  - {id: social-exchanges, kind: mechanic}
+  - {id: spoilage, kind: mechanic}
+  - {id: staff-hiring, kind: mechanic}
+  - {id: stats-dashboards, kind: mechanic}
+  - {id: stress-accumulation, kind: mechanic}
+  - {id: structural-integrity, kind: mechanic}
+  - {id: supply-demand-pricing, kind: mechanic}
+  - {id: supply-lines, kind: mechanic}
+  - {id: survival-meters, kind: mechanic}
+  - {id: trade-routes, kind: mechanic}
+  - {id: traffic-congestion, kind: mechanic}
+  - {id: trait-inheritance, kind: mechanic}
+  - {id: turn-structure, kind: mechanic}
+  - {id: unit-commands, kind: mechanic}
+  - {id: utility-action-selection, kind: mechanic}
+  - {id: vehicle-route-scheduling, kind: mechanic}
+  - {id: war-score-peace, kind: mechanic}
+  - {id: wear-breakdown, kind: mechanic}
+  - {id: zoning, kind: mechanic}
+  # families (phase 3)
+  - {id: agents-behavior, kind: family}
+  - {id: biology-health, kind: family}
+  - {id: conflict-defense, kind: family}
+  - {id: control-automation, kind: family}
+  - {id: economy-finance, kind: family}
+  - {id: environment-ecology, kind: family}
+  - {id: governance-policy, kind: family}
+  - {id: information-legibility, kind: family}
+  - {id: logistics-networks, kind: family}
+  - {id: multiplayer-persistence, kind: family}
+  - {id: narrative-generation, kind: family}
+  - {id: operation-procedure, kind: family}
+  - {id: physics-materials, kind: family}
+  - {id: population-lineage, kind: family}
+  - {id: progression-goals, kind: family}
+  - {id: risk-failure, kind: family}
+  - {id: social-relations, kind: family}
+  - {id: space-construction, kind: family}
+  - {id: time-pacing, kind: family}
+  - {id: world-generation, kind: family}
+  # subgenres (phase 3)
+  - {id: 4x-strategy, kind: subgenre}
+  - {id: ai-native, kind: subgenre}
+  - {id: artificial-life, kind: subgenre}
+  - {id: business-economic-sim, kind: subgenre}
+  - {id: construction-engineering, kind: subgenre}
+  - {id: ecosystem-evolution, kind: subgenre}
+  - {id: farming-sim, kind: subgenre}
+  - {id: flight-sim, kind: subgenre}
+  - {id: god-game, kind: subgenre}
+  - {id: grand-strategy, kind: subgenre}
+  - {id: job-sim, kind: subgenre}
+  - {id: management-tycoon, kind: subgenre}
+  - {id: medical-sim, kind: subgenre}
+  - {id: mmo-world, kind: subgenre}
+  - {id: physics-sandbox, kind: subgenre}
+  - {id: political-sim, kind: subgenre}
+  - {id: programming-sim, kind: subgenre}
+  - {id: rpg-sim, kind: subgenre}
+  - {id: sandbox-world, kind: subgenre}
+  - {id: social-sim, kind: subgenre}
+  - {id: space-sim, kind: subgenre}
+  - {id: sports-management, kind: subgenre}
+  - {id: survival-sim, kind: subgenre}
+  - {id: transport-logistics, kind: subgenre}
+  - {id: vehicle-sim, kind: subgenre}
+  - {id: virtual-pet, kind: subgenre}
+  - {id: wargame, kind: subgenre}
+  # technique categories
+  - {id: animation-motion, kind: technique-category}
+  - {id: artificial-life-research, kind: technique-category}
+  - {id: automated-game-design, kind: technique-category}
+  - {id: differentiable-simulation, kind: technique-category}
+  - {id: game-theoretic-solvers, kind: technique-category}
+  - {id: generative-world-model, kind: technique-category}
+  - {id: inference-efficiency, kind: technique-category}
+  - {id: llm-agents, kind: technique-category}
+  - {id: llm-narrative-dialogue, kind: technique-category}
+  - {id: math-discovery, kind: technique-category}
+  - {id: multi-agent-social-sim, kind: technique-category}
+  - {id: neural-physics, kind: technique-category}
+  - {id: neural-rendering-3d, kind: technique-category}
+  - {id: player-modeling, kind: technique-category}
+  - {id: procedural-generation, kind: technique-category}
+  - {id: reinforcement-learning, kind: technique-category}
+  - {id: speech-audio, kind: technique-category}
+  # techniques
+  - {id: automated-playtesting, kind: technique}
+  - {id: deep-rl-npc-policies, kind: technique}
+  - {id: diffusion-game-engines, kind: technique}
+  - {id: genie-world-models, kind: technique}
+  - {id: llm-explanation-of-state, kind: technique}
+  - {id: llm-game-master, kind: technique}
+  - {id: llm-rule-adjudication, kind: technique}
+  - {id: monte-carlo-tree-search, kind: technique}
+  - {id: neural-rendering-shaders, kind: technique}
+  - {id: on-device-language-models, kind: technique}
+  - {id: realtime-voice-models, kind: technique}
+  - {id: satellite-world-reconstruction, kind: technique}
+  - {id: wave-function-collapse, kind: technique}
+  # nouns (phase 3)
+  - {id: badge, kind: noun, label: First discovery, aliases: [badge]}
+  - {id: bot, kind: noun, label: Bot, aliases: [bot, bots]}
+  - {id: bug-report, kind: noun, label: Bug report, aliases: [bug report, bug reports]}
+  - {id: cache, kind: noun, label: Stored answers, aliases: [cache, cached]}
+  - {id: dial, kind: noun, label: Dial, aliases: [dial, gauge]}
+  - {id: eye-closed, kind: noun, label: Hidden, aliases: [hidden]}
+  - {id: eye-open, kind: noun, label: Visible, aliases: [visible]}
+  - {id: folder, kind: noun, label: Folder, aliases: [folder, folders]}
+  - {id: fork, kind: noun, label: Forked timeline, aliases: [fork, forks]}
+  - {id: leaderboard, kind: noun, label: Leaderboard, aliases: [leaderboard, leaderboards]}
+  - {id: magnifier, kind: noun, label: Findable, aliases: [magnifier, findable]}
+  - {id: microphone, kind: noun, label: Microphone, aliases: [mic, microphone]}
+  - {id: prompt-box, kind: noun, label: Text box, aliases: [text box, prompt]}
+  - {id: sealed-box, kind: noun, label: Learned policy, aliases: [black box]}
+  - {id: teletype, kind: noun, label: Teletype, aliases: [teletype, teleprinter]}
+  # terms
+  - {id: ceiling-authoring, kind: term, label: Authoring cost, aliases: [authoring cost, author]}
+  - {id: ceiling-believability, kind: term, label: Believability, aliases: [believable, believability]}
+  - {id: ceiling-compute, kind: term, label: Compute, aliases: [compute]}
+  - {id: ceiling-determinism, kind: term, label: Determinism, aliases: [same inputs, reproducibility, determinism]}
+  - {id: ceiling-legibility, kind: term, label: Legibility, aliases: [hidden state, legibility]}
+  - {id: determinism-breaks, kind: term, label: Breaks, aliases: [break, breaks, break reproducibility]}
+  - {id: determinism-mitigable, kind: term, label: Mitigable, aliases: [made reproducible, can be made reproducible, fixable]}
+  - {id: determinism-preserves, kind: term, label: Preserves, aliases: [intact, leave it intact, safe]}
+  - {id: effect-accelerates, kind: term, label: Accelerates, aliases: [run it faster]}
+  - {id: effect-cuts-authoring-cost, kind: term, label: Cuts authoring cost, aliases: [cut the cost]}
+  - {id: effect-deepens, kind: term, label: Deepens, aliases: [deepen, deepening]}
+  - {id: effect-enables-new, kind: term, label: Enables new form, aliases: [enable]}
+  - {id: effect-explains, kind: term, label: Explains, aliases: [explain, explaining]}
+  - {id: effect-replaces-substrate, kind: term, label: Replaces substrate, aliases: [replace]}
+  - {id: effect-tunes, kind: term, label: Tunes / balances, aliases: [tune]}
+  - {id: maturity-prototype, kind: term, label: Prototype, aliases: [prototype, prototypes]}
+  - {id: maturity-research, kind: term, label: Research stage, aliases: [papers]}
+  - {id: maturity-shipped-mainstream, kind: term, label: Shipped (mainstream), aliases: [normal in games, a norm]}
+  - {id: maturity-shipped-niche, kind: term, label: Shipped (niche), aliases: [shipped in at least one game, shipped in a niche]}
+  - {id: score-feasibility, kind: term, label: Feasibility, aliases: [feasibility]}
+  - {id: score-impact, kind: term, label: Impact, aliases: [impact]}
+  - {id: score-novelty, kind: term, label: Novelty, aliases: [novelty]}
+  - {id: status-asserted, kind: term, label: Asserted, aliases: [asserted]}
+  - {id: status-sourced, kind: term, label: Sourced, aliases: [sourced]}
+  - {id: status-verified, kind: term, label: Verified, aliases: [verified]}

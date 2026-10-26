@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <polygon points="4,13 16,7 16,36 4,42" fill="#c8c8c2" stroke="#171717" stroke-width="2"/>
+  <polygon points="16,7 31,13 31,42 16,36" fill="#8c8c86" stroke="#171717" stroke-width="2"/>
+  <polygon points="31,13 44,7 44,36 31,42" fill="#c8c8c2" stroke="#171717" stroke-width="2"/>
+  <polygon points="31,26 36,23 44,24 44,36 31,42" fill="#55554f"/>
+  <polygon points="16,26 21,29 25,26 31,27 31,42 16,36" fill="#c8c8c2"/>
+  <polyline points="4,28 9,25 13,28 16,26 21,29 25,26 31,27" fill="none" stroke="#171717" stroke-width="1"/>
+  <polyline points="31,26 36,23 44,24" fill="none" stroke="#171717" stroke-width="1"/>
+  <polyline points="10,10 9,16 12,21 9,26" fill="none" stroke="#171717" stroke-width="1"/>
+  <polyline points="37,10 38,16 36,23" fill="none" stroke="#171717" stroke-width="1"/>
+  <polygon points="4,13 16,7 31,13 44,7 44,36 31,42 16,36 4,42" fill="none" stroke="#171717" stroke-width="2"/>
+  <line x1="23" y1="4" x2="23" y2="22" stroke="#171717" stroke-width="2"/>
+  <polygon points="24,3 32,6 24,9" fill="#55554f" stroke="#171717" stroke-width="1"/>
+  <ellipse cx="23" cy="22.5" rx="2.5" ry="1.5" fill="#171717"/>
+</svg>
