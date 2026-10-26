@@ -1,6 +1,6 @@
 # Episode 5. The five ceilings
 
-Target runtime about 12 minutes: about 1,330 words of narration at 135 words a minute, plus a beat of picture-only footage per scene. Covers book chapter 6. Footage: The Sims, Crusader Kings III, Reigns, RimWorld, Noita, SimCity (2013), Dwarf Fortress, Factorio, Infinite Craft, RollerCoaster Tycoon, Creatures, all captured by us; stills and published figures from the Generative Agents paper and of Façade. Publisher video policies are tracked in `media/rights.yaml` and must be checked before release. Every number below is filled in from the dataset when the script is built, and the sentences that interpret numbers carry the same checks as the book.
+Target runtime about 12 minutes: about 1,260 words of narration at 135 words a minute, plus a beat of picture-only footage per scene. Covers book chapter 6. Footage: The Sims, Crusader Kings III, Reigns, RimWorld, Noita, SimCity (2013), Dwarf Fortress, Factorio, Infinite Craft, RollerCoaster Tycoon, Creatures, all captured by us; stills and published figures from the Generative Agents paper and of Façade. Publisher video policies are tracked in `media/rights.yaml` and must be checked before release. Every number below is filled in from the dataset when the script is built, and the sentences that interpret numbers carry the same checks as the book.
 
 ## 1. Cold open (0:00 to 0:29)
 
@@ -14,7 +14,7 @@ Target runtime about 12 minutes: about 1,330 words of narration at 135 words a m
 
 **On screen.** The five ceilings. Episode 5.
 
-## 3. Behavior that lives in objects (0:39 to 2:40)
+## 3. Behavior that lives in objects (0:39 to 2:36)
 
 **Picture.** The kitchen again, with labels popping off each object: refrigerator, Hunger; bed, Energy; toilet, Bladder 0 to 70. Lines run from the Sim to each label, thicker for the ones she needs most.
 
@@ -24,13 +24,13 @@ Target runtime about 12 minutes: about 1,330 words of narration at 135 words a m
 
 **Picture.** A row of five ceiling tiles above the kitchen, each labelled: authoring, compute, legibility, determinism, believability.
 
-**Voice.** Authoring cost is one of five limits that have shaped what simulation mechanics can be. The others are the compute a machine can spend each tick, how much hidden state a player can follow, the need for the same inputs to produce the same world, and how believable a mind made of formulas can be. Each one explains habits players take for granted.
+**Voice.** Authoring cost is one of five limits that have shaped what simulation mechanics can be. The others are the compute a machine can spend each tick, how much hidden state a player can follow, the need for the same inputs to produce the same world, and how believable a mind made of formulas can be.
 
-## 4. Content made by hand (2:40 to 4:32)
+## 4. Content made by hand (2:36 to 4:24)
 
 **Picture.** Crusader Kings III: an event window about a rival's illness; a few game months later, a follow-up event about the succession; then a war declaration. Cut to Reigns: cards swiped left and right, four meters at the top of the screen moving.
 
-**Voice.** Some mechanics make variety out of rules. Others eat content. The two that eat the most, by the dataset's scores, are both about story: chains of triggered events, and dilemma cards.{{assert:field.triggered-event-chains.authoring_cost == 5}}{{assert:field.dilemma-cards.authoring_cost == 5}} In Crusader Kings III an event fires from a birth, a death, or a yearly check, and schedules its own follow-up months later, so a rival's illness becomes a succession fight and then a war [@src-paradoxwikis-2026-ck3-event-modding]. Every branch is written by hand, and players who've played enough start seeing the same chains. Reigns runs a kingdom on four meters and a deck of cards, and after enough reigns you answer from memory.
+**Voice.** The two mechanics that eat the most content, by the dataset's scores, are both about story: chains of triggered events, and dilemma cards.{{assert:field.triggered-event-chains.authoring_cost == 5}}{{assert:field.dilemma-cards.authoring_cost == 5}} In Crusader Kings III an event fires from a birth, a death, or a yearly check, and schedules its own follow-up months later, so a rival's illness becomes a succession fight and then a war [@src-paradoxwikis-2026-ck3-event-modding]. Every branch is written by hand, and players who've played enough start seeing the same chains. Reigns runs a kingdom on four meters and a deck of cards, and after enough reigns you answer from memory.
 
 **Picture.** Façade: the couple at their dinner, a text box, the player typing. A diagram fans the typed sentence into a short list of labels: agree, criticize, flirt.
 
@@ -38,7 +38,7 @@ Target runtime about 12 minutes: about 1,330 words of narration at 135 words a m
 
 **Voice.** The rater who scored every mechanic also judged how open each one is to AI, and the two judgments line up. The mechanics that cost the most to author are the ones rated most open to generative models.{{assert:rho_authoring_cost_ai_leverage > 0.2}}{{assert:mean_ai_leverage_authoring_4plus > mean_ai_leverage_authoring_2_or_less}} It's one rater, so that's a consistent reading, not a finding twice confirmed.
 
-## 5. Ticks per second (4:32 to 6:14)
+## 5. Ticks per second (4:24 to 6:06)
 
 **Picture.** RimWorld late in a long game: a large colony, the speed set to fastest. A small overlay reads the speed the game is actually managing; it falls below the speed on the button.
 
@@ -52,25 +52,25 @@ Target runtime about 12 minutes: about 1,330 words of narration at 135 words a m
 
 **Voice.** The ceiling explains city builders too. Most simulate their people as totals with a few visible faces. When SimCity in 2013 switched to agents that carry workers, water, and goods between buildings, its cities were smaller than earlier games' by design. Dwarf Fortress moves some of its cost to before you start: it can simulate thousands of years of a world's history while generating it, which takes a long time and leaves you with a very large save.
 
-## 6. What a player can follow (6:14 to 6:53)
+## 6. What a player can follow (6:06 to 6:45)
 
 **Picture.** Callback: Dwarf Fortress's flooded dining hall, then RimWorld's list of thoughts.
 
 **Voice.** The third ceiling was the last episode. On the dataset's scores, the mechanics that produce the most variety are the hardest to read, so every system a game connects to the others needs a way to be understood: an overlay, a tooltip, an inspection panel. Each one costs design time and screen space.{{assert:rho_legibility_emergence_potential < -0.2}}
 
-## 7. Same inputs, same world (6:53 to 8:33)
+## 7. Same inputs, same world (6:45 to 8:05)
 
 **Picture.** Factorio: a belt of iron plates, items moving in exact single file. The camera pulls back to two players' screens side by side, the same factory, the same item at the same spot on the same belt.
 
-**Voice.** The fourth ceiling is invisible until it breaks. Replays, bug reports from save files, leaderboards, and lockstep multiplayer all depend on the same inputs producing exactly the same world. In lockstep play, every player's machine runs the whole simulation and only inputs cross the network. Factorio is built around it. Its items move in exact, discrete steps, a belt carrying 15, 30, 45, or 60 items a second depending on its tier, so every machine in a multiplayer game computes the identical factory [@src-factoriowiki-2026-transport-belt-physics].
+**Voice.** Replays, bug reports from save files, leaderboards, and lockstep multiplayer all depend on the same inputs producing exactly the same world. In lockstep play, every player's machine runs the whole simulation and only inputs cross the network. Factorio is built around it. Its items move in exact, discrete steps, a belt carrying 15, 30, 45, or 60 items a second depending on its tier, so every machine in a multiplayer game computes the identical factory [@src-factoriowiki-2026-transport-belt-physics].
 
 **Voice.** That requirement has kept learned models out of the parts of games that decide what happens. The dataset sorts every AI technique that can run during play by what it does to reproducibility. Some break it outright. More can be made reproducible by fixing a seed, caching an answer, or logging what the model said. Episode 10 is about what happens when they meet a game that depends on it.{{assert:n_technique_runtime_breaks < n_technique_runtime_mitigable}}
 
-## 8. Minds made of formulas (8:33 to 10:36)
+## 8. Minds made of formulas (8:05 to 10:08)
 
 **Picture.** RollerCoaster Tycoon: hundreds of guests on the paths. One is clicked; a thought reads that a ride is too intense. Then RimWorld: one colonist's thought list, long and specific.
 
-**Voice.** The fifth ceiling is believability. Most simulated people choose by scoring their options against their needs and picking the best. It's cheap and readable, and it fails in recognizable ways: two options score the same and a character flips between them, or one need drowns out everything else. Designers worked within it in two directions. RollerCoaster Tycoon made many shallow guests, each with some money, a taste for intensity, a tolerance for nausea, and a stream of one-line thoughts [@src-openrct2-2026-guest-behaviour]. RimWorld and Dwarf Fortress made a few deep characters with long memories and bodies that remember every wound.
+**Voice.** The fifth ceiling is believability. Most simulated people choose by scoring their options against their needs and picking the best. It's cheap and readable, and it fails in recognizable ways: two options score the same and a character flips between them, or one need drowns out everything else. Designers worked within it in a few ways. RollerCoaster Tycoon made many shallow guests, each with some money, a taste for intensity, a tolerance for nausea, and a stream of one-line thoughts [@src-openrct2-2026-guest-behaviour]. RimWorld and Dwarf Fortress made a few deep characters with long memories and bodies that remember every wound.
 
 **Picture.** Creatures (1996): a Norn being tickled, then slapped; a diagram of its brain, chemistry, and genome.
 
@@ -80,13 +80,13 @@ Target runtime about 12 minutes: about 1,330 words of narration at 135 words a m
 
 **Voice.** In 2023 a research team put 25 language-model agents in a town modeled on The Sims. Each kept a written memory, reflected on it, and planned its day. Told that one of them wanted to throw a Valentine's Day party, the town spread the news by talking: over two game days, 13 of the 25 heard and five came. Running it cost thousands of dollars in API credits [@src-park-2023-generative-agents]. Those agents are far more believable than a Sim. Every choice they make costs money while you play, and none of them can be replayed from the inputs.
 
-## 9. Lifting one ceiling spends another (10:36 to 11:20)
+## 9. Lifting one ceiling spends another (10:08 to 10:47)
 
 **Picture.** The five ceiling tiles again. As each example is named, one tile lifts and another lowers.
 
-**Voice.** Lifting one ceiling usually lowers another. Smart objects let The Sims add behavior without touching its people, and every behavior became something to author. Individual cars let Cities: Skylines show you a jam, and cost compute and a traffic model players couldn't read. Generative Agents bought conversation with inference and reproducibility. Infinite Craft kept determinism by caching every answer. Those trades are what designers choose among.
+**Voice.** Smart objects let The Sims add behavior without touching its people, and every behavior became something to author. Individual cars let Cities: Skylines show you a jam, and cost compute and a traffic model players couldn't read. Generative Agents bought conversation with inference and reproducibility. Infinite Craft kept determinism by caching every answer.
 
-## 10. Close (11:20 to 12:18)
+## 10. Close (10:47 to 11:45)
 
 **Picture.** A board with the five ceilings as columns and recent techniques as cards being pinned under them. Most cards pile up under authoring and rendering; one card, neural upscaling, is marked shipped everywhere.
 

@@ -1,6 +1,6 @@
 # Episode 4. Why deep systems are hard to read
 
-Target runtime about 12 minutes: about 1,300 words of narration at 135 words a minute, plus a beat of picture-only footage per scene. Covers book chapter 5. Footage: Dwarf Fortress, RimWorld, Oxygen Not Included, Cities: Skylines, SimCity (1989) through Micropolis, Victoria 3, RollerCoaster Tycoon, EVE Online, all captured by us; Conway's Game of Life in an open-source simulator. Publisher video policies are tracked in `media/rights.yaml` and must be checked before release. Every number below is filled in from the dataset when the script is built, and the sentences that interpret numbers carry the same checks as the book.
+Target runtime about 12 minutes: about 1,230 words of narration at 135 words a minute, plus a beat of picture-only footage per scene. Covers book chapter 5. Footage: Dwarf Fortress, RimWorld, Oxygen Not Included, Cities: Skylines, SimCity (1989) through Micropolis, Victoria 3, RollerCoaster Tycoon, EVE Online, all captured by us; Conway's Game of Life in an open-source simulator. Publisher video policies are tracked in `media/rights.yaml` and must be checked before release. Every number below is filled in from the dataset when the script is built, and the sentences that interpret numbers carry the same checks as the book.
 
 ## 1. Cold open (0:00 to 0:45)
 
@@ -14,7 +14,7 @@ Target runtime about 12 minutes: about 1,300 words of narration at 135 words a m
 
 **On screen.** Why deep systems are hard to read. Episode 4.
 
-## 3. The chain you cannot see (0:55 to 2:20)
+## 3. The chain you cannot see (0:55 to 2:12)
 
 **Picture.** The water pumped out, dwarves back at work. A dwarf's portrait with a meter beside it that the game never shows, labelled "stress (hidden)". The meter creeps up. Months pass on a calendar in the corner. The metalsmith throws a tantrum and smashes a table; small thought bubbles pop over the dwarves watching.
 
@@ -24,9 +24,9 @@ Target runtime about 12 minutes: about 1,300 words of narration at 135 words a m
 
 **Picture.** A later game in the same world. Legends mode: the fortress listed as a site, the flood among its events. An adventurer walks into the dry, empty hall.
 
-**Voice.** Every link in that chain is simple. Water flows downhill. Grief adds stress. Tantrums spread it. The chain is hard to see because it runs through months of game time and a number the game never puts on screen. This episode is about that gap, between what a simulation can produce and what a player can follow.
+**Voice.** Every link in that chain is simple. Water flows downhill. Grief adds stress. Tantrums spread it. The chain is hard to see because it runs through months of game time and a number the game never puts on screen. 
 
-## 4. Two scores (2:20 to 3:45)
+## 4. Two scores (2:12 to 3:34)
 
 **Picture.** Two five-step scales slide in, each step labelled with its anchor text: legibility and emergence potential. Three mechanic cards drop onto them: stress, simulated history, the pause button.
 
@@ -38,9 +38,9 @@ Target runtime about 12 minutes: about 1,300 words of narration at 135 words a m
 
 **On screen.** Scores: one model rater, against written anchors. Independent ratings so far: {{stat:n_ratings}}.
 
-**Voice.** One limit applies to everything that follows. One model rater assigned every one of these scores, reading each mechanic's record against the anchors, and nobody has rated them independently yet.{{assert:n_ratings == 0}} So the patterns in this episode are a consistent reading of the design knowledge in the records. They aren't measurements of players.
+**Voice.** One model rater assigned every one of these scores, reading each mechanic's record against the anchors, and nobody has rated them independently yet.{{assert:n_ratings == 0}} So the patterns in this episode are a consistent reading of the design knowledge in the records. They aren't measurements of players.
 
-## 5. The slope (3:45 to 4:41)
+## 5. The slope (3:34 to 4:30)
 
 **Picture.** The scatter of every mechanic, legibility across, emergence up, each dot sized by how many games use it. The dots settle into a cloud that leans down to the right.
 
@@ -52,27 +52,27 @@ Target runtime about 12 minutes: about 1,300 words of narration at 135 words a m
 
 **Voice.** Part of that lean is built in. Overlays and pause buttons generate nothing by themselves, so they sit at the bottom of the emergence scale, and they're easy to read because reading them is their job. Take those two families out and the relationship weakens, but it keeps its direction.{{assert:rho_legibility_emergence_potential_excl_interface < 0}}
 
-## 6. Rules you can read (4:41 to 5:48)
+## 6. Rules you can read (4:30 to 5:34)
 
 **Picture.** Conway's Game of Life in a simulator. The rule written across the top: born with 3 neighbors, survives with 2 or 3. A five-cell R-pentomino starts to grow and doesn't stop; a generation counter climbs past a thousand.
 
-**Voice.** Legibility is about consequences more than rules. Conway's Game of Life has one rule, and it fits on a line. A dead cell with three live neighbors comes alive. A live cell with two or three survives. That's all of it, and you still can't read a pattern's future from it. This five-cell shape keeps changing for 1,103 generations before it settles.
+**Voice.** Conway's Game of Life has one rule, and it fits on a line. A dead cell with three live neighbors comes alive. A live cell with two or three survives. That's all of it, and you still can't read a pattern's future from it. This five-cell shape keeps changing for 1,103 generations before it settles.
 
 **Picture.** EVE Online: a market window with a price history chart, then a fleet battle, wrecks drifting.
 
 **Voice.** EVE Online is the same at the scale of a society. Players make nearly every ship, destroyed ships are gone for good, and every price history is public. The rules of one trade are simple. The economy those trades add up to was complicated enough that the developer hired an economist in 2007 to watch it.
 
-## 7. Harder to balance (5:48 to 6:52)
+## 7. Harder to balance (5:34 to 6:32)
 
 **Picture.** RimWorld. A colony with gold statues and fine furniture; a raid letter; an enormous raid. Then the raid points formula builds on screen term by term.
 
-**Voice.** The same scores tie variety to a second cost. Mechanics that produce more of it are rated harder to balance, and that's the strongest relationship among all six scales.{{assert:rho_emergence_potential_tuning_difficulty > 0.5}}
+**Voice.** Mechanics that produce more of it are rated harder to balance, and that's the strongest relationship among all six scales.{{assert:rho_emergence_potential_tuning_difficulty > 0.5}}
 
 **On screen.** Raid points = (wealth points + colonist points) × threat scale × starting factor × adaptation factor. Capped at 10,000.
 
 **Voice.** Before each raid, RimWorld computes a budget of raid points from your colony's wealth and your colonists, then multiplies it by a few factors, one of which drops after colonists die [@src-rimworldwiki-2026-raid-points]. None of that is on screen. Players who look it up on the wiki learn to keep their wealth down: they skip the statues and the fine furniture so the raids stay small. The mechanic scores 2 for legibility and 4 for tuning difficulty.{{assert:field.adaptive-threat-scaling.legibility == 2}}{{assert:field.adaptive-threat-scaling.tuning_difficulty == 4}}
 
-## 8. Expensive and hidden (6:52 to 8:16)
+## 8. Expensive and hidden (6:32 to 7:53)
 
 **Picture.** Oxygen Not Included. A base in normal view, then the oxygen overlay washes over it: pockets of carbon dioxide where the duplicants are about to walk. Then the temperature overlay.
 
@@ -80,9 +80,9 @@ Target runtime about 12 minutes: about 1,300 words of narration at 135 words a m
 
 **Picture.** SimCity (1989), the traffic map: a heat map of density, no cars anywhere. Cut to Cities: Skylines, a jam forming at one intersection, cars stacked in one lane while the lane beside it is empty.
 
-**Voice.** Traffic shows the trade running both ways. The original SimCity has no cars. A zone looking for a destination takes a random walk of up to 30 steps along the roads, and each success adds to a traffic number on the map [@src-hopkins-2008-micropolis]. Cities: Skylines simulates every vehicle, so you can watch a jam form. That made traffic easier to see and harder to understand. Cars crowd into one lane while the next one sits empty, and stuck cars disappear by default, which hides the real problem. Traffic congestion scores 2 for legibility.{{assert:field.traffic-congestion.legibility == 2}}
+**Voice.** The original SimCity has no cars. A zone looking for a destination takes a random walk of up to 30 steps along the roads, and each success adds to a traffic number on the map [@src-hopkins-2008-micropolis]. Cities: Skylines simulates every vehicle, so you can watch a jam form. Players could see the jams and still not understand them. Cars crowd into one lane while the next one sits empty, and stuck cars disappear by default, which hides the real problem. Traffic congestion scores 2 for legibility.{{assert:field.traffic-congestion.legibility == 2}}
 
-## 9. Mechanics that own nothing (8:16 to 9:58)
+## 9. Mechanics that own nothing (7:53 to 9:35)
 
 **Picture.** A montage of interface: SimCity's land value map, a Victoria 3 tooltip opening a second tooltip inside it, a RollerCoaster Tycoon guest window with a thought reading that a ride was too intense, Dwarf Fortress Legends scrolling.
 
@@ -90,17 +90,17 @@ Target runtime about 12 minutes: about 1,300 words of narration at 135 words a m
 
 **Voice.** Overlays recolor the map by one hidden field. Causal tooltips let you hover a number and see the named terms that add up to it, and hover the terms inside that list in turn; Paradox's strategy games are built on them [@src-pcgamesn-2022-victoria-3-nested-tooltips]. Inspection panels open one agent's head. RollerCoaster Tycoon gave every guest a stream of thoughts, so you could click a guest, read that the drinks cost too much, and change the price. Chronicles record what happened: Dwarf Fortress's Legends archive can run to about a gigabyte for a long history [@src-dfwiki-2026-legends].
 
-**Voice.** Each of these has failure modes of its own. A color ramp that rescales itself makes a small problem look as red as a big one. Tooltips grow into walls of numbers late in a game. An inspection panel that shows what a character wants but not how it decided still leaves its behavior looking random.
+**Voice.** Each of these fails in its own way. A color ramp that rescales itself makes a small problem look as red as a big one. Tooltips grow into walls of numbers late in a game. An inspection panel that shows what a character wants but not how it decided still leaves its behavior looking random.
 
-## 10. Choosing a point (9:58 to 11:11)
+## 10. Choosing a point (9:35 to 10:43)
 
 **Picture.** Split screen: Dwarf Fortress on the left, RimWorld on the right. The same event on each side: a character breaking down. On the left, a dwarf storming about with no explanation on screen. On the right, a mood bar with its thresholds and a list of thoughts.
 
-**Voice.** Every simulation game chooses where to sit between depth and legibility. Dwarf Fortress was built to break each system into parts and base each one on something real [@src-adams-2015-df-simulation-principles]. It has more mechanics than any other game in the catalog, {{stat:max_mechanics_per_game}}.{{assert:most_mechanics_game == Dwarf Fortress}} The stress numbers at the start of this episode come from the community wiki, because the game doesn't show them. RimWorld took several of the same systems and chose them for how readable their results are. Its stress is a mood bar with visible break lines, and every thought has a number and a timer.
+**Voice.** Dwarf Fortress was built to break each system into parts and base each one on something real [@src-adams-2015-df-simulation-principles]. It has more mechanics than any other game in the catalog, {{stat:max_mechanics_per_game}}.{{assert:most_mechanics_game == Dwarf Fortress}} The stress numbers at the start of this episode come from the community wiki, because the game doesn't show them. RimWorld took several of the same systems and chose them for how readable their results are. Its stress is a mood bar with visible break lines, and every thought has a number and a timer.
 
 **Voice.** Oxygen Not Included puts its depth in one rule for heat, applied to every cell, and gives you an overlay for each field that rule produces. Victoria 3 puts its explanation inside the numbers.
 
-## 11. Close (11:11 to 12:16)
+## 11. Close (10:43 to 11:48)
 
 **Picture.** A blank sheet with a chain of boxes, each labelled "visible", "findable", or "hidden".
 

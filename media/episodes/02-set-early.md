@@ -1,6 +1,6 @@
 # Episode 2. Where the parts came from
 
-Target runtime about 12 minutes: about 1,300 words of narration at 135 words a minute, plus a beat of picture-only footage per scene. Covers book chapter 3. Footage: Hamurabi (a period BASIC listing run in an emulator), SimCity (1989), M.U.L.E., Little Computer People, Dwarf Fortress, Factorio, The Oregon Trail, Minecraft, Stardew Valley, Harvest Moon; publisher video policies are tracked in `media/rights.yaml` and must be checked before release. Every number below is filled in from the dataset when the script is built, and the sentences that interpret numbers carry the same checks as the book.
+Target runtime about 12 minutes: about 1,280 words of narration at 135 words a minute, plus a beat of picture-only footage per scene. Covers book chapter 3. Footage: Hamurabi (a period BASIC listing run in an emulator), SimCity (1989), M.U.L.E., Little Computer People, Dwarf Fortress, Factorio, The Oregon Trail, Minecraft, Stardew Valley, Harvest Moon; publisher video policies are tracked in `media/rights.yaml` and must be checked before release. Every number below is filled in from the dataset when the script is built, and the sentences that interpret numbers carry the same checks as the book.
 
 ## 1. Cold open (0:00 to 0:40)
 
@@ -16,15 +16,13 @@ Target runtime about 12 minutes: about 1,300 words of narration at 135 words a m
 
 **On screen.** Where the parts came from. Episode 2.
 
-## 3. Hamurabi in parts (0:50 to 1:30)
+## 3. Hamurabi in parts (0:50 to 1:22)
 
 **Picture.** Hamurabi's six mechanics peel off the terminal as labelled cards: crops, random disasters, consumption, turns, spoilage, an advisor.
 
 **Voice.** That game is Hamurabi. The dataset behind this series lists {{derived:hamurabi.mechanic_count}} mechanics in it, and all of them are still in use. Crops that return a random yield turn up in {{derived:crop-cultivation.prevalence}} games in the catalog, including Stardew Valley.{{assert:derived.crop-cultivation.earliest_game == hamurabi}}{{assert:derived.crop-cultivation.prevalence >= 20}}
 
-**Voice.** This episode is about when the parts of simulation games appeared, and where they came from before that.
-
-## 4. A date is a lower bound (1:30 to 3:05)
+## 4. A date is a lower bound (1:22 to 2:57)
 
 **Picture.** A timeline. Each mechanic card drops onto the year of its first catalog game. Then a second, faded track appears above the first, labelled "outside the catalog": a mainframe program, a book cover, two board games, a Minecraft mod.
 
@@ -36,7 +34,7 @@ Target runtime about 12 minutes: about 1,300 words of narration at 135 words a m
 
 **On screen.** "First appears" means first appears in a game this catalog holds.
 
-## 5. Most of it by 2000 (3:05 to 3:49)
+## 5. Most of it by 2000 (2:57 to 3:41)
 
 **Picture.** The stacked chart builds year by year, one coloured layer per family, oldest families at the bottom. Two years spike: 1989 and 2013.
 
@@ -46,17 +44,17 @@ Target runtime about 12 minutes: about 1,300 words of narration at 135 words a m
 
 **On screen.** {{stat:pct_mechanics_seen_by_2000}}% of the vocabulary by 2000. {{stat:pct_games_by_2000}}% of the games.
 
-## 6. Testing the story (3:49 to 4:58)
+## 6. Testing the story (3:41 to 4:49)
 
 **Picture.** Thirty-seven cards shuffle out of the full catalog at random, then shrink to the sizes of the early games. A counter tallies the mechanics they cover. The shuffle repeats, fast, and a histogram of counts builds up. A marker shows where the real early games land.
 
-**Voice.** It is tempting to call that a golden age. Test it first. Draw {{stat:n_games_by_2000}} games at random from every era, trim each one to the size of an early game, and count the mechanics they cover. Do it two thousand times.
+**Voice.** It looks like a golden age. Chance can produce something similar. Draw {{stat:n_games_by_2000}} games at random from every era, trim each one to the size of an early game, and count the mechanics they cover. Do it two thousand times.
 
 **Voice.** A random set covers {{stat:n_mechanics_seen_null_mean}} mechanics on average. The real early games cover {{stat:n_mechanics_seen_by_2000}}. Random sets match or beat them in about one draw in nine.{{assert:n_mechanics_seen_null_mean <= n_mechanics_seen_by_2000}}{{assert:p_mechanics_seen_by_2000 > 0.05}}{{assert:p_mechanics_seen_by_2000 < 0.2}}
 
 **Voice.** So most of that headline number comes from how widely the parts are shared. A few dozen games from any period show most of the vocabulary. What survives the test is narrower: new parts come from a handful of games in every decade, and later games are built mostly from parts that already existed.
 
-## 7. The founding games (4:58 to 7:17)
+## 7. The founding games (4:49 to 7:08)
 
 **Picture.** SimCity, 1989. The land value overlay washes over the map, then crime, then pollution. A line of the Micropolis source code fades in over the crime map.
 
@@ -78,7 +76,7 @@ Target runtime about 12 minutes: about 1,300 words of narration at 135 words a m
 
 **Voice.** Theme Park, from 1994, gave every visitor a record of about 200 bytes and let each one choose what to do next by scoring the options against its needs. The catalog dates that architecture, utility action selection, to Theme Park, six years before The Sims made it famous.{{assert:derived.utility-action-selection.earliest_game == theme-park}} You could also change the recipe as well as the price: more sugar in the ice cream cost more, and brought customers back.
 
-## 8. After 2000 (7:17 to 9:13)
+## 8. After 2000 (7:08 to 9:04)
 
 **Picture.** A Tale in the Desert: a crowd of player avatars around a voting monument. Then EVE Online's market screen, columns of buy and sell orders.
 
@@ -96,7 +94,7 @@ Target runtime about 12 minutes: about 1,300 words of narration at 135 words a m
 
 **Voice.** Belts spread fast for a recent part. They reached a fifth catalog game in {{derived:conveyor-transport.year_fifth_game}}, and {{derived:conveyor-transport.prevalence}} games use them today.{{assert:derived.conveyor-transport.prevalence >= 5}}
 
-## 9. Parts that waited (9:13 to 10:20)
+## 9. Parts that waited (9:04 to 10:11)
 
 **Picture.** The Oregon Trail: a supply screen with food, clothing, and medicine counters ticking down. Match cut to Minecraft's hunger bar draining.
 
@@ -104,7 +102,7 @@ Target runtime about 12 minutes: about 1,300 words of narration at 135 words a m
 
 **Voice.** Crops waited from Hamurabi to Harvest Moon, in {{derived:crop-cultivation.second_year}}.{{assert:derived.crop-cultivation.second_game == harvest-moon}} RimWorld's work grid, colonists down one side and jobs across the top, first shows up as a minor part of SimAnt in 1991, where you balance an ant colony's workers, soldiers, and breeders. The next catalog game with it is Kenshi, in {{derived:work-priorities.second_year}}.{{assert:derived.work-priorities.earliest_game == simant}}{{assert:derived.work-priorities.second_game == kenshi}} Some of those gaps come from the catalog being thin before 1990. Some are real: a part sat in a few games until a later design gave it a central job.
 
-## 10. Built from older parts (10:20 to 11:28)
+## 10. Built from older parts (10:11 to 11:19)
 
 **Picture.** Stardew Valley, a spring morning: the energy bar full, a field of parsnips, a villager's heart meter. Each part gets a small date tag as it appears: 1968, 1993, 1996, 1996, 1997.
 
@@ -114,9 +112,9 @@ Target runtime about 12 minutes: about 1,300 words of narration at 135 words a m
 
 **Picture.** Factorio's core parts lay out as date tags: 1982, 1983, 1989, 1991, 1998, 2006, and one tag reading 2013 on the conveyor belt.
 
-**Voice.** Factorio is the same story with one new part. Its extraction, production chains, power grid, pollution, tech tree, raids, and escalating enemies all predate it in the catalog. The conveyor belt is the exception, and the game is built around it.{{assert:derived.factorio.introduced_count >= 1}}{{assert:derived.adaptive-threat-scaling.earliest_game == dwarf-fortress}}{{assert:derived.tech-tree.earliest_game == civilization}}
+**Voice.** Factorio has the same history, plus one new part. Its extraction, production chains, power grid, pollution, tech tree, raids, and escalating enemies all predate it in the catalog. The conveyor belt is the exception, and the game is built around it.{{assert:derived.factorio.introduced_count >= 1}}{{assert:derived.adaptive-threat-scaling.earliest_game == dwarf-fortress}}{{assert:derived.tech-tree.earliest_game == civilization}}
 
-## 11. Close (11:28 to 12:17)
+## 11. Close (11:19 to 12:08)
 
 **Picture.** A blank list with a year column beside it.
 

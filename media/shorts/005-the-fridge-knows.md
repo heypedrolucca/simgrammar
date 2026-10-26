@@ -20,7 +20,7 @@ Vertical, about 55 seconds, about 100 words of narration. One finding, from The 
 
 **Picture.** New objects pour into the Buy mode catalog, each one bringing a new action into the Sim's menu.
 
-**Voice.** That's how The Sims kept growing. Each expansion taught Sims new things by selling them new objects, without changing the Sims at all.
+**Voice.** Each expansion taught Sims new things by selling them new objects, without changing the Sims at all.
 
 ## 0:38 to 0:52. The cost
 

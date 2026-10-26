@@ -20,7 +20,7 @@ Vertical, about 55 seconds, about 100 words of narration. One finding, from tech
 
 **Picture.** The player clicks the assembler at the end of the stalled line. Far upstream, off screen, one furnace sits idle. A slow pan finds it.
 
-**Voice.** Take one problem a technique could fix. A furnace starves far upstream, and the player blames the building in front of them. The simulation knows exactly which furnace is idle, and why. It just never says.
+**Voice.** A furnace starves far upstream, and the player blames the building in front of them. The simulation knows exactly which furnace is idle, and why. It never tells the player.
 
 ## 0:40 to 0:52. Where the research went
 

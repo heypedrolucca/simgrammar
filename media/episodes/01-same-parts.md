@@ -1,6 +1,6 @@
 # Episode 1. Every simulation game is made of the same parts
 
-Target runtime about 9 minutes: about 900 words of narration at 135 words a minute, plus a beat of picture-only footage per scene. Covers book chapters 1 and 2. Footage: RimWorld, Dwarf Fortress, SimCity (1989), Factorio, Oxygen Not Included, The Sims, Frostpunk, all captured by us; a still of Façade. Publisher video policies are tracked in `media/rights.yaml` and must be checked before release. Every number below is filled in from the dataset when the script is built, and the sentences that interpret numbers carry the same checks as the book.
+Target runtime about 9 minutes: about 890 words of narration at 135 words a minute, plus a beat of picture-only footage per scene. Covers book chapters 1 and 2. Footage: RimWorld, Dwarf Fortress, SimCity (1989), Factorio, Oxygen Not Included, The Sims, Frostpunk, all captured by us; a still of Façade. Publisher video policies are tracked in `media/rights.yaml` and must be checked before release. Every number below is filled in from the dataset when the script is built, and the sentences that interpret numbers carry the same checks as the book.
 
 ## 1. Cold open (0:00 to 0:52)
 
@@ -34,7 +34,7 @@ Target runtime about 9 minutes: about 900 words of narration at 135 words a minu
 
 **Picture.** Each core card flies to its column in the grid. Most columns are thin.
 
-**Voice.** Now count how many other games use each part. The storyteller is in {{derived:storyteller-director.prevalence}} catalog games. Mood breaks in {{derived:mood-breakdown.prevalence}}. Injuries by body part in {{derived:injury-body-model.prevalence}}.{{assert:derived.storyteller-director.prevalence <= 5}}{{assert:derived.mood-breakdown.prevalence <= 10}}{{assert:derived.injury-body-model.prevalence <= 10}} Only needs that decay are common, shared by {{derived:needs-decay.prevalence}} games going back to Little Computer People in 1985.{{assert:derived.needs-decay.prevalence > 20}}{{assert:derived.needs-decay.earliest_game == little-computer-people}}
+**Voice.** Now look at how many other games use each part. The storyteller is in {{derived:storyteller-director.prevalence}} catalog games. Mood breaks in {{derived:mood-breakdown.prevalence}}. Injuries by body part in {{derived:injury-body-model.prevalence}}.{{assert:derived.storyteller-director.prevalence <= 5}}{{assert:derived.mood-breakdown.prevalence <= 10}}{{assert:derived.injury-body-model.prevalence <= 10}} Only needs that decay are common, shared by {{derived:needs-decay.prevalence}} games going back to Little Computer People in 1985.{{assert:derived.needs-decay.prevalence > 20}}{{assert:derived.needs-decay.earliest_game == little-computer-people}}
 
 **Picture.** Arrows from three columns back to one row: Dwarf Fortress, 2006. Then a still of Façade: two characters at a dinner party.
 
@@ -44,7 +44,7 @@ Target runtime about 9 minutes: about 900 words of narration at 135 words a minu
 
 **Picture.** The game-by-mechanic grid fills in row by row, oldest game at the top, a year counter ticking in the corner.
 
-**Voice.** Do that for every game and you get this. {{stat:n_game}} games, from {{stat:year_min}} to {{stat:year_max}}, broken into a shared vocabulary of {{stat:n_mechanic}} mechanics. Each row is a game. Each column is a mechanic. A dark mark means the part is core.
+**Voice.** Do that for every game in the catalog. {{stat:n_game}} games, from {{stat:year_min}} to {{stat:year_max}}, broken into a shared vocabulary of {{stat:n_mechanic}} mechanics. Each row is a game. Each column is a mechanic. A dark mark means the part is core.
 
 **On screen.** {{stat:n_game}} games. {{stat:n_mechanic}} mechanics. {{stat:n_uses_edges}} uses.
 
@@ -64,11 +64,11 @@ Target runtime about 9 minutes: about 900 words of narration at 135 words a minu
 
 **Voice.** RimWorld's pattern holds across the catalog. The parts a game calls core are used by a median of {{stat:median_prevalence_core_uses}} catalog games. The parts it calls supporting, by {{stat:median_prevalence_supporting_uses}}.{{assert:median_prevalence_core_uses < median_prevalence_supporting_uses}} And {{stat:pct_games_with_rare_core}} percent of games have at least one core part that no more than {{stat:rare_max_games}} games share.{{assert:pct_games_with_rare_core >= 75}}
 
-## 8. Six jobs (5:37 to 7:22)
+## 8. Six jobs (5:37 to 7:19)
 
 **Picture.** SimCity, 1989. A block of houses stalls next to an industrial strip. The crime map washes over it, then land value.
 
-**Voice.** The parts also sort by the job they do. In SimCity, crime in each cell is a formula: 128, minus land value, plus density, minus police [@src-hopkins-2008-micropolis]. The maps hold the city's state. The formulas change it. Pollution dragging down land value connects one system to another. Zoning brings in what you want. The overlays show you what is going on. And disasters and the yearly budget decide when you have to pay attention.
+**Voice.** The parts also do different jobs. In SimCity, crime in each cell is a formula: 128, minus land value, plus density, minus police [@src-hopkins-2008-micropolis]. The maps hold the city's state. The formulas change it. Pollution dragging down land value connects one system to another. Zoning brings in what you want. The overlays show you what is going on. And disasters and the yearly budget decide when you have to pay attention.
 
 **On screen.** Substrate. Dynamics. Coupling. Control. Legibility. Pacing and stakes.
 
@@ -82,9 +82,9 @@ Target runtime about 9 minutes: about 900 words of narration at 135 words a minu
 
 **Picture.** The Sims: a Sim heads to the fridge on its own; the bills sit unpaid until the player clicks.
 
-**Voice.** The Sims chooses where your control stops. Sims feed themselves, but paying bills and finding a job need you [@src-wikipedia-the-sims]. And Frostpunk shows the last job, pacing: the temperature falls on a schedule toward a storm you know is coming [@src-wikipedia-frostpunk].
+**Voice.** The Sims chooses where your control stops. Sims feed themselves, but paying bills and finding a job need you [@src-wikipedia-the-sims]. Frostpunk shows pacing: the temperature falls on a schedule toward a storm you know is coming [@src-wikipedia-frostpunk].
 
-## 9. Where genres spend (7:22 to 8:15)
+## 9. Where genres spend (7:19 to 8:12)
 
 **Picture.** A table builds row by row: each subgenre, and the three families of parts it uses most.
 
@@ -92,7 +92,7 @@ Target runtime about 9 minutes: about 900 words of narration at 135 words a minu
 
 **Voice.** Most combinations of these parts have never been tried. Of the {{stat:n_possible_pairs}} possible pairs of mechanics, {{stat:pair_coverage_pct}} percent have ever shared a game.{{assert:pair_coverage_pct < 50}} Later episodes go looking in the gaps.
 
-## 10. Close (8:15 to 9:03)
+## 10. Close (8:12 to 9:00)
 
 **Picture.** A blank grid row with a cursor over it.
 

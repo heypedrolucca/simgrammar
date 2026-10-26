@@ -1,6 +1,6 @@
 # Episode 3. Families across genres
 
-Target runtime about 12 minutes: about 1,300 words of narration at 135 words a minute, plus a beat of picture-only footage per scene. Covers book chapter 4. Footage: Factorio, Anno 1800, Papers, Please, Princess Maker 2, Job Simulator, Besiege, Farming Simulator 25, iRacing, Black & White, Creatures, inZOI, AI Dungeon, Elite, Elite Dangerous, M.U.L.E., Offworld Trading Company, Frostpunk, Frostpunk 2; publisher video policies are tracked in `media/rights.yaml` and must be checked before release. Every number below is filled in from the dataset when the script is built, and the sentences that interpret numbers carry the same checks as the book.
+Target runtime about 12 minutes: about 1,270 words of narration at 135 words a minute, plus a beat of picture-only footage per scene. Covers book chapter 4. Footage: Factorio, Anno 1800, Papers, Please, Princess Maker 2, Job Simulator, Besiege, Farming Simulator 25, iRacing, Black & White, Creatures, inZOI, AI Dungeon, Elite, Elite Dangerous, M.U.L.E., Offworld Trading Company, Frostpunk, Frostpunk 2; publisher video policies are tracked in `media/rights.yaml` and must be checked before release. Every number below is filled in from the dataset when the script is built, and the sentences that interpret numbers carry the same checks as the book.
 
 ## 1. Cold open (0:00 to 0:45)
 
@@ -36,17 +36,17 @@ Target runtime about 12 minutes: about 1,300 words of narration at 135 words a m
 
 **Voice.** Factorio lands with Satisfactory, shapez 2, Dyson Sphere Program, and Captain of Industry. Anno 1800 lands with Manor Lords, Banished, Caesar III, and Pharaoh.{{assert:derived.satisfactory.cluster == derived.factorio.cluster}}{{assert:derived.captain-of-industry.cluster == derived.factorio.cluster}}{{assert:derived.manor-lords.cluster == derived.anno-1800.cluster}}{{assert:derived.caesar-3.cluster == derived.anno-1800.cluster}}
 
-## 5. How many families (2:56 to 4:17)
+## 5. How many families (2:56 to 4:11)
 
 **Picture.** The catalog drops a fifth of its games at random, re-clusters, and compares the result with the full clustering. A score ticks up and down. The process repeats, fast, a thousand times. A curve of average agreement against the number of clusters draws itself, nearly flat on the right.
 
-**Voice.** How many families is not a number anyone gets to choose by taste. The build re-clusters {{stat:cluster_subsamples}} random subsets of the games and checks how well each agrees with the full result. The stated rule takes the smallest number of clusters whose average agreement reaches {{stat:cluster_min_mean_ari}}. When it was last applied, that was {{stat:cluster_k}}. On today's data the same rule picks {{stat:cluster_rule_k}}.{{assert:cluster_rule_k != cluster_k}}{{assert:cluster_k_drift == 0}}
+**Voice.** The build re-clusters {{stat:cluster_subsamples}} random subsets of the games and checks how well each agrees with the full result. The stated rule takes the smallest number of clusters whose average agreement reaches {{stat:cluster_min_mean_ari}}. When it was last applied, that was {{stat:cluster_k}}. On today's data the same rule picks {{stat:cluster_rule_k}}.{{assert:cluster_rule_k != cluster_k}}{{assert:cluster_k_drift == 0}}
 
 **Voice.** The curve is that flat. So the number of families is a weak fact, and this series only claims pairings that survive the resampling. When it says two games belong together, they share a cluster in at least {{stat:cocluster_together}} of those subsets. When it says they stand apart, in at most {{stat:cocluster_apart}}. Each claim is checked every time the dataset is built. By a separate measure, {{stat:n_stable_clusters}} of the {{stat:n_clusters}} clusters keep their shape across the resampling, and the rest shift as games come and go.{{assert:n_stable_clusters >= 10}}{{assert:n_stable_clusters < n_clusters}}
 
 **On screen.** Together: ≥ {{stat:cocluster_together}} of subsamples. Apart: ≤ {{stat:cocluster_apart}}.
 
-## 6. Odd couples (4:17 to 7:09)
+## 6. Odd couples (4:11 to 7:03)
 
 **Picture.** Split screen. Left: Papers, Please, a passport under a lamp, a rulebook page, a clock. Right: Princess Maker 2, a month's calendar split into three slots, a daughter's attribute chart.
 
@@ -80,7 +80,7 @@ Target runtime about 12 minutes: about 1,300 words of narration at 135 words a m
 
 **Voice.** And inZOI runs language-model characters, but its other parts are The Sims 4's, so it sits with The Sims and apart from AI Dungeon and Infinite Craft.{{assert:derived.inzoi.cluster == derived.the-sims-4.cluster}}{{assert:derived.inzoi.cluster != derived.ai-dungeon.cluster}}
 
-## 7. Series and descendants (7:09 to 8:17)
+## 7. Series and descendants (7:03 to 8:11)
 
 **Picture.** Elite, 1984, a wireframe ship. Dissolve to Elite Dangerous, 2014, the same docking manoeuvre in full colour.
 
@@ -90,31 +90,31 @@ Target runtime about 12 minutes: about 1,300 words of narration at 135 words a m
 
 **Voice.** The method also finds descendants with different names. Offworld Trading Company, from 2015, shares a family with M.U.L.E., from 1983, in every resampling.{{assert:cocluster.mule.offworld-trading-company >= 0.9}} Its designer names M.U.L.E. and Railroad Tycoon as inspirations. Prices move with every purchase and sale, and you win by buying up your rivals' shares, a mechanic the catalog first records in Railroad Tycoon.{{assert:derived.equity-buyouts.earliest_game == railroad-tycoon}} Those old trading games keep a weaker tie to the factory games. Factorio shares a cluster with Railroad Tycoon in about half the resamplings, and with Satisfactory in all of them.{{assert:cocluster.factorio.railroad-tycoon > 0.3}}{{assert:cocluster.factorio.railroad-tycoon < 0.7}}{{assert:cocluster.factorio.railroad-tycoon < cocluster.factorio.satisfactory}}
 
-## 8. The sequel that moved (8:17 to 9:22)
+## 8. The sequel that moved (8:11 to 9:18)
 
 **Picture.** Frostpunk: a radial city around a glowing generator, temperature dropping on a gauge, the Book of Laws open on child labour.
 
-**Voice.** One series in the catalog splits. Frostpunk is a survival city builder around a single coal generator. Temperature falls on a schedule, and the laws you sign trade your people's welfare for output. Its nearest neighbour is Against the Storm.{{assert:derived.against-the-storm.cluster == derived.frostpunk.cluster}}
+**Voice.** Frostpunk is the one series in the catalog that splits. Frostpunk is a survival city builder around a single coal generator. Temperature falls on a schedule, and the laws you sign trade your people's welfare for output. Its nearest neighbour is Against the Storm.{{assert:derived.against-the-storm.cluster == derived.frostpunk.cluster}}
 
 **Picture.** Frostpunk 2: a council chamber, a hundred seats coloured by faction, a vote count climbing toward 51.
 
 **Voice.** Frostpunk 2 builds districts instead of buildings and passes laws through a council of a hundred delegates. Most laws need 51 votes. Broken promises anger factions, and faction tension can end in civil war. The developer describes social survival as a bigger threat than the cold. Its parts put it with Tropico 6 and Europa Universalis IV, and it shares a cluster with the first game in fewer than half of the resamplings.{{assert:derived.frostpunk-2.cluster == derived.tropico-6.cluster}}{{assert:cocluster.frostpunk.frostpunk-2 < 0.5}}
 
-## 9. How much genre explains (9:22 to 10:25)
+## 9. How much genre explains (9:18 to 10:13)
 
 **Picture.** The design map with each game coloured by its store genre. Most islands are mostly one colour; many have a second and third.
 
-**Voice.** Compare the families with genre labels. Knowing a game's family tells you a good deal about its genre: normalized mutual information is {{stat:cluster_subgenre_nmi}}, against {{stat:cluster_subgenre_null_nmi}} when the labels are shuffled at random.{{assert:cluster_subgenre_nmi > cluster_subgenre_null_nmi}}{{assert:p_cluster_subgenre_nmi <= 0.01}} By a stricter score, the adjusted Rand index, where 1 would mean the families reproduce the genres exactly, agreement is only {{stat:cluster_subgenre_ari}}.{{assert:cluster_subgenre_ari < 0.6}} And {{stat:n_clusters_cross_subgenre}} of the {{stat:n_clusters}} clusters mix genres. Mechanics recover where games came from far better than chance, and they still cross genre lines often.{{assert:n_clusters_cross_subgenre >= 10}}
+**Voice.** Knowing a game's family tells you a good deal about its genre: normalized mutual information is {{stat:cluster_subgenre_nmi}}, against {{stat:cluster_subgenre_null_nmi}} when the labels are shuffled at random.{{assert:cluster_subgenre_nmi > cluster_subgenre_null_nmi}}{{assert:p_cluster_subgenre_nmi <= 0.01}} By a stricter score, the adjusted Rand index, where 1 would mean the families reproduce the genres exactly, agreement is only {{stat:cluster_subgenre_ari}}.{{assert:cluster_subgenre_ari < 0.6}} And {{stat:n_clusters_cross_subgenre}} of the {{stat:n_clusters}} clusters mix genres. Mechanics recover where games came from far better than chance, and they still cross genre lines often.{{assert:n_clusters_cross_subgenre >= 10}}
 
-**Voice.** Genre tells you where a game came from and who bought it. The family tells you what it is built from, which is the part a designer can borrow.
+**Voice.** A game's family says what it is built from, and that is the part a designer can borrow.
 
-## 10. Limits (10:25 to 11:24)
+## 10. Limits (10:13 to 11:09)
 
 **Picture.** The Game of Life's glider crawling across a grid, next to Hamurabi's text report.
 
-**Voice.** The method has blind spots. Games with very few mechanics look alike by what they lack: the Game of Life has no turns and still clusters with Hamurabi and The Oregon Trail.{{assert:cocluster.hamurabi.game-of-life >= 0.9}}{{assert:derived.game-of-life.mechanic_count <= 3}} Some clusters fall apart under resampling: the one that holds Frostpunk, Plague Inc., Timberborn, and FTL changes from subset to subset, and only Frostpunk and Against the Storm stay together.{{assert:cocluster.frostpunk.against-the-storm >= 0.9}} The clustering also sees which parts a game uses and ignores how they are tuned, and every decomposition so far was written by one model rater. A second rater is the next test of these families.
+**Voice.** Games with very few mechanics look alike by what they lack: the Game of Life has no turns and still clusters with Hamurabi and The Oregon Trail.{{assert:cocluster.hamurabi.game-of-life >= 0.9}}{{assert:derived.game-of-life.mechanic_count <= 3}} Some clusters fall apart under resampling: the one that holds Frostpunk, Plague Inc., Timberborn, and FTL changes from subset to subset, and only Frostpunk and Against the Storm stay together.{{assert:cocluster.frostpunk.against-the-storm >= 0.9}} The clustering also sees which parts a game uses and ignores how they are tuned, and every decomposition so far was written by one model rater. A second rater is the next test of these families.
 
-## 11. Close (11:24 to 12:18)
+## 11. Close (11:09 to 12:03)
 
 **Picture.** A blank card bundle for the viewer's game, with its rare parts circled.
 

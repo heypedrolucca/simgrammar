@@ -1,6 +1,6 @@
 # Episode 11. Keeping score
 
-Target runtime about 12 minutes: about 1,200 words of narration at 135 words a minute, plus a beat of picture-only footage per scene. Covers book chapter 12. Footage: screen recordings of the dataset's prediction records, its predictions table, and its resolution brief; store pages and patch notes appear as generic mock-ups with no real title shown. No game footage. Every number below is filled in from the dataset when the script is built, and the sentences that interpret numbers carry the same checks as the book.
+Target runtime about 11 minutes: about 1,180 words of narration at 135 words a minute, plus a beat of picture-only footage per scene. Covers book chapter 12. Footage: screen recordings of the dataset's prediction records, its predictions table, and its resolution brief; store pages and patch notes appear as generic mock-ups with no real title shown. No game footage. Every number below is filled in from the dataset when the script is built, and the sentences that interpret numbers carry the same checks as the book.
 
 ## 1. Cold open (0:00 to 0:38)
 
@@ -32,15 +32,15 @@ Target runtime about 12 minutes: about 1,200 words of narration at 135 words a m
 
 **Voice.** The fix set three rules for every prediction. A feature only counts if it first shipped after the dataset was published. Size is a stated number of Steam reviews, or a console release. And the evidence has to come from the developer: patch notes, a store page, documentation, a talk.
 
-## 5. Two tests per bet (3:26 to 4:37)
+## 5. Two tests per bet (3:26 to 4:35)
 
 **Picture.** One opportunity record, split down the middle: on the left its validation experiment, on the right its prediction.
 
-**Voice.** Each bet in the dataset carries two tests, and they test different things. The experiment tests the idea: what a small team would build in a month, who would play it, and the number that counts as success. For the why button, that's a correct diagnosis forty percent faster with nearly every sentence backed by the log. Anyone can run it tomorrow.
+**Voice.** Each bet in the dataset carries two tests. The experiment tests the idea: what a small team would build in a month, who would play it, and the number that counts as success. For the why button, that's a correct diagnosis forty percent faster with nearly every sentence backed by the log. Anyone can run it tomorrow.
 
 **Voice.** The prediction tests the world: whether anyone ships the thing by a date. An idea can pass the experiment and still lose the prediction, because studios didn't build it in time. It can also win the prediction with a design the experiment would have rejected. The record keeps both, so a reader can tell which kind of wrong a bet turned out to be.
 
-## 6. The calendar (4:37 to 5:43)
+## 6. The calendar (4:35 to 5:41)
 
 **Picture.** The predictions table scrolls, grouped by year. A bar under each year grows to its count.
 
@@ -48,7 +48,7 @@ Target runtime about 12 minutes: about 1,200 words of narration at 135 words a m
 
 **Voice.** All {{stat:n_predictions}} are open right now.{{assert:n_predictions_open == n_predictions}} {{stat:n_predictions_by_2027}} come due by the end of 2027, {{stat:n_predictions_by_2028}} by the end of 2028, and the last on {{stat:last_prediction_resolves}}.{{assert:n_predictions_by_2027 < n_predictions_by_2028}} The {{stat:n_predictions_first_date}} due first cover the why button, events generated against a schema, endless inspection shifts for a Papers, Please-style game, furniture generated from text, run histories written up automatically, local language models, automated balancing, a voice instructor in a flight or racing sim, and simulation games released as test beds for AI agents. Most of the early dates belong to bets rated buildable now. The late ones are the long shots from episode 9: a game drawn by a generative model, a mechanic invented by a search program.
 
-## 7. Four more cards (5:43 to 7:10)
+## 7. Four more cards (5:41 to 7:08)
 
 **Picture.** Four prediction cards in a grid. Each one's limiting clause highlights as the narration reaches it.
 
@@ -60,7 +60,7 @@ Target runtime about 12 minutes: about 1,200 words of narration at 135 words a m
 
 **Voice.** And one counts studios: two different studios have to describe in public using large-scale automated play to balance a game's economy.{{assert:field.parallel-autobalance.falsifiable_signal.resolve_by == first_prediction_resolves}} That one can fail because a studio does it and never says so, and the record will still say refuted.
 
-## 8. Who is allowed to check (7:10 to 9:04)
+## 8. Who is allowed to check (7:08 to 9:00)
 
 **Picture.** The resolution brief on screen. Then a resolution block being added to a prediction's record: outcome, date, run, evidence, note.
 
@@ -70,23 +70,23 @@ Target runtime about 12 minutes: about 1,200 words of narration at 135 words a m
 
 **Voice.** A refuted prediction counts against the bet's argument as well as its timing. The rules ask that nobody rewrite the argument in the same change that records the loss, so the losing case stays readable next to the evidence.
 
-**Voice.** And nothing gets to slip past its date unnoticed. Every time the dataset is built, a warning lists each prediction whose date has passed without a resolution, and it keeps appearing until someone checks. <!-- tells-ok: setup-sentence -->
+**Voice.** Every time the dataset is built, a warning lists each prediction whose date has passed without a resolution, and it keeps appearing until someone checks. <!-- tells-ok: setup-sentence -->
 
-## 9. What the scoreboard tests (9:04 to 10:04)
+## 9. What the scoreboard tests (9:00 to 9:58)
 
 **Picture.** The ranked table of bets, with an empty column labelled "outcome" beside it. Then the technique table, its maturity column highlighted: research, prototype, shipped in a niche, shipped as a norm.
 
-**Voice.** Once results come in, the scoreboard tests more than the bets. It tests the rankings. If the scores behind the table mean anything, confirmations should gather near the top. A run of refutations among the explanation bets would mean this series was wrong about what studios would build, even if it was right about what players need.
+**Voice.** Once results come in, the scoreboard also tests the rankings. If the scores behind the table mean anything, confirmations should gather near the top. A run of refutations among the explanation bets would mean this series was wrong about what studios would build, even if it was right about what players need.
 
 **Voice.** It also tests the dataset's maturity scores. Every technique is rated research, prototype, shipped in a niche, or shipped as a norm. If a bet that depends on a research-stage technique comes true on time, that's evidence the scale was running behind the field.
 
-## 10. Try one (10:04 to 10:56)
+## 10. Try one (9:58 to 10:50)
 
 **Picture.** A blank card with four numbered lines, filling in as the narration goes.
 
 **Voice.** You can do this yourself today. Pick a prediction that's more than a year out. Turn every clause into a yes-or-no question. Search for each answer, and write down where you found it. Decide what the outcome would be if the date were today. Then write the two-sentence note you'd attach, so that someone who never saw your search could check it. Most people find a clause the criteria leave open, and that's worth a proposal to sharpen the prediction before it comes due.
 
-## 11. Close (10:56 to 11:32)
+## 11. Close (10:50 to 11:26)
 
 **Picture.** The calendar from the cold open, the cards still pinned to {{stat:first_prediction_resolves}}.
 
