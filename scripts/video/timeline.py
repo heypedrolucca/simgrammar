@@ -19,6 +19,8 @@ def prefix(key):
     b = os.path.basename(key)
     return 'th' if b.startswith('the-film') else b[:2] if key.startswith('episodes') else 's' + b[:3]
 
+LONG = 190   # about the two lines the 16:9 caption box shows (render.html #cap); a longer caption loses its last line
+
 def sentences(text):
     parts = re.split(r'(?<=[.!?])\s+(?=[A-Z0-9"“‘])', text.strip())
     out = []
@@ -27,6 +29,11 @@ def sentences(text):
             cut = max((p.rfind(sep, 40, 110) for sep in (', ', '; ', ': ')), default=-1)
             if cut < 0: break
             out.append(p[:cut + 1]); p = p[cut + 2:]
+        if len(p) > LONG:   # no separator where the rule above looks: halve it at the one nearest the middle, else at a space
+            m = len(p) / 2
+            cuts = [i + 1 for i in range(len(p)) if p[i:i + 2] in (', ', '; ', ': ', '. ') and abs(i + 1 - m) < len(p) / 4]
+            cut = min(cuts or [i for i, ch in enumerate(p) if ch == ' '], key=lambda i: abs(i - m))
+            out.append(p[:cut].rstrip()); p = p[cut:].strip()
         out.append(p)
     return [x for x in out if x]
 
