@@ -53,6 +53,11 @@ QUOTES = {"\u2018": "'", "\u2019": "'", "\u201a": "'", "\u201b": "'", "\u201c": 
 SEQUEL = re.compile(r"^[\s:,-]*(\d+|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii)\b")
 
 
+# Tags that separate words. Inline tags (a, b, i, span, sup) do not: "<a>Studios</a>, with" reads "Studios, with".
+BLOCK = {"p", "br", "div", "li", "ul", "ol", "dd", "dt", "h1", "h2", "h3", "h4", "h5", "h6", "td", "th", "tr", "table",
+         "section", "article", "header", "footer", "blockquote", "figcaption", "caption", "pre", "hr"}
+
+
 class _Text(HTMLParser):
     def __init__(self):
         super().__init__(convert_charrefs=True)
@@ -61,12 +66,14 @@ class _Text(HTMLParser):
     def handle_starttag(self, tag, attrs):
         if tag in ("script", "style", "noscript", "svg"):
             self.skip += 1
-        elif tag in ("p", "br", "div", "li", "h1", "h2", "h3", "h4", "td", "tr", "section", "article"):
+        elif tag in BLOCK:
             self.parts.append(" ")
 
     def handle_endtag(self, tag):
         if tag in ("script", "style", "noscript", "svg") and self.skip:
             self.skip -= 1
+        elif tag in BLOCK:
+            self.parts.append(" ")
 
     def handle_data(self, data):
         if not self.skip:
@@ -79,7 +86,9 @@ def normalize(text: str) -> str:
         text = text.replace(a, b)
     text = unicodedata.normalize("NFKC", text)
     text = FOOTNOTE.sub("", text)
-    return re.sub(r"\s+", " ", text).strip().lower()
+    text = re.sub(r"\s+", " ", text)
+    text = re.sub(r" ([,.;:!?)\]])", r"\1", text).replace("( ", "(")  # no space before closing punctuation
+    return text.strip().lower()
 
 
 def divergence(quote: str, text: str) -> str:
@@ -103,7 +112,10 @@ def page_text(raw: str, content_type: str = "") -> str:
     if "html" in content_type or raw.lstrip()[:1] == "<":
         p = _Text()
         p.feed(raw)
-        raw = " ".join(p.parts)
+        # Inline tags join without a space ("Studios</a>, with"). Some layouts butt inline blocks together with no
+        # whitespace ("<span>Day</span><span>One</span>"), so the space-joined reading is kept too, after a separator
+        # no quote contains.
+        return normalize("".join(p.parts)) + "\x00" + normalize(" ".join(p.parts))
     return normalize(raw)
 
 
