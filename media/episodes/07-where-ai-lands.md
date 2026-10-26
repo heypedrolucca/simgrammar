@@ -1,20 +1,20 @@
 # Episode 7. Where AI lands
 
-Target runtime about 14 minutes: about 1,300 words of narration at 135 words a minute, plus a beat of picture-only footage per scene. Covers book chapter 8. Footage: Infinite Craft, RimWorld, Crusader Kings III, Victoria 3, Dwarf Fortress, inZOI, The Sims, Factorio, all captured by us; a still from the DIAMOND paper's Counter-Strike model, credited. Publisher video policies are tracked in `media/rights.yaml` and must be checked before release. Every number below is filled in from the dataset when the script is built, and the sentences that interpret numbers carry the same checks as the book.
+Target runtime about 13 minutes: about 1,310 words of narration at 135 words a minute, plus a beat of picture-only footage per scene. Covers book chapter 8. Footage: Infinite Craft, RimWorld, Crusader Kings III, Victoria 3, Dwarf Fortress, inZOI, The Sims, Factorio, all captured by us; a still from the DIAMOND paper's Counter-Strike model, credited. Publisher video policies are tracked in `media/rights.yaml` and must be checked before release. Every number below is filled in from the dataset when the script is built, and the sentences that interpret numbers carry the same checks as the book.
 
-## 1. Cold open (0:00 to 0:00)
+## 1. Cold open (0:00 to 0:36)
 
 **Picture.** Infinite Craft. Four tiles: water, fire, wind, earth. The cursor drags one onto another; a new tile pops out. Faster now, combination after combination. Then one combination pauses for a beat, a new tile appears, and a badge flashes: First Discovery.
 
 **Voice.** Every pair you try in Infinite Craft has an answer stored in a database every player shares. Until you try a pair nobody's tried. Then a language model names the result, the game saves it, and from that moment everyone who makes that pair gets your answer [@src-wikipedia-infinite-craft].
 
-## 2. Title (0:00 to 0:00)
+## 2. Title (0:36 to 0:46)
 
 **Picture.** Title card over a wall of tiles.
 
 **On screen.** Where AI lands. Episode 7.
 
-## 3. A rule decided once (0:00 to 0:00)
+## 3. A rule decided once (0:46 to 2:04)
 
 **Picture.** A diagram: a pair of tiles goes into a lookup box. Hit: the stored answer comes back. Miss: an arrow to a model, then back into the box, which now holds one more row.
 
@@ -22,19 +22,19 @@ Target runtime about 14 minutes: about 1,300 words of narration at 135 words a m
 
 **Voice.** It also helps that a combination has no right answer. When researchers asked GPT-4 to predict the next state of text games, across 76,369 transitions, it got the whole state right at most 59.9 percent of the time [@src-wang-2024-text-world-simulators]. An Infinite Craft tile only has to be plausible once. A model asked to run a city's water table would have to be right every tick.
 
-## 4. Where the techniques come from (0:00 to 0:00)
+## 4. Where the techniques come from (2:04 to 3:00)
 
 **Picture.** A timeline of the dataset's techniques by year: a thin trickle from 2006, then a wall of cards from 2023 on, most labelled with language models or world models.
 
 **Voice.** The techniques in the dataset are recent. {{stat:n_technique_since_2023}} of the {{count:technique}} are dated 2023 or later, and the biggest single group is world models, the systems that generate a playable scene frame by frame.{{assert:n_technique_since_2023 > 20}} The set was built by looking for dated results that change a named game mechanic, so it probably leans toward fields that publish constantly and say so when they apply to games. A scheduling method from operations research that could balance a game's economy only gets in once someone applies it to a game and writes it down.
 
-## 5. Seven kinds of change (0:00 to 0:00)
+## 5. Seven kinds of change (3:00 to 4:08)
 
 **Picture.** Seven quick clips, each labelled with one effect: a Zoi crossing a room on a model's decision, "replaces"; a GT Sophy car on the limit, "deepens"; a teammate following a spoken order, "enables"; a scene appearing from a typed prompt, "cuts authoring"; a tooltip, "explains"; a bot running a test level, "tunes"; a flight sim at a higher frame rate, "accelerates."
 
 **Voice.** Every technique in the dataset is linked to each mechanic it changes, and every link says how. It can replace how a mechanic works, the way inZOI's small model replaces the formula that picks a Zoi's next action. It can deepen a mechanic, the way GT Sophy drives the same physics you do at a champion's level. It can enable a new version, like a teammate who takes spoken orders. It can cut the cost of making content, explain a mechanic to the player, tune it, or run it faster. Across {{stat:n_affects_edges}} links, the most common is deepening. The rarest is explaining: {{stat:n_effect_explains}} links, from {{stat:n_explains_techniques}} techniques, and only {{stat:n_effect_explains_shipped}} of those links comes from something that has shipped.{{assert:top_effect == Deepens}}{{assert:rarest_effect == Explains}}{{assert:n_effect_explains_shipped == 1}}
 
-## 6. Explanation by hand (0:00 to 0:00)
+## 6. Explanation by hand (4:08 to 5:19)
 
 **Picture.** RimWorld's needs tab, every thought listed with a number and a timer. Victoria 3: a tooltip, then a tooltip inside the tooltip, then another. Dwarf Fortress: a dwarf throwing a tantrum, with nothing on screen saying why.
 
@@ -42,13 +42,13 @@ Target runtime about 14 minutes: about 1,300 words of narration at 135 words a m
 
 **Voice.** A model that reads the simulation's own modifier lists and event log could give any game the Paradox treatment, as long as it reports what the simulation computed instead of guessing. The technique that does this is still a prototype.{{assert:field.llm-explanation-of-state.maturity == prototype}}
 
-## 7. Counting exposure (0:00 to 0:00)
+## 7. Counting exposure (5:19 to 6:10)
 
 **Picture.** The technique-flows figure builds: techniques on the left, effects in the middle, mechanic families on the right, ribbons running between them. Four families on the right collect most of the ribbons.
 
 **Voice.** Add the links up, counting a shipped technique for more than a paper, and you get a measure of where the field is pointed. The dataset calls it exposure. In total, it piles up in four families: narrative, agents, control, and physics.{{assert:top_exposed_family == Narrative & generation}}{{assert:rank.family-summary.agents-behavior <= 4}}{{assert:rank.family-summary.control-automation <= 4}}{{assert:rank.family-summary.physics-materials <= 4}} Those are the places where content is expensive to write, like events and dialogue, or behavior is expensive to compute, like bodies and crowds. Divide by how many mechanics each family holds and narrative still leads, with world generation second.{{assert:top_mean_exposed_family == Narrative & generation}}{{assert:rank.family-mean-exposure.world-generation <= 2}}
 
-## 8. The most exposed mechanics (0:00 to 0:00)
+## 8. The most exposed mechanics (6:10 to 7:12)
 
 **Picture.** A ranked list builds: generative content, procedural terrain, utility action selection. Beside each, a small bar of how many catalog games use it. The first bar is tiny.
 
@@ -56,15 +56,15 @@ Target runtime about 14 minutes: about 1,300 words of narration at 135 words a m
 
 **Voice.** Procedural terrain comes next. Satellite reconstruction rebuilt the planet for Microsoft Flight Simulator, learned generators would replace hand-tuned noise, and world models make a scene from a sentence and forget it a minute later.{{assert:rank.most-exposed-mechanics.procedural-terrain <= 2}} Its neighbour in the same family, simulated history, has nothing pointed at it at all. Third is the scoring that picks a character's next action, which runs the characters of {{derived:utility-action-selection.prevalence}} catalog games, from Theme Park in 1994 to RimWorld.{{assert:rank.most-exposed-mechanics.utility-action-selection == 3}}{{assert:derived.utility-action-selection.earliest_game == theme-park}}
 
-## 9. What they'd change (0:00 to 0:00)
+## 9. What they'd change (7:12 to 8:56)
 
-**Picture.** Crusader Kings III: an event window about a rival's illness, then a second event weeks later about a succession dispute. The Sims: a Sim choosing between a fridge, a bed, and a TV, each with a score floating above it. A DIAMOND-generated frame of Counter-Strike: a player hanging in mid-air.
+**Picture.** Crusader Kings III: an event window about a rival's illness, then a second event weeks later about a succession dispute. The Sims: a Sim choosing between a fridge, a bed, and a TV, each with a score floating above it.
 
 **Voice.** In narrative, the change is from choosing to writing. Crusader Kings III's stories come from authored event templates that fire when conditions hold and schedule a follow-up weeks later. A language-model game master would write the next event for the exact state of your game instead.{{assert:field.llm-game-master.maturity == shipped-niche}} Authored chains repeat once you've seen them all. Generated ones agree to things a human game master would refuse, and invent quests that don't exist [@src-gallotta-2024-llms-games-survey].
 
-**Voice.** In agents, the change is from scoring to asking. Most simulated characters pick their next action by giving each option a score from their needs and taking the best. Language-model characters replace the score with a prompt, and inZOI ships a small version of that. In control, the change is from menus to speech: a teammate that takes spoken orders mid-match, research agents that play commercial games through the screen and explain what they intend to do [@src-deepmind-2025-sima-2-blog], and agents that write and keep their own library of skills [@src-wang-2023-voyager].{{assert:field.generalist-game-agents.maturity == research}} In physics, nearly every proposal replaces the engine with video prediction, and nothing in that line has shipped. One research model of Counter-Strike let the player jump again and again in mid-air, which the real game doesn't allow [@src-alonso-2024-diamond].{{assert:field.open-interactive-video-models.maturity == prototype}}
+**Voice.** In agents, the change is from scoring to asking. Most simulated characters pick their next action by giving each option a score from their needs and taking the best. Language-model characters replace the score with a prompt, and inZOI ships a small version of that. In control, the change is from menus to speech: a teammate that takes spoken orders mid-match, research agents that play commercial games through the screen and explain what they intend to do [@src-deepmind-2025-sima-2-blog], and agents that write and keep their own library of skills [@src-wang-2023-voyager].{{assert:field.generalist-game-agents.maturity == research}} In physics, nearly every proposal replaces the engine with video prediction, and nothing in that line has shipped.{{assert:field.open-interactive-video-models.maturity == prototype}}
 
-## 10. The economic core (0:00 to 0:00)
+## 10. The economic core (8:56 to 10:51)
 
 **Picture.** Factorio. A long production line; one furnace far upstream sits idle while the player inspects an assembler at the end of the line. The family-exposure bars rearranged per mechanic, resources and logistics at the bottom.
 
@@ -74,7 +74,7 @@ Target runtime about 14 minutes: about 1,300 words of narration at 135 words a m
 
 **Voice.** The production chain's own record lists the problems a technique could take on. A single optimal ratio, once solved, turns play into copying calculator output. And starvation far upstream is hard to diagnose, so players blame the wrong building. The first is a design problem that search could expose before release. The second is an explanation problem. Both are things the field already has tools for: bots that playtest a build shipped years ago.{{assert:field.automated-playtesting.maturity == shipped-niche}} The simulation already knows which furnace is idle, and why. Victoria 3 has the same issue with prices. It sets each good's price from the buy and sell orders in each market, and the market mechanic's record lists boom-and-bust cycles that players read as random. The cause is computed every day of the game and shown to nobody.
 
-## 11. Judgment against evidence (0:00 to 0:00)
+## 11. Judgment against evidence (10:51 to 12:06)
 
 **Picture.** A scatter of mechanics: judged AI leverage on one axis, exposure on the other. A handful of points sit high on judgment and flat on exposure, labelled: mod support, simulated history, blueprints, creature care.
 
@@ -82,7 +82,7 @@ Target runtime about 14 minutes: about 1,300 words of narration at 135 words a m
 
 **Voice.** The gaps are more useful. Mod support is used by {{derived:modding-api.prevalence}} catalog games, is judged highly open to AI, and has no technique attached.{{assert:derived.modding-api.technique_exposure == 0}} Simulated history, the centuries Dwarf Fortress runs before your fortress begins, is in the same position.{{assert:derived.history-generation.technique_exposure == 0}} So are blueprints, creature care, diagnosis, and the rule-checking that Papers, Please is built on.{{assert:derived.blueprints.technique_exposure == 0}}{{assert:derived.rule-checking-inspection.technique_exposure == 0}} A general-purpose model can write mod code today. A zero in this column means nobody has published or shipped that use for a named mechanic yet, and one pull request adding the evidence would change it.
 
-## 12. Close (0:00 to 0:00)
+## 12. Close (12:06 to 12:35)
 
 **Picture.** The family bars again, the economic core dark at the bottom. Cut to a city at night with no events on screen.
 

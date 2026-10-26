@@ -1,8 +1,8 @@
 # Episode 3. Families across genres
 
-Target runtime about 12 minutes: about 1,500 words of narration at 135 words a minute, plus a beat of picture-only footage per scene. Covers book chapter 4. Footage: Factorio, Anno 1800, Papers, Please, Princess Maker 2, Job Simulator, Besiege, Farming Simulator 25, iRacing, Black & White, Creatures, inZOI, AI Dungeon, Elite, Elite Dangerous, M.U.L.E., Offworld Trading Company, Frostpunk, Frostpunk 2; publisher video policies are tracked in `media/rights.yaml` and must be checked before release. Every number below is filled in from the dataset when the script is built, and the sentences that interpret numbers carry the same checks as the book.
+Target runtime about 12 minutes: about 1,300 words of narration at 135 words a minute, plus a beat of picture-only footage per scene. Covers book chapter 4. Footage: Factorio, Anno 1800, Papers, Please, Princess Maker 2, Job Simulator, Besiege, Farming Simulator 25, iRacing, Black & White, Creatures, inZOI, AI Dungeon, Elite, Elite Dangerous, M.U.L.E., Offworld Trading Company, Frostpunk, Frostpunk 2; publisher video policies are tracked in `media/rights.yaml` and must be checked before release. Every number below is filled in from the dataset when the script is built, and the sentences that interpret numbers carry the same checks as the book.
 
-## 1. Cold open (0:00 to 0:00)
+## 1. Cold open (0:00 to 0:45)
 
 **Picture.** Factorio at night. A row of assemblers slows; the power graph shows demand above supply. Pollution clouds drift over a forest toward a nest of biters, which stir.
 
@@ -12,13 +12,13 @@ Target runtime about 12 minutes: about 1,500 words of narration at 135 words a m
 
 **Voice.** In Anno 1800, a street of houses is waiting for canned goulash from another island, on a ship that is late. Both games run on production chains. The dataset puts them in different families.{{assert:cocluster.factorio.anno-1800 < 0.5}}
 
-## 2. Title (0:00 to 0:00)
+## 2. Title (0:45 to 0:55)
 
 **Picture.** Title card over the design map of the catalog, islands of games, out of focus.
 
 **On screen.** Families across genres. Episode 3.
 
-## 3. Same chain, different games (0:00 to 0:00)
+## 3. Same chain, different games (0:55 to 1:54)
 
 **Picture.** Factorio's mechanics on the left as cards, Anno's on the right. Six cards slide to the middle: production chains, storage, building placement, blueprints, vehicle routes, a late-game megaproject.
 
@@ -28,7 +28,7 @@ Target runtime about 12 minutes: about 1,500 words of narration at 135 words a m
 
 **Voice.** The parts each game has alone are rarer, and they decide what it feels like. Factorio is about throughput: belts, power, pollution, and enemies that evolve with the pollution you make. Anno is about demand: five tiers of residents whose needs decide whether their houses advance, and goods shipped between islands to meet them. Each tier also staffs its own factories, so when workers move up to artisans, a workers' chain loses its labour.
 
-## 4. How the families are drawn (0:00 to 0:00)
+## 4. How the families are drawn (1:54 to 2:56)
 
 **Picture.** Every game in the catalog becomes a bundle of cards. Common cards, like the pause button, shrink almost to nothing; rare cards grow. Bundles with similar large cards drift together into clumps.
 
@@ -36,7 +36,7 @@ Target runtime about 12 minutes: about 1,500 words of narration at 135 words a m
 
 **Voice.** Factorio lands with Satisfactory, shapez 2, Dyson Sphere Program, and Captain of Industry. Anno 1800 lands with Manor Lords, Banished, Caesar III, and Pharaoh.{{assert:derived.satisfactory.cluster == derived.factorio.cluster}}{{assert:derived.captain-of-industry.cluster == derived.factorio.cluster}}{{assert:derived.manor-lords.cluster == derived.anno-1800.cluster}}{{assert:derived.caesar-3.cluster == derived.anno-1800.cluster}}
 
-## 5. How many families (0:00 to 0:00)
+## 5. How many families (2:56 to 4:17)
 
 **Picture.** The catalog drops a fifth of its games at random, re-clusters, and compares the result with the full clustering. A score ticks up and down. The process repeats, fast, a thousand times. A curve of average agreement against the number of clusters draws itself, nearly flat on the right.
 
@@ -46,7 +46,7 @@ Target runtime about 12 minutes: about 1,500 words of narration at 135 words a m
 
 **On screen.** Together: ≥ {{stat:cocluster_together}} of subsamples. Apart: ≤ {{stat:cocluster_apart}}.
 
-## 6. Odd couples (0:00 to 0:00)
+## 6. Odd couples (4:17 to 7:09)
 
 **Picture.** Split screen. Left: Papers, Please, a passport under a lamp, a rulebook page, a clock. Right: Princess Maker 2, a month's calendar split into three slots, a daughter's attribute chart.
 
@@ -80,7 +80,7 @@ Target runtime about 12 minutes: about 1,500 words of narration at 135 words a m
 
 **Voice.** And inZOI runs language-model characters, but its other parts are The Sims 4's, so it sits with The Sims and apart from AI Dungeon and Infinite Craft.{{assert:derived.inzoi.cluster == derived.the-sims-4.cluster}}{{assert:derived.inzoi.cluster != derived.ai-dungeon.cluster}}
 
-## 7. Series and descendants (0:00 to 0:00)
+## 7. Series and descendants (7:09 to 8:17)
 
 **Picture.** Elite, 1984, a wireframe ship. Dissolve to Elite Dangerous, 2014, the same docking manoeuvre in full colour.
 
@@ -90,7 +90,7 @@ Target runtime about 12 minutes: about 1,500 words of narration at 135 words a m
 
 **Voice.** The method also finds descendants with different names. Offworld Trading Company, from 2015, shares a family with M.U.L.E., from 1983, in every resampling.{{assert:cocluster.mule.offworld-trading-company >= 0.9}} Its designer names M.U.L.E. and Railroad Tycoon as inspirations. Prices move with every purchase and sale, and you win by buying up your rivals' shares, a mechanic the catalog first records in Railroad Tycoon.{{assert:derived.equity-buyouts.earliest_game == railroad-tycoon}} Those old trading games keep a weaker tie to the factory games. Factorio shares a cluster with Railroad Tycoon in about half the resamplings, and with Satisfactory in all of them.{{assert:cocluster.factorio.railroad-tycoon > 0.3}}{{assert:cocluster.factorio.railroad-tycoon < 0.7}}{{assert:cocluster.factorio.railroad-tycoon < cocluster.factorio.satisfactory}}
 
-## 8. The sequel that moved (0:00 to 0:00)
+## 8. The sequel that moved (8:17 to 9:22)
 
 **Picture.** Frostpunk: a radial city around a glowing generator, temperature dropping on a gauge, the Book of Laws open on child labour.
 
@@ -100,7 +100,7 @@ Target runtime about 12 minutes: about 1,500 words of narration at 135 words a m
 
 **Voice.** Frostpunk 2 builds districts instead of buildings and passes laws through a council of a hundred delegates. Most laws need 51 votes. Broken promises anger factions, and faction tension can end in civil war. The developer describes social survival as a bigger threat than the cold. Its parts put it with Tropico 6 and Europa Universalis IV, and it shares a cluster with the first game in fewer than half of the resamplings.{{assert:derived.frostpunk-2.cluster == derived.tropico-6.cluster}}{{assert:cocluster.frostpunk.frostpunk-2 < 0.5}}
 
-## 9. How much genre explains (0:00 to 0:00)
+## 9. How much genre explains (9:22 to 10:25)
 
 **Picture.** The design map with each game coloured by its store genre. Most islands are mostly one colour; many have a second and third.
 
@@ -108,13 +108,13 @@ Target runtime about 12 minutes: about 1,500 words of narration at 135 words a m
 
 **Voice.** Genre tells you where a game came from and who bought it. The family tells you what it is built from, which is the part a designer can borrow.
 
-## 10. Limits (0:00 to 0:00)
+## 10. Limits (10:25 to 11:24)
 
 **Picture.** The Game of Life's glider crawling across a grid, next to Hamurabi's text report.
 
 **Voice.** The method has blind spots. Games with very few mechanics look alike by what they lack: the Game of Life has no turns and still clusters with Hamurabi and The Oregon Trail.{{assert:cocluster.hamurabi.game-of-life >= 0.9}}{{assert:derived.game-of-life.mechanic_count <= 3}} Some clusters fall apart under resampling: the one that holds Frostpunk, Plague Inc., Timberborn, and FTL changes from subset to subset, and only Frostpunk and Against the Storm stay together.{{assert:cocluster.frostpunk.against-the-storm >= 0.9}} The clustering also sees which parts a game uses and ignores how they are tuned, and every decomposition so far was written by one model rater. A second rater is the next test of these families.
 
-## 11. Close (0:00 to 0:00)
+## 11. Close (11:24 to 12:18)
 
 **Picture.** A blank card bundle for the viewer's game, with its rare parts circled.
 

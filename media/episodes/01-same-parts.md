@@ -1,8 +1,8 @@
 # Episode 1. Every simulation game is made of the same parts
 
-Target runtime about 12 minutes: about 1,500 words of narration at 135 words a minute, plus a beat of picture-only footage per scene. Covers book chapters 1 and 2. Footage: RimWorld, Dwarf Fortress, SimCity (1989), Factorio, Oxygen Not Included, The Sims, Frostpunk, all captured by us; a still of Façade. Publisher video policies are tracked in `media/rights.yaml` and must be checked before release. Every number below is filled in from the dataset when the script is built, and the sentences that interpret numbers carry the same checks as the book.
+Target runtime about 9 minutes: about 900 words of narration at 135 words a minute, plus a beat of picture-only footage per scene. Covers book chapters 1 and 2. Footage: RimWorld, Dwarf Fortress, SimCity (1989), Factorio, Oxygen Not Included, The Sims, Frostpunk, all captured by us; a still of Façade. Publisher video policies are tracked in `media/rights.yaml` and must be checked before release. Every number below is filled in from the dataset when the script is built, and the sentences that interpret numbers carry the same checks as the book.
 
-## 1. Cold open (0:00 to 0:51)
+## 1. Cold open (0:00 to 0:52)
 
 **Picture.** RimWorld, a small colony at dusk. A raid letter. A short fight at the door; one colonist falls. Cut to three days later: the cook drops her work and walks out into the fields. The player clicks her. The needs tab fills the screen, every mood effect a line with a number and a timer.
 
@@ -10,13 +10,13 @@ Target runtime about 12 minutes: about 1,500 words of narration at 135 words a m
 
 **Voice.** Nobody scripted that. Five separate rules made it happen, and every simulation game is built out of rules like them.
 
-## 2. Title (0:51 to 1:01)
+## 2. Title (0:52 to 1:02)
 
 **Picture.** Title card over the game-by-mechanic grid, out of focus.
 
 **On screen.** Every simulation game is made of the same parts. Episode 1.
 
-## 3. RimWorld, in parts (1:01 to 2:31)
+## 3. RimWorld, in parts (1:02 to 2:24)
 
 **Picture.** The paused colony. RimWorld's core mechanics peel off the screen as labelled cards: storyteller, needs, mood breaks, memories, work priorities, injuries by body part, threat that grows with wealth.
 
@@ -30,7 +30,7 @@ Target runtime about 12 minutes: about 1,500 words of narration at 135 words a m
 
 **Voice.** A part only counts if it passes four tests. Another designer would recognize it. It does one job. It has levers. And a game could drop it and still run. The storyteller passes: Left 4 Dead's director is the same idea, its levers are the event list and the length of the quiet stretches, and Dwarf Fortress runs without one [@src-booth-2009-ai-systems-l4d].
 
-## 4. Rare parts (2:31 to 3:51)
+## 4. Rare parts (2:24 to 3:25)
 
 **Picture.** Each core card flies to its column in the grid. Most columns are thin.
 
@@ -40,7 +40,7 @@ Target runtime about 12 minutes: about 1,500 words of narration at 135 words a m
 
 **Voice.** Three of those rare parts first show up in the catalog in one game, Dwarf Fortress, in 2006: mood breaks, bodies made of parts, and danger that grows with wealth.{{assert:derived.mood-breakdown.earliest_game == dwarf-fortress}}{{assert:derived.injury-body-model.earliest_game == dwarf-fortress}}{{assert:derived.adaptive-threat-scaling.earliest_game == dwarf-fortress}} The earliest storyteller in the catalog comes from Façade, a 2005 interactive drama where a drama manager steers an argument between a married couple toward one of three endings.{{assert:derived.storyteller-director.earliest_game == facade}}
 
-## 5. The grid (3:51 to 4:51)
+## 5. The grid (3:25 to 4:10)
 
 **Picture.** The game-by-mechanic grid fills in row by row, oldest game at the top, a year counter ticking in the corner.
 
@@ -50,7 +50,7 @@ Target runtime about 12 minutes: about 1,500 words of narration at 135 words a m
 
 **Voice.** The average game uses about {{stat:mean_mechanics_per_game}} parts. Only {{stat:n_mechanics_single_game}} mechanics belong to a single game, so almost everything in the vocabulary was worth building more than once.{{assert:n_mechanics_single_game <= 5}}
 
-## 6. The most common parts (4:51 to 6:01)
+## 6. The most common parts (4:10 to 5:02)
 
 **Picture.** The grid narrows to its fullest columns. Five light up in turn, each over a two-second clip: a paused raid, a building dropped on a lot, a mod list, a research screen, a scenario goal. Then a sixth: ore riding a belt into a furnace.
 
@@ -58,13 +58,13 @@ Target runtime about 12 minutes: about 1,500 words of narration at 135 words a m
 
 **Voice.** The pause button is in {{stat:most_prevalent_mechanic_share_pct}} percent of catalog games, and core in exactly one: Universe Sandbox, where running a solar system faster can change how it ends.{{assert:derived.variable-speed.core_count == 1}}
 
-## 7. Where identity lives (6:01 to 7:01)
+## 7. Where identity lives (5:02 to 5:37)
 
 **Picture.** Two histograms build side by side: the parts games call core, and the parts they call supporting, by how many games use each.
 
 **Voice.** RimWorld's pattern holds across the catalog. The parts a game calls core are used by a median of {{stat:median_prevalence_core_uses}} catalog games. The parts it calls supporting, by {{stat:median_prevalence_supporting_uses}}.{{assert:median_prevalence_core_uses < median_prevalence_supporting_uses}} And {{stat:pct_games_with_rare_core}} percent of games have at least one core part that no more than {{stat:rare_max_games}} games share.{{assert:pct_games_with_rare_core >= 75}}
 
-## 8. Six jobs (7:01 to 9:38)
+## 8. Six jobs (5:37 to 7:22)
 
 **Picture.** SimCity, 1989. A block of houses stalls next to an industrial strip. The crime map washes over it, then land value.
 
@@ -84,7 +84,7 @@ Target runtime about 12 minutes: about 1,500 words of narration at 135 words a m
 
 **Voice.** The Sims chooses where your control stops. Sims feed themselves, but paying bills and finding a job need you [@src-wikipedia-the-sims]. And Frostpunk shows the last job, pacing: the temperature falls on a schedule toward a storm you know is coming [@src-wikipedia-frostpunk].
 
-## 9. Where genres spend (9:38 to 11:03)
+## 9. Where genres spend (7:22 to 8:15)
 
 **Picture.** A table builds row by row: each subgenre, and the three families of parts it uses most.
 
@@ -92,7 +92,7 @@ Target runtime about 12 minutes: about 1,500 words of narration at 135 words a m
 
 **Voice.** Most combinations of these parts have never been tried. Of the {{stat:n_possible_pairs}} possible pairs of mechanics, {{stat:pair_coverage_pct}} percent have ever shared a game.{{assert:pair_coverage_pct < 50}} Later episodes go looking in the gaps.
 
-## 10. Close (11:03 to 11:53)
+## 10. Close (8:15 to 9:03)
 
 **Picture.** A blank grid row with a cursor over it.
 

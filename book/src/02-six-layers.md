@@ -21,7 +21,7 @@ A simulation has to store its world somehow, and the choice fixes what the game 
 
 {{table:mechanics-by-substrate}}
 
-SimCity's own history shows what the choice decides. The 1989 game stores its citizens as numbers in map cells. [[simcity-2013|SimCity (2013)]] replaced the statistical maps with its GlassBox engine, in which agents carry workers, power, water, and goods between buildings, so that a traffic jam is the visible sum of commuting agents [@src-cifaldi-2012-glassbox-engine]. Players could follow a single citizen home. Following them showed that agents took the first available job and the first empty home instead of keeping lives of their own, and that vehicles took the shortest route instead of the least crowded one, which players read as pathfinding bugs [@src-wikipedia-simcity-2013]. The substrate decided what could be shown, and showing it exposed the shortcuts.
+SimCity's own history shows what the choice decides. The 1989 game stores its citizens as numbers in map cells. [[simcity-2013|SimCity (2013)]] replaced the statistical maps with its GlassBox engine, in which agents carry workers, power, water, and goods between buildings, so that a traffic jam is the visible sum of commuting agents [@src-cifaldi-2012-glassbox-engine]. Players could now follow a single citizen home, and chapter 5 describes what they found when they did. The choice of substrate decided what the game could show.
 
 ## Dynamics: how it changes
 
@@ -29,7 +29,7 @@ Rules that change state form loops. A reinforcing loop amplifies itself: more ci
 
 [[factorio|Factorio]] pairs the two kinds on purpose. Production is the reinforcing loop: more machines make more science packs, research unlocks better machines, and the factory grows. Pollution is the balancing one. Machines emit pollution into chunks of 32 by 32 tiles; a chunk holding more than 15 units passes 2 percent of it to each neighbor every 64 ticks; enemy nests that absorb it send attack groups, and an evolution factor that rises with time, total pollution, and destroyed nests unlocks larger enemies [@src-factoriowiki-2026-pollution; @src-factoriowiki-2026-enemies]. The bigger the factory, the harder the world pushes back. Difficulty in a game like this is the relative strength of the two loops.
 
-A reinforcing loop can also run downhill. The record for mood breaks lists contagion as the mechanic's characteristic loop: a break leaves bad memories in the agents who witness it, which lowers their mood and raises their own chance of breaking. In a colony sim, one bad raid can start a slide that ends the colony.
+A reinforcing loop can also run downhill. A mood break leaves bad memories in the agents who witness it, which lowers their mood and raises their own chance of breaking, so in a colony sim one bad raid can start a slide that ends the colony; chapter 5 looks at what designers do about it.
 
 ## Coupling: how systems touch
 
@@ -39,7 +39,7 @@ Shared stocks are the simplest. Factorio's power grid connects every machine, an
 
 [[oxygen-not-included|Oxygen Not Included]] couples almost everything through one rule. Every tile in its asteroid holds one element with a mass and a temperature, and every 0.2 seconds each tile exchanges heat with its neighbors by conduction [@src-oxygennotincludedwiki-2026-thermal-conductivity]. Insulation, melting, boiling, and machines that overheat all follow from that rule rather than from scripts written for each building. Machines also emit what they do not use: a natural gas generator makes 800 watts and, with them, polluted water and carbon dioxide [@src-oniwiki-2026-natural-gas-generator]. The long game is closing those loops so that one machine's waste becomes another's input.
 
-[[dwarf-fortress|Dwarf Fortress]] is the catalog's largest decomposition, at {{derived:dwarf-fortress.mechanic_count}} mechanics,{{assert:game_most_mechanics == dwarf-fortress}} and its parts are coupled tightly. Water and magma flow tile by tile, so a miner who breaches a cavern lake floods every connected tunnel. A dwarf seized by a strange mood takes over a workshop to make a named artifact and goes insane if the materials are missing, which turns the production system into a source of stories. When the fortress falls, its history is written into the world's Legends, where a later adventurer can visit the ruins.
+[[dwarf-fortress|Dwarf Fortress]] is the catalog's largest decomposition, at {{derived:dwarf-fortress.mechanic_count}} mechanics,{{assert:game_most_mechanics == dwarf-fortress}} and its parts are coupled tightly. A dwarf seized by a strange mood takes over a workshop to make a named artifact and goes insane if the materials are missing, which turns the production system into a source of stories. Chapter 5 follows a single flood through one fortress.
 
 ## Control: how intent enters
 
@@ -53,9 +53,7 @@ The player can act directly through an avatar or a unit, place and zone, set par
 
 A simulation the player cannot read plays as noise. Simulation games answer with a family of mechanics that own no simulation state at all: overlays, inspectors, tooltips, dashboards, alerts, advisors, forecasts. SimCity's maps are one. RimWorld's itemized thoughts, from chapter 1, are another. Paradox's grand strategy games nest tooltips: hover over a number and it breaks into labeled modifiers, each of which can be hovered in turn, until every value decomposes into causes [@src-pcgamesn-2022-victoria-3-nested-tooltips].
 
-These mechanics fail in recognizable ways. An overlay whose color ramp normalizes itself makes a minor problem look as red as a severe one. A tooltip stack in a late-game grand strategy campaign grows into a wall of numbers that no longer explains anything. An inspector that shows an agent's state but not its decision rule leaves the agent's behavior looking random even after the player has looked.
-
-The catalog undercounts this layer. Data overlays are tagged in only {{derived:data-overlays.prevalence}} catalog games, yet the mechanic's own definition names the info views of [[cities-skylines|Cities: Skylines]], and the Cities: Skylines record does not tag them. The dataset's records were written game by game, and interface mechanics were the easiest to leave out. Chapter 5 returns to legibility as a cost that rises with depth.
+The catalog undercounts this layer. Data overlays are tagged in only {{derived:data-overlays.prevalence}} catalog games, yet the mechanic's own definition names the info views of [[cities-skylines|Cities: Skylines]], and the Cities: Skylines record does not tag them. The dataset's records were written game by game, and interface mechanics were the easiest to leave out. Chapter 5 returns to this layer, how each of its mechanics fails, and why it gets harder to build as a simulation gets deeper.
 
 ## Pacing and stakes: when to look and what is lost
 

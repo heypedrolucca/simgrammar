@@ -2,19 +2,19 @@
 
 Target runtime about 12 minutes: about 1,250 words of narration at 135 words a minute, plus a beat of picture-only footage per scene. Covers book chapter 10. Footage: Factorio, RimWorld, Democracy 4, all captured by us; the bottleneck view, the why-query, the branch preview, and the language-modding workshop are mock-ups built on captured footage and labelled as mock-ups on screen. Publisher video policies are tracked in `media/rights.yaml` and must be checked before release. Every number below is filled in from the dataset when the script is built, and the sentences that interpret numbers carry the same checks as the book.
 
-## 1. Cold open (0:00 to 0:00)
+## 1. Cold open (0:00 to 0:43)
 
 **Picture.** Factorio, mid-game. The science counter ticks slowly. The production graph shows electronic circuits falling. The player places four new circuit assemblers and connects them; their input slots stay empty. The camera follows a belt upstream, past the cable assemblers, to a smelter column where one belt carries iron and copper together, the iron filling both lanes.
 
 **Voice.** Science output has halved, and the graph shows you where it dropped without showing you why. So you build more circuit assemblers. Nothing changes; the new ones just wait. Twenty minutes later you find it: the copper smelters share a belt with iron, the iron gets there first, and the cable assemblers are starving three steps upstream of where you were looking.
 
-## 2. Title (0:00 to 0:00)
+## 2. Title (0:43 to 0:53)
 
 **Picture.** Title card over the ranked table of opportunities, out of focus.
 
 **On screen.** Bets worth making. Episode 9.
 
-## 3. A tool that names the cause (0:00 to 0:00)
+## 3. A tool that names the cause (0:53 to 2:11)
 
 **Picture.** Mock-up, labelled: the same factory with a bottleneck view switched on. Machines shade from grey to orange by how much one more unit of each would raise circuit output. The cable assemblers glow. A one-line explanation appears with a link that jumps the camera to the shared belt.
 
@@ -26,7 +26,7 @@ Target runtime about 12 minutes: about 1,250 words of narration at 135 words a m
 
 **Voice.** That's one of the bets in the dataset, the bottleneck explainer. Production chains are among the most common mechanics in the catalog, and no technique in the dataset points at them.{{assert:derived.production-chain.prevalence_rank <= 10}}{{assert:derived.production-chain.technique_exposure == 0}}
 
-## 4. What a bet contains (0:00 to 0:00)
+## 4. What a bet contains (2:11 to 3:52)
 
 **Picture.** The bottleneck explainer's record scrolls past, field by field: mechanics, techniques, precedent games, thesis, sketch, experiment, prediction.
 
@@ -38,7 +38,7 @@ Target runtime about 12 minutes: about 1,250 words of narration at 135 words a m
 
 **Voice.** Each bet is scored for impact, feasibility, and novelty, and the three combine into a priority that punishes a low score on any one of them. The scores are one model's reading of written anchors, so treat the ranking as an ordering of arguments. What the table does show is how near the bets are: {{stat:n_opportunity_horizon_now}} are buildable now, {{stat:n_opportunity_horizon_1_2y}} in one to two years, and {{stat:n_opportunity_horizon_3_5y}} in three to five.{{assert:n_opportunity_horizon_3_5y < n_opportunity_horizon_now}}
 
-## 5. The why button (0:00 to 0:00)
+## 5. The why button (3:52 to 5:45)
 
 **Picture.** Mock-up, labelled: a colony sim. The player right-clicks a closed hospital and picks "why?". Five sentences appear, each with a small link. Clicking one scrubs a timeline back to the event it names. A small causal graph draws beside the text.
 
@@ -50,13 +50,13 @@ Target runtime about 12 minutes: about 1,250 words of narration at 135 words a m
 
 **Voice.** The record lists its own risks, too. A fluent answer that isn't grounded teaches players a wrong model of the game, which is worse than no answer. Most shipped event logs don't record causes, and adding them is real engineering. And a perfect explainer might make the best move too easy to find.
 
-## 6. Previewing the future (0:00 to 0:00)
+## 6. Previewing the future (5:45 to 6:29)
 
 **Picture.** Democracy 4, a policy screen. Mock-up, labelled: a Preview button. The view splits into a fan of faint lines for unemployment and approval over the next year, then two short replays of the futures that differ most.
 
 **Voice.** Second on the list is a branch preview.{{assert:rank.opportunities-ranked.branch-preview-forecasts == 2}} Before you pass a law, the game copies the live save dozens of times, runs each copy a year ahead with different random seeds, and shows you the spread. Because a deterministic simulation can fork from any moment, the preview runs the game's own rules. The target: sixty-four futures in under five seconds on an ordinary PC.
 
-## 7. A colonist with a memory (0:00 to 0:00)
+## 7. A colonist with a memory (6:29 to 7:51)
 
 **Picture.** RimWorld again. The cook from episode 1, walking out of the kitchen. Her needs tab. Mock-up, labelled: one new line in the list, referring to her son by name and to an argument the week before.
 
@@ -64,13 +64,13 @@ Target runtime about 12 minutes: about 1,250 words of narration at 135 words a m
 
 **Voice.** The model's answer has to fit a schema: a thought with a mood value and a duration, maybe a change to a relationship, maybe one spoken line. It lands in the same list that explained her breakdown. The test caps the model at one call per colonist per in-game hour and measures believability in blind playtests, tokens per player-hour, and contradictions, like a colonist mourning someone who's still alive. Success needs a point of believability on a seven-point scale, under two thousand tokens per player-hour, and fewer than one contradiction an hour.
 
-## 8. Mods from a sentence (0:00 to 0:00)
+## 8. Mods from a sentence (7:51 to 8:48)
 
 **Picture.** Mock-up, labelled: an in-game mod workshop. The player types "wolves avoid fire". A diff to the game's data and scripts appears, then a headless test map where wolves circle a campfire at a distance, then before-and-after numbers, then a Share button.
 
 **Voice.** Mods keep simulation games alive for decades, and writing one takes programming skill. Language modding turns a rule change into a sentence.{{assert:rank.opportunities-ranked.language-modding <= 5}} A model writes the change against the game's own modding interface, agents test it on a headless map for crashes and for the effect you asked for, and the description, the code, and the test results travel together when you share it. The experiment takes a hundred real requests from a modding community. It counts as a success if at least sixty percent compile, pass the test, and do what the person asked.
 
-## 9. The pattern (0:00 to 0:00)
+## 9. The pattern (8:48 to 9:58)
 
 **Picture.** A diagram builds: a solid block labelled "simulation state" in the middle; around it, four arrows from outside labelled read, explain, decorate, propose; a gate labelled "validator" on the propose arrow; a strip labelled "log" along the bottom.
 
@@ -78,19 +78,19 @@ Target runtime about 12 minutes: about 1,250 words of narration at 135 words a m
 
 **Voice.** That pattern comes straight out of earlier episodes. What has shipped mostly stays at the edge of game state. And the economic core of these games, production, logistics, money, has almost nothing pointed at it.{{assert:n_technique_shipped_mainstream <= 2}}{{assert:rank.family-mean-exposure.resources-production >= 16}}{{assert:rank.family-mean-exposure.logistics-networks >= 16}} Bets that keep the core symbolic can ship on techniques that already work.
 
-## 10. Long shots (0:00 to 0:00)
+## 10. Long shots (9:58 to 10:51)
 
 **Picture.** The bottom of the feasibility scale. Three record cards slide in. Mock-up stills, labelled: a city drawn as watercolor over a tile grid; a map of hundreds of small agents with a chronicle scrolling beside it.
 
 **Voice.** At the far end are the long shots, each scored low for feasibility and high for novelty.{{assert:field.symbolic-sim-neural-render.feasibility == 2}}{{assert:field.llm-society-terrarium.feasibility == 2}} A city builder that keeps its state as a tile grid and lets a generative model draw it in any style. A terrarium of hundreds of language-model agents that you seed, nudge rarely, and watch write their own history. And a search over rule programs that proposes new mechanics, checked against the catalog in this series for what already exists. That last prediction runs the longest, to {{stat:last_prediction_resolves}}.{{assert:field.mechanic-discovery-search.falsifiable_signal.resolve_by == last_prediction_resolves}}
 
-## 11. Who builds what (0:00 to 0:00)
+## 11. Who builds what (10:51 to 11:42)
 
 **Picture.** The ranked table again, its rows sorting into three columns: small studio, engine and tools, research.
 
 **Voice.** The bets sort by who can make them. A small studio has the ones that are feasible now: an explanation layer over a game it already has, events generated against a schema, colonists with a local model, balance testing before launch. An engine or tools company has the infrastructure, starting with an event log that records every model call. A research group has the open problems, like proving that a generated picture of a city matches the city's actual state.
 
-## 12. Close (0:00 to 0:00)
+## 12. Close (11:42 to 12:14)
 
 **Picture.** The Factorio factory from the cold open, running, the smelter belts split. The ranked table again, every row with a date beside it.
 

@@ -262,9 +262,7 @@ def compute(ents: dict, edges: list, vocabs: dict) -> dict:
         for f, n in fam_n.items():
             stats["n_mechanics_family_" + str(f).replace("-", "_")] = n
         big = max(games, key=lambda g: (derived[g.id]["mechanic_count"], g.id)) if games else None
-        if big is not None:
-            stats["max_mechanics_per_game"] = derived[big.id]["mechanic_count"]
-            stats["most_mechanics_game"] = big.data["name"]
+        stats["most_mechanics_game"] = big.data["name"] if big is not None else ""  # label; game_most_mechanics (below) is the id
         # book chapters 10-13: opportunity horizons, technique risks, prediction dates, evidence status, runs
         hz = Counter(o.data.get("horizon") for o in opps)
         for term in ("now", "1-2y", "3-5y"):

@@ -1,20 +1,20 @@
 # Episode 12. How this was made
 
-Target runtime about 12 minutes: about 1,200 words of narration at 135 words a minute, plus a beat of picture-only footage per scene. Covers book chapter 13. Footage: screen recordings of the repository, the build output, run records, and agents working in a terminal; a still of the Intellivision game Utopia. No other game footage. Every number below is filled in from the dataset when the script is built, and the sentences that interpret numbers carry the same checks as the book.
+Target runtime about 11 minutes: about 1,190 words of narration at 135 words a minute, plus a beat of picture-only footage per scene. Covers book chapter 13. Footage: screen recordings of the repository, the build output, run records, and agents working in a terminal; a still of the Intellivision game Utopia. No other game footage. Every number below is filled in from the dataset when the script is built, and the sentences that interpret numbers carry the same checks as the book.
 
-## 1. Cold open (0:00 to 0:00)
+## 1. Cold open (0:00 to 0:38)
 
 **Picture.** Screen recording: a terminal. An agent adds three game records, Pocket City, Fallout Shelter, Game Dev Story, and runs the dataset's checks. The data checks pass. Then a red line: a report assertion failed. The cursor stops on it.
 
 **Voice.** This is an AI agent adding three mobile games to the dataset behind this series. The records are fine. The checks fail anyway, on a sentence in the paper, a sentence about two completely different mechanics that none of these games uses. Adding data broke a claim the data hadn't stopped supporting.
 
-## 2. Title (0:00 to 0:00)
+## 2. Title (0:38 to 0:48)
 
 **Picture.** Title card over a scrolling build log, out of focus.
 
 **On screen.** How this was made. Episode 12.
 
-## 3. What went wrong (0:00 to 0:00)
+## 3. What went wrong (0:48 to 2:40)
 
 **Picture.** The white-space table from episode 8. The row pairing building placement with embodied skill control highlights, then slides out of the table as a threshold line rises past it.
 
@@ -24,7 +24,7 @@ Target runtime about 12 minutes: about 1,200 words of narration at 135 words a m
 
 **Voice.** That agent was one of four sent through the project's task list before any person was invited to contribute, each working only from the written instructions and reporting what slowed it down. Their reports rewrote four of the instructions and several of the checks.
 
-## 4. Everything is a build (0:00 to 0:00)
+## 4. Everything is a build (2:40 to 3:48)
 
 **Picture.** A folder tree: one YAML file per game, mechanic, technique, opportunity, and source, and a folder of run records. Arrows lead from the folder to the paper, the website, the book, and this script.
 
@@ -36,7 +36,7 @@ Target runtime about 12 minutes: about 1,200 words of narration at 135 words a m
 
 **Voice.** Sentences are the hard part, because they interpret numbers. So every number in this series is a token the build fills in, and every sentence that interprets one carries a check. When episode 1 said the five most common parts don't simulate anything, the build checked all five ranks. If the data stops agreeing, the build fails until somebody rewrites the line.
 
-## 5. The rules came from failures (0:00 to 0:00)
+## 5. The rules came from failures (3:48 to 5:53)
 
 **Picture.** The first version of the catalog grid beside the current one. In the old grid, the pause, placement, and tech tree columns are almost empty. In the new one they're the fullest on the board.
 
@@ -50,7 +50,7 @@ Target runtime about 12 minutes: about 1,200 words of narration at 135 words a m
 
 **Voice.** Even the number of clusters follows a written rule: the smallest number whose clusters stay stable across the samples. When the rule was first applied it gave {{stat:cluster_k}}, and that was fixed so new games wouldn't reshuffle everything. On today's data the rule would pick {{stat:cluster_rule_k}}.{{assert:cluster_k != cluster_rule_k}} The gap sits inside the stated tolerance, so the build doesn't object, and episode 3 only claims the groupings that survive resampling either way.{{assert:cluster_k_drift == 0}}
 
-## 6. Runs (0:00 to 0:00)
+## 6. Runs (5:53 to 7:15)
 
 **Picture.** A run record on screen: id, kind, date, actor, operator, model, purpose, and a long method paragraph that includes what failed.
 
@@ -60,7 +60,7 @@ Target runtime about 12 minutes: about 1,200 words of narration at 135 words a m
 
 **Voice.** The build is deterministic. The same records produce the same files, byte for byte, and the checks prove it on every change by building twice under different settings and comparing. That's how an edition of the book or a version of this script can name the exact version of the data it came from.
 
-## 7. Evidence, and who checks it (0:00 to 0:00)
+## 7. Evidence, and who checks it (7:15 to 8:41)
 
 **Picture.** A record's status field cycling through asserted, sourced, verified. Then a still of Utopia on the Intellivision, with two dates beside it: 1981 and 1982.
 
@@ -70,13 +70,13 @@ Target runtime about 12 minutes: about 1,200 words of narration at 135 words a m
 
 **Voice.** Nothing is verified yet.{{assert:n_verified == 0}} That's the rule working. A record can only be verified by a different person from the one who created it, and if both are using agents, a different model. Every run so far has been an agent working under the dataset's maintainer: {{stat:n_runs}} runs, one operator.{{assert:n_run_operators == 1}}{{assert:n_runs_agent == n_runs}} Until other people join, nothing can move up. The same goes for scores. Every rubric score in this series is one model's reading of written anchors, and a second rater has to pass a calibration set of {{stat:n_calibration_mechanics}} mechanics before their scores count.{{assert:n_scores_independently_rated == 0}}
 
-## 8. What the checks can't see (0:00 to 0:00)
+## 8. What the checks can't see (8:41 to 9:41)
 
 **Picture.** A quote highlighted on a web page, a green check beside it. Then the same quote next to the claim it supports, with a question mark between them.
 
 **Voice.** The checks have limits. The project fetches each source and confirms a quote is really on the page; the first time it ran on agent-written records, it found 26 of 32 quotes, and the one it failed turned out to be on the page after all. It can't confirm the quote supports the claim. The run log records which model an agent used, but the model is self-declared. The assertions keep sentences in line with the data and say nothing about whether the data matches the world. And the catalog leans toward games documented in English, which no check can see past.
 
-## 9. Close (0:00 to 0:00)
+## 9. Close (9:41 to 10:59)
 
 **Picture.** The repository's task list, issues labelled verify, rate, resolve. Then the game-by-mechanic grid from episode 1, filling in one more row.
 
