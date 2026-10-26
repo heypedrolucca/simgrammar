@@ -1,0 +1,6 @@
+# Rights register for footage and images used in media/ (checked before any release).
+# status: unchecked | allowed | allowed-with-conditions | not-allowed. Record the policy url and the date it was read.
+titles:
+  - {game: rimworld, status: unchecked, policy_url: "", checked: ""}
+  - {game: simcity-1989, status: unchecked, policy_url: "", checked: ""}
+  - {game: factorio, status: unchecked, policy_url: "", checked: ""}

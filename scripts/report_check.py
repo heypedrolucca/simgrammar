@@ -1,10 +1,10 @@
-"""Checks that need the analysis: report prose (E019-E021, E029), entity assertions (E032), cluster k drift (W107).
+"""Checks that need the analysis: report, book, and episode prose (E019-E021, E029), entity assertions (E032), cluster k drift (W107).
 
 Called by validate.py once data is valid.
 """
 from __future__ import annotations
 
-from lib import ROOT, extract_edges, load_entities, load_registry, load_schemas, load_vocabs
+from lib import ROOT, extract_edges, load_entities, load_registry, load_schemas, load_vocabs, prose_files
 import analyze
 from report_render import Context, evaluate_assertion, literal_stats, render
 
@@ -17,7 +17,7 @@ def check(F) -> None:
     edges = [ed for t, lst in ents.items() if t != "run" for e in lst for ed in extract_edges(e, schemas, registry)]
     analysis = analyze.compute(ents, edges, vocabs)
     ctx = Context(ents, edges, analysis, vocabs, registry)
-    for p in sorted((ROOT / "report" / "src").glob("*.md")):
+    for p in prose_files():
         text = p.read_text(encoding="utf-8")
         _, errs = render(text, ctx, "paper")
         for rule, msg in errs:

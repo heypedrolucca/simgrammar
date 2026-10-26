@@ -18,6 +18,7 @@ Projections:
   dist/analysis/                     stats.json, <table>.csv, figures/*.svg
   dist/wiki/                         one markdown page per entity and vocab, with computed backlinks
   dist/paper/                        paper.md (rendered report), references.bib, figures/
+  dist/book/, dist/media/episodes/   book chapters (book/src) and episode scripts (media/episodes), rendered
   dist/site/data.json                compact bundle for site/index.html
   dist/web/                          the website: paper with interactive figures, a page per record (scripts/web.py)
 """
@@ -389,6 +390,23 @@ def build() -> tuple[dict[str, str], dict[str, str]]:
     srcs = sorted(ents.get("source", []), key=lambda e: e.id)
     outs["paper/references.bib"] = "\n".join(bibtex(s) for s in srcs)
 
+    # ---- book chapters and episode scripts: same tokens and checks as the paper, one file per chapter or episode
+    for d, out_dir in (("book/src", "book"), ("media/episodes", "media/episodes"), ("media/shorts", "media/shorts")):
+        for p in sorted((ROOT / d).glob("*.md")):
+            ctx.citations = []
+            txt, _ = render(p.read_text(encoding="utf-8"), ctx, "paper")
+            notes = []
+            for i, sid in enumerate(ctx.citations, start=1):
+                s = by_id[sid].data
+                loc = s.get("url") or (f"https://doi.org/{s['doi']}" if s.get("doi") else "") or (f"https://arxiv.org/abs/{s['arxiv']}" if s.get("arxiv") else "")
+                notes.append(f"<a id=\"ref-{sid}\"></a>[{i}] {', '.join(s.get('authors', [])[:6])}{' et al.' if len(s.get('authors', [])) > 6 else ''} ({s['date']}). *{s['name']}*. {s.get('venue', '')} {loc}  ")
+            up = "../" if out_dir == "book" else "../../"
+            txt = txt.replace("](figures/", f"]({up}paper/figures/")
+            if out_dir != "book":
+                txt = txt.replace("](../wiki/", "](../../wiki/")
+            body = txt.strip() + "\n" + (("\n## Sources\n\n" + "\n".join(notes) + "\n") if notes else "")
+            outs[f"{out_dir}/{p.name}"] = body + "\n*Dataset {DATASET}.*\n"
+
     # ---- manifest (dataset certificate)
     ent_hashes = {}
     for t in data_types:
@@ -396,6 +414,8 @@ def build() -> tuple[dict[str, str], dict[str, str]]:
             ent_hashes[e.id] = sha256(canonical_json(e.data))
     dataset = sha256(canonical_json(sorted(ent_hashes.items())))
     paper = paper.replace("{DATASET}", dataset)
+    for k in [k for k in outs if k.startswith(("book/", "media/episodes/"))]:
+        outs[k] = outs[k].replace("{DATASET}", dataset[:12])
     outs["paper/paper.md"] = paper
     manifest = {
         "contract_version": registry["contract_version"],

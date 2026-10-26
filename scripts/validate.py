@@ -38,6 +38,7 @@ from lib import (  # noqa: E402
     load_registry,
     load_schemas,
     load_vocabs,
+    prose_files,
     schema_registry,
     validator_for,
     vocab_terms,
@@ -178,7 +179,7 @@ def run(data_only: bool = False) -> Findings:
             for pth, s in strings(e.data):
                 if PLACEHOLDER.search(s):
                     F.add("E027", e.path, f"placeholder '{PLACEHOLDER.search(s).group(0)}' left in field", "/".join(map(str, pth)))
-    for extra in sorted((ROOT / "vocab").glob("*.yaml")) + sorted((ROOT / "report" / "src").glob("*.md")):
+    for extra in sorted((ROOT / "vocab").glob("*.yaml")) + prose_files():
         for i, line in enumerate(extra.read_text(encoding="utf-8").splitlines(), 1):
             hit = PLACEHOLDER.search(line)
             if hit:
@@ -318,7 +319,7 @@ def run(data_only: bool = False) -> Findings:
     # ---- orphan sources (report citations count as citing)
     from report_render import CITE_RE  # noqa: E402
 
-    for rp in sorted((ROOT / "report" / "src").glob("*.md")):
+    for rp in prose_files():
         for m in CITE_RE.finditer(rp.read_text(encoding="utf-8")):
             for sid in m.group(1).split(";"):
                 cited.add(sid.strip()[1:])

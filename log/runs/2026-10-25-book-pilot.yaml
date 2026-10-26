@@ -1,0 +1,38 @@
+id: 2026-10-25-book-pilot
+type: run
+kind: synthesis
+date: '2026-10-25'
+actor: agent
+operator: yoheinakajima
+agent:
+  model: claude-opus-5-5
+  harness: Claude app (cloud workspace), orchestrator; editorial review by gemini-3.1-pro-preview
+purpose: Start the book and the video series as projections of the dataset, with the same checks as the paper (phase 1 of the book and video plan).
+method: >-
+  Added book/src, media/episodes, and media/shorts as checked prose: the build renders them to dist/book and
+  dist/media, and the validator applies the paper's token, link, citation, literal-count, assertion, and placeholder
+  rules to them. Added a derived-value token for per-record numbers and per-time-model game counts to the analysis.
+  Drafted the preface, chapter 1 (Pause), the episode 1 script (chapters 1 and 2), and the first 60-second short
+  (Pause and speed control, a calibration-set mechanic) from the records of RimWorld, SimCity, Factorio, and the
+  pause mechanic, the analysis stats, and two sources opened for this run (the RimWorld Wiki time page and the
+  Wikipedia RimWorld article, for tick rates and the storyteller description). Every dataset number is a token and
+  every interpretive sentence carries an assertion. A Gemini editorial review flagged nine issues; all were applied
+  (the Dwarf Fortress origin is scoped to the catalog with its older non-simulation relatives named, removing the pause
+  is described as changing the experience rather than leaving it the same, the method section moved to a preface,
+  the exercise handles turn-based games, and a tautology was cut). Episode timings are computed from the narration's
+  word count at 135 words a minute, which makes the pilot episode about 11 minutes rather than the planned 16.
+scope:
+  - book/src (00-preface, 01-pause), media/episodes/01-same-parts.md, media/shorts/001-variable-speed.md, media/rights.yaml
+  - scripts (lib, report_render, report_check, validate, build, analyze), .github/CODEOWNERS
+contract_version: '1.1'
+proposals:
+  - kind: other
+    target: media/rights.yaml
+    detail: >-
+      Read and record the published video policies of Ludeon Studios, Maxis or EA, and Wube Software before any
+      footage of RimWorld, SimCity, or Factorio is captured for release.
+  - kind: other
+    target: scripts/viz.py
+    detail: >-
+      Figure captions mention report section numbers (for example section 5.4), which read oddly in the book; give each
+      viz a caption without section references and let the paper add them.

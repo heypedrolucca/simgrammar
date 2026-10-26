@@ -1,4 +1,4 @@
-"""Token, link, and citation rendering for report/src and wiki pages.
+"""Token, link, and citation rendering for report/src, book/src, media/episodes, and wiki pages.
 
 Syntax (documented in AGENTS.md):
   {{count:<type>}}            number of live entities of a type (game, mechanic, technique, opportunity, source)
@@ -293,6 +293,12 @@ def render(text: str, ctx: Context, mode: str = "paper") -> tuple[str, list[tupl
                 errors.append(("E019", f"unknown type in {m.group(0)}"))
                 return m.group(0)
             return str(sum(1 for e in ctx.ents.get(arg, []) if not e.data.get("deprecated")))
+        if kind == "derived":
+            found, val = lookup_ref("derived." + arg, a, ctx.by_id)
+            if not found:
+                errors.append(("E019", f"unknown derived value {m.group(0)}"))
+                return m.group(0)
+            return _fmt(val)
         if kind == "stat":
             if arg not in a["stats"]:
                 errors.append(("E019", f"unknown stat {m.group(0)}"))

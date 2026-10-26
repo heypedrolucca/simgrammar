@@ -134,6 +134,11 @@ def compute(ents: dict, edges: list, vocabs: dict) -> dict:
     stats["n_uses_edges"] = sum(len(v) for v in gm.values())
     mc = [derived[g.id]["mechanic_count"] for g in games] or [0]
     stats["mean_mechanics_per_game"] = _r(float(np.mean(mc)), 1)
+    # games per time model (book chapter 1 and the report cite these)
+    tm = Counter(g.data.get("time_model") for g in games)
+    for term, n in tm.items():
+        stats["n_games_time_model_" + str(term).replace("-", "_")] = n
+    stats["top_time_model"] = max(tm.items(), key=lambda kv: (kv[1], kv[0]))[0] if tm else ""
     stats["median_mechanics_per_game"] = _r(float(np.median(mc)), 1)
     yrs = [y for y in year.values() if isinstance(y, int)]
     stats["year_min"] = min(yrs) if yrs else None
