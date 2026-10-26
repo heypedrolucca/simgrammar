@@ -12,6 +12,7 @@ Most records were created by runs operated by the maintainer. The independence r
 | Rate scores | `tasks/rate-scores.md` | Every rubric score so far is one model's reading; a second, calibrated rater turns it into measured agreement |
 | Resolve predictions | `tasks/resolve-prediction.md` | A bet cannot be judged by the run that made it |
 | Review each other's PRs | `CONTRIBUTING.md` | Games, techniques, and sources merge on green CI plus one approval, which can be yours |
+| Finish what agents cannot reach | `tasks/store-ids.md`, `tasks/archive-sources.md` | In the pilot, agent web tools could not open Wikidata, IGDB, or the Wayback API; a browser or a local agent with network access can |
 
 You can also take any other task (catalogue games, quote claims, archive sources, add store ids).
 
