@@ -48,7 +48,7 @@ Target runtime about 11 minutes: about 1,260 words of narration at 135 words a m
 
 ## 5. The most common part (3:56 to 5:26)
 
-**Picture.** One column lights up across the whole grid. The camera pulls back to show it running nearly top to bottom.
+**Picture.** One column lights up: filled in nearly half the rows, more than any other column in the grid.
 
 **Voice.** The fullest column is not a market or a factory or a model of crowds. It is the pause button. It appears in {{stat:most_prevalent_mechanic_share_pct}} percent of the catalog.{{assert:derived.variable-speed.prevalence_rank == 1}}{{assert:most_prevalent_mechanic_share_pct >= 40}}
 

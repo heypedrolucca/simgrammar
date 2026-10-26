@@ -30,7 +30,7 @@ Vertical, 60 seconds, about 120 words of narration. Drawn from the record `data/
 
 ## 0:48 to 1:00. Where it lives
 
-**Picture.** The catalog grid; one column lights up almost top to bottom.
+**Picture.** The catalog grid; one column lights up, filled in nearly half the rows, more than any other.
 
 **On screen.** In {{stat:most_prevalent_mechanic_share_pct}} percent of {{stat:n_game}} catalog games. Core in {{derived:variable-speed.core_count}}.
 
