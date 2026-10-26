@@ -4,9 +4,9 @@ Target runtime about 11 minutes: about 1,180 words of narration at 135 words a m
 
 ## 1. Cold open (0:00 to 0:38)
 
-**Picture.** A wall calendar flips to {{stat:first_prediction_resolves}}. Index cards pin themselves to the date, one by one. The camera stops on the first card and reads it.
+**Picture.** A wall calendar flips to {{stat:first_prediction_resolves_long}}. Index cards pin themselves to the date, one by one. The camera stops on the first card and reads it.
 
-**Voice.** On {{stat:first_prediction_resolves}}, {{stat:n_predictions_first_date}} predictions about AI in simulation games come due on the same day.{{assert:n_predictions_first_date >= 5}} The first says that a widely played simulation or strategy game will let you ask, in plain language, why something happened in your own game, and answer from your save. Somebody is going to have to check.
+**Voice.** On {{stat:first_prediction_resolves_spoken}}, {{stat:n_predictions_first_date}} predictions about AI in simulation games come due on the same day.{{assert:n_predictions_first_date >= 5}} The first says that a widely played simulation or strategy game will let you ask, in plain language, why something happened in your own game, and answer from your save. Somebody is going to have to check.
 
 ## 2. Title (0:38 to 0:48)
 
@@ -44,9 +44,9 @@ Target runtime about 11 minutes: about 1,180 words of narration at 135 words a m
 
 **Picture.** The predictions table scrolls, grouped by year. A bar under each year grows to its count.
 
-**On screen.** Due by the end of 2027: {{stat:n_predictions_by_2027}}. By the end of 2028: {{stat:n_predictions_by_2028}}. Last: {{stat:last_prediction_resolves}}.
+**On screen.** Due by the end of 2027: {{stat:n_predictions_by_2027}}. By the end of 2028: {{stat:n_predictions_by_2028}}. Last: {{stat:last_prediction_resolves_long}}.
 
-**Voice.** All {{stat:n_predictions}} are open right now.{{assert:n_predictions_open == n_predictions}} {{stat:n_predictions_by_2027}} come due by the end of 2027, {{stat:n_predictions_by_2028}} by the end of 2028, and the last on {{stat:last_prediction_resolves}}.{{assert:n_predictions_by_2027 < n_predictions_by_2028}} The {{stat:n_predictions_first_date}} due first cover the why button, events generated against a schema, endless inspection shifts for a Papers, Please-style game, furniture generated from text, run histories written up automatically, local language models, automated balancing, a voice instructor in a flight or racing sim, and simulation games released as test beds for AI agents. Most of the early dates belong to bets rated buildable now. The late ones are the long shots from episode 9: a game drawn by a generative model, a mechanic invented by a search program.
+**Voice.** All {{stat:n_predictions}} are open right now.{{assert:n_predictions_open == n_predictions}} {{stat:n_predictions_by_2027}} come due by the end of 2027, {{stat:n_predictions_by_2028}} by the end of 2028, and the last on {{stat:last_prediction_resolves_spoken}}.{{assert:n_predictions_by_2027 < n_predictions_by_2028}} The {{stat:n_predictions_first_date}} due first cover the why button, events generated against a schema, endless inspection shifts for a Papers, Please-style game, furniture generated from text, run histories written up automatically, local language models, automated balancing, a voice instructor in a flight or racing sim, and simulation games released as test beds for AI agents. Most of the early dates belong to bets rated buildable now. The late ones are the long shots from episode 9: a game drawn by a generative model, a mechanic invented by a search program.
 
 ## 7. Four more cards (5:40 to 7:07)
 
@@ -88,7 +88,7 @@ Target runtime about 11 minutes: about 1,180 words of narration at 135 words a m
 
 ## 11. Close (10:49 to 11:25)
 
-**Picture.** The calendar from the cold open, the cards still pinned to {{stat:first_prediction_resolves}}.
+**Picture.** The calendar from the cold open, the cards still pinned to {{stat:first_prediction_resolves_long}}.
 
 **Voice.** Every number in this episode is computed from the dataset, so a version built after the first results will say something different. The last episode shows how that works, and why the sentence saying every prediction is still open will break the build the day one isn't.
 

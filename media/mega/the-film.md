@@ -54,7 +54,7 @@ Recompute these from the episode timings when an episode changes; the times belo
 
 **Picture.** A calendar strip scrolls forward; dates light up one by one, the first group bunched on a single day.
 
-**Voice.** The dataset also makes {{stat:n_predictions}} bets about what comes next, each with a date on which it can be wrong. The first {{stat:n_predictions_first_date}} come due on {{stat:first_prediction_resolves}}.{{assert:n_predictions_open == n_predictions}}
+**Voice.** The dataset also makes {{stat:n_predictions}} bets about what comes next, each with a date on which it can be wrong. The first {{stat:n_predictions_first_date}} come due on {{stat:first_prediction_resolves_spoken}}.{{assert:n_predictions_open == n_predictions}}
 
 **On screen.** Every Simulation Game Is Built From the Same Parts.
 

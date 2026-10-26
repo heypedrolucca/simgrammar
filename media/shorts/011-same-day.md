@@ -4,11 +4,11 @@ Vertical, about 55 seconds, about 100 words of narration. One finding, from the 
 
 ## 0:00 to 0:06. The finding
 
-**Picture.** A wall calendar flips to {{stat:first_prediction_resolves}}. Index cards pin themselves to the date.
+**Picture.** A wall calendar flips to {{stat:first_prediction_resolves_long}}. Index cards pin themselves to the date.
 
 **On screen.** {{stat:n_predictions_first_date}} predictions. One deadline.
 
-**Voice.** {{stat:n_predictions_first_date}} predictions about AI in simulation games come due on the same day, {{stat:first_prediction_resolves}}.{{assert:n_predictions_first_date >= 5}}
+**Voice.** {{stat:n_predictions_first_date}} predictions about AI in simulation games come due on the same day, {{stat:first_prediction_resolves_spoken}}.{{assert:n_predictions_first_date >= 5}}
 
 ## 0:06 to 0:36. One card
 

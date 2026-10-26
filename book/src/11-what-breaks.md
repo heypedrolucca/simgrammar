@@ -22,11 +22,21 @@ The bets in chapter 10 inherit these properties from the techniques they apply. 
 
 The requirement reaches mods too. The record for modding interfaces lists sandboxing and determinism requirements among a designer's levers, because in a lockstep game a mod runs on every machine and has to compute the same thing on each. A mod written from a sentence, the language-modding bet in chapter 10, inherits that requirement: the code has to be deterministic even though the model that wrote it is not. The record states the open problem directly, as a question about what interface design keeps generated mods sandboxed, deterministic, and compatible across updates.
 
+## Where the computation happens
+
+Each technique record also says where the technique runs: offline while content is made, as an assistant to a designer, on the player's machine during play, on a server during play, or over logged data after the fact. The place decides who pays and what can go wrong. {{stat:n_technique_server_realtime}} techniques can run on a server during play, and {{stat:n_technique_server_realtime_breaks}} of them break reproducibility outright; {{stat:n_technique_client_realtime}} can run on the player's machine, and {{stat:n_technique_client_realtime_breaks}} of those break it.{{assert:n_technique_server_realtime_breaks > n_technique_client_realtime_breaks}}{{assert:n_technique_client_realtime > n_technique_server_realtime}} {{stat:n_technique_offline_only}} never run during play, and their output reaches the player as fixed data, like the reconstructed planet of chapter 7.{{assert:field.satellite-world-reconstruction.determinism_impact == preserves}}
+
+{{viz:determinism-runtime}}
+
+The techniques that run only on a server are where the breaks gather: of {{stat:n_technique_server_only}}, {{stat:n_technique_server_only_breaks}} break reproducibility.{{assert:n_technique_server_only_breaks >= 5}} A server adds a network round trip to every call and a bill per player to the developer, and it makes the game depend on a service it does not control. The record for Google's world models describes access as a hosted research prototype for paying subscribers, with no public interface, hourly price, or version for the player's own machine published.{{assert:field.genie-world-models.maturity == prototype}}
+
 ## Contradiction
 
 A contradiction does more damage than a gap, because players use what the game shows them to build their model of how it works. A colonist who mourns a friend who is alive, a road that was there a moment ago, a price that changes when nothing changed: each teaches the player something false.
 
 Consistency is listed as a risk on {{stat:n_technique_risk_consistency}} of the {{count:technique}} techniques in the dataset,{{assert:n_technique_risk_consistency >= 15}} and chapter 8 gave the measured cases: a language model predicting text-game states, a world model letting a player jump in mid-air, language-model characters inventing quests. Characters forget, too. In a 28-player study with five language-model characters, players reported characters forgetting their own earlier statements in 10 percent of reports [@src-peng-2024-player-driven-emergence].
+
+Generated pictures can contradict the state they stand for. The record for real-time restyling notes that rendered detail can disagree with the game, as when a block drawn as a door is solid, and that restyled objects can change their appearance between views. In a frame-generating engine, health, ammunition, inventory, and score are only as reliable as the pixels that show them. Generated levels fail in their structure: an A* agent could not complete about 12 percent of the levels MarioGPT generated, so every output needs a solver to check it [@src-sudhakaran-2023-mariogpt], and EA's match-3 generator, conditioned on difficulty, matched the requested difficulty a third of the time [@src-villanueva-2024-match3-conditional-generation].
 
 The pattern points to where a language model can safely sit. Asked to predict what the simulation will do, a model gets it wrong often enough to mislead. Asked to describe what the simulation did, from a log of events the simulation computed, it has the right answer in front of it. The record for language-model explanation of state draws the same line: explanations of dynamics should be computed by the simulation and only narrated by the model, and because the explanation layer reads state without writing it, the simulation stays deterministic.{{assert:field.llm-explanation-of-state.determinism_impact == preserves}}
 
@@ -42,11 +52,19 @@ Most simulation games are sold once and played for a very long time. A feature t
 
 The numbers behind that risk vary by orders of magnitude. The 25-agent Smallville simulation behind the original generative agents paper cost thousands of dollars in model credits and took several days of wall-clock time [@src-park-2023-generative-agents]; a later study cut token use for the same 25-agent town to 42.7 percent of the baseline by replaying cached plans [@src-yu-2024-affordable-generative-agents]. When Google opened Project Genie, built on its Genie 3 world model, to subscribers in January 2026, each generated world was limited to 60 seconds, a limit DeepMind attributed to limited compute [@src-techcrunch-2026-project-genie]. At the other end are the small on-device models of chapter 7, which fit beside the game's rendering on the player's own card. Local inference moves the cost onto the player's hardware and off the developer's bill, which is the case the local-first opportunity in chapter 10 makes.
 
+## Latency
+
+Latency is listed as a risk on {{stat:n_technique_risk_latency}} techniques, and the records give the numbers that set the budget.{{assert:n_technique_risk_latency >= 10}} Moshi, a speech model that listens and talks at the same time, reported 160 milliseconds of theoretical and 200 of practical latency for spoken dialogue [@src-defossez-2024-moshi]. The record for realtime voice adds a trade: the most expressive delivery and the lowest latency pull against each other, and the most expressive speech synthesis was not suited to real time when it launched. MirageLSD, which restyles a game's video as it streams, answers in under 40 milliseconds a frame at 24 frames per second, but it runs in the cloud, so network latency and a GPU for each player come on top [@src-decart-2025-miragelsd]. <!-- tells-ok: list-scaffold --> The interactive video models sit further out. Distillation took Hunyuan-GameCraft from 0.25 to 6.6 frames per second, with under five seconds of latency for each action [@src-li-2025-hunyuan-gamecraft], and the record notes that conditioning more strongly on history makes such a model more consistent and less responsive to new actions.
+
+Small models on the player's machine trade the latency problem for a capability problem. The record for on-device language models notes that they reason less well over several steps, so vendors send strategic planning to cloud models, which brings back the cost and the latency the local model was meant to remove. It also notes that model sizes and latencies in shipped titles are mostly undisclosed.{{assert:field.on-device-language-models.determinism_impact == mitigable}}
+
 ## Steering and checking
 
 The risk listed most often across all {{count:technique}} techniques is {{stat:top_technique_risk}}: the designer cannot reliably make the technique do what the design needs.{{assert:top_technique_risk == controllability}}{{assert:n_technique_risk_controllability > n_technique_risk_compute_cost}} It appears on {{stat:n_technique_risk_controllability}} of them. A language-model game master tends to accommodate requests a human game master would refuse [@src-gallotta-2024-llms-games-survey]. A world model accepts a prompt for weather or a new character mid-session and decides for itself what that looks like. A level generator produces something valid that no designer would have chosen.
 
 Close behind is evaluation, listed on {{stat:n_technique_risk_evaluation}}: when a system can produce an unbounded variety of outputs, nobody can check them all.{{assert:n_technique_risk_evaluation >= 15}} Automated playtesting can check that generated content is valid and balanced; it says little about whether a generated event is any good. Human review does not scale to generated variety. This dataset faces the same problem with its own records and answers it with a verification queue: sampled, scored against anchors, and logged (chapter 13). Games will need something similar for what their generators produce.
+
+The records say why such checks are hard to build. Playtesting agents are not players: their skill and style differ, and agents that imitate players need large logs of real moves, which a new game lacks before launch. An open-ended simulation has no single goal to optimize, so rewards for coverage or curiosity stand in for the designer's intent and can miss balance problems that appear only over long play. Societies of language agents are validated by matching stylized findings, which gives a designer no way to tune or test what the society does as a whole, and agents built on pretrained models reproduce institutions people already have, such as taxes, votes, and religion, so their outcomes are bounded by their training data.{{assert:field.automated-playtesting.maturity == shipped-niche}}{{assert:field.llm-agent-societies.maturity == research}}
 
 ## Trust, authorship, and safety
 
@@ -57,6 +75,28 @@ These risks fall unevenly across the bets. Opportunities that help players under
 The table lists every risk the dataset records, with the number of techniques that carry it.
 
 {{table:techniques-by-risk}}
+
+## Provenance
+
+Intellectual property and provenance are listed as a risk on {{stat:n_technique_risk_ip_provenance}} techniques, and the records trace most of it to training data.{{assert:n_technique_risk_ip_provenance >= 5}} The open interactive video models learned from recordings of commercial games: Hunyuan-GameCraft from more than a million recordings of over a hundred AAA titles [@src-li-2025-hunyuan-gamecraft], Matrix-Game 2.0 from about 1,200 hours that include Grand Theft Auto driving and Minecraft [@src-he-2025-matrix-game-2]. Their record calls the provenance of the output contested. The frame-predicting engines of chapter 7 are trained on footage of the game they reproduce, so their record describes the approach as cloning a game rather than authoring a new one and lists the licensing of that footage as unresolved. Learned level generators trained on commercial levels such as Super Mario Bros. raise the same questions for a shipped game, and text-to-3D models differ in where their training data came from and under what licence; TRELLIS is released under the MIT licence [@src-xiang-2024-trellis].
+
+Some of the risk sits in data a studio would collect itself. Microsoft's game-world model needed years of recorded human play from one game, gathered under consent terms that few studios hold. Models of human behaviour built from interviews need hours of data per person, which raises consent and privacy questions for player data. Even a technique that leaves reproducibility intact can carry the risk: rebuilding a planet from imagery needs a licensed imagery source.{{assert:field.satellite-world-reconstruction.maturity == shipped-niche}}
+
+## Labor and safety
+
+Labor displacement is listed on {{stat:n_technique_risk_labor}} techniques and content safety on {{stat:n_technique_risk_content_safety}}.{{assert:n_technique_risk_labor >= 5}}{{assert:n_technique_risk_content_safety >= 5}} The record for realtime voice carries both. Consent and pay for voice replicas are now contract terms, after the strike chapter 7 described, and players have marked games down in reviews for AI voices. The same record explains why most games keep text between speech and the game: speech-native models are hard to hold to the actions a game allows, so most games keep a layer of text between speech and game state.{{assert:field.realtime-voice-models.maturity == shipped-niche}}
+
+Safety moves with the model. A model on the player's machine needs its filters there too, and the record notes that players can extract or modify local weights. A shared cache has the opposite exposure: every answer Infinite Craft stores becomes permanent content for every later player, so its record says outputs must be filtered for offensive results. A hosted world model enforces its own limits; Genie's guardrails refuse copyrighted settings and nudity, which narrows the worlds players can make.
+
+## Risks the bets name
+
+The opportunity records list risks of their own, and many of them concern what a feature does to the game itself.
+
+- A design that removes a chore can remove a skill. Intent-level orders risk hiding the systems some players enjoy mastering, and an ambiguous intent compiles to a surprising rule. Explained delegation risks a late game spent approving a manager's proposals, and a manager that imitates a novice repeats the novice's mistakes.
+- A design that shapes events can feel rigged. The drama-aware storyteller lists players perceiving arc-shaped events as rigged, and the same arcs recurring across runs if the scoring is too deterministic. Placement that tells stories lists players arranging their towns for favourable events.
+- A design that adds realism can take away play. Realistic weather can be less fun than authored seasons, research that depends on which scientists work together frustrates a player planning a build, and a workforce to manage can bury the logistics puzzle a factory player came for.
+- Calibration invites more trust than it has earned. The serious-sim bet lists users over-trusting calibrated outputs, and the planning sandbox lists simulated residents standing in for real community input, and political misuse.
+- Balancing by search has blind spots. Bots find exploits humans never would and miss ones humans find, and balancing too hard removes asymmetries that make a game interesting.
 
 ## A log as the fix
 
@@ -79,4 +119,4 @@ Pick an AI feature you have seen in a game, or one from chapter 10.
 3. Describe the first contradiction a player is likely to see, and how the player would find out that the game was wrong and not their understanding of it.
 4. Estimate the cost per player-hour, and who pays it.
 
-The exercise sorts features into two groups: those that can be fixed with a log and a schema, and those whose value depends on doing something no log can make repeatable. Whether the first group ships first is one of the questions the predictions in chapter 12 are set up to answer, starting on {{stat:first_prediction_resolves}}.
+The exercise sorts features into two groups: those that can be fixed with a log and a schema, and those whose value depends on doing something no log can make repeatable. Whether the first group ships first is one of the questions the predictions in chapter 12 are set up to answer, starting on {{stat:first_prediction_resolves_long}}.

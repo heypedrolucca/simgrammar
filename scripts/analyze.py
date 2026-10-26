@@ -12,6 +12,7 @@ from __future__ import annotations
 import hashlib
 import math
 from collections import Counter, defaultdict
+from datetime import date
 from itertools import combinations
 from pathlib import Path
 
@@ -24,6 +25,12 @@ from lib import CALIBRATION_SCALES, ROOT, calibration_agreement, independent, lo
 
 MATURITY_ORDER = ["research", "prototype", "shipped-niche", "shipped-mainstream"]
 
+
+
+def written_dates(iso) -> tuple[str, str]:
+    """An ISO date written out for prose (31 December 2027) and for narration (December 31, 2027)."""
+    d = date.fromisoformat(str(iso))
+    return f"{d.day} {d:%B %Y}", f"{d:%B} {d.day}, {d.year}"
 
 def _r(x, n=3):
     if x is None or (isinstance(x, float) and math.isnan(x)):
@@ -211,8 +218,99 @@ def compute(ents: dict, edges: list, vocabs: dict) -> dict:
             stats["n_mechanics_seen_null_mean"] = _r(float(np.mean(null)), 0)
             stats["pct_mechanics_seen_null_mean"] = _r(100 * float(np.mean(null)) / max(len(mechs), 1), 0)
             stats["p_mechanics_seen_by_2000"] = _r(sum(1 for v in null if v >= len(early_seen)) / len(null), 2)
+        # book expansion: chapters 7-9
+        # how many city builders use each mechanic that splits the genre in chapter 9 (treasury against stores, goods against needs)
+        city_ids = [g.id for g in games if g.data.get("subgenre") == "city-builder"]
+        for mid in ("budget-treasury", "storage-capacity", "goods-consumption", "needs-decay", "crop-cultivation"):
+            stats[f"n_city_builder_uses_{mid.replace('-', '_')}"] = sum(1 for x in city_ids if mid in used_by_game[x])
+        stats["n_city_builders"] = len(city_ids)
+        # book expansion: chapters 10-13
+        # where techniques run (chapter 11), prediction criteria (chapter 12), and the run log (chapter 13)
+        for where in ("server-realtime", "client-realtime"):
+            on = [t for t in techs if where in t.data["runtime"]]
+            stats[f"n_technique_{where.replace('-', '_')}"] = len(on)
+            stats[f"n_technique_{where.replace('-', '_')}_breaks"] = sum(1 for t in on if t.data["determinism_impact"] == "breaks")
+        stats["n_technique_offline_only"] = sum(1 for t in techs if not {"client-realtime", "server-realtime"} & set(t.data["runtime"]))
+        stats["n_technique_server_only"] = sum(1 for t in techs if "server-realtime" in t.data["runtime"] and "client-realtime" not in t.data["runtime"])
+        stats["n_technique_server_only_breaks"] = sum(1 for t in techs if "server-realtime" in t.data["runtime"] and "client-realtime" not in t.data["runtime"]
+                                                      and t.data["determinism_impact"] == "breaks")
+        crit = [str(o.data["falsifiable_signal"].get("criteria", "")) for o in opps]
+        stats["n_predictions_exclusion_clause"] = sum(1 for c in crit if "not count" in c)
+        stats["n_predictions_console_alternative"] = sum(1 for c in crit if "console release" in c)
+        stats["n_opportunity_now_due_2029"] = sum(1 for o in opps if o.data.get("horizon") == "now" and str(o.data["falsifiable_signal"]["resolve_by"]) >= "2029-01-01")
+        stats["n_opportunity_deprecated"] = sum(1 for o in ents.get("opportunity", []) if o.data.get("deprecated"))
+        run_list = ents.get("run", [])
+        for kind in ("catalog", "taxonomy", "maintenance", "technique", "synthesis", "bootstrap"):
+            stats[f"n_runs_{kind}"] = sum(1 for r in run_list if r.data.get("kind") == kind)
+        run_dates = sorted(str(r.data.get("date")) for r in run_list)
+        stats["first_run_date"] = run_dates[0] if run_dates else ""
+        if run_dates:
+            stats["first_run_date_long"] = written_dates(run_dates[0])[0]
+        stats["n_run_days"] = len(set(run_dates))
+        # book expansion: chapters 1-3
+        # how much of itself each game marks as core (chapter 1), influences the records name (chapter 3), mechanic
+        # proposals in the run log (chapter 1), and game-level win structures and math bases of mechanics (chapter 2)
+        core_per_game = [derived[g.id]["core_count"] for g in games]
+        stats["median_core_per_game"] = _r(float(np.median(core_per_game)), 1) if core_per_game else None
+        stats["max_core_per_game"] = max(core_per_game) if core_per_game else None
+        stats["n_games_one_core"] = sum(1 for c in core_per_game if c == 1)
+        stats["n_mechanics_never_core"] = sum(1 for m in mechs if derived[m.id]["prevalence"] > 0 and derived[m.id]["core_count"] == 0)
+        stats["n_mechanics_always_core"] = sum(1 for m in mechs if derived[m.id]["prevalence"] >= 3 and derived[m.id]["core_count"] == derived[m.id]["prevalence"])
+        named_inf = Counter()
+        for g in games:
+            for x in g.data.get("influenced_by") or []:
+                named_inf[x if isinstance(x, str) else x.get("id")] += 1
+        for g in games:
+            derived[g.id]["named_as_influence"] = named_inf.get(g.id, 0)
+        stats["n_influence_links"] = sum(named_inf.values())
+        stats["n_games_naming_influence"] = sum(1 for g in games if g.data.get("influenced_by"))
+        stats["max_named_as_influence"] = max(named_inf.values()) if named_inf else 0
+        sub_of = {g.id: g.data.get("subgenre") for g in games}
+        stats["n_influence_links_cross_subgenre"] = sum(1 for g in games for x in (g.data.get("influenced_by") or [])
+                                                        if sub_of.get(x if isinstance(x, str) else x.get("id")) not in (None, sub_of[g.id]))
+        mech_props = [p for r in ents.get("run", []) for p in (r.data.get("proposals") or []) if p.get("kind") == "new-mechanic"]
+        prop_targets = {p.get("target") for p in mech_props if p.get("target")}
+        stats["n_mechanic_proposals"] = len(mech_props)
+        stats["n_mechanic_proposals_adopted"] = sum(1 for t in prop_targets if t in by_id and by_id[t].type == "mechanic")
+        win_n = Counter(g.data.get("win_structure") for g in games)
+        for w, n in win_n.items():
+            stats[f"n_games_win_{str(w).replace('-', '_')}"] = n
+        role_n = Counter(g.data.get("player_role") for g in games)
+        stats["n_player_roles"] = len(role_n)
+        for r_, n in role_n.items():
+            stats[f"n_games_role_{str(r_).replace('-', '_')}"] = n
+        narr_n = Counter(g.data.get("narrative_mode") for g in games)
+        for nm, n in narr_n.items():
+            stats[f"n_games_narrative_{str(nm).replace('-', '_')}"] = n
+        math_n = Counter(b for m in mechs for b in (m.data.get("math_basis") or []))
+        for b, n in math_n.items():
+            stats[f"n_mechanics_math_{b.replace('-', '_')}"] = n
+        # book expansion: chapters 4-6
+        # chapter 4 works the clustering's similarity through by hand: rarity weights and a few pairwise scores,
+        # computed with the same weights the clustering uses (core weight times log(N / prevalence))
+        _clw = cfg["clustering"]
+        def _w(gid, mid):
+            pv = derived[mid].get("prevalence") or 0
+            if not pv:
+                return 0.0
+            idf_ = math.log(N / pv) if _clw.get("idf") else 1.0
+            return (_clw["core_weight"] if gm[gid][mid] == "core" else 1.0) * idf_
+        def _sim(a, b):
+            if a not in gm or b not in gm:
+                return None
+            ids_ = set(gm[a]) | set(gm[b])
+            mn = sum(min(_w(a, m) if m in gm[a] else 0.0, _w(b, m) if m in gm[b] else 0.0) for m in ids_)
+            mx = sum(max(_w(a, m) if m in gm[a] else 0.0, _w(b, m) if m in gm[b] else 0.0) for m in ids_)
+            return _r(mn / mx, 2) if mx else None
+        for a_, b_ in (("factorio", "satisfactory"), ("factorio", "anno-1800"), ("rimworld", "the-sims"), ("rimworld", "dwarf-fortress"), ("simcity-1989", "cities-skylines")):
+            v_ = _sim(a_, b_)
+            if v_ is not None:
+                stats[f"sim_{a_.replace('-', '_')}_{b_.replace('-', '_')}"] = v_
+        if derived.get("storyteller-director", {}).get("prevalence") and derived.get("variable-speed", {}).get("prevalence"):
+            stats["idf_ratio_storyteller_pause"] = _r(math.log(N / derived["storyteller-director"]["prevalence"]) / math.log(N / derived["variable-speed"]["prevalence"]), 1)
+        stats["n_mechanics_tuning_5"] = sum(1 for m in mechs if m.data.get("tuning_difficulty") == 5)
         old_mechs = {m.id for m in mechs if (derived[m.id].get("earliest_year") or 9999) <= 2000}
-        late_ids = [g.id for g in games if isinstance(year.get(g.id), int) and year[g.id] >= 2010]
+        late_ids =[g.id for g in games if isinstance(year.get(g.id), int) and year[g.id] >= 2010]
         late_uses = sum(len(used_by_game[x]) for x in late_ids)
         stats["n_games_since_2010"] = len(late_ids)
         stats["n_games_since_2010_only_pre2001"] = sum(1 for x in late_ids if used_by_game[x] and set(used_by_game[x]) <= old_mechs)
@@ -275,6 +373,8 @@ def compute(ents: dict, edges: list, vocabs: dict) -> dict:
         stats["top_technique_risk"] = max(rk.items(), key=lambda kv: (kv[1], kv[0]))[0] if rk else ""
         rb = sorted(o.data["falsifiable_signal"]["resolve_by"] for o in opps)
         stats["last_prediction_resolves"] = rb[-1] if rb else None
+        if rb:
+            stats["last_prediction_resolves_long"], stats["last_prediction_resolves_spoken"] = written_dates(rb[-1])
         stats["n_predictions_first_date"] = sum(1 for d in rb if d == rb[0]) if rb else 0
         stats["n_predictions_by_2027"] = sum(1 for d in rb if d <= "2027-12-31")
         stats["n_predictions_by_2028"] = sum(1 for d in rb if d <= "2028-12-31")
@@ -645,6 +745,8 @@ def compute(ents: dict, edges: list, vocabs: dict) -> dict:
     stats["n_predictions"] = len(opps)
     res = sorted(o.data["falsifiable_signal"]["resolve_by"] for o in opps)
     stats["first_prediction_resolves"] = res[0] if res else None
+    if res:
+        stats["first_prediction_resolves_long"], stats["first_prediction_resolves_spoken"] = written_dates(res[0])
     outcomes = Counter()
     for o in opps:
         r = o.data["falsifiable_signal"].get("resolution")

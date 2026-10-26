@@ -82,7 +82,7 @@ Target runtime about 12 minutes: about 1,230 words of narration at 135 words a m
 
 **Picture.** The bottom of the feasibility scale. Three record cards slide in. Mock-up stills, labelled: a city drawn as watercolor over a tile grid; a map of hundreds of small agents with a chronicle scrolling beside it.
 
-**Voice.** At the far end are the long shots, each scored low for feasibility and high for novelty.{{assert:field.symbolic-sim-neural-render.feasibility == 2}}{{assert:field.llm-society-terrarium.feasibility == 2}} A city builder that keeps its state as a tile grid and lets a generative model draw it in any style. A terrarium of hundreds of language-model agents that you seed, nudge rarely, and watch write their own history. And a search over rule programs that proposes new mechanics, checked against the catalog in this series for what already exists. That last prediction runs the longest, to {{stat:last_prediction_resolves}}.{{assert:field.mechanic-discovery-search.falsifiable_signal.resolve_by == last_prediction_resolves}}
+**Voice.** At the far end are the long shots, each scored low for feasibility and high for novelty.{{assert:field.symbolic-sim-neural-render.feasibility == 2}}{{assert:field.llm-society-terrarium.feasibility == 2}} A city builder that keeps its state as a tile grid and lets a generative model draw it in any style. A terrarium of hundreds of language-model agents that you seed, nudge rarely, and watch write their own history. And a search over rule programs that proposes new mechanics, checked against the catalog in this series for what already exists. That last prediction runs the longest, to {{stat:last_prediction_resolves_spoken}}.{{assert:field.mechanic-discovery-search.falsifiable_signal.resolve_by == last_prediction_resolves}}
 
 ## 11. Who builds what (10:40 to 11:31)
 
@@ -94,6 +94,6 @@ Target runtime about 12 minutes: about 1,230 words of narration at 135 words a m
 
 **Picture.** The Factorio factory from the cold open, running, the smelter belts split. The ranked table again, every row with a date beside it.
 
-**Voice.** Every one of the {{stat:n_predictions}} bets in the dataset carries a date, and the first ones come due on {{stat:first_prediction_resolves}}. Before that, the next episode is about how these ideas fail: the desync, the contradiction, and the bill.
+**Voice.** Every one of the {{stat:n_predictions}} bets in the dataset carries a date, and the first ones come due on {{stat:first_prediction_resolves_spoken}}. Before that, the next episode is about how these ideas fail: the desync, the contradiction, and the bill.
 
 **On screen.** The dataset and every bet's record: sim.yohei.me

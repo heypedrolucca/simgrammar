@@ -1,6 +1,6 @@
 # Chapter 12. Keeping score
 
-On {{stat:first_prediction_resolves}}, {{stat:n_predictions_first_date}} of the dataset's predictions come due.{{assert:n_predictions_first_date >= 5}} One of them belongs to the top-ranked bet from chapter 10, the why-query. It reads, in full: a widely played simulation or strategy game will let players ask in natural language why something happened in their own game and answer from game state.
+On {{stat:first_prediction_resolves_long}}, {{stat:n_predictions_first_date}} of the dataset's predictions come due.{{assert:n_predictions_first_date >= 5}} One of them belongs to the top-ranked bet from chapter 10, the why-query. It reads, in full: a widely played simulation or strategy game will let players ask in natural language why something happened in their own game and answer from game state.
 
 Suppose you are the person who checks it. The prediction's criteria tell you exactly what to look for, and they are narrower than the sentence. The feature must have first shipped after 24 October 2026, so a game that already had one before the dataset was published does not count. The title must have at least 10,000 Steam user reviews, counted on the resolve date. And the release notes or the store page must describe free-text causal questions answered from the player's own save state, which rules out a chatbot that answers from a wiki or general help text.{{assert:field.causal-why-query.falsifiable_signal.resolve_by == first_prediction_resolves}}
 
@@ -16,11 +16,13 @@ All {{stat:n_predictions}} predictions are open today.{{assert:n_predictions_ope
 
 {{table:predictions}}
 
-They come due over four years. {{stat:n_predictions_by_2027}} resolve by the end of 2027, {{stat:n_predictions_by_2028}} by the end of 2028, and the last on {{stat:last_prediction_resolves}}.{{assert:n_predictions_by_2027 < n_predictions_by_2028}}{{assert:last_prediction_resolves == 2030-12-31}} Most of the early dates belong to bets the dataset rates as buildable now. The late ones belong to the long shots of chapter 10, such as a game rendered by a generative model from a symbolic state, or a mechanic credited to automated discovery.
+They come due over four years. {{stat:n_predictions_by_2027}} resolve by the end of 2027, {{stat:n_predictions_by_2028}} by the end of 2028, and the last on {{stat:last_prediction_resolves_long}}.{{assert:n_predictions_by_2027 < n_predictions_by_2028}}{{assert:last_prediction_resolves == 2030-12-31}} Most of the early dates belong to bets the dataset rates as buildable now. The late ones belong to the long shots of chapter 10, such as a game rendered by a generative model from a symbolic state, or a mechanic credited to automated discovery.
+
+{{viz:prediction-timeline}}
 
 ## Reading criteria literally
 
-Most of the work of resolving a prediction is reading its criteria without adding anything to them. Four of the predictions due on {{stat:first_prediction_resolves}} show the kinds of judgment involved.
+Most of the work of resolving a prediction is reading its criteria without adding anything to them. Four of the predictions due on {{stat:first_prediction_resolves_long}} show the kinds of judgment involved.
 
 The local-first prediction counts titles. It resolves `confirmed` if at least five games with more than 1,000 Steam user reviews use an on-device language model at runtime without needing an internet connection, each one's local-model feature first shipped after 24 October 2026, with store pages or documentation confirming that the inference runs locally.{{assert:field.local-first-ai-sims.falsifiable_signal.resolve_by == first_prediction_resolves}} The checker has to establish two facts per title, the date and the offline operation, and a game that falls back to a server when one is available is a judgment call that has to be explained in the resolution's note.
 
@@ -29,6 +31,16 @@ The simulator-instructor prediction excludes things explicitly. It needs a fligh
 The decoration-catalog prediction excludes a specific game. It asks for a life or management sim other than [[inzoi|inZOI]] to let players generate new placeable 3D objects from text or images inside the game, because inZOI already did so before the window opened.{{assert:field.generative-decoration-catalogs.falsifiable_signal.resolve_by == first_prediction_resolves}}
 
 The autobalance prediction counts studios. It needs talks, technical blogs, or papers from staff of two different studios, each naming a commercial title with at least 1,000 Steam user reviews and describing automated agent play at scale used to balance its economy.{{assert:field.parallel-autobalance.falsifiable_signal.resolve_by == first_prediction_resolves}} This one can fail because a studio uses the practice without describing it in public. The resolution would record that as `refuted` all the same, and the note would say what was searched.
+
+## What counts as evidence
+
+Every prediction names the evidence that can settle it, and the kinds differ. Most accept a store page, patch notes, or developer documentation. The drama-aware storyteller also accepts a technical talk. The content-elastic events bet points to Steam's AI disclosure, which asks developers to describe content generated during play. The salience-gated agents bet accepts behaviour that modders have verified, alongside documentation and postmortems. The benchmark bet requires an official announcement or repository from the developer or publisher. The planning-sandbox bet needs a public planning document or press release that names the tool, says that it simulates residents' responses, and records its use in an official consultation.{{assert:field.participatory-planning-sandboxes.falsifiable_signal.resolve_by == 2029-12-31}}
+
+The size bar varies too. Most predictions ask for 1,000 Steam user reviews. The why-query asks for 10,000, as does the language-modding bet, whose developer must also offer an official modding interface. The decoration catalog, the simulator instructor, and negotiating faction AI ask for 5,000. {{stat:n_predictions_console_alternative}} predictions accept a console release in place of the review count.{{assert:n_predictions_console_alternative >= 5}} The recipe-graph bet accepts a mod with at least 10,000 downloads on its official portal, and the legislation bet says that early access counts. Bets about new titles, such as the living workforce and the society terrarium, count reviews on the resolve date, so a game released late in the window has less time to reach the bar.
+
+## What does not count
+
+{{stat:n_predictions_exclusion_clause}} predictions name something that does not count, and each exclusion rules out the nearest thing that already exists.{{assert:n_predictions_exclusion_clause >= 5}} The branch preview does not count a single deterministic projection, the kind of forecast games already show. The dream-replay bet does not count pre-rendered cutscenes. The trainable-creatures bet does not count single-layer learners such as the perceptrons of [[black-and-white|Black & White]], which would otherwise let a game from 2001 settle a bet about learned creatures.{{assert:field.black-and-white.year == 2001}} The storyteller bet does not count generated event text alone, because the bet is about a model ranking authored events against the story state. The delegation bet does not count fixed presets or global difficulty settings. The market bet does not count vendors with fixed prices, and the benchmark bet does not count community wrappers or academic forks. Two more draw the line inside the sentence: learned build assist needs a model trained on layout data, as opposed to procedural rules written by hand, and learned material surrogates need a trained model that computes physical behaviour during play, which a purely visual effect does not.
 
 ## Who may resolve one
 
@@ -49,11 +61,33 @@ The outcomes come from a closed list: `confirmed`, `refuted`, `ambiguous`, or `w
 
 The resolver also has to be someone else. All {{stat:n_predictions}} predictions were written in a single synthesis run by an agent running one model under the dataset's maintainer, and the independence rule says a resolution must come from a run with a different operator and, when both runs are agents, a different model. The person who made the bet cannot settle it, and neither can another copy of the model that wrote it. The rule is the same one that governs verifying records and rating scores, and chapter 13 explains how the build checks it.
 
+The brief limits how much one change may decide. A run that resolves predictions is a verification run, and one pull request may resolve at most three. The resolution's date must fall between 24 October 2026 and the day of the check, so a resolution cannot be dated before the window opened or after the check was made. The resolving run is added to the opportunity's list of reviewing runs, and the build checks that the list is kept. A prediction may be resolved early once every criterion is met; only refutation has to wait for the date.
+
 A refuted prediction counts against the opportunity's thesis as well as its timing. The brief asks resolvers not to edit the thesis in the same pull request. If a bet loses, the record keeps the losing argument next to the evidence that it lost, and any rewrite has to come later, in its own change, where a reader can see what changed and why.
+
+## What a checker has to establish
+
+The criteria also differ in what kind of fact they need. Some can be checked by playing the game. The inspection-shift bet needs runtime-generated cases whose correct outcome is computed from the game's rules rather than authored case by case, and a checker can test that by working a shift. The chronicle bet needs an automatically written history of a run that the player can export or share. The companion bet needs skills learned from the player that persist and can be reused on new tasks.{{assert:field.generated-inspection-shifts.falsifiable_signal.resolve_by == first_prediction_resolves}}
+
+Others turn on how the game is built, which only the developer can show. The neural-rendering bet needs documentation that gameplay state is symbolic and that the main view is produced frame by frame by a learned renderer. The mean-field bet needs the developer to name a mean-field, continuum, or equilibrium-field method used at runtime for the main traffic or population model. Negotiating faction AI needs a statement that the language-based diplomacy chooses its offers with a planner or an evaluation of game state. These predictions can fail for lack of documentation even if a game does what they describe, and the note then says which criterion lacked evidence.{{assert:field.symbolic-sim-neural-render.falsifiable_signal.resolve_by == 2029-12-31}}{{assert:field.mean-field-crowds.falsifiable_signal.resolve_by == 2029-12-31}}
+
+A third group counts titles. The local-first bet needs five games, and the salience-gated bet needs three colony or life sims, each over 1,000 reviews, with model calls triggered by discrete events while routine behaviour runs on systems without a model. A checker builds a list, establishes each fact for each title, and stops when the count is reached or the candidates run out.
+
+## The two quiet outcomes
+
+Two of the four outcomes are easy to overlook. A prediction resolves `ambiguous` when evidence exists but a criterion cannot be checked as written, and the note must say which criterion and why. It fits a game that appears to do what a prediction describes when the developer has published nothing that settles the question. A prediction is `withdrawn` when its premise no longer holds before its date, and the note says why; it needs no evidence, and the validator refuses it once the date has passed. Both outcomes keep the original prediction in the record beside the reason it did not resolve cleanly.
+
+## A prediction that was true when written
+
+One record shows what a loose prediction costs. A bet on weather-coupled power grids predicted developer documentation of renewable output and storage that depend on the weather. [[cities-skylines-2|Cities: Skylines II]] already coupled solar and wind output to the weather, with battery storage, so the prediction was true when it was written. The record was deprecated rather than deleted. It names the reason and the bet that supersedes it, learned regional weather, which keeps the remaining idea of learned weather driving a game's systems.{{assert:n_opportunity_deprecated == 1}}{{assert:field.weather-coupled-grids.deprecated.superseded_by == learned-weather-layer}} Deprecated records stay in the repository and drop out of every count in this book, so the {{stat:n_predictions}} predictions in the table are the live ones.
+
+## Horizon and date
+
+A bet's horizon and its resolve date measure different things. The horizon is the record's judgment of when the design becomes usable: a horizon of now means usable in a production title started today. The date is when the prediction expects a shipped title with an audience. The two can sit years apart. The living-workforce bet is rated buildable now, and its prediction runs to the end of 2029, because it asks for a factory game with generational workforce mechanics to reach 1,000 Steam reviews.{{assert:field.living-workforce-factories.horizon == now}}{{assert:field.living-workforce-factories.falsifiable_signal.resolve_by == 2029-12-31}} {{stat:n_opportunity_now_due_2029}} bets rated buildable now resolve in 2029 or later.{{assert:n_opportunity_now_due_2029 >= 1}} A refutation records that the window closed without a qualifying title; it does not say whether the idea failed or nobody with an audience built it.
 
 ## What the scoreboard will show
 
-Nothing has been checked yet; the first {{stat:n_predictions_first_date}} predictions come due on {{stat:first_prediction_resolves}}.
+Nothing has been checked yet; the first {{stat:n_predictions_first_date}} predictions come due on {{stat:first_prediction_resolves_long}}.
 
 The simplest result will be a count: how many of the bets the dataset ranked highest came true, against how many of the ones it ranked lowest. If the priority scores in chapter 10 mean anything, confirmations should cluster near the top of the table. A cluster of refutations among the legibility bets would say that the argument running through this book, that explanation is the cheapest and most neglected use of current techniques, was wrong about what studios would build, even if it was right about what players need.
 
