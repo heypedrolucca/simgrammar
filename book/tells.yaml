@@ -78,6 +78,8 @@ phrases:
   - {id: the-point, pattern: '\b(that is|that''s|this is|is) (the whole|exactly the|the) point\b', why: aphorism}
   - {id: not-about, pattern: '\b(it''s|it is|this is|this isn''t|it isn''t) not about\b|\bisn''t about\b', why: contrast frame}
   - {id: moving-forward, pattern: '\b(moving forward|going forward|a new era|the future of)\b', why: stock phrase}
+  - {id: signpost, pattern: '\b(this|the) (chapter|book|section) (is about|explains|describes|covers|takes|turns|follows|looks at|returns to)\b|\bwhat this chapter\b|\bis the subject of (this|chapter)\b|\bthe rest of (the|this) chapter\b', why: signposting; start with the content}
+  - {id: setup-sentence, pattern: '\bis the clearest (case|example)\b|\bmakes? the pattern concrete\b|\bdeserves? a moment\b|\bworth stating\b|\bin plainer terms\b|\brepeats the pattern\b|\bkeeps appearing\b|\bshare a pattern\b|\bshows? both costs\b', why: setup sentence that announces the next point}
   - {id: so-what, pattern: '\bso what\?', why: rhetorical question}
   - {id: what-matters, pattern: '\b(what matters (is|here|most)|the key (is|here)|the catch is|the trick is|the point is)\b', why: announces instead of saying}
   - {id: looks-like, pattern: '\b(that|this) is what [^.,;]{1,40} looks like\b', why: aphorism}

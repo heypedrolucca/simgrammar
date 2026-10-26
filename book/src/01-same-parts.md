@@ -6,7 +6,7 @@ Three days later the cook puts down her knife and walks out of the kitchen. She 
 
 Nobody wrote that story. A storyteller chose the raid and its timing. The raid's size came from how rich the colony had grown. The shot that killed the son hit a named part of his body. His death wrote an entry into his mother's memory with a value and an expiry date, the entries summed to a mood, and the mood crossed a threshold that rolls for breakdowns. Each of those is a separate rule-system with its own state and its own update rule, and RimWorld's designer chose them for the stories they produce: he describes the game as a "story generator" [@src-wikipedia-rimworld].
 
-This book is about rule-systems like those: what they are, which games use them, which ones are common and which are rare, and what happens to them as AI techniques arrive. It rests on an open dataset that breaks {{stat:n_game}} simulation games into {{stat:n_mechanic}} named mechanics, with the sources for each.
+An open dataset breaks {{stat:n_game}} simulation games into {{stat:n_mechanic}} named rule-systems like those, with the sources for each, and this book is built on it.
 
 ## RimWorld, in parts
 
@@ -69,4 +69,4 @@ Pick a simulation game you know well. It does not have to be in the catalog.
 3. For each core mechanic, guess how many catalog games use it, then look it up. The parts you think of as the game's signature are probably rarer than you guessed, and the parts you never think about are probably among the most common.
 4. Remove one core mechanic and describe the game that is left. Then add one rare mechanic from another game's core and describe that game.
 
-The mechanics in step 1 do different jobs. Some hold state, some change it, some connect systems to each other, and some let the player see or steer what is happening. Chapter 2 sorts the vocabulary into six such jobs and shows that genres differ mainly in which jobs they spend on.
+Chapter 2 sorts the vocabulary by the job each mechanic does: holding state, changing it, connecting systems, taking in the player's intent, showing what is happening, and deciding when the player has to look.

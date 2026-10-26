@@ -70,7 +70,7 @@ Target runtime about 12 minutes: about 1,300 words of narration at 135 words a m
 
 **On screen.** Raid points = (wealth points + colonist points) × threat scale × starting factor × adaptation factor. Capped at 10,000.
 
-**Voice.** RimWorld's raids show both costs. Before each raid the game computes a budget of raid points from your colony's wealth and your colonists, then multiplies it by a few factors, one of which drops after colonists die [@src-rimworldwiki-2026-raid-points]. None of that is on screen. Players who look it up on the wiki learn to keep their wealth down: they skip the statues and the fine furniture so the raids stay small. The mechanic scores 2 for legibility and 4 for tuning difficulty.{{assert:field.adaptive-threat-scaling.legibility == 2}}{{assert:field.adaptive-threat-scaling.tuning_difficulty == 4}}
+**Voice.** Before each raid, RimWorld computes a budget of raid points from your colony's wealth and your colonists, then multiplies it by a few factors, one of which drops after colonists die [@src-rimworldwiki-2026-raid-points]. None of that is on screen. Players who look it up on the wiki learn to keep their wealth down: they skip the statues and the fine furniture so the raids stay small. The mechanic scores 2 for legibility and 4 for tuning difficulty.{{assert:field.adaptive-threat-scaling.legibility == 2}}{{assert:field.adaptive-threat-scaling.tuning_difficulty == 4}}
 
 ## 8. Expensive and hidden (6:52 to 8:16)
 

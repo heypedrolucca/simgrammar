@@ -78,7 +78,7 @@ Target runtime about 12 minutes: about 1,290 words of narration at 135 words a m
 
 ## 11. How a lot closes (10:49 to 11:59)
 
-**Picture.** A pull request on screen adding one game record. The build reruns; a sentence in the book turns red; it's rewritten.
+**Picture.** A pull request on screen adding one game record. The build reruns; a sentence in the book turns red; it's rewritten. <!-- tells-ok: signpost -->
 
 **Voice.** The catalog is a sample. It leans toward games well documented in English, and a game outside it may already combine any of these pairs. That's the cheapest way to close a lot: add the game, with its sources. The table recomputes, and any sentence in this series that depended on the gap fails its check until someone rewrites it.
 

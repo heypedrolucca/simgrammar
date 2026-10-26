@@ -13,7 +13,7 @@ Every simulation game does these six jobs, and nearly every mechanic in the data
 5. **Legibility:** how the state gets out to the player.
 6. **Pacing and stakes:** when the player must look, and what can be lost.
 
-A game's character comes from which layers it spends on. This chapter takes the layers one at a time and ends with what the catalog says about where each genre spends.
+A game's character comes from which layers it spends on.
 
 ## Substrate: what exists
 
@@ -21,25 +21,25 @@ A simulation has to store its world somehow, and the choice fixes what the game 
 
 {{table:mechanics-by-substrate}}
 
-SimCity's own history shows what the choice decides. The 1989 game stores its citizens as numbers in map cells. [[simcity-2013|SimCity (2013)]] replaced the statistical maps with its GlassBox engine, in which agents carry workers, power, water, and goods between buildings, so that a traffic jam is the visible sum of commuting agents [@src-cifaldi-2012-glassbox-engine]. Players could now follow a single citizen home, and chapter 5 describes what they found when they did. The choice of substrate decided what the game could show.
+The 1989 SimCity stores its citizens as numbers in map cells. [[simcity-2013|SimCity (2013)]] replaced the statistical maps with its GlassBox engine, in which agents carry workers, power, water, and goods between buildings, so that a traffic jam is the visible sum of commuting agents [@src-cifaldi-2012-glassbox-engine]. Players could now follow a single citizen home; chapter 5 describes what they found.
 
 ## Dynamics: how it changes
 
 Rules that change state form loops. A reinforcing loop amplifies itself: more citizens pay more taxes, which build more services, which attract more citizens. A balancing loop resists change: more traffic lowers land value, which slows growth, which eases traffic. Each mechanic record names its dominant polarity. Of the {{stat:n_mechanic}} mechanics, {{stat:n_mechanics_feedback_balancing}} are mainly balancing, {{stat:n_mechanics_feedback_reinforcing}} mainly reinforcing, and {{stat:n_mechanics_feedback_both}} run both ways depending on state. The remaining {{stat:n_mechanics_feedback_none}} have no loop of their own: pause buttons, overlays, and the other controls and displays that sit on top of the simulation.{{assert:n_mechanics_feedback_none > n_mechanics_feedback_balancing}}
 
-[[factorio|Factorio]] pairs the two kinds on purpose. Production is the reinforcing loop: more machines make more science packs, research unlocks better machines, and the factory grows. Pollution is the balancing one. Machines emit pollution into chunks of 32 by 32 tiles; a chunk holding more than 15 units passes 2 percent of it to each neighbor every 64 ticks; enemy nests that absorb it send attack groups, and an evolution factor that rises with time, total pollution, and destroyed nests unlocks larger enemies [@src-factoriowiki-2026-pollution; @src-factoriowiki-2026-enemies]. The bigger the factory, the harder the world pushes back. Difficulty in a game like this is the relative strength of the two loops.
+[[factorio|Factorio]] pairs the two kinds on purpose. Production is the reinforcing loop: more machines make more science packs, research unlocks better machines, and the factory grows. Pollution is the balancing one. Machines emit pollution into chunks of 32 by 32 tiles; a chunk holding more than 15 units passes 2 percent of it to each neighbor every 64 ticks; enemy nests that absorb it send attack groups, and an evolution factor that rises with time, total pollution, and destroyed nests unlocks larger enemies [@src-factoriowiki-2026-pollution; @src-factoriowiki-2026-enemies]. Difficulty in a game like this is the relative strength of the two loops.
 
-A reinforcing loop can also run downhill. A mood break leaves bad memories in the agents who witness it, which lowers their mood and raises their own chance of breaking, so in a colony sim one bad raid can start a slide that ends the colony; chapter 5 looks at what designers do about it.
+A reinforcing loop can also run downhill. A mood break leaves bad memories in the agents who witness it, which lowers their mood and raises their own chance of breaking, so in a colony sim one bad raid can start a slide that ends the colony.
 
 ## Coupling: how systems touch
 
 A game can have many systems and still feel thin if they never touch. Systems couple through shared stocks, shared space, and shared agents.
 
-Shared stocks are the simplest. Factorio's power grid connects every machine, and when generation falls short the grid shares power evenly, so every machine in the factory slows by the same proportion [@src-factoriowiki-2026-electric-system]. A shortage in one corner becomes a slowdown everywhere. Shared space works through neighbors: in SimCity, industry lowers the land value of the houses beside it. Shared agents work through bodies and minds: in RimWorld the same cook hauls, eats, grieves, and fights, so a death in a raid reaches the kitchen.
+Shared stocks are the simplest. Factorio's power grid connects every machine, and when generation falls short the grid shares power evenly, so every machine in the factory slows by the same proportion [@src-factoriowiki-2026-electric-system]. Shared space works through neighbors: in SimCity, industry lowers the land value of the houses beside it. Shared agents work through bodies and minds: in RimWorld the same cook hauls, eats, grieves, and fights, so a death in a raid reaches the kitchen.
 
 [[oxygen-not-included|Oxygen Not Included]] couples almost everything through one rule. Every tile in its asteroid holds one element with a mass and a temperature, and every 0.2 seconds each tile exchanges heat with its neighbors by conduction [@src-oxygennotincludedwiki-2026-thermal-conductivity]. Insulation, melting, boiling, and machines that overheat all follow from that rule rather than from scripts written for each building. Machines also emit what they do not use: a natural gas generator makes 800 watts and, with them, polluted water and carbon dioxide [@src-oniwiki-2026-natural-gas-generator]. The long game is closing those loops so that one machine's waste becomes another's input.
 
-[[dwarf-fortress|Dwarf Fortress]] is the catalog's largest decomposition, at {{derived:dwarf-fortress.mechanic_count}} mechanics,{{assert:game_most_mechanics == dwarf-fortress}} and its parts are coupled tightly. A dwarf seized by a strange mood takes over a workshop to make a named artifact and goes insane if the materials are missing, which turns the production system into a source of stories. Chapter 5 follows a single flood through one fortress.
+[[dwarf-fortress|Dwarf Fortress]] is the catalog's largest decomposition, at {{derived:dwarf-fortress.mechanic_count}} mechanics,{{assert:game_most_mechanics == dwarf-fortress}} and its parts are coupled tightly. A dwarf seized by a strange mood takes over a workshop to make a named artifact and goes insane if the materials are missing, which turns the production system into a source of stories.
 
 ## Control: how intent enters
 
@@ -47,17 +47,17 @@ The player can act directly through an avatar or a unit, place and zone, set par
 
 {{table:games-by-agency}}
 
-[[the-sims|The Sims]] sets its gap deliberately. Sims with free will choose their own actions among what the objects around them offer, but paying bills, finding a job, exercising, and having children need explicit commands, so the player alternates between architect and caretaker [@src-wikipedia-the-sims]. [[spacechem|SpaceChem]] sits at the other extreme. The player programs two mechanical arms in a reactor ten cells wide and eight tall to grab, bond, and rotate atoms into molecules; execution is deterministic and visible, so a program either meets its quota or collides, and a finished solution is plotted against every other player's on histograms of cycles, reactors, and instructions [@src-wikipedia-spacechem]. Nothing is hidden, and control is the whole game.
+[[the-sims|The Sims]] sets its gap deliberately. Sims with free will choose their own actions among what the objects around them offer, but paying bills, finding a job, exercising, and having children need explicit commands, so the player alternates between architect and caretaker [@src-wikipedia-the-sims]. [[spacechem|SpaceChem]] sits at the other extreme. The player programs two mechanical arms in a reactor ten cells wide and eight tall to grab, bond, and rotate atoms into molecules; execution is deterministic and visible, so a program either meets its quota or collides, and a finished solution is plotted against every other player's on histograms of cycles, reactors, and instructions [@src-wikipedia-spacechem].
 
 ## Legibility: how the state gets out
 
 A simulation the player cannot read plays as noise. Simulation games answer with a family of mechanics that own no simulation state at all: overlays, inspectors, tooltips, dashboards, alerts, advisors, forecasts. SimCity's maps are one. RimWorld's itemized thoughts, from chapter 1, are another. Paradox's grand strategy games nest tooltips: hover over a number and it breaks into labeled modifiers, each of which can be hovered in turn, until every value decomposes into causes [@src-pcgamesn-2022-victoria-3-nested-tooltips].
 
-The catalog undercounts this layer. Data overlays are tagged in only {{derived:data-overlays.prevalence}} catalog games, yet the mechanic's own definition names the info views of [[cities-skylines|Cities: Skylines]], and the Cities: Skylines record does not tag them. The dataset's records were written game by game, and interface mechanics were the easiest to leave out. Chapter 5 returns to this layer, how each of its mechanics fails, and why it gets harder to build as a simulation gets deeper.
+The catalog undercounts this layer. Data overlays are tagged in only {{derived:data-overlays.prevalence}} catalog games, yet the mechanic's own definition names the info views of [[cities-skylines|Cities: Skylines]], and the Cities: Skylines record does not tag them. The dataset's records were written game by game, and interface mechanics were the easiest to leave out.
 
 ## Pacing and stakes: when to look and what is lost
 
-The time model sets the basic rhythm, and chapter 1 counted them: real time with a pause leads, ahead of pure real time and turns. Other mechanics shape attention within it.
+The time model sets the basic rhythm: real time with a pause is the most common, ahead of pure real time and turns. Other mechanics shape attention within it.
 
 A crisis countdown announces a future disaster and lets the remaining time structure the play. Temperature in [[frostpunk|Frostpunk]] falls on a schedule toward the Great Storm, which the main scenario must outlast; in [[plague-inc|Plague Inc.]] the world's cure research climbs as a percentage, and the game ends when it completes [@src-wikipedia-frostpunk; @src-wikipedia-plague-inc]. The countdown is core in {{derived:crisis-countdown.core_count}} catalog games.{{assert:derived.crisis-countdown.core_count >= 5}}
 
@@ -71,7 +71,7 @@ The dataset does not tag layers directly. The closest measure is which families 
 
 {{table:subgenre-spend}}
 
-The profiles show differences the subgenre names leave out. Life sims put about a third of their uses into agents and behavior and much of the rest into social relations.{{assert:top_family_life_sim == agents-behavior}}{{assert:top_family_pct_life_sim >= 30}} Colony sims also lead with agents, but resources and construction come next, because a colony has to feed and house itself.{{assert:top_family_colony_sim == agents-behavior}} Factory games lead with resources and production, followed by the logistics that move it.{{assert:top_family_factory_automation == resources-production}} Programming games lead with control.{{assert:top_family_programming_sim == control-automation}} Vehicle sims lead with progression and goals, ahead of the physics: careers, licenses, and missions are wrapped around the driving and flying.{{assert:top_family_vehicle_sim == progression-goals}} And the AI-native titles lead with social relations, the family where conversation with a language model lands.{{assert:top_family_ai_native == social-relations}}
+Life sims put about a third of their uses into agents and behavior and much of the rest into social relations.{{assert:top_family_life_sim == agents-behavior}}{{assert:top_family_pct_life_sim >= 30}} Colony sims also lead with agents, but resources and construction come next, because a colony has to feed and house itself.{{assert:top_family_colony_sim == agents-behavior}} Factory games lead with resources and production, followed by the logistics that move it.{{assert:top_family_factory_automation == resources-production}} Programming games lead with control.{{assert:top_family_programming_sim == control-automation}} Vehicle sims lead with progression and goals, ahead of the physics: careers, licenses, and missions are wrapped around the driving and flying.{{assert:top_family_vehicle_sim == progression-goals}} And the AI-native titles lead with social relations, the family where conversation with a language model lands.{{assert:top_family_ai_native == social-relations}}
 
 City builders spread their uses most evenly. No family takes more than about one use in six, and construction, production, and economy take nearly equal shares.{{assert:top_family_pct_city_builder <= 17}}
 

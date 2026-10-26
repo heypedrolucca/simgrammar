@@ -70,7 +70,7 @@ Target runtime about 12 minutes: about 1,200 words of narration at 135 words a m
 
 **Voice.** A refuted prediction counts against the bet's argument as well as its timing. The rules ask that nobody rewrite the argument in the same change that records the loss, so the losing case stays readable next to the evidence.
 
-**Voice.** And nothing gets to slip past its date unnoticed. Every time the dataset is built, a warning lists each prediction whose date has passed without a resolution, and it keeps appearing until someone checks.
+**Voice.** And nothing gets to slip past its date unnoticed. Every time the dataset is built, a warning lists each prediction whose date has passed without a resolution, and it keeps appearing until someone checks. <!-- tells-ok: setup-sentence -->
 
 ## 9. What the scoreboard tests (9:04 to 10:04)
 

@@ -6,8 +6,6 @@ Suppose you are the person who checks it. The prediction's criteria tell you exa
 
 You search patch notes and store pages for the year. You find, say, a strategy game that added an advisor you can type questions to. You open its patch notes: the advisor answers questions about game mechanics from the developer's documentation. That fails the last criterion, because the answers do not come from the player's save. You keep looking. If nothing qualifies, the outcome is `refuted`, and the thesis behind the top-ranked bet in the dataset takes a mark against it.
 
-This chapter is about why every bet in the book carries a prediction like that, how the dataset checks them, and what the book will do with the results.
-
 ## A bet that can lose
 
 An opportunity without a date cannot be wrong. "AI will make simulation games more legible" will look plausible in any year, whatever happens. Every opportunity in the dataset therefore carries a falsifiable signal: a one-sentence prediction, a resolve-by date, and criteria written so that a stranger with a browser could decide the outcome from public evidence.
@@ -55,13 +53,13 @@ A refuted prediction counts against the opportunity's thesis as well as its timi
 
 ## What the scoreboard will show
 
-Nothing has been checked yet. The first {{stat:n_predictions_first_date}} predictions come due on {{stat:first_prediction_resolves}}, and the scoreboard will start to say something only after that.
+Nothing has been checked yet; the first {{stat:n_predictions_first_date}} predictions come due on {{stat:first_prediction_resolves}}.
 
-It can show several things once it does. The simplest is a count: how many of the bets the dataset ranked highest came true, against how many of the ones it ranked lowest. If the priority scores in chapter 10 mean anything, confirmations should cluster near the top of the table. They may not. A cluster of refutations among the legibility bets would say that the argument running through this book, that explanation is the cheapest and most neglected use of current techniques, was wrong about what studios would build, even if it was right about what players need.
+The simplest result will be a count: how many of the bets the dataset ranked highest came true, against how many of the ones it ranked lowest. If the priority scores in chapter 10 mean anything, confirmations should cluster near the top of the table. A cluster of refutations among the legibility bets would say that the argument running through this book, that explanation is the cheapest and most neglected use of current techniques, was wrong about what studios would build, even if it was right about what players need.
 
 The predictions also test the dataset's maturity scores. Chapter 7 classified each technique as research, prototype, shipped in a niche, or shipped as a norm. A prediction that depends on a research-stage technique and still resolves `confirmed` by its date is evidence that the maturity scale ran behind the field.
 
-The book will report the results. Each edition names the version of the dataset it was built from, and a new edition follows when predictions resolve or the catalog grows substantially. Every number in this chapter is a token, so an edition built after the first resolutions will print different counts, and the sentences asserting that all predictions are open will fail the build until someone rewrites them.
+Each edition names the version of the dataset it was built from, and a new edition follows when predictions resolve or the catalog grows substantially. Every number in this chapter is a placeholder the build fills in, so an edition built after the first resolutions will print different counts, and the sentences asserting that all predictions are open will fail the build until someone rewrites them.
 
 ## Exercise: resolve one early
 
@@ -72,4 +70,4 @@ Pick a prediction from the table whose date is more than a year away.
 3. Decide what the outcome would be if the date were today. If any question is open, say what evidence would close it.
 4. Write the note you would attach to the resolution, in two sentences, so that someone who never saw your search could check it.
 
-Step 1 usually turns up a question the criteria leave open, and a question like that is grounds for a proposal to sharpen the prediction before it comes due. The rules that would carry such a proposal, from the run that records it to the review it needs, are the subject of chapter 13.
+Step 1 usually turns up a question the criteria leave open, and a question like that is grounds for a proposal to sharpen the prediction before it comes due. Chapter 13 covers the rules that govern such a proposal, from the run that records it to the review it needs.

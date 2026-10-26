@@ -6,7 +6,7 @@ Your friend's computer is faster. In the same slice of time it plays out more fu
 
 The dataset's record for the technique lists this exact failure: time-budgeted search returns different moves on different hardware, which breaks replays and lockstep multiplayer unless budgets are counted in iterations with seeded randomness. The fix is cheap once you know it. Count playouts instead of milliseconds, seed the random numbers, and every machine computes the same move. The record therefore marks the technique as mitigable.{{assert:field.monte-carlo-tree-search.determinism_impact == mitigable}}
 
-This chapter is about the ways AI techniques fail inside simulation games, and the reason so many of them fail in the same few places. Simulation games demand things that most software does not: the same inputs must produce the same world, every output a player sees becomes evidence for how the system works, and a single purchase has to pay for hundreds of hours of play.
+AI techniques tend to fail inside simulation games in the same few places, because simulation games demand things that most software does not: the same inputs must produce the same world, every output a player sees becomes evidence for how the system works, and a single purchase has to pay for hundreds of hours of play.
 
 ## The same inputs, the same world
 
@@ -24,7 +24,7 @@ The requirement reaches mods too. The record for modding interfaces lists sandbo
 
 ## Contradiction
 
-A gap in a simulation game is survivable. A contradiction is worse, because players use what the game shows them to build their model of how it works. A colonist who mourns a friend who is alive, a road that was there a moment ago, a price that changes when nothing changed: each teaches the player something false.
+A contradiction does more damage than a gap, because players use what the game shows them to build their model of how it works. A colonist who mourns a friend who is alive, a road that was there a moment ago, a price that changes when nothing changed: each teaches the player something false.
 
 Consistency is listed as a risk on {{stat:n_technique_risk_consistency}} of the {{count:technique}} techniques in the dataset,{{assert:n_technique_risk_consistency >= 15}} and chapter 8 gave the measured cases: a language model predicting text-game states, a world model letting a player jump in mid-air, game masters inventing quests. Characters forget, too. In a 28-player study with five language-model characters, players reported characters forgetting their own earlier statements in 10 percent of reports [@src-peng-2024-player-driven-emergence].
 
