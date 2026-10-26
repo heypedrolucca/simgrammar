@@ -44,6 +44,8 @@ Target runtime about 12 minutes: about 1,210 words of narration at 135 words a m
 
 **Picture.** A caption card.
 
+**Frame.** compare a="Who rated these scores" a_items="language-model:One model rater" b="Rated independently" b_items="person:Nobody yet"
+
 **On screen.** Scores: one model rater, against written anchors. Independent ratings so far: {{stat:n_ratings}}.
 
 **Voice.** One model rater assigned every one of these scores, reading each mechanic's record against the anchors, and nobody has rated them independently yet.{{assert:n_ratings == 0}} So the patterns in this episode are a consistent reading of the design knowledge in the records. They aren't measurements of players.

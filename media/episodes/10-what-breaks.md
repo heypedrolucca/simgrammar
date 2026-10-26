@@ -100,6 +100,8 @@ Target runtime about 11 minutes: about 1,120 words of narration at 135 words a m
 
 **Picture.** Plain text cards, one per fact, over a dark background.
 
+**Frame.** record title="Trust" lines="AI Dungeon's new content filter flagged innocent stories, and moderators read private ones|The actors' strike ended with rules requiring consent for AI voice replicas|Steam asks whether AI content was made before release or is generated while you play"
+
 **Voice.** In 2021, AI Dungeon's new content filter flagged innocent stories, human moderators read players' private stories, and players review-bombed the game [@src-wikipedia-ai-dungeon]. The video game actors' strike that ran from July 2024 to July 2025 ended with rules requiring consent for AI voice replicas [@src-wikipedia-artificial-intelligence-in-video-games]. Steam now asks developers whether their AI content was made before release or is generated while you play, and asks the second kind to describe their guardrails [@src-valve-2026-steamworks-content-survey]. The bets that explain a game or let players write more of it replace nobody's work. The bets that replace writing, voices, or art carry the whole weight of those questions.
 
 ## 10. A log as the fix (8:53 to 10:13)
