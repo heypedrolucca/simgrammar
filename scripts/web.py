@@ -1,14 +1,20 @@
 """Project the dataset into a static website (dist/web), styled with Register (web/register.css).
 
 Pages:
-  index.html                         the paper, rendered from report/src with interactive figures
-  <type>/index.html                  one index per entity type (sortable table)
-  <type>/<id>/index.html             one page per entity
+  index.html                         the paper, rendered from report/src with interactive figures, and the grammar mosaic
+  <type>/index.html                  one index per entity type: mechanics as icon tiles, games as parts boards, opportunities
+                                     by horizon, each with its sortable table as the plain-text twin; techniques and sources a table
+  <type>/<id>/index.html             one page per entity, with its icon, its parts board (games), the shorts that show it,
+                                     and where the book and the shorts mention it
+  book/index.html, book/<chapter>/   the book (book/src as rendered by this build), one chapter a page
+  watch/index.html                   the published shorts (media/published.yaml)
   data/index.html                    downloads, provenance log, contract
+  og/<type>/<id>.png, og/*.png       a link-preview image per page (scripts/og.py)
   paper.md, references.bib, manifest.json, figures/*.svg, llms.txt, CNAME, robots.txt, sitemap.xml, 404.html, assets/*
 
-Everything here is a deterministic function of data/, report/, vocab/, schema/, and web/.
-Pages work without JavaScript; assets/simgrammar.js only adds interaction.
+Everything here is a deterministic function of data/, report/, vocab/, schema/, book/, media/, and web/; icons come from
+the build's dist/visual (ADR-0006). The video files are not: the Pages workflow fetches the ones media/published.yaml lists
+from their GitHub release and checks each sha256. Pages work without JavaScript; assets/simgrammar.js only adds interaction.
 """
 from __future__ import annotations
 
@@ -24,8 +30,9 @@ from lib import ROOT, get_path, read_yaml, vocab_terms
 from report_render import _decl_rows, _fmt, render
 
 WEB_SRC = ROOT / "web"
-NAV = [("paper", "Paper", ""), ("game", "Games", "game/"), ("mechanic", "Mechanics", "mechanic/"), ("technique", "Techniques", "technique/"),
-       ("opportunity", "Opportunities", "opportunity/"), ("source", "Sources", "source/"), ("data", "Data", "data/")]
+NAV = [("paper", "Paper", ""), ("book", "Book", "book/"), ("game", "Games", "game/"), ("mechanic", "Mechanics", "mechanic/"), ("technique", "Techniques", "technique/"),
+       ("opportunity", "Opportunities", "opportunity/"), ("watch", "Watch", "watch/"), ("source", "Sources", "source/"), ("data", "Data", "data/")]
+FAVICON = "free-placement"   # the icon the browser tab shows
 STATE = {"asserted": "optional", "sourced": "waiting", "verified": "done", "contested": "blocked"}
 SKIP_FACTS = {"id", "type", "name", "aliases", "summary", "status", "provenance", "sources", "claims", "deprecated", "key_results", "falsifiable_signal",
               "assertions", "ratings", "store_ids", "archived"}
@@ -53,9 +60,27 @@ def slug(s: str) -> str:
 
 
 class Web:
-    def __init__(self, ents, edges, analysis, vocabs, registry, schemas, ctx, manifest, meta):
+    def __init__(self, ents, edges, analysis, vocabs, registry, schemas, ctx, manifest, meta, built=None):
         self.ents, self.edges, self.analysis, self.vocabs = ents, edges, analysis, vocabs
         self.registry, self.schemas, self.ctx, self.manifest, self.meta = registry, schemas, ctx, manifest, meta
+        self.built = built or {}
+        self.icons = {k[len("visual/icons/"):-len("@4x.png")] for k in self.built if k.startswith("visual/icons/") and k.endswith("@4x.png") and ".accent@" not in k}
+        self.by_id = ctx.by_id
+        self.published = read_yaml(ROOT / "media" / "published.yaml") if (ROOT / "media" / "published.yaml").exists() else {}
+        self.shorts, self.shorts_of = [], defaultdict(list)
+        for sh in self.published.get("shorts", []):
+            md = self.built.get(f"media/shorts/{sh['script']}", "")
+            title = re.search(r"^# Short \d+\. (.*)$", md, re.M)
+            unknown = [i for i in sh.get("shows", []) if i not in self.by_id]
+            if not md or unknown:
+                raise SystemExit(f"media/published.yaml: {sh['key']} names a script this build did not render or unknown records {unknown}")
+            sh = {**sh, "n": int(sh["key"].rsplit("-", 1)[1]), "title": title.group(1) if title else sh["key"],
+                  "voice": re.findall(r"^\*\*Voice\.\*\* (.*)$", md, re.M)}
+            self.shorts.append(sh)
+            for i in sh["shows"]:
+                self.shorts_of[i].append(sh)
+        self.chapters = sorted(k[len("book/"):-3] for k in self.built if re.fullmatch(r"book/\d\d-[a-z0-9-]+\.md", k))
+        self.book_refs = self.find_book_refs()
         self.site = meta["site"]
         self.by_id = ctx.by_id
         self.derived = analysis["derived"]
@@ -84,6 +109,31 @@ class Web:
             return esc(text or eid)
         return f'<a href="{base}{e.type}/{eid}/" data-internal>{esc(text or e.data.get("name", eid))}</a>'
 
+    def icon_id(self, eid):
+        """The icon that stands for a record: its own, else a technique's category icon (as the video frames resolve it)."""
+        if eid in self.icons:
+            return eid
+        e = self.by_id.get(eid)
+        if e and e.type == "technique" and e.data.get("category") in self.icons:
+            return e.data["category"]
+        return None
+
+    def icon(self, eid, base, size=48, alt=""):
+        """A dithered icon at 24, 48 or 96 css px, so each of its 48 dither pixels lands on whole device pixels."""
+        i = self.icon_id(eid)
+        return f'<img data-icon src="{base}assets/icons/{i}.png" width="{size}" height="{size}" alt="{esc(alt)}" loading="lazy">' if i else ""
+
+    def chip(self, eid, base):
+        e = self.by_id.get(eid)
+        if not e:
+            return f'<span class="chip">{esc(eid)}</span>'
+        ic = self.icon(eid, base, 24)
+        return (f'<a class="chip" data-style="{"icon" if ic else "name"}" href="{base}{e.type}/{eid}/" data-internal>'
+                f'{ic}{esc(e.data.get("name", eid))}</a>')
+
+    def chips(self, ids, base):
+        return '<div class="cluster" data-gap="chips">' + "".join(self.chip(x, base) for x in ids) + "</div>"
+
     def gh(self, path):
         return f'{self.site["repo"]}/blob/main/{path}'
 
@@ -92,7 +142,7 @@ class Web:
         """Generated projections are not committed; the Pages workflow publishes them under /dist/ beside the site."""
         return f"{base}dist/{path}"
 
-    def page(self, *, title, desc, body, depth, nav, path):
+    def page(self, *, title, desc, body, depth, nav, path, image="og/site.png"):
         base = "../" * depth
         fam = "".join(f'<li><a href="{esc(u)}">{esc(n)}</a></li>' for n, u in self.site.get("family", []))
         fam += f'<li><a href="{base or "./"}" aria-current="true" data-internal>simgrammar</a></li>'
@@ -112,6 +162,7 @@ class Web:
 <meta property="og:title" content="{esc(title)}">
 <meta property="og:description" content="{esc(desc)}">
 <meta property="og:url" content="{esc(url)}">
+<link rel="icon" type="image/png" href="{base}assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{base}assets/register.css">
@@ -323,7 +374,8 @@ class Web:
   <div class="twins"><b>this paper as</b><a href="paper.md" data-internal>markdown</a><a href="references.bib" data-internal>bibtex</a><a href="manifest.json" data-internal>manifest json</a><a href="llms.txt" data-internal>llms.txt</a></div>
 </div>
 <div class="numbers">{nums}</div>
-<p class="small faint">source · dist/analysis/stats.json · dataset {self.short} · every number on this page is rendered from the dataset at build time</p>"""
+<p class="small faint">source · dist/analysis/stats.json · dataset {self.short} · every number on this page is rendered from the dataset at build time</p>
+{self.mosaic("")}"""
         main = f"""<div class="sidebar">
 <aside class="hide-md sticky"><nav class="toc" aria-label="Contents"><span class="toc-head">contents</span>{tocs}</nav></aside>
 <article class="prose" style="min-width:0">
@@ -344,6 +396,97 @@ class Web:
 <p><span class="endmark"></span></p></section>
 </article></div>"""
         return self.page(title=f"{meta['title']} · simgrammar", desc=meta["subtitle"], body=header + main, depth=0, nav="paper", path="")
+
+    # ------------------------------------------------------------------ shorts and the book
+    @staticmethod
+    def mmss(sec):
+        sec = int(round(sec))
+        return f"{sec // 60}:{sec % 60:02d}"
+
+    def voice_html(self, line, base):
+        """A narration line as html: its citations become links to the source pages, its record links to record pages."""
+        t = esc(line)
+        t = re.sub(r"\s*\[((?:\[\d+\]\(#ref-[a-z0-9-]+\)(?:,\s*)?)+)\]",
+                   lambda m: "".join(f' <a href="{base}source/{sid}/" data-internal>[{n}]</a>' for n, sid in re.findall(r"\[(\d+)\]\(#ref-([a-z0-9-]+)\)", m.group(1))), t)
+        t = re.sub(r"\[([^\]]+)\]\((?:\.\./)+wiki/(\w+)/([a-z0-9-]+)\.md\)", lambda m: f'<a href="{base}{m.group(2)}/{m.group(3)}/" data-internal>{m.group(1)}</a>', t)
+        return t.replace("**", "").replace("*", "")
+
+    def short_figure(self, sh, base, width=270):
+        return (f'<figure class="image" data-ratio="9/16"><a class="frame" href="{base}media/shorts/{esc(sh["file"])}" data-play>'
+                f'<img src="{base}media/shorts/{esc(sh["poster"])}" width="{width}" height="{round(width * 16 / 9)}" alt="Short {sh["n"]}: {esc(sh["title"])}, opening frame" loading="lazy">'
+                f'<span class="plate" data-size="sm">play · {self.mmss(sh["seconds"])}</span></a>'
+                f'<figcaption><span class="provenance">rendered · {esc(sh["file"])} · drawn from the dataset</span></figcaption></figure>')
+
+    def watch_section(self, e, base):
+        ss = self.shorts_of.get(e.id, [])
+        if not ss:
+            return ""
+        blocks = "".join(
+            f'<div class="split" data-style="watch">{self.short_figure(sh, base)}<div><p class="eyebrow"><span class="id">short {sh["n"]}</span> <span>{self.mmss(sh["seconds"])}</span></p>'
+            f'<h3>{esc(sh["title"])}</h3><details class="disclosure" open><summary>transcript</summary>{"".join(f"<p>{self.voice_html(v, base)}</p>" for v in sh["voice"])}</details>'
+            + (f'<p class="small faint">also on the pages for</p>{self.chips([i for i in sh["shows"] if i != e.id], base)}' if len(sh["shows"]) > 1 else "")
+            + "</div></div>" for sh in ss)
+        return self.section("watch", blocks, f'{len(ss)} short{"s" if len(ss) > 1 else ""} with this record on screen')
+
+    def find_book_refs(self):
+        """Where the book mentions a record: chapters that link it, and for mechanics, chapters that name it in the text
+        (its name as a whole phrase, outside headings and source lists). The glossary and catalog name everything, so they are left out."""
+        refs = defaultdict(list)
+        mechs = [e for e in self.ents.get("mechanic", []) if not e.data.get("deprecated")]
+        for stem in self.chapters:
+            if not re.match(r"(0[1-9]|1[0-9])-", stem):
+                continue
+            md = self.built[f"book/{stem}.md"].split("\n## Sources")[0]
+            title = re.search(r"^# (.*)$", md, re.M).group(1)
+            linked = []
+            for i in re.findall(r"\]\(\.\./wiki/\w+/([a-z0-9-]+)\.md\)", md):
+                if i in self.by_id and i not in linked:
+                    linked.append(i)
+            plain = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", re.sub(r"^#.*$", "", md, flags=re.M)).lower()
+            named = [e.id for e in mechs if e.id not in linked and re.search(r"\b" + re.escape(e.data["name"].lower()) + r"s?\b", plain)]
+            for i in linked:
+                refs[i].append((stem, title, "linked from the text"))
+            for i in named:
+                refs[i].append((stem, title, "named in the text"))
+        return refs
+
+    def appears_section(self, e, base):
+        rows = [f'<div class="row"><div class="id">ch {int(stem[:2])}</div><div><h3><a href="{base}book/{stem}/" data-internal>{esc(title)}</a></h3><p>{esc(how)}</p></div>'
+                f'<div class="end">book</div></div>' for stem, title, how in self.book_refs.get(e.id, [])]
+        rows += [f'<div class="row"><div class="id">short {sh["n"]}</div><div><h3><a href="{base}watch/#{sh["key"]}" data-internal>{esc(sh["title"])}</a></h3>'
+                 f'<p>{self.mmss(sh["seconds"])} · on screen in the short</p></div><div class="end">short</div></div>' for sh in self.shorts_of.get(e.id, [])]
+        if not rows:
+            return ""
+        nb, ns = len(self.book_refs.get(e.id, [])), len(self.shorts_of.get(e.id, []))
+        right = " · ".join(x for x in (f'{nb} chapter{"s" if nb != 1 else ""}' if nb else "", f'{ns} short{"s" if ns != 1 else ""}' if ns else "") if x)
+        return self.section("appears in", f'<div class="register">{"".join(rows)}</div>', right)
+
+    def families(self):
+        """Mechanics by family, families with the most mechanics first, each family's mechanics most used first."""
+        fam = defaultdict(list)
+        for e in self.ents.get("mechanic", []):
+            if not e.data.get("deprecated"):
+                fam[e.data["family"]].append(e)
+        for f in fam:
+            fam[f].sort(key=lambda e: (-self.derived.get(e.id, {}).get("prevalence", 0), e.data["name"]))
+        return sorted(fam.items(), key=lambda kv: (-len(kv[1]), kv[0]))
+
+    def mosaic(self, base):
+        """Every mechanic as its icon, one row per family: the grammar at a glance. Its twin lists the same names."""
+        fams = self.families()
+        n = sum(len(v) for _, v in fams)
+        rows = "".join(
+            f'<div class="row"><div class="id">{esc(self.term("mechanic_family", f).lower())} <b>{len(ms)}</b></div><div>'
+            + "".join(f'<a href="{base}mechanic/{e.id}/" title="{esc(e.data["name"])} · {self.derived.get(e.id, {}).get("prevalence", 0)} games" data-internal>'
+                      f'{self.icon(e.id, base, 24, e.data["name"])}</a>' for e in ms)
+            + "</div></div>" for f, ms in fams)
+        twin = "".join(f'<div class="row"><div class="id">{esc(self.term("mechanic_family", f).lower())}</div><div><p>'
+                       + ", ".join(self.link(e.id, base) for e in ms) + "</p></div></div>" for f, ms in fams)
+        return (f'<figure class="chart" id="grammar"><div class="chart-head"><span><b>the grammar</b> · {n} mechanics in {len(fams)} families, most used first</span>'
+                f'<span>mechanics.json</span></div><div class="chart-body"><div class="register" data-kind="mosaic">{rows}</div></div>'
+                f'<p class="chart-caption">Each icon is one mechanic; point at it for its name, or open it. '
+                f'<span class="run">source · dist/entities/mechanics.json · dataset {self.short}</span></p>'
+                f'<details class="disclosure"><summary>plain-text twin · {len(fams)} families</summary><div class="register" data-size="wide">{twin}</div></details></figure>')
 
     # ------------------------------------------------------------------ entity pages
     def meter(self, v, scale_max=5):
@@ -367,13 +510,14 @@ class Web:
         meta = self.entity_meta(e)
         twins = (f'<div class="twins"><b>this record as</b><a href="{esc(self.gh(self.registry["types"][t]["dir"] + "/" + e.id + ".yaml"))}">yaml source</a>'
                  f'<a href="{esc(self.dl("wiki/" + t + "/" + e.id + ".md", base))}">markdown</a><a href="{esc(self.dl("entities/" + plural + ".json", base))}">json</a></div>')
+        icon = self.icon(e.id, base, 96)
         head = (f'<nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="{base}" data-internal>simgrammar</a></li><li><a href="../" data-internal>{esc(plural)}</a></li><li>{esc(e.id)}</li></ol></nav>'
-                f'<div class="page-header"><p class="eyebrow">{" ".join(eyebrow)}</p><h1>{esc(d.get("name", e.id))}</h1>'
+                f'<div class="page-header"{" data-style=" + chr(34) + "icon" + chr(34) if icon else ""}>{icon}<p class="eyebrow">{" ".join(eyebrow)}</p><h1>{esc(d.get("name", e.id))}</h1>'
                 + (f'<p class="dek">{esc(d["summary"])}</p>' if d.get("summary") else "") + meta + twins + "</div>")
         if d.get("deprecated"):
             head += (f'<div class="note" data-surface="open"><span class="label">deprecated</span><p>{esc(d["deprecated"].get("reason", ""))} '
                      f'Superseded by {self.link(d["deprecated"]["superseded_by"], base)}.</p></div>')
-        main = []
+        main = ([self.parts_board(e, base)] if t == "game" else []) + [self.watch_section(e, base)]
         for f in LONG.get(t, []):
             if d.get(f):
                 cls = ' class="mono"' if f == "core_loop" else ""
@@ -401,6 +545,7 @@ class Web:
             rrows = "".join(f'<div class="row"><div class="id">{esc(r["field"].replace("_", " "))}<small>{esc(r["value"])}</small></div><div><p>{esc(r["rationale"])}</p>'
                             f'<p class="scope"><a href="{esc(self.gh("log/runs/" + r["run"] + ".yaml"))}">{esc(r["run"])}</a></p></div></div>' for r in d["ratings"])
             main.append(self.section("ratings", f'<div class="register" data-kind="claims">{rrows}</div>', f'{len(d["ratings"])} from named runs; stored scores are their lower median'))
+        main.append(self.appears_section(e, base))
         main.append(self.relations(e, base))
         claims = (d.get("key_results") or []) + (d.get("claims") or [])
         if claims:
@@ -434,7 +579,7 @@ class Web:
         body = head + f'<div class="split"><div style="min-width:0">{"".join(m for m in main if m)}</div><aside class="aside" style="min-width:0">{aside}</aside></div>'
         title = f"{d.get('name', e.id)} · {self.registry['types'][t]['label'].lower()} · simgrammar"
         desc = d.get("summary") or d.get("notes") or d.get("name", e.id)
-        return self.page(title=title, desc=desc, body=body, depth=2, nav=t, path=f"{t}/{e.id}/")
+        return self.page(title=title, desc=desc, body=body, depth=2, nav=t, path=f"{t}/{e.id}/", image=f"og/{t}/{e.id}.png" if t != "source" else "og/site.png")
 
     def section(self, title, inner, right=""):
         return f'<section class="section"><div class="section-line"><h2>{esc(title)}</h2>{f"<span>{esc(right)}</span>" if right else ""}</div>{inner}</section>'
@@ -511,7 +656,9 @@ class Web:
                 end.append(self.term("effect", a["effect"]))
             note = f'<p>{esc(a["note"])}</p>' if a.get("note") else ""
             rank = 0 if a.get("role") == "core" else 1
-            rows.append((ed.type, rank, f'<div class="row"><div class="id">{esc(et[ed.type]["label"].lower())}</div><div><h3>{self.link(ed.target, base)}</h3>{note}</div>'
+            if e.type == "game" and ed.type == "uses":
+                continue
+            rows.append((ed.type, rank, f'<div class="row"><div class="id">{esc(et[ed.type]["label"].lower())}</div><div><h3>{self.icon(ed.target, base, 24)}{self.link(ed.target, base)}</h3>{note}</div>'
                          f'<div class="end">{esc(" · ".join(end))}</div></div>'))
         out = []
         if rows:
@@ -522,12 +669,35 @@ class Web:
         for k, ids in sorted(inc.items()):
             if k == "cited_by":
                 continue
-            links = ", ".join(self.link(x, base) for x in ids)
-            inc_rows.append(f'<div class="row"><div class="id">{esc(k.replace("_", " "))}</div><div><p style="color:var(--ink)">{links}</p></div>'
+            inc_rows.append(f'<div class="row"><div class="id">{esc(k.replace("_", " "))}</div><div>{self.chips(ids, base)}</div>'
                             f'<div class="end">{len(ids)}</div></div>')
         if inc_rows:
             out.append(self.section("backlinks", f'<div class="register">{"".join(inc_rows)}</div>', "computed from other records"))
         return "".join(out)
+
+    def parts_board(self, e, base):
+        """A game's mechanics drawn as its parts, core first, each with the note on how this game does it. It replaces the
+        game's `uses` rows in relations; the rows' text is all here, so the board is its own twin."""
+        parts = []
+        for ed in self.edges_out.get(e.id, []):
+            if ed.type == "uses" and ed.target in self.by_id:
+                a = ed.attr_dict()
+                parts.append((0 if a.get("role") == "core" else 1, ed.target, a))
+        parts.sort(key=lambda p: (p[0], self.by_id[p[1]].data["name"]))
+        if not parts:
+            return ""
+        def tile(eid, a, size):
+            fam = self.term("mechanic_family", self.by_id[eid].data["family"]).lower()
+            note = f'<p>{esc(a["note"])}</p>' if a.get("note") else ""
+            return f'<div class="row"><div class="id">{self.icon(eid, base, size)}</div><div><small>{esc(fam)}</small><h3>{self.link(eid, base)}</h3>{note}</div></div>'
+        core = [p for p in parts if p[0] == 0]
+        rest = [p for p in parts if p[0] != 0]
+        inner = ""
+        if core:
+            inner += f'<p class="small faint">core · {len(core)}</p><div class="register" data-kind="board">{"".join(tile(i, a, 96) for _, i, a in core)}</div>'
+        if rest:
+            inner += f'<p class="small faint">supporting · {len(rest)}</p><div class="register" data-kind="board" data-size="sm">{"".join(tile(i, a, 48) for _, i, a in rest)}</div>'
+        return self.section("parts", inner, f'{len(parts)} mechanics, as {e.data.get("name", e.id)} does them')
 
     def provenance(self, prov):
         rows = []
@@ -584,19 +754,114 @@ class Web:
         plural = self.registry["types"][t]["plural"]
         label = self.registry["types"][t]["label"]
         intro = {
-            "game": "Every catalogued simulation game with its subgenre, cluster, and number of mechanics. Each page holds the decomposition, design notes, claims, and sources.",
-            "mechanic": "Every mechanic, ordered by how many games use it. Scores are rubric anchors from 1 to 5; exposure is the maturity-weighted reach of the technique set.",
+            "game": "Each catalogued game drawn as the mechanics it is built from, core parts first. Each page holds the decomposition, design notes, claims, and sources.",
+            "mechanic": "Every mechanic as its icon, grouped by family and ordered by how many games use it. The table below holds every score: rubric anchors from 1 to 5, "
+                        "and exposure, the maturity-weighted reach of the technique set.",
             "technique": "Every mathematical, AI, ML, and LLM technique in the set, with its maturity in games and what it does to reproducibility.",
-            "opportunity": "Every design opportunity, ordered by priority (weighted geometric mean of impact, feasibility, and novelty). Each carries a dated, falsifiable prediction.",
+            "opportunity": "Every design opportunity on a board by horizon, highest impact first, with the mechanics it builds on, the techniques it uses, and the risks "
+                           "those techniques carry. Each carries a dated, falsifiable prediction; the table orders them by priority.",
             "source": "Every source cited by a record or by the paper, newest first.",
         }[t]
+        h1 = {"game": "Every game is a set of parts", "opportunity": "What could be built, and when"}.get(t, plural.capitalize())
+        placeholder = {"game": "filter by game or by a part it has"}.get(t, f"type to filter {plural}")
+        table = f'<div class="table-wrap"><table class="data" data-style="dense" data-sortable data-filterable><thead><tr>{th}</tr></thead><tbody>{"".join(trs)}</tbody></table></div>'
+        visual = {"mechanic": self.mechanic_tiles, "game": self.game_parts, "opportunity": self.opportunity_board}.get(t)
+        if visual:
+            table = visual(lst, base) + f'<details class="disclosure"><summary>plain-text twin · {len(rows)} rows, sortable</summary>{table}</details>'
         body = (f'<nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="../" data-internal>simgrammar</a></li><li>{esc(plural)}</li></ol></nav>'
-                f'<div class="page-header"><p class="eyebrow"><span class="id">{esc(plural)}</span> <span>{len(rows)} records</span></p><h1>{esc(plural.capitalize())}</h1>'
+                f'<div class="page-header"><p class="eyebrow"><span class="id">{esc(plural)}</span> <span>{len(rows)} records</span></p><h1>{esc(h1)}</h1>'
                 f'<p class="dek">{esc(intro)}</p><div class="twins"><b>this list as</b><a href="{esc(self.dl("tables/" + plural + ".csv", "../"))}">csv</a>'
                 f'<a href="{esc(self.dl("entities/" + plural + ".json", "../"))}">json</a><a href="{esc(self.gh(self.registry["types"][t]["dir"]))}">yaml sources</a></div></div>'
-                f'<div class="controls" data-filter-controls hidden><label class="field"><span>filter</span><input type="search" data-filter placeholder="type to filter {esc(plural)}"></label></div>'
-                f'<div class="table-wrap"><table class="data" data-style="dense" data-sortable data-filterable><thead><tr>{th}</tr></thead><tbody>{"".join(trs)}</tbody></table></div>')
-        return self.page(title=f"{plural.capitalize()} · simgrammar", desc=intro, body=body, depth=1, nav=t, path=f"{t}/")
+                f'<div class="controls" data-filter-controls hidden><label class="field"><span>filter</span><input type="search" data-filter placeholder="{esc(placeholder)}"></label>'
+                + (self.segmented("group", "Group games", [("subgenre", "by subgenre"), ("decade", "by decade")]) if t == "game" else "")
+                + f'</div>{table}')
+        return self.page(title=f"{plural.capitalize()} · simgrammar", desc=intro, body=body, depth=1, nav=t, path=f"{t}/", image=f"og/{t}.png")
+
+    @staticmethod
+    def segmented(name, label, options):
+        """A view switch for simgrammar.js; without script the first view shows and the switch stays hidden."""
+        bs = "".join(f'<button type="button" data-value="{v}" aria-pressed="{"true" if i == 0 else "false"}">{esc(t)}</button>' for i, (v, t) in enumerate(options))
+        return f'<div class="segmented" role="group" aria-label="{esc(label)}" data-views="{name}">{bs}</div>'
+
+    def group(self, head, inner, right=""):
+        """A filterable group on an index page: a section the filter hides when nothing in it matches."""
+        return (f'<section class="section" data-group><div class="section-line"><h2>{head}</h2>{f"<span>{esc(right)}</span>" if right else ""}</div>'
+                f'{inner}</section>')
+
+    def mechanic_tiles(self, lst, base):
+        top = max((self.derived.get(e.id, {}).get("prevalence", 0) for e in lst), default=1) or 1
+
+        def tile(e):
+            der = self.derived.get(e.id, {})
+            n = der.get("prevalence", 0)
+            q = " ".join([e.data["name"], e.id, *e.data.get("aliases", [])]).lower()
+            return (f'<a class="row" href="{base}mechanic/{e.id}/" data-q="{esc(q)}" data-internal>{self.icon(e.id, base, 48)}<h3>{esc(e.data["name"])}</h3>'
+                    f'<span class="end"><span>{n} games</span><span>{der.get("earliest_year") or ""}</span></span>'
+                    f'<span class="pbar"><i style="--p:{100 * n / top:.1f}%"></i></span></a>')
+        groups = "".join(
+            self.group(f'{self.icon(f, base, 24)}{esc(self.term("mechanic_family", f))} <span>· {len(ms)} mechanics</span>',
+                       f'<div class="register" data-kind="tiles">{"".join(tile(e) for e in ms)}</div>',
+                       f'{sum(self.derived.get(e.id, {}).get("prevalence", 0) for e in ms)} uses across the catalog')
+            for f, ms in self.families())
+        return f'<div data-filter-scope>{groups}</div>'
+
+    def game_parts(self, lst, base):
+        mname = {e.id: e.data["name"] for e in self.ents.get("mechanic", [])}
+
+        def row(e, sub):
+            ms = sorted(e.data.get("mechanics", []), key=lambda m: (m.get("role") != "core", mname.get(m["id"], m["id"])))
+            icons = "".join(f'<a href="{base}mechanic/{m["id"]}/" data-m="{m["id"]}" data-role="{esc(m.get("role", ""))}" '
+                            f'title="{esc(mname.get(m["id"], m["id"]))} · {esc(m.get("role", ""))}" data-internal>{self.icon(m["id"], base, 24, mname.get(m["id"], m["id"]))}</a>'
+                            for m in ms)
+            q = " ".join([e.data["name"], e.id, self.term("subgenre", e.data.get("subgenre"))] + [mname.get(m["id"], "") for m in ms]).lower()
+            label = f' <span>{esc(self.term("subgenre", e.data.get("subgenre")))}</span>' if sub else ""
+            return (f'<div class="row" data-q="{esc(q)}"><div class="id">{esc(e.data.get("year", ""))}</div><h3>{self.link(e.id, base)}{label}</h3>'
+                    f'<div class="cluster" data-gap="icons">{icons}</div><div class="end">{len(ms)}</div></div>')
+        by_sub, by_dec = defaultdict(list), defaultdict(list)
+        for e in lst:
+            by_sub[e.data.get("subgenre")].append(e)
+            by_dec[e.data.get("year", 0) // 10 * 10].append(e)
+        order = lambda e: (e.data.get("year", 0), e.data["name"])
+        subs = "".join(self.group(f'{self.icon(s, base, 24)}{esc(self.term("subgenre", s))} <span>· {len(gs)} games</span>',
+                                  f'<div class="register" data-kind="parts">{"".join(row(e, False) for e in sorted(gs, key=order))}</div>')
+                       for s, gs in sorted(by_sub.items(), key=lambda kv: (-len(kv[1]), str(kv[0]))))
+        decs = "".join(self.group(f'{d}s <span>· {len(gs)} games</span>',
+                                  f'<div class="register" data-kind="parts">{"".join(row(e, True) for e in sorted(gs, key=order))}</div>',
+                                  f'{sum(len(e.data.get("mechanics", [])) for e in gs) / len(gs):.1f} parts a game')
+                       for d, gs in sorted(by_dec.items()))
+        legend = ('<div class="legend"><span><i></i>core part</span><span><i data-style="faint"></i>supporting part</span>'
+                  '<span class="hide-sm">point at a part to light up every game that has it</span></div>')
+        return (f'{legend}<div data-filter-scope data-parts-scope><div data-view="subgenre">{subs}</div>'
+                f'<div data-view="decade" hidden>{decs}</div></div>')
+
+    def opportunity_board(self, lst, base):
+        risk_labels = {str(t["id"]): t.get("label", t["id"]) for t in self.vocabs["risk"]["terms"]}
+
+        def icons(ids, label=None):
+            return '<div class="cluster" data-gap="icons">' + "".join(
+                f'<a href="{base}{self.by_id[i].type}/{i}/" title="{esc(self.by_id[i].data["name"])}" data-internal>{self.icon(i, base, 24, self.by_id[i].data["name"])}</a>'
+                for i in ids if i in self.by_id) + "</div>"
+
+        def card(e):
+            d = e.data
+            techs = [x for x in d.get("applies", []) if x in self.by_id]
+            risks = sorted({r for x in techs for r in self.by_id[x].data.get("risks", [])})
+            rk = '<div class="cluster" data-gap="icons">' + "".join(
+                f'<span title="{esc(risk_labels.get(r, r))}">{self.icon("risk-" + r, base, 24, risk_labels.get(r, r))}</span>' for r in risks) + "</div>"
+            q = " ".join([d["name"], e.id, d.get("summary", "")]).lower()
+            dl = "".join(f"<dt>{k}</dt><dd>{self.meter(d.get(k))}</dd>" for k in ("impact", "feasibility", "novelty") if d.get(k) is not None)
+            dl += f"<dt>builds on</dt><dd>{icons(d.get('involves', []))}</dd><dt>uses</dt><dd>{icons(techs)}</dd>"
+            dl += f"<dt>risks</dt><dd>{rk}</dd>" if risks else ""
+            return (f'<div class="row" data-q="{esc(q)}"><div class="id">{esc(self.term("opportunity_type", d.get("opportunity_type")).lower())}</div>'
+                    f'<div><h3>{self.link(e.id, base)}</h3><p>{esc(d.get("summary", ""))}</p><dl class="receipt">{dl}</dl></div></div>')
+        cols = []
+        for h in ("now", "1-2y", "3-5y", "5y-plus"):
+            ops = sorted((e for e in lst if e.data.get("horizon") == h), key=lambda e: (-(e.data.get("impact") or 0), -(e.data.get("feasibility") or 0), e.data["name"]))
+            inner = "".join(card(e) for e in ops) or '<div class="row"><p>none yet</p></div>'
+            cols.append(f'<section data-group><div class="section-line"><h2>{self.icon("horizon-" + h, base, 48)}{esc(self.term("horizon", h))} <span>· {len(ops)}</span></h2></div>'
+                        f'<div class="register" data-kind="cards">{inner}</div></section>')
+        legend = '<div class="legend">' + "".join(f'<span>{self.icon("risk-" + r, base, 24)}{esc(lbl)}</span>' for r, lbl in risk_labels.items()) + "</div>"
+        return f'{legend}<div class="grid" data-cols="4" data-gap="board" data-filter-scope>{"".join(cols)}</div>'
 
     # ------------------------------------------------------------------ data page
     def data_page(self):
@@ -639,11 +904,103 @@ class Web:
                 + self.section("vocabularies", f'<div class="register" data-size="wide">{vrows}</div>', "closed; add terms through an ADR"))
         return self.page(title="Data · simgrammar", desc="Downloads, commands, research log, and vocabularies for the SimGrammar dataset.", body=body, depth=1, nav="data", path="data/")
 
+    # ------------------------------------------------------------------ watch and book pages
+    def watch_page(self):
+        base = "../"
+        tiles, twin = [], []
+        for sh in self.shorts:
+            about = [i for i in sh["shows"] if self.by_id[i].type != "game"][:2] + [i for i in sh["shows"] if self.by_id[i].type == "game"][:2]
+            tiles.append(f'<div class="row" id="{sh["key"]}">{self.short_figure(sh, base, 216)}<p class="eyebrow"><span class="id">short {sh["n"]}</span> '
+                         f'<span>{self.mmss(sh["seconds"])}</span></p><h3>{esc(sh["title"])}</h3><p>{self.voice_html(sh["voice"][0], base) if sh["voice"] else ""}</p>'
+                         f'{self.chips(about, base)}</div>')
+            twin.append(f'<div class="row"><div class="id">short {sh["n"]}</div><div><h3>{esc(sh["title"])}</h3>'
+                        + "".join(f"<p>{self.voice_html(v, base)}</p>" for v in sh["voice"]) + "</div></div>")
+        n = len(self.shorts)
+        body = (f'<nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="../" data-internal>simgrammar</a></li><li>watch</li></ol></nav>'
+                f'<div class="page-header"><p class="eyebrow"><span class="id">watch</span> <span>{n} shorts</span></p><h1>{n} findings, under a minute each</h1>'
+                f'<p class="dek">Each short states one finding from the dataset in its first sentence, and every picture in it is drawn from the records. '
+                f'Each also appears on the pages of the records it shows. The full episodes come later.</p></div>'
+                + (f'<div class="register" data-kind="watch">{"".join(tiles)}</div>'
+                   f'<details class="disclosure"><summary>plain-text twin · {n} transcripts</summary><div class="register">{"".join(twin)}</div></details>'
+                   if n else '<p class="muted">No shorts are published yet.</p>'))
+        return self.page(title="Watch · simgrammar", desc=f"{n} short videos, each stating one finding from the SimGrammar dataset.", body=body,
+                         depth=1, nav="watch", path="watch/", image="og/watch.png")
+
+    def book_md(self, stem):
+        """A rendered chapter with its links pointed at the site: records, other chapters, and the paper's figures."""
+        md = self.built[f"book/{stem}.md"]
+        md = re.sub(r"\]\(\.\./wiki/(\w+)/([a-z0-9-]+)\.md\)", r"](../../\1/\2/)", md)
+        md = re.sub(r"\]\((\d\d-[a-z0-9-]+)\.md\)", r"](../\1/)", md)
+        return md.replace("](../paper/figures/", "](../../figures/")
+
+    def book_toc(self, current, base):
+        links = []
+        for m in re.finditer(r"^(#+ .*|\d+\. \[.*?\]\((\d\d-[a-z0-9-]+)\.md\)|\[.*?\]\((\d\d-[a-z0-9-]+)\.md\)|- \[.*?\]\((\d\d-[a-z0-9-]+)\.md\))", self.built["book/00-contents.md"], re.M):
+            line = m.group(1)
+            stem = m.group(2) or m.group(3) or m.group(4)
+            if line.startswith("## "):
+                links.append(f'<span class="toc-head">{esc(line[3:].lower())}</span>')
+            elif stem:
+                label = re.search(r"\[(.*?)\]", line).group(1)
+                num = re.match(r"(\d+)\. ", line)
+                cur = ' aria-current="true"' if stem == current else ""
+                links.append(f'<a href="{base}book/{stem}/"{cur} data-internal>{esc((num.group(1) + ". ") if num else "")}{esc(label)}</a>')
+        return "".join(links)
+
+    def book_chapter(self, stem):
+        base = "../../"
+        mdr = MarkdownIt("commonmark", {"html": True}).enable("table")
+        body = mdr.render(self.book_md(stem))
+        body = body.replace("<table>", '<div class="table-wrap"><table class="data" data-style="dense">').replace("</table>", "</table></div>")
+        title = re.search(r"^# (.*)$", self.built[f"book/{stem}.md"], re.M).group(1)
+        words = len(re.sub(r"<[^>]+>", " ", body.split('<h2>Sources</h2>')[0]).split())
+        i = self.chapters.index(stem)
+        prev_, next_ = (self.chapters[i - 1] if i > 1 else None), (self.chapters[i + 1] if i + 1 < len(self.chapters) else None)
+        def name_of(st):
+            return re.search(r"^# (.*)$", self.built[f"book/{st}.md"], re.M).group(1)
+        pager = '<nav class="pagination" aria-label="Chapters">' + (f'<a href="../{prev_}/" data-internal>← {esc(name_of(prev_))}</a>' if prev_ else "") + \
+                f'<a href="../" data-internal>contents</a>' + (f'<a href="../{next_}/" data-internal>{esc(name_of(next_))} →</a>' if next_ else "") + "</nav>"
+        mechs = [i for i, rs in self.book_refs.items() if any(r[0] == stem for r in rs) and self.by_id[i].type == "mechanic"]
+        others = [i for i, rs in self.book_refs.items() if any(r[0] == stem for r in rs) and self.by_id[i].type != "mechanic"]
+        rel = ""
+        if mechs:
+            rel += self.section("mechanics in this chapter", self.chips(sorted(mechs, key=lambda x: self.by_id[x].data["name"]), base), f"{len(mechs)} linked or named")
+        if others:
+            rel += self.section("records linked from this chapter", self.chips(others, base), f"{len(others)}")
+        toc = self.book_toc(stem, base)
+        main = (f'<nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="{base}" data-internal>simgrammar</a></li><li><a href="../" data-internal>book</a></li><li>{esc(stem)}</li></ol></nav>'
+                f'<div class="sidebar"><aside class="hide-md sticky"><nav class="toc" aria-label="The book">{toc}</nav></aside>'
+                f'<article class="prose" style="min-width:0"><details class="disclosure show-md"><summary>the book · contents</summary><nav class="toc" aria-label="The book">{toc}</nav></details>'
+                f'<p class="eyebrow"><span class="id">{esc(stem)}</span> <span>{words:,} words</span> <span>about {max(1, round(words / 230))} min</span></p>'
+                f'{body}{pager}{rel}</article></div>')
+        return self.page(title=f"{title} · the book · simgrammar", desc=f"{title}, a chapter of The Grammar of Simulation, rendered from the dataset.",
+                         body=main, depth=2, nav="book", path=f"book/{stem}/", image=f"og/book/{stem}.png")
+
+    def book_index(self):
+        base = "../"
+        words = sum(len(re.sub(r"[#*\[\]()]", " ", self.built[f"book/{st}.md"].split("\n## Sources")[0]).split()) for st in self.chapters if st[:2] not in ("00", "90", "91"))
+        rows = []
+        for st in self.chapters:
+            if st == "00-contents":
+                continue
+            title = re.search(r"^# (.*)$", self.built[f"book/{st}.md"], re.M).group(1)
+            nref = sum(1 for rs in self.book_refs.values() for r in rs if r[0] == st)
+            rows.append(f'<div class="row"><div class="id">{esc(st[:2])}</div><div><h3><a href="{st}/" data-internal>{esc(title)}</a></h3></div>'
+                        f'<div class="end">{f"{nref} records" if nref else ""}</div></div>')
+        body = (f'<nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="../" data-internal>simgrammar</a></li><li>book</li></ol></nav>'
+                f'<div class="page-header"><p class="eyebrow"><span class="id">book</span> <span>{sum(1 for st in self.chapters if re.match(r"(0[1-9]|1[0-9])-", st))} chapters, a preface, and back matter</span> <span>about {words // 1000}k words</span></p>'
+                f'<h1>The Grammar of Simulation, as a book</h1><p class="dek">The paper\'s findings at book length: thirteen chapters in four parts, a glossary of every '
+                f'mechanic, and the catalog of games. Like the paper, every number is rendered from the dataset when the site is built, and every sentence that '
+                f'interprets one is checked against the data.</p></div><div class="register" data-size="wide">{"".join(rows)}</div>')
+        return self.page(title="The book · simgrammar", desc="The Grammar of Simulation as a book, one chapter a page, rendered from the dataset.", body=body,
+                         depth=1, nav="book", path="book/", image="og/book.png")
+
     def llms_txt(self):
         m, man = self.meta, self.manifest
         lines = [f"# simgrammar · {m['title']}", "", f"> {m['subtitle']}. A versioned dataset of simulation game mechanics with provenance, and the paper projected from it.", "",
                  f"dataset sha256: {man['dataset_sha256']}", f"contract: {man['contract_version']} · paper v{m['version']} ({m['date']})", "",
-                 "## Read", f"- {self.site['url']}paper.md: the paper as markdown", f"- {self.site['url']}references.bib: bibliography", f"- {self.site['url']}manifest.json: counts and hashes", "",
+                 "## Read", f"- {self.site['url']}paper.md: the paper as markdown", f"- {self.site['url']}references.bib: bibliography", f"- {self.site['url']}manifest.json: counts and hashes",
+                 f"- {self.site['url']}book/: the book, one chapter a page", f"- {self.site['url']}watch/: the published shorts, with transcripts", "",
                  "## Data", f"- {self.site['url']}dist/simgrammar-dist.zip: every projection in one archive",
                  f"- {self.site['url']}dist/tables/games.csv (and mechanics, techniques, opportunities, sources, edges, game_mechanic_matrix): csv tables",
                  f"- {self.site['url']}dist/entities/games.json (and the other types): full json records",
@@ -658,8 +1015,17 @@ class Web:
         return self.page(title="Not found · simgrammar", desc="Page not found.", body=body, depth=0, nav="", path="404.html").replace('href="assets/', 'href="/assets/').replace('src="assets/', 'src="/assets/')
 
 
-def build_web(ents, edges, analysis, vocabs, registry, schemas, ctx, manifest, meta, paper_md, references_bib, figure_svgs) -> dict[str, str]:
-    w = Web(ents, edges, analysis, vocabs, registry, schemas, ctx, manifest, meta)
+def favicon(png: bytes) -> bytes:
+    """The 192 px icon raster sampled every fourth pixel: 48 px, one pixel per dither pixel."""
+    import io
+    from PIL import Image
+    out = io.BytesIO()
+    Image.open(io.BytesIO(png)).resize((48, 48), Image.NEAREST).save(out, format="PNG")
+    return out.getvalue()
+
+
+def build_web(ents, edges, analysis, vocabs, registry, schemas, ctx, manifest, meta, paper_md, references_bib, figure_svgs, built=None) -> dict[str, str | bytes]:
+    w = Web(ents, edges, analysis, vocabs, registry, schemas, ctx, manifest, meta, built)
     outs = {}
     outs["web/index.html"] = w.paper()
     for t in w.types:
@@ -667,6 +1033,12 @@ def build_web(ents, edges, analysis, vocabs, registry, schemas, ctx, manifest, m
         for e in sorted(ents.get(t, []), key=lambda e: e.id):
             outs[f"web/{t}/{e.id}/index.html"] = w.entity(e)
     outs["web/data/index.html"] = w.data_page()
+    outs["web/watch/index.html"] = w.watch_page()
+    if w.chapters:
+        outs["web/book/index.html"] = w.book_index()
+        for stem in w.chapters:
+            if stem != "00-contents":
+                outs[f"web/book/{stem}/index.html"] = w.book_chapter(stem)
     outs["web/404.html"] = w.not_found()
     outs["web/llms.txt"] = w.llms_txt()
     # the paper's entity links point into dist/wiki; on the site they point at the record pages
@@ -684,4 +1056,8 @@ def build_web(ents, edges, analysis, vocabs, registry, schemas, ctx, manifest, m
     outs["web/.nojekyll"] = ""
     for f in ("register.css", "simgrammar.js"):
         outs[f"web/assets/{f}"] = (WEB_SRC / f).read_text(encoding="utf-8")
+    for i in sorted(w.icons):
+        outs[f"web/assets/icons/{i}.png"] = w.built[f"visual/icons/{i}@4x.png"]
+    if FAVICON in w.icons:
+        outs["web/assets/favicon.png"] = favicon(w.built[f"visual/icons/{FAVICON}@4x.png"])
     return outs

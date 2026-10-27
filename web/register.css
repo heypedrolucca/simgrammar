@@ -802,6 +802,120 @@ body[data-texture="hatch"]::before { -webkit-mask: url("data:image/svg+xml,<svg 
 [data-theme="signal"] { --paper: #fbfbf9; --paper-2: #f1f1ec; --paper-3: #e6e6df; --ink: #111111; --ink-2: #333330; --muted: #63635c; --faint: #92928a; --rule: #dadad2; --rule-2: #b9b9b0; --accent: #c8102e; --accent-wash: #fbe6e9; --deep: #2b2b28; }
 [data-theme], [data-skin] { background: var(--paper); color: var(--ink); font-family: var(--sans); }
 
+/* ---------- 13b. Visual vocabulary: the dithered icons on the site (ADR-0006) ----------
+   Icons are 48 dither pixels square and drawn at 24, 48 or 96 css px so each lands on whole device pixels. Every variant
+   here keeps a plain-text twin on its page: the index tables, the alt and title text, the transcript. */
+img[data-icon] { display: block; flex: none; image-rendering: pixelated; }
+.page-header[data-style="icon"] { display: grid; grid-template-columns: minmax(0, 1fr) 96px; column-gap: var(--sp-5); }
+.page-header[data-style="icon"] > * { grid-column: 1; }
+.page-header[data-style="icon"] > img[data-icon] { grid-column: 2; grid-row: 1 / span 6; margin-top: 4px; }
+.section-line h2:has(> img[data-icon]) { display: inline-flex; align-items: center; gap: 10px; }
+.section-line:has(> h2 > img[data-icon]) { align-items: center; }
+.controls > [data-views] { justify-self: end; align-self: end; }
+.segmented button { white-space: nowrap; }
+.row h3:has(> img[data-icon]) { display: flex; align-items: center; gap: 10px; }
+.chip[data-style="icon"], .chip[data-style="name"] { display: inline-flex; align-items: center; gap: 8px; padding: 3px 10px 3px 3px; background: var(--paper); color: var(--ink); font: 500 var(--fs-xs)/1.3 var(--sans); text-transform: none; letter-spacing: 0; }
+.chip[data-style="name"] { padding: 3px 8px; border-color: var(--rule); color: var(--ink-2); }
+a.chip::after { content: none; }
+a.chip:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.cluster[data-gap="chips"] { gap: 6px; }
+.cluster[data-gap="icons"] { gap: 4px; }
+.cluster[data-gap="icons"] a::after, .register[data-kind="mosaic"] a::after, .register[data-kind="tiles"] .row::after { content: none; }
+.legend i[data-style="faint"] { opacity: .35; }
+/* tiles: a mechanic index ruled by hairlines */
+.register[data-kind="tiles"] { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); border-left: var(--line) solid var(--rule); }
+.register[data-kind="tiles"] .row { display: flex; flex-direction: column; align-items: stretch; gap: 10px; min-height: 148px; padding: 14px 14px 12px; border-right: var(--line) solid var(--rule); color: var(--ink); }
+.register[data-kind="tiles"] .row > img[data-icon] { align-self: flex-start; }
+.register[data-kind="tiles"] .row:hover { background: var(--paper-2); box-shadow: inset 0 0 0 var(--line-2) var(--accent); text-decoration: none; }
+.register[data-kind="tiles"] .row:hover h3 { color: var(--accent); }
+.register[data-kind="tiles"] .row h3 { font-size: var(--fs-sm); line-height: 1.25; }
+.register[data-kind="tiles"] .row > .end { display: flex; justify-content: space-between; margin-top: auto; padding: 0; }
+.register[data-kind="tiles"] .pbar { display: block; }
+.register[data-kind="tiles"] .pbar i { height: 3px; }
+/* mosaic: every mechanic, one row per family */
+.register[data-kind="mosaic"] { border-top: 0; }
+.register[data-kind="mosaic"] .row { grid-template-columns: 220px minmax(0, 1fr); padding: 3px 0; border: 0; }
+.register[data-kind="mosaic"] .row:hover { background: none; box-shadow: none; }
+.register[data-kind="mosaic"] .row > .id { padding: 0; line-height: 24px; color: var(--muted); }
+.register[data-kind="mosaic"] .row > div:last-child { display: flex; flex-wrap: wrap; gap: 2px; }
+.register[data-kind="mosaic"] a:hover img { outline: var(--line-2) solid var(--accent); }
+/* parts: a game as the icons of its mechanics, supporting parts faint */
+.register[data-kind="parts"] .row { grid-template-columns: 44px 200px minmax(0, 1fr) 28px; align-items: center; padding: 8px 0; }
+.register[data-kind="parts"] .row > .end { grid-column: 4; padding: 0; }
+.register[data-kind="parts"] .row h3 { font-size: var(--fs-sm); line-height: 1.3; }
+.register[data-kind="parts"] .row h3 span { display: block; font: var(--fs-xs)/1.4 var(--label); }
+.register[data-kind="parts"] .cluster a { padding: 2px; }
+.register[data-kind="parts"] [data-role="supporting"] img { opacity: .38; }
+[data-parts-scope][data-hl] [data-m] img { opacity: .1; }
+[data-parts-scope][data-hl] [data-m][data-on] { outline: var(--line-2) solid var(--accent); }
+[data-parts-scope][data-hl] [data-m][data-on] img { opacity: 1; }
+[data-parts-scope][data-hl] .row:not(:has([data-on])) h3 { opacity: .35; }
+/* board: a game page's parts, each with the note on how the game does it */
+.register[data-kind="board"] { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); margin-bottom: var(--sp-4); border-left: var(--line) solid var(--rule); }
+.register[data-kind="board"] .row { grid-template-columns: 96px minmax(0, 1fr); gap: 16px; padding: 16px; border-right: var(--line) solid var(--rule); }
+.register[data-kind="board"] .row:hover { box-shadow: none; }
+.register[data-kind="board"] .row > .id { padding: 0; }
+.register[data-kind="board"] .row small { display: block; font: var(--fs-xs)/1.4 var(--label); color: var(--faint); }
+.register[data-kind="board"] .row h3 { margin: 2px 0 6px; font-size: var(--fs-md); }
+.register[data-kind="board"] .row p { font-size: var(--fs-sm); color: var(--ink-2); }
+.register[data-kind="board"][data-size="sm"] { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+.register[data-kind="board"][data-size="sm"] .row { grid-template-columns: 48px minmax(0, 1fr); gap: 12px; padding: 12px; }
+.register[data-kind="board"][data-size="sm"] .row h3 { font-size: var(--fs-sm); }
+.register[data-kind="board"][data-size="sm"] .row p { font-size: var(--fs-xs); }
+/* cards: the opportunity board, one column per horizon */
+.grid[data-gap="board"] { gap: var(--line); background: var(--rule); border: var(--line) solid var(--rule); }
+.grid[data-gap="board"] > section { min-width: 0; margin: 0; background: var(--paper); }
+.grid[data-gap="board"] .section-line { margin: 0; padding: 14px; background: var(--paper-2); }
+.grid[data-gap="board"] .section-line h2 { gap: 12px; font: 600 var(--fs-lg)/1.1 var(--sans); }
+.register[data-kind="cards"] .row { display: block; padding: 14px; }
+.register[data-kind="cards"] .row:hover { box-shadow: none; }
+.register[data-kind="cards"] .row > .id { margin-bottom: 4px; white-space: normal; }
+.register[data-kind="cards"] .row h3 { font-size: var(--fs-sm); line-height: 1.3; }
+.register[data-kind="cards"] .row p { font-size: var(--fs-xs); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.register[data-kind="cards"] .receipt { margin-top: 8px; border-top: 0; }
+.register[data-kind="cards"] .receipt dt, .register[data-kind="cards"] .receipt dd { padding: 3px 0; border: 0; }
+.register[data-kind="cards"] .receipt dt { padding-right: 12px; }
+.register[data-kind="cards"] .meter-label { display: none; }
+/* shorts: a poster that becomes the video, at 9:16, with the transcript beside it */
+.image[data-ratio="9/16"] { max-width: 270px; margin: 0; }
+.image[data-ratio="9/16"] .frame { aspect-ratio: 9 / 16; background: var(--deep); }
+.image[data-ratio="9/16"] .frame::after { content: none; }
+.image[data-ratio="9/16"] a.frame:hover .plate { background: var(--accent); }
+.image[data-ratio="9/16"] .plate { position: absolute; left: 10px; bottom: 10px; display: inline-flex; gap: 6px; }
+.image[data-ratio="9/16"] .plate::before { content: "\25B6"; }
+.split[data-style="watch"] { grid-template-columns: 270px minmax(0, 1fr); align-items: start; }
+.split[data-style="watch"] + .split[data-style="watch"] { margin-top: var(--sp-5); padding-top: var(--sp-5); border-top: var(--line) solid var(--rule); }
+.split[data-style="watch"] h3 { margin: 4px 0 var(--sp-3); font: 600 var(--fs-xl)/1.15 var(--sans); letter-spacing: -.01em; }
+.split[data-style="watch"] details.disclosure { margin-bottom: var(--sp-3); }
+.split[data-style="watch"] details.disclosure p { margin: 8px 0 0; max-width: var(--measure); }
+.register[data-kind="watch"] { display: grid; grid-template-columns: repeat(auto-fill, minmax(216px, 1fr)); margin-bottom: var(--sp-5); border-left: var(--line) solid var(--rule); }
+.register[data-kind="watch"] .row { display: flex; flex-direction: column; align-items: stretch; gap: 8px; padding: 14px; border-right: var(--line) solid var(--rule); }
+.register[data-kind="watch"] .row:hover { box-shadow: none; }
+.register[data-kind="watch"] .image { max-width: none; margin-bottom: 4px; }
+.register[data-kind="watch"] .eyebrow { margin: 0; }
+.register[data-kind="watch"] .row h3 { font-size: var(--fs-md); line-height: 1.2; }
+.register[data-kind="watch"] .row > p { color: var(--ink-2); }
+@media (max-width: 880px) {
+  .split[data-style="watch"] { grid-template-columns: 1fr; }
+  .image[data-ratio="9/16"] { max-width: 240px; }
+}
+@media (max-width: 600px) {
+  .register[data-kind="watch"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .register[data-kind="watch"] .row { padding: 10px; }
+  .register[data-kind="watch"] .row > p, .register[data-kind="watch"] .row > .cluster, .register[data-kind="watch"] figcaption { display: none; }
+  .page-header[data-style="icon"] { grid-template-columns: minmax(0, 1fr) 48px; }
+  .page-header[data-style="icon"] > img[data-icon], .register[data-kind="board"] .row > .id img { width: 48px; height: 48px; }
+  .controls:has(> [data-views]) { grid-template-columns: 1fr; }
+  .controls > [data-views] { justify-self: start; }
+  .register[data-kind="tiles"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .register[data-kind="tiles"] .row { min-height: 132px; padding: 12px; }
+  .register[data-kind="mosaic"] .row { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .register[data-kind="parts"] .row { grid-template-columns: 40px minmax(0, 1fr) 24px; gap: 4px 8px; }
+  .register[data-kind="parts"] .row > .end { grid-column: 3; grid-row: 1; }
+  .register[data-kind="parts"] .row > .cluster { grid-column: 1 / -1; grid-row: 2; }
+  .register[data-kind="board"] .row { grid-template-columns: 48px minmax(0, 1fr); }
+}
+
 /* ---------- 14. Responsive, print, motion ---------- */
 .show-md, .show-sm { display: none !important; }
 @media (max-width: 880px) {
