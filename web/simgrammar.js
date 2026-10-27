@@ -1,7 +1,7 @@
 /* simgrammar.js: progressive enhancement for the SimGrammar site.
    Every page is complete without this file. It adds: contents highlighting, sortable and
    filterable tables and index groups, view switches, part highlighting on the games index,
-   click-to-play shorts, and the hover, toggle, and readout layer of the paper's figures.
+   click-to-play shorts, hover cards on the home mosaic, and the hover, toggle, and readout layer of the paper's figures.
    Figures are fully laid out by scripts/viz.py; this file only toggles, highlights, and reads out.
    Labels come from the dataset and are inserted with textContent, never innerHTML. */
 (function () {
@@ -149,6 +149,80 @@
         if (img) { v.setAttribute("width", img.getAttribute("width")); v.setAttribute("height", img.getAttribute("height")); }
         a.parentNode.replaceChild(v, a);
       });
+    });
+  }
+
+  /* the home mosaic: a card beside the icon under the pointer or keyboard focus, on screens with a mouse.
+     Touch screens keep the plain link; the card's fields are all on the record page it opens. */
+  function peek() {
+    if (!window.matchMedia || !window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+    $$("[data-cards]").forEach(function (scope) {
+      var src = document.getElementById(scope.getAttribute("data-cards")), cards;
+      try { cards = JSON.parse(src.textContent); } catch (err) { return; }
+      var card = el("div", { "class": "panel", "data-style": "peek", role: "tooltip", id: "peek-" + src.id, hidden: "" });
+      document.body.appendChild(card);
+      var cur = null, timer = 0;
+      $$("a[data-card][title]", scope).forEach(function (a) { a.removeAttribute("title"); });  // the card replaces the native tooltip
+      function fill(a, c) {
+        var img = $("img", a), eb = el("p", { "class": "eyebrow" }), dl = el("dl", { "class": "receipt", "data-style": "bare" });
+        card.textContent = "";
+        card.appendChild(el("img", { "data-icon": "", src: img ? img.getAttribute("src") : "", width: "48", height: "48", alt: "" }));
+        eb.appendChild(el("span", { "class": "id" }, a.getAttribute("data-card")));
+        eb.appendChild(el("span", null, c[1]));
+        card.appendChild(eb);
+        card.appendChild(el("h3", null, c[0]));
+        if (c[2]) card.appendChild(el("p", null, c[2]));
+        [["used by", c[3] ? c[3] + (c[3] === 1 ? " game" : " games") + (c[4] ? " · core in " + c[4] : "") : "no catalogued game yet"],
+         ["first seen", c[5] ? c[5] + (c[6] ? " · " + c[6] : "") : null],
+         ["techniques", c[7] ? c[7] + (c[7] === 1 ? " affects it" : " affect it") : null]].forEach(function (r) {
+          if (r[1] == null) return;
+          dl.appendChild(el("dt", null, r[0]));
+          dl.appendChild(el("dd", null, r[1]));
+        });
+        card.appendChild(dl);
+      }
+      function place(a) {
+        var r = a.getBoundingClientRect(), w = card.offsetWidth, h = card.offsetHeight, gap = 8, edge = 16;
+        var x = Math.max(edge, Math.min(r.left - 16, window.innerWidth - w - edge));
+        var y = r.bottom + gap;
+        if (y + h > window.innerHeight - edge) y = Math.max(edge, r.top - gap - h);
+        card.style.left = x + "px";
+        card.style.top = y + "px";
+      }
+      function show(a) {
+        var c = cards[a.getAttribute("data-card")];
+        if (!c) return;
+        if (cur) { cur.removeAttribute("data-on"); cur.removeAttribute("aria-describedby"); }
+        cur = a;
+        a.setAttribute("data-on", "");
+        a.setAttribute("aria-describedby", card.id);
+        fill(a, c);
+        card.hidden = false;
+        place(a);
+      }
+      function hide() {
+        clearTimeout(timer);
+        card.hidden = true;
+        if (cur) { cur.removeAttribute("data-on"); cur.removeAttribute("aria-describedby"); }
+        cur = null;
+      }
+      scope.addEventListener("mouseover", function (e) {
+        var a = e.target.closest("a[data-card]");
+        if (!a) return;
+        clearTimeout(timer);
+        if (a === cur) return;
+        if (card.hidden) timer = setTimeout(function () { show(a); }, 120); else show(a);   // a short wait on entry, none between icons
+      });
+      scope.addEventListener("mouseout", function (e) {
+        var to = e.relatedTarget && e.relatedTarget.closest ? e.relatedTarget.closest("a[data-card]") : null;
+        if (to && scope.contains(to)) return;
+        clearTimeout(timer);
+        timer = setTimeout(hide, 120);
+      });
+      scope.addEventListener("focusin", function (e) { var a = e.target.closest("a[data-card]"); if (a) { clearTimeout(timer); show(a); } });
+      scope.addEventListener("focusout", hide);
+      document.addEventListener("keydown", function (e) { if (e.key === "Escape") hide(); });
+      window.addEventListener("scroll", hide, { passive: true });
     });
   }
 
@@ -412,6 +486,6 @@
     });
   }
 
-  function init() { toc(); tables(); views(); parts(); shorts(); figures(); }
+  function init() { toc(); tables(); views(); parts(); shorts(); peek(); figures(); }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
 })();
