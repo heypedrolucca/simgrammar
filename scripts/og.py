@@ -4,6 +4,7 @@ vendored IBM Plex fonts (media/fonts). scripts/web.py calls images() and every p
   og/site.png                    the paper (home page)
   og/<type>.png                  the game, mechanic, technique, opportunity, and source indexes
   og/watch.png, og/book.png      the watch page and the book's contents
+  og/watch/<episode>.png         every episode page
   og/<type>/<id>.png             every game, mechanic, technique, and opportunity page
   og/book/<chapter>.png          every book chapter
 
@@ -149,10 +150,18 @@ def images(w) -> dict[str, bytes]:
     for t, (title, desc, foot, icons) in index.items():
         outs[f"web/og/{t}.png"] = card(f"{t} index", title, desc, foot, icons)
     shown = []
-    for sh in w.shorts:
-        shown += [i for i in sh["shows"] if i not in shown]
-    outs["web/og/watch.png"] = card("watch", f"{len(w.shorts)} findings, under a minute each",
-                                    "Short videos, each stating one finding from the dataset, drawn from its records.", f"{len(w.shorts)} shorts", pngs(shown))
+    for v in w.episodes + w.shorts:
+        shown += [i for i in v["shows"] if i not in shown]
+    ne, ns = len(w.episodes), len(w.shorts)
+    outs["web/og/watch.png"] = card("watch", f"The book in {ne} episodes, and {ns} one-minute findings" if ne else f"{ns} findings, under a minute each",
+                                    "Videos drawn from the dataset's records: episodes that follow the book, and shorts that each state one finding.",
+                                    f"{ne} episodes · {ns} shorts", pngs(shown))
+    for ep in w.episodes:
+        chapters = " and ".join(str(c) for c in ep["covers"])
+        n = len({i for sc in ep["scenes"] for i in sc["shows"]})
+        outs[f"web/og/watch/{ep['key']}.png"] = card(f"episode {ep['n']} · watch", ep["title"],
+                                                     f"Episode {ep['n']} of the series, following chapter{'s' if len(ep['covers']) > 1 else ''} {chapters} of the book.",
+                                                     f"{w.mmss(ep['seconds'])} · {len(ep['scenes'])} scenes · {n} records on screen", pngs(ep["shows"][:16]))
     outs["web/og/book.png"] = card("the book", "The Grammar of Simulation, as a book", "Thirteen chapters on the parts simulation games share, rendered from the dataset.",
                                    "13 chapters · glossary · catalog", top)
     for e in mechs:

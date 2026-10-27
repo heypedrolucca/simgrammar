@@ -904,11 +904,56 @@ a.chip:hover { border-color: var(--accent); color: var(--accent); text-decoratio
 .register[data-kind="watch"] .eyebrow { margin: 0; }
 .register[data-kind="watch"] .row h3 { font-size: var(--fs-md); line-height: 1.2; }
 .register[data-kind="watch"] .row > p { color: var(--ink-2); }
+/* episodes: a 16:9 poster that becomes the video on its own page and links that page elsewhere */
+[data-episode] .image, .register[data-kind="episodes"] .image, .panel[data-style="watch"] .image { margin: 0; }
+.image[data-ratio="16/9"] a.frame, .image[data-ratio="16/9"] video.frame { background: var(--deep); }
+.image[data-ratio="16/9"] a.frame:hover .plate { background: var(--accent); }
+.image[data-ratio="16/9"] .plate { position: absolute; left: 12px; bottom: 12px; display: inline-flex; gap: 6px; }
+.image[data-ratio="16/9"] a[data-play] .plate::before { content: "\25B6"; }
+.image[data-ratio="16/9"] video.frame { height: auto; }
+.split[data-style="episode"] { grid-template-columns: minmax(0, 1fr) 320px; gap: var(--sp-5); margin: var(--sp-5) 0 var(--sp-6); }
+.split[data-style="episode"] aside > p { margin: var(--sp-3) 0 0; }
+.split[data-style="episode"] .pagination { margin: var(--sp-3) 0 0; }
+/* scenes: an episode's scene list, each row a link that plays from its start */
+.register[data-kind="scenes"] .row { grid-template-columns: 40px minmax(0, 1fr) auto; gap: 10px; padding: 7px 6px; color: var(--ink); }
+.register[data-kind="scenes"] .row::after { content: none; }
+.register[data-kind="scenes"] .row:hover { text-decoration: none; box-shadow: none; }
+.register[data-kind="scenes"] .row > .id { padding: 0; color: var(--accent); }
+.register[data-kind="scenes"] .row h3 { font-size: var(--fs-sm); line-height: 1.5; }
+.register[data-kind="scenes"] .row > .end { grid-column: 3; padding: 0; }
+.register[data-kind="scenes"] .row[aria-current] { background: var(--accent-wash); }
+.register[data-kind="scenes"] .row[aria-current] h3 { color: var(--accent); }
+/* script: the transcript scene by scene, with the records each scene shows */
+.register[data-kind="script"] .row { padding: var(--sp-4) 0; }
+.register[data-kind="script"] .row > .id a { color: var(--accent); }
+.register[data-kind="script"] .row[aria-current] > .id a { color: var(--ink); font-weight: 600; }
+.register[data-kind="script"] .row h3 { margin-bottom: 6px; font-size: var(--fs-md); }
+.register[data-kind="script"] .row p { max-width: var(--measure); margin: 0 0 8px; color: var(--ink-2); font-size: var(--fs-base); line-height: 1.6; }
+.register[data-kind="script"] .row p.small { margin: 12px 0 6px; font-size: var(--fs-xs); color: var(--faint); }
+[data-episode] .section > .cluster[data-gap="chips"] + p { margin: var(--sp-4) 0 6px; }
+/* the watch page's episodes, three across */
+.register[data-kind="episodes"] { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); margin-bottom: var(--sp-4); border-left: var(--line) solid var(--rule); }
+.register[data-kind="episodes"] .row { display: flex; flex-direction: column; align-items: stretch; gap: 8px; padding: 14px; border-right: var(--line) solid var(--rule); }
+.register[data-kind="episodes"] .row:hover { box-shadow: none; }
+.register[data-kind="episodes"] .image { margin-bottom: 4px; }
+.register[data-kind="episodes"] .eyebrow { margin: 0; }
+.register[data-kind="episodes"] .row h3 { font-size: var(--fs-md); line-height: 1.2; }
+/* a chapter's episode, under its eyebrow */
+.panel[data-style="watch"] { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: var(--sp-4); align-items: center; margin: 0 0 var(--sp-5); padding: var(--sp-3); }
+.panel[data-style="watch"] .eyebrow { margin-bottom: 4px; }
+.panel[data-style="watch"] h3 { margin: 0 0 4px; font: 600 var(--fs-lg)/1.2 var(--sans); }
+.panel[data-style="watch"] h3 a { color: var(--ink); }
+.panel[data-style="watch"] p { margin: 0 0 4px; font-size: var(--fs-sm); color: var(--ink-2); }
+/* a moment in an episode, on a record page */
+a[data-t] { font: var(--fs-xs)/1.5 var(--mono); }
 @media (max-width: 880px) {
   .split[data-style="watch"] { grid-template-columns: 1fr; }
   .image[data-ratio="9/16"] { max-width: 240px; }
+  .split[data-style="episode"] { grid-template-columns: 1fr; gap: var(--sp-4); }
 }
 @media (max-width: 600px) {
+  .panel[data-style="watch"] { grid-template-columns: 1fr; }
+  .register[data-kind="episodes"] { grid-template-columns: 1fr; }
   .register[data-kind="watch"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .register[data-kind="watch"] .row { padding: 10px; }
   .register[data-kind="watch"] .row > p, .register[data-kind="watch"] .row > .cluster, .register[data-kind="watch"] figcaption { display: none; }

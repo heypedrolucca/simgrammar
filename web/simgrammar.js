@@ -1,7 +1,8 @@
 /* simgrammar.js: progressive enhancement for the SimGrammar site.
    Every page is complete without this file. It adds: contents highlighting, sortable and
    filterable tables and index groups, view switches, part highlighting on the games index,
-   click-to-play shorts, hover cards on the home mosaic, and the hover, toggle, and readout layer of the paper's figures.
+   click-to-play shorts and episodes, an episode's scene list, hover cards on the home mosaic,
+   and the hover, toggle, and readout layer of the paper's figures.
    Figures are fully laid out by scripts/viz.py; this file only toggles, highlights, and reads out.
    Labels come from the dataset and are inserted with textContent, never innerHTML. */
 (function () {
@@ -139,17 +140,54 @@
     });
   }
 
-  /* a short's poster becomes its video on click; without script the poster links the file */
+  /* a poster becomes its video; without script the poster links the file */
+  function video(a) {
+    var img = $("img", a);
+    var v = el("video", { "class": a.className, src: a.getAttribute("href"), poster: img ? img.getAttribute("src") : "", controls: "", playsinline: "", preload: "auto" });
+    if (img) { v.setAttribute("width", img.getAttribute("width")); v.setAttribute("height", img.getAttribute("height")); }
+    a.parentNode.replaceChild(v, a);
+    return v;
+  }
   function shorts() {
     $$("a[data-play]").forEach(function (a) {
-      a.addEventListener("click", function (e) {
-        e.preventDefault();
-        var img = $("img", a);
-        var v = el("video", { "class": a.className, src: a.getAttribute("href"), poster: img ? img.getAttribute("src") : "", controls: "", autoplay: "", playsinline: "" });
-        if (img) { v.setAttribute("width", img.getAttribute("width")); v.setAttribute("height", img.getAttribute("height")); }
-        a.parentNode.replaceChild(v, a);
-      });
+      if (a.closest("[data-episode]")) return;
+      a.addEventListener("click", function (e) { e.preventDefault(); video(a).play(); });
     });
+  }
+
+  /* an episode page: the poster plays from the start, or from the #t= in the page address; each scene time plays from
+     that moment, and the scene list follows the video. Without script each time links the file at that second (#t=). */
+  function episode() {
+    var scope = $("[data-episode]"), a = scope && $("a[data-play]", scope);
+    if (!a) return;
+    var v = null, start = 0;
+    var nav = $$("[data-kind=scenes] .row[data-seek]", scope), rows = $$("[data-kind=script] .row[data-start]", scope);
+    function mark(t) {
+      [[nav, "data-seek"], [rows, "data-start"]].forEach(function (g) {
+        var cur = null;
+        g[0].forEach(function (r) { if (parseFloat(r.getAttribute(g[1])) <= t + 0.25) cur = r; });
+        g[0].forEach(function (r) { if (r === cur) r.setAttribute("aria-current", "true"); else r.removeAttribute("aria-current"); });
+      });
+    }
+    function play(t) {
+      if (!v) { v = video(a); v.addEventListener("timeupdate", function () { mark(v.currentTime); }); }
+      var go = function () { v.currentTime = t; v.play(); };
+      if (v.readyState >= 1) go(); else v.addEventListener("loadedmetadata", go, { once: true });
+      mark(t);
+      var r = v.getBoundingClientRect();
+      if (r.top < 0 || r.bottom > window.innerHeight) v.scrollIntoView({ block: "center" });
+    }
+    a.addEventListener("click", function (e) { e.preventDefault(); play(start); });
+    $$("a[data-seek]", scope).forEach(function (l) {
+      l.addEventListener("click", function (e) { e.preventDefault(); play(parseFloat(l.getAttribute("data-seek"))); });
+    });
+    var m = /^#t=([\d.]+)$/.exec(location.hash);
+    if (m) {
+      start = parseFloat(m[1]);
+      var plate = $(".plate", a), s = Math.round(start);
+      if (plate) plate.textContent = "play from " + Math.floor(s / 60) + ":" + ("0" + (s % 60)).slice(-2);
+      mark(start);
+    }
   }
 
   /* the home mosaic: a card beside the icon under the pointer or keyboard focus, on screens with a mouse.
@@ -486,6 +524,6 @@
     });
   }
 
-  function init() { toc(); tables(); views(); parts(); shorts(); peek(); figures(); }
+  function init() { toc(); tables(); views(); parts(); shorts(); episode(); peek(); figures(); }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
 })();
