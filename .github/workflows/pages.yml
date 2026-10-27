@@ -34,6 +34,8 @@ jobs:
           cp -r dist/web/. _site/
           cp -r dist/tables dist/entities dist/graph dist/analysis dist/wiki dist/paper dist/site dist/manifest.json _site/dist/
           (cd dist && zip -qrX ../_site/dist/simgrammar-dist.zip tables entities graph analysis wiki paper site manifest.json)
+      - name: Fetch the published videos (media/published.yaml; the files live on a GitHub release, checked by sha256)
+        run: python scripts/video/fetch_published.py _site
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

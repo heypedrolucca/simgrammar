@@ -20,8 +20,9 @@ Projections:
   dist/paper/                        paper.md (rendered report), references.bib, figures/
   dist/book/, dist/media/episodes/   book chapters (book/src) and episode scripts (media/episodes), rendered
   dist/site/data.json                compact bundle for site/index.html
-  dist/web/                          the website: paper with interactive figures, a page per record (scripts/web.py)
   dist/visual/                       the video icons from media/visual, dithered (scripts/visual, ADR-0006)
+  dist/web/                          the website: paper with interactive figures, the book, a page per record with its icon,
+                                     icon indexes, the watch page, link-preview images (scripts/web.py, scripts/og.py)
 """
 from __future__ import annotations
 
@@ -456,13 +457,14 @@ def build() -> tuple[dict[str, str | bytes], dict[str, str]]:
     }
     outs["site/data.json"] = canonical_json(site) + "\n"
 
-    # ---- website (dist/web): the paper, a page per record, indexes, data page; deployed by .github/workflows/pages.yml
-    figs = {k[len("paper/figures/"):-4]: v for k, v in outs.items() if k.startswith("paper/figures/")}
-    outs.update(build_web(ents, edges, analysis, vocabs, registry, schemas, ctx, manifest, meta, paper, outs["paper/references.bib"], figs))
-
     # ---- visual vocabulary (dist/visual): icons for the video frames, PNG bytes (ADR-0006)
     from visual import icons as visual_icons
     outs.update(visual_icons.outputs())
+
+    # ---- website (dist/web): the paper, the book, a page per record, indexes, data and watch pages; deployed by .github/workflows/pages.yml.
+    # It reads the icons, the rendered book chapters and the short scripts from this build.
+    figs = {k[len("paper/figures/"):-4]: v for k, v in outs.items() if k.startswith("paper/figures/")}
+    outs.update(build_web(ents, edges, analysis, vocabs, registry, schemas, ctx, manifest, meta, paper, outs["paper/references.bib"], figs, built=outs))
 
     # ---- every element a Frame line draws has an icon (E042): the frames resolve against this build, as the renderer's do
     from visual import check as visual_check
