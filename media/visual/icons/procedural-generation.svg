@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <polygon points="24,24 29,26.5 24,29 19,26.5" fill="#c8c8c2" stroke="#171717" stroke-width="1"/>
+  <polygon points="19,26.5 24,29 19,31.5 14,29" fill="#8c8c86" stroke="#171717" stroke-width="1"/>
+  <polygon points="14,29 19,31.5 14,34 9,31.5" fill="#c8c8c2" stroke="#171717" stroke-width="1"/>
+  <polygon points="9,31.5 14,34 9,36.5 4,34" fill="#55554f" stroke="#171717" stroke-width="1"/>
+  <polygon points="29,26.5 34,29 29,31.5 24,29" fill="#8c8c86" stroke="#171717" stroke-width="1"/>
+  <polygon points="24,29 29,31.5 24,34 19,31.5" fill="#c8c8c2" stroke="#171717" stroke-width="1"/>
+  <polygon points="19,31.5 24,34 19,36.5 14,34" fill="#c8c8c2" stroke="#171717" stroke-width="1"/>
+  <polygon points="14,34 19,36.5 14,39 9,36.5" fill="#8c8c86" stroke="#171717" stroke-width="1"/>
+  <polygon points="34,29 39,31.5 34,34 29,31.5" fill="#55554f" stroke="#171717" stroke-width="1"/>
+  <polygon points="29,31.5 34,34 29,36.5 24,34" fill="#c8c8c2" stroke="#171717" stroke-width="1"/>
+  <polygon points="24,34 29,36.5 24,39 19,36.5" fill="#8c8c86" stroke="#171717" stroke-width="1"/>
+  <polygon points="19,36.5 24,39 19,41.5 14,39" fill="#c8c8c2" stroke="#171717" stroke-width="1"/>
+  <polygon points="39,31.5 44,34 39,36.5 34,34" fill="#8c8c86" stroke="#171717" stroke-width="1"/>
+  <polygon points="34,34 39,36.5 34,39 29,36.5" fill="#55554f" stroke="#171717" stroke-width="1"/>
+  <polygon points="29,36.5 34,39 29,41.5 24,39" fill="#c8c8c2" stroke="#171717" stroke-width="1"/>
+  <polygon points="24,39 29,41.5 24,44 19,41.5" fill="#c8c8c2" stroke="#171717" stroke-width="1"/>
+  <polygon points="4,34 24,24 44,34 24,44" fill="none" stroke="#171717" stroke-width="2"/>
+  <polygon points="16,9 24,5 32,9 24,13" fill="#fafaf7" stroke="#171717" stroke-width="2"/>
+  <polygon points="16,9 24,13 24,22 16,18" fill="#8c8c86" stroke="#171717" stroke-width="2"/>
+  <polygon points="24,13 32,9 32,18 24,22" fill="#55554f" stroke="#171717" stroke-width="2"/>
+  <circle cx="24" cy="9" r="1.5" fill="#171717"/>
+  <circle cx="18.5" cy="13" r="1" fill="#171717"/>
+  <circle cx="21.5" cy="17.5" r="1" fill="#171717"/>
+  <circle cx="26.5" cy="18.5" r="1" fill="#fafaf7"/>
+  <circle cx="28" cy="15.5" r="1" fill="#fafaf7"/>
+  <circle cx="29.5" cy="12.5" r="1" fill="#fafaf7"/>
+</svg>

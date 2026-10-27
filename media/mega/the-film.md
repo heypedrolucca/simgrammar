@@ -145,6 +145,8 @@ Recompute these from the render when an episode or its narration changes: `scrip
 
 **Picture.** A calendar strip scrolls forward; dates light up one by one, the first group bunched on a single day.
 
+**Frame.** timeline kind=due date=2027-12-31
+
 **Voice.** The dataset also makes {{stat:n_predictions}} bets about what comes next, each with a date on which it can be wrong. The first {{stat:n_predictions_first_date}} come due on {{stat:first_prediction_resolves_spoken}}.{{assert:n_predictions_open == n_predictions}}
 
 **On screen.** Every Simulation Game Is Built From the Same Parts.
@@ -153,9 +155,15 @@ Recompute these from the render when an episode or its narration changes: `scrip
 
 **Picture.** The five ceilings from episode 5 as five horizontal lines across the screen. Dots appear on a timeline beneath them, one per technique, each rising to the ceiling it presses on and colored by how far it has shipped.
 
+**Frame.** timeline kind=techniques
+
 **Voice.** Each of those ceilings has techniques pressing on it. The dataset records {{count:technique}} of them, each a dated result that changes at least one mechanic, and {{stat:n_technique_since_2023}} are dated 2023 or later.{{assert:n_technique_since_2023 > 20}} Language models, asset generators, and learned motion press on authoring cost. Neural rendering and learned surrogates for physics and weather press on compute. Language-model characters press on believability.
 
 **Picture.** The determinism line darkens as a cluster of dots pushes down on it from above.
+
+**Frame.** count kind=tally of=technique field=determinism_impact where=in-play
+
+**Frame.** count at="have shipped in at least one game" kind=tally of=technique field=maturity
 
 **Voice.** Determinism is the ceiling some of them push the other way. Of the techniques that can run during play, {{stat:n_technique_runtime_breaks}} break reproducibility outright.{{assert:n_technique_runtime_breaks >= 5}}
 
@@ -166,6 +174,10 @@ Recompute these from the render when an episode or its narration changes: `scrip
 ## 3. Bridge: from gaps to bets (between episodes 8 and 9, about 1:15)
 
 **Picture.** The vacant-lots plan on the left half of the screen, the technique-flow ribbons on the right. Lines from both run to the middle and become the rows of one table.
+
+**Frame.** chain nodes="map-overlay:The empty lots,language-model:The techniques,dataset-record:The bets" verbs="meet,in one list"
+
+**Frame.** count at="By the dataset's reading" kind=tally of=opportunity field=horizon
 
 **Voice.** The empty lots and the techniques meet in one list: {{count:opportunity}} bets, each a design that combines mechanics the catalog already has with a technique the dataset records. Each names the games that partly do it already, an experiment a small team could run, and a prediction with a date. By the dataset's reading, {{stat:n_opportunity_horizon_now}} could be built now.{{assert:n_opportunity_horizon_now >= 10}}
 

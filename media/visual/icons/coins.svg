@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <ellipse cx="24" cy="40" rx="12" ry="4" fill="#8c8c86" stroke="#171717" stroke-width="2"/>
+  <ellipse cx="24" cy="34.5" rx="12" ry="4" fill="#c8c8c2" stroke="#171717" stroke-width="2"/>
+  <ellipse cx="24" cy="29" rx="12" ry="4" fill="#8c8c86" stroke="#171717" stroke-width="2"/>
+  <ellipse cx="24" cy="23.5" rx="12" ry="4" fill="#c8c8c2" stroke="#171717" stroke-width="2"/>
+  <ellipse cx="24" cy="23.5" rx="6" ry="1.5" fill="none" stroke="#55554f" stroke-width="1"/>
+</svg>

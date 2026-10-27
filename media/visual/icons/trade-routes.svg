@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <rect x="3" y="30" width="9" height="12" fill="#8c8c86" stroke="#171717" stroke-width="2"/>
+  <rect x="36" y="26" width="9" height="16" fill="#c8c8c2" stroke="#171717" stroke-width="2"/>
+  <line x1="7.5" y1="30" x2="7.5" y2="22" stroke="#171717" stroke-width="2"/>
+  <polygon points="8,22 13,24 8,26" fill="#171717"/>
+  <line x1="40.5" y1="26" x2="40.5" y2="18" stroke="#171717" stroke-width="2"/>
+  <polygon points="41,18 46,20 41,22" fill="#55554f" stroke="#171717" stroke-width="1"/>
+  <line x1="13" y1="38" x2="16" y2="38" stroke="#171717" stroke-width="2"/>
+  <line x1="32" y1="38" x2="35" y2="38" stroke="#171717" stroke-width="2"/>
+  <polyline points="14,43 17,41.5 20,43 23,41.5 26,43 29,41.5 32,43 35,41.5" fill="none" stroke="#8c8c86" stroke-width="1"/>
+  <polygon points="16,33 32,33 29,39 19,39" fill="#55554f" stroke="#171717" stroke-width="2"/>
+  <line x1="24" y1="33" x2="24" y2="16" stroke="#171717" stroke-width="2"/>
+  <polygon points="25,17 25,31 34,31" fill="#fafaf7" stroke="#171717" stroke-width="2"/>
+  <polygon points="23,19 23,31 16,31" fill="#c8c8c2" stroke="#171717" stroke-width="2"/>
+  <rect x="19" y="34.5" width="4" height="2" fill="#c8c8c2"/>
+  <rect x="25" y="34.5" width="4" height="2" fill="#c8c8c2"/>
+</svg>

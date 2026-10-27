@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://simgrammar.dev/schema/1.1/opportunity.schema.json",
+  "$id": "https://simgrammar.dev/schema/1.2/opportunity.schema.json",
   "title": "Opportunity",
   "description": "A synthesized design opportunity combining mechanics and techniques. Scores follow rubrics; the composite priority is computed in build and never stored.",
   "type": "object",

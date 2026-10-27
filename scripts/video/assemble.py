@@ -6,9 +6,13 @@
 
 Each scene becomes stills (headless Chromium via Playwright, scripts/video/render.html) held for the length of its
 narration take; the takes are read from video-out/audio (or $SIMGRAMMAR_AUDIO) and normalized to -16 LUFS.
-Pictures show only the project's own graphics: entity cards from dist/entities, the catalog grid, and paper figures.
+Pictures show only the project's own graphics: frames chosen by the scripts' **Frame.** lines and drawn from the icons in
+dist/visual (ADR-0006), and, for pictures with no Frame line, entity cards from dist/entities, the catalog grid, and paper figures.
 A scene with no take on disk is timed at 135 words a minute and left silent (scripts/video/narration.py missing lists them).
-The film swaps in the Film wording from media/mega/the-film.md for the episode scenes it re-voices. Needs ffmpeg and node with playwright."""
+The film swaps in the Film wording from media/mega/the-film.md for the episode scenes it re-voices. Needs ffmpeg and node with playwright.
+The published lengths come from ffmpeg 6.1, which ends a file with -shortest where the narration ends; ffmpeg 9.0 ended 14 of the
+25 videos up to 0.2 s later from the same stills and track. $SIMGRAMMAR_FFMPEG names the binary (on macOS: brew install ffmpeg@6,
+then SIMGRAMMAR_FFMPEG=/opt/homebrew/opt/ffmpeg@6/bin/ffmpeg)."""
 import json, os, subprocess, sys, re, wave
 import numpy as np
 sys.path.insert(0, os.path.dirname(__file__))
@@ -17,6 +21,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 DIST = os.path.normpath(os.path.join(HERE, '..', '..', 'dist'))
 V = os.environ.get('SIMGRAMMAR_VIDEO_OUT', os.path.normpath(os.path.join(HERE, '..', '..', 'video-out')))
 AUD = os.environ.get('SIMGRAMMAR_AUDIO', V + '/audio')
+FFMPEG = os.environ.get('SIMGRAMMAR_FFMPEG', 'ffmpeg')
 SR = 44100
 from parse import parse_all, film_wording
 from entities import load, grid
@@ -28,7 +33,7 @@ def afile(key):
     return os.path.join(AUD, re.sub(r'[/#]', '__', key.replace('.md', '')) + '.mp3')
 
 def pcm(path):
-    out = subprocess.run(['ffmpeg', '-v', 'error', '-i', path, '-f', 's16le', '-ac', '1', '-ar', str(SR), '-'], capture_output=True, check=True).stdout
+    out = subprocess.run([FFMPEG, '-v', 'error', '-i', path, '-f', 's16le', '-ac', '1', '-ar', str(SR), '-'], capture_output=True, check=True).stdout
     return np.frombuffer(out, dtype=np.int16)
 
 def silence(sec): return np.zeros(int(round(sec * SR)), dtype=np.int16)
@@ -48,7 +53,7 @@ def reword(key, sc, over):
         vb = [b for b in s['blocks'] if b['kind'] == 'voice']
         if len(vb) != len(over[s['n']]):
             raise ValueError(f"{key} scene {s['n']}: film wording has {len(over[s['n']])} Voice lines, the episode has {len(vb)}")
-        for b, text in zip(vb, over[s['n']]): b['text'] = text
+        for b, text in zip(vb, over[s['n']]): b['orig'], b['text'] = b['text'], text
     return sc
 
 def segment_script(seg, states, chunks, vertical):
@@ -100,9 +105,11 @@ def make(name, segments, vertical=False):
         w.setnchannels(1); w.setsampwidth(2); w.setframerate(SR); w.writeframes(audio.tobytes())
     for f in os.listdir(out):
         if f.startswith('s') and f.endswith('.png'): os.remove(os.path.join(out, f))
+    from visual import icons as visual_icons
+    visual_icons.sized(os.path.join(V, 'visual', 'icons'))   # the larger icon draws the frames use (ADR-0006)
     subprocess.run(['node', os.path.join(HERE, 'render.js'), out + '/states.json', out, os.path.join(DIST, 'paper', 'figures'), V + '/grid.json'] + (['v'] if vertical else []), check=True)
     mp4 = os.path.join(V, 'final', name + '.mp4'); os.makedirs(os.path.dirname(mp4), exist_ok=True)
-    subprocess.run(['ffmpeg', '-y', '-v', 'error', '-f', 'concat', '-safe', '0', '-i', out + '/concat.txt', '-i', out + '/narration.wav',
+    subprocess.run([FFMPEG, '-y', '-v', 'error', '-f', 'concat', '-safe', '0', '-i', out + '/concat.txt', '-i', out + '/narration.wav',
                     '-vf', 'fps=30,format=yuv420p', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20', '-tune', 'stillimage',
                     '-af', 'loudnorm=I=-16:TP=-1.5:LRA=11', '-ar', '44100', '-ac', '1', '-c:a', 'aac', '-b:a', '96k', '-shortest', '-movflags', '+faststart', mp4], check=True)
     dur = len(audio) / SR

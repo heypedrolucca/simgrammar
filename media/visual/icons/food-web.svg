@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <polygon points="6,44 4,36 8,41" fill="#8c8c86" stroke="#171717" stroke-width="1"/>
+  <polygon points="8,44 8.5,33 10.5,42" fill="#55554f" stroke="#171717" stroke-width="1"/>
+  <polygon points="10,44 13.5,35 12.5,44" fill="#8c8c86" stroke="#171717" stroke-width="1"/>
+  <line x1="9.5" y1="32" x2="9.5" y2="30.5" stroke="#171717" stroke-width="2"/>
+  <polygon points="6.5,31 12.5,31 9.5,27.5" fill="#171717"/>
+  <ellipse cx="10" cy="23.5" rx="5" ry="3" fill="#c8c8c2" stroke="#171717" stroke-width="2"/>
+  <polygon points="15,23.5 18.5,20.5 18.5,26.5" fill="#c8c8c2" stroke="#171717" stroke-width="2"/>
+  <circle cx="7.5" cy="23" r="0.5" fill="#171717"/>
+  <line x1="10" y1="19" x2="10" y2="17" stroke="#171717" stroke-width="2"/>
+  <polygon points="7,17.5 13,17.5 10,14" fill="#171717"/>
+  <ellipse cx="12.5" cy="8.5" rx="7.5" ry="4" fill="#8c8c86" stroke="#171717" stroke-width="2"/>
+  <polygon points="19.5,8.5 24.5,4.5 24.5,12.5" fill="#8c8c86" stroke="#171717" stroke-width="2"/>
+  <circle cx="9" cy="8" r="1" fill="#171717"/>
+  <line x1="23" y1="15" x2="25.5" y2="19" stroke="#171717" stroke-width="2"/>
+  <polygon points="28,23 23,20.5 26.5,17.5" fill="#171717"/>
+  <line x1="20" y1="26.5" x2="21.5" y2="27.5" stroke="#171717" stroke-width="2"/>
+  <polygon points="25,30 20,29.5 22.5,25.5" fill="#171717"/>
+  <polygon points="40,33 44,28 44,38" fill="#55554f" stroke="#171717" stroke-width="2"/>
+  <ellipse cx="32.5" cy="33" rx="9" ry="6.5" fill="#55554f" stroke="#171717" stroke-width="2"/>
+  <polygon points="24,33 29,30 29,36" fill="#fafaf7" stroke="#171717" stroke-width="1"/>
+  <line x1="33" y1="27.5" x2="38" y2="31" stroke="#8c8c86" stroke-width="1"/>
+  <circle cx="31.5" cy="30" r="1.5" fill="#fafaf7" stroke="#171717" stroke-width="1"/>
+</svg>

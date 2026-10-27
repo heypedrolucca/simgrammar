@@ -586,6 +586,11 @@ def run(data_only: bool = False) -> Findings:
     if unarchived:
         F.add("W105", "", f"{unarchived} sources with a url have no `archived` Wayback snapshot (tasks/archive-sources.md)")
 
+    # ---- visual vocabulary and Frame lines (E040, E041, W108; ADR-0006)
+    from visual import check as visual_check
+
+    visual_check.check(F, ents, vocabs)
+
     if not data_only and not F.errors:
         import report_check  # noqa: E402  (imports analysis; only meaningful on valid data)
 

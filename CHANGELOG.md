@@ -2,6 +2,16 @@
 
 Contract, schema, vocabulary, and rubric changes. Data changes are tracked by run records in `log/runs/` and by git history.
 
+## 1.2 (2026-10-26)
+
+ADR-0006, a visual vocabulary for the video series (run `2026-10-26-visual-vocabulary`).
+
+- **Rules:** E040 frame-line, E041 visual-icon, E042 frame-icon, W108 visual-coverage; invariant I16. The contract now also applies to `media/visual/` and the Frame lines that use it.
+- **Visual vocabulary:** `media/visual/vocab.yaml` and 79 icons in `media/visual/icons/`, drawn in a checked SVG subset (25 mechanics, 1 family, 4 subgenres, 49 nouns), built by `scripts/visual` into `dist/visual/` at 3 px and 4 px per dither pixel through an 8x8 Bayer dither. `media/visual/README.md` says how to add one.
+- **Scripts:** `**Frame.**` lines choose a picture's frame from ten templates (anatomy, chain, compare, count, timeline, formula, scale, record, moment, toysim). Episode 1 and shorts 1, 4, 5, and 7 carry them; the other scripts render as before.
+- **Renderer:** `scripts/video/framedata.py` resolves frames from the dataset with a source line on each; `templates.js` draws them; the main entity is a one-line chip while a frame is up; labels are lowercase mono; IBM Plex is vendored in `media/fonts/` (SIL OFL 1.1) and the render stops if a face fails to load.
+- **Build:** `scripts/build.py` writes binary outputs; Pillow is pinned.
+
 ## 1.1 (2026-10-25)
 
 ADR-0004, contributor readiness.

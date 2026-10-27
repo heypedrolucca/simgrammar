@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <polygon points="14,20 24,25 14,30 4,25" fill="#c8c8c2" stroke="#171717" stroke-width="2"/>
+  <polygon points="4,25 14,30 14,44 4,39" fill="#8c8c86" stroke="#171717" stroke-width="2"/>
+  <polygon points="14,30 24,25 24,39 14,44" fill="#55554f" stroke="#171717" stroke-width="2"/>
+  <line x1="9" y1="22.5" x2="19" y2="27.5" stroke="#55554f" stroke-width="1"/>
+  <line x1="19" y1="27.5" x2="19" y2="41.5" stroke="#171717" stroke-width="1"/>
+  <rect x="30.5" y="4" width="5" height="2.5" fill="#55554f" stroke="#171717" stroke-width="2"/>
+  <line x1="33" y1="6.5" x2="33" y2="8.5" stroke="#171717" stroke-width="2"/>
+  <line x1="40.5" y1="9" x2="42" y2="10.5" stroke="#171717" stroke-width="2"/>
+  <circle cx="33" cy="18" r="9.5" fill="#fafaf7" stroke="#171717" stroke-width="2"/>
+  <polygon points="33,18 33,10.5 37,11.5 40,14.5 41,18" fill="#c8c8c2"/>
+  <line x1="33" y1="18" x2="33" y2="11" stroke="#171717" stroke-width="2"/>
+  <line x1="33" y1="18" x2="39" y2="18" stroke="#171717" stroke-width="1"/>
+  <circle cx="33" cy="18" r="1.5" fill="#171717"/>
+  <ellipse cx="36" cy="40" rx="8" ry="3" fill="#8c8c86" stroke="#171717" stroke-width="2"/>
+  <ellipse cx="36" cy="36" rx="8" ry="3" fill="#c8c8c2" stroke="#171717" stroke-width="2"/>
+  <ellipse cx="36" cy="32" rx="8" ry="3" fill="#c8c8c2" stroke="#171717" stroke-width="2"/>
+  <ellipse cx="36" cy="32" rx="4" ry="1" fill="none" stroke="#55554f" stroke-width="1"/>
+</svg>

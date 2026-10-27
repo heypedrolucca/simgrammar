@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <rect x="4" y="4" width="15" height="24" fill="#55554f" stroke="#171717" stroke-width="2"/>
+  <rect x="6" y="7" width="11" height="18" fill="#c8c8c2" stroke="#171717" stroke-width="1"/>
+  <rect x="5.5" y="4.5" width="2" height="1.5" fill="#fafaf7"/>
+  <rect x="5.5" y="26" width="2" height="1.5" fill="#fafaf7"/>
+  <rect x="10.5" y="4.5" width="2" height="1.5" fill="#fafaf7"/>
+  <rect x="10.5" y="26" width="2" height="1.5" fill="#fafaf7"/>
+  <rect x="15.5" y="4.5" width="2" height="1.5" fill="#fafaf7"/>
+  <rect x="15.5" y="26" width="2" height="1.5" fill="#fafaf7"/>
+  <line x1="6.5" y1="21" x2="16.5" y2="21" stroke="#55554f" stroke-width="1"/>
+  <circle cx="9" cy="11" r="2.5" fill="#171717"/>
+  <rect x="29" y="4" width="15" height="24" fill="#55554f" stroke="#171717" stroke-width="2"/>
+  <rect x="31" y="7" width="11" height="18" fill="#c8c8c2" stroke="#171717" stroke-width="1"/>
+  <rect x="30.5" y="4.5" width="2" height="1.5" fill="#fafaf7"/>
+  <rect x="30.5" y="26" width="2" height="1.5" fill="#fafaf7"/>
+  <rect x="35.5" y="4.5" width="2" height="1.5" fill="#fafaf7"/>
+  <rect x="35.5" y="26" width="2" height="1.5" fill="#fafaf7"/>
+  <rect x="40.5" y="4.5" width="2" height="1.5" fill="#fafaf7"/>
+  <rect x="40.5" y="26" width="2" height="1.5" fill="#fafaf7"/>
+  <line x1="31.5" y1="21" x2="41.5" y2="21" stroke="#55554f" stroke-width="1"/>
+  <circle cx="34" cy="11" r="2.5" fill="#171717"/>
+  <polyline points="11.5,28 11.5,37 16,37" fill="none" stroke="#171717" stroke-width="2"/>
+  <polyline points="32,37 36.5,37 36.5,33" fill="none" stroke="#171717" stroke-width="2"/>
+  <polygon points="36.5,28 40,33 33,33" fill="#171717"/>
+  <rect x="16" y="31" width="16" height="12" fill="#fafaf7" stroke="#171717" stroke-width="2"/>
+  <rect x="19" y="34" width="2" height="2" fill="#171717"/>
+  <line x1="23" y1="35" x2="29" y2="35" stroke="#8c8c86" stroke-width="1"/>
+  <rect x="19" y="38.5" width="2" height="2" fill="#171717"/>
+  <line x1="23" y1="39.5" x2="28" y2="39.5" stroke="#8c8c86" stroke-width="1"/>
+</svg>

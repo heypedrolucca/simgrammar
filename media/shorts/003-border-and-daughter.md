@@ -6,6 +6,8 @@ Vertical, about 50 seconds, about 100 words of narration. One finding, from the 
 
 **Picture.** Split screen. Left: a passport under a desk lamp in Papers, Please. Right: Princess Maker 2's daughter at her desk with a schedule.
 
+**Frame.** compare games=papers-please,princess-maker-2
+
 **On screen.** Same family.
 
 **Voice.** A border-checkpoint game from 2013 and a daughter-raising game from 1993 belong to the same family.{{assert:derived.princess-maker-2.cluster == derived.papers-please.cluster}}
@@ -20,11 +22,15 @@ Vertical, about 50 seconds, about 100 words of narration. One finding, from the 
 
 **Picture.** Side by side: the border shift clock and the month's three slots; the family ledger and the annual income; a scripted visitor and a festival announcement.
 
+**Frame.** compare games=papers-please,princess-maker-2 show=shared
+
 **Voice.** Both give you time in fixed slots: a shift at the border, three slots a month for your daughter. Both keep money tight. Both keep sending authored events at you.
 
 ## 0:38 to 0:48. Not where you'd file it
 
 **Picture.** The Sims' family in a kitchen slides in, then slides off the island.
+
+**Frame.** compare games=princess-maker-2,the-sims
 
 **Voice.** Princess Maker 2 is filed as a life sim, and it lands far from The Sims.{{assert:derived.princess-maker-2.cluster != derived.the-sims.cluster}}
 

@@ -1,11 +1,16 @@
 """Turn a parsed script into timed visual states and an audio plan.
 
+A Picture with **Frame.** lines shows those frames (framedata.py, ADR-0006) in place of its figure; cards are still
+collected while a frame is up, and render.html shows the frame's own chip, or the active card as one line.
+
 States are snapshots between change points: header, figure, on-screen text, cards, caption. Scene length is
 lead + narration audio + tail; inside a scene, text positions map linearly onto the narration's duration."""
 import json, re, os, sys
 sys.path.insert(0, os.path.dirname(__file__))
 from entities import load, find
 from figmap import FIG, CARDS
+import framedata
+from parse import OUT
 
 LEAD, TAIL, SILENT = 0.5, 0.8, 4.0
 WPS = 135 / 60.0
@@ -13,6 +18,8 @@ WPS = 135 / 60.0
 def prefix(key):
     b = os.path.basename(key)
     return 'th' if b.startswith('the-film') else b[:2] if key.startswith('episodes') else 's' + b[:3]
+
+LONG = 190   # about the two lines the 16:9 caption box shows (render.html #cap); a longer caption loses its last line
 
 def sentences(text):
     parts = re.split(r'(?<=[.!?])\s+(?=[A-Z0-9"“‘])', text.strip())
@@ -22,6 +29,11 @@ def sentences(text):
             cut = max((p.rfind(sep, 40, 110) for sep in (', ', '; ', ': ')), default=-1)
             if cut < 0: break
             out.append(p[:cut + 1]); p = p[cut + 2:]
+        if len(p) > LONG:   # no separator where the rule above looks: halve it at the one nearest the middle, else at a space
+            m = len(p) / 2
+            cuts = [i + 1 for i in range(len(p)) if p[i:i + 2] in (', ', '; ', ': ', '. ') and abs(i + 1 - m) < len(p) / 4]
+            cut = min(cuts or [i for i, ch in enumerate(p) if ch == ' '], key=lambda i: abs(i - m))
+            out.append(p[:cut].rstrip()); p = p[cut:].strip()
         out.append(p)
     return [x for x in out if x]
 
@@ -42,15 +54,42 @@ def scene_plan(E, key, sc, dur_audio, LEAD=LEAD, TAIL=TAIL, SILENT=SILENT):
     offs, pos = [], 0
     for v in voices: offs.append(pos); pos += len(v) + 2
     vi = 0
-    pending = []  # picture/onscreen blocks waiting for the next voice paragraph
+    pending = []  # picture/onscreen/frame blocks waiting for the next voice paragraph
+    nonframe = [i for i, b in enumerate(blocks) if b['kind'] != 'frame']
+    onscreen = ' '.join(b['text'] for b in blocks if b['kind'] == 'onscreen')
+    def frame_events(text, t_first):
+        f = framedata.resolve(text, onscreen, os.path.join(OUT, 'visual', 'toysim'))
+        at = framedata.FR.parse(text)[1].get('at')
+        if at:
+            j = full.find(at)
+            if j < 0:   # a scene the film re-voices: take the phrase's place in the episode's wording, in proportion
+                orig = '\n\n'.join(b.get('orig', b['text']) for b in blocks if b['kind'] == 'voice')
+                j0 = orig.find(at)
+                if j0 < 0: raise ValueError(f"{key} scene {sc['n']}: Frame at=\"{at}\" is not in the narration")
+                j = round(j0 / max(len(orig), 1) * C)
+            tf = max(tpos(j), t_first)
+        else:
+            tf = t_first
+        events.append((tf, 'frame', f))
+        for eid, words in f['names'].items():   # the highlight follows the narration through the frame's own elements
+            for w in words:
+                for m in re.finditer(r'(?<![\w-])' + re.escape(w) + r'(?![\w-])', full, re.I):
+                    if tpos(m.start()) > tf: events.append((tpos(m.start()), 'current', eid))
     def flush(t):
+        pic = None
         for i, b in pending:
-            pid = f"{pfx}.{sc['n']}.{i}"
             if b['kind'] == 'picture':
-                events.append((t, 'picture', {'fig': FIG.get(pid), 'pid': pid}))
+                pid = f"{pfx}.{sc['n']}.{nonframe.index(i)}"   # frame lines do not shift picture ids (figmap.py keys)
+                j = i + 1
+                while j < len(blocks) and blocks[j]['kind'] in ('frame', 'onscreen'): j += 1
+                has_frame = any(blocks[x]['kind'] == 'frame' for x in range(i + 1, j))
+                events.append((t, 'picture', {'fig': None if has_frame else FIG.get(pid), 'pid': pid}))
                 for (p, k, eid) in find(E, b['text']):
                     if k == 'game': events.append((t + 0.001, 'card', (k, eid)))
                 for k, eid in CARDS.get(pid, []): events.append((t + 0.002, 'card', (k, eid)))
+                pic = t + 0.0005
+            elif b['kind'] == 'frame':
+                frame_events(b['text'], pic if pic is not None else t)
             else:
                 events.append((t, 'onscreen', b['text']))
         pending.clear()
@@ -83,15 +122,19 @@ def build(key, script, durs=None, header=None, drop_title=False, drop_last=False
         skey = f"{key}#{sc['n']}"
         da = (durs or {}).get(skey)
         T, ev = scene_plan(E, key, sc, da, lead, tail, silent)
-        st = {'header': header or script['title'], 'scene': sc['title'], 'fig': None, 'onscreen': '', 'cards': [], 'active': None, 'caption': '',
+        st = {'header': header or script['title'], 'scene': sc['title'], 'fig': None, 'onscreen': '', 'cards': [], 'active': None, 'caption': '', 'frame': None, 'current': [],
               'slate': not any(b['kind'] == 'voice' for b in sc['blocks'])}
         cur_t, snaps = 0.0, []
         for t, kind, p in ev:
             t = min(max(t, 0.0), T)
             if t > cur_t + 1e-3: snaps.append((cur_t, t, json.loads(json.dumps(st)))); cur_t = t
             if kind == 'picture':
-                st['fig'] = p['fig']; st['onscreen'] = ''
+                st['fig'] = p['fig']; st['onscreen'] = ''; st['frame'] = None; st['current'] = []
                 if p['fig']: st['cards'] = []; st['active'] = None
+            elif kind == 'frame':
+                st['frame'] = p; st['current'] = list(p['current'])
+            elif kind == 'current':
+                if st['frame'] and p in st['frame']['elements']: st['current'] = [p]
             elif kind == 'onscreen': st['onscreen'] = p
             elif kind == 'caption': st['caption'] = p
             elif kind == 'card':
