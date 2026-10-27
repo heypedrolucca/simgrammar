@@ -481,14 +481,22 @@ class Web:
         n = sum(len(v) for _, v in fams)
         rows = "".join(
             f'<div class="row"><div class="id">{esc(self.term("mechanic_family", f).lower())} <b>{len(ms)}</b></div><div>'
-            + "".join(f'<a href="{base}mechanic/{e.id}/" title="{esc(e.data["name"])} · {self.derived.get(e.id, {}).get("prevalence", 0)} games" data-internal>'
+            + "".join(f'<a href="{base}mechanic/{e.id}/" title="{esc(e.data["name"])} · {self.derived.get(e.id, {}).get("prevalence", 0)} games" data-card="{e.id}" data-internal>'
                       f'{self.icon(e.id, base, 24, e.data["name"])}</a>' for e in ms)
             + "</div></div>" for f, ms in fams)
         twin = "".join(f'<div class="row"><div class="id">{esc(self.term("mechanic_family", f).lower())}</div><div><p>'
                        + ", ".join(self.link(e.id, base) for e in ms) + "</p></div></div>" for f, ms in fams)
+
+        def card(f, e):   # what the hover card reads (simgrammar.js); the same fields are on the record page and in the index table
+            der = self.derived.get(e.id, {})
+            first = self.by_id.get(der.get("earliest_game"))
+            return [e.data["name"], self.term("mechanic_family", f).lower(), e.data.get("summary", ""), der.get("prevalence", 0), der.get("core_count", 0),
+                    der.get("earliest_year"), first.data.get("name") if first else None, der.get("technique_count", 0)]
+        cards = json.dumps({e.id: card(f, e) for f, ms in fams for e in ms}, ensure_ascii=False, sort_keys=True, separators=(",", ":")).replace("</", "<\\/")
         return (f'<figure class="chart" id="grammar"><div class="chart-head"><span><b>the grammar</b> · {n} mechanics in {len(fams)} families, most used first</span>'
-                f'<span>mechanics.json</span></div><div class="chart-body"><div class="register" data-kind="mosaic">{rows}</div></div>'
-                f'<p class="chart-caption">Each icon is one mechanic; point at it for its name, or open it. '
+                f'<span>mechanics.json</span></div><div class="chart-body"><div class="register" data-kind="mosaic" data-cards="mosaic-cards">{rows}</div></div>'
+                f'<script type="application/json" id="mosaic-cards">{cards}</script>'
+                f'<p class="chart-caption">Each icon is one mechanic; point at one to see what it is, or open it. '
                 f'<span class="run">source · dist/entities/mechanics.json · dataset {self.short}</span></p>'
                 f'<details class="disclosure"><summary>plain-text twin · {len(fams)} families</summary><div class="register" data-size="wide">{twin}</div></details></figure>')
 

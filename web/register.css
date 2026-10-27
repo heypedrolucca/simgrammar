@@ -838,7 +838,16 @@ a.chip:hover { border-color: var(--accent); color: var(--accent); text-decoratio
 .register[data-kind="mosaic"] .row:hover { background: none; box-shadow: none; }
 .register[data-kind="mosaic"] .row > .id { padding: 0; line-height: 24px; color: var(--muted); }
 .register[data-kind="mosaic"] .row > div:last-child { display: flex; flex-wrap: wrap; gap: 2px; }
-.register[data-kind="mosaic"] a:hover img { outline: var(--line-2) solid var(--accent); }
+.register[data-kind="mosaic"] a:hover img, .register[data-kind="mosaic"] a[data-on] img { outline: var(--line-2) solid var(--accent); }
+/* peek: the card simgrammar.js floats beside a mosaic icon on screens with a mouse. Its twin is the record page the icon opens. */
+.panel[data-style="peek"] { position: fixed; z-index: 50; display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: 0 12px; width: 340px; max-width: calc(100vw - 32px); padding: 14px; background: var(--paper); border: var(--line-2) solid var(--ink); pointer-events: none; }
+.panel[data-style="peek"][hidden] { display: none; }
+.panel[data-style="peek"] > img[data-icon] { grid-row: 1 / span 2; }
+.panel[data-style="peek"] > .eyebrow { margin: 2px 0 2px; }
+.panel[data-style="peek"] > h3 { margin: 0; font: 600 var(--fs-md)/1.25 var(--sans); }
+.panel[data-style="peek"] > p:not(.eyebrow) { grid-column: 1 / -1; margin: 10px 0 0; font-size: var(--fs-sm); line-height: 1.45; color: var(--ink-2); }
+.panel[data-style="peek"] > .receipt { grid-column: 1 / -1; margin-top: 10px; padding-top: 8px; border-top: var(--line) solid var(--rule); }
+@media (hover: none) { .panel[data-style="peek"] { display: none; } }
 /* parts: a game as the icons of its mechanics, supporting parts faint */
 .register[data-kind="parts"] .row { grid-template-columns: 44px 200px minmax(0, 1fr) 28px; align-items: center; padding: 8px 0; }
 .register[data-kind="parts"] .row > .end { grid-column: 4; padding: 0; }
