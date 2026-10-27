@@ -1,0 +1,28 @@
+id: 2026-10-27-episode-pages
+type: run
+kind: maintenance
+date: '2026-10-27'
+actor: agent
+operator: yoheinakajima
+agent:
+  model: claude-opus-5-5
+  harness: Claude Code (desktop app)
+purpose: 'Publish the twelve episodes on the website, at the operator''s request: a page per episode, the watch page
+  with the episodes, an episode block on each chapter page, and the moments each record is on screen on its page.'
+method: 'Mocked up the pages on episode 2 first (mockups/, not committed), and the operator chose to publish all twelve.
+  scripts/video/publish.py now writes the episodes into media/published.yaml from the renders in video-out: file, sha256,
+  length, render date, a title-card poster, a thumb (the frame with the most records on screen), and each scene''s start,
+  the records it shows with when each first appears, and a digest of its narration as rendered (lib.narration_digest).
+  The shorts and episodes move to one release, videos-2026-10-27; the shorts'' files and checksums are unchanged.
+  scripts/video/fetch_published.py fetches both into media/shorts and media/episodes. scripts/web.py builds
+  watch/episode-NN/ (player, scene list, transcript scene by scene with the records on screen, every record shown),
+  puts the episodes on the watch page above the shorts, opens each chapter page with its episode, and lists episode
+  moments in each record''s "appears in"; scripts/og.py draws a preview image per episode. Styles are data-* variants
+  in web/register.css 13b and the player is in web/simgrammar.js; without JavaScript each scene time links the file at
+  that second. Comparing each render''s captions with the current scripts found two differences: an HTML comment for
+  the style checker in an episode 11 line, now dropped from transcripts, and the run count in episode 12, which grows
+  with every run file, so the episode page marks that scene as worded differently in the video. Checked with
+  Playwright at 1280 and 390 px on 21 pages (no sideways scroll, no broken images, no script errors), scene jumps,
+  page links to a moment, and short playback. The release is not created yet; design-slop-cop was not run.'
+contract_version: '1.2'
+proposals: []

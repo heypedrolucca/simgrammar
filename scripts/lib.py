@@ -398,3 +398,13 @@ PROSE_DIRS = {"report/src": "paper", "book/src": "book", "media/episodes": "epis
 
 def prose_files() -> list[Path]:
     return [p for d in PROSE_DIRS for p in sorted((ROOT / d).glob("*.md"))]
+
+
+def narration_digest(text: str) -> str:
+    """A short hash of what a narration line says, its words only: links, citations, comments and emphasis dropped.
+    scripts/video/publish.py takes it from a render's captions and scripts/web.py from the built script, so a scene whose
+    numbers changed after the render is caught."""
+    text = re.sub(r"<!--.*?-->", " ", text)
+    text = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", text)
+    text = re.sub(r"\s*\[\d+(?:,\s*\d+)*\]", "", text)
+    return hashlib.sha256(" ".join(re.findall(r"[a-z0-9.%]+", text.lower())).encode()).hexdigest()[:12]
