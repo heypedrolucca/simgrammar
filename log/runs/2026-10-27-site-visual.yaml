@@ -1,0 +1,15 @@
+id: 2026-10-27-site-visual
+type: run
+kind: maintenance
+date: '2026-10-27'
+actor: agent
+operator: yoheinakajima
+agent:
+  model: claude-opus-5-5
+  harness: Claude Code (desktop app)
+purpose: 'Bring the visual vocabulary onto the website: icon grids and parts boards on the index and record
+  pages, the shorts on the pages they show and a watch page, the book chapters, record backlinks to the
+  book and shorts, and a link-preview image for every page.'
+method: 'Mocked up eleven site ideas on a local copy of dist/web with the real data, icons and shorts (mockups/, not committed), and the operator approved all of them. Built them into scripts/web.py as data-* variants of Register components in web/register.css (13b), with no new stylesheet or classes and a plain-text twin for each: mechanics as icon tiles by family, games as parts boards (by subgenre or decade; hovering a part lights every game that has it), opportunities on a board by horizon with meters and the risk icons of the techniques they use, the grammar mosaic on the paper page, record headers with their icon, backlinks as icon chips, a game page that opens on its parts board, the book one chapter a page, a watch page, the shorts on every record they show with transcripts whose citations link the sources, an appears-in section from the book (chapters that link a record, or name a mechanic as a whole phrase) and the shorts, a favicon, and scripts/og.py, a 1200 x 630 link-preview image for 487 pages from the icon rasters and the vendored Plex fonts. build.py now builds dist/visual before the site. Videos stay out of git: scripts/video/publish.py writes media/published.yaml (file, sha256, poster, the records each short shows, from its rendered states), the files go on a GitHub release, and the Pages workflow fetches them with scripts/video/fetch_published.py and checks every sha256. Checked every new page at 1280 and 390 px (no sideways scroll, no broken images, no script errors) and the filter, view switch, highlight and player in a headless browser. Failed or left: npx design-slop-cop was not run (not installed; it would fetch an unpinned package); web/DESIGN.md names components.html, which this repository does not have; naming matches can be loose for one-word mechanic names, so the site labels them named in the text; episodes and the film are not published.'
+contract_version: '1.2'
+proposals: []
