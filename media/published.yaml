@@ -1,0 +1,53 @@
+# Videos published on the website (scripts/web.py). The files are not in git: they are assets of the GitHub release
+# named here, which the Pages workflow fetches and checks against each sha256 (scripts/video/fetch_published.py).
+# Written by scripts/video/publish.py from the renders in video-out; shows lists the records each video puts on screen.
+release: shorts-2026-10-27
+shorts:
+  - {key: short-01, script: 001-five-most-common.md, file: short-01.mp4, seconds: 38.1,
+     sha256: e863ee05b12d6cec8a16edccec21fe5ed4c4a5c3bad0c4a24c06c4f762c4d9d9,
+     poster: short-01.jpg, poster_sha256: 508dc5c8a2d090055860e447a2d8e28f81a2a24d1c15ed9dc125801cca08e78b,
+     shows: [free-placement, modding-api, scenario-objectives, tech-tree, variable-speed, factorio, injury-body-model, mood-breakdown, storyteller-director, production-chain, rimworld, rollercoaster-tycoon]}
+  - {key: short-02, script: 002-stardew-older-parts.md, file: short-02.mp4, seconds: 39.8,
+     sha256: 653417996add79d17c588971291d355be7a70a36241229ec15a503552bb771ea,
+     poster: short-02.jpg, poster_sha256: efad93fdab46cda504068ebffae81e4b1604fd748a707095a6769c32a114bac2,
+     shows: [relationship-values, crop-cultivation, daily-action-budget, seasons, stardew-valley, harvest-moon, collection-goals, hamurabi, princess-maker-2, seasonal-world-reset]}
+  - {key: short-03, script: 003-border-and-daughter.md, file: short-03.mp4, seconds: 35.6,
+     sha256: 0d0050d9991bc7e4196d7477ad7b3ad89c8588d0a35cd4b3a9abef3ff39c2da3,
+     poster: short-03.jpg, poster_sha256: 54e0f4e96637c5d23b7fa2ddee52fb521f258d4aff0d7a4a2769ef5dfad46c96,
+     shows: [agent-skills, budget-treasury, care-dependent-development, daily-action-budget, lifecycle-aging, needs-decay, princess-maker-2, papers-please, rule-checking-inspection, triggered-event-chains, career-ladder, free-placement]}
+  - {key: short-04, script: 004-decorating-makes-raids-bigger.md, file: short-04.mp4, seconds: 36.2,
+     sha256: 3a481d6d8536222c70945c3c0e1ee809d836335777193ff60328612130c548eb,
+     poster: short-04.jpg, poster_sha256: ebfc1f09a0b34cba5f5e648490f3a85a863df042ac377f263c709a3e2fd288cf,
+     shows: [adaptive-threat-scaling, decoration-beauty, raid-defense, rimworld]}
+  - {key: short-05, script: 005-the-fridge-knows.md, file: short-05.mp4, seconds: 36.0,
+     sha256: 921868eeca961bacd56339ddea82fe7def26e7290131ce436b25aac077f6ca5a,
+     poster: short-05.jpg, poster_sha256: 4fd58b9f00ae98eac36e5f6381424e90d7231a07d0dfb26bc7c04ff07c96fc26,
+     shows: [smart-objects, the-sims, needs-decay]}
+  - {key: short-06, script: 006-one-normal-technique.md, file: short-06.mp4, seconds: 40.4,
+     sha256: 542437d8761c29705b7762a846b904fdd434c0d43f76c9dcabaaf2e74ab731f2,
+     poster: short-06.jpg, poster_sha256: f3374447755aec253e7ecf47d9119cfb8e44d1e5a48590c99044396de006c9fa,
+     shows: [neural-rendering-shaders, genie-world-models, microsoft-flight-simulator-2020]}
+  - {key: short-07, script: 007-most-used-least-touched.md, file: short-07.mp4, seconds: 35.6,
+     sha256: 71082515a6414bedb65ea68ea803eb3f2c0f41d3eb1e12a3b0ebafa75bc55aec,
+     poster: short-07.jpg, poster_sha256: aa6b770239eecba97714226c9e98d0314c1572ea231e166b125650e3a1304fc0,
+     shows: [production-chain, conveyor-transport, factorio]}
+  - {key: short-08, script: 008-city-builders-no-stories.md, file: short-08.mp4, seconds: 37.6,
+     sha256: d86c78769a6afd87e6d485d90d2efa2ade89af70146d2f537d43425052a814e1,
+     poster: short-08.jpg, poster_sha256: eef7b33a7b586e3f5c625ae6ad07c4bc3f6a6004fe9bdc941d444486ad6965e0,
+     shows: [free-placement, triggered-event-chains, cities-skylines, power-grid, surviving-mars, tech-tree]}
+  - {key: short-09, script: 009-why-button.md, file: short-09.mp4, seconds: 38.6,
+     sha256: 99396316074d7dc92d58a72118afca683de078e957a28469234676867ae13c21,
+     poster: short-09.jpg, poster_sha256: d955ee153417e5cff53a3ad03a0be130c720b9f0ecde9b2a08a6cbf3d2811b1e,
+     shows: [causal-why-query, content-elastic-events, generated-inspection-shifts, generative-decoration-catalogs, illustrated-chronicles, local-first-ai-sims, parallel-autobalance, sim-instructor-coach, sims-as-agent-benchmarks, branch-preview-forecasts, event-sourced-sim-runtime, language-modding]}
+  - {key: short-10, script: 010-desync.md, file: short-10.mp4, seconds: 35.0,
+     sha256: 5457dc3671954f11201bcdb9d8ca7b194936276aefbdea2606f4027b590bd00a,
+     poster: short-10.jpg, poster_sha256: d8eb2e2e57350acbeda4a2028e592257937a66ee63a898bf04389aca84f1941b,
+     shows: [monte-carlo-tree-search, llm-game-master]}
+  - {key: short-11, script: 011-same-day.md, file: short-11.mp4, seconds: 34.6,
+     sha256: d2782344b297637ea6fd65313f293022538ffb4a3f0a447b2df9a10a25c96446,
+     poster: short-11.jpg, poster_sha256: 9a4f422933e9f2d92ac29263329371b8ce03824c3801bdefd0d86f9b7a3aa86b,
+     shows: [causal-why-query, content-elastic-events, generated-inspection-shifts, generative-decoration-catalogs, illustrated-chronicles, local-first-ai-sims, parallel-autobalance, sim-instructor-coach, sims-as-agent-benchmarks]}
+  - {key: short-12, script: 012-skipped-parts.md, file: short-12.mp4, seconds: 33.0,
+     sha256: c27ed3a460ecba278ea9ab1ef16a27d05317bef9c390cb29c7a44470092ff991,
+     poster: short-12.jpg, poster_sha256: ad8b2909b68d3625db9f5421739cc37229ccc864deb26568e8133c1315b82866,
+     shows: [variable-speed, free-placement]}
