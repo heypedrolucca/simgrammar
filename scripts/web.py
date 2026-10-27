@@ -162,6 +162,10 @@ class Web:
 <meta property="og:title" content="{esc(title)}">
 <meta property="og:description" content="{esc(desc)}">
 <meta property="og:url" content="{esc(url)}">
+<meta property="og:image" content="{esc(self.site['url'] + image)}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="{base}assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
@@ -1060,4 +1064,7 @@ def build_web(ents, edges, analysis, vocabs, registry, schemas, ctx, manifest, m
         outs[f"web/assets/icons/{i}.png"] = w.built[f"visual/icons/{i}@4x.png"]
     if FAVICON in w.icons:
         outs["web/assets/favicon.png"] = favicon(w.built[f"visual/icons/{FAVICON}@4x.png"])
+    if w.icons:
+        import og
+        outs.update(og.images(w))
     return outs
