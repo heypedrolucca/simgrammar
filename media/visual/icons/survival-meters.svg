@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <polygon points="5,14 5,9.5 6.5,7.5 9.5,6.5 12.5,7.5 14,9.5 14,14" fill="#c8c8c2" stroke="#171717" stroke-width="2"/>
+  <line x1="7.5" y1="10" x2="8.5" y2="12" stroke="#55554f" stroke-width="1"/>
+  <line x1="10.5" y1="9.5" x2="11.5" y2="11.5" stroke="#55554f" stroke-width="1"/>
+  <polygon points="9.5,18 12.5,22.5 13.5,25.5 12.5,28 9.5,29.5 6.5,28 5.5,25.5 6.5,22.5" fill="#c8c8c2" stroke="#171717" stroke-width="2"/>
+  <polygon points="8,33 11,33 11,36.5 14.5,36.5 14.5,39.5 11,39.5 11,43 8,43 8,39.5 4.5,39.5 4.5,36.5 8,36.5" fill="#c8c8c2" stroke="#171717" stroke-width="2"/>
+  <rect x="18" y="7" width="25" height="7" fill="#fafaf7"/>
+  <rect x="18" y="7" width="19" height="7" fill="#55554f"/>
+  <rect x="18" y="7" width="25" height="7" fill="none" stroke="#171717" stroke-width="2"/>
+  <rect x="18" y="21" width="25" height="7" fill="#fafaf7"/>
+  <rect x="18" y="21" width="11" height="7" fill="#55554f"/>
+  <rect x="18" y="21" width="25" height="7" fill="none" stroke="#171717" stroke-width="2"/>
+  <rect x="18" y="34.5" width="25" height="7" fill="#fafaf7"/>
+  <rect x="18" y="34.5" width="6" height="7" fill="#55554f"/>
+  <rect x="18" y="34.5" width="25" height="7" fill="none" stroke="#171717" stroke-width="2"/>
+</svg>

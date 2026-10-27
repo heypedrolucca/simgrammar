@@ -4,6 +4,8 @@
 
 Each opportunity names the mechanics it reworks, the techniques it depends on, games that partially demonstrate it, a validation experiment, and a falsifiable prediction. Priority is a weighted geometric mean of impact, feasibility, and novelty scored against rubric anchors; the weights favor impact and feasibility so that safe-but-trivial and brilliant-but-impossible ideas both rank below ideas that are useful and buildable.
 
+{{viz:opportunity-priorities}}
+
 {{table:opportunities-ranked}}
 
 The highest-ranked opportunity is {{stat:top_opportunity}}. Most of the ideas near the top make existing simulations more legible, cheaper to extend, or more alive with techniques that already work, and none asks a learned model to become the simulation.

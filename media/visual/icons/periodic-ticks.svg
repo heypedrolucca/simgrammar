@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <rect x="4" y="28" width="37" height="8" fill="#c8c8c2" stroke="#171717" stroke-width="2"/>
+  <line x1="12.5" y1="32.5" x2="14.5" y2="32.5" stroke="#171717" stroke-width="1"/>
+  <line x1="21.5" y1="32.5" x2="23.5" y2="32.5" stroke="#171717" stroke-width="1"/>
+  <line x1="31.5" y1="32.5" x2="33.5" y2="32.5" stroke="#171717" stroke-width="1"/>
+  <line x1="5" y1="32.5" x2="6" y2="32.5" stroke="#171717" stroke-width="1"/>
+  <line x1="39.5" y1="32.5" x2="40" y2="32.5" stroke="#171717" stroke-width="1"/>
+  <line x1="9" y1="24" x2="9" y2="40" stroke="#171717" stroke-width="2"/>
+  <line x1="18" y1="24" x2="18" y2="40" stroke="#171717" stroke-width="2"/>
+  <line x1="37" y1="24" x2="37" y2="40" stroke="#171717" stroke-width="2"/>
+  <rect x="26" y="15" width="3" height="29" fill="#55554f" stroke="#171717" stroke-width="1"/>
+  <line x1="27.5" y1="6" x2="27.5" y2="10" stroke="#171717" stroke-width="2"/>
+  <line x1="20" y1="15" x2="23" y2="15" stroke="#171717" stroke-width="2"/>
+  <line x1="32" y1="15" x2="35" y2="15" stroke="#171717" stroke-width="2"/>
+  <line x1="21.5" y1="9" x2="23.5" y2="11" stroke="#171717" stroke-width="2"/>
+  <line x1="33.5" y1="9" x2="31.5" y2="11" stroke="#171717" stroke-width="2"/>
+  <line x1="21" y1="20.5" x2="23" y2="19.5" stroke="#171717" stroke-width="1"/>
+  <line x1="34" y1="20.5" x2="32" y2="19.5" stroke="#171717" stroke-width="1"/>
+  <polygon points="45,32 41.5,28 41.5,36" fill="#171717"/>
+</svg>

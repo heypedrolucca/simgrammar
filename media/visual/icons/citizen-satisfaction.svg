@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <rect x="5" y="9" width="12.5" height="7" fill="#55554f"/>
+  <rect x="17.5" y="9" width="13" height="7" fill="#8c8c86"/>
+  <rect x="30.5" y="9" width="12.5" height="7" fill="#c8c8c2"/>
+  <rect x="5" y="9" width="38" height="7" fill="none" stroke="#171717" stroke-width="2"/>
+  <line x1="17.5" y1="9" x2="17.5" y2="16" stroke="#171717" stroke-width="1"/>
+  <line x1="30.5" y1="9" x2="30.5" y2="16" stroke="#171717" stroke-width="1"/>
+  <polygon points="33,3 39,3 36,8" fill="#171717"/>
+  <circle cx="9.5" cy="25.5" r="3" fill="#fafaf7" stroke="#171717" stroke-width="2"/>
+  <rect x="6" y="30" width="7" height="7.5" rx="1" fill="#c8c8c2" stroke="#171717" stroke-width="2"/>
+  <rect x="3.5" y="30.5" width="1.5" height="6.5" fill="#55554f" stroke="#171717" stroke-width="1"/>
+  <rect x="14" y="30.5" width="1.5" height="6.5" fill="#55554f" stroke="#171717" stroke-width="1"/>
+  <rect x="6.5" y="37.5" width="2.5" height="6.5" fill="#55554f" stroke="#171717" stroke-width="1"/>
+  <rect x="10" y="37.5" width="2.5" height="6.5" fill="#55554f" stroke="#171717" stroke-width="1"/>
+  <circle cx="24" cy="24.5" r="3" fill="#fafaf7" stroke="#171717" stroke-width="2"/>
+  <rect x="20.5" y="29" width="7" height="7.5" rx="1" fill="#8c8c86" stroke="#171717" stroke-width="2"/>
+  <rect x="18" y="29.5" width="1.5" height="6.5" fill="#55554f" stroke="#171717" stroke-width="1"/>
+  <rect x="28.5" y="29.5" width="1.5" height="6.5" fill="#55554f" stroke="#171717" stroke-width="1"/>
+  <rect x="21" y="36.5" width="2.5" height="6.5" fill="#55554f" stroke="#171717" stroke-width="1"/>
+  <rect x="24.5" y="36.5" width="2.5" height="6.5" fill="#55554f" stroke="#171717" stroke-width="1"/>
+  <circle cx="38.5" cy="25.5" r="3" fill="#fafaf7" stroke="#171717" stroke-width="2"/>
+  <rect x="35" y="30" width="7" height="7.5" rx="1" fill="#c8c8c2" stroke="#171717" stroke-width="2"/>
+  <rect x="32.5" y="30.5" width="1.5" height="6.5" fill="#55554f" stroke="#171717" stroke-width="1"/>
+  <rect x="43" y="30.5" width="1.5" height="6.5" fill="#55554f" stroke="#171717" stroke-width="1"/>
+  <rect x="35.5" y="37.5" width="2.5" height="6.5" fill="#55554f" stroke="#171717" stroke-width="1"/>
+  <rect x="39" y="37.5" width="2.5" height="6.5" fill="#55554f" stroke="#171717" stroke-width="1"/>
+</svg>

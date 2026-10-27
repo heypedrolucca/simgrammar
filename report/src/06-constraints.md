@@ -2,6 +2,8 @@
 
 Simulation design has been shaped less by imagination than by five constraints. Each one explains a family of conventions, and each one is the target of a different group of techniques in §7.
 
+{{viz:constraint-profile}}
+
 ### 6.1 Compute per tick
 
 A consumer machine must advance the whole simulation many times per second while rendering it. The constraint explains why city builders simulate aggregate populations with a sample of visible agents, why per-particle material simulation ([[falling-sand-materials]], [[fluid-gas-simulation]]) appears in 2D or small arenas, why late-game slowdown is a genre-wide complaint, and why [[agent-pathfinding]] and [[traffic-congestion]] are the usual bottlenecks. Mechanics scored 4 or 5 on compute cost are the ones whose scale is capped by hardware rather than design.
@@ -27,6 +29,8 @@ Designers have answered with a whole family of mechanics that own no simulation 
 ### 6.4 Determinism
 
 Replays, lockstep multiplayer, bug reproduction, competitive leaderboards, and save integrity require that the same inputs produce the same state. [[factorio]]'s multiplayer depends on it. Determinism has kept stochastic or learned components out of authoritative game state. Of the {{stat:n_technique_runtime}} techniques here that can run during play, {{stat:n_technique_runtime_breaks}} break reproducibility outright, {{stat:n_technique_runtime_mitigable}} can be made reproducible by seeding, caching, or logging their outputs, and {{stat:n_technique_runtime_preserves}} leave it intact (see `determinism_impact`).{{assert:n_technique_runtime_breaks < n_technique_runtime_mitigable}}
+
+{{viz:determinism-runtime}}
 
 **Relaxed by:** recording model outputs as events so replays read the log rather than re-call the model, splitting authoritative symbolic state from non-authoritative generated presentation, and constrained decoding that maps open-ended outputs into typed, validated state changes.
 

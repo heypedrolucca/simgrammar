@@ -1,0 +1,77 @@
+id: 2026-10-25-book-draft
+type: run
+kind: synthesis
+date: '2026-10-25'
+actor: agent
+operator: yoheinakajima
+agent:
+  model: claude-opus-5-5
+  harness: Claude app (cloud workspace), orchestrator with forked agents for drafting, expansion, fact-checks, translation,
+    and rights research; Gemini editorial read; ElevenLabs scratch speech
+purpose: Draft the whole book (13 chapters with back matter) and the video series (12 episode scripts with Japanese subtitles,
+  12 shorts, the film cut) as checked projections of the dataset, under a house style that bans the habits of machine-written
+  prose.
+method: 'Wrote book/STYLE.md and book/tells.yaml (stock words, setup phrases, contrast frames, signposting, em dashes, narration
+  that ends on a question) and scripts/style_check.py, which make check and CI run over book/src and media. Rewrote chapter
+  1 and episode 1 to lead with findings, and short 1 to state one finding first. Added the stats the chapters cite to analyze.py,
+  including a chance test for the share of mechanics seen by 2000: shuffling first-seen years across games gives that share
+  or more 11 percent of the time, so the book, the episodes, the abstract, and section 5.2 now claim reuse instead of a vocabulary
+  set early. The orchestrator wrote the preface, chapters 1 and 2, episode 1, and short 1; four forked agents drafted chapters
+  3 to 13 and episodes 2 to 12 from the records and the sources they cite, with every number a token and every interpretive
+  sentence asserted. After a Gemini read and two agent fact-checks of that draft (26 book and about 60 script lines fixed),
+  four agents lengthened the chapters from the records, and three fresh agents checked every added sentence: 142 findings
+  (claims beyond a record, facts repeated across chapters, stats described wrongly, setup sentences), all applied or resolved.
+  Added a contents page in four parts, a glossary and a catalog built from report/tables.yaml, seven figures in viz.py placed
+  in the paper and the book, dates written out for prose and narration, and Japanese subtitle sources for all twelve episodes,
+  timed into SRT by the build (games developed in Japan keep their Japanese titles). A research agent read each publisher''s
+  video policy for the 66 titles in media/rights.yaml (5 allowed, 23 with conditions, 1 not allowed, 37 unchecked); episode
+  6 now shows GT Sophy as a labelled graphic because Sony''s licence bars broadcast. Narration for every episode scene, the film''s three
+  new scenes, and the 12 shorts was generated with ElevenLabs (voice Marcus, eleven_v4, two takes each); media/narration.yaml
+  records the take used for each. The takes were fetched through the operator''s browser, since the workspace network
+  cannot reach the storage host. scripts/video renders the episodes, shorts, and film from the scripts and those takes
+  using only the project''s own graphics (entity cards, the catalog grid, paper figures); no gameplay footage or cover art.
+  Recorded narration runs at about 178 words a minute, so the episodes come to about 5 to 9 minutes each. The chapters
+  run about 47,000 words, about 64,000 with the glossary, catalog, and source lists; the episodes run about 2 hours 20 minutes
+  at 135 words a minute.'
+scope:
+- book/src, book/STYLE.md, book/tells.yaml, media/episodes, media/shorts, media/mega, media/subtitles, media/rights.yaml
+- scripts (analyze, build, lib, style_check, subtitles, viz), report/analysis.yaml, report/tables.yaml, report/src, Makefile,
+  .github/workflows/check.yml
+contract_version: '1.1'
+proposals:
+- kind: other
+  target: data/games/cities-skylines.yaml
+  detail: 'Legibility mechanics look under-tagged: Cities: Skylines has traffic, pollution, and land-value overlays but no
+    data-overlays tag. A pass over data-overlays, causal-tooltips, and stats-dashboards across the catalog would change chapter
+    5''s counts.'
+- kind: other
+  target: scripts/analyze.py
+  detail: The fact-check's most common fix was a sentence about which genres use a mechanic ("city builders are the largest
+    group among the crop games"), which no assertion can check today. Add a derived field per mechanic with its subgenre counts
+    so those sentences can carry an assertion.
+- kind: other
+  target: media/rights.yaml
+  detail: 37 titles have no usable video policy (old titles with unclear rights holders, publishers with no page, pages that
+    would not load). Each needs a written request to the rights holder, or stills from a source that grants reuse, before
+    footage is captured for release. Frontier (Elite Dangerous) and Kalypso (Tropico 6) allow non-commercial use only.
+- kind: other
+  target: data/games/dcs-world.yaml
+  detail: The record's year is 2008, but its only source says the Black Shark module (2008) was the first of three standalone
+    titles and DCS World's open beta came in May 2012. Decide which date the catalog means and cite it.
+- kind: other
+  target: data/games/simcity-2013.yaml
+  detail: The record describes resource bins in buildings, agents carrying goods, and regional trade of surpluses, but tags
+    neither storage-capacity nor goods-consumption. Chapter 9's treasury-versus-stores count treats it as treasury only.
+- kind: other
+  target: vocab/win_structure.yaml
+  detail: open-sandbox is defined as no end state, but Factorio (rocket launch ends the base game) and SimCity (timed scenarios)
+    are filed there. Either allow optional goals in the definition or refile those games.
+- kind: other
+  target: data/mechanics/fog-of-war.yaml
+  detail: The record's examples include Factorio's radar and Dwarf Fortress's unexcavated rock, but neither game's record
+    tags fog-of-war. Tag them or change the examples.
+- kind: other
+  target: scripts/analyze.py
+  detail: n_mechanic_proposals_adopted counts exact id matches only; three proposals entered the vocabulary under other ids
+    (background-life-progression as offscreen-life-progression, branching-development as care-dependent-development, aspirations-wants
+    as aspiration-wants). Record the adopted id in the run's proposal, or map them, so the stat counts them.

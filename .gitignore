@@ -5,3 +5,5 @@ __pycache__/
 # Generated projections are built by CI and published with the site (ADR-0004). Run `make build` to get them locally.
 dist/
 .claude/
+# Video renders and narration audio (scripts/video); kept out of dist/ because make build prunes it.
+video-out/

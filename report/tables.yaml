@@ -567,3 +567,334 @@ tables:
   - name
   caption: Each prediction has resolution criteria on its wiki page. A prediction that fails is evidence against the opportunity
     thesis, not only against its timing.
+
+# Book back matter (book/src/90-glossary.md and 91-catalog.md): one glossary table per mechanic family, and the catalog.
+- name: book-glossary-resources-production
+  kind: rows
+  entity: mechanic
+  filter:
+    family: resources-production
+  columns:
+  - path: name
+    label: mechanic
+  - summary
+  - path: _derived.prevalence
+    label: games
+  - path: _derived.earliest_year
+    label: first seen
+  sort:
+  - name
+- name: book-glossary-logistics-networks
+  kind: rows
+  entity: mechanic
+  filter:
+    family: logistics-networks
+  columns:
+  - path: name
+    label: mechanic
+  - summary
+  - path: _derived.prevalence
+    label: games
+  - path: _derived.earliest_year
+    label: first seen
+  sort:
+  - name
+- name: book-glossary-economy-finance
+  kind: rows
+  entity: mechanic
+  filter:
+    family: economy-finance
+  columns:
+  - path: name
+    label: mechanic
+  - summary
+  - path: _derived.prevalence
+    label: games
+  - path: _derived.earliest_year
+    label: first seen
+  sort:
+  - name
+- name: book-glossary-agents-behavior
+  kind: rows
+  entity: mechanic
+  filter:
+    family: agents-behavior
+  columns:
+  - path: name
+    label: mechanic
+  - summary
+  - path: _derived.prevalence
+    label: games
+  - path: _derived.earliest_year
+    label: first seen
+  sort:
+  - name
+- name: book-glossary-social-relations
+  kind: rows
+  entity: mechanic
+  filter:
+    family: social-relations
+  columns:
+  - path: name
+    label: mechanic
+  - summary
+  - path: _derived.prevalence
+    label: games
+  - path: _derived.earliest_year
+    label: first seen
+  sort:
+  - name
+- name: book-glossary-population-lineage
+  kind: rows
+  entity: mechanic
+  filter:
+    family: population-lineage
+  columns:
+  - path: name
+    label: mechanic
+  - summary
+  - path: _derived.prevalence
+    label: games
+  - path: _derived.earliest_year
+    label: first seen
+  sort:
+  - name
+- name: book-glossary-governance-policy
+  kind: rows
+  entity: mechanic
+  filter:
+    family: governance-policy
+  columns:
+  - path: name
+    label: mechanic
+  - summary
+  - path: _derived.prevalence
+    label: games
+  - path: _derived.earliest_year
+    label: first seen
+  sort:
+  - name
+- name: book-glossary-space-construction
+  kind: rows
+  entity: mechanic
+  filter:
+    family: space-construction
+  columns:
+  - path: name
+    label: mechanic
+  - summary
+  - path: _derived.prevalence
+    label: games
+  - path: _derived.earliest_year
+    label: first seen
+  sort:
+  - name
+- name: book-glossary-physics-materials
+  kind: rows
+  entity: mechanic
+  filter:
+    family: physics-materials
+  columns:
+  - path: name
+    label: mechanic
+  - summary
+  - path: _derived.prevalence
+    label: games
+  - path: _derived.earliest_year
+    label: first seen
+  sort:
+  - name
+- name: book-glossary-environment-ecology
+  kind: rows
+  entity: mechanic
+  filter:
+    family: environment-ecology
+  columns:
+  - path: name
+    label: mechanic
+  - summary
+  - path: _derived.prevalence
+    label: games
+  - path: _derived.earliest_year
+    label: first seen
+  sort:
+  - name
+- name: book-glossary-biology-health
+  kind: rows
+  entity: mechanic
+  filter:
+    family: biology-health
+  columns:
+  - path: name
+    label: mechanic
+  - summary
+  - path: _derived.prevalence
+    label: games
+  - path: _derived.earliest_year
+    label: first seen
+  sort:
+  - name
+- name: book-glossary-time-pacing
+  kind: rows
+  entity: mechanic
+  filter:
+    family: time-pacing
+  columns:
+  - path: name
+    label: mechanic
+  - summary
+  - path: _derived.prevalence
+    label: games
+  - path: _derived.earliest_year
+    label: first seen
+  sort:
+  - name
+- name: book-glossary-information-legibility
+  kind: rows
+  entity: mechanic
+  filter:
+    family: information-legibility
+  columns:
+  - path: name
+    label: mechanic
+  - summary
+  - path: _derived.prevalence
+    label: games
+  - path: _derived.earliest_year
+    label: first seen
+  sort:
+  - name
+- name: book-glossary-control-automation
+  kind: rows
+  entity: mechanic
+  filter:
+    family: control-automation
+  columns:
+  - path: name
+    label: mechanic
+  - summary
+  - path: _derived.prevalence
+    label: games
+  - path: _derived.earliest_year
+    label: first seen
+  sort:
+  - name
+- name: book-glossary-progression-goals
+  kind: rows
+  entity: mechanic
+  filter:
+    family: progression-goals
+  columns:
+  - path: name
+    label: mechanic
+  - summary
+  - path: _derived.prevalence
+    label: games
+  - path: _derived.earliest_year
+    label: first seen
+  sort:
+  - name
+- name: book-glossary-risk-failure
+  kind: rows
+  entity: mechanic
+  filter:
+    family: risk-failure
+  columns:
+  - path: name
+    label: mechanic
+  - summary
+  - path: _derived.prevalence
+    label: games
+  - path: _derived.earliest_year
+    label: first seen
+  sort:
+  - name
+- name: book-glossary-narrative-generation
+  kind: rows
+  entity: mechanic
+  filter:
+    family: narrative-generation
+  columns:
+  - path: name
+    label: mechanic
+  - summary
+  - path: _derived.prevalence
+    label: games
+  - path: _derived.earliest_year
+    label: first seen
+  sort:
+  - name
+- name: book-glossary-world-generation
+  kind: rows
+  entity: mechanic
+  filter:
+    family: world-generation
+  columns:
+  - path: name
+    label: mechanic
+  - summary
+  - path: _derived.prevalence
+    label: games
+  - path: _derived.earliest_year
+    label: first seen
+  sort:
+  - name
+- name: book-glossary-multiplayer-persistence
+  kind: rows
+  entity: mechanic
+  filter:
+    family: multiplayer-persistence
+  columns:
+  - path: name
+    label: mechanic
+  - summary
+  - path: _derived.prevalence
+    label: games
+  - path: _derived.earliest_year
+    label: first seen
+  sort:
+  - name
+- name: book-glossary-conflict-defense
+  kind: rows
+  entity: mechanic
+  filter:
+    family: conflict-defense
+  columns:
+  - path: name
+    label: mechanic
+  - summary
+  - path: _derived.prevalence
+    label: games
+  - path: _derived.earliest_year
+    label: first seen
+  sort:
+  - name
+- name: book-glossary-operation-procedure
+  kind: rows
+  entity: mechanic
+  filter:
+    family: operation-procedure
+  columns:
+  - path: name
+    label: mechanic
+  - summary
+  - path: _derived.prevalence
+    label: games
+  - path: _derived.earliest_year
+    label: first seen
+  sort:
+  - name
+- name: book-catalog
+  kind: rows
+  entity: game
+  columns:
+  - path: name
+    label: game
+  - year
+  - developer
+  - subgenre
+  - path: _derived.mechanic_count
+    label: mechanics
+  sort:
+  - year
+  - name

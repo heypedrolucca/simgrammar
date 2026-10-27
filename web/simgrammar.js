@@ -1,6 +1,7 @@
 /* simgrammar.js: progressive enhancement for the SimGrammar site.
    Every page is complete without this file. It adds: contents highlighting, sortable and
-   filterable tables, and the hover, toggle, and readout layer of the paper's figures.
+   filterable tables and index groups, view switches, part highlighting on the games index,
+   click-to-play shorts, and the hover, toggle, and readout layer of the paper's figures.
    Figures are fully laid out by scripts/viz.py; this file only toggles, highlights, and reads out.
    Labels come from the dataset and are inserted with textContent, never innerHTML. */
 (function () {
@@ -95,10 +96,58 @@
       c.hidden = false;
       var input = $("[data-filter]", c);
       var table = $("table[data-filterable]");
-      if (!input || !table) return;
+      var scope = $("[data-filter-scope]");
+      if (!input || (!table && !scope)) return;
       input.addEventListener("input", function () {
         var q = input.value.trim().toLowerCase();
-        Array.prototype.forEach.call(table.tBodies[0].rows, function (r) { r.hidden = q && r.textContent.toLowerCase().indexOf(q) < 0; });
+        if (table) Array.prototype.forEach.call(table.tBodies[0].rows, function (r) { r.hidden = q && r.textContent.toLowerCase().indexOf(q) < 0; });
+        if (!scope) return;
+        $$("[data-q]", scope).forEach(function (n) { n.hidden = !!q && n.getAttribute("data-q").indexOf(q) < 0; });
+        $$("[data-group]", scope).forEach(function (g) { g.hidden = !!q && !$("[data-q]:not([hidden])", g); });
+      });
+    });
+  }
+
+  /* ---------------------------------------------------------------- index views and parts */
+  function views() {
+    $$("[data-views]").forEach(function (seg) {
+      $$("button", seg).forEach(function (b) {
+        b.addEventListener("click", function () {
+          var v = b.getAttribute("data-value");
+          pressed(seg, v);
+          $$("[data-view]").forEach(function (n) { n.hidden = n.getAttribute("data-view") !== v; });
+        });
+      });
+    });
+  }
+
+  function parts() {
+    $$("[data-parts-scope]").forEach(function (scope) {
+      var clear = function () {
+        scope.removeAttribute("data-hl");
+        $$("[data-on]", scope).forEach(function (n) { n.removeAttribute("data-on"); });
+      };
+      scope.addEventListener("mouseover", function (e) {
+        var a = e.target.closest("[data-m]");
+        if (!a) return;
+        clear();
+        scope.setAttribute("data-hl", "");
+        $$("[data-m=\"" + a.getAttribute("data-m") + "\"]", scope).forEach(function (n) { n.setAttribute("data-on", ""); });
+      });
+      scope.addEventListener("mouseleave", clear);
+      scope.addEventListener("mouseout", function (e) { if (!e.relatedTarget || !e.relatedTarget.closest || !e.relatedTarget.closest("[data-m]")) clear(); });
+    });
+  }
+
+  /* a short's poster becomes its video on click; without script the poster links the file */
+  function shorts() {
+    $$("a[data-play]").forEach(function (a) {
+      a.addEventListener("click", function (e) {
+        e.preventDefault();
+        var img = $("img", a);
+        var v = el("video", { "class": a.className, src: a.getAttribute("href"), poster: img ? img.getAttribute("src") : "", controls: "", autoplay: "", playsinline: "" });
+        if (img) { v.setAttribute("width", img.getAttribute("width")); v.setAttribute("height", img.getAttribute("height")); }
+        a.parentNode.replaceChild(v, a);
       });
     });
   }
@@ -363,6 +412,6 @@
     });
   }
 
-  function init() { toc(); tables(); figures(); }
+  function init() { toc(); tables(); views(); parts(); shorts(); figures(); }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
 })();

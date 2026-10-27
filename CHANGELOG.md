@@ -2,6 +2,16 @@
 
 Contract, schema, vocabulary, and rubric changes. Data changes are tracked by run records in `log/runs/` and by git history.
 
+## 1.2 (2026-10-26)
+
+ADR-0006, a visual vocabulary for the video series (run `2026-10-26-visual-vocabulary`).
+
+- **Rules:** E040 frame-line, E041 visual-icon, E042 frame-icon, W108 visual-coverage; invariant I16. The contract now also applies to `media/visual/` and the Frame lines that use it.
+- **Visual vocabulary:** `media/visual/vocab.yaml` and 79 icons in `media/visual/icons/`, drawn in a checked SVG subset (25 mechanics, 1 family, 4 subgenres, 49 nouns), built by `scripts/visual` into `dist/visual/` at 3 px and 4 px per dither pixel through an 8x8 Bayer dither. `media/visual/README.md` says how to add one.
+- **Scripts:** `**Frame.**` lines choose a picture's frame from ten templates (anatomy, chain, compare, count, timeline, formula, scale, record, moment, toysim). Episode 1 and shorts 1, 4, 5, and 7 carry them; the other scripts render as before.
+- **Renderer:** `scripts/video/framedata.py` resolves frames from the dataset with a source line on each; `templates.js` draws them; the main entity is a one-line chip while a frame is up; labels are lowercase mono; IBM Plex is vendored in `media/fonts/` (SIL OFL 1.1) and the render stops if a face fails to load.
+- **Build:** `scripts/build.py` writes binary outputs; Pillow is pinned.
+
 ## 1.1 (2026-10-25)
 
 ADR-0004, contributor readiness.
@@ -14,6 +24,20 @@ ADR-0004, contributor readiness.
 - **Build and CI:** dist/ gitignored; `build.py --out`; `make determinism` in CI; Pages workflow builds and publishes dist/ with the site; `sources` workflow (claim quotes, store ids, archive suggestions); PR scope check with DCO sign-off.
 - **Docs:** CONTRIBUTING.md, CODE_OF_CONDUCT.md, `tasks/` briefs, issue forms, versioned calibration sets (`calibration/mechanics-v1.yaml`), CODEOWNERS for report, analysis, mechanics, opportunities, calibration.
 - **After independent review (same release):** subsamples assigned by hash so adding a game redraws nothing; pair thresholds 0.9/0.1; tolerant W107; assertion references hardened (unknown right-hand refs, cluster labels, misspelled rank ids); E028 run dates checked against contract history; E034 judges wikis by url and binds snapshots to their url; E035 normalizes model ids; E037 requires the creator's score, verification raters, one rating per rater; E038 date rules for refuted and withdrawn; E039 binds operator to PR author and protects provenance, rating attribution, and quotes on new claims; `check_sources.py` searches full text before failing.
+
+## 1.1 additions (2026-10-25, book and series draft)
+
+The whole book and series drafted (run `2026-10-25-book-draft`). No contract rule changed.
+
+- **Prose:** thirteen chapters in four parts and a preface in `book/src/`, with a contents page, a glossary of every mechanic by family, and the catalog of games as back matter (the `book-glossary-*` and `book-catalog` tables in `report/tables.yaml`); twelve episode scripts in `media/episodes/`, twelve shorts in `media/shorts/`, and the film's assembly and new pieces in `media/mega/`. Chapter 1 is "Same parts" and chapter 3 "Old parts"; short 1 leads with one finding, and the shorts line is one finding per short.
+- **Japanese subtitles:** `media/subtitles/ja/` holds cue sources for all twelve episodes, checked like the scripts; the build times them from the scene timings into `dist/media/subtitles/ja/*.srt` (`scripts/subtitles.py`), to be retimed against the recorded voice.
+- **Figures:** seven figures added to `scripts/viz.py` (layer profile by subgenre, constraint profile, technique landscape, determinism by runtime, opportunity priorities, prediction timeline, pipeline), placed in the paper and the book and built into the site.
+- **House style:** `book/STYLE.md` and `book/tells.yaml`, enforced by `scripts/style_check.py` in `make check` and CI. It fails the build on stock phrases, contrast frames, signposting, setup sentences, and narration that ends on a question.
+- **Analysis:** stats and derived fields the book cites, among them core against supporting prevalence, a chance test for the share of mechanics seen by 2000 (`p_mechanics_seen_by_2000`), per-decade origins, family counts, technique risk and runtime counts, prediction dates written out for prose and narration, run and evidence counts, and a `subgenre-spend` table. Figure captions written for the paper have their section numbers mapped to chapters in book and media output.
+- **Paper:** the abstract's second finding and section 5.2 now report the chance test: random sets of the same number of games cover nearly as many mechanics as the games released by 2000 (p = 0.11), so the paper claims reuse, not an early-set vocabulary.
+- **Rights:** `media/rights.yaml` lists every title the scripts show, with each publisher's video policy as read on 2026-10-25: 5 allowed, 23 allowed with conditions, 1 not allowed (Gran Turismo 7, now shown as a labelled graphic), 37 with no usable policy.
+- **Fact-check:** fresh agents read every chapter and script against the records, twice for the first draft and once for the expansion. Sentences that drifted from or went beyond a record were rewritten to match it, repeated facts were reduced to one home chapter, and pictures that could pass for game UI are labelled as graphics or re-enactments.
+- **Narration and video:** `media/narration.yaml` registers the ElevenLabs take that voices each scene (149 takes, about 101 minutes, including the thirteen episode scenes the film re-voices so their cross-references name chapters; their wording is in the film script's Film wording section). `scripts/video/narration.py missing` lists any line still without a take. `scripts/video/assemble.py` renders the twelve episodes, twelve vertical shorts, and the film into `video-out/final/` from the built scripts and those takes. Pictures use only the project's own graphics: entity cards from `dist/entities`, the catalog grid, and the paper's figures. Footage and cover art are left for an editor and `media/rights.yaml`.
 
 ## 1.1 additions (2026-10-25, book and video pilot)
 
