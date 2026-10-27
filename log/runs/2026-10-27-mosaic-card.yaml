@@ -1,0 +1,22 @@
+id: 2026-10-27-mosaic-card
+type: run
+kind: maintenance
+date: '2026-10-27'
+actor: agent
+operator: yoheinakajima
+agent:
+  model: claude-opus-5-5
+  harness: Claude Code (desktop app)
+purpose: 'Give each icon in the home page grammar mosaic a hover card, on screens with a mouse, at the operator''s
+  request.'
+method: 'scripts/web.py embeds a JSON block beside the mosaic with each mechanic''s name, family, summary, game
+  count, core count, first game and year, and technique count, all read from the build''s records and derived
+  analysis. web/simgrammar.js reads it and floats a card (.panel[data-style="peek"] in web/register.css, an
+  ink outline and no shadow per rule 2) beside the icon under the pointer or keyboard focus; Escape, scrolling
+  or leaving the mosaic hide it. It runs only where (hover: hover) and (pointer: fine) match, so touch phones
+  keep the plain link and the native title, and without JavaScript the title still names the mechanic. The
+  card''s fields are all on the record page the icon opens, which is its plain-text twin. Checked with Playwright
+  at 1280 px (hover delay, switching between icons, right and bottom edges, focus, Escape, scroll) and at 390
+  px with touch emulation (no card, no sideways scroll). design-slop-cop was not run.'
+contract_version: '1.2'
+proposals: []
