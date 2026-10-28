@@ -159,8 +159,8 @@ def images(w) -> dict[str, bytes]:
     for ep in w.episodes:
         chapters = " and ".join(str(c) for c in ep["covers"])
         n = len({i for sc in ep["scenes"] for i in sc["shows"]})
-        outs[f"web/og/watch/{ep['key']}.png"] = card(f"episode {ep['n']} · watch", ep["title"],
-                                                     f"Episode {ep['n']} of the series, following chapter{'s' if len(ep['covers']) > 1 else ''} {chapters} of the book.",
+        outs[f"web/og/watch/{ep['key']}.png"] = card(f"episode {ep['n']} · chapter{'s' if len(ep['covers']) > 1 else ''} {chapters}", ep["title"],
+                                                     ep["summary"],
                                                      f"{w.mmss(ep['seconds'])} · {len(ep['scenes'])} scenes · {n} records on screen", pngs(ep["shows"][:16]))
     outs["web/og/book.png"] = card("the book", "The Grammar of Simulation, as a book", "Thirteen chapters on the parts simulation games share, rendered from the dataset.",
                                    "13 chapters · glossary · catalog", top)

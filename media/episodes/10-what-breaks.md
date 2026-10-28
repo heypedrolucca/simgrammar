@@ -2,6 +2,8 @@
 
 Target runtime about 11 minutes: about 1,120 words of narration at 135 words a minute, plus a beat of picture-only footage per scene. Covers book chapter 11. Footage: Factorio, Infinite Craft, Townscaper, all captured by us; the desync and the event log are animated diagrams; research results appear as charts and quoted figures, not as clips from the papers. Publisher video policies are tracked in `media/rights.yaml` and must be checked before release. Every number below is filled in from the dataset when the script is built, and the sentences that interpret numbers carry the same checks as the book.
 
+**Summary.** How AI features break simulation games: desyncs when a search stops by the clock, contradictions, models that replace rules players could read, the running cost of model calls, and trust. A log that records the model's decisions keeps such a game replayable.
+
 ## 1. Cold open (0:00 to 0:46)
 
 **Picture.** Animated diagram: two monitors side by side showing the same strategy map, an enemy cavalry unit in the middle. A small clock icon over each labelled "AI thinking time". On the left monitor the cavalry turns north; on the right it holds. Two checksums appear under the screens, different. A dialog box: "Desync".

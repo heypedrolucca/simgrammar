@@ -2,6 +2,8 @@
 
 Target runtime about 12 minutes: about 1,260 words of narration at 135 words a minute, plus a beat of picture-only footage per scene. Covers book chapter 6. Footage: The Sims, Crusader Kings III, Reigns, RimWorld, Noita, SimCity (2013), Dwarf Fortress, Factorio, Infinite Craft, RollerCoaster Tycoon, Creatures, all captured by us; stills and published figures from the Generative Agents paper and of Façade. Publisher video policies are tracked in `media/rights.yaml` and must be checked before release. Every number below is filled in from the dataset when the script is built, and the sentences that interpret numbers carry the same checks as the book.
 
+**Summary.** Five limits on simulation games: content made by hand, ticks per second, what a player can follow, the same inputs giving the same world, and believable minds. Lifting one usually spends another, and the cost of authoring is falling fastest.
+
 ## 1. Cold open (0:00 to 0:29)
 
 **Picture.** The Sims (2000). A Sim with a low Hunger bar. The player opens Buy mode; the clock stops. A new refrigerator goes against the kitchen wall. Time starts. The Sim turns away from the television, crosses the house, opens the refrigerator, and starts cooking.

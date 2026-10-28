@@ -2,6 +2,8 @@
 
 Target runtime about 12 minutes: about 1,270 words of narration at 135 words a minute, plus a beat of picture-only footage per scene. Covers book chapter 8. Footage: Infinite Craft, RimWorld, Crusader Kings III, Victoria 3, Dwarf Fortress, inZOI, The Sims, Factorio, all captured by us; a still from the DIAMOND paper's Counter-Strike model, credited. Publisher video policies are tracked in `media/rights.yaml` and must be checked before release. Every number below is filled in from the dataset when the script is built, and the sentences that interpret numbers carry the same checks as the book.
 
+**Summary.** Infinite Craft stores a language model's answer and treats it as a rule. Counting every technique against every mechanic shows research aimed at generative content, while the economic core most games are built from has almost nothing aimed at it.
+
 ## 1. Cold open (0:00 to 0:36)
 
 **Picture.** Infinite Craft. Four tiles: water, fire, wind, earth. The cursor drags one onto another; a new tile pops out. Faster now, combination after combination. Then one combination pauses for a beat, a new tile appears, and a badge flashes: First Discovery.

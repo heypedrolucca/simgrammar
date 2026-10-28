@@ -1,0 +1,24 @@
+id: 2026-10-27-episode-design
+type: run
+kind: maintenance
+date: '2026-10-27'
+actor: agent
+operator: yoheinakajima
+agent:
+  model: claude-opus-5-5
+  harness: Claude Code (desktop app)
+purpose: 'At the operator''s request: a short summary of each episode on the watch page, and an episode page that
+  organizes the games, mechanics, techniques and opportunities it shows, with the transcript closed by default.'
+method: 'Wrote a **Summary.** line into the header of each of the 12 episode scripts in media/episodes, from each
+  episode''s narration, with no numbers taken from the data; the renderer skips header lines, so no video or
+  narration take changes, and style_check passes. scripts/web.py requires the line for a published episode and shows
+  it on the watch page, as the episode page''s dek and description, in each chapter''s episode block, and in the
+  link-preview image. The episode page now lists, by type and in order of appearance, a card for each record on screen
+  (its icon, a label, its summary, and the times it is on screen, each a link that plays from there): every record when
+  a type has 16 or fewer on screen, else the ones the narration names or links, with the rest as icons or chips. Games
+  show their subgenre emblem and opportunities their horizon icon, as the video frames do. The transcript sits in a
+  disclosure, closed by default. Checked with Playwright at 1280 and 390 px on the 21 pages of the last run: no
+  sideways scroll, no broken images, no script errors; a card time plays from its moment, and the transcript opens.
+  Matching names in the narration can be loose for one-word mechanic names. design-slop-cop was not run.'
+contract_version: '1.2'
+proposals: []

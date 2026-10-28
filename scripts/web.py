@@ -8,7 +8,8 @@ Pages:
                                      and where the book, the episodes and the shorts mention it
   book/index.html, book/<chapter>/   the book (book/src as rendered by this build), one chapter a page, each with its episode
   watch/index.html                   the published episodes and shorts (media/published.yaml)
-  watch/episode-NN/                  one page per episode: the player, its scenes, and the transcript scene by scene
+  watch/episode-NN/                  one page per episode: its summary, the player and its scenes, the records it names as cards
+                                     with the times each is on screen, and the transcript behind a disclosure
   data/index.html                    downloads, provenance log, contract
   og/<type>/<id>.png, og/*.png       a link-preview image per page (scripts/og.py)
   paper.md, references.bib, manifest.json, figures/*.svg, llms.txt, CNAME, robots.txt, sitemap.xml, 404.html, assets/*
@@ -84,18 +85,20 @@ class Web:
         for ep in self.published.get("episodes", []):
             md = self.built.get(f"media/episodes/{ep['script']}", "")
             title = re.search(r"^# Episode \d+\. (.*)$", md, re.M)
+            summary = re.search(r"^\*\*Summary\.\*\* (.*)$", md, re.M)
             covers = re.search(r"Covers book chapters? ([\d, and]+)\.", md)
             said = self.episode_voice(md)
             unknown = [i for i in ep.get("shows", []) + [i for sc in ep["scenes"] for i in sc["shows"]] if i not in self.by_id]
             missing = [sc["name"] for sc in ep["scenes"] if sc["name"] not in said]
-            if not title or not covers or unknown or missing:
-                raise SystemExit(f"media/published.yaml: {ep['key']} names a script this build did not render, scenes it lacks {missing}, or unknown records {unknown}")
+            if not title or not summary or not covers or unknown or missing:
+                raise SystemExit(f"media/published.yaml: {ep['key']} names a script this build did not render or one with no **Summary.** line, "
+                                 f"scenes it lacks {missing}, or unknown records {unknown}")
             scenes = []
             for k, sc in enumerate(ep["scenes"]):
                 if said[sc["name"]]:   # the title card has no narration and is not a scene to jump to
                     scenes.append({**sc, "end": ep["scenes"][k + 1]["start"] if k + 1 < len(ep["scenes"]) else ep["seconds"], "voice": said[sc["name"]],
                                    "changed": narration_digest(" ".join(said[sc["name"]])) != sc["said"]})
-            ep = {**ep, "n": int(ep["key"].rsplit("-", 1)[1]), "title": title.group(1), "covers": [int(x) for x in re.findall(r"\d+", covers.group(1))], "scenes": scenes}
+            ep = {**ep, "n": int(ep["key"].rsplit("-", 1)[1]), "title": title.group(1), "summary": summary.group(1).strip(), "covers": [int(x) for x in re.findall(r"\d+", covers.group(1))], "scenes": scenes}
             self.episodes.append(ep)
             for sc in scenes:
                 for i, t in sorted(sc["shows"].items(), key=lambda kv: (kv[1], kv[0])):
@@ -497,6 +500,30 @@ class Web:
                 f'<img src="{base}media/episodes/{esc(ep["poster"])}" width="{width}" height="{h}" alt="Episode {ep["n"]}: {esc(ep["title"])}, title card">'
                 f'<span class="plate">play · {self.mmss(ep["seconds"])}</span></a>{cap.replace("</span></figcaption>", " · captions in the picture</span></figcaption>")}')
 
+    CARD_TYPES = ("game", "mechanic", "technique", "opportunity")
+
+    def card_line(self, e):
+        """The short label above a record's name on an episode page."""
+        d = e.data
+        if e.type == "game":
+            return " · ".join(x for x in (str(d.get("year", "")), self.term("subgenre", d.get("subgenre")).lower()) if x)
+        if e.type == "mechanic":
+            return self.term("mechanic_family", d.get("family")).lower()
+        if e.type == "technique":
+            return " · ".join(x for x in (self.term("technique_category", d.get("category")).lower(), str(d.get("year", "")), self.term("technique_maturity", d.get("maturity")).lower()) if x)
+        return f'horizon {self.term("horizon", d.get("horizon")).lower()} · impact {d.get("impact")} of 5'
+
+    def card_icon(self, e, base):
+        """A record's icon on an episode page; a game shows its subgenre's emblem and an opportunity its horizon, as the videos do."""
+        d = e.data
+        if self.icon_id(e.id):
+            return self.icon(e.id, base, 48, d.get("name", e.id))
+        if e.type == "game" and d.get("subgenre") in self.icons:
+            return self.icon(d["subgenre"], base, 48, self.term("subgenre", d["subgenre"]))
+        if e.type == "opportunity" and f'horizon-{d.get("horizon")}' in self.icons:
+            return self.icon(f'horizon-{d["horizon"]}', base, 48, f'horizon {self.term("horizon", d["horizon"])}')
+        return ""
+
     def episode_page(self, ep):
         base = "../../"
         f = f'{base}media/episodes/{esc(ep["file"])}'
@@ -509,29 +536,60 @@ class Web:
                  + f'<a href="{base}watch/" data-internal>all episodes</a>' + (f'<a href="{self.ep_url(next_, base)}" data-internal>episode {next_["n"]} →</a>' if next_ else "") + "</nav>")
         side = (f'<aside><div class="section-line"><h2>scenes</h2><span>{len(scenes)} · {self.mmss(ep["seconds"])}</span></div>'
                 f'<div class="register" data-kind="scenes">{nav}</div><p class="small muted">The episode follows {self.covers(ep, base)} of the book.</p>{pager}</aside>')
+        # the records on screen, in order of appearance, each with the times it is on screen
+        moments = {}
+        for sc in scenes:
+            for i, t in sc["shows"].items():
+                moments.setdefault(i, []).append((t, sc["name"]))
+        order = sorted(moments, key=lambda i: (min(t for t, _ in moments[i]), i))
+        # a record gets a card when the narration names or links it, or when its type has few records on screen
+        voice = " ".join(v for sc in scenes for v in sc["voice"])
+        linked = set(re.findall(r"\]\(\.\./wiki/\w+/([a-z0-9-]+)\.md\)", voice))
+        plain = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", voice).lower()
+
+        def named(i):
+            d = self.by_id[i].data
+            return i in linked or any(re.search(r"\b" + re.escape(n.lower()) + r"s?\b", plain) for n in [d.get("name", i)] + d.get("aliases", []))
+
+        def card(i):
+            e = self.by_id[i]
+            times = " · ".join(f'<a href="{f}#t={t:.1f}" data-seek="{t:.1f}" data-t title="{esc(name)}" data-internal>{self.mmss(t)}</a>' for t, name in sorted(moments[i]))
+            return (f'<div class="row"><div class="id"><a href="{base}{e.type}/{i}/" data-internal>{self.card_icon(e, base)}</a></div><div>'
+                    f'<small>{esc(self.card_line(e))}</small><h3><a href="{base}{e.type}/{i}/" data-internal>{esc(e.data.get("name", i))}</a></h3>'
+                    f'<p>{esc(e.data.get("summary", ""))}</p><p class="small">on screen {times}</p></div></div>')
+        sections = []
+        for t in self.CARD_TYPES:
+            ids = [i for i in order if self.by_id[i].type == t]
+            if not ids:
+                continue
+            cards = ids if len(ids) <= 16 else [i for i in ids if named(i)]
+            rest = [i for i in ids if i not in cards]
+            plural = self.registry["types"][t]["plural"]
+            inner = (f'<div class="register" data-kind="board" data-size="sm">{"".join(card(i) for i in cards)}</div>' if cards else "") + (
+                f'<p class="small faint">{"also on screen" if cards else "on screen"} · {len(rest)} {plural if len(rest) != 1 else self.registry["types"][t]["label"].lower()}</p>'
+                + (self.chips(rest, base) if t in ("game", "opportunity") else self.icon_links(rest, base)) if rest else "")
+            right = f"{len(cards)} named in the narration, {len(rest)} more on screen" if rest and cards else f"{len(ids)} on screen, in order of appearance"
+            sections.append(self.section(f"{plural} in this episode", inner, right))
         rows = []
         for sc in scenes:
-            shown = [i for i, _ in sorted(sc["shows"].items(), key=lambda kv: (kv[1], kv[0]))]
             rows.append(f'<div class="row" data-start="{sc["start"]:.1f}"><div class="id"><a href="{f}#t={sc["start"]:.1f}" data-seek="{sc["start"]:.1f}" data-internal>{self.mmss(sc["start"])}</a></div>'
                         f'<div><h3>{esc(sc["name"])}</h3>' + "".join(f"<p>{self.voice_html(v, base)}</p>" for v in sc["voice"])
                         + (f'<p class="small">The video, rendered {esc(ep["rendered"])}, words this scene differently: the dataset has changed since.</p>' if sc["changed"] else "")
-                        + (f'<p class="small">on screen · {len(shown)} record{"s" if len(shown) != 1 else ""}</p>{self.icon_links(shown, base)}' if shown else "")
                         + "</div></div>")
-        seen = list(dict.fromkeys(i for sc in scenes for i, _ in sorted(sc["shows"].items(), key=lambda kv: (kv[1], kv[0]))))
-        games = [i for i in seen if self.by_id[i].type == "game"]
-        others = [i for i in seen if self.by_id[i].type != "game"]
+        changed = sum(1 for sc in scenes if sc["changed"])
+        transcript = (f'<details class="disclosure" data-style="transcript"><summary>read the transcript, scene by scene · {len(scenes)} scenes'
+                      + (f' · {changed} worded differently in the video' if changed else "") + f'</summary><div class="register" data-kind="script">{"".join(rows)}</div></details>')
         chapters = " and ".join(str(c) for c in ep["covers"])
         body = (f'<div data-episode><nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="{base}" data-internal>simgrammar</a></li><li><a href="../" data-internal>watch</a></li>'
                 f'<li>episode {ep["n"]}</li></ol></nav>'
                 f'<div class="page-header"><p class="eyebrow"><span class="id">episode {ep["n"]} of {len(self.episodes)}</span> <span>{self.mmss(ep["seconds"])}</span> '
                 f'<span>{len(scenes)} scenes</span> <span>book chapter{"s" if len(ep["covers"]) > 1 else ""} {chapters}</span></p><h1>{esc(ep["title"])}</h1>'
-                f'<p class="dek">Episode {ep["n"]} of the series follows {self.covers(ep, base)}. Every number in it was checked against the dataset when it was rendered.</p></div>'
+                f'<p class="dek">{esc(ep["summary"])}</p></div>'
                 f'<div class="split" data-style="episode">{self.episode_figure(ep, base, 960)}{side}</div>'
-                + self.section("scene by scene", f'<div class="register" data-kind="script">{"".join(rows)}</div>', "the transcript, with what each scene puts on screen")
-                + (self.section("on screen in this episode", self.chips(games, base) + (f'<p class="small faint">and {len(others)} mechanics and techniques</p>{self.icon_links(others, base)}' if others else ""),
-                                f'{len(games)} games · {len(others)} other records') if seen else "")
+                + "".join(sections)
+                + self.section("transcript", transcript, "every number checked against the dataset when the episode was rendered")
                 + "</div>")
-        return self.page(title=f"Episode {ep['n']}: {ep['title']} · simgrammar", desc=f"Episode {ep['n']} of the SimGrammar series, {ep['title']}, following chapter{'s' if len(ep['covers']) > 1 else ''} {chapters} of the book.",
+        return self.page(title=f"Episode {ep['n']}: {ep['title']} · simgrammar", desc=ep["summary"],
                          body=body, depth=2, nav="watch", path=f"watch/{ep['key']}/", image=f"og/watch/{ep['key']}.png")
 
     def chapter_watch(self, stem, base):
@@ -540,10 +598,9 @@ class Web:
         ep = next((e for e in self.episodes if c in e["covers"]), None)
         if not ep:
             return ""
-        what = "this chapter" if len(ep["covers"]) == 1 else "chapters " + " and ".join(str(x) for x in ep["covers"])
         return (f'<div class="panel" data-style="watch">{self.episode_figure(ep, base, 480, self.ep_url(ep, base))}<div>'
                 f'<p class="eyebrow"><span class="id">episode {ep["n"]}</span> <span>{self.mmss(ep["seconds"])}</span> <span>{len(ep["scenes"])} scenes</span></p>'
-                f'<h3><a href="{self.ep_url(ep, base)}" data-internal>{esc(ep["title"])}</a></h3><p>The episode follows {what} on screen, every picture drawn from the records.</p>'
+                f'<h3><a href="{self.ep_url(ep, base)}" data-internal>{esc(ep["title"])}</a></h3><p>{esc(ep["summary"])}</p>'
                 f'<p class="small"><a href="{self.ep_url(ep, base)}" data-internal>watch the episode →</a></p></div></div>')
 
     def find_book_refs(self):
@@ -1048,9 +1105,9 @@ class Web:
             chapters = " and ".join(str(c) for c in ep["covers"])
             tiles.append(f'<div class="row" id="{ep["key"]}">{self.episode_figure(ep, base, 480, url)}<p class="eyebrow"><span class="id">episode {ep["n"]}</span> '
                          f'<span>{self.mmss(ep["seconds"])}</span> <span>chapter{"s" if len(ep["covers"]) > 1 else ""} {chapters}</span></p>'
-                         f'<h3><a href="{url}" data-internal>{esc(ep["title"])}</a></h3>{self.icon_links([i for i in ep["shows"] if self.by_id[i].type != "game"][:8], base)}</div>')
+                         f'<h3><a href="{url}" data-internal>{esc(ep["title"])}</a></h3><p>{esc(ep["summary"])}</p>{self.icon_links([i for i in ep["shows"] if self.by_id[i].type != "game"][:8], base)}</div>')
             twin.append(f'<div class="row"><div class="id">episode {ep["n"]}</div><div><h3><a href="{url}" data-internal>{esc(ep["title"])}</a></h3>'
-                        f'<p>{self.mmss(ep["seconds"])} · {len(ep["scenes"])} scenes · follows {self.covers(ep, base)}</p></div></div>')
+                        f'<p>{esc(ep["summary"])}</p><p>{self.mmss(ep["seconds"])} · {len(ep["scenes"])} scenes · follows {self.covers(ep, base)}</p></div></div>')
         stiles, stwin = [], []
         for sh in self.shorts:
             about = [i for i in sh["shows"] if self.by_id[i].type != "game"][:2] + [i for i in sh["shows"] if self.by_id[i].type == "game"][:2]

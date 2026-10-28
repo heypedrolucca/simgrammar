@@ -2,6 +2,8 @@
 
 Target runtime about 12 minutes: about 1,270 words of narration at 135 words a minute, plus a beat of picture-only footage per scene. Covers book chapter 3. Footage: Hamurabi (a period BASIC listing run in an emulator), SimCity (1989), M.U.L.E., Little Computer People, Dwarf Fortress, Factorio, The Oregon Trail, Minecraft, Stardew Valley, Harvest Moon; publisher video policies are tracked in `media/rights.yaml` and must be checked before release. Every number below is filled in from the dataset when the script is built, and the sentences that interpret numbers carry the same checks as the book.
 
+**Summary.** Hamurabi, from 1968, already used parts that games still use. Most of the vocabulary was in a catalog game by 2000, a test against chance shows how much of that comes from parts being widely shared, and recent games are built mostly from old parts.
+
 ## 1. Cold open (0:00 to 0:40)
 
 **Picture.** A teletype printing on paper. A steward's yearly report scrolls up: people starved, people arrived, bushels per acre, bushels eaten by rats, the price of land. A cursor blinks after a question about how many acres to plant.

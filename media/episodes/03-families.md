@@ -2,6 +2,8 @@
 
 Target runtime about 12 minutes: about 1,280 words of narration at 135 words a minute, plus a beat of picture-only footage per scene. Covers book chapter 4. Footage: Factorio, Anno 1800, Papers, Please, Princess Maker 2, Job Simulator, Besiege, Farming Simulator 25, iRacing, Black & White, Creatures, inZOI, AI Dungeon, Elite, Elite Dangerous, M.U.L.E., Offworld Trading Company, Frostpunk, Frostpunk 2; publisher video policies are tracked in `media/rights.yaml` and must be checked before release. Every number below is filled in from the dataset when the script is built, and the sentences that interpret numbers carry the same checks as the book.
 
+**Summary.** Group games by their mechanics instead of their genre and families appear: series that stay together, a sequel that moved, and odd couples like Papers, Please and Princess Maker 2. How the families are drawn, how far they match genre, and where they fall apart.
+
 ## 1. Cold open (0:00 to 0:45)
 
 **Picture.** Factorio at night. A row of assemblers slows; the power graph shows demand above supply. Pollution clouds drift over a forest toward a nest of biters, which stir.
