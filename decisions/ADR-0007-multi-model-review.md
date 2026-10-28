@@ -1,4 +1,4 @@
-# ADR-0006: Rules from a three-lab review
+# ADR-0007: Rules from a three-lab review
 
 - Status: accepted
 - Date: 2026-10-25

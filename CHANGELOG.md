@@ -2,6 +2,16 @@
 
 Contract, schema, vocabulary, and rubric changes. Data changes are tracked by run records in `log/runs/` and by git history.
 
+## 1.2 additions (2026-10-27, three-lab review)
+
+Outside models reviewed the paper and the contribution rules cold: gemini-3.1-pro-preview, meta/muse-spark-1.3, and openai/gpt-5.3-codex for the scope-check code. Each finding was checked against the data before acting (ADR-0007, run `2026-10-25-gemini-review`, written under 1.1 and rebased onto 1.2).
+
+- **Report:** §5.4 states both the configured k and the rule's current pick (on 2026-10-25, adding three games moved it from 24 to 19, inside the drift tolerance); §8.2 no longer says the family concentration is independent of family size (per mechanic, world generation is second); §5.6 says the p-values describe one rater; §5.5 says the independence null ignores game size.
+- **Rules:** E039 counts a `verification` run only from the owner, members, or invited collaborators; a PR appends only its own run to `provenance.reviewed`; a run-only PR needs an invited author; rewording a sourced claim needs a new quote or a dispute; a deprecation keeps the record's content; a sign-off is a real trailer line. E034 requires a quote on every claim of a `verified` record. E021 and E029 texts match the code.
+- **Report:** the abstract no longer states single-rater correlations causally; "in or before 2000"; §5.5 counts tension edges. Agents commit without sign-off and the operator signs off after reading the diff (`git rebase --signoff origin/main`).
+- **Tooling:** `check_sources.py` stops after three straight network failures and flags source domains the dataset has never cited.
+- **Tasks:** seven suggested games added to `tasks/candidates.yaml`; four mechanic proposals and three technique leads recorded in the run.
+
 ## 1.2 (2026-10-26)
 
 ADR-0006, a visual vocabulary for the video series (run `2026-10-26-visual-vocabulary`).
@@ -46,16 +56,6 @@ Phase 1 of the book and video plan (run `2026-10-25-book-pilot`).
 - **Prose:** `book/src/` (preface and chapter 1), `media/episodes/` (episode 1 script), and `media/shorts/` (the first 60-second short) are rendered to `dist/book` and `dist/media` and checked like the paper: tokens, links, citations, literal counts, assertions, placeholders.
 - **Tokens and stats:** `{{derived:<id>.<field>}}` prints a per-record value (a game's mechanic count, a mechanic's prevalence); the analysis adds games per time model and the most common time model.
 - **Rights:** `media/rights.yaml` registers each game whose footage a video uses, with its video policy and the date it was checked.
-
-## 1.1 additions (2026-10-25, three-lab review)
-
-Outside models reviewed the paper and the contribution rules cold: gemini-3.1-pro-preview, meta/muse-spark-1.3, and openai/gpt-5.3-codex for the scope-check code. Each finding was checked against the data before acting (ADR-0006, run `2026-10-25-gemini-review`).
-
-- **Report:** §5.4 states both the configured k and the rule's current pick (adding three games moved it from 24 to 19, inside the drift tolerance); §8.2 no longer says the family concentration is independent of family size (per mechanic, world generation is second); §5.6 says the p-values describe one rater; §5.5 says the independence null ignores game size.
-- **Rules:** E039 counts a `verification` run only from the owner, members, or invited collaborators; a PR appends only its own run to `provenance.reviewed`; a run-only PR needs an invited author; rewording a sourced claim needs a new quote or a dispute; a deprecation keeps the record's content; a sign-off is a real trailer line. E034 requires a quote on every claim of a `verified` record. E021 and E029 texts match the code.
-- **Report:** the abstract no longer states single-rater correlations causally; "in or before 2000"; §5.5 counts tension edges. Agents commit without sign-off and the operator signs off after reading the diff (`git rebase --signoff origin/main`).
-- **Tooling:** `check_sources.py` stops after three straight network failures and flags source domains the dataset has never cited.
-- **Tasks:** seven suggested games added to `tasks/candidates.yaml`; four mechanic proposals and three technique leads recorded in the run.
 
 ## 1.1 additions (2026-10-25, AI contributor pilot)
 
