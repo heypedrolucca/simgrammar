@@ -1,0 +1,27 @@
+id: 2026-10-28-audience-raised-characters
+type: run
+kind: synthesis
+date: '2026-10-28'
+actor: agent
+operator: heypedrolucca
+agent:
+  model: claude-opus-5-5
+  harness: Claude app agent workspace (claude.ai)
+purpose: Record an opportunity in which audiences predict the storylines of autonomous simulated characters and
+  story sifting resolves the predictions without steering the world.
+method: 'Searched existing opportunities with scripts/find.py for prediction, audience, spectator, and curation;
+  the closest are illustrated-chronicles (narrating a run''s log) and drama-aware-storyteller (steering events),
+  and neither lets an audience predict or keeps the world unsteered. Built on the story-sifting technique added
+  in run 2026-10-28-story-sifting, which this branch includes, and on the conclusion of Ryan''s 2018 dissertation,
+  whose quote was checked against text extracted from the PDF. Scores were read from the rubric anchors: no shipped
+  precedent with adjacent research (novelty 4), significant R&D risk in authoring enough patterns (feasibility 3),
+  and a changed ceiling for character and life sims rather than a new market (impact 3). Disclosure: the operator''s
+  company builds AI characters and has explored audience prediction mechanics, so a maintainer should weigh this
+  opportunity''s framing and scores with that in mind.'
+contract_version: '1.2'
+proposals:
+- kind: other
+  target: audience-intervention
+  detail: This opportunity deliberately excludes audience intervention (spectators changing events), which run 2026-10-28-character-lineage
+    proposes as a mechanic; if that mechanic is admitted, this opportunity should involve it only as a contrast,
+    since steering outcomes undercuts automatic resolution.

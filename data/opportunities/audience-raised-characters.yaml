@@ -1,0 +1,82 @@
+id: audience-raised-characters
+type: opportunity
+name: Audience-predicted character storylines
+aliases:
+- community-raised characters
+- storyline prediction markets
+summary: Let an audience predict what will happen to autonomous simulated characters, and resolve each
+  prediction automatically by story sifting over the simulation's causal record, so spectators become
+  curators of a world they do not steer.
+opportunity_type: new-mechanic
+thesis: 'Ryan''s curationist account of emergent narrative argues that successful systemic games work
+  because people do the curation: players of Dwarf Fortress and The Sims notice and retell the stories
+  their simulations produce. His dissertation ends by proposing curation support tools that help people
+  find those stories instead of replacing them. Story sifting with causal bookkeeping makes a storyline
+  a checkable object: a pattern either matches the recorded causal graph or it does not. That turns a
+  prediction about a character (she will forgive her rival before winter; his scheme will end in exposure)
+  into something the simulation can settle on its own. An audience that predicts, watches, and is scored
+  against what actually happened has a reason to follow characters closely, and because nothing steers
+  the world toward the predicted outcome, the stories keep the quality Ryan identifies as the pleasure
+  of emergent narrative: they really happened.'
+design_sketch: 'A small cast of persistent characters lives in a symbolic simulation that records causal
+  links between actions. Each week the game opens a slate of predictions written as sifting patterns over
+  a future window, phrased in plain language (Will the feud between A and B end in reconciliation or
+  revenge?). Viewers stake points; the simulation runs untouched; when the window closes, the sifter
+  checks the chronicle and pays out, and a narrator recounts the matched storyline with links to the
+  actions that resolved it. Correct predictors gain standing with the characters involved, which characters
+  can learn about and mention, so being right about someone becomes part of the relationship. Players
+  can also propose new prediction patterns, and accepted ones join the shared library.'
+involves:
+- history-chronicle
+- memories-thoughts
+- personality-traits
+- reputation
+- persistent-world
+- gossip-propagation
+applies:
+- story-sifting
+- llm-explanation-of-state
+precedent:
+- dwarf-fortress
+- the-sims-3
+- rimworld
+- tomodachi-life
+novelty: 4
+feasibility: 3
+impact: 3
+horizon: 1-2y
+key_risks:
+- If staff or votes can nudge outcomes, predictions read as rigged and the it-really-happened quality
+  is lost.
+- Authored sifting patterns limit predictions to storylines someone anticipated, and audiences learn
+  the templates.
+- Points that can be bought or cashed out may fall under gambling regulation in some jurisdictions.
+- Small casts may resolve too few interesting predictions per week to sustain an audience.
+validation_experiment: 'Run one persistent cast of 5 to 10 characters in a causal-bookkeeping simulation
+  for 30 days with at least 200 participants. Offer 10 authored prediction patterns per week, resolved
+  only by the sifter, with no interventions. Compare four-week retention and character-directed messages
+  between participants who predict and a control group who see the same chronicle and recaps without
+  predictions, and survey whether participants accept each resolution as correct. Success: predictors
+  retain at least 1.5 times as well as controls and at least 90 percent of resolutions are accepted.'
+falsifiable_signal:
+  prediction: A released game or character experience will let its audience predict storylines of autonomous
+    simulated characters, with predictions scored automatically against the simulation's record of what
+    happened.
+  resolve_by: '2029-06-30'
+  criteria: Feature first shipped after 2026-10-28 in a title with at least 1,000 Steam user reviews or
+    a console release, or in a service whose developer reports at least 100,000 users; developer material
+    states that audience predictions about simulated characters are resolved automatically from simulation
+    events, not chosen by staff or by vote.
+claims:
+- text: Ryan's dissertation proposes framing the curation pipeline as a support framework that helps
+    human curators rather than replacing them.
+  sources:
+  - src-ryan-2018-curating-simulated-storyworlds
+  confidence: high
+  quote: curation support framework
+  locator: Conclusion, p. 694
+sources:
+- src-ryan-2018-curating-simulated-storyworlds
+status: asserted
+provenance:
+  created: 2026-10-28-audience-raised-characters
