@@ -2,6 +2,8 @@
 
 Target runtime about 14 minutes: about 1,400 words of narration at 135 words a minute, plus a beat of picture-only footage per scene. Covers book chapter 7. Footage: Suck Up!, AI Dungeon, Microsoft Flight Simulator (2020), inZOI, Where Winds Meet, Whispers from the Star, Townscaper, Infinite Craft, all captured by us; stills and published clips from the GameNGen, Genie 3, and WHAMM announcements, used as short quotations with credit. Publisher video policies are tracked in `media/rights.yaml` and must be checked before release. Every number below is filled in from the dataset when the script is built, and the sentences that interpret numbers carry the same checks as the book.
 
+**Summary.** Which AI techniques have shipped in simulation games, and how far. Neural rendering is the one that is normal; talking characters, opponents, and tools players never see have shipped in fewer games, and the few that change a game's state can break its replays.
+
 ## 1. Cold open (0:00 to 0:36)
 
 **Picture.** Suck Up! A cartoon street at night. The player, a vampire in a delivery-driver disguise, knocks. A resident opens the door a crack. Subtitles show the player's spoken pitch and the resident's spoken reply: she isn't expecting a parcel. The door shuts. Cut to the same door, a new disguise. This time she steps aside.

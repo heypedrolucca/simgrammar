@@ -2,6 +2,8 @@
 
 Target runtime about 12 minutes: about 1,230 words of narration at 135 words a minute, plus a beat of picture-only footage per scene. Covers book chapter 10. Footage: Factorio, RimWorld, Democracy 4, all captured by us; the bottleneck view, the why-query, the branch preview, and the language-modding workshop are mock-ups built on captured footage and labelled as mock-ups on screen. Publisher video policies are tracked in `media/rights.yaml` and must be checked before release. Every number below is filled in from the dataset when the script is built, and the sentences that interpret numbers carry the same checks as the book.
 
+**Summary.** The dataset's bets on what to build next, each with an experiment and a dated prediction: a button that asks why, a preview of possible futures, colonists with a memory, mods written as a sentence. None of the leading bets asks a model to become the simulation.
+
 ## 1. Cold open (0:00 to 0:43)
 
 **Picture.** Factorio, mid-game. The science counter ticks slowly. The production graph shows electronic circuits falling. The player places four new circuit assemblers and connects them; their input slots stay empty. The camera follows a belt upstream, past the cable assemblers, to a smelter column where one belt carries iron and copper together, the iron filling both lanes.

@@ -2,6 +2,8 @@
 
 Target runtime about 12 minutes: about 1,250 words of narration at 135 words a minute, plus a beat of picture-only footage per scene. Covers book chapter 9. Footage: Cities: Skylines, Surviving Mars, SimCity (1989), Football Manager, SpaceChem, Factorio, Spore, Besiege, Banished, Captain of Industry, Workers & Resources: Soviet Republic, Crusader Kings III, Stellaris, Prison Architect, Kenshi, Against the Storm, Kerbal Space Program, all captured by us. Publisher video policies are tracked in `media/rights.yaml` and must be checked before release. Every number below is filled in from the dataset when the script is built, and the sentences that interpret numbers carry the same checks as the book.
 
+**Summary.** Pairs of common mechanics that almost never share a game, like a city builder that tells stories or a production game whose workers grow old. A few lots are already built by a single game, and some may stay empty for good reason.
+
 ## 1. Cold open (0:00 to 0:37)
 
 **Picture.** Cities: Skylines. A tidy riverside district, built all at once. Time-lapse: decades pass. Hearses queue down the main road, house after house.

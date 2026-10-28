@@ -2,6 +2,8 @@
 
 Target runtime about 9 minutes: about 880 words of narration at 135 words a minute, plus a beat of picture-only footage per scene. Covers book chapters 1 and 2. Footage: RimWorld, Dwarf Fortress, SimCity (1989), Factorio, Oxygen Not Included, The Sims, Frostpunk, all captured by us; a still of Façade. Publisher video policies are tracked in `media/rights.yaml` and must be checked before release. Every number below is filled in from the dataset when the script is built, and the sentences that interpret numbers carry the same checks as the book.
 
+**Summary.** RimWorld taken apart into its mechanics, then every game in the catalog the same way. The most common parts simulate nothing, the parts a game can't do without are much rarer, and each genre spends its parts differently.
+
 ## 1. Cold open (0:00 to 0:52)
 
 **Picture.** RimWorld, a small colony at dusk. A raid letter. A short fight at the door; one colonist falls. Cut to three days later: the cook drops her work and walks out into the fields. The player clicks her. The needs tab fills the screen, every mood effect a line with a number and a timer.

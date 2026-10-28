@@ -2,6 +2,8 @@
 
 Target runtime about 12 minutes: about 1,210 words of narration at 135 words a minute, plus a beat of picture-only footage per scene. Covers book chapter 5. Footage: Dwarf Fortress, RimWorld, Oxygen Not Included, Cities: Skylines, SimCity (1989) through Micropolis, Victoria 3, RollerCoaster Tycoon, EVE Online, all captured by us; Conway's Game of Life in an open-source simulator. Publisher video policies are tracked in `media/rights.yaml` and must be checked before release. Every number below is filled in from the dataset when the script is built, and the sentences that interpret numbers carry the same checks as the book.
 
+**Summary.** A flooded fortress in Dwarf Fortress shows a chain of causes the player never sees. Mechanics that produce more variety are rated harder to read and harder to balance, and designers answered with mechanics that simulate nothing and only show what the others hold.
+
 ## 1. Cold open (0:00 to 0:45)
 
 **Picture.** Dwarf Fortress, side view of a fortress three levels deep. A miner cuts the last tile of a tunnel to the river. Water spills down the tunnel, fills a cistern, and keeps coming: down a stairwell, across the dining hall, into a row of bedrooms. Depth numbers flicker on the flooded tiles, one to seven.
