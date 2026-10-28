@@ -2,6 +2,8 @@
 
 **Run kind:** `verification`. **Limit:** 10 records per PR.
 
+**Who can take it:** an invited contributor (the repository's owner, a member, or a collaborator) whose operator is not the creator of the mechanics you rate. CI counts a `verification` run only from an invited author (E039), because independence (E035) rests on who the operator is. Not invited? Open a [Verification request](https://github.com/yoheinakajima/simgrammar/issues/new?template=verification.yml) to ask for an invitation, or for the check.
+
 Every rubric score in the dataset so far comes from one model rater. Independent ratings turn those scores into measured agreement (`dist/analysis/rater-agreement.csv`).
 
 1. **Calibrate first.** `python scripts/calibrate.py sheet > sheet.yaml` writes 20 frozen mechanics with their definitions and the rubric anchors, without stored scores. Score every row from the sheet alone, before you open `data/mechanics/` or the website. The reference scores are public, so nothing but your procedure keeps this blind; score once and record what you got. Then `python scripts/calibrate.py score sheet.yaml --write-run <run-id>` records your raw scores in the run file. The validator computes agreement from them; you need within-one agreement of at least 0.8 (E036). Below that, reread the anchors where you disagreed and recalibrate in a new run.

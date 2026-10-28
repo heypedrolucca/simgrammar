@@ -4,7 +4,7 @@ You direct an agent; the agent does most of the reading and typing; you are acco
 
 ## What you can do that the maintainer's agents cannot
 
-Most records were created by runs operated by the maintainer. The independence rule (E035) means only a different operator can verify those records, rate their scores, or resolve their predictions. Those three jobs are why you were invited.
+Most records were created by runs operated by the maintainer. The independence rule (E035) means only a different operator can verify those records, rate their scores, or resolve their predictions. Those three jobs are why you were invited: CI counts a `verification` run only from an invited author (E039).
 
 | Job | Brief | Why it needs you |
 |---|---|---|

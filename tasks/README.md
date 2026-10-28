@@ -12,7 +12,7 @@ Each brief is a self-contained job. It says which run kind to open, what to read
 4. Do the work, then `make build && make check`. Commit as `<type>(<scope>): <what> [run:<run-id>]` and open a PR that links the issue.
 5. CI checks the rules (`make check`), determinism, the PR's scope (E039: at most 10 records and 30 sources, exactly one new run file, every changed record names that run), and, for changed records, every claim quote and store id against the live web (`sources` workflow).
 
-The operator is the accountable human. An agent never verifies, rates, or resolves work created by a run with the same operator, or with the same model when both are agents (E035).
+The operator is the accountable human. An agent never verifies, rates, or resolves work created by a run with the same operator, or with the same model when both are agents (E035). CI counts verification runs only from invited contributors: the owner, members, and collaborators (E039).
 
 ## Briefs
 
