@@ -930,7 +930,15 @@ a.chip:hover { border-color: var(--accent); color: var(--accent); text-decoratio
 .register[data-kind="script"] .row h3 { margin-bottom: 6px; font-size: var(--fs-md); }
 .register[data-kind="script"] .row p { max-width: var(--measure); margin: 0 0 8px; color: var(--ink-2); font-size: var(--fs-base); line-height: 1.6; }
 .register[data-kind="script"] .row p.small { margin: 12px 0 6px; font-size: var(--fs-xs); color: var(--faint); }
-[data-episode] .section > .cluster[data-gap="chips"] + p { margin: var(--sp-4) 0 6px; }
+/* an episode's records: cards for those the narration names, each with the times it is on screen; the rest as icons */
+[data-episode] .register[data-kind="board"] { margin-bottom: var(--sp-3); }
+[data-episode] .register[data-kind="board"] .row > .id a::after { content: none; }
+[data-episode] .register[data-kind="board"] .row h3 a { color: var(--ink); }
+[data-episode] .register[data-kind="board"] .row h3 a:hover { color: var(--accent); }
+[data-episode] .register[data-kind="board"] .row p:not(.small) { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+[data-episode] .register[data-kind="board"] .row p.small { margin-top: 6px; font: var(--fs-xs)/1.5 var(--label); color: var(--faint); }
+[data-episode] .section > p.small { margin: var(--sp-3) 0 6px; font: var(--fs-xs)/1.5 var(--label); }
+details.disclosure[data-style="transcript"] > .register { border-top: 0; }
 /* the watch page's episodes, three across */
 .register[data-kind="episodes"] { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); margin-bottom: var(--sp-4); border-left: var(--line) solid var(--rule); }
 .register[data-kind="episodes"] .row { display: flex; flex-direction: column; align-items: stretch; gap: 8px; padding: 14px; border-right: var(--line) solid var(--rule); }
