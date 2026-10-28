@@ -29,7 +29,7 @@ python scripts/new.py run <slug> --kind <kind> --actor agent --operator <github-
 
 `--operator` is the accountable human's GitHub handle, and must be the account that opens the PR (E039); `--model` is the exact model id. Record both truthfully: the checks below compare them, and they cannot detect a false entry. Independence is checked on both: a run that verifies, rates, or resolves someone's work needs a different operator, and a different model when both runs are agents (E035). A run that creates mechanics or adds mechanic ratings first records a blind calibration (`python scripts/calibrate.py sheet`, then `score --write-run <run-id>`; E036, `tasks/rate-scores.md`).
 
-The command prints the run id (the date plus your slug). The new file's `method` is `TODO`, so `make check` stays red (E027) until you write it; that is expected, and the check before you start is the one that must be green. Fill `method` (what you searched, read, or computed, and what failed) and keep `proposals` for anything you wanted to do but this file does not allow. Every entity you create gets `provenance.created: <run-id>`. Every existing entity you actually re-check gets your run id appended to `provenance.reviewed`; one you looked at but did not re-check (a snapshot you could not reach, a page you could not open) does not, and your `method` names it instead.
+The command prints the run id (the date plus your slug). The new file's `method` is `TODO`, so `make check` stays red (E027) until you write it; that is expected, and the check before you start is the one that must be green. Fill `method` (what you searched, read, or computed, and what failed) and keep `proposals` for anything you wanted to do but this file does not allow. Every entity you create gets `provenance.created: <run-id>`. Every existing entity you actually re-check gets your run id appended to `provenance.reviewed`. Re-checking means you opened the first source of every claim you touched and confirmed it still supports the claim, or recorded in `method` why it does not. One you looked at but did not re-check (a snapshot you could not reach, a page you could not open) is not marked, and your `method` names it instead. A PR appends only its own run (E039).
 
 If the run ends up changing no records or sources (every lookup was blocked, say), do not open a pull request: comment on the issue with what you tried and what failed, and leave the run file uncommitted.
 
@@ -79,7 +79,7 @@ Names at least one mechanic in `involves`, has a `validation_experiment` a small
 | Long text | Specific and mechanical. Name the variables and the update rule. Cite numbers only if a source supports them. |
 | Game `mechanics` | 6–14 entries typical; fewer than 5 raises W103. `core` only for mechanics whose removal changes the game's identity; every core entry needs a `note` saying how this game implements it. |
 | `influenced_by` | Only documented or widely acknowledged lineage. Earlier games only (E025). |
-| Mechanic relations | `requires` for hard dependencies; `specializes` for narrower forms; `synergy`/`tension` stored only on the id that sorts first alphabetically (E010). Never list games or techniques on a mechanic. |
+| Mechanic relations | `requires` for hard dependencies; `specializes` for narrower forms; `synergy`/`tension` stored only on the id that sorts first in plain character order, hyphens included, as Python sorts strings (E010). Never list games or techniques on a mechanic. |
 | Technique `affects` | One entry per mechanic actually changed; `effect` from `vocab/effect.yaml`; note says what changes. |
 | `deployed_in` | Only games in `data/games/` where the technique is used (shipped or public demo). |
 | Dates | `YYYY`, `YYYY-MM`, or `YYYY-MM-DD` at the precision you know. |
@@ -143,13 +143,13 @@ Never type a dataset count ("140 games") into prose (E021). When a sentence inte
 ```bash
 make build            # build dist/ locally (for reading) and refresh GENERATED blocks; it does not validate
 make check            # validate + report/record assertions + build --check; must be green
-git add -A && git commit -s -m "<type>(<scope>): <what> [run:<run-id>]"
+git add -A && git commit -m "<type>(<scope>): <what> [run:<run-id>]"   # agents: no -s (see below)
 make pr-check         # what CI will say: PR scope (E039) and, with network, the quotes and store ids you touched
 ```
 
 `python scripts/validate.py --warnings` lists the warnings `make check` only counts. If your data change fails a report or record assertion you did not write (E029, E032), a finding moved: do not edit `report/` or records outside your task. Open the PR with the error quoted, and a maintainer rewrites the sentence.
 
-Rewrite the run's `method` before you commit: what you searched, opened, and computed, and what failed. `dist/` is gitignored, so a data PR contains records and one run file. Commit types: `data`, `taxonomy`, `vocab`, `schema`, `report`, `build`, `docs`. One run per PR, at most 10 records and 30 sources, every commit signed off (E039). CI also runs `make determinism` and, for the records you touched, checks claim quotes and store ids against the live web (`.github/workflows/sources.yml`). The PR template asks for the run id, the issue, the rule codes you hit, and your proposals. Paths in `.github/CODEOWNERS` (the contract and its code, the report and its analysis parameters, mechanics, opportunities, calibration) need maintainer review because the validator cannot judge whether such a change is justified; it can only enforce the contract as written.
+Rewrite the run's `method` before you commit: what you searched, opened, and computed, and what failed. `dist/` is gitignored, so a data PR contains records and one run file. Commit types: `data`, `taxonomy`, `vocab`, `schema`, `report`, `build`, `docs`. One run per PR, at most 10 records and at most 30 sources, every commit signed off (E039). An agent does not sign off: the sign-off is the operator's attestation (Developer Certificate of Origin), so the operator reads the diff and then signs every commit with `git rebase --signoff origin/main` before pushing. A human working without an agent uses `git commit -s`. CI also runs `make determinism` and, for the records you touched, checks claim quotes and store ids against the live web (`.github/workflows/sources.yml`). The PR template asks for the run id, the issue, the rule codes you hit, and your proposals. Paths in `.github/CODEOWNERS` (the contract and its code, the report and its analysis parameters, mechanics, opportunities, calibration) need maintainer review because the validator cannot judge whether such a change is justified; it can only enforce the contract as written.
 
 ## 9. Parallel agents
 

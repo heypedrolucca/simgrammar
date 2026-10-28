@@ -355,6 +355,9 @@ def run(data_only: bool = False) -> Findings:
                     F.add("E031", e.path, "status 'verified' requires a reviewed run of kind 'verification', distinct from and not earlier than the creating run", "provenance")
                 elif not indep:
                     F.add("E035", e.path, "no verification run is independent of the creating run (different operator, and a different model when both are agents)", "provenance")
+                unquoted = [i for i, c in enumerate((e.data.get("claims") or []) + (e.data.get("key_results") or [])) if not c.get("quote")]
+                if unquoted:
+                    F.add("E034", e.path, f"status 'verified' needs a verbatim quote on every claim and key result; {len(unquoted)} lack one, so the verification left no checkable trace (tasks/source-claims.md)", "claims")
                 cited = [by_id[x].data for x in srcs if x in by_id]
                 if cited and all(is_wiki_source(c) for c in cited):
                     F.add("E034", e.path, "status 'verified' rests only on encyclopedia or wiki sources (by kind or by url); cite a primary source or keep 'sourced'", "sources")

@@ -31,3 +31,11 @@ candidates:
   - {name: Two Point Campus, why: education management with student relationships}
   - {name: SimCopter, why: embodied city exploration on a SimCity simulation}
   - {name: Mount & Blade II Bannerlord, why: sandbox with faction economy and warfare}
+  # Suggested by an independent Gemini review (run 2026-10-25-gemini-review); each still faces the inclusion test.
+  - {name: Clash of Clans, why: mobile base-building economy with timers and raids}
+  - {name: Tiny Tower, why: mobile vertical facility management (compare SimTower)}
+  - {name: "Majesty: The Fantasy Kingdom Sim", why: indirect control through bounties instead of unit commands}
+  - {name: The Guild 2, why: dynasty succession combined with rival-firm economics}
+  - {name: "Nobunaga's Ambition", why: Japanese historical strategy and domain-management lineage}
+  - {name: Slime Rancher, why: first-person creature care feeding into automation}
+  - {name: Starsector, why: supply-and-demand trade driving persistent faction conflict}

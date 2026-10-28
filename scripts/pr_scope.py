@@ -14,6 +14,7 @@ off (Developer Certificate of Origin). Maintainer labels lift the limits:
 from __future__ import annotations
 
 import argparse
+import re
 import datetime as dt
 import subprocess
 import sys
@@ -38,13 +39,17 @@ def changed_files(base: str) -> list[tuple[str, str]]:
     return rows
 
 
+# A sign-off is a trailer line of its own: "Signed-off-by: Name <email>" (key case-insensitive, as git treats it).
+SIGNOFF_RE = re.compile(r"^signed-off-by:\s*\S.*<[^<>@\s]+@[^<>\s]+>\s*$", re.I | re.M)
+
+
 def unsigned_commits(base: str) -> list[str]:
     """Non-merge commits on this branch without a Developer Certificate of Origin sign-off (CONTRIBUTING.md)."""
     out = subprocess.run(["git", "log", "--no-merges", "--format=%H%x1f%s%x1f%B%x1e", f"{base}..HEAD"], cwd=ROOT, capture_output=True, text=True, check=True).stdout
     bad = []
     for rec in out.split("\x1e"):
         parts = rec.strip().split("\x1f")
-        if len(parts) >= 3 and "Signed-off-by:" not in parts[2]:
+        if len(parts) >= 3 and not SIGNOFF_RE.search(parts[2]):
             bad.append(f"{parts[0][:10]} {parts[1][:60]}")
     return bad
 
@@ -66,6 +71,14 @@ def record_changes(path: str, old: dict | None, new: dict, rid: str) -> list[str
         lost = [x for x in po.get("reviewed") or [] if x not in (pn.get("reviewed") or [])]
         if lost:
             errs.append(f"{path}: provenance.reviewed lost {lost}; the list is append-only (I9).")
+        added = [x for x in pn.get("reviewed") or [] if x not in (po.get("reviewed") or [])]
+        foreign = [x for x in added if x != rid]
+        if foreign:
+            errs.append(f"{path}: provenance.reviewed gains {foreign}; a PR appends only its own run '{rid}' (a merged run cannot be credited with a review it did not do).")
+        if new.get("deprecated") and not old.get("deprecated"):
+            changed = sorted(k for k in set(old) | set(new) if k not in ("deprecated", "provenance") and old.get(k) != new.get(k))
+            if changed:
+                errs.append(f"{path}: a record being deprecated keeps its content; this PR also changes {changed}. Deprecate in one PR, edit (if at all) in another (I2).")
     created = (new.get("provenance") or {}).get("created")
     old_ratings = [r for r in (old or {}).get("ratings") or []]
     for r in new.get("ratings") or []:
@@ -76,10 +89,20 @@ def record_changes(path: str, old: dict | None, new: dict, rid: str) -> list[str
         if r.get("run") == created and old is not None and r.get("value") == old.get(r.get("field")) and not any(o.get("run") == created and o.get("field") == r.get("field") for o in old_ratings):
             continue  # recording the original score as the creator's rating, unchanged
         errs.append(f"{path}: new rating of '{r.get('field')}' is attributed to run '{r.get('run')}'; a PR adds ratings only from its own run (or records the creator's original score unchanged).")
-    old_claims = {c.get("text") for c in ((old or {}).get("claims") or []) + ((old or {}).get("key_results") or [])}
-    for c in (new.get("claims") or []) + (new.get("key_results") or []):
-        if c.get("text") not in old_claims and not c.get("quote"):
+    from collections import Counter
+    old_list = ((old or {}).get("claims") or []) + ((old or {}).get("key_results") or [])
+    new_list = (new.get("claims") or []) + (new.get("key_results") or [])
+    budget = Counter(c.get("text") for c in old_list)
+    for c in new_list:
+        if budget[c.get("text")] > 0:
+            budget[c.get("text")] -= 1
+        elif not c.get("quote"):
             errs.append(f"{path}: new claim has no `quote`; copy the passage from its first source that supports it (tasks/source-claims.md).")
+    if old and old.get("status") in ("sourced", "verified"):
+        for kind in ("claims", "key_results"):
+            for i, (oc, nc) in enumerate(zip(old.get(kind) or [], new.get(kind) or [])):
+                if oc.get("text") != nc.get("text") and oc.get("quote") == nc.get("quote") and not nc.get("disputes"):
+                    errs.append(f"{path}: {kind}[{i}] text changed on a {old.get('status')} record with the same quote and no `disputes`; quote the evidence for the new wording, or record the disagreement (I13).")
     return errs
 
 
@@ -103,8 +126,12 @@ def run_checks(path: str, run: dict, registry: dict, author: str | None, today: 
     return errs
 
 
+# GitHub author_association values that mean the PR author was invited to the repository (or owns it).
+TRUSTED_ASSOCIATIONS = {"OWNER", "MEMBER", "COLLABORATOR"}
+
+
 def check(rows: list[tuple[str, str]], labels: set[str], registry: dict, base: str | None = None, author: str | None = None,
-          today: dt.date | None = None) -> list[str]:
+          today: dt.date | None = None, association: str | None = None) -> list[str]:
     contrib = registry.get("contribution") or {}
     dirs = {spec["dir"]: t for t, spec in registry["types"].items()}
     records, sources, runs_added, runs_touched = [], [], [], []
@@ -134,7 +161,7 @@ def check(rows: list[tuple[str, str]], labels: set[str], registry: dict, base: s
         if status == "D":
             errs.append(f"{path}: a merged record was deleted; set `deprecated: {{superseded_by, reason}}` instead (I2).")
     if runs_added and not records and not sources:
-        if all(Path(path).parent.as_posix() == "log/runs" for _, path in rows):
+        if all(Path(path).parent.as_posix() == "log/runs" for _, path in rows) or (association and association.upper() not in TRUSTED_ASSOCIATIONS):
             errs.append("this PR adds a run but changes no records or sources; if the run found nothing to change, comment on the issue instead of opening a PR.")
         for _, path in runs_added:
             errs += run_checks(path, read_yaml(ROOT / path) or {}, registry, author, today or dt.date.today())
@@ -143,7 +170,11 @@ def check(rows: list[tuple[str, str]], labels: set[str], registry: dict, base: s
             errs.append(f"a PR that changes data adds exactly one run file under log/runs/; this one adds {len(runs_added)}.")
         else:
             rid = Path(runs_added[0][1]).stem
-            errs += run_checks(runs_added[0][1], read_yaml(ROOT / runs_added[0][1]) or {}, registry, author, today or dt.date.today())
+            run = read_yaml(ROOT / runs_added[0][1]) or {}
+            errs += run_checks(runs_added[0][1], run, registry, author, today or dt.date.today())
+            if run.get("kind") == "verification" and association and association.upper() not in TRUSTED_ASSOCIATIONS:
+                errs.append(f"{runs_added[0][1]}: verification runs (verifying, rating, resolving) count only from invited contributors, because "
+                            f"independence (E035) rests on who the operator is; this PR's author is '{association}'. Open a Verification request issue instead.")
             for status, path in records + sources:
                 if status == "D":
                     continue
@@ -161,9 +192,11 @@ def main():
     ap.add_argument("--base", default="origin/main")
     ap.add_argument("--labels", default="", help="comma-separated PR labels")
     ap.add_argument("--author", default="", help="GitHub login of the PR author; the new run's operator must match")
+    ap.add_argument("--association", default="", help="GitHub author_association of the PR author (OWNER, MEMBER, COLLABORATOR, ...)")
     args = ap.parse_args()
     labels = {x.strip() for x in args.labels.split(",") if x.strip()}
-    errs = check(changed_files(args.base), labels, load_registry(), base=args.base, author=args.author or None)
+    errs = check(changed_files(args.base), labels, load_registry(), base=args.base, author=args.author or None,
+                 association=args.association or None)
     errs += [f"commit {c} is not signed off; amend with `git commit -s` (Developer Certificate of Origin, CONTRIBUTING.md)" for c in unsigned_commits(args.base)]
     for e in errs:
         print(f"E039 {RULES['E039']['name']}: {e}")
