@@ -1,0 +1,22 @@
+id: 2026-10-28-invited-verification
+type: run
+kind: maintenance
+date: '2026-10-28'
+actor: agent
+operator: yoheinakajima
+agent:
+  model: claude-opus-5-5
+  harness: Claude Code (desktop app)
+purpose: 'At the operator''s request: say in the verification briefs and task issues that, since the three-lab review
+  (ADR-0007), CI counts a verification run only from an invited contributor.'
+method: 'Checked the 18 open task issues against scripts/make_tasks.py --json: every record they list is still
+  pending and none is claimed. Issues 16 to 21 (verify records, rate scores) are verification work, which E039 now
+  accepts only from the owner, members, or collaborators (scripts/pr_scope.py, TRUSTED_ASSOCIATIONS), but neither
+  the issues nor tasks/verify-record.md, tasks/rate-scores.md, or tasks/resolve-prediction.md said so; an outside
+  contributor could claim one and be rejected at the PR. Each of the three briefs now has a "who can take it" line
+  linking the Verification request form; make_tasks.py adds the requirement to the titles and notes of those three
+  kinds of task issue; the label descriptions in .github/workflows/tasks.yml, tasks/README.md, and
+  tasks/humans-with-agents.md say the same. Issues 16 to 21 get the regenerated title and body, with the same task
+  key, so the tasks workflow still recognises them.'
+contract_version: '1.2'
+proposals: []

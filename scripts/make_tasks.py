@@ -27,10 +27,11 @@ BRIEFS = {
     "source-claims": ("maintenance", 8, "Add verbatim quotes to the claims of {n} records"),
     "store-ids": ("catalog", 10, "Add store ids to {n} games"),
     "catalog-game": ("catalog", 3, "Catalogue {n} candidate games"),
-    "verify-record": ("verification", 6, "Verify {n} sourced records (independent operator)"),
-    "rate-scores": ("verification", 10, "Rate the scores of {n} mechanics (calibrated, independent operator)"),
-    "resolve-prediction": ("verification", 1, "Resolve an overdue prediction"),
+    "verify-record": ("verification", 6, "Verify {n} sourced records (invited, independent operator)"),
+    "rate-scores": ("verification", 10, "Rate the scores of {n} mechanics (calibrated, invited, independent operator)"),
+    "resolve-prediction": ("verification", 1, "Resolve an overdue prediction (invited, independent operator)"),
 }
+INVITED = "For invited contributors only: CI counts a verification run only from the owner, a member, or a collaborator (E039); if you were not invited, open a Verification request issue."
 DONE = {
     "archive-sources": "every listed source you could archive has an `archived` snapshot of its own url (E034) and names your run in `provenance.reviewed`; any you could not are named in your run's `method`; `make check` and `make pr-check` are green",
     "source-claims": "every claim on the listed records has a verbatim `quote` and `locator` from its first source, or is named in your run's `method` with the reason; the `sources` workflow finds each quote or flags it for review; `make check` and `make pr-check` are green",
@@ -103,17 +104,17 @@ def build_tasks(today: dt.date, exclude: set[str] | None = None) -> list[dict]:
                   and any(not is_wiki_source(by_id[s].data) for s in e.data.get("sources") or [] if s in by_id)), key=lambda e: (order[e.type], e.id))
     ver = keep("verify-record", ver)
     for b in batches(ver, BRIEFS["verify-record"][1]):
-        out.append(task("verify-record", [e.id for e in b], [rel(e) for e in b], "Needs an operator other than the record's creator (most records were created by yoheinakajima's runs)."))
+        out.append(task("verify-record", [e.id for e in b], [rel(e) for e in b], INVITED + " Needs an operator other than the record's creator (most records were created by yoheinakajima's runs)."))
     cal = set(((load_calibration(reg) or {}).get("mechanics") or {}))
     mech = sorted((m for m in ents["mechanic"] if m.id not in cal and not m.data.get("deprecated")), key=lambda m: m.id)
     mech = keep("rate-scores", mech)
     for b in batches(mech, BRIEFS["rate-scores"][1]):
-        out.append(task("rate-scores", [m.id for m in b], [rel(m) for m in b], "Calibrate first (tasks/rate-scores.md); calibration-set mechanics are excluded."))
+        out.append(task("rate-scores", [m.id for m in b], [rel(m) for m in b], INVITED + " Calibrate first (tasks/rate-scores.md); calibration-set mechanics are excluded."))
     for o in keep("resolve-prediction", sorted(ents["opportunity"], key=lambda e: e.id)):
         sig = o.data.get("falsifiable_signal") or {}
         rb = str(sig.get("resolve_by", "9999"))
         if not sig.get("resolution") and rb < today.isoformat()[: len(rb)]:
-            out.append(task("resolve-prediction", [o.id], [rel(o)], f"Resolve-by date {rb} has passed (W106)."))
+            out.append(task("resolve-prediction", [o.id], [rel(o)], INVITED + f" Resolve-by date {rb} has passed (W106)."))
     return out
 
 

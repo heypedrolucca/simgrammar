@@ -37,9 +37,9 @@ jobs:
           source-claims|c5def5|Brief: tasks/source-claims.md
           store-ids|c5def5|Brief: tasks/store-ids.md
           catalog-game|c5def5|Brief: tasks/catalog-game.md
-          verify-record|fbca04|Brief: tasks/verify-record.md (needs an independent operator)
-          rate-scores|fbca04|Brief: tasks/rate-scores.md (calibrate first; independent operator)
-          resolve-prediction|fbca04|Brief: tasks/resolve-prediction.md
+          verify-record|fbca04|Brief: tasks/verify-record.md (invited, independent operator)
+          rate-scores|fbca04|Brief: tasks/rate-scores.md (calibrate first; invited, independent operator)
+          resolve-prediction|fbca04|Brief: tasks/resolve-prediction.md (invited, independent operator)
           verification|fbca04|Verification request
           prediction|fbca04|Prediction resolution
           data-error|d93f0b|A record states something false

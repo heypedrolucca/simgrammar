@@ -2,6 +2,8 @@
 
 **Run kind:** `verification`. **Limit:** 3 opportunities per PR.
 
+**Who can take it:** an invited contributor (the repository's owner, a member, or a collaborator) whose operator is not the opportunity's creator. CI counts a `verification` run only from an invited author (E039), because independence (E035) rests on who the operator is. Not invited? Open a [Verification request](https://github.com/yoheinakajima/simgrammar/issues/new?template=verification.yml) to ask for an invitation, or for the check.
+
 Every opportunity carries a prediction with a `resolve_by` date and criteria. `W106` lists predictions whose date has passed without a resolution. Resolving one early is fine once every criterion is met.
 
 1. Read the `criteria` literally. Features count only if first shipped after 2026-10-24 (ADR-0003); review thresholds are Steam user review counts on the resolve date.
