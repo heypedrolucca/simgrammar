@@ -1,0 +1,136 @@
+id: petz
+type: game
+name: Petz (Dogz and Catz)
+aliases:
+- Dogz
+- Catz
+- Virtual Petz
+summary: A desktop virtual pet series from PF.Magic in which autonomous 3D dogs and cats live on the PC
+  desktop, seek the user's attention, and learn tricks
+  and habits from treats and a water spray bottle.
+year: 1995
+developer: PF.Magic
+platforms:
+- pc
+subgenre: virtual-pet
+sim_domain:
+- biological-ecological
+- social-interpersonal
+player_role: caretaker
+agency_model:
+- caretaking-interaction
+time_model: real-time
+sim_scale: individual
+fidelity: stylized
+perspective: top-down-2d
+win_structure: open-sandbox
+failure_model: soft-recoverable
+narrative_mode: emergent
+multiplayer:
+- single
+modding: none
+production_tier: indie
+agent_count_order: '10'
+emergence: 3
+influence: 3
+core_loop: adopt a puppy or kitten after playing with each breed to sense its personality -> pet, feed,
+  and play with it using the hand cursor and toy shelf -> reward behavior with treats and petting or
+  squirt it with the spray bottle -> it grows up and develops
+  habits -> keep it company or it sulks and eventually runs away
+design_notes: 'PF.Magic''s designers described the Petz as autonomous agents rather than animations: each
+  pet chooses its own behavior from drives (attention and affection first, hunger second), breed personality,
+  and individual likes, dislikes, and quirks, and it fetches toys from the shelf on its own. The user acts
+  only through a hand-shaped cursor that touches, picks up, and offers objects, so every intervention
+  is a stimulus the pet interprets. Reward (treats, feeding, petting) and discipline (a water spray bottle)
+  reinforce whatever the pet was doing, which lets owners shape both tricks and general temperament.
+  In the releases the 1997 and 1998 papers describe, several Petz on one desktop form pairwise bonds: buddies play together and share food and toys, enemies
+  steal toys and are pleased when the user disciplines the other, and adults comfort scared young. Petz
+  begin as puppies or kittens and age, but stop aging at adulthood and do not die, which is why the record
+  does not tag lifecycle-aging; pet-to-pet bonds are documented only for those later releases, so relationship-values is not tagged on this 1995-dated record either; the failure state is abandonment, since a pet neglected long enough runs
+  away. Andrew Stern, one of the authors of the Petz papers, later co-created Facade.'
+mechanics:
+- id: creature-care
+  role: core
+  note: The user feeds, waters, pets, and plays with each pet through a hand cursor and toy shelf; a pet
+    ignored long enough becomes lethargic and depressed and eventually runs away.
+- id: creature-learning
+  role: core
+  note: Treats, feeding, and petting reward and a water spray bottle punishes whatever the pet is doing,
+    and wiggling a treat trains tricks such as jumping, sitting, and rolling over.
+- id: personality-traits
+  role: core
+  note: Breed personalities (playful terriers, grumpy bulldogs, hyper Chihuahuas) plus individual likes,
+    dislikes, and quirks set behavior, and treatment shifts mood and, over time, personality.
+- id: needs-decay
+  role: supporting
+  note: Attention and affection are the primary drive; a hungry pet searches for food, hunts mice, or
+    begs.
+claims:
+- text: The PF.Magic authors describe Virtual Petz as autonomous agents with real-time layered 3D animation
+    and sound.
+  sources:
+  - src-stern-1998-virtual-petz
+  confidence: high
+  quote: These are autonomous agents with real-time layered 3D animation and sound.
+  locator: 1. Abstract
+- text: The 1997 symposium paper calls the Petz socially intelligent agents that live on the desktop and
+    aim to build a relationship with the user.
+  sources:
+  - src-frank-1997-socially-intelligent-petz
+  confidence: high
+  quote: socially intelligent agents live on your PC
+  locator: Abstract
+- text: A pet's primary motivation is attention and affection, and a neglected pet becomes lethargic and
+    depressed and eventually runs away.
+  sources:
+  - src-stern-1998-virtual-petz
+  confidence: high
+  quote: to receive attention and affection
+  locator: 3. Developing Relationships
+- text: Users reward or discipline behavior, with discipline delivered by a water spray bottle.
+  sources:
+  - src-stern-1998-virtual-petz
+  confidence: high
+  quote: users can reward or discipline any behavior.
+  locator: 4. Communicating with Petz
+- text: Petz begin as puppies or kittens, age over time, and then stop aging without dying.
+  sources:
+  - src-frank-1997-socially-intelligent-petz
+  confidence: high
+  quote: However at a certain point the Petz stop aging and do not die.
+  locator: Should Virtual Petz Die?
+- text: Later Petz releases let several pets interact, and pets that help and support each other become
+    friends; the record does not tag relationship-values because the sources date this to papers from
+    1997 onward rather than to the 1995 release.
+  sources:
+  - src-gamedeveloper-2015-petz-multiple-characters
+  confidence: medium
+  quote: If two characters help and support each other, they should become friends;
+  locator: Interaction Between Multiple Lifelike Computer Characters
+- text: In the original games, how the user treats an animal changes its mood and, over time, its personality.
+  sources:
+  - src-wikipedia-dogz-and-catz
+  confidence: medium
+  quote: Depending on how the animals are interacted with they will change their mood and over time their personality.
+  locator: body text before Reception
+- text: Dogz was released in 1995 and Catz in 1996, both developed and published by PF.Magic for PC and
+    Mac.
+  sources:
+  - src-wikipedia-dogz-and-catz
+  confidence: medium
+  quote: released in 1995 and 1996 respectively
+  locator: lead
+- text: Dogz sold around 200,000 copies in its first year.
+  sources:
+  - src-wikipedia-dogz-and-catz
+  confidence: medium
+  quote: Dogz was an immediate success on release, with around 200,000 copies selling in the first year.
+  locator: Reception
+sources:
+- src-stern-1998-virtual-petz
+- src-frank-1997-socially-intelligent-petz
+- src-gamedeveloper-2015-petz-multiple-characters
+- src-wikipedia-dogz-and-catz
+status: sourced
+provenance:
+  created: 2026-10-28-character-lineage
