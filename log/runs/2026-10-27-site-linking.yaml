@@ -1,0 +1,31 @@
+id: 2026-10-27-site-linking
+type: run
+kind: maintenance
+date: '2026-10-27'
+actor: agent
+operator: yoheinakajima
+agent:
+  model: claude-opus-5-5
+  harness: Claude Code (desktop app)
+purpose: 'At the operator''s request: link and explain the chapters an episode follows on its page, as chapter pages
+  show their episode, and sweep the site so every page links to everything the data relates it to.'
+method: 'Audited the built site''s link graph: for each kind of page, the share that links each other kind, and the
+  links with no way back. Before: no record page linked the paper, though the paper links every game, mechanic,
+  technique and opportunity; no source page linked a chapter, episode or short; chapters never linked their sources
+  or any technique; nothing linked shorts to chapters or episodes; backlinks left out mechanic synergy, requires,
+  tension and specializes edges and game influence, so those showed on one side only; the glossary and catalog
+  linked every record with no way back; and the index filters set the hidden attribute on rows whose display rule
+  kept them visible. scripts/web.py now records which paper sections link or cite each record (paper(), run before
+  the record pages); matches games (case-sensitive), techniques and opportunities (name or alias) in chapter text as
+  well as mechanics; links each chapter source to its page and lists the chapters, episode scenes and shorts that cite
+  a source; reads each short''s chapter and episode from its script header; lists every incoming edge in backlinks;
+  gives glossary and catalog rows their record''s id and links each record to its row; puts the chapters an episode
+  follows on its page (length, sections, link), each chapter''s and episode''s shorts on their pages, the chapter''s
+  records by kind, the episode on each row of the book''s contents, and an on-this-page list on every record page; and
+  adds find/, every chapter, episode, short, record and source in one filterable list (?q= starts a filter).
+  After: every game and mechanic page links the book and the paper, one-way links fell from about 2,000 to about 20.
+  Checked with Playwright at 1280 and 390 px on 21 pages (no sideways scroll, no broken images or script errors,
+  637 internal links answer), and the filter on find/ and the indexes now hides what it filters. Name matching can be
+  loose for one-word names. design-slop-cop was not run.'
+contract_version: '1.2'
+proposals: []

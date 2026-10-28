@@ -842,6 +842,7 @@ a.chip:hover { border-color: var(--accent); color: var(--accent); text-decoratio
 /* peek: the card simgrammar.js floats beside a mosaic icon on screens with a mouse. Its twin is the record page the icon opens. */
 .panel[data-style="peek"] { position: fixed; z-index: 50; display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: 0 12px; width: 340px; max-width: calc(100vw - 32px); padding: 14px; background: var(--paper); border: var(--line-2) solid var(--ink); pointer-events: none; }
 .panel[data-style="peek"][hidden] { display: none; }
+[data-filter-scope] [hidden] { display: none !important; }   /* the filter hides rows and groups whose components set their own display */
 .panel[data-style="peek"] > img[data-icon] { grid-row: 1 / span 2; }
 .panel[data-style="peek"] > .eyebrow { margin: 2px 0 2px; }
 .panel[data-style="peek"] > h3 { margin: 0; font: 600 var(--fs-md)/1.25 var(--sans); }
@@ -952,6 +953,19 @@ details.disclosure[data-style="transcript"] > .register { border-top: 0; }
 .panel[data-style="watch"] h3 { margin: 0 0 4px; font: 600 var(--fs-lg)/1.2 var(--sans); }
 .panel[data-style="watch"] h3 a { color: var(--ink); }
 .panel[data-style="watch"] p { margin: 0 0 4px; font-size: var(--fs-sm); color: var(--ink-2); }
+/* a chapter on its episode's page: its length, its sections, and a link */
+.grid[data-gap="board"] > .panel[data-style="chapter"] { margin: 0; border: 0; border-radius: 0; background: var(--paper); }
+.panel[data-style="chapter"] .eyebrow { margin-bottom: 4px; }
+.panel[data-style="chapter"] h3 { margin: 0 0 6px; font: 600 var(--fs-lg)/1.2 var(--sans); }
+.panel[data-style="chapter"] h3 a { color: var(--ink); }
+.panel[data-style="chapter"] p { margin: 0 0 6px; max-width: var(--measure); font-size: var(--fs-sm); color: var(--ink-2); }
+/* a record page's sections, listed under its header */
+.cluster[data-style="jump"] { margin: 0 0 var(--sp-5); }
+.cluster[data-style="jump"] > span { margin-right: 2px; font: var(--fs-xs)/1.4 var(--label); color: var(--faint); }
+/* the find page: icons inline with names */
+[data-filter-scope] .register[data-size="wide"] .row h3:has(> img[data-icon]) { display: flex; align-items: center; gap: 8px; }
+/* a record's row in the glossary or the catalog, when a record page links it */
+table.data tr:target td { background: var(--accent-wash); }
 /* a moment in an episode, on a record page */
 a[data-t] { font: var(--fs-xs)/1.5 var(--mono); }
 @media (max-width: 880px) {

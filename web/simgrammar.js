@@ -106,6 +106,8 @@
         $$("[data-q]", scope).forEach(function (n) { n.hidden = !!q && n.getAttribute("data-q").indexOf(q) < 0; });
         $$("[data-group]", scope).forEach(function (g) { g.hidden = !!q && !$("[data-q]:not([hidden])", g); });
       });
+      var start = /[?&]q=([^&]*)/.exec(location.search);   // find/?q=word starts filtered
+      if (start) { input.value = decodeURIComponent(start[1].replace(/\+/g, " ")); input.dispatchEvent(new Event("input")); }
     });
   }
 
@@ -149,8 +151,7 @@
     return v;
   }
   function shorts() {
-    $$("a[data-play]").forEach(function (a) {
-      if (a.closest("[data-episode]")) return;
+    $$('a[data-play]:not([data-play="episode"])').forEach(function (a) {
       a.addEventListener("click", function (e) { e.preventDefault(); video(a).play(); });
     });
   }
@@ -158,7 +159,7 @@
   /* an episode page: the poster plays from the start, or from the #t= in the page address; each scene time plays from
      that moment, and the scene list follows the video. Without script each time links the file at that second (#t=). */
   function episode() {
-    var scope = $("[data-episode]"), a = scope && $("a[data-play]", scope);
+    var scope = $("[data-episode]"), a = scope && $('a[data-play="episode"]', scope);
     if (!a) return;
     var v = null, start = 0;
     var nav = $$("[data-kind=scenes] .row[data-seek]", scope), rows = $$("[data-kind=script] .row[data-start]", scope);
