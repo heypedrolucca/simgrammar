@@ -8,9 +8,7 @@ agent:
   model: claude-sonnet-5-5
   harness: Claude app agent workspace (claude.ai), subagent
 purpose: Independently verify nine sourced AI-character and social-simulation game records against their non-wiki sources.
-method: 'Model id claude-sonnet-5-5 (independent of the creating runs: operator yoheinakajima, model claude-opus-5-5). The
-  shell has no web access and WebFetch accepts only URLs a WebSearch has returned, so each source was found by search, then
-  fetched. WebFetch returns summaries, so every quote was re-fetched and checked with a yes/no question on the exact string.
+method: 'Model id claude-sonnet-5-5 (independent of the creating runs: operator yoheinakajima, model claude-opus-5-5). The shell has no web access, so each source was found by WebSearch, then fetched. Every quote was re-fetched and checked with a yes/no question on the exact string.
 
 
   READ: Evans and Short Versu paper; Short''s Introducing Versu and Post Linden posts; IFWiki Versu; Wikipedia (Facade, Little
@@ -19,29 +17,34 @@ method: 'Model id claude-sonnet-5-5 (independent of the creating runs: operator 
   altera-al repository; Steam pages for inZOI, Suck Up! and Whispers; playsuckup.com home and terms; the Whispers App Store
   page. Opened only to cross-check Facade: the Mateas and Stern GDC 2003 paper, Game Developer, proceduralarts.net.
 
-  NOT READ: the Treanor Grand Text Auto archive could not be reached, so it is not counted; its facts (2012 release, 18 students,
-  over 5,000 social considerations) were confirmed on the official Prom Week blog instead.
+  NOT READ: the Treanor Grand Text Auto archive could not be reached, so it is not counted; its facts (2012, 18 students, 5,000+ considerations) were confirmed on the official Prom Week blog instead.
 
 
   OUTCOMES. Verified (6): versu, prom-week, generative-agents-smallville, project-sid, inzoi, suck-up; each has a non-wiki
-  cited source I read and its facts and notes matched passages I read, except the wording fixes below. Tags and scores were
-  checked only against anchors and definitions, with no disagreement. Contested (1): whispers-from-the-star; the App Store
+  cited source I read and its facts and notes matched passages I read, except the wording fixes below. Tags and scores were checked against anchors only; no disagreement. Contested (1): whispers-from-the-star; the App Store
   lists an iPhone release but platforms lists only pc, so per I13 the field is unchanged and a claim with disputes cites the
   new source src-apple-2025-whispers-from-the-star. Left sourced and unedited (2): facade (main facts rest on Wikipedia) and
   little-computer-people (both sources are wikis, E034). See proposals.
 
 
   WORDING FIXES where text outran its sources (no value changed, nothing contradicted): versu design_notes (stress tester
-  ''supported'' 1,000+ actions) and personality note (character files assign desires); prom-week memory note (rules reference
-  stored history); inzoi career note (''played on site''); suck-up design_notes (voiced audio, a model told to be suspicious).
+  ''supported'' 1,000+ actions) and personality note (character files assign desires); prom-week memory note (see follow-up); inzoi career note (''played on site''); suck-up design_notes (voiced audio, a model told to be suspicious).
 
 
-  QUOTES added to claims on smallville, project-sid, suck-up and whispers (two). Smallville and project-sid quotes come from
-  full-text copies while the cited url is the abstract page, so CI will warn. The suck-up quote covers only the terms date.
+  QUOTES added to claims on smallville, project-sid, suck-up and whispers (two). Smallville and project-sid quotes come from full-text copies, so CI will warn. The suck-up quote covers only the terms date.
 
 
   NOT CONFIRMED: Smallville developer lists Google Research, the paper lists one author at Google DeepMind; Suck Up! year
-  2023 rests on the terms date, with no explicit launch statement.'
+  2023 rests on the terms date, with no explicit launch statement.
+
+
+  A Claude Sonnet 5.5 subagent did all of the reading and made every decision and edit in this run; the Claude Opus
+  5.5 session that launched it did not edit these records, and only rebased, signed off, and pushed the commits.
+
+
+  PROM WEEK FOLLOW-UP: on review I re-opened src-mccoy-2010-the-prom, rewrote the memories-thoughts note to what its "far
+  spreading effects" passage supports, and added a claim quoting it (exact string re-confirmed). It describes no itemized
+  memory store, and the note claims none.'
 contract_version: '1.2'
 proposals:
 - kind: other
