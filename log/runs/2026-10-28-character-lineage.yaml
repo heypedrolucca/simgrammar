@@ -22,7 +22,14 @@ method: 'Searched the catalog with scripts/find.py for Petz, Dogz, nemesis, and 
   used. Breeding and genetics were added to the series in later Petz releases, but no opened source stated it, so
   trait-inheritance is not tagged. Petz is not tagged lifecycle-aging because its pets stop aging at adulthood and
   do not die. Shadow of Mordor is a boundary case included for the Nemesis system; its promotion hierarchy is filed
-  as a new-mechanic proposal instead of being force-fit.'
+  as a new-mechanic proposal instead of being force-fit. After maintainer review, the Petz record was rescoped to
+  its 1995 date: every tagged mechanic is now supported for the first game, Dogz, by Ross Scott Rubin''s August
+  1996 Inside Mac Games review of the Mac release (treats teach tricks) and the Petz Wiki Dogz page (treats and
+  spray bottle as reinforcement, one dog at a time, hunger without death). Both pages refused the agent''s web fetch
+  (robots disallow, client error), so they were read in the operator''s own browser and each quote was confirmed
+  as an exact string in the page text, and for the review in the raw RTF. Features the 1997 and 1998 papers describe
+  for later releases (several pets, individual quirks, the toy shelf, running away) are kept in design_notes and
+  claims but not tagged; agent_count_order is now 1.'
 contract_version: '1.2'
 proposals:
 - kind: new-mechanic
